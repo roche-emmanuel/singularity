@@ -77,8 +77,7 @@ function Class:getDynamicCasterCode(class)
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -106,8 +105,7 @@ function Class:getBaseCasterCode(bname,dstBaseName)
 
 	static int _bind_baseCast_${3}(lua_State *L) {
 		if (!_lg_typecheck_baseCast_${3}(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in baseCast_${3} function, expected prototype:\nbaseCast()");
+			luaL_error(L, "luna typecheck failed in baseCast_${3} function, expected prototype:\nbaseCast(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		${1}* self=(Luna< ${1} >::check(L,1));
@@ -138,8 +136,7 @@ function Class:getEqualityCode(bname,hash)
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(${1}*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(${1}*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		${1}* rhs =(Luna< ${1} >::check(L,2));
@@ -167,8 +164,7 @@ function Class:getVoidCastingCode(cname,bname,hash)
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		${1}* self= (${1}*)(Luna< void >::check(L,1));
@@ -189,8 +185,7 @@ function Class:getVoidCastingCode(cname,bname,hash)
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< ${3} >::check(L,1));
@@ -214,8 +209,7 @@ function Class:getTableAccessCode(bname,hash)
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		${1}* self=(Luna< ${1} >::check(L,1));
@@ -279,8 +273,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(${1}*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(${1}*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		${1}* rhs =(Luna< ${1} >::check(L,2));
@@ -302,8 +295,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::NodePath*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::NodePath*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodePath* rhs =(Luna< osg::NodePath >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodePath* self= (osg::NodePath*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::NodePath >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -100,6 +96,12 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_assign(lua_State *L) {
@@ -179,13 +181,22 @@ public:
 
 
 	// Constructor binds:
+	// osg::NodePath::NodePath()
+	static osg::NodePath* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luaL_error(L, "luna typecheck failed in osg::NodePath::NodePath() function, expected prototype:\nosg::NodePath::NodePath()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+
+		return new osg::NodePath();
+	}
+
 
 	// Function binds:
 	// void osg::NodePath::assign(unsigned int arg1, osg::Node * arg2)
 	static int _bind_assign(lua_State *L) {
 		if (!_lg_typecheck_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::NodePath::assign(unsigned int arg1, osg::Node * arg2) function, expected prototype:\nvoid osg::NodePath::assign(unsigned int arg1, osg::Node * arg2)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::NodePath::assign(unsigned int arg1, osg::Node * arg2) function, expected prototype:\nvoid osg::NodePath::assign(unsigned int arg1, osg::Node * arg2)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
@@ -193,8 +204,7 @@ public:
 
 		osg::NodePath* self=(Luna< osg::NodePath >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodePath::assign(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::NodePath >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::NodePath::assign(unsigned int, osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::NodePath >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->assign(arg1, arg2);
 
@@ -204,16 +214,14 @@ public:
 	// osg::Node * osg::NodePath::at(unsigned int arg1)
 	static int _bind_at(lua_State *L) {
 		if (!_lg_typecheck_at(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Node * osg::NodePath::at(unsigned int arg1) function, expected prototype:\nosg::Node * osg::NodePath::at(unsigned int arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Node * osg::NodePath::at(unsigned int arg1) function, expected prototype:\nosg::Node * osg::NodePath::at(unsigned int arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
 
 		osg::NodePath* self=(Luna< osg::NodePath >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osg::NodePath::at(unsigned int). Got : '%s'",typeid(Luna< osg::NodePath >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Node * osg::NodePath::at(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::NodePath >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Node * lret = self->at(arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -226,15 +234,13 @@ public:
 	// osg::Node * osg::NodePath::back()
 	static int _bind_back(lua_State *L) {
 		if (!_lg_typecheck_back(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Node * osg::NodePath::back() function, expected prototype:\nosg::Node * osg::NodePath::back()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Node * osg::NodePath::back() function, expected prototype:\nosg::Node * osg::NodePath::back()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::NodePath* self=(Luna< osg::NodePath >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osg::NodePath::back(). Got : '%s'",typeid(Luna< osg::NodePath >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Node * osg::NodePath::back(). Got : '%s'\n%s",typeid(Luna< osg::NodePath >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Node * lret = self->back();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -247,15 +253,13 @@ public:
 	// osg::Node * osg::NodePath::front()
 	static int _bind_front(lua_State *L) {
 		if (!_lg_typecheck_front(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Node * osg::NodePath::front() function, expected prototype:\nosg::Node * osg::NodePath::front()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Node * osg::NodePath::front() function, expected prototype:\nosg::Node * osg::NodePath::front()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::NodePath* self=(Luna< osg::NodePath >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osg::NodePath::front(). Got : '%s'",typeid(Luna< osg::NodePath >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Node * osg::NodePath::front(). Got : '%s'\n%s",typeid(Luna< osg::NodePath >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Node * lret = self->front();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -268,15 +272,13 @@ public:
 	// void osg::NodePath::clear()
 	static int _bind_clear(lua_State *L) {
 		if (!_lg_typecheck_clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::NodePath::clear() function, expected prototype:\nvoid osg::NodePath::clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::NodePath::clear() function, expected prototype:\nvoid osg::NodePath::clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::NodePath* self=(Luna< osg::NodePath >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodePath::clear(). Got : '%s'",typeid(Luna< osg::NodePath >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::NodePath::clear(). Got : '%s'\n%s",typeid(Luna< osg::NodePath >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->clear();
 
@@ -286,15 +288,13 @@ public:
 	// bool osg::NodePath::empty()
 	static int _bind_empty(lua_State *L) {
 		if (!_lg_typecheck_empty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::NodePath::empty() function, expected prototype:\nbool osg::NodePath::empty()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::NodePath::empty() function, expected prototype:\nbool osg::NodePath::empty()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::NodePath* self=(Luna< osg::NodePath >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::NodePath::empty(). Got : '%s'",typeid(Luna< osg::NodePath >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::NodePath::empty(). Got : '%s'\n%s",typeid(Luna< osg::NodePath >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->empty();
 		lua_pushboolean(L,lret?1:0);
@@ -305,15 +305,13 @@ public:
 	// unsigned int osg::NodePath::size()
 	static int _bind_size(lua_State *L) {
 		if (!_lg_typecheck_size(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::NodePath::size() function, expected prototype:\nunsigned int osg::NodePath::size()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::NodePath::size() function, expected prototype:\nunsigned int osg::NodePath::size()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::NodePath* self=(Luna< osg::NodePath >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::NodePath::size(). Got : '%s'",typeid(Luna< osg::NodePath >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::NodePath::size(). Got : '%s'\n%s",typeid(Luna< osg::NodePath >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->size();
 		lua_pushnumber(L,lret);
@@ -324,16 +322,14 @@ public:
 	// void osg::NodePath::resize(unsigned int arg1)
 	static int _bind_resize(lua_State *L) {
 		if (!_lg_typecheck_resize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::NodePath::resize(unsigned int arg1) function, expected prototype:\nvoid osg::NodePath::resize(unsigned int arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::NodePath::resize(unsigned int arg1) function, expected prototype:\nvoid osg::NodePath::resize(unsigned int arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
 
 		osg::NodePath* self=(Luna< osg::NodePath >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodePath::resize(unsigned int). Got : '%s'",typeid(Luna< osg::NodePath >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::NodePath::resize(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::NodePath >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->resize(arg1);
 
@@ -343,15 +339,13 @@ public:
 	// void osg::NodePath::pop_back()
 	static int _bind_pop_back(lua_State *L) {
 		if (!_lg_typecheck_pop_back(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::NodePath::pop_back() function, expected prototype:\nvoid osg::NodePath::pop_back()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::NodePath::pop_back() function, expected prototype:\nvoid osg::NodePath::pop_back()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::NodePath* self=(Luna< osg::NodePath >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodePath::pop_back(). Got : '%s'",typeid(Luna< osg::NodePath >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::NodePath::pop_back(). Got : '%s'\n%s",typeid(Luna< osg::NodePath >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pop_back();
 
@@ -361,16 +355,14 @@ public:
 	// void osg::NodePath::push_back(osg::Node * arg1)
 	static int _bind_push_back(lua_State *L) {
 		if (!_lg_typecheck_push_back(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::NodePath::push_back(osg::Node * arg1) function, expected prototype:\nvoid osg::NodePath::push_back(osg::Node * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::NodePath::push_back(osg::Node * arg1) function, expected prototype:\nvoid osg::NodePath::push_back(osg::Node * arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* arg1=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		osg::NodePath* self=(Luna< osg::NodePath >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodePath::push_back(osg::Node *). Got : '%s'",typeid(Luna< osg::NodePath >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::NodePath::push_back(osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::NodePath >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->push_back(arg1);
 
@@ -382,16 +374,14 @@ public:
 	// osg::Node * osg::NodePath::operator[](unsigned int arg1)
 	static int _bind_op_index(lua_State *L) {
 		if (!_lg_typecheck_op_index(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Node * osg::NodePath::operator[](unsigned int arg1) function, expected prototype:\nosg::Node * osg::NodePath::operator[](unsigned int arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Node * osg::NodePath::operator[](unsigned int arg1) function, expected prototype:\nosg::Node * osg::NodePath::operator[](unsigned int arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
 
 		osg::NodePath* self=(Luna< osg::NodePath >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osg::NodePath::operator[](unsigned int). Got : '%s'",typeid(Luna< osg::NodePath >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Node * osg::NodePath::operator[](unsigned int). Got : '%s'\n%s",typeid(Luna< osg::NodePath >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Node * lret = self->operator[](arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -405,7 +395,7 @@ public:
 };
 
 osg::NodePath* LunaTraits< osg::NodePath >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osg_NodePath::_bind_ctor(L);
 }
 
 void LunaTraits< osg::NodePath >::_bind_dtor(osg::NodePath* obj) {

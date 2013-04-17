@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Camera::DrawCallback* self= (osg::Camera::DrawCallback*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -260,8 +257,7 @@ public:
 	// osg::Camera::DrawCallback::DrawCallback()
 	static osg::Camera::DrawCallback* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Camera::DrawCallback::DrawCallback() function, expected prototype:\nosg::Camera::DrawCallback::DrawCallback()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Camera::DrawCallback::DrawCallback() function, expected prototype:\nosg::Camera::DrawCallback::DrawCallback()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -271,8 +267,7 @@ public:
 	// osg::Camera::DrawCallback::DrawCallback(const osg::Camera::DrawCallback & arg1, const osg::CopyOp & arg2)
 	static osg::Camera::DrawCallback* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Camera::DrawCallback::DrawCallback(const osg::Camera::DrawCallback & arg1, const osg::CopyOp & arg2) function, expected prototype:\nosg::Camera::DrawCallback::DrawCallback(const osg::Camera::DrawCallback & arg1, const osg::CopyOp & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Camera::DrawCallback::DrawCallback(const osg::Camera::DrawCallback & arg1, const osg::CopyOp & arg2) function, expected prototype:\nosg::Camera::DrawCallback::DrawCallback(const osg::Camera::DrawCallback & arg1, const osg::CopyOp & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Camera::DrawCallback* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1));
@@ -292,8 +287,7 @@ public:
 	// osg::Camera::DrawCallback::DrawCallback(lua_Table * data)
 	static osg::Camera::DrawCallback* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Camera::DrawCallback::DrawCallback(lua_Table * data) function, expected prototype:\nosg::Camera::DrawCallback::DrawCallback(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Camera::DrawCallback::DrawCallback(lua_Table * data) function, expected prototype:\nosg::Camera::DrawCallback::DrawCallback(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -303,8 +297,7 @@ public:
 	// osg::Camera::DrawCallback::DrawCallback(lua_Table * data, const osg::Camera::DrawCallback & arg2, const osg::CopyOp & arg3)
 	static osg::Camera::DrawCallback* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Camera::DrawCallback::DrawCallback(lua_Table * data, const osg::Camera::DrawCallback & arg2, const osg::CopyOp & arg3) function, expected prototype:\nosg::Camera::DrawCallback::DrawCallback(lua_Table * data, const osg::Camera::DrawCallback & arg2, const osg::CopyOp & arg3)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Camera::DrawCallback::DrawCallback(lua_Table * data, const osg::Camera::DrawCallback & arg2, const osg::CopyOp & arg3) function, expected prototype:\nosg::Camera::DrawCallback::DrawCallback(lua_Table * data, const osg::Camera::DrawCallback & arg2, const osg::CopyOp & arg3)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Camera::DrawCallback* _arg2_ptr=(Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,2));
@@ -337,15 +330,13 @@ public:
 	// osg::Object * osg::Camera::DrawCallback::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Camera::DrawCallback::cloneType() const function, expected prototype:\nosg::Object * osg::Camera::DrawCallback::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Camera::DrawCallback::cloneType() const function, expected prototype:\nosg::Object * osg::Camera::DrawCallback::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::DrawCallback::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::DrawCallback::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -358,8 +349,7 @@ public:
 	// osg::Object * osg::Camera::DrawCallback::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Camera::DrawCallback::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Camera::DrawCallback::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Camera::DrawCallback::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Camera::DrawCallback::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -370,8 +360,7 @@ public:
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::DrawCallback::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::DrawCallback::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -384,16 +373,14 @@ public:
 	// bool osg::Camera::DrawCallback::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Camera::DrawCallback::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Camera::DrawCallback::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Camera::DrawCallback::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Camera::DrawCallback::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::DrawCallback::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Camera::DrawCallback::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -404,15 +391,13 @@ public:
 	// const char * osg::Camera::DrawCallback::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Camera::DrawCallback::libraryName() const function, expected prototype:\nconst char * osg::Camera::DrawCallback::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Camera::DrawCallback::libraryName() const function, expected prototype:\nconst char * osg::Camera::DrawCallback::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Camera::DrawCallback::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Camera::DrawCallback::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -423,15 +408,13 @@ public:
 	// const char * osg::Camera::DrawCallback::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Camera::DrawCallback::className() const function, expected prototype:\nconst char * osg::Camera::DrawCallback::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Camera::DrawCallback::className() const function, expected prototype:\nconst char * osg::Camera::DrawCallback::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Camera::DrawCallback::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Camera::DrawCallback::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -442,16 +425,14 @@ public:
 	// void osg::Camera::DrawCallback::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Camera::DrawCallback::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Camera::DrawCallback::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::DrawCallback::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Camera::DrawCallback::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawCallback::setThreadSafeRefUnref(threadSafe);
 
@@ -461,16 +442,14 @@ public:
 	// void osg::Camera::DrawCallback::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::base_setName(const std::string & name) function, expected prototype:\nvoid osg::Camera::DrawCallback::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::base_setName(const std::string & name) function, expected prototype:\nvoid osg::Camera::DrawCallback::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::DrawCallback::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Camera::DrawCallback::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawCallback::setName(name);
 
@@ -480,15 +459,13 @@ public:
 	// void osg::Camera::DrawCallback::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::base_computeDataVariance() function, expected prototype:\nvoid osg::Camera::DrawCallback::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::base_computeDataVariance() function, expected prototype:\nvoid osg::Camera::DrawCallback::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::DrawCallback::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Camera::DrawCallback::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawCallback::computeDataVariance();
 
@@ -498,16 +475,14 @@ public:
 	// void osg::Camera::DrawCallback::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::Camera::DrawCallback::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::Camera::DrawCallback::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::DrawCallback::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Camera::DrawCallback::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawCallback::setUserData(obj);
 
@@ -517,15 +492,13 @@ public:
 	// osg::Referenced * osg::Camera::DrawCallback::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::Camera::DrawCallback::base_getUserData() function, expected prototype:\nosg::Referenced * osg::Camera::DrawCallback::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::Camera::DrawCallback::base_getUserData() function, expected prototype:\nosg::Referenced * osg::Camera::DrawCallback::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Camera::DrawCallback::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Camera::DrawCallback::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->DrawCallback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -538,15 +511,13 @@ public:
 	// const osg::Referenced * osg::Camera::DrawCallback::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::Camera::DrawCallback::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::Camera::DrawCallback::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::Camera::DrawCallback::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::Camera::DrawCallback::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Camera::DrawCallback::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Camera::DrawCallback::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->DrawCallback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -568,8 +539,7 @@ public:
 	// void osg::Camera::DrawCallback::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::Camera::DrawCallback::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::Camera::DrawCallback::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -578,8 +548,7 @@ public:
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::DrawCallback::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Camera::DrawCallback::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawCallback::releaseGLObjects(_arg1);
 
@@ -589,15 +558,13 @@ public:
 	// osg::Object * osg::Camera::DrawCallback::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Camera::DrawCallback::base_cloneType() const function, expected prototype:\nosg::Object * osg::Camera::DrawCallback::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Camera::DrawCallback::base_cloneType() const function, expected prototype:\nosg::Object * osg::Camera::DrawCallback::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::DrawCallback::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::DrawCallback::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->DrawCallback::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -610,8 +577,7 @@ public:
 	// osg::Object * osg::Camera::DrawCallback::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Camera::DrawCallback::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Camera::DrawCallback::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Camera::DrawCallback::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Camera::DrawCallback::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -622,8 +588,7 @@ public:
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::DrawCallback::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::DrawCallback::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->DrawCallback::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -636,16 +601,14 @@ public:
 	// bool osg::Camera::DrawCallback::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Camera::DrawCallback::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Camera::DrawCallback::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Camera::DrawCallback::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Camera::DrawCallback::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::DrawCallback::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Camera::DrawCallback::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DrawCallback::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -656,15 +619,13 @@ public:
 	// const char * osg::Camera::DrawCallback::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Camera::DrawCallback::base_libraryName() const function, expected prototype:\nconst char * osg::Camera::DrawCallback::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Camera::DrawCallback::base_libraryName() const function, expected prototype:\nconst char * osg::Camera::DrawCallback::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Camera::DrawCallback::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Camera::DrawCallback::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->DrawCallback::libraryName();
 		lua_pushstring(L,lret);
@@ -675,15 +636,13 @@ public:
 	// const char * osg::Camera::DrawCallback::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Camera::DrawCallback::base_className() const function, expected prototype:\nconst char * osg::Camera::DrawCallback::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Camera::DrawCallback::base_className() const function, expected prototype:\nconst char * osg::Camera::DrawCallback::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Camera::DrawCallback::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Camera::DrawCallback::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->DrawCallback::className();
 		lua_pushstring(L,lret);
@@ -696,8 +655,7 @@ public:
 	// void osg::Camera::DrawCallback::operator()(osg::RenderInfo & renderInfo) const
 	static int _bind_op_call_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::operator()(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid osg::Camera::DrawCallback::operator()(osg::RenderInfo & renderInfo) const\nClass arguments details:\narg 1 ID = 2286263\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::operator()(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid osg::Camera::DrawCallback::operator()(osg::RenderInfo & renderInfo) const\nClass arguments details:\narg 1 ID = 2286263\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
@@ -708,8 +666,7 @@ public:
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::DrawCallback::operator()(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Camera::DrawCallback::operator()(osg::RenderInfo &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->operator()(renderInfo);
 
@@ -719,8 +676,7 @@ public:
 	// void osg::Camera::DrawCallback::operator()(const osg::Camera & arg1) const
 	static int _bind_op_call_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::operator()(const osg::Camera & arg1) const function, expected prototype:\nvoid osg::Camera::DrawCallback::operator()(const osg::Camera & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::operator()(const osg::Camera & arg1) const function, expected prototype:\nvoid osg::Camera::DrawCallback::operator()(const osg::Camera & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Camera* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
@@ -731,8 +687,7 @@ public:
 
 		osg::Camera::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osg::Camera::DrawCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::DrawCallback::operator()(const osg::Camera &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Camera::DrawCallback::operator()(const osg::Camera &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->operator()(_arg1);
 

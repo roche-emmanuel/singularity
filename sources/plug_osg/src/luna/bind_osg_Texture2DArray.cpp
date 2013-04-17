@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Texture2DArray* self= (osg::Texture2DArray*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -519,8 +516,7 @@ public:
 	// osg::Texture2DArray::Texture2DArray()
 	static osg::Texture2DArray* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture2DArray::Texture2DArray() function, expected prototype:\nosg::Texture2DArray::Texture2DArray()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture2DArray::Texture2DArray() function, expected prototype:\nosg::Texture2DArray::Texture2DArray()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -530,8 +526,7 @@ public:
 	// osg::Texture2DArray::Texture2DArray(const osg::Texture2DArray & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::Texture2DArray* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture2DArray::Texture2DArray(const osg::Texture2DArray & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Texture2DArray::Texture2DArray(const osg::Texture2DArray & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture2DArray::Texture2DArray(const osg::Texture2DArray & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Texture2DArray::Texture2DArray(const osg::Texture2DArray & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -553,8 +548,7 @@ public:
 	// osg::Texture2DArray::Texture2DArray(lua_Table * data)
 	static osg::Texture2DArray* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture2DArray::Texture2DArray(lua_Table * data) function, expected prototype:\nosg::Texture2DArray::Texture2DArray(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture2DArray::Texture2DArray(lua_Table * data) function, expected prototype:\nosg::Texture2DArray::Texture2DArray(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -564,8 +558,7 @@ public:
 	// osg::Texture2DArray::Texture2DArray(lua_Table * data, const osg::Texture2DArray & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::Texture2DArray* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture2DArray::Texture2DArray(lua_Table * data, const osg::Texture2DArray & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Texture2DArray::Texture2DArray(lua_Table * data, const osg::Texture2DArray & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture2DArray::Texture2DArray(lua_Table * data, const osg::Texture2DArray & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Texture2DArray::Texture2DArray(lua_Table * data, const osg::Texture2DArray & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -600,15 +593,13 @@ public:
 	// osg::Object * osg::Texture2DArray::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Texture2DArray::cloneType() const function, expected prototype:\nosg::Object * osg::Texture2DArray::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Texture2DArray::cloneType() const function, expected prototype:\nosg::Object * osg::Texture2DArray::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture2DArray::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture2DArray::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -621,8 +612,7 @@ public:
 	// osg::Object * osg::Texture2DArray::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Texture2DArray::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Texture2DArray::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Texture2DArray::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Texture2DArray::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -633,8 +623,7 @@ public:
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture2DArray::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture2DArray::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -647,16 +636,14 @@ public:
 	// bool osg::Texture2DArray::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Texture2DArray::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Texture2DArray::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Texture2DArray::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Texture2DArray::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture2DArray::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Texture2DArray::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -667,15 +654,13 @@ public:
 	// const char * osg::Texture2DArray::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Texture2DArray::libraryName() const function, expected prototype:\nconst char * osg::Texture2DArray::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Texture2DArray::libraryName() const function, expected prototype:\nconst char * osg::Texture2DArray::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Texture2DArray::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Texture2DArray::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -686,15 +671,13 @@ public:
 	// const char * osg::Texture2DArray::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Texture2DArray::className() const function, expected prototype:\nconst char * osg::Texture2DArray::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Texture2DArray::className() const function, expected prototype:\nconst char * osg::Texture2DArray::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Texture2DArray::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Texture2DArray::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -705,15 +688,13 @@ public:
 	// osg::StateAttribute::Type osg::Texture2DArray::getType() const
 	static int _bind_getType(lua_State *L) {
 		if (!_lg_typecheck_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::Texture2DArray::getType() const function, expected prototype:\nosg::StateAttribute::Type osg::Texture2DArray::getType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::Texture2DArray::getType() const function, expected prototype:\nosg::StateAttribute::Type osg::Texture2DArray::getType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Texture2DArray::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Texture2DArray::getType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -724,8 +705,7 @@ public:
 	// int osg::Texture2DArray::compare(const osg::StateAttribute & rhs) const
 	static int _bind_compare(lua_State *L) {
 		if (!_lg_typecheck_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::compare(const osg::StateAttribute & rhs) const function, expected prototype:\nint osg::Texture2DArray::compare(const osg::StateAttribute & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::compare(const osg::StateAttribute & rhs) const function, expected prototype:\nint osg::Texture2DArray::compare(const osg::StateAttribute & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
@@ -736,8 +716,7 @@ public:
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::compare(const osg::StateAttribute &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->compare(rhs);
 		lua_pushnumber(L,lret);
@@ -748,15 +727,13 @@ public:
 	// unsigned int osg::Texture2DArray::getTextureTarget() const
 	static int _bind_getTextureTarget(lua_State *L) {
 		if (!_lg_typecheck_getTextureTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture2DArray::getTextureTarget() const function, expected prototype:\nunsigned int osg::Texture2DArray::getTextureTarget() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture2DArray::getTextureTarget() const function, expected prototype:\nunsigned int osg::Texture2DArray::getTextureTarget() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Texture2DArray::getTextureTarget() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Texture2DArray::getTextureTarget() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getTextureTarget();
 		lua_pushnumber(L,lret);
@@ -767,8 +744,7 @@ public:
 	// void osg::Texture2DArray::setImage(unsigned int layer, osg::Image * image)
 	static int _bind_setImage(lua_State *L) {
 		if (!_lg_typecheck_setImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::setImage(unsigned int layer, osg::Image * image) function, expected prototype:\nvoid osg::Texture2DArray::setImage(unsigned int layer, osg::Image * image)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::setImage(unsigned int layer, osg::Image * image) function, expected prototype:\nvoid osg::Texture2DArray::setImage(unsigned int layer, osg::Image * image)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int layer=(unsigned int)lua_tointeger(L,2);
@@ -776,8 +752,7 @@ public:
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::setImage(unsigned int, osg::Image *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::setImage(unsigned int, osg::Image *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setImage(layer, image);
 
@@ -787,16 +762,14 @@ public:
 	// osg::Image * osg::Texture2DArray::getImage(unsigned int layer)
 	static int _bind_getImage_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getImage_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * osg::Texture2DArray::getImage(unsigned int layer) function, expected prototype:\nosg::Image * osg::Texture2DArray::getImage(unsigned int layer)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * osg::Texture2DArray::getImage(unsigned int layer) function, expected prototype:\nosg::Image * osg::Texture2DArray::getImage(unsigned int layer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int layer=(unsigned int)lua_tointeger(L,2);
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osg::Texture2DArray::getImage(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Image * osg::Texture2DArray::getImage(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Image * lret = self->getImage(layer);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -809,16 +782,14 @@ public:
 	// const osg::Image * osg::Texture2DArray::getImage(unsigned int layer) const
 	static int _bind_getImage_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getImage_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Image * osg::Texture2DArray::getImage(unsigned int layer) const function, expected prototype:\nconst osg::Image * osg::Texture2DArray::getImage(unsigned int layer) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Image * osg::Texture2DArray::getImage(unsigned int layer) const function, expected prototype:\nconst osg::Image * osg::Texture2DArray::getImage(unsigned int layer) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int layer=(unsigned int)lua_tointeger(L,2);
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Image * osg::Texture2DArray::getImage(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Image * osg::Texture2DArray::getImage(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Image * lret = self->getImage(layer);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -840,15 +811,13 @@ public:
 	// unsigned int osg::Texture2DArray::getNumImages() const
 	static int _bind_getNumImages(lua_State *L) {
 		if (!_lg_typecheck_getNumImages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture2DArray::getNumImages() const function, expected prototype:\nunsigned int osg::Texture2DArray::getNumImages() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture2DArray::getNumImages() const function, expected prototype:\nunsigned int osg::Texture2DArray::getNumImages() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Texture2DArray::getNumImages() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Texture2DArray::getNumImages() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getNumImages();
 		lua_pushnumber(L,lret);
@@ -859,8 +828,7 @@ public:
 	// unsigned int & osg::Texture2DArray::getModifiedCount(unsigned int layer, unsigned int contextID) const
 	static int _bind_getModifiedCount(lua_State *L) {
 		if (!_lg_typecheck_getModifiedCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int & osg::Texture2DArray::getModifiedCount(unsigned int layer, unsigned int contextID) const function, expected prototype:\nunsigned int & osg::Texture2DArray::getModifiedCount(unsigned int layer, unsigned int contextID) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int & osg::Texture2DArray::getModifiedCount(unsigned int layer, unsigned int contextID) const function, expected prototype:\nunsigned int & osg::Texture2DArray::getModifiedCount(unsigned int layer, unsigned int contextID) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int layer=(unsigned int)lua_tointeger(L,2);
@@ -868,8 +836,7 @@ public:
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int & osg::Texture2DArray::getModifiedCount(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int & osg::Texture2DArray::getModifiedCount(unsigned int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int & lret = self->getModifiedCount(layer, contextID);
 		lua_pushnumber(L,lret);
@@ -880,8 +847,7 @@ public:
 	// void osg::Texture2DArray::setTextureSize(int width, int height, int depth)
 	static int _bind_setTextureSize(lua_State *L) {
 		if (!_lg_typecheck_setTextureSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::setTextureSize(int width, int height, int depth) function, expected prototype:\nvoid osg::Texture2DArray::setTextureSize(int width, int height, int depth)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::setTextureSize(int width, int height, int depth) function, expected prototype:\nvoid osg::Texture2DArray::setTextureSize(int width, int height, int depth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int width=(int)lua_tointeger(L,2);
@@ -890,8 +856,7 @@ public:
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::setTextureSize(int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::setTextureSize(int, int, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTextureSize(width, height, depth);
 
@@ -901,16 +866,14 @@ public:
 	// void osg::Texture2DArray::setTextureWidth(int width)
 	static int _bind_setTextureWidth(lua_State *L) {
 		if (!_lg_typecheck_setTextureWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::setTextureWidth(int width) function, expected prototype:\nvoid osg::Texture2DArray::setTextureWidth(int width)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::setTextureWidth(int width) function, expected prototype:\nvoid osg::Texture2DArray::setTextureWidth(int width)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int width=(int)lua_tointeger(L,2);
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::setTextureWidth(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::setTextureWidth(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTextureWidth(width);
 
@@ -920,16 +883,14 @@ public:
 	// void osg::Texture2DArray::setTextureHeight(int height)
 	static int _bind_setTextureHeight(lua_State *L) {
 		if (!_lg_typecheck_setTextureHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::setTextureHeight(int height) function, expected prototype:\nvoid osg::Texture2DArray::setTextureHeight(int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::setTextureHeight(int height) function, expected prototype:\nvoid osg::Texture2DArray::setTextureHeight(int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int height=(int)lua_tointeger(L,2);
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::setTextureHeight(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::setTextureHeight(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTextureHeight(height);
 
@@ -939,16 +900,14 @@ public:
 	// void osg::Texture2DArray::setTextureDepth(int depth)
 	static int _bind_setTextureDepth(lua_State *L) {
 		if (!_lg_typecheck_setTextureDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::setTextureDepth(int depth) function, expected prototype:\nvoid osg::Texture2DArray::setTextureDepth(int depth)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::setTextureDepth(int depth) function, expected prototype:\nvoid osg::Texture2DArray::setTextureDepth(int depth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int depth=(int)lua_tointeger(L,2);
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::setTextureDepth(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::setTextureDepth(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTextureDepth(depth);
 
@@ -958,15 +917,13 @@ public:
 	// int osg::Texture2DArray::getTextureWidth() const
 	static int _bind_getTextureWidth(lua_State *L) {
 		if (!_lg_typecheck_getTextureWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::getTextureWidth() const function, expected prototype:\nint osg::Texture2DArray::getTextureWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::getTextureWidth() const function, expected prototype:\nint osg::Texture2DArray::getTextureWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::getTextureWidth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::getTextureWidth() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getTextureWidth();
 		lua_pushnumber(L,lret);
@@ -977,15 +934,13 @@ public:
 	// int osg::Texture2DArray::getTextureHeight() const
 	static int _bind_getTextureHeight(lua_State *L) {
 		if (!_lg_typecheck_getTextureHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::getTextureHeight() const function, expected prototype:\nint osg::Texture2DArray::getTextureHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::getTextureHeight() const function, expected prototype:\nint osg::Texture2DArray::getTextureHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::getTextureHeight() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::getTextureHeight() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getTextureHeight();
 		lua_pushnumber(L,lret);
@@ -996,15 +951,13 @@ public:
 	// int osg::Texture2DArray::getTextureDepth() const
 	static int _bind_getTextureDepth(lua_State *L) {
 		if (!_lg_typecheck_getTextureDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::getTextureDepth() const function, expected prototype:\nint osg::Texture2DArray::getTextureDepth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::getTextureDepth() const function, expected prototype:\nint osg::Texture2DArray::getTextureDepth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::getTextureDepth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::getTextureDepth() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getTextureDepth();
 		lua_pushnumber(L,lret);
@@ -1015,16 +968,14 @@ public:
 	// void osg::Texture2DArray::setSubloadCallback(osg::Texture2DArray::SubloadCallback * cb)
 	static int _bind_setSubloadCallback(lua_State *L) {
 		if (!_lg_typecheck_setSubloadCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::setSubloadCallback(osg::Texture2DArray::SubloadCallback * cb) function, expected prototype:\nvoid osg::Texture2DArray::setSubloadCallback(osg::Texture2DArray::SubloadCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::setSubloadCallback(osg::Texture2DArray::SubloadCallback * cb) function, expected prototype:\nvoid osg::Texture2DArray::setSubloadCallback(osg::Texture2DArray::SubloadCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Texture2DArray::SubloadCallback* cb=(Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::SubloadCallback >(L,2));
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::setSubloadCallback(osg::Texture2DArray::SubloadCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::setSubloadCallback(osg::Texture2DArray::SubloadCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSubloadCallback(cb);
 
@@ -1034,15 +985,13 @@ public:
 	// osg::Texture2DArray::SubloadCallback * osg::Texture2DArray::getSubloadCallback()
 	static int _bind_getSubloadCallback_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getSubloadCallback_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture2DArray::SubloadCallback * osg::Texture2DArray::getSubloadCallback() function, expected prototype:\nosg::Texture2DArray::SubloadCallback * osg::Texture2DArray::getSubloadCallback()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture2DArray::SubloadCallback * osg::Texture2DArray::getSubloadCallback() function, expected prototype:\nosg::Texture2DArray::SubloadCallback * osg::Texture2DArray::getSubloadCallback()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture2DArray::SubloadCallback * osg::Texture2DArray::getSubloadCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture2DArray::SubloadCallback * osg::Texture2DArray::getSubloadCallback(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture2DArray::SubloadCallback * lret = self->getSubloadCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1055,15 +1004,13 @@ public:
 	// const osg::Texture2DArray::SubloadCallback * osg::Texture2DArray::getSubloadCallback() const
 	static int _bind_getSubloadCallback_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getSubloadCallback_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Texture2DArray::SubloadCallback * osg::Texture2DArray::getSubloadCallback() const function, expected prototype:\nconst osg::Texture2DArray::SubloadCallback * osg::Texture2DArray::getSubloadCallback() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Texture2DArray::SubloadCallback * osg::Texture2DArray::getSubloadCallback() const function, expected prototype:\nconst osg::Texture2DArray::SubloadCallback * osg::Texture2DArray::getSubloadCallback() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture2DArray::SubloadCallback * osg::Texture2DArray::getSubloadCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Texture2DArray::SubloadCallback * osg::Texture2DArray::getSubloadCallback() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Texture2DArray::SubloadCallback * lret = self->getSubloadCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1085,16 +1032,14 @@ public:
 	// void osg::Texture2DArray::setNumMipmapLevels(unsigned int num) const
 	static int _bind_setNumMipmapLevels(lua_State *L) {
 		if (!_lg_typecheck_setNumMipmapLevels(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::setNumMipmapLevels(unsigned int num) const function, expected prototype:\nvoid osg::Texture2DArray::setNumMipmapLevels(unsigned int num) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::setNumMipmapLevels(unsigned int num) const function, expected prototype:\nvoid osg::Texture2DArray::setNumMipmapLevels(unsigned int num) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int num=(unsigned int)lua_tointeger(L,2);
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::setNumMipmapLevels(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::setNumMipmapLevels(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setNumMipmapLevels(num);
 
@@ -1104,15 +1049,13 @@ public:
 	// unsigned int osg::Texture2DArray::getNumMipmapLevels() const
 	static int _bind_getNumMipmapLevels(lua_State *L) {
 		if (!_lg_typecheck_getNumMipmapLevels(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture2DArray::getNumMipmapLevels() const function, expected prototype:\nunsigned int osg::Texture2DArray::getNumMipmapLevels() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture2DArray::getNumMipmapLevels() const function, expected prototype:\nunsigned int osg::Texture2DArray::getNumMipmapLevels() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Texture2DArray::getNumMipmapLevels() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Texture2DArray::getNumMipmapLevels() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getNumMipmapLevels();
 		lua_pushnumber(L,lret);
@@ -1123,8 +1066,7 @@ public:
 	// void osg::Texture2DArray::copyTexSubImage2DArray(osg::State & state, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height)
 	static int _bind_copyTexSubImage2DArray(lua_State *L) {
 		if (!_lg_typecheck_copyTexSubImage2DArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::copyTexSubImage2DArray(osg::State & state, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) function, expected prototype:\nvoid osg::Texture2DArray::copyTexSubImage2DArray(osg::State & state, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::copyTexSubImage2DArray(osg::State & state, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) function, expected prototype:\nvoid osg::Texture2DArray::copyTexSubImage2DArray(osg::State & state, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1142,8 +1084,7 @@ public:
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::copyTexSubImage2DArray(osg::State &, int, int, int, int, int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::copyTexSubImage2DArray(osg::State &, int, int, int, int, int, int, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->copyTexSubImage2DArray(state, xoffset, yoffset, zoffset, x, y, width, height);
 
@@ -1153,8 +1094,7 @@ public:
 	// void osg::Texture2DArray::apply(osg::State & state) const
 	static int _bind_apply(lua_State *L) {
 		if (!_lg_typecheck_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::apply(osg::State & state) const function, expected prototype:\nvoid osg::Texture2DArray::apply(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::apply(osg::State & state) const function, expected prototype:\nvoid osg::Texture2DArray::apply(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1165,8 +1105,7 @@ public:
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::apply(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(state);
 
@@ -1176,16 +1115,14 @@ public:
 	// void osg::Texture2DArray::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Texture2DArray::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Texture2DArray::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Texture2DArray::setThreadSafeRefUnref(threadSafe);
 
@@ -1195,16 +1132,14 @@ public:
 	// void osg::Texture2DArray::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_setName(const std::string & name) function, expected prototype:\nvoid osg::Texture2DArray::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_setName(const std::string & name) function, expected prototype:\nvoid osg::Texture2DArray::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Texture2DArray::setName(name);
 
@@ -1214,15 +1149,13 @@ public:
 	// void osg::Texture2DArray::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_computeDataVariance() function, expected prototype:\nvoid osg::Texture2DArray::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_computeDataVariance() function, expected prototype:\nvoid osg::Texture2DArray::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Texture2DArray::computeDataVariance();
 
@@ -1232,16 +1165,14 @@ public:
 	// void osg::Texture2DArray::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::Texture2DArray::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::Texture2DArray::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Texture2DArray::setUserData(obj);
 
@@ -1251,15 +1182,13 @@ public:
 	// osg::Referenced * osg::Texture2DArray::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::Texture2DArray::base_getUserData() function, expected prototype:\nosg::Referenced * osg::Texture2DArray::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::Texture2DArray::base_getUserData() function, expected prototype:\nosg::Referenced * osg::Texture2DArray::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Texture2DArray::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Texture2DArray::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->Texture2DArray::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1272,15 +1201,13 @@ public:
 	// const osg::Referenced * osg::Texture2DArray::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::Texture2DArray::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::Texture2DArray::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::Texture2DArray::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::Texture2DArray::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Texture2DArray::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Texture2DArray::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->Texture2DArray::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1302,15 +1229,13 @@ public:
 	// unsigned int osg::Texture2DArray::base_getMember() const
 	static int _bind_base_getMember(lua_State *L) {
 		if (!_lg_typecheck_base_getMember(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture2DArray::base_getMember() const function, expected prototype:\nunsigned int osg::Texture2DArray::base_getMember() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture2DArray::base_getMember() const function, expected prototype:\nunsigned int osg::Texture2DArray::base_getMember() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Texture2DArray::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Texture2DArray::base_getMember() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->Texture2DArray::getMember();
 		lua_pushnumber(L,lret);
@@ -1321,8 +1246,7 @@ public:
 	// bool osg::Texture2DArray::base_checkValidityOfAssociatedModes(osg::State & arg1) const
 	static int _bind_base_checkValidityOfAssociatedModes(lua_State *L) {
 		if (!_lg_typecheck_base_checkValidityOfAssociatedModes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Texture2DArray::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osg::Texture2DArray::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Texture2DArray::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osg::Texture2DArray::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1333,8 +1257,7 @@ public:
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture2DArray::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Texture2DArray::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Texture2DArray::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1345,15 +1268,13 @@ public:
 	// osg::Texture * osg::Texture2DArray::base_asTexture()
 	static int _bind_base_asTexture_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asTexture_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture * osg::Texture2DArray::base_asTexture() function, expected prototype:\nosg::Texture * osg::Texture2DArray::base_asTexture()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture * osg::Texture2DArray::base_asTexture() function, expected prototype:\nosg::Texture * osg::Texture2DArray::base_asTexture()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::Texture2DArray::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::Texture2DArray::base_asTexture(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture * lret = self->Texture2DArray::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1366,15 +1287,13 @@ public:
 	// const osg::Texture * osg::Texture2DArray::base_asTexture() const
 	static int _bind_base_asTexture_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asTexture_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::Texture2DArray::base_asTexture() const function, expected prototype:\nconst osg::Texture * osg::Texture2DArray::base_asTexture() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::Texture2DArray::base_asTexture() const function, expected prototype:\nconst osg::Texture * osg::Texture2DArray::base_asTexture() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::Texture2DArray::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::Texture2DArray::base_asTexture() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Texture * lret = self->Texture2DArray::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1396,15 +1315,13 @@ public:
 	// bool osg::Texture2DArray::base_isTextureAttribute() const
 	static int _bind_base_isTextureAttribute(lua_State *L) {
 		if (!_lg_typecheck_base_isTextureAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Texture2DArray::base_isTextureAttribute() const function, expected prototype:\nbool osg::Texture2DArray::base_isTextureAttribute() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Texture2DArray::base_isTextureAttribute() const function, expected prototype:\nbool osg::Texture2DArray::base_isTextureAttribute() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture2DArray::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Texture2DArray::base_isTextureAttribute() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Texture2DArray::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -1415,8 +1332,7 @@ public:
 	// bool osg::Texture2DArray::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
 	static int _bind_base_getModeUsage(lua_State *L) {
 		if (!_lg_typecheck_base_getModeUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Texture2DArray::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::Texture2DArray::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Texture2DArray::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::Texture2DArray::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateAttribute::ModeUsage* _arg1_ptr=(Luna< osg::StateAttribute::ModeUsage >::check(L,2));
@@ -1427,8 +1343,7 @@ public:
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture2DArray::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Texture2DArray::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Texture2DArray::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1439,8 +1354,7 @@ public:
 	// void osg::Texture2DArray::base_compileGLObjects(osg::State & state) const
 	static int _bind_base_compileGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_compileGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_compileGLObjects(osg::State & state) const function, expected prototype:\nvoid osg::Texture2DArray::base_compileGLObjects(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_compileGLObjects(osg::State & state) const function, expected prototype:\nvoid osg::Texture2DArray::base_compileGLObjects(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1451,8 +1365,7 @@ public:
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_compileGLObjects(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Texture2DArray::compileGLObjects(state);
 
@@ -1462,8 +1375,7 @@ public:
 	// void osg::Texture2DArray::base_releaseGLObjects(osg::State * state = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osg::Texture2DArray::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osg::Texture2DArray::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1472,8 +1384,7 @@ public:
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Texture2DArray::releaseGLObjects(state);
 
@@ -1483,15 +1394,13 @@ public:
 	// osg::Object * osg::Texture2DArray::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Texture2DArray::base_cloneType() const function, expected prototype:\nosg::Object * osg::Texture2DArray::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Texture2DArray::base_cloneType() const function, expected prototype:\nosg::Object * osg::Texture2DArray::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture2DArray::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture2DArray::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->Texture2DArray::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1504,8 +1413,7 @@ public:
 	// osg::Object * osg::Texture2DArray::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Texture2DArray::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Texture2DArray::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Texture2DArray::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Texture2DArray::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1516,8 +1424,7 @@ public:
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture2DArray::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture2DArray::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->Texture2DArray::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1530,16 +1437,14 @@ public:
 	// bool osg::Texture2DArray::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Texture2DArray::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Texture2DArray::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Texture2DArray::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Texture2DArray::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture2DArray::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Texture2DArray::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Texture2DArray::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1550,15 +1455,13 @@ public:
 	// const char * osg::Texture2DArray::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Texture2DArray::base_libraryName() const function, expected prototype:\nconst char * osg::Texture2DArray::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Texture2DArray::base_libraryName() const function, expected prototype:\nconst char * osg::Texture2DArray::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Texture2DArray::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Texture2DArray::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Texture2DArray::libraryName();
 		lua_pushstring(L,lret);
@@ -1569,15 +1472,13 @@ public:
 	// const char * osg::Texture2DArray::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Texture2DArray::base_className() const function, expected prototype:\nconst char * osg::Texture2DArray::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Texture2DArray::base_className() const function, expected prototype:\nconst char * osg::Texture2DArray::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Texture2DArray::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Texture2DArray::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Texture2DArray::className();
 		lua_pushstring(L,lret);
@@ -1588,15 +1489,13 @@ public:
 	// osg::StateAttribute::Type osg::Texture2DArray::base_getType() const
 	static int _bind_base_getType(lua_State *L) {
 		if (!_lg_typecheck_base_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::Texture2DArray::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osg::Texture2DArray::base_getType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::Texture2DArray::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osg::Texture2DArray::base_getType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Texture2DArray::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Texture2DArray::base_getType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute::Type lret = self->Texture2DArray::getType();
 		lua_pushnumber(L,lret);
@@ -1607,8 +1506,7 @@ public:
 	// int osg::Texture2DArray::base_compare(const osg::StateAttribute & rhs) const
 	static int _bind_base_compare(lua_State *L) {
 		if (!_lg_typecheck_base_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::base_compare(const osg::StateAttribute & rhs) const function, expected prototype:\nint osg::Texture2DArray::base_compare(const osg::StateAttribute & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::base_compare(const osg::StateAttribute & rhs) const function, expected prototype:\nint osg::Texture2DArray::base_compare(const osg::StateAttribute & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
@@ -1619,8 +1517,7 @@ public:
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::base_compare(const osg::StateAttribute &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Texture2DArray::compare(rhs);
 		lua_pushnumber(L,lret);
@@ -1631,15 +1528,13 @@ public:
 	// unsigned int osg::Texture2DArray::base_getTextureTarget() const
 	static int _bind_base_getTextureTarget(lua_State *L) {
 		if (!_lg_typecheck_base_getTextureTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture2DArray::base_getTextureTarget() const function, expected prototype:\nunsigned int osg::Texture2DArray::base_getTextureTarget() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture2DArray::base_getTextureTarget() const function, expected prototype:\nunsigned int osg::Texture2DArray::base_getTextureTarget() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Texture2DArray::base_getTextureTarget() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Texture2DArray::base_getTextureTarget() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->Texture2DArray::getTextureTarget();
 		lua_pushnumber(L,lret);
@@ -1650,8 +1545,7 @@ public:
 	// void osg::Texture2DArray::base_setImage(unsigned int layer, osg::Image * image)
 	static int _bind_base_setImage(lua_State *L) {
 		if (!_lg_typecheck_base_setImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_setImage(unsigned int layer, osg::Image * image) function, expected prototype:\nvoid osg::Texture2DArray::base_setImage(unsigned int layer, osg::Image * image)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_setImage(unsigned int layer, osg::Image * image) function, expected prototype:\nvoid osg::Texture2DArray::base_setImage(unsigned int layer, osg::Image * image)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int layer=(unsigned int)lua_tointeger(L,2);
@@ -1659,8 +1553,7 @@ public:
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_setImage(unsigned int, osg::Image *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_setImage(unsigned int, osg::Image *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Texture2DArray::setImage(layer, image);
 
@@ -1670,16 +1563,14 @@ public:
 	// osg::Image * osg::Texture2DArray::base_getImage(unsigned int layer)
 	static int _bind_base_getImage_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getImage_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * osg::Texture2DArray::base_getImage(unsigned int layer) function, expected prototype:\nosg::Image * osg::Texture2DArray::base_getImage(unsigned int layer)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * osg::Texture2DArray::base_getImage(unsigned int layer) function, expected prototype:\nosg::Image * osg::Texture2DArray::base_getImage(unsigned int layer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int layer=(unsigned int)lua_tointeger(L,2);
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osg::Texture2DArray::base_getImage(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Image * osg::Texture2DArray::base_getImage(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Image * lret = self->Texture2DArray::getImage(layer);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1692,16 +1583,14 @@ public:
 	// const osg::Image * osg::Texture2DArray::base_getImage(unsigned int layer) const
 	static int _bind_base_getImage_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getImage_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Image * osg::Texture2DArray::base_getImage(unsigned int layer) const function, expected prototype:\nconst osg::Image * osg::Texture2DArray::base_getImage(unsigned int layer) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Image * osg::Texture2DArray::base_getImage(unsigned int layer) const function, expected prototype:\nconst osg::Image * osg::Texture2DArray::base_getImage(unsigned int layer) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int layer=(unsigned int)lua_tointeger(L,2);
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Image * osg::Texture2DArray::base_getImage(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Image * osg::Texture2DArray::base_getImage(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Image * lret = self->Texture2DArray::getImage(layer);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1723,15 +1612,13 @@ public:
 	// unsigned int osg::Texture2DArray::base_getNumImages() const
 	static int _bind_base_getNumImages(lua_State *L) {
 		if (!_lg_typecheck_base_getNumImages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture2DArray::base_getNumImages() const function, expected prototype:\nunsigned int osg::Texture2DArray::base_getNumImages() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture2DArray::base_getNumImages() const function, expected prototype:\nunsigned int osg::Texture2DArray::base_getNumImages() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Texture2DArray::base_getNumImages() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Texture2DArray::base_getNumImages() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->Texture2DArray::getNumImages();
 		lua_pushnumber(L,lret);
@@ -1742,15 +1629,13 @@ public:
 	// int osg::Texture2DArray::base_getTextureWidth() const
 	static int _bind_base_getTextureWidth(lua_State *L) {
 		if (!_lg_typecheck_base_getTextureWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::base_getTextureWidth() const function, expected prototype:\nint osg::Texture2DArray::base_getTextureWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::base_getTextureWidth() const function, expected prototype:\nint osg::Texture2DArray::base_getTextureWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::base_getTextureWidth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::base_getTextureWidth() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Texture2DArray::getTextureWidth();
 		lua_pushnumber(L,lret);
@@ -1761,15 +1646,13 @@ public:
 	// int osg::Texture2DArray::base_getTextureHeight() const
 	static int _bind_base_getTextureHeight(lua_State *L) {
 		if (!_lg_typecheck_base_getTextureHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::base_getTextureHeight() const function, expected prototype:\nint osg::Texture2DArray::base_getTextureHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::base_getTextureHeight() const function, expected prototype:\nint osg::Texture2DArray::base_getTextureHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::base_getTextureHeight() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::base_getTextureHeight() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Texture2DArray::getTextureHeight();
 		lua_pushnumber(L,lret);
@@ -1780,15 +1663,13 @@ public:
 	// int osg::Texture2DArray::base_getTextureDepth() const
 	static int _bind_base_getTextureDepth(lua_State *L) {
 		if (!_lg_typecheck_base_getTextureDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::base_getTextureDepth() const function, expected prototype:\nint osg::Texture2DArray::base_getTextureDepth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::Texture2DArray::base_getTextureDepth() const function, expected prototype:\nint osg::Texture2DArray::base_getTextureDepth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::base_getTextureDepth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::base_getTextureDepth() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Texture2DArray::getTextureDepth();
 		lua_pushnumber(L,lret);
@@ -1799,8 +1680,7 @@ public:
 	// void osg::Texture2DArray::base_apply(osg::State & state) const
 	static int _bind_base_apply(lua_State *L) {
 		if (!_lg_typecheck_base_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_apply(osg::State & state) const function, expected prototype:\nvoid osg::Texture2DArray::base_apply(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::base_apply(osg::State & state) const function, expected prototype:\nvoid osg::Texture2DArray::base_apply(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1811,8 +1691,7 @@ public:
 
 		osg::Texture2DArray* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::base_apply(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Texture2DArray::apply(state);
 

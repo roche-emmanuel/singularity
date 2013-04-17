@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateAttribute::ModeUsage* self=(Luna< osg::StateAttribute::ModeUsage >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::StateAttribute::ModeUsage*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::StateAttribute::ModeUsage*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateAttribute::ModeUsage* rhs =(Luna< osg::StateAttribute::ModeUsage >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateAttribute::ModeUsage* self= (osg::StateAttribute::ModeUsage*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::StateAttribute::ModeUsage >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -157,8 +152,7 @@ public:
 	// osg::StateAttribute::ModeUsage::ModeUsage(lua_Table * data)
 	static osg::StateAttribute::ModeUsage* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute::ModeUsage::ModeUsage(lua_Table * data) function, expected prototype:\nosg::StateAttribute::ModeUsage::ModeUsage(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::ModeUsage::ModeUsage(lua_Table * data) function, expected prototype:\nosg::StateAttribute::ModeUsage::ModeUsage(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -170,16 +164,14 @@ public:
 	// void osg::StateAttribute::ModeUsage::usesMode(unsigned int mode)
 	static int _bind_usesMode(lua_State *L) {
 		if (!_lg_typecheck_usesMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StateAttribute::ModeUsage::usesMode(unsigned int mode) function, expected prototype:\nvoid osg::StateAttribute::ModeUsage::usesMode(unsigned int mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::StateAttribute::ModeUsage::usesMode(unsigned int mode) function, expected prototype:\nvoid osg::StateAttribute::ModeUsage::usesMode(unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 
 		osg::StateAttribute::ModeUsage* self=(Luna< osg::StateAttribute::ModeUsage >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateAttribute::ModeUsage::usesMode(unsigned int). Got : '%s'",typeid(Luna< osg::StateAttribute::ModeUsage >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StateAttribute::ModeUsage::usesMode(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::StateAttribute::ModeUsage >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->usesMode(mode);
 
@@ -189,16 +181,14 @@ public:
 	// void osg::StateAttribute::ModeUsage::usesTextureMode(unsigned int mode)
 	static int _bind_usesTextureMode(lua_State *L) {
 		if (!_lg_typecheck_usesTextureMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StateAttribute::ModeUsage::usesTextureMode(unsigned int mode) function, expected prototype:\nvoid osg::StateAttribute::ModeUsage::usesTextureMode(unsigned int mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::StateAttribute::ModeUsage::usesTextureMode(unsigned int mode) function, expected prototype:\nvoid osg::StateAttribute::ModeUsage::usesTextureMode(unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 
 		osg::StateAttribute::ModeUsage* self=(Luna< osg::StateAttribute::ModeUsage >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateAttribute::ModeUsage::usesTextureMode(unsigned int). Got : '%s'",typeid(Luna< osg::StateAttribute::ModeUsage >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StateAttribute::ModeUsage::usesTextureMode(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::StateAttribute::ModeUsage >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->usesTextureMode(mode);
 

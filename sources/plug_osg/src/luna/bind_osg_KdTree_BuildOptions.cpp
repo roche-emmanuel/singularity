@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::KdTree::BuildOptions*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::KdTree::BuildOptions*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::KdTree::BuildOptions* rhs =(Luna< osg::KdTree::BuildOptions >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::KdTree::BuildOptions* self= (osg::KdTree::BuildOptions*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::KdTree::BuildOptions >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -155,8 +151,7 @@ public:
 	// osg::KdTree::BuildOptions::BuildOptions()
 	static osg::KdTree::BuildOptions* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::KdTree::BuildOptions::BuildOptions() function, expected prototype:\nosg::KdTree::BuildOptions::BuildOptions()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::KdTree::BuildOptions::BuildOptions() function, expected prototype:\nosg::KdTree::BuildOptions::BuildOptions()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -168,15 +163,13 @@ public:
 	// unsigned int osg::KdTree::BuildOptions::_numVerticesProcessed()
 	static int _bind_getNumVerticesProcessed(lua_State *L) {
 		if (!_lg_typecheck_getNumVerticesProcessed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::BuildOptions::_numVerticesProcessed() function, expected prototype:\nunsigned int osg::KdTree::BuildOptions::_numVerticesProcessed()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::BuildOptions::_numVerticesProcessed() function, expected prototype:\nunsigned int osg::KdTree::BuildOptions::_numVerticesProcessed()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::KdTree::BuildOptions* self=(Luna< osg::KdTree::BuildOptions >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::KdTree::BuildOptions::_numVerticesProcessed(). Got : '%s'",typeid(Luna< osg::KdTree::BuildOptions >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::KdTree::BuildOptions::_numVerticesProcessed(). Got : '%s'\n%s",typeid(Luna< osg::KdTree::BuildOptions >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_numVerticesProcessed;
 		lua_pushnumber(L,lret);
@@ -187,15 +180,13 @@ public:
 	// unsigned int osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf()
 	static int _bind_getTargetNumTrianglesPerLeaf(lua_State *L) {
 		if (!_lg_typecheck_getTargetNumTrianglesPerLeaf(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf() function, expected prototype:\nunsigned int osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf() function, expected prototype:\nunsigned int osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::KdTree::BuildOptions* self=(Luna< osg::KdTree::BuildOptions >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf(). Got : '%s'",typeid(Luna< osg::KdTree::BuildOptions >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf(). Got : '%s'\n%s",typeid(Luna< osg::KdTree::BuildOptions >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_targetNumTrianglesPerLeaf;
 		lua_pushnumber(L,lret);
@@ -206,15 +197,13 @@ public:
 	// unsigned int osg::KdTree::BuildOptions::_maxNumLevels()
 	static int _bind_getMaxNumLevels(lua_State *L) {
 		if (!_lg_typecheck_getMaxNumLevels(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::BuildOptions::_maxNumLevels() function, expected prototype:\nunsigned int osg::KdTree::BuildOptions::_maxNumLevels()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::BuildOptions::_maxNumLevels() function, expected prototype:\nunsigned int osg::KdTree::BuildOptions::_maxNumLevels()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::KdTree::BuildOptions* self=(Luna< osg::KdTree::BuildOptions >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::KdTree::BuildOptions::_maxNumLevels(). Got : '%s'",typeid(Luna< osg::KdTree::BuildOptions >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::KdTree::BuildOptions::_maxNumLevels(). Got : '%s'\n%s",typeid(Luna< osg::KdTree::BuildOptions >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_maxNumLevels;
 		lua_pushnumber(L,lret);
@@ -225,16 +214,14 @@ public:
 	// void osg::KdTree::BuildOptions::_numVerticesProcessed(unsigned int value)
 	static int _bind_setNumVerticesProcessed(lua_State *L) {
 		if (!_lg_typecheck_setNumVerticesProcessed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::KdTree::BuildOptions::_numVerticesProcessed(unsigned int value) function, expected prototype:\nvoid osg::KdTree::BuildOptions::_numVerticesProcessed(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::BuildOptions::_numVerticesProcessed(unsigned int value) function, expected prototype:\nvoid osg::KdTree::BuildOptions::_numVerticesProcessed(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::KdTree::BuildOptions* self=(Luna< osg::KdTree::BuildOptions >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTree::BuildOptions::_numVerticesProcessed(unsigned int). Got : '%s'",typeid(Luna< osg::KdTree::BuildOptions >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::KdTree::BuildOptions::_numVerticesProcessed(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::KdTree::BuildOptions >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_numVerticesProcessed = value;
 
@@ -244,16 +231,14 @@ public:
 	// void osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf(unsigned int value)
 	static int _bind_setTargetNumTrianglesPerLeaf(lua_State *L) {
 		if (!_lg_typecheck_setTargetNumTrianglesPerLeaf(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf(unsigned int value) function, expected prototype:\nvoid osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf(unsigned int value) function, expected prototype:\nvoid osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::KdTree::BuildOptions* self=(Luna< osg::KdTree::BuildOptions >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf(unsigned int). Got : '%s'",typeid(Luna< osg::KdTree::BuildOptions >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::KdTree::BuildOptions >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_targetNumTrianglesPerLeaf = value;
 
@@ -263,16 +248,14 @@ public:
 	// void osg::KdTree::BuildOptions::_maxNumLevels(unsigned int value)
 	static int _bind_setMaxNumLevels(lua_State *L) {
 		if (!_lg_typecheck_setMaxNumLevels(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::KdTree::BuildOptions::_maxNumLevels(unsigned int value) function, expected prototype:\nvoid osg::KdTree::BuildOptions::_maxNumLevels(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::BuildOptions::_maxNumLevels(unsigned int value) function, expected prototype:\nvoid osg::KdTree::BuildOptions::_maxNumLevels(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::KdTree::BuildOptions* self=(Luna< osg::KdTree::BuildOptions >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTree::BuildOptions::_maxNumLevels(unsigned int). Got : '%s'",typeid(Luna< osg::KdTree::BuildOptions >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::KdTree::BuildOptions::_maxNumLevels(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::KdTree::BuildOptions >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_maxNumLevels = value;
 

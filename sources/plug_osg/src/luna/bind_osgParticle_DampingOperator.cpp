@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgParticle::DampingOperator* self= (osgParticle::DampingOperator*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -364,8 +361,7 @@ public:
 	// osgParticle::DampingOperator::DampingOperator()
 	static osgParticle::DampingOperator* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::DampingOperator::DampingOperator() function, expected prototype:\nosgParticle::DampingOperator::DampingOperator()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::DampingOperator::DampingOperator() function, expected prototype:\nosgParticle::DampingOperator::DampingOperator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -375,8 +371,7 @@ public:
 	// osgParticle::DampingOperator::DampingOperator(const osgParticle::DampingOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgParticle::DampingOperator* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::DampingOperator::DampingOperator(const osgParticle::DampingOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::DampingOperator::DampingOperator(const osgParticle::DampingOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::DampingOperator::DampingOperator(const osgParticle::DampingOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::DampingOperator::DampingOperator(const osgParticle::DampingOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -398,8 +393,7 @@ public:
 	// osgParticle::DampingOperator::DampingOperator(lua_Table * data)
 	static osgParticle::DampingOperator* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::DampingOperator::DampingOperator(lua_Table * data) function, expected prototype:\nosgParticle::DampingOperator::DampingOperator(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::DampingOperator::DampingOperator(lua_Table * data) function, expected prototype:\nosgParticle::DampingOperator::DampingOperator(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -409,8 +403,7 @@ public:
 	// osgParticle::DampingOperator::DampingOperator(lua_Table * data, const osgParticle::DampingOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgParticle::DampingOperator* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::DampingOperator::DampingOperator(lua_Table * data, const osgParticle::DampingOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::DampingOperator::DampingOperator(lua_Table * data, const osgParticle::DampingOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::DampingOperator::DampingOperator(lua_Table * data, const osgParticle::DampingOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::DampingOperator::DampingOperator(lua_Table * data, const osgParticle::DampingOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -445,15 +438,13 @@ public:
 	// osg::Object * osgParticle::DampingOperator::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::DampingOperator::cloneType() const function, expected prototype:\nosg::Object * osgParticle::DampingOperator::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::DampingOperator::cloneType() const function, expected prototype:\nosg::Object * osgParticle::DampingOperator::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DampingOperator::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DampingOperator::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -466,8 +457,7 @@ public:
 	// osg::Object * osgParticle::DampingOperator::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::DampingOperator::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgParticle::DampingOperator::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::DampingOperator::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgParticle::DampingOperator::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -478,8 +468,7 @@ public:
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DampingOperator::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DampingOperator::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -492,16 +481,14 @@ public:
 	// bool osgParticle::DampingOperator::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgParticle::DampingOperator::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgParticle::DampingOperator::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgParticle::DampingOperator::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgParticle::DampingOperator::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::DampingOperator::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgParticle::DampingOperator::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -512,15 +499,13 @@ public:
 	// const char * osgParticle::DampingOperator::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgParticle::DampingOperator::libraryName() const function, expected prototype:\nconst char * osgParticle::DampingOperator::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgParticle::DampingOperator::libraryName() const function, expected prototype:\nconst char * osgParticle::DampingOperator::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::DampingOperator::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgParticle::DampingOperator::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -531,15 +516,13 @@ public:
 	// const char * osgParticle::DampingOperator::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgParticle::DampingOperator::className() const function, expected prototype:\nconst char * osgParticle::DampingOperator::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgParticle::DampingOperator::className() const function, expected prototype:\nconst char * osgParticle::DampingOperator::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::DampingOperator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgParticle::DampingOperator::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -550,8 +533,7 @@ public:
 	// void osgParticle::DampingOperator::setDamping(float x, float y, float z)
 	static int _bind_setDamping_overload_1(lua_State *L) {
 		if (!_lg_typecheck_setDamping_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::setDamping(float x, float y, float z) function, expected prototype:\nvoid osgParticle::DampingOperator::setDamping(float x, float y, float z)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::setDamping(float x, float y, float z) function, expected prototype:\nvoid osgParticle::DampingOperator::setDamping(float x, float y, float z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -560,8 +542,7 @@ public:
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::setDamping(float, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::setDamping(float, float, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDamping(x, y, z);
 
@@ -571,8 +552,7 @@ public:
 	// void osgParticle::DampingOperator::setDamping(const osg::Vec3f & damping)
 	static int _bind_setDamping_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setDamping_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::setDamping(const osg::Vec3f & damping) function, expected prototype:\nvoid osgParticle::DampingOperator::setDamping(const osg::Vec3f & damping)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::setDamping(const osg::Vec3f & damping) function, expected prototype:\nvoid osgParticle::DampingOperator::setDamping(const osg::Vec3f & damping)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* damping_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -583,8 +563,7 @@ public:
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::setDamping(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::setDamping(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDamping(damping);
 
@@ -594,16 +573,14 @@ public:
 	// void osgParticle::DampingOperator::setDamping(float x)
 	static int _bind_setDamping_overload_3(lua_State *L) {
 		if (!_lg_typecheck_setDamping_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::setDamping(float x) function, expected prototype:\nvoid osgParticle::DampingOperator::setDamping(float x)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::setDamping(float x) function, expected prototype:\nvoid osgParticle::DampingOperator::setDamping(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::setDamping(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::setDamping(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDamping(x);
 
@@ -623,8 +600,7 @@ public:
 	// void osgParticle::DampingOperator::getDamping(float & x, float & y, float & z) const
 	static int _bind_getDamping_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getDamping_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::getDamping(float & x, float & y, float & z) const function, expected prototype:\nvoid osgParticle::DampingOperator::getDamping(float & x, float & y, float & z) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::getDamping(float & x, float & y, float & z) const function, expected prototype:\nvoid osgParticle::DampingOperator::getDamping(float & x, float & y, float & z) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -633,8 +609,7 @@ public:
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::getDamping(float &, float &, float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::getDamping(float &, float &, float &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getDamping(x, y, z);
 
@@ -647,15 +622,13 @@ public:
 	// const osg::Vec3f & osgParticle::DampingOperator::getDamping() const
 	static int _bind_getDamping_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getDamping_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osgParticle::DampingOperator::getDamping() const function, expected prototype:\nconst osg::Vec3f & osgParticle::DampingOperator::getDamping() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osgParticle::DampingOperator::getDamping() const function, expected prototype:\nconst osg::Vec3f & osgParticle::DampingOperator::getDamping() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::DampingOperator::getDamping() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::DampingOperator::getDamping() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->getDamping();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -677,8 +650,7 @@ public:
 	// void osgParticle::DampingOperator::setCutoff(float low, float high)
 	static int _bind_setCutoff(lua_State *L) {
 		if (!_lg_typecheck_setCutoff(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::setCutoff(float low, float high) function, expected prototype:\nvoid osgParticle::DampingOperator::setCutoff(float low, float high)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::setCutoff(float low, float high) function, expected prototype:\nvoid osgParticle::DampingOperator::setCutoff(float low, float high)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float low=(float)lua_tonumber(L,2);
@@ -686,8 +658,7 @@ public:
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::setCutoff(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::setCutoff(float, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCutoff(low, high);
 
@@ -697,16 +668,14 @@ public:
 	// void osgParticle::DampingOperator::setCutoffLow(float low)
 	static int _bind_setCutoffLow(lua_State *L) {
 		if (!_lg_typecheck_setCutoffLow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::setCutoffLow(float low) function, expected prototype:\nvoid osgParticle::DampingOperator::setCutoffLow(float low)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::setCutoffLow(float low) function, expected prototype:\nvoid osgParticle::DampingOperator::setCutoffLow(float low)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float low=(float)lua_tonumber(L,2);
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::setCutoffLow(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::setCutoffLow(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCutoffLow(low);
 
@@ -716,16 +685,14 @@ public:
 	// void osgParticle::DampingOperator::setCutoffHigh(float low)
 	static int _bind_setCutoffHigh(lua_State *L) {
 		if (!_lg_typecheck_setCutoffHigh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::setCutoffHigh(float low) function, expected prototype:\nvoid osgParticle::DampingOperator::setCutoffHigh(float low)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::setCutoffHigh(float low) function, expected prototype:\nvoid osgParticle::DampingOperator::setCutoffHigh(float low)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float low=(float)lua_tonumber(L,2);
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::setCutoffHigh(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::setCutoffHigh(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCutoffHigh(low);
 
@@ -735,8 +702,7 @@ public:
 	// void osgParticle::DampingOperator::getCutoff(float & low, float & high) const
 	static int _bind_getCutoff(lua_State *L) {
 		if (!_lg_typecheck_getCutoff(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::getCutoff(float & low, float & high) const function, expected prototype:\nvoid osgParticle::DampingOperator::getCutoff(float & low, float & high) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::getCutoff(float & low, float & high) const function, expected prototype:\nvoid osgParticle::DampingOperator::getCutoff(float & low, float & high) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float low=(float)lua_tonumber(L,2);
@@ -744,8 +710,7 @@ public:
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::getCutoff(float &, float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::getCutoff(float &, float &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getCutoff(low, high);
 
@@ -757,15 +722,13 @@ public:
 	// float osgParticle::DampingOperator::getCutoffLow() const
 	static int _bind_getCutoffLow(lua_State *L) {
 		if (!_lg_typecheck_getCutoffLow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgParticle::DampingOperator::getCutoffLow() const function, expected prototype:\nfloat osgParticle::DampingOperator::getCutoffLow() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgParticle::DampingOperator::getCutoffLow() const function, expected prototype:\nfloat osgParticle::DampingOperator::getCutoffLow() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::DampingOperator::getCutoffLow() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgParticle::DampingOperator::getCutoffLow() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getCutoffLow();
 		lua_pushnumber(L,lret);
@@ -776,15 +739,13 @@ public:
 	// float osgParticle::DampingOperator::getCutoffHigh() const
 	static int _bind_getCutoffHigh(lua_State *L) {
 		if (!_lg_typecheck_getCutoffHigh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgParticle::DampingOperator::getCutoffHigh() const function, expected prototype:\nfloat osgParticle::DampingOperator::getCutoffHigh() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgParticle::DampingOperator::getCutoffHigh() const function, expected prototype:\nfloat osgParticle::DampingOperator::getCutoffHigh() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::DampingOperator::getCutoffHigh() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgParticle::DampingOperator::getCutoffHigh() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getCutoffHigh();
 		lua_pushnumber(L,lret);
@@ -795,8 +756,7 @@ public:
 	// void osgParticle::DampingOperator::operate(osgParticle::Particle * P, double dt)
 	static int _bind_operate(lua_State *L) {
 		if (!_lg_typecheck_operate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::operate(osgParticle::Particle * P, double dt) function, expected prototype:\nvoid osgParticle::DampingOperator::operate(osgParticle::Particle * P, double dt)\nClass arguments details:\narg 1 ID = 81629555\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::operate(osgParticle::Particle * P, double dt) function, expected prototype:\nvoid osgParticle::DampingOperator::operate(osgParticle::Particle * P, double dt)\nClass arguments details:\narg 1 ID = 81629555\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgParticle::Particle* P=(Luna< osgParticle::Particle >::check(L,2));
@@ -804,8 +764,7 @@ public:
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::operate(osgParticle::Particle *, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::operate(osgParticle::Particle *, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->operate(P, dt);
 
@@ -815,16 +774,14 @@ public:
 	// void osgParticle::DampingOperator::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgParticle::DampingOperator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgParticle::DampingOperator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DampingOperator::setThreadSafeRefUnref(threadSafe);
 
@@ -834,16 +791,14 @@ public:
 	// void osgParticle::DampingOperator::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_setName(const std::string & name) function, expected prototype:\nvoid osgParticle::DampingOperator::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_setName(const std::string & name) function, expected prototype:\nvoid osgParticle::DampingOperator::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DampingOperator::setName(name);
 
@@ -853,15 +808,13 @@ public:
 	// void osgParticle::DampingOperator::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_computeDataVariance() function, expected prototype:\nvoid osgParticle::DampingOperator::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_computeDataVariance() function, expected prototype:\nvoid osgParticle::DampingOperator::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DampingOperator::computeDataVariance();
 
@@ -871,16 +824,14 @@ public:
 	// void osgParticle::DampingOperator::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgParticle::DampingOperator::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgParticle::DampingOperator::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DampingOperator::setUserData(obj);
 
@@ -890,15 +841,13 @@ public:
 	// osg::Referenced * osgParticle::DampingOperator::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osgParticle::DampingOperator::base_getUserData() function, expected prototype:\nosg::Referenced * osgParticle::DampingOperator::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osgParticle::DampingOperator::base_getUserData() function, expected prototype:\nosg::Referenced * osgParticle::DampingOperator::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::DampingOperator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::DampingOperator::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->DampingOperator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -911,15 +860,13 @@ public:
 	// const osg::Referenced * osgParticle::DampingOperator::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgParticle::DampingOperator::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgParticle::DampingOperator::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgParticle::DampingOperator::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgParticle::DampingOperator::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::DampingOperator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::DampingOperator::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->DampingOperator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -941,8 +888,7 @@ public:
 	// void osgParticle::DampingOperator::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgParticle::DampingOperator::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgParticle::DampingOperator::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -951,8 +897,7 @@ public:
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DampingOperator::releaseGLObjects(_arg1);
 
@@ -962,8 +907,7 @@ public:
 	// void osgParticle::DampingOperator::base_operateParticles(osgParticle::ParticleSystem * ps, double dt)
 	static int _bind_base_operateParticles(lua_State *L) {
 		if (!_lg_typecheck_base_operateParticles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_operateParticles(osgParticle::ParticleSystem * ps, double dt) function, expected prototype:\nvoid osgParticle::DampingOperator::base_operateParticles(osgParticle::ParticleSystem * ps, double dt)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_operateParticles(osgParticle::ParticleSystem * ps, double dt) function, expected prototype:\nvoid osgParticle::DampingOperator::base_operateParticles(osgParticle::ParticleSystem * ps, double dt)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgParticle::ParticleSystem* ps=(Luna< osg::Referenced >::checkSubType< osgParticle::ParticleSystem >(L,2));
@@ -971,8 +915,7 @@ public:
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_operateParticles(osgParticle::ParticleSystem *, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_operateParticles(osgParticle::ParticleSystem *, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DampingOperator::operateParticles(ps, dt);
 
@@ -982,16 +925,14 @@ public:
 	// void osgParticle::DampingOperator::base_beginOperate(osgParticle::Program * arg1)
 	static int _bind_base_beginOperate(lua_State *L) {
 		if (!_lg_typecheck_base_beginOperate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_beginOperate(osgParticle::Program * arg1) function, expected prototype:\nvoid osgParticle::DampingOperator::base_beginOperate(osgParticle::Program * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_beginOperate(osgParticle::Program * arg1) function, expected prototype:\nvoid osgParticle::DampingOperator::base_beginOperate(osgParticle::Program * arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgParticle::Program* _arg1=(Luna< osg::Referenced >::checkSubType< osgParticle::Program >(L,2));
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_beginOperate(osgParticle::Program *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_beginOperate(osgParticle::Program *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DampingOperator::beginOperate(_arg1);
 
@@ -1001,15 +942,13 @@ public:
 	// void osgParticle::DampingOperator::base_endOperate()
 	static int _bind_base_endOperate(lua_State *L) {
 		if (!_lg_typecheck_base_endOperate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_endOperate() function, expected prototype:\nvoid osgParticle::DampingOperator::base_endOperate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_endOperate() function, expected prototype:\nvoid osgParticle::DampingOperator::base_endOperate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_endOperate(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_endOperate(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DampingOperator::endOperate();
 
@@ -1019,15 +958,13 @@ public:
 	// osg::Object * osgParticle::DampingOperator::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::DampingOperator::base_cloneType() const function, expected prototype:\nosg::Object * osgParticle::DampingOperator::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::DampingOperator::base_cloneType() const function, expected prototype:\nosg::Object * osgParticle::DampingOperator::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DampingOperator::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DampingOperator::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->DampingOperator::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1040,8 +977,7 @@ public:
 	// osg::Object * osgParticle::DampingOperator::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::DampingOperator::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgParticle::DampingOperator::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::DampingOperator::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgParticle::DampingOperator::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1052,8 +988,7 @@ public:
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DampingOperator::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DampingOperator::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->DampingOperator::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1066,16 +1001,14 @@ public:
 	// bool osgParticle::DampingOperator::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgParticle::DampingOperator::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgParticle::DampingOperator::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgParticle::DampingOperator::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgParticle::DampingOperator::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::DampingOperator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgParticle::DampingOperator::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DampingOperator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1086,15 +1019,13 @@ public:
 	// const char * osgParticle::DampingOperator::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgParticle::DampingOperator::base_libraryName() const function, expected prototype:\nconst char * osgParticle::DampingOperator::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgParticle::DampingOperator::base_libraryName() const function, expected prototype:\nconst char * osgParticle::DampingOperator::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::DampingOperator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgParticle::DampingOperator::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->DampingOperator::libraryName();
 		lua_pushstring(L,lret);
@@ -1105,15 +1036,13 @@ public:
 	// const char * osgParticle::DampingOperator::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgParticle::DampingOperator::base_className() const function, expected prototype:\nconst char * osgParticle::DampingOperator::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgParticle::DampingOperator::base_className() const function, expected prototype:\nconst char * osgParticle::DampingOperator::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::DampingOperator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgParticle::DampingOperator::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->DampingOperator::className();
 		lua_pushstring(L,lret);
@@ -1124,8 +1053,7 @@ public:
 	// void osgParticle::DampingOperator::base_operate(osgParticle::Particle * P, double dt)
 	static int _bind_base_operate(lua_State *L) {
 		if (!_lg_typecheck_base_operate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_operate(osgParticle::Particle * P, double dt) function, expected prototype:\nvoid osgParticle::DampingOperator::base_operate(osgParticle::Particle * P, double dt)\nClass arguments details:\narg 1 ID = 81629555\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DampingOperator::base_operate(osgParticle::Particle * P, double dt) function, expected prototype:\nvoid osgParticle::DampingOperator::base_operate(osgParticle::Particle * P, double dt)\nClass arguments details:\narg 1 ID = 81629555\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgParticle::Particle* P=(Luna< osgParticle::Particle >::check(L,2));
@@ -1133,8 +1061,7 @@ public:
 
 		osgParticle::DampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DampingOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_operate(osgParticle::Particle *, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DampingOperator::base_operate(osgParticle::Particle *, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DampingOperator::operate(P, dt);
 

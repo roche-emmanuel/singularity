@@ -233,15 +233,13 @@ public:
 	// void osg::RenderBuffer::public_dirtyAll() const
 	static int _bind_public_dirtyAll(lua_State *L) {
 		if (!_lg_typecheck_public_dirtyAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::RenderBuffer::public_dirtyAll() const function, expected prototype:\nvoid osg::RenderBuffer::public_dirtyAll() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::RenderBuffer::public_dirtyAll() const function, expected prototype:\nvoid osg::RenderBuffer::public_dirtyAll() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_RenderBuffer* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_RenderBuffer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::RenderBuffer::public_dirtyAll() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::RenderBuffer::public_dirtyAll() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_dirtyAll();
 
@@ -251,8 +249,7 @@ public:
 	// osg::RenderBuffer & osg::RenderBuffer::public_op_assign(const osg::RenderBuffer & arg1)
 	static int _bind_public_op_assign(lua_State *L) {
 		if (!_lg_typecheck_public_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::RenderBuffer & osg::RenderBuffer::public_op_assign(const osg::RenderBuffer & arg1) function, expected prototype:\nosg::RenderBuffer & osg::RenderBuffer::public_op_assign(const osg::RenderBuffer & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::RenderBuffer & osg::RenderBuffer::public_op_assign(const osg::RenderBuffer & arg1) function, expected prototype:\nosg::RenderBuffer & osg::RenderBuffer::public_op_assign(const osg::RenderBuffer & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::RenderBuffer* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::RenderBuffer >(L,2));
@@ -263,8 +260,7 @@ public:
 
 		wrapper_osg_RenderBuffer* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_RenderBuffer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::RenderBuffer & osg::RenderBuffer::public_op_assign(const osg::RenderBuffer &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::RenderBuffer & osg::RenderBuffer::public_op_assign(const osg::RenderBuffer &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::RenderBuffer* lret = &self->public_op_assign(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -277,8 +273,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -286,8 +281,7 @@ public:
 
 		wrapper_osg_RenderBuffer* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_RenderBuffer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -297,15 +291,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_RenderBuffer* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_RenderBuffer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

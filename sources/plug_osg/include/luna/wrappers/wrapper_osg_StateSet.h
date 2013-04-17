@@ -408,16 +408,14 @@ public:
 	// void osg::StateSet::public_addParent(osg::Object * object)
 	static int _bind_public_addParent(lua_State *L) {
 		if (!_lg_typecheck_public_addParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_addParent(osg::Object * object) function, expected prototype:\nvoid osg::StateSet::public_addParent(osg::Object * object)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_addParent(osg::Object * object) function, expected prototype:\nvoid osg::StateSet::public_addParent(osg::Object * object)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Object* object=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::public_addParent(osg::Object *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StateSet::public_addParent(osg::Object *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_addParent(object);
 
@@ -427,16 +425,14 @@ public:
 	// void osg::StateSet::public_removeParent(osg::Object * object)
 	static int _bind_public_removeParent(lua_State *L) {
 		if (!_lg_typecheck_public_removeParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_removeParent(osg::Object * object) function, expected prototype:\nvoid osg::StateSet::public_removeParent(osg::Object * object)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_removeParent(osg::Object * object) function, expected prototype:\nvoid osg::StateSet::public_removeParent(osg::Object * object)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Object* object=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::public_removeParent(osg::Object *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StateSet::public_removeParent(osg::Object *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_removeParent(object);
 
@@ -446,16 +442,14 @@ public:
 	// osg::StateSet::ModeList & osg::StateSet::public_getOrCreateTextureModeList(unsigned int unit)
 	static int _bind_public_getOrCreateTextureModeList(lua_State *L) {
 		if (!_lg_typecheck_public_getOrCreateTextureModeList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateSet::ModeList & osg::StateSet::public_getOrCreateTextureModeList(unsigned int unit) function, expected prototype:\nosg::StateSet::ModeList & osg::StateSet::public_getOrCreateTextureModeList(unsigned int unit)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateSet::ModeList & osg::StateSet::public_getOrCreateTextureModeList(unsigned int unit) function, expected prototype:\nosg::StateSet::ModeList & osg::StateSet::public_getOrCreateTextureModeList(unsigned int unit)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet::ModeList & osg::StateSet::public_getOrCreateTextureModeList(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateSet::ModeList & osg::StateSet::public_getOrCreateTextureModeList(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::StateSet::ModeList* lret = &self->public_getOrCreateTextureModeList(unit);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -468,16 +462,14 @@ public:
 	// osg::StateSet::AttributeList & osg::StateSet::public_getOrCreateTextureAttributeList(unsigned int unit)
 	static int _bind_public_getOrCreateTextureAttributeList(lua_State *L) {
 		if (!_lg_typecheck_public_getOrCreateTextureAttributeList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateSet::AttributeList & osg::StateSet::public_getOrCreateTextureAttributeList(unsigned int unit) function, expected prototype:\nosg::StateSet::AttributeList & osg::StateSet::public_getOrCreateTextureAttributeList(unsigned int unit)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateSet::AttributeList & osg::StateSet::public_getOrCreateTextureAttributeList(unsigned int unit) function, expected prototype:\nosg::StateSet::AttributeList & osg::StateSet::public_getOrCreateTextureAttributeList(unsigned int unit)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet::AttributeList & osg::StateSet::public_getOrCreateTextureAttributeList(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateSet::AttributeList & osg::StateSet::public_getOrCreateTextureAttributeList(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::StateSet::AttributeList* lret = &self->public_getOrCreateTextureAttributeList(unit);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -490,8 +482,7 @@ public:
 	// int osg::StateSet::public_compareModes(const osg::StateSet::ModeList & lhs, const osg::StateSet::ModeList & rhs)
 	static int _bind_public_compareModes(lua_State *L) {
 		if (!_lg_typecheck_public_compareModes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::StateSet::public_compareModes(const osg::StateSet::ModeList & lhs, const osg::StateSet::ModeList & rhs) function, expected prototype:\nint osg::StateSet::public_compareModes(const osg::StateSet::ModeList & lhs, const osg::StateSet::ModeList & rhs)\nClass arguments details:\narg 1 ID = 59463386\narg 2 ID = 59463386\n");
+			luaL_error(L, "luna typecheck failed in int osg::StateSet::public_compareModes(const osg::StateSet::ModeList & lhs, const osg::StateSet::ModeList & rhs) function, expected prototype:\nint osg::StateSet::public_compareModes(const osg::StateSet::ModeList & lhs, const osg::StateSet::ModeList & rhs)\nClass arguments details:\narg 1 ID = 59463386\narg 2 ID = 59463386\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateSet::ModeList* lhs_ptr=(Luna< std::map< unsigned int, unsigned int > >::checkSubType< osg::StateSet::ModeList >(L,2));
@@ -507,8 +498,7 @@ public:
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::StateSet::public_compareModes(const osg::StateSet::ModeList &, const osg::StateSet::ModeList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::StateSet::public_compareModes(const osg::StateSet::ModeList &, const osg::StateSet::ModeList &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_compareModes(lhs, rhs);
 		lua_pushnumber(L,lret);
@@ -519,8 +509,7 @@ public:
 	// int osg::StateSet::public_compareAttributePtrs(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs)
 	static int _bind_public_compareAttributePtrs(lua_State *L) {
 		if (!_lg_typecheck_public_compareAttributePtrs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::StateSet::public_compareAttributePtrs(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs) function, expected prototype:\nint osg::StateSet::public_compareAttributePtrs(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs)\nClass arguments details:\narg 1 ID = 84373691\narg 2 ID = 84373691\n");
+			luaL_error(L, "luna typecheck failed in int osg::StateSet::public_compareAttributePtrs(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs) function, expected prototype:\nint osg::StateSet::public_compareAttributePtrs(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs)\nClass arguments details:\narg 1 ID = 84373691\narg 2 ID = 84373691\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateSet::AttributeList* lhs_ptr=(Luna< std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > >::checkSubType< osg::StateSet::AttributeList >(L,2));
@@ -536,8 +525,7 @@ public:
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::StateSet::public_compareAttributePtrs(const osg::StateSet::AttributeList &, const osg::StateSet::AttributeList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::StateSet::public_compareAttributePtrs(const osg::StateSet::AttributeList &, const osg::StateSet::AttributeList &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_compareAttributePtrs(lhs, rhs);
 		lua_pushnumber(L,lret);
@@ -548,8 +536,7 @@ public:
 	// int osg::StateSet::public_compareAttributeContents(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs)
 	static int _bind_public_compareAttributeContents(lua_State *L) {
 		if (!_lg_typecheck_public_compareAttributeContents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::StateSet::public_compareAttributeContents(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs) function, expected prototype:\nint osg::StateSet::public_compareAttributeContents(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs)\nClass arguments details:\narg 1 ID = 84373691\narg 2 ID = 84373691\n");
+			luaL_error(L, "luna typecheck failed in int osg::StateSet::public_compareAttributeContents(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs) function, expected prototype:\nint osg::StateSet::public_compareAttributeContents(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs)\nClass arguments details:\narg 1 ID = 84373691\narg 2 ID = 84373691\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateSet::AttributeList* lhs_ptr=(Luna< std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > >::checkSubType< osg::StateSet::AttributeList >(L,2));
@@ -565,8 +552,7 @@ public:
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::StateSet::public_compareAttributeContents(const osg::StateSet::AttributeList &, const osg::StateSet::AttributeList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::StateSet::public_compareAttributeContents(const osg::StateSet::AttributeList &, const osg::StateSet::AttributeList &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_compareAttributeContents(lhs, rhs);
 		lua_pushnumber(L,lret);
@@ -577,8 +563,7 @@ public:
 	// void osg::StateSet::public_setMode(osg::StateSet::ModeList & modeList, unsigned int mode, unsigned int value)
 	static int _bind_public_setMode(lua_State *L) {
 		if (!_lg_typecheck_public_setMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_setMode(osg::StateSet::ModeList & modeList, unsigned int mode, unsigned int value) function, expected prototype:\nvoid osg::StateSet::public_setMode(osg::StateSet::ModeList & modeList, unsigned int mode, unsigned int value)\nClass arguments details:\narg 1 ID = 59463386\n");
+			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_setMode(osg::StateSet::ModeList & modeList, unsigned int mode, unsigned int value) function, expected prototype:\nvoid osg::StateSet::public_setMode(osg::StateSet::ModeList & modeList, unsigned int mode, unsigned int value)\nClass arguments details:\narg 1 ID = 59463386\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateSet::ModeList* modeList_ptr=(Luna< std::map< unsigned int, unsigned int > >::checkSubType< osg::StateSet::ModeList >(L,2));
@@ -591,8 +576,7 @@ public:
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::public_setMode(osg::StateSet::ModeList &, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StateSet::public_setMode(osg::StateSet::ModeList &, unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setMode(modeList, mode, value);
 
@@ -602,8 +586,7 @@ public:
 	// void osg::StateSet::public_setModeToInherit(osg::StateSet::ModeList & modeList, unsigned int mode)
 	static int _bind_public_setModeToInherit(lua_State *L) {
 		if (!_lg_typecheck_public_setModeToInherit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_setModeToInherit(osg::StateSet::ModeList & modeList, unsigned int mode) function, expected prototype:\nvoid osg::StateSet::public_setModeToInherit(osg::StateSet::ModeList & modeList, unsigned int mode)\nClass arguments details:\narg 1 ID = 59463386\n");
+			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_setModeToInherit(osg::StateSet::ModeList & modeList, unsigned int mode) function, expected prototype:\nvoid osg::StateSet::public_setModeToInherit(osg::StateSet::ModeList & modeList, unsigned int mode)\nClass arguments details:\narg 1 ID = 59463386\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateSet::ModeList* modeList_ptr=(Luna< std::map< unsigned int, unsigned int > >::checkSubType< osg::StateSet::ModeList >(L,2));
@@ -615,8 +598,7 @@ public:
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::public_setModeToInherit(osg::StateSet::ModeList &, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StateSet::public_setModeToInherit(osg::StateSet::ModeList &, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setModeToInherit(modeList, mode);
 
@@ -626,8 +608,7 @@ public:
 	// unsigned int osg::StateSet::public_getMode(const osg::StateSet::ModeList & modeList, unsigned int mode) const
 	static int _bind_public_getMode(lua_State *L) {
 		if (!_lg_typecheck_public_getMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::StateSet::public_getMode(const osg::StateSet::ModeList & modeList, unsigned int mode) const function, expected prototype:\nunsigned int osg::StateSet::public_getMode(const osg::StateSet::ModeList & modeList, unsigned int mode) const\nClass arguments details:\narg 1 ID = 59463386\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::StateSet::public_getMode(const osg::StateSet::ModeList & modeList, unsigned int mode) const function, expected prototype:\nunsigned int osg::StateSet::public_getMode(const osg::StateSet::ModeList & modeList, unsigned int mode) const\nClass arguments details:\narg 1 ID = 59463386\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateSet::ModeList* modeList_ptr=(Luna< std::map< unsigned int, unsigned int > >::checkSubType< osg::StateSet::ModeList >(L,2));
@@ -639,8 +620,7 @@ public:
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::public_getMode(const osg::StateSet::ModeList &, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::public_getMode(const osg::StateSet::ModeList &, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->public_getMode(modeList, mode);
 		lua_pushnumber(L,lret);
@@ -651,8 +631,7 @@ public:
 	// void osg::StateSet::public_setAttribute(osg::StateSet::AttributeList & attributeList, osg::StateAttribute * attribute, const unsigned int value = osg::StateAttribute::OFF)
 	static int _bind_public_setAttribute(lua_State *L) {
 		if (!_lg_typecheck_public_setAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_setAttribute(osg::StateSet::AttributeList & attributeList, osg::StateAttribute * attribute, const unsigned int value = osg::StateAttribute::OFF) function, expected prototype:\nvoid osg::StateSet::public_setAttribute(osg::StateSet::AttributeList & attributeList, osg::StateAttribute * attribute, const unsigned int value = osg::StateAttribute::OFF)\nClass arguments details:\narg 1 ID = 84373691\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_setAttribute(osg::StateSet::AttributeList & attributeList, osg::StateAttribute * attribute, const unsigned int value = osg::StateAttribute::OFF) function, expected prototype:\nvoid osg::StateSet::public_setAttribute(osg::StateSet::AttributeList & attributeList, osg::StateAttribute * attribute, const unsigned int value = osg::StateAttribute::OFF)\nClass arguments details:\narg 1 ID = 84373691\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -667,8 +646,7 @@ public:
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::public_setAttribute(osg::StateSet::AttributeList &, osg::StateAttribute *, const unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StateSet::public_setAttribute(osg::StateSet::AttributeList &, osg::StateAttribute *, const unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setAttribute(attributeList, attribute, value);
 
@@ -678,8 +656,7 @@ public:
 	// osg::StateAttribute * osg::StateSet::public_getAttribute(osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member)
 	static int _bind_public_getAttribute(lua_State *L) {
 		if (!_lg_typecheck_public_getAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute * osg::StateSet::public_getAttribute(osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) function, expected prototype:\nosg::StateAttribute * osg::StateSet::public_getAttribute(osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member)\nClass arguments details:\narg 1 ID = 84373691\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute * osg::StateSet::public_getAttribute(osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) function, expected prototype:\nosg::StateAttribute * osg::StateSet::public_getAttribute(osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member)\nClass arguments details:\narg 1 ID = 84373691\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateSet::AttributeList* attributeList_ptr=(Luna< std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > >::checkSubType< osg::StateSet::AttributeList >(L,2));
@@ -692,8 +669,7 @@ public:
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute * osg::StateSet::public_getAttribute(osg::StateSet::AttributeList &, const osg::StateAttribute::Type, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute * osg::StateSet::public_getAttribute(osg::StateSet::AttributeList &, const osg::StateAttribute::Type, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute * lret = self->public_getAttribute(attributeList, type, member);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -706,8 +682,7 @@ public:
 	// const osg::StateSet::RefAttributePair * osg::StateSet::public_getAttributePair(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const
 	static int _bind_public_getAttributePair(lua_State *L) {
 		if (!_lg_typecheck_public_getAttributePair(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::StateSet::RefAttributePair * osg::StateSet::public_getAttributePair(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const function, expected prototype:\nconst osg::StateSet::RefAttributePair * osg::StateSet::public_getAttributePair(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const\nClass arguments details:\narg 1 ID = 84373691\n");
+			luaL_error(L, "luna typecheck failed in const osg::StateSet::RefAttributePair * osg::StateSet::public_getAttributePair(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const function, expected prototype:\nconst osg::StateSet::RefAttributePair * osg::StateSet::public_getAttributePair(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const\nClass arguments details:\narg 1 ID = 84373691\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateSet::AttributeList* attributeList_ptr=(Luna< std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > >::checkSubType< osg::StateSet::AttributeList >(L,2));
@@ -720,8 +695,7 @@ public:
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet::RefAttributePair * osg::StateSet::public_getAttributePair(const osg::StateSet::AttributeList &, const osg::StateAttribute::Type, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::StateSet::RefAttributePair * osg::StateSet::public_getAttributePair(const osg::StateSet::AttributeList &, const osg::StateAttribute::Type, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::StateSet::RefAttributePair * lret = self->public_getAttributePair(attributeList, type, member);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -734,16 +708,14 @@ public:
 	// void osg::StateSet::public_setNumChildrenRequiringUpdateTraversal(unsigned int num)
 	static int _bind_public_setNumChildrenRequiringUpdateTraversal(lua_State *L) {
 		if (!_lg_typecheck_public_setNumChildrenRequiringUpdateTraversal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_setNumChildrenRequiringUpdateTraversal(unsigned int num) function, expected prototype:\nvoid osg::StateSet::public_setNumChildrenRequiringUpdateTraversal(unsigned int num)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_setNumChildrenRequiringUpdateTraversal(unsigned int num) function, expected prototype:\nvoid osg::StateSet::public_setNumChildrenRequiringUpdateTraversal(unsigned int num)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int num=(unsigned int)lua_tointeger(L,2);
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::public_setNumChildrenRequiringUpdateTraversal(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StateSet::public_setNumChildrenRequiringUpdateTraversal(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setNumChildrenRequiringUpdateTraversal(num);
 
@@ -753,16 +725,14 @@ public:
 	// void osg::StateSet::public_setNumChildrenRequiringEventTraversal(unsigned int num)
 	static int _bind_public_setNumChildrenRequiringEventTraversal(lua_State *L) {
 		if (!_lg_typecheck_public_setNumChildrenRequiringEventTraversal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_setNumChildrenRequiringEventTraversal(unsigned int num) function, expected prototype:\nvoid osg::StateSet::public_setNumChildrenRequiringEventTraversal(unsigned int num)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_setNumChildrenRequiringEventTraversal(unsigned int num) function, expected prototype:\nvoid osg::StateSet::public_setNumChildrenRequiringEventTraversal(unsigned int num)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int num=(unsigned int)lua_tointeger(L,2);
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::public_setNumChildrenRequiringEventTraversal(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StateSet::public_setNumChildrenRequiringEventTraversal(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setNumChildrenRequiringEventTraversal(num);
 
@@ -772,8 +742,7 @@ public:
 	// osg::StateSet & osg::StateSet::public_op_assign(const osg::StateSet & arg1)
 	static int _bind_public_op_assign(lua_State *L) {
 		if (!_lg_typecheck_public_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateSet & osg::StateSet::public_op_assign(const osg::StateSet & arg1) function, expected prototype:\nosg::StateSet & osg::StateSet::public_op_assign(const osg::StateSet & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::StateSet & osg::StateSet::public_op_assign(const osg::StateSet & arg1) function, expected prototype:\nosg::StateSet & osg::StateSet::public_op_assign(const osg::StateSet & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateSet* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
@@ -784,8 +753,7 @@ public:
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet & osg::StateSet::public_op_assign(const osg::StateSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateSet & osg::StateSet::public_op_assign(const osg::StateSet &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::StateSet* lret = &self->public_op_assign(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -798,8 +766,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -807,8 +774,7 @@ public:
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -818,15 +784,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

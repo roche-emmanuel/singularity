@@ -262,3 +262,33 @@ function test_get_perspective()
 	
 	log:info("Tests","Done testing getPerspective.")
 end
+
+function test_vec3_negation()
+	log:info("Tests","Testing vector negation.")
+	
+	local v1 = osg.Vec3d(1.0,1.0,1.0)
+	local v2 = -v1
+	local v3 = -v2
+	
+	assert_equal(v1,v3,"Invalid vec negation result.")
+	
+	local v1 = osg.Vec3f(1.0,1.0,1.0)
+	local v2 = -v1
+	local v3 = -v2
+	
+	assert_equal(v1,v3,"Invalid vec negation result 2.")
+
+	local v1 = osg.Vec4d(1.0,1.0,1.0,0.5)
+	local v2 = -v1
+	local v3 = -v2
+	
+	assert_equal(v1,v3,"Invalid vec negation result 3.")
+	
+	local v1 = osg.Vec2f(1.0,1.0)
+	local v2 = -v1
+	local v3 = -v2
+	
+	assert_equal(v1,v3,"Invalid vec negation result 4.")
+	
+	log:info("Tests","Done testing vector negation.")
+end

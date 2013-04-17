@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(OpenThreads::AtomicPtr*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(OpenThreads::AtomicPtr*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::AtomicPtr* rhs =(Luna< OpenThreads::AtomicPtr >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::AtomicPtr* self= (OpenThreads::AtomicPtr*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< OpenThreads::AtomicPtr >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -132,8 +128,7 @@ public:
 	// OpenThreads::AtomicPtr::AtomicPtr(void * ptr = 0)
 	static OpenThreads::AtomicPtr* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in OpenThreads::AtomicPtr::AtomicPtr(void * ptr = 0) function, expected prototype:\nOpenThreads::AtomicPtr::AtomicPtr(void * ptr = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in OpenThreads::AtomicPtr::AtomicPtr(void * ptr = 0) function, expected prototype:\nOpenThreads::AtomicPtr::AtomicPtr(void * ptr = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -148,8 +143,7 @@ public:
 	// bool OpenThreads::AtomicPtr::assign(void * ptrNew, const void *const ptrOld)
 	static int _bind_assign(lua_State *L) {
 		if (!_lg_typecheck_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool OpenThreads::AtomicPtr::assign(void * ptrNew, const void *const ptrOld) function, expected prototype:\nbool OpenThreads::AtomicPtr::assign(void * ptrNew, const void *const ptrOld)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool OpenThreads::AtomicPtr::assign(void * ptrNew, const void *const ptrOld) function, expected prototype:\nbool OpenThreads::AtomicPtr::assign(void * ptrNew, const void *const ptrOld)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* ptrNew=(Luna< void >::check(L,2));
@@ -157,8 +151,7 @@ public:
 
 		OpenThreads::AtomicPtr* self=(Luna< OpenThreads::AtomicPtr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool OpenThreads::AtomicPtr::assign(void *, const void *const). Got : '%s'",typeid(Luna< OpenThreads::AtomicPtr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool OpenThreads::AtomicPtr::assign(void *, const void *const). Got : '%s'\n%s",typeid(Luna< OpenThreads::AtomicPtr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->assign(ptrNew, ptrOld);
 		lua_pushboolean(L,lret?1:0);
@@ -169,15 +162,13 @@ public:
 	// void * OpenThreads::AtomicPtr::get() const
 	static int _bind_get(lua_State *L) {
 		if (!_lg_typecheck_get(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * OpenThreads::AtomicPtr::get() const function, expected prototype:\nvoid * OpenThreads::AtomicPtr::get() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * OpenThreads::AtomicPtr::get() const function, expected prototype:\nvoid * OpenThreads::AtomicPtr::get() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::AtomicPtr* self=(Luna< OpenThreads::AtomicPtr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * OpenThreads::AtomicPtr::get() const. Got : '%s'",typeid(Luna< OpenThreads::AtomicPtr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * OpenThreads::AtomicPtr::get() const. Got : '%s'\n%s",typeid(Luna< OpenThreads::AtomicPtr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->get();
 		if(!lret) return 0; // Do not write NULL pointers.

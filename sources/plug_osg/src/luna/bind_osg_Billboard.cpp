@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Billboard* self= (osg::Billboard*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -503,8 +500,7 @@ public:
 	// osg::Billboard::Billboard()
 	static osg::Billboard* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Billboard::Billboard() function, expected prototype:\nosg::Billboard::Billboard()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Billboard::Billboard() function, expected prototype:\nosg::Billboard::Billboard()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -514,8 +510,7 @@ public:
 	// osg::Billboard::Billboard(const osg::Billboard & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::Billboard* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Billboard::Billboard(const osg::Billboard & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Billboard::Billboard(const osg::Billboard & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Billboard::Billboard(const osg::Billboard & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Billboard::Billboard(const osg::Billboard & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -537,8 +532,7 @@ public:
 	// osg::Billboard::Billboard(lua_Table * data)
 	static osg::Billboard* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Billboard::Billboard(lua_Table * data) function, expected prototype:\nosg::Billboard::Billboard(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Billboard::Billboard(lua_Table * data) function, expected prototype:\nosg::Billboard::Billboard(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -548,8 +542,7 @@ public:
 	// osg::Billboard::Billboard(lua_Table * data, const osg::Billboard & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::Billboard* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Billboard::Billboard(lua_Table * data, const osg::Billboard & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Billboard::Billboard(lua_Table * data, const osg::Billboard & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Billboard::Billboard(lua_Table * data, const osg::Billboard & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Billboard::Billboard(lua_Table * data, const osg::Billboard & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -584,15 +577,13 @@ public:
 	// osg::Object * osg::Billboard::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Billboard::cloneType() const function, expected prototype:\nosg::Object * osg::Billboard::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Billboard::cloneType() const function, expected prototype:\nosg::Object * osg::Billboard::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -605,8 +596,7 @@ public:
 	// osg::Object * osg::Billboard::clone(const osg::CopyOp & copyop) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Billboard::clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::Billboard::clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Billboard::clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::Billboard::clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -617,8 +607,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -631,16 +620,14 @@ public:
 	// bool osg::Billboard::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Billboard::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Billboard::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Billboard::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Billboard::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -651,15 +638,13 @@ public:
 	// const char * osg::Billboard::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Billboard::className() const function, expected prototype:\nconst char * osg::Billboard::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Billboard::className() const function, expected prototype:\nconst char * osg::Billboard::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Billboard::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Billboard::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -670,15 +655,13 @@ public:
 	// const char * osg::Billboard::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Billboard::libraryName() const function, expected prototype:\nconst char * osg::Billboard::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Billboard::libraryName() const function, expected prototype:\nconst char * osg::Billboard::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Billboard::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Billboard::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -689,8 +672,7 @@ public:
 	// void osg::Billboard::accept(osg::NodeVisitor & nv)
 	static int _bind_accept(lua_State *L) {
 		if (!_lg_typecheck_accept(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Billboard::accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::Billboard::accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Billboard::accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::Billboard::accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -701,8 +683,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Billboard::accept(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->accept(nv);
 
@@ -712,16 +693,14 @@ public:
 	// void osg::Billboard::setMode(osg::Billboard::Mode mode)
 	static int _bind_setMode(lua_State *L) {
 		if (!_lg_typecheck_setMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Billboard::setMode(osg::Billboard::Mode mode) function, expected prototype:\nvoid osg::Billboard::setMode(osg::Billboard::Mode mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Billboard::setMode(osg::Billboard::Mode mode) function, expected prototype:\nvoid osg::Billboard::setMode(osg::Billboard::Mode mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Billboard::Mode mode=(osg::Billboard::Mode)lua_tointeger(L,2);
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::setMode(osg::Billboard::Mode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Billboard::setMode(osg::Billboard::Mode). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMode(mode);
 
@@ -731,15 +710,13 @@ public:
 	// osg::Billboard::Mode osg::Billboard::getMode() const
 	static int _bind_getMode(lua_State *L) {
 		if (!_lg_typecheck_getMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Billboard::Mode osg::Billboard::getMode() const function, expected prototype:\nosg::Billboard::Mode osg::Billboard::getMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Billboard::Mode osg::Billboard::getMode() const function, expected prototype:\nosg::Billboard::Mode osg::Billboard::getMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Billboard::Mode osg::Billboard::getMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Billboard::Mode osg::Billboard::getMode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Billboard::Mode lret = self->getMode();
 		lua_pushnumber(L,lret);
@@ -750,8 +727,7 @@ public:
 	// void osg::Billboard::setAxis(const osg::Vec3f & axis)
 	static int _bind_setAxis(lua_State *L) {
 		if (!_lg_typecheck_setAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Billboard::setAxis(const osg::Vec3f & axis) function, expected prototype:\nvoid osg::Billboard::setAxis(const osg::Vec3f & axis)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::Billboard::setAxis(const osg::Vec3f & axis) function, expected prototype:\nvoid osg::Billboard::setAxis(const osg::Vec3f & axis)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* axis_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -762,8 +738,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::setAxis(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Billboard::setAxis(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAxis(axis);
 
@@ -773,15 +748,13 @@ public:
 	// const osg::Vec3f & osg::Billboard::getAxis() const
 	static int _bind_getAxis(lua_State *L) {
 		if (!_lg_typecheck_getAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::Billboard::getAxis() const function, expected prototype:\nconst osg::Vec3f & osg::Billboard::getAxis() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::Billboard::getAxis() const function, expected prototype:\nconst osg::Vec3f & osg::Billboard::getAxis() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Billboard::getAxis() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Billboard::getAxis() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->getAxis();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -794,8 +767,7 @@ public:
 	// void osg::Billboard::setNormal(const osg::Vec3f & normal)
 	static int _bind_setNormal(lua_State *L) {
 		if (!_lg_typecheck_setNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Billboard::setNormal(const osg::Vec3f & normal) function, expected prototype:\nvoid osg::Billboard::setNormal(const osg::Vec3f & normal)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::Billboard::setNormal(const osg::Vec3f & normal) function, expected prototype:\nvoid osg::Billboard::setNormal(const osg::Vec3f & normal)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* normal_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -806,8 +778,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::setNormal(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Billboard::setNormal(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setNormal(normal);
 
@@ -817,15 +788,13 @@ public:
 	// const osg::Vec3f & osg::Billboard::getNormal() const
 	static int _bind_getNormal(lua_State *L) {
 		if (!_lg_typecheck_getNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::Billboard::getNormal() const function, expected prototype:\nconst osg::Vec3f & osg::Billboard::getNormal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::Billboard::getNormal() const function, expected prototype:\nconst osg::Vec3f & osg::Billboard::getNormal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Billboard::getNormal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Billboard::getNormal() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->getNormal();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -838,8 +807,7 @@ public:
 	// void osg::Billboard::setPosition(unsigned int i, const osg::Vec3f & pos)
 	static int _bind_setPosition(lua_State *L) {
 		if (!_lg_typecheck_setPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Billboard::setPosition(unsigned int i, const osg::Vec3f & pos) function, expected prototype:\nvoid osg::Billboard::setPosition(unsigned int i, const osg::Vec3f & pos)\nClass arguments details:\narg 2 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::Billboard::setPosition(unsigned int i, const osg::Vec3f & pos) function, expected prototype:\nvoid osg::Billboard::setPosition(unsigned int i, const osg::Vec3f & pos)\nClass arguments details:\narg 2 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
@@ -851,8 +819,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::setPosition(unsigned int, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Billboard::setPosition(unsigned int, const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPosition(i, pos);
 
@@ -862,16 +829,14 @@ public:
 	// const osg::Vec3f & osg::Billboard::getPosition(unsigned int i) const
 	static int _bind_getPosition(lua_State *L) {
 		if (!_lg_typecheck_getPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::Billboard::getPosition(unsigned int i) const function, expected prototype:\nconst osg::Vec3f & osg::Billboard::getPosition(unsigned int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::Billboard::getPosition(unsigned int i) const function, expected prototype:\nconst osg::Vec3f & osg::Billboard::getPosition(unsigned int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Billboard::getPosition(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Billboard::getPosition(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->getPosition(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -884,8 +849,7 @@ public:
 	// void osg::Billboard::setPositionList(osg::Billboard::PositionList & pl)
 	static int _bind_setPositionList(lua_State *L) {
 		if (!_lg_typecheck_setPositionList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Billboard::setPositionList(osg::Billboard::PositionList & pl) function, expected prototype:\nvoid osg::Billboard::setPositionList(osg::Billboard::PositionList & pl)\nClass arguments details:\narg 1 ID = 75373010\n");
+			luaL_error(L, "luna typecheck failed in void osg::Billboard::setPositionList(osg::Billboard::PositionList & pl) function, expected prototype:\nvoid osg::Billboard::setPositionList(osg::Billboard::PositionList & pl)\nClass arguments details:\narg 1 ID = 75373010\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Billboard::PositionList* pl_ptr=(Luna< std::vector< osg::Vec3f > >::checkSubType< osg::Billboard::PositionList >(L,2));
@@ -896,8 +860,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::setPositionList(osg::Billboard::PositionList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Billboard::setPositionList(osg::Billboard::PositionList &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPositionList(pl);
 
@@ -907,15 +870,13 @@ public:
 	// osg::Billboard::PositionList & osg::Billboard::getPositionList()
 	static int _bind_getPositionList_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getPositionList_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Billboard::PositionList & osg::Billboard::getPositionList() function, expected prototype:\nosg::Billboard::PositionList & osg::Billboard::getPositionList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Billboard::PositionList & osg::Billboard::getPositionList() function, expected prototype:\nosg::Billboard::PositionList & osg::Billboard::getPositionList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Billboard::PositionList & osg::Billboard::getPositionList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Billboard::PositionList & osg::Billboard::getPositionList(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Billboard::PositionList* lret = &self->getPositionList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -928,15 +889,13 @@ public:
 	// const osg::Billboard::PositionList & osg::Billboard::getPositionList() const
 	static int _bind_getPositionList_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getPositionList_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Billboard::PositionList & osg::Billboard::getPositionList() const function, expected prototype:\nconst osg::Billboard::PositionList & osg::Billboard::getPositionList() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Billboard::PositionList & osg::Billboard::getPositionList() const function, expected prototype:\nconst osg::Billboard::PositionList & osg::Billboard::getPositionList() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Billboard::PositionList & osg::Billboard::getPositionList() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Billboard::PositionList & osg::Billboard::getPositionList() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Billboard::PositionList* lret = &self->getPositionList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -958,16 +917,14 @@ public:
 	// bool osg::Billboard::addDrawable(osg::Drawable * gset)
 	static int _bind_addDrawable_overload_1(lua_State *L) {
 		if (!_lg_typecheck_addDrawable_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Billboard::addDrawable(osg::Drawable * gset) function, expected prototype:\nbool osg::Billboard::addDrawable(osg::Drawable * gset)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Billboard::addDrawable(osg::Drawable * gset) function, expected prototype:\nbool osg::Billboard::addDrawable(osg::Drawable * gset)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Drawable* gset=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::addDrawable(osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::addDrawable(osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->addDrawable(gset);
 		lua_pushboolean(L,lret?1:0);
@@ -978,8 +935,7 @@ public:
 	// bool osg::Billboard::addDrawable(osg::Drawable * gset, const osg::Vec3f & pos)
 	static int _bind_addDrawable_overload_2(lua_State *L) {
 		if (!_lg_typecheck_addDrawable_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Billboard::addDrawable(osg::Drawable * gset, const osg::Vec3f & pos) function, expected prototype:\nbool osg::Billboard::addDrawable(osg::Drawable * gset, const osg::Vec3f & pos)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Billboard::addDrawable(osg::Drawable * gset, const osg::Vec3f & pos) function, expected prototype:\nbool osg::Billboard::addDrawable(osg::Drawable * gset, const osg::Vec3f & pos)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Drawable* gset=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
@@ -991,8 +947,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::addDrawable(osg::Drawable *, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::addDrawable(osg::Drawable *, const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->addDrawable(gset, pos);
 		lua_pushboolean(L,lret?1:0);
@@ -1012,16 +967,14 @@ public:
 	// bool osg::Billboard::removeDrawable(osg::Drawable * gset)
 	static int _bind_removeDrawable(lua_State *L) {
 		if (!_lg_typecheck_removeDrawable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Billboard::removeDrawable(osg::Drawable * gset) function, expected prototype:\nbool osg::Billboard::removeDrawable(osg::Drawable * gset)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Billboard::removeDrawable(osg::Drawable * gset) function, expected prototype:\nbool osg::Billboard::removeDrawable(osg::Drawable * gset)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Drawable* gset=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::removeDrawable(osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::removeDrawable(osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->removeDrawable(gset);
 		lua_pushboolean(L,lret?1:0);
@@ -1032,8 +985,7 @@ public:
 	// bool osg::Billboard::computeMatrix(osg::Matrixd & modelview, const osg::Vec3f & eye_local, const osg::Vec3f & pos_local) const
 	static int _bind_computeMatrix(lua_State *L) {
 		if (!_lg_typecheck_computeMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Billboard::computeMatrix(osg::Matrixd & modelview, const osg::Vec3f & eye_local, const osg::Vec3f & pos_local) const function, expected prototype:\nbool osg::Billboard::computeMatrix(osg::Matrixd & modelview, const osg::Vec3f & eye_local, const osg::Vec3f & pos_local) const\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 92303204\narg 3 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Billboard::computeMatrix(osg::Matrixd & modelview, const osg::Vec3f & eye_local, const osg::Vec3f & pos_local) const function, expected prototype:\nbool osg::Billboard::computeMatrix(osg::Matrixd & modelview, const osg::Vec3f & eye_local, const osg::Vec3f & pos_local) const\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 92303204\narg 3 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Matrixd* modelview_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -1054,8 +1006,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::computeMatrix(osg::Matrixd &, const osg::Vec3f &, const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::computeMatrix(osg::Matrixd &, const osg::Vec3f &, const osg::Vec3f &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->computeMatrix(modelview, eye_local, pos_local);
 		lua_pushboolean(L,lret?1:0);
@@ -1066,15 +1017,13 @@ public:
 	// osg::BoundingSphered osg::Billboard::computeBound() const
 	static int _bind_computeBound(lua_State *L) {
 		if (!_lg_typecheck_computeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::Billboard::computeBound() const function, expected prototype:\nosg::BoundingSphered osg::Billboard::computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::Billboard::computeBound() const function, expected prototype:\nosg::BoundingSphered osg::Billboard::computeBound() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Billboard::computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Billboard::computeBound() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::BoundingSphered stack_lret = self->computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -1088,16 +1037,14 @@ public:
 	// void osg::Billboard::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_setName(const std::string & name) function, expected prototype:\nvoid osg::Billboard::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_setName(const std::string & name) function, expected prototype:\nvoid osg::Billboard::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Billboard::setName(name);
 
@@ -1107,15 +1054,13 @@ public:
 	// void osg::Billboard::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_computeDataVariance() function, expected prototype:\nvoid osg::Billboard::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_computeDataVariance() function, expected prototype:\nvoid osg::Billboard::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Billboard::computeDataVariance();
 
@@ -1125,16 +1070,14 @@ public:
 	// void osg::Billboard::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::Billboard::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::Billboard::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Billboard::setUserData(obj);
 
@@ -1144,15 +1087,13 @@ public:
 	// osg::Referenced * osg::Billboard::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::Billboard::base_getUserData() function, expected prototype:\nosg::Referenced * osg::Billboard::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::Billboard::base_getUserData() function, expected prototype:\nosg::Referenced * osg::Billboard::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Billboard::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Billboard::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->Billboard::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1165,15 +1106,13 @@ public:
 	// const osg::Referenced * osg::Billboard::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::Billboard::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::Billboard::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::Billboard::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::Billboard::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Billboard::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Billboard::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->Billboard::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1195,15 +1134,13 @@ public:
 	// osg::Group * osg::Billboard::base_asGroup()
 	static int _bind_base_asGroup_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asGroup_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Group * osg::Billboard::base_asGroup() function, expected prototype:\nosg::Group * osg::Billboard::base_asGroup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Group * osg::Billboard::base_asGroup() function, expected prototype:\nosg::Group * osg::Billboard::base_asGroup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Group * osg::Billboard::base_asGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Group * osg::Billboard::base_asGroup(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Group * lret = self->Billboard::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1216,15 +1153,13 @@ public:
 	// const osg::Group * osg::Billboard::base_asGroup() const
 	static int _bind_base_asGroup_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asGroup_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Group * osg::Billboard::base_asGroup() const function, expected prototype:\nconst osg::Group * osg::Billboard::base_asGroup() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Group * osg::Billboard::base_asGroup() const function, expected prototype:\nconst osg::Group * osg::Billboard::base_asGroup() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Group * osg::Billboard::base_asGroup() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Group * osg::Billboard::base_asGroup() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Group * lret = self->Billboard::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1246,15 +1181,13 @@ public:
 	// osg::Transform * osg::Billboard::base_asTransform()
 	static int _bind_base_asTransform_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asTransform_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Transform * osg::Billboard::base_asTransform() function, expected prototype:\nosg::Transform * osg::Billboard::base_asTransform()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Transform * osg::Billboard::base_asTransform() function, expected prototype:\nosg::Transform * osg::Billboard::base_asTransform()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * osg::Billboard::base_asTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Transform * osg::Billboard::base_asTransform(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Transform * lret = self->Billboard::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1267,15 +1200,13 @@ public:
 	// const osg::Transform * osg::Billboard::base_asTransform() const
 	static int _bind_base_asTransform_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asTransform_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Transform * osg::Billboard::base_asTransform() const function, expected prototype:\nconst osg::Transform * osg::Billboard::base_asTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Transform * osg::Billboard::base_asTransform() const function, expected prototype:\nconst osg::Transform * osg::Billboard::base_asTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * osg::Billboard::base_asTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Transform * osg::Billboard::base_asTransform() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Transform * lret = self->Billboard::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1297,15 +1228,13 @@ public:
 	// osg::Camera * osg::Billboard::base_asCamera()
 	static int _bind_base_asCamera_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asCamera_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Camera * osg::Billboard::base_asCamera() function, expected prototype:\nosg::Camera * osg::Billboard::base_asCamera()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Camera * osg::Billboard::base_asCamera() function, expected prototype:\nosg::Camera * osg::Billboard::base_asCamera()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera * osg::Billboard::base_asCamera(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Camera * osg::Billboard::base_asCamera(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Camera * lret = self->Billboard::asCamera();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1318,15 +1247,13 @@ public:
 	// const osg::Camera * osg::Billboard::base_asCamera() const
 	static int _bind_base_asCamera_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asCamera_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Camera * osg::Billboard::base_asCamera() const function, expected prototype:\nconst osg::Camera * osg::Billboard::base_asCamera() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Camera * osg::Billboard::base_asCamera() const function, expected prototype:\nconst osg::Camera * osg::Billboard::base_asCamera() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Camera * osg::Billboard::base_asCamera() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Camera * osg::Billboard::base_asCamera() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Camera * lret = self->Billboard::asCamera();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1348,15 +1275,13 @@ public:
 	// osg::Switch * osg::Billboard::base_asSwitch()
 	static int _bind_base_asSwitch_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asSwitch_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Switch * osg::Billboard::base_asSwitch() function, expected prototype:\nosg::Switch * osg::Billboard::base_asSwitch()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Switch * osg::Billboard::base_asSwitch() function, expected prototype:\nosg::Switch * osg::Billboard::base_asSwitch()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osg::Billboard::base_asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Switch * osg::Billboard::base_asSwitch(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Switch * lret = self->Billboard::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1369,15 +1294,13 @@ public:
 	// const osg::Switch * osg::Billboard::base_asSwitch() const
 	static int _bind_base_asSwitch_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asSwitch_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Switch * osg::Billboard::base_asSwitch() const function, expected prototype:\nconst osg::Switch * osg::Billboard::base_asSwitch() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Switch * osg::Billboard::base_asSwitch() const function, expected prototype:\nconst osg::Switch * osg::Billboard::base_asSwitch() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osg::Billboard::base_asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Switch * osg::Billboard::base_asSwitch() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Switch * lret = self->Billboard::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1399,8 +1322,7 @@ public:
 	// void osg::Billboard::base_ascend(osg::NodeVisitor & nv)
 	static int _bind_base_ascend(lua_State *L) {
 		if (!_lg_typecheck_base_ascend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_ascend(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::Billboard::base_ascend(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_ascend(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::Billboard::base_ascend(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1411,8 +1333,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::base_ascend(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_ascend(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Billboard::ascend(nv);
 
@@ -1422,8 +1343,7 @@ public:
 	// void osg::Billboard::base_traverse(osg::NodeVisitor & arg1)
 	static int _bind_base_traverse(lua_State *L) {
 		if (!_lg_typecheck_base_traverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_traverse(osg::NodeVisitor & arg1) function, expected prototype:\nvoid osg::Billboard::base_traverse(osg::NodeVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_traverse(osg::NodeVisitor & arg1) function, expected prototype:\nvoid osg::Billboard::base_traverse(osg::NodeVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1434,8 +1354,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::base_traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_traverse(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Billboard::traverse(_arg1);
 
@@ -1445,15 +1364,13 @@ public:
 	// osg::Geode * osg::Billboard::base_asGeode()
 	static int _bind_base_asGeode_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asGeode_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geode * osg::Billboard::base_asGeode() function, expected prototype:\nosg::Geode * osg::Billboard::base_asGeode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Geode * osg::Billboard::base_asGeode() function, expected prototype:\nosg::Geode * osg::Billboard::base_asGeode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osg::Billboard::base_asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Geode * osg::Billboard::base_asGeode(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Geode * lret = self->Billboard::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1466,15 +1383,13 @@ public:
 	// const osg::Geode * osg::Billboard::base_asGeode() const
 	static int _bind_base_asGeode_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asGeode_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Geode * osg::Billboard::base_asGeode() const function, expected prototype:\nconst osg::Geode * osg::Billboard::base_asGeode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Geode * osg::Billboard::base_asGeode() const function, expected prototype:\nconst osg::Geode * osg::Billboard::base_asGeode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osg::Billboard::base_asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Geode * osg::Billboard::base_asGeode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Geode * lret = self->Billboard::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1496,8 +1411,7 @@ public:
 	// bool osg::Billboard::base_removeDrawables(unsigned int i, unsigned int numDrawablesToRemove = 1)
 	static int _bind_base_removeDrawables(lua_State *L) {
 		if (!_lg_typecheck_base_removeDrawables(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Billboard::base_removeDrawables(unsigned int i, unsigned int numDrawablesToRemove = 1) function, expected prototype:\nbool osg::Billboard::base_removeDrawables(unsigned int i, unsigned int numDrawablesToRemove = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Billboard::base_removeDrawables(unsigned int i, unsigned int numDrawablesToRemove = 1) function, expected prototype:\nbool osg::Billboard::base_removeDrawables(unsigned int i, unsigned int numDrawablesToRemove = 1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1507,8 +1421,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_removeDrawables(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_removeDrawables(unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Billboard::removeDrawables(i, numDrawablesToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -1519,8 +1432,7 @@ public:
 	// bool osg::Billboard::base_replaceDrawable(osg::Drawable * origDraw, osg::Drawable * newDraw)
 	static int _bind_base_replaceDrawable(lua_State *L) {
 		if (!_lg_typecheck_base_replaceDrawable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Billboard::base_replaceDrawable(osg::Drawable * origDraw, osg::Drawable * newDraw) function, expected prototype:\nbool osg::Billboard::base_replaceDrawable(osg::Drawable * origDraw, osg::Drawable * newDraw)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Billboard::base_replaceDrawable(osg::Drawable * origDraw, osg::Drawable * newDraw) function, expected prototype:\nbool osg::Billboard::base_replaceDrawable(osg::Drawable * origDraw, osg::Drawable * newDraw)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Drawable* origDraw=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
@@ -1528,8 +1440,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_replaceDrawable(osg::Drawable *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_replaceDrawable(osg::Drawable *, osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Billboard::replaceDrawable(origDraw, newDraw);
 		lua_pushboolean(L,lret?1:0);
@@ -1540,8 +1451,7 @@ public:
 	// bool osg::Billboard::base_setDrawable(unsigned int i, osg::Drawable * drawable)
 	static int _bind_base_setDrawable(lua_State *L) {
 		if (!_lg_typecheck_base_setDrawable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Billboard::base_setDrawable(unsigned int i, osg::Drawable * drawable) function, expected prototype:\nbool osg::Billboard::base_setDrawable(unsigned int i, osg::Drawable * drawable)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Billboard::base_setDrawable(unsigned int i, osg::Drawable * drawable) function, expected prototype:\nbool osg::Billboard::base_setDrawable(unsigned int i, osg::Drawable * drawable)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
@@ -1549,8 +1459,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_setDrawable(unsigned int, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_setDrawable(unsigned int, osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Billboard::setDrawable(i, drawable);
 		lua_pushboolean(L,lret?1:0);
@@ -1561,16 +1470,14 @@ public:
 	// void osg::Billboard::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Billboard::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Billboard::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Billboard::setThreadSafeRefUnref(threadSafe);
 
@@ -1580,8 +1487,7 @@ public:
 	// void osg::Billboard::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::Billboard::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::Billboard::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1590,8 +1496,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Billboard::releaseGLObjects(_arg1);
 
@@ -1601,15 +1506,13 @@ public:
 	// osg::Object * osg::Billboard::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Billboard::base_cloneType() const function, expected prototype:\nosg::Object * osg::Billboard::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Billboard::base_cloneType() const function, expected prototype:\nosg::Object * osg::Billboard::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->Billboard::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1622,8 +1525,7 @@ public:
 	// osg::Object * osg::Billboard::base_clone(const osg::CopyOp & copyop) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Billboard::base_clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::Billboard::base_clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Billboard::base_clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::Billboard::base_clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1634,8 +1536,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->Billboard::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1648,16 +1549,14 @@ public:
 	// bool osg::Billboard::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Billboard::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Billboard::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Billboard::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Billboard::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Billboard::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1668,15 +1567,13 @@ public:
 	// const char * osg::Billboard::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Billboard::base_className() const function, expected prototype:\nconst char * osg::Billboard::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Billboard::base_className() const function, expected prototype:\nconst char * osg::Billboard::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Billboard::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Billboard::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Billboard::className();
 		lua_pushstring(L,lret);
@@ -1687,15 +1584,13 @@ public:
 	// const char * osg::Billboard::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Billboard::base_libraryName() const function, expected prototype:\nconst char * osg::Billboard::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Billboard::base_libraryName() const function, expected prototype:\nconst char * osg::Billboard::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Billboard::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Billboard::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Billboard::libraryName();
 		lua_pushstring(L,lret);
@@ -1706,8 +1601,7 @@ public:
 	// void osg::Billboard::base_accept(osg::NodeVisitor & nv)
 	static int _bind_base_accept(lua_State *L) {
 		if (!_lg_typecheck_base_accept(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::Billboard::base_accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::Billboard::base_accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1718,8 +1612,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::base_accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_accept(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Billboard::accept(nv);
 
@@ -1729,16 +1622,14 @@ public:
 	// bool osg::Billboard::base_addDrawable(osg::Drawable * gset)
 	static int _bind_base_addDrawable_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_addDrawable_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Billboard::base_addDrawable(osg::Drawable * gset) function, expected prototype:\nbool osg::Billboard::base_addDrawable(osg::Drawable * gset)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Billboard::base_addDrawable(osg::Drawable * gset) function, expected prototype:\nbool osg::Billboard::base_addDrawable(osg::Drawable * gset)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Drawable* gset=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_addDrawable(osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_addDrawable(osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Billboard::addDrawable(gset);
 		lua_pushboolean(L,lret?1:0);
@@ -1749,8 +1640,7 @@ public:
 	// bool osg::Billboard::base_addDrawable(osg::Drawable * gset, const osg::Vec3f & pos)
 	static int _bind_base_addDrawable_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_addDrawable_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Billboard::base_addDrawable(osg::Drawable * gset, const osg::Vec3f & pos) function, expected prototype:\nbool osg::Billboard::base_addDrawable(osg::Drawable * gset, const osg::Vec3f & pos)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Billboard::base_addDrawable(osg::Drawable * gset, const osg::Vec3f & pos) function, expected prototype:\nbool osg::Billboard::base_addDrawable(osg::Drawable * gset, const osg::Vec3f & pos)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Drawable* gset=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
@@ -1762,8 +1652,7 @@ public:
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_addDrawable(osg::Drawable *, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_addDrawable(osg::Drawable *, const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Billboard::addDrawable(gset, pos);
 		lua_pushboolean(L,lret?1:0);
@@ -1783,16 +1672,14 @@ public:
 	// bool osg::Billboard::base_removeDrawable(osg::Drawable * gset)
 	static int _bind_base_removeDrawable(lua_State *L) {
 		if (!_lg_typecheck_base_removeDrawable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Billboard::base_removeDrawable(osg::Drawable * gset) function, expected prototype:\nbool osg::Billboard::base_removeDrawable(osg::Drawable * gset)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Billboard::base_removeDrawable(osg::Drawable * gset) function, expected prototype:\nbool osg::Billboard::base_removeDrawable(osg::Drawable * gset)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Drawable* gset=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_removeDrawable(osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_removeDrawable(osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Billboard::removeDrawable(gset);
 		lua_pushboolean(L,lret?1:0);
@@ -1803,15 +1690,13 @@ public:
 	// osg::BoundingSphered osg::Billboard::base_computeBound() const
 	static int _bind_base_computeBound(lua_State *L) {
 		if (!_lg_typecheck_base_computeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::Billboard::base_computeBound() const function, expected prototype:\nosg::BoundingSphered osg::Billboard::base_computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::Billboard::base_computeBound() const function, expected prototype:\nosg::BoundingSphered osg::Billboard::base_computeBound() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Billboard::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Billboard::base_computeBound() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::BoundingSphered stack_lret = self->Billboard::computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);

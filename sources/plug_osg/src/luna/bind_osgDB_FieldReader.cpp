@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::FieldReader* self=(Luna< osgDB::FieldReader >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::FieldReader*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::FieldReader*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::FieldReader* rhs =(Luna< osgDB::FieldReader >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::FieldReader* self= (osgDB::FieldReader*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgDB::FieldReader >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -217,8 +212,7 @@ public:
 	// osgDB::FieldReader::FieldReader()
 	static osgDB::FieldReader* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::FieldReader::FieldReader() function, expected prototype:\nosgDB::FieldReader::FieldReader()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::FieldReader::FieldReader() function, expected prototype:\nosgDB::FieldReader::FieldReader()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -228,8 +222,7 @@ public:
 	// osgDB::FieldReader::FieldReader(const osgDB::FieldReader & ic)
 	static osgDB::FieldReader* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::FieldReader::FieldReader(const osgDB::FieldReader & ic) function, expected prototype:\nosgDB::FieldReader::FieldReader(const osgDB::FieldReader & ic)\nClass arguments details:\narg 1 ID = 53806078\n");
+			luaL_error(L, "luna typecheck failed in osgDB::FieldReader::FieldReader(const osgDB::FieldReader & ic) function, expected prototype:\nosgDB::FieldReader::FieldReader(const osgDB::FieldReader & ic)\nClass arguments details:\narg 1 ID = 53806078\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgDB::FieldReader* ic_ptr=(Luna< osgDB::FieldReader >::check(L,1));
@@ -244,8 +237,7 @@ public:
 	// osgDB::FieldReader::FieldReader(lua_Table * data)
 	static osgDB::FieldReader* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::FieldReader::FieldReader(lua_Table * data) function, expected prototype:\nosgDB::FieldReader::FieldReader(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::FieldReader::FieldReader(lua_Table * data) function, expected prototype:\nosgDB::FieldReader::FieldReader(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -255,8 +247,7 @@ public:
 	// osgDB::FieldReader::FieldReader(lua_Table * data, const osgDB::FieldReader & ic)
 	static osgDB::FieldReader* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::FieldReader::FieldReader(lua_Table * data, const osgDB::FieldReader & ic) function, expected prototype:\nosgDB::FieldReader::FieldReader(lua_Table * data, const osgDB::FieldReader & ic)\nClass arguments details:\narg 2 ID = 53806078\n");
+			luaL_error(L, "luna typecheck failed in osgDB::FieldReader::FieldReader(lua_Table * data, const osgDB::FieldReader & ic) function, expected prototype:\nosgDB::FieldReader::FieldReader(lua_Table * data, const osgDB::FieldReader & ic)\nClass arguments details:\narg 2 ID = 53806078\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgDB::FieldReader* ic_ptr=(Luna< osgDB::FieldReader >::check(L,2));
@@ -284,16 +275,14 @@ public:
 	// void osgDB::FieldReader::attach(std::istream * input)
 	static int _bind_attach(lua_State *L) {
 		if (!_lg_typecheck_attach(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::FieldReader::attach(std::istream * input) function, expected prototype:\nvoid osgDB::FieldReader::attach(std::istream * input)\nClass arguments details:\narg 1 ID = 77972206\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::FieldReader::attach(std::istream * input) function, expected prototype:\nvoid osgDB::FieldReader::attach(std::istream * input)\nClass arguments details:\narg 1 ID = 77972206\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::istream* input=(Luna< std::istream >::check(L,2));
 
 		osgDB::FieldReader* self=(Luna< osgDB::FieldReader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::FieldReader::attach(std::istream *). Got : '%s'",typeid(Luna< osgDB::FieldReader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::FieldReader::attach(std::istream *). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->attach(input);
 
@@ -303,15 +292,13 @@ public:
 	// void osgDB::FieldReader::detach()
 	static int _bind_detach(lua_State *L) {
 		if (!_lg_typecheck_detach(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::FieldReader::detach() function, expected prototype:\nvoid osgDB::FieldReader::detach()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::FieldReader::detach() function, expected prototype:\nvoid osgDB::FieldReader::detach()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::FieldReader* self=(Luna< osgDB::FieldReader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::FieldReader::detach(). Got : '%s'",typeid(Luna< osgDB::FieldReader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::FieldReader::detach(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->detach();
 
@@ -321,15 +308,13 @@ public:
 	// bool osgDB::FieldReader::eof() const
 	static int _bind_eof(lua_State *L) {
 		if (!_lg_typecheck_eof(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::FieldReader::eof() const function, expected prototype:\nbool osgDB::FieldReader::eof() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::FieldReader::eof() const function, expected prototype:\nbool osgDB::FieldReader::eof() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::FieldReader* self=(Luna< osgDB::FieldReader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReader::eof() const. Got : '%s'",typeid(Luna< osgDB::FieldReader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReader::eof() const. Got : '%s'\n%s",typeid(Luna< osgDB::FieldReader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->eof();
 		lua_pushboolean(L,lret?1:0);
@@ -340,8 +325,7 @@ public:
 	// bool osgDB::FieldReader::readField(osgDB::Field & fieldPtr)
 	static int _bind_readField(lua_State *L) {
 		if (!_lg_typecheck_readField(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::FieldReader::readField(osgDB::Field & fieldPtr) function, expected prototype:\nbool osgDB::FieldReader::readField(osgDB::Field & fieldPtr)\nClass arguments details:\narg 1 ID = 7546407\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::FieldReader::readField(osgDB::Field & fieldPtr) function, expected prototype:\nbool osgDB::FieldReader::readField(osgDB::Field & fieldPtr)\nClass arguments details:\narg 1 ID = 7546407\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::Field* fieldPtr_ptr=(Luna< osgDB::Field >::check(L,2));
@@ -352,8 +336,7 @@ public:
 
 		osgDB::FieldReader* self=(Luna< osgDB::FieldReader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReader::readField(osgDB::Field &). Got : '%s'",typeid(Luna< osgDB::FieldReader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReader::readField(osgDB::Field &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->readField(fieldPtr);
 		lua_pushboolean(L,lret?1:0);
@@ -364,15 +347,13 @@ public:
 	// void osgDB::FieldReader::ignoreField()
 	static int _bind_ignoreField(lua_State *L) {
 		if (!_lg_typecheck_ignoreField(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::FieldReader::ignoreField() function, expected prototype:\nvoid osgDB::FieldReader::ignoreField()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::FieldReader::ignoreField() function, expected prototype:\nvoid osgDB::FieldReader::ignoreField()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::FieldReader* self=(Luna< osgDB::FieldReader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::FieldReader::ignoreField(). Got : '%s'",typeid(Luna< osgDB::FieldReader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::FieldReader::ignoreField(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ignoreField();
 
@@ -382,15 +363,13 @@ public:
 	// int osgDB::FieldReader::getNoNestedBrackets() const
 	static int _bind_getNoNestedBrackets(lua_State *L) {
 		if (!_lg_typecheck_getNoNestedBrackets(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgDB::FieldReader::getNoNestedBrackets() const function, expected prototype:\nint osgDB::FieldReader::getNoNestedBrackets() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgDB::FieldReader::getNoNestedBrackets() const function, expected prototype:\nint osgDB::FieldReader::getNoNestedBrackets() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::FieldReader* self=(Luna< osgDB::FieldReader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgDB::FieldReader::getNoNestedBrackets() const. Got : '%s'",typeid(Luna< osgDB::FieldReader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgDB::FieldReader::getNoNestedBrackets() const. Got : '%s'\n%s",typeid(Luna< osgDB::FieldReader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNoNestedBrackets();
 		lua_pushnumber(L,lret);
@@ -401,15 +380,13 @@ public:
 	// bool osgDB::FieldReader::base_eof() const
 	static int _bind_base_eof(lua_State *L) {
 		if (!_lg_typecheck_base_eof(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::FieldReader::base_eof() const function, expected prototype:\nbool osgDB::FieldReader::base_eof() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::FieldReader::base_eof() const function, expected prototype:\nbool osgDB::FieldReader::base_eof() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::FieldReader* self=(Luna< osgDB::FieldReader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReader::base_eof() const. Got : '%s'",typeid(Luna< osgDB::FieldReader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReader::base_eof() const. Got : '%s'\n%s",typeid(Luna< osgDB::FieldReader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->FieldReader::eof();
 		lua_pushboolean(L,lret?1:0);
@@ -422,8 +399,7 @@ public:
 	// osgDB::FieldReader & osgDB::FieldReader::operator=(const osgDB::FieldReader & ic)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::FieldReader & osgDB::FieldReader::operator=(const osgDB::FieldReader & ic) function, expected prototype:\nosgDB::FieldReader & osgDB::FieldReader::operator=(const osgDB::FieldReader & ic)\nClass arguments details:\narg 1 ID = 53806078\n");
+			luaL_error(L, "luna typecheck failed in osgDB::FieldReader & osgDB::FieldReader::operator=(const osgDB::FieldReader & ic) function, expected prototype:\nosgDB::FieldReader & osgDB::FieldReader::operator=(const osgDB::FieldReader & ic)\nClass arguments details:\narg 1 ID = 53806078\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgDB::FieldReader* ic_ptr=(Luna< osgDB::FieldReader >::check(L,2));
@@ -434,8 +410,7 @@ public:
 
 		osgDB::FieldReader* self=(Luna< osgDB::FieldReader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::FieldReader & osgDB::FieldReader::operator=(const osgDB::FieldReader &). Got : '%s'",typeid(Luna< osgDB::FieldReader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::FieldReader & osgDB::FieldReader::operator=(const osgDB::FieldReader &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgDB::FieldReader* lret = &self->operator=(ic);
 		if(!lret) return 0; // Do not write NULL pointers.

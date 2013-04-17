@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::ImageSequence::ImageData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::ImageSequence::ImageData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ImageSequence::ImageData* rhs =(Luna< osg::ImageSequence::ImageData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ImageSequence::ImageData* self= (osg::ImageSequence::ImageData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::ImageSequence::ImageData >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -170,8 +166,7 @@ public:
 	// osg::ImageSequence::ImageData::ImageData()
 	static osg::ImageSequence::ImageData* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ImageSequence::ImageData::ImageData() function, expected prototype:\nosg::ImageSequence::ImageData::ImageData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ImageSequence::ImageData::ImageData() function, expected prototype:\nosg::ImageSequence::ImageData::ImageData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -181,8 +176,7 @@ public:
 	// osg::ImageSequence::ImageData::ImageData(const osg::ImageSequence::ImageData & id)
 	static osg::ImageSequence::ImageData* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ImageSequence::ImageData::ImageData(const osg::ImageSequence::ImageData & id) function, expected prototype:\nosg::ImageSequence::ImageData::ImageData(const osg::ImageSequence::ImageData & id)\nClass arguments details:\narg 1 ID = 90366507\n");
+			luaL_error(L, "luna typecheck failed in osg::ImageSequence::ImageData::ImageData(const osg::ImageSequence::ImageData & id) function, expected prototype:\nosg::ImageSequence::ImageData::ImageData(const osg::ImageSequence::ImageData & id)\nClass arguments details:\narg 1 ID = 90366507\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::ImageSequence::ImageData* id_ptr=(Luna< osg::ImageSequence::ImageData >::check(L,1));
@@ -208,15 +202,13 @@ public:
 	// std::string osg::ImageSequence::ImageData::_filename()
 	static int _bind_getFilename(lua_State *L) {
 		if (!_lg_typecheck_getFilename(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string osg::ImageSequence::ImageData::_filename() function, expected prototype:\nstd::string osg::ImageSequence::ImageData::_filename()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string osg::ImageSequence::ImageData::_filename() function, expected prototype:\nstd::string osg::ImageSequence::ImageData::_filename()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageSequence::ImageData* self=(Luna< osg::ImageSequence::ImageData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osg::ImageSequence::ImageData::_filename(). Got : '%s'",typeid(Luna< osg::ImageSequence::ImageData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string osg::ImageSequence::ImageData::_filename(). Got : '%s'\n%s",typeid(Luna< osg::ImageSequence::ImageData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->_filename;
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -227,15 +219,13 @@ public:
 	// osg::ref_ptr< osg::Image > osg::ImageSequence::ImageData::_image()
 	static int _bind_getImage(lua_State *L) {
 		if (!_lg_typecheck_getImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Image > osg::ImageSequence::ImageData::_image() function, expected prototype:\nosg::ref_ptr< osg::Image > osg::ImageSequence::ImageData::_image()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Image > osg::ImageSequence::ImageData::_image() function, expected prototype:\nosg::ref_ptr< osg::Image > osg::ImageSequence::ImageData::_image()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageSequence::ImageData* self=(Luna< osg::ImageSequence::ImageData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Image > osg::ImageSequence::ImageData::_image(). Got : '%s'",typeid(Luna< osg::ImageSequence::ImageData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Image > osg::ImageSequence::ImageData::_image(). Got : '%s'\n%s",typeid(Luna< osg::ImageSequence::ImageData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::ref_ptr< osg::Image > lret = self->_image;
 		Luna< osg::Image >::push(L,lret.get(),false);
@@ -246,15 +236,13 @@ public:
 	// osg::ref_ptr< osg::Referenced > osg::ImageSequence::ImageData::_imageRequest()
 	static int _bind_getImageRequest(lua_State *L) {
 		if (!_lg_typecheck_getImageRequest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Referenced > osg::ImageSequence::ImageData::_imageRequest() function, expected prototype:\nosg::ref_ptr< osg::Referenced > osg::ImageSequence::ImageData::_imageRequest()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Referenced > osg::ImageSequence::ImageData::_imageRequest() function, expected prototype:\nosg::ref_ptr< osg::Referenced > osg::ImageSequence::ImageData::_imageRequest()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageSequence::ImageData* self=(Luna< osg::ImageSequence::ImageData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Referenced > osg::ImageSequence::ImageData::_imageRequest(). Got : '%s'",typeid(Luna< osg::ImageSequence::ImageData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Referenced > osg::ImageSequence::ImageData::_imageRequest(). Got : '%s'\n%s",typeid(Luna< osg::ImageSequence::ImageData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::ref_ptr< osg::Referenced > lret = self->_imageRequest;
 		Luna< osg::Referenced >::push(L,lret.get(),false);
@@ -265,16 +253,14 @@ public:
 	// void osg::ImageSequence::ImageData::_filename(std::string value)
 	static int _bind_setFilename(lua_State *L) {
 		if (!_lg_typecheck_setFilename(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageSequence::ImageData::_filename(std::string value) function, expected prototype:\nvoid osg::ImageSequence::ImageData::_filename(std::string value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageSequence::ImageData::_filename(std::string value) function, expected prototype:\nvoid osg::ImageSequence::ImageData::_filename(std::string value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::ImageSequence::ImageData* self=(Luna< osg::ImageSequence::ImageData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageSequence::ImageData::_filename(std::string). Got : '%s'",typeid(Luna< osg::ImageSequence::ImageData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageSequence::ImageData::_filename(std::string). Got : '%s'\n%s",typeid(Luna< osg::ImageSequence::ImageData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_filename = value;
 
@@ -284,16 +270,14 @@ public:
 	// void osg::ImageSequence::ImageData::_image(osg::ref_ptr< osg::Image > value)
 	static int _bind_setImage(lua_State *L) {
 		if (!_lg_typecheck_setImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageSequence::ImageData::_image(osg::ref_ptr< osg::Image > value) function, expected prototype:\nvoid osg::ImageSequence::ImageData::_image(osg::ref_ptr< osg::Image > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageSequence::ImageData::_image(osg::ref_ptr< osg::Image > value) function, expected prototype:\nvoid osg::ImageSequence::ImageData::_image(osg::ref_ptr< osg::Image > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ref_ptr< osg::Image > value = dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2));
 
 		osg::ImageSequence::ImageData* self=(Luna< osg::ImageSequence::ImageData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageSequence::ImageData::_image(osg::ref_ptr< osg::Image >). Got : '%s'",typeid(Luna< osg::ImageSequence::ImageData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageSequence::ImageData::_image(osg::ref_ptr< osg::Image >). Got : '%s'\n%s",typeid(Luna< osg::ImageSequence::ImageData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_image = value;
 
@@ -303,16 +287,14 @@ public:
 	// void osg::ImageSequence::ImageData::_imageRequest(osg::ref_ptr< osg::Referenced > value)
 	static int _bind_setImageRequest(lua_State *L) {
 		if (!_lg_typecheck_setImageRequest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageSequence::ImageData::_imageRequest(osg::ref_ptr< osg::Referenced > value) function, expected prototype:\nvoid osg::ImageSequence::ImageData::_imageRequest(osg::ref_ptr< osg::Referenced > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageSequence::ImageData::_imageRequest(osg::ref_ptr< osg::Referenced > value) function, expected prototype:\nvoid osg::ImageSequence::ImageData::_imageRequest(osg::ref_ptr< osg::Referenced > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ref_ptr< osg::Referenced > value = dynamic_cast< osg::Referenced* >(Luna< osg::Referenced >::check(L,2));
 
 		osg::ImageSequence::ImageData* self=(Luna< osg::ImageSequence::ImageData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageSequence::ImageData::_imageRequest(osg::ref_ptr< osg::Referenced >). Got : '%s'",typeid(Luna< osg::ImageSequence::ImageData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageSequence::ImageData::_imageRequest(osg::ref_ptr< osg::Referenced >). Got : '%s'\n%s",typeid(Luna< osg::ImageSequence::ImageData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_imageRequest = value;
 
@@ -324,8 +306,7 @@ public:
 	// osg::ImageSequence::ImageData & osg::ImageSequence::ImageData::operator=(const osg::ImageSequence::ImageData & id)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ImageSequence::ImageData & osg::ImageSequence::ImageData::operator=(const osg::ImageSequence::ImageData & id) function, expected prototype:\nosg::ImageSequence::ImageData & osg::ImageSequence::ImageData::operator=(const osg::ImageSequence::ImageData & id)\nClass arguments details:\narg 1 ID = 90366507\n");
+			luaL_error(L, "luna typecheck failed in osg::ImageSequence::ImageData & osg::ImageSequence::ImageData::operator=(const osg::ImageSequence::ImageData & id) function, expected prototype:\nosg::ImageSequence::ImageData & osg::ImageSequence::ImageData::operator=(const osg::ImageSequence::ImageData & id)\nClass arguments details:\narg 1 ID = 90366507\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::ImageSequence::ImageData* id_ptr=(Luna< osg::ImageSequence::ImageData >::check(L,2));
@@ -336,8 +317,7 @@ public:
 
 		osg::ImageSequence::ImageData* self=(Luna< osg::ImageSequence::ImageData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ImageSequence::ImageData & osg::ImageSequence::ImageData::operator=(const osg::ImageSequence::ImageData &). Got : '%s'",typeid(Luna< osg::ImageSequence::ImageData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ImageSequence::ImageData & osg::ImageSequence::ImageData::operator=(const osg::ImageSequence::ImageData &). Got : '%s'\n%s",typeid(Luna< osg::ImageSequence::ImageData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ImageSequence::ImageData* lret = &self->operator=(id);
 		if(!lret) return 0; // Do not write NULL pointers.

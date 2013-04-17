@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::TrackballManipulator* self= (osgGA::TrackballManipulator*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -520,8 +517,7 @@ public:
 	// osgGA::TrackballManipulator::TrackballManipulator(int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS)
 	static osgGA::TrackballManipulator* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::TrackballManipulator::TrackballManipulator(int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) function, expected prototype:\nosgGA::TrackballManipulator::TrackballManipulator(int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::TrackballManipulator::TrackballManipulator(int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) function, expected prototype:\nosgGA::TrackballManipulator::TrackballManipulator(int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -534,8 +530,7 @@ public:
 	// osgGA::TrackballManipulator::TrackballManipulator(const osgGA::TrackballManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)
 	static osgGA::TrackballManipulator* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::TrackballManipulator::TrackballManipulator(const osgGA::TrackballManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgGA::TrackballManipulator::TrackballManipulator(const osgGA::TrackballManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgGA::TrackballManipulator::TrackballManipulator(const osgGA::TrackballManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgGA::TrackballManipulator::TrackballManipulator(const osgGA::TrackballManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -557,8 +552,7 @@ public:
 	// osgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS)
 	static osgGA::TrackballManipulator* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) function, expected prototype:\nosgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) function, expected prototype:\nosgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -571,8 +565,7 @@ public:
 	// osgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, const osgGA::TrackballManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)
 	static osgGA::TrackballManipulator* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, const osgGA::TrackballManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, const osgGA::TrackballManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, const osgGA::TrackballManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, const osgGA::TrackballManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -607,15 +600,13 @@ public:
 	// osg::Object * osgGA::TrackballManipulator::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::TrackballManipulator::cloneType() const function, expected prototype:\nosg::Object * osgGA::TrackballManipulator::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::TrackballManipulator::cloneType() const function, expected prototype:\nosg::Object * osgGA::TrackballManipulator::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::TrackballManipulator::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::TrackballManipulator::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -628,8 +619,7 @@ public:
 	// osg::Object * osgGA::TrackballManipulator::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::TrackballManipulator::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::TrackballManipulator::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::TrackballManipulator::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::TrackballManipulator::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -640,8 +630,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::TrackballManipulator::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::TrackballManipulator::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -654,16 +643,14 @@ public:
 	// bool osgGA::TrackballManipulator::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::TrackballManipulator::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgGA::TrackballManipulator::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::TrackballManipulator::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgGA::TrackballManipulator::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::TrackballManipulator::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::TrackballManipulator::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -674,15 +661,13 @@ public:
 	// const char * osgGA::TrackballManipulator::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgGA::TrackballManipulator::libraryName() const function, expected prototype:\nconst char * osgGA::TrackballManipulator::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgGA::TrackballManipulator::libraryName() const function, expected prototype:\nconst char * osgGA::TrackballManipulator::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::TrackballManipulator::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgGA::TrackballManipulator::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -693,15 +678,13 @@ public:
 	// const char * osgGA::TrackballManipulator::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgGA::TrackballManipulator::className() const function, expected prototype:\nconst char * osgGA::TrackballManipulator::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgGA::TrackballManipulator::className() const function, expected prototype:\nconst char * osgGA::TrackballManipulator::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::TrackballManipulator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgGA::TrackballManipulator::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -712,16 +695,14 @@ public:
 	// void osgGA::TrackballManipulator::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setThreadSafeRefUnref(threadSafe);
 
@@ -731,16 +712,14 @@ public:
 	// void osgGA::TrackballManipulator::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setName(const std::string & name) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setName(const std::string & name) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setName(name);
 
@@ -750,15 +729,13 @@ public:
 	// void osgGA::TrackballManipulator::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_computeDataVariance() function, expected prototype:\nvoid osgGA::TrackballManipulator::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_computeDataVariance() function, expected prototype:\nvoid osgGA::TrackballManipulator::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::computeDataVariance();
 
@@ -768,16 +745,14 @@ public:
 	// void osgGA::TrackballManipulator::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setUserData(obj);
 
@@ -787,15 +762,13 @@ public:
 	// osg::Referenced * osgGA::TrackballManipulator::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osgGA::TrackballManipulator::base_getUserData() function, expected prototype:\nosg::Referenced * osgGA::TrackballManipulator::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osgGA::TrackballManipulator::base_getUserData() function, expected prototype:\nosg::Referenced * osgGA::TrackballManipulator::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::TrackballManipulator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::TrackballManipulator::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->TrackballManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -808,15 +781,13 @@ public:
 	// const osg::Referenced * osgGA::TrackballManipulator::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgGA::TrackballManipulator::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgGA::TrackballManipulator::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgGA::TrackballManipulator::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgGA::TrackballManipulator::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::TrackballManipulator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::TrackballManipulator::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->TrackballManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -838,8 +809,7 @@ public:
 	// void osgGA::TrackballManipulator::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgGA::TrackballManipulator::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgGA::TrackballManipulator::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -848,8 +818,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::releaseGLObjects(_arg1);
 
@@ -859,8 +828,7 @@ public:
 	// void osgGA::TrackballManipulator::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable)
 	static int _bind_base_event(lua_State *L) {
 		if (!_lg_typecheck_base_event(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -868,8 +836,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::event(nv, drawable);
 
@@ -879,16 +846,14 @@ public:
 	// void osgGA::TrackballManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)
 	static int _bind_base_setCoordinateFrameCallback(lua_State *L) {
 		if (!_lg_typecheck_base_setCoordinateFrameCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::CameraManipulator::CoordinateFrameCallback* cb=(Luna< osg::Referenced >::checkSubType< osgGA::CameraManipulator::CoordinateFrameCallback >(L,2));
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setCoordinateFrameCallback(cb);
 
@@ -898,8 +863,7 @@ public:
 	// void osgGA::TrackballManipulator::base_updateCamera(osg::Camera & camera)
 	static int _bind_base_updateCamera(lua_State *L) {
 		if (!_lg_typecheck_base_updateCamera(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_updateCamera(osg::Camera & camera) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_updateCamera(osg::Camera & camera)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_updateCamera(osg::Camera & camera) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_updateCamera(osg::Camera & camera)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Camera* camera_ptr=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
@@ -910,8 +874,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_updateCamera(osg::Camera &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_updateCamera(osg::Camera &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::updateCamera(camera);
 
@@ -921,8 +884,7 @@ public:
 	// void osgGA::TrackballManipulator::base_setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)
 	static int _bind_base_setHomePosition(lua_State *L) {
 		if (!_lg_typecheck_base_setHomePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -946,8 +908,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
 
@@ -957,8 +918,7 @@ public:
 	// void osgGA::TrackballManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
 	static int _bind_base_getHomePosition(lua_State *L) {
 		if (!_lg_typecheck_base_getHomePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const function, expected prototype:\nvoid osgGA::TrackballManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const function, expected prototype:\nvoid osgGA::TrackballManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -979,8 +939,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::getHomePosition(eye, center, up);
 
@@ -990,16 +949,14 @@ public:
 	// void osgGA::TrackballManipulator::base_setAutoComputeHomePosition(bool flag)
 	static int _bind_base_setAutoComputeHomePosition(lua_State *L) {
 		if (!_lg_typecheck_base_setAutoComputeHomePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setAutoComputeHomePosition(bool flag) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setAutoComputeHomePosition(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setAutoComputeHomePosition(bool flag) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setAutoComputeHomePosition(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setAutoComputeHomePosition(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setAutoComputeHomePosition(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setAutoComputeHomePosition(flag);
 
@@ -1009,8 +966,7 @@ public:
 	// void osgGA::TrackballManipulator::base_computeHomePosition(const osg::Camera * camera = NULL, bool useBoundingBox = false)
 	static int _bind_base_computeHomePosition(lua_State *L) {
 		if (!_lg_typecheck_base_computeHomePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_computeHomePosition(const osg::Camera * camera = NULL, bool useBoundingBox = false) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_computeHomePosition(const osg::Camera * camera = NULL, bool useBoundingBox = false)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_computeHomePosition(const osg::Camera * camera = NULL, bool useBoundingBox = false) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_computeHomePosition(const osg::Camera * camera = NULL, bool useBoundingBox = false)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1020,8 +976,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_computeHomePosition(const osg::Camera *, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_computeHomePosition(const osg::Camera *, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::computeHomePosition(camera, useBoundingBox);
 
@@ -1031,16 +986,14 @@ public:
 	// void osgGA::TrackballManipulator::base_setNode(osg::Node * arg1)
 	static int _bind_base_setNode(lua_State *L) {
 		if (!_lg_typecheck_base_setNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setNode(osg::Node * arg1) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setNode(osg::Node * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setNode(osg::Node * arg1) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setNode(osg::Node * arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* _arg1=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setNode(osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setNode(_arg1);
 
@@ -1050,15 +1003,13 @@ public:
 	// const osg::Node * osgGA::TrackballManipulator::base_getNode() const
 	static int _bind_base_getNode_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getNode_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Node * osgGA::TrackballManipulator::base_getNode() const function, expected prototype:\nconst osg::Node * osgGA::TrackballManipulator::base_getNode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Node * osgGA::TrackballManipulator::base_getNode() const function, expected prototype:\nconst osg::Node * osgGA::TrackballManipulator::base_getNode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::TrackballManipulator::base_getNode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::TrackballManipulator::base_getNode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Node * lret = self->TrackballManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1071,15 +1022,13 @@ public:
 	// osg::Node * osgGA::TrackballManipulator::base_getNode()
 	static int _bind_base_getNode_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getNode_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Node * osgGA::TrackballManipulator::base_getNode() function, expected prototype:\nosg::Node * osgGA::TrackballManipulator::base_getNode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Node * osgGA::TrackballManipulator::base_getNode() function, expected prototype:\nosg::Node * osgGA::TrackballManipulator::base_getNode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgGA::TrackballManipulator::base_getNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Node * osgGA::TrackballManipulator::base_getNode(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Node * lret = self->TrackballManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1101,16 +1050,14 @@ public:
 	// void osgGA::TrackballManipulator::base_setVerticalAxisFixed(bool value)
 	static int _bind_base_setVerticalAxisFixed(lua_State *L) {
 		if (!_lg_typecheck_base_setVerticalAxisFixed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setVerticalAxisFixed(bool value) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setVerticalAxisFixed(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setVerticalAxisFixed(bool value) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setVerticalAxisFixed(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setVerticalAxisFixed(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setVerticalAxisFixed(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setVerticalAxisFixed(value);
 
@@ -1120,16 +1067,14 @@ public:
 	// void osgGA::TrackballManipulator::base_setAllowThrow(bool allowThrow)
 	static int _bind_base_setAllowThrow(lua_State *L) {
 		if (!_lg_typecheck_base_setAllowThrow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setAllowThrow(bool allowThrow) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setAllowThrow(bool allowThrow)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setAllowThrow(bool allowThrow) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setAllowThrow(bool allowThrow)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool allowThrow=(bool)(lua_toboolean(L,2)==1);
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setAllowThrow(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setAllowThrow(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setAllowThrow(allowThrow);
 
@@ -1139,16 +1084,14 @@ public:
 	// void osgGA::TrackballManipulator::base_setAnimationTime(const double t)
 	static int _bind_base_setAnimationTime(lua_State *L) {
 		if (!_lg_typecheck_base_setAnimationTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setAnimationTime(const double t) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setAnimationTime(const double t)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setAnimationTime(const double t) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setAnimationTime(const double t)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const double t=(const double)lua_tonumber(L,2);
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setAnimationTime(const double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setAnimationTime(const double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setAnimationTime(t);
 
@@ -1158,15 +1101,13 @@ public:
 	// void osgGA::TrackballManipulator::base_finishAnimation()
 	static int _bind_base_finishAnimation(lua_State *L) {
 		if (!_lg_typecheck_base_finishAnimation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_finishAnimation() function, expected prototype:\nvoid osgGA::TrackballManipulator::base_finishAnimation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_finishAnimation() function, expected prototype:\nvoid osgGA::TrackballManipulator::base_finishAnimation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_finishAnimation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_finishAnimation(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::finishAnimation();
 
@@ -1176,8 +1117,7 @@ public:
 	// void osgGA::TrackballManipulator::base_home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_base_home_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_home_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -1193,8 +1133,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::home(_arg1, _arg2);
 
@@ -1204,16 +1143,14 @@ public:
 	// void osgGA::TrackballManipulator::base_home(double arg1)
 	static int _bind_base_home_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_home_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_home(double arg1) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_home(double arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_home(double arg1) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_home(double arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_home(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_home(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::home(_arg1);
 
@@ -1232,8 +1169,7 @@ public:
 	// void osgGA::TrackballManipulator::base_init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_base_init(lua_State *L) {
 		if (!_lg_typecheck_base_init(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -1249,8 +1185,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::init(_arg1, _arg2);
 
@@ -1260,8 +1195,7 @@ public:
 	// bool osgGA::TrackballManipulator::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
 	static int _bind_base_handle(lua_State *L) {
 		if (!_lg_typecheck_base_handle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::TrackballManipulator::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) function, expected prototype:\nbool osgGA::TrackballManipulator::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::TrackballManipulator::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) function, expected prototype:\nbool osgGA::TrackballManipulator::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -1277,8 +1211,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::TrackballManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::TrackballManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->TrackballManipulator::handle(ea, us);
 		lua_pushboolean(L,lret?1:0);
@@ -1289,8 +1222,7 @@ public:
 	// void osgGA::TrackballManipulator::base_getUsage(osg::ApplicationUsage & arg1) const
 	static int _bind_base_getUsage(lua_State *L) {
 		if (!_lg_typecheck_base_getUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_getUsage(osg::ApplicationUsage & arg1) const function, expected prototype:\nvoid osgGA::TrackballManipulator::base_getUsage(osg::ApplicationUsage & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_getUsage(osg::ApplicationUsage & arg1) const function, expected prototype:\nvoid osgGA::TrackballManipulator::base_getUsage(osg::ApplicationUsage & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ApplicationUsage* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,2));
@@ -1301,8 +1233,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::getUsage(_arg1);
 
@@ -1312,8 +1243,7 @@ public:
 	// void osgGA::TrackballManipulator::base_setByMatrix(const osg::Matrixd & matrix)
 	static int _bind_base_setByMatrix(lua_State *L) {
 		if (!_lg_typecheck_base_setByMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setByMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setByMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setByMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setByMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -1324,8 +1254,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setByMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setByMatrix(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setByMatrix(matrix);
 
@@ -1335,8 +1264,7 @@ public:
 	// void osgGA::TrackballManipulator::base_setByInverseMatrix(const osg::Matrixd & matrix)
 	static int _bind_base_setByInverseMatrix(lua_State *L) {
 		if (!_lg_typecheck_base_setByInverseMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setByInverseMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setByInverseMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setByInverseMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setByInverseMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -1347,8 +1275,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setByInverseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setByInverseMatrix(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setByInverseMatrix(matrix);
 
@@ -1358,15 +1285,13 @@ public:
 	// osg::Matrixd osgGA::TrackballManipulator::base_getMatrix() const
 	static int _bind_base_getMatrix(lua_State *L) {
 		if (!_lg_typecheck_base_getMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::TrackballManipulator::base_getMatrix() const function, expected prototype:\nosg::Matrixd osgGA::TrackballManipulator::base_getMatrix() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::TrackballManipulator::base_getMatrix() const function, expected prototype:\nosg::Matrixd osgGA::TrackballManipulator::base_getMatrix() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::TrackballManipulator::base_getMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::TrackballManipulator::base_getMatrix() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixd stack_lret = self->TrackballManipulator::getMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1380,15 +1305,13 @@ public:
 	// osg::Matrixd osgGA::TrackballManipulator::base_getInverseMatrix() const
 	static int _bind_base_getInverseMatrix(lua_State *L) {
 		if (!_lg_typecheck_base_getInverseMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::TrackballManipulator::base_getInverseMatrix() const function, expected prototype:\nosg::Matrixd osgGA::TrackballManipulator::base_getInverseMatrix() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::TrackballManipulator::base_getInverseMatrix() const function, expected prototype:\nosg::Matrixd osgGA::TrackballManipulator::base_getInverseMatrix() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::TrackballManipulator::base_getInverseMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::TrackballManipulator::base_getInverseMatrix() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixd stack_lret = self->TrackballManipulator::getInverseMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1402,8 +1325,7 @@ public:
 	// void osgGA::TrackballManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Quat & rotation)
 	static int _bind_base_setTransformation_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_setTransformation_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Quat & rotation) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Quat & rotation)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Quat & rotation) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Quat & rotation)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1419,8 +1341,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setTransformation(const osg::Vec3d &, const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setTransformation(const osg::Vec3d &, const osg::Quat &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setTransformation(eye, rotation);
 
@@ -1430,8 +1351,7 @@ public:
 	// void osgGA::TrackballManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)
 	static int _bind_base_setTransformation_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_setTransformation_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1452,8 +1372,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setTransformation(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setTransformation(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setTransformation(eye, center, up);
 
@@ -1472,8 +1391,7 @@ public:
 	// void osgGA::TrackballManipulator::base_getTransformation(osg::Vec3d & eye, osg::Quat & rotation) const
 	static int _bind_base_getTransformation_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getTransformation_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_getTransformation(osg::Vec3d & eye, osg::Quat & rotation) const function, expected prototype:\nvoid osgGA::TrackballManipulator::base_getTransformation(osg::Vec3d & eye, osg::Quat & rotation) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_getTransformation(osg::Vec3d & eye, osg::Quat & rotation) const function, expected prototype:\nvoid osgGA::TrackballManipulator::base_getTransformation(osg::Vec3d & eye, osg::Quat & rotation) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1489,8 +1407,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_getTransformation(osg::Vec3d &, osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_getTransformation(osg::Vec3d &, osg::Quat &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::getTransformation(eye, rotation);
 
@@ -1500,8 +1417,7 @@ public:
 	// void osgGA::TrackballManipulator::base_getTransformation(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
 	static int _bind_base_getTransformation_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getTransformation_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_getTransformation(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const function, expected prototype:\nvoid osgGA::TrackballManipulator::base_getTransformation(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_getTransformation(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const function, expected prototype:\nvoid osgGA::TrackballManipulator::base_getTransformation(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1522,8 +1438,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_getTransformation(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_getTransformation(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::getTransformation(eye, center, up);
 
@@ -1542,8 +1457,7 @@ public:
 	// void osgGA::TrackballManipulator::base_setCenter(const osg::Vec3d & center)
 	static int _bind_base_setCenter(lua_State *L) {
 		if (!_lg_typecheck_base_setCenter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setCenter(const osg::Vec3d & center) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setCenter(const osg::Vec3d & center)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setCenter(const osg::Vec3d & center) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setCenter(const osg::Vec3d & center)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* center_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1554,8 +1468,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setCenter(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setCenter(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setCenter(center);
 
@@ -1565,8 +1478,7 @@ public:
 	// void osgGA::TrackballManipulator::base_setRotation(const osg::Quat & rotation)
 	static int _bind_base_setRotation(lua_State *L) {
 		if (!_lg_typecheck_base_setRotation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setRotation(const osg::Quat & rotation) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setRotation(const osg::Quat & rotation)\nClass arguments details:\narg 1 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setRotation(const osg::Quat & rotation) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setRotation(const osg::Quat & rotation)\nClass arguments details:\narg 1 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Quat* rotation_ptr=(Luna< osg::Quat >::check(L,2));
@@ -1577,8 +1489,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setRotation(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setRotation(const osg::Quat &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setRotation(rotation);
 
@@ -1588,16 +1499,14 @@ public:
 	// void osgGA::TrackballManipulator::base_setDistance(double distance)
 	static int _bind_base_setDistance(lua_State *L) {
 		if (!_lg_typecheck_base_setDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setDistance(double distance) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setDistance(double distance)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setDistance(double distance) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setDistance(double distance)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double distance=(double)lua_tonumber(L,2);
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setDistance(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setDistance(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setDistance(distance);
 
@@ -1607,16 +1516,14 @@ public:
 	// void osgGA::TrackballManipulator::base_setTrackballSize(const double & size)
 	static int _bind_base_setTrackballSize(lua_State *L) {
 		if (!_lg_typecheck_base_setTrackballSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setTrackballSize(const double & size) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setTrackballSize(const double & size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setTrackballSize(const double & size) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setTrackballSize(const double & size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const double size=(const double)lua_tonumber(L,2);
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setTrackballSize(const double &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setTrackballSize(const double &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setTrackballSize(size);
 
@@ -1626,16 +1533,14 @@ public:
 	// void osgGA::TrackballManipulator::base_setWheelZoomFactor(double wheelZoomFactor)
 	static int _bind_base_setWheelZoomFactor(lua_State *L) {
 		if (!_lg_typecheck_base_setWheelZoomFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setWheelZoomFactor(double wheelZoomFactor) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setWheelZoomFactor(double wheelZoomFactor)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setWheelZoomFactor(double wheelZoomFactor) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setWheelZoomFactor(double wheelZoomFactor)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double wheelZoomFactor=(double)lua_tonumber(L,2);
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setWheelZoomFactor(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setWheelZoomFactor(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setWheelZoomFactor(wheelZoomFactor);
 
@@ -1645,8 +1550,7 @@ public:
 	// void osgGA::TrackballManipulator::base_setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = false)
 	static int _bind_base_setMinimumDistance(lua_State *L) {
 		if (!_lg_typecheck_base_setMinimumDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = false) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::TrackballManipulator::base_setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = false) function, expected prototype:\nvoid osgGA::TrackballManipulator::base_setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1656,8 +1560,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setMinimumDistance(const double &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::TrackballManipulator::base_setMinimumDistance(const double &, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TrackballManipulator::setMinimumDistance(minimumDistance, relativeToModelSize);
 
@@ -1667,15 +1570,13 @@ public:
 	// osgUtil::SceneView::FusionDistanceMode osgGA::TrackballManipulator::base_getFusionDistanceMode() const
 	static int _bind_base_getFusionDistanceMode(lua_State *L) {
 		if (!_lg_typecheck_base_getFusionDistanceMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::SceneView::FusionDistanceMode osgGA::TrackballManipulator::base_getFusionDistanceMode() const function, expected prototype:\nosgUtil::SceneView::FusionDistanceMode osgGA::TrackballManipulator::base_getFusionDistanceMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::SceneView::FusionDistanceMode osgGA::TrackballManipulator::base_getFusionDistanceMode() const function, expected prototype:\nosgUtil::SceneView::FusionDistanceMode osgGA::TrackballManipulator::base_getFusionDistanceMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::TrackballManipulator::base_getFusionDistanceMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::TrackballManipulator::base_getFusionDistanceMode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::SceneView::FusionDistanceMode lret = self->TrackballManipulator::getFusionDistanceMode();
 		lua_pushnumber(L,lret);
@@ -1686,15 +1587,13 @@ public:
 	// float osgGA::TrackballManipulator::base_getFusionDistanceValue() const
 	static int _bind_base_getFusionDistanceValue(lua_State *L) {
 		if (!_lg_typecheck_base_getFusionDistanceValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgGA::TrackballManipulator::base_getFusionDistanceValue() const function, expected prototype:\nfloat osgGA::TrackballManipulator::base_getFusionDistanceValue() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgGA::TrackballManipulator::base_getFusionDistanceValue() const function, expected prototype:\nfloat osgGA::TrackballManipulator::base_getFusionDistanceValue() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::TrackballManipulator::base_getFusionDistanceValue() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgGA::TrackballManipulator::base_getFusionDistanceValue() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->TrackballManipulator::getFusionDistanceValue();
 		lua_pushnumber(L,lret);
@@ -1705,15 +1604,13 @@ public:
 	// osg::Object * osgGA::TrackballManipulator::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::TrackballManipulator::base_cloneType() const function, expected prototype:\nosg::Object * osgGA::TrackballManipulator::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::TrackballManipulator::base_cloneType() const function, expected prototype:\nosg::Object * osgGA::TrackballManipulator::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::TrackballManipulator::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::TrackballManipulator::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->TrackballManipulator::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1726,8 +1623,7 @@ public:
 	// osg::Object * osgGA::TrackballManipulator::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::TrackballManipulator::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::TrackballManipulator::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::TrackballManipulator::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::TrackballManipulator::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1738,8 +1634,7 @@ public:
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::TrackballManipulator::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::TrackballManipulator::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->TrackballManipulator::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1752,16 +1647,14 @@ public:
 	// bool osgGA::TrackballManipulator::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::TrackballManipulator::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgGA::TrackballManipulator::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::TrackballManipulator::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgGA::TrackballManipulator::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::TrackballManipulator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::TrackballManipulator::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->TrackballManipulator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1772,15 +1665,13 @@ public:
 	// const char * osgGA::TrackballManipulator::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgGA::TrackballManipulator::base_libraryName() const function, expected prototype:\nconst char * osgGA::TrackballManipulator::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgGA::TrackballManipulator::base_libraryName() const function, expected prototype:\nconst char * osgGA::TrackballManipulator::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::TrackballManipulator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgGA::TrackballManipulator::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->TrackballManipulator::libraryName();
 		lua_pushstring(L,lret);
@@ -1791,15 +1682,13 @@ public:
 	// const char * osgGA::TrackballManipulator::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgGA::TrackballManipulator::base_className() const function, expected prototype:\nconst char * osgGA::TrackballManipulator::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgGA::TrackballManipulator::base_className() const function, expected prototype:\nconst char * osgGA::TrackballManipulator::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::TrackballManipulator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgGA::TrackballManipulator::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->TrackballManipulator::className();
 		lua_pushstring(L,lret);

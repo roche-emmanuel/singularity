@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Texture::ImageAttachment*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Texture::ImageAttachment*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Texture::ImageAttachment* rhs =(Luna< osg::Texture::ImageAttachment >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Texture::ImageAttachment* self= (osg::Texture::ImageAttachment*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Texture::ImageAttachment >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -194,8 +190,7 @@ public:
 	// osg::Texture::ImageAttachment::ImageAttachment()
 	static osg::Texture::ImageAttachment* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture::ImageAttachment::ImageAttachment() function, expected prototype:\nosg::Texture::ImageAttachment::ImageAttachment()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture::ImageAttachment::ImageAttachment() function, expected prototype:\nosg::Texture::ImageAttachment::ImageAttachment()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -207,15 +202,13 @@ public:
 	// unsigned int osg::Texture::ImageAttachment::unit()
 	static int _bind_getUnit(lua_State *L) {
 		if (!_lg_typecheck_getUnit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture::ImageAttachment::unit() function, expected prototype:\nunsigned int osg::Texture::ImageAttachment::unit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture::ImageAttachment::unit() function, expected prototype:\nunsigned int osg::Texture::ImageAttachment::unit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture::ImageAttachment* self=(Luna< osg::Texture::ImageAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Texture::ImageAttachment::unit(). Got : '%s'",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Texture::ImageAttachment::unit(). Got : '%s'\n%s",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->unit;
 		lua_pushnumber(L,lret);
@@ -226,15 +219,13 @@ public:
 	// int osg::Texture::ImageAttachment::level()
 	static int _bind_getLevel(lua_State *L) {
 		if (!_lg_typecheck_getLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Texture::ImageAttachment::level() function, expected prototype:\nint osg::Texture::ImageAttachment::level()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::Texture::ImageAttachment::level() function, expected prototype:\nint osg::Texture::ImageAttachment::level()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture::ImageAttachment* self=(Luna< osg::Texture::ImageAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture::ImageAttachment::level(). Got : '%s'",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Texture::ImageAttachment::level(). Got : '%s'\n%s",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->level;
 		lua_pushnumber(L,lret);
@@ -245,15 +236,13 @@ public:
 	// unsigned char osg::Texture::ImageAttachment::layered()
 	static int _bind_getLayered(lua_State *L) {
 		if (!_lg_typecheck_getLayered(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char osg::Texture::ImageAttachment::layered() function, expected prototype:\nunsigned char osg::Texture::ImageAttachment::layered()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char osg::Texture::ImageAttachment::layered() function, expected prototype:\nunsigned char osg::Texture::ImageAttachment::layered()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture::ImageAttachment* self=(Luna< osg::Texture::ImageAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char osg::Texture::ImageAttachment::layered(). Got : '%s'",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char osg::Texture::ImageAttachment::layered(). Got : '%s'\n%s",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char lret = self->layered;
 		lua_pushnumber(L,(int)lret);
@@ -264,15 +253,13 @@ public:
 	// int osg::Texture::ImageAttachment::layer()
 	static int _bind_getLayer(lua_State *L) {
 		if (!_lg_typecheck_getLayer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Texture::ImageAttachment::layer() function, expected prototype:\nint osg::Texture::ImageAttachment::layer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::Texture::ImageAttachment::layer() function, expected prototype:\nint osg::Texture::ImageAttachment::layer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture::ImageAttachment* self=(Luna< osg::Texture::ImageAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture::ImageAttachment::layer(). Got : '%s'",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Texture::ImageAttachment::layer(). Got : '%s'\n%s",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->layer;
 		lua_pushnumber(L,lret);
@@ -283,15 +270,13 @@ public:
 	// unsigned int osg::Texture::ImageAttachment::access()
 	static int _bind_getAccess(lua_State *L) {
 		if (!_lg_typecheck_getAccess(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture::ImageAttachment::access() function, expected prototype:\nunsigned int osg::Texture::ImageAttachment::access()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture::ImageAttachment::access() function, expected prototype:\nunsigned int osg::Texture::ImageAttachment::access()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture::ImageAttachment* self=(Luna< osg::Texture::ImageAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Texture::ImageAttachment::access(). Got : '%s'",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Texture::ImageAttachment::access(). Got : '%s'\n%s",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->access;
 		lua_pushnumber(L,lret);
@@ -302,15 +287,13 @@ public:
 	// unsigned int osg::Texture::ImageAttachment::format()
 	static int _bind_getFormat(lua_State *L) {
 		if (!_lg_typecheck_getFormat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture::ImageAttachment::format() function, expected prototype:\nunsigned int osg::Texture::ImageAttachment::format()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture::ImageAttachment::format() function, expected prototype:\nunsigned int osg::Texture::ImageAttachment::format()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Texture::ImageAttachment* self=(Luna< osg::Texture::ImageAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Texture::ImageAttachment::format(). Got : '%s'",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Texture::ImageAttachment::format(). Got : '%s'\n%s",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->format;
 		lua_pushnumber(L,lret);
@@ -321,16 +304,14 @@ public:
 	// void osg::Texture::ImageAttachment::unit(unsigned int value)
 	static int _bind_setUnit(lua_State *L) {
 		if (!_lg_typecheck_setUnit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture::ImageAttachment::unit(unsigned int value) function, expected prototype:\nvoid osg::Texture::ImageAttachment::unit(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture::ImageAttachment::unit(unsigned int value) function, expected prototype:\nvoid osg::Texture::ImageAttachment::unit(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::Texture::ImageAttachment* self=(Luna< osg::Texture::ImageAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::ImageAttachment::unit(unsigned int). Got : '%s'",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture::ImageAttachment::unit(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->unit = value;
 
@@ -340,16 +321,14 @@ public:
 	// void osg::Texture::ImageAttachment::level(int value)
 	static int _bind_setLevel(lua_State *L) {
 		if (!_lg_typecheck_setLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture::ImageAttachment::level(int value) function, expected prototype:\nvoid osg::Texture::ImageAttachment::level(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture::ImageAttachment::level(int value) function, expected prototype:\nvoid osg::Texture::ImageAttachment::level(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::Texture::ImageAttachment* self=(Luna< osg::Texture::ImageAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::ImageAttachment::level(int). Got : '%s'",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture::ImageAttachment::level(int). Got : '%s'\n%s",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->level = value;
 
@@ -359,16 +338,14 @@ public:
 	// void osg::Texture::ImageAttachment::layered(unsigned char value)
 	static int _bind_setLayered(lua_State *L) {
 		if (!_lg_typecheck_setLayered(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture::ImageAttachment::layered(unsigned char value) function, expected prototype:\nvoid osg::Texture::ImageAttachment::layered(unsigned char value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture::ImageAttachment::layered(unsigned char value) function, expected prototype:\nvoid osg::Texture::ImageAttachment::layered(unsigned char value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char value = (unsigned char)(lua_tointeger(L,2));
 
 		osg::Texture::ImageAttachment* self=(Luna< osg::Texture::ImageAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::ImageAttachment::layered(unsigned char). Got : '%s'",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture::ImageAttachment::layered(unsigned char). Got : '%s'\n%s",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->layered = value;
 
@@ -378,16 +355,14 @@ public:
 	// void osg::Texture::ImageAttachment::layer(int value)
 	static int _bind_setLayer(lua_State *L) {
 		if (!_lg_typecheck_setLayer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture::ImageAttachment::layer(int value) function, expected prototype:\nvoid osg::Texture::ImageAttachment::layer(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture::ImageAttachment::layer(int value) function, expected prototype:\nvoid osg::Texture::ImageAttachment::layer(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::Texture::ImageAttachment* self=(Luna< osg::Texture::ImageAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::ImageAttachment::layer(int). Got : '%s'",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture::ImageAttachment::layer(int). Got : '%s'\n%s",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->layer = value;
 
@@ -397,16 +372,14 @@ public:
 	// void osg::Texture::ImageAttachment::access(unsigned int value)
 	static int _bind_setAccess(lua_State *L) {
 		if (!_lg_typecheck_setAccess(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture::ImageAttachment::access(unsigned int value) function, expected prototype:\nvoid osg::Texture::ImageAttachment::access(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture::ImageAttachment::access(unsigned int value) function, expected prototype:\nvoid osg::Texture::ImageAttachment::access(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::Texture::ImageAttachment* self=(Luna< osg::Texture::ImageAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::ImageAttachment::access(unsigned int). Got : '%s'",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture::ImageAttachment::access(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->access = value;
 
@@ -416,16 +389,14 @@ public:
 	// void osg::Texture::ImageAttachment::format(unsigned int value)
 	static int _bind_setFormat(lua_State *L) {
 		if (!_lg_typecheck_setFormat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture::ImageAttachment::format(unsigned int value) function, expected prototype:\nvoid osg::Texture::ImageAttachment::format(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture::ImageAttachment::format(unsigned int value) function, expected prototype:\nvoid osg::Texture::ImageAttachment::format(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::Texture::ImageAttachment* self=(Luna< osg::Texture::ImageAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::ImageAttachment::format(unsigned int). Got : '%s'",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture::ImageAttachment::format(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Texture::ImageAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->format = value;
 

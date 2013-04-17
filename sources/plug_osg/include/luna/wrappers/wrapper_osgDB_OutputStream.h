@@ -70,8 +70,7 @@ public:
 	// unsigned int osgDB::OutputStream::public_findOrCreateArrayID(const osg::Array * array, bool & newID)
 	static int _bind_public_findOrCreateArrayID(lua_State *L) {
 		if (!_lg_typecheck_public_findOrCreateArrayID(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgDB::OutputStream::public_findOrCreateArrayID(const osg::Array * array, bool & newID) function, expected prototype:\nunsigned int osgDB::OutputStream::public_findOrCreateArrayID(const osg::Array * array, bool & newID)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::OutputStream::public_findOrCreateArrayID(const osg::Array * array, bool & newID) function, expected prototype:\nunsigned int osgDB::OutputStream::public_findOrCreateArrayID(const osg::Array * array, bool & newID)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
@@ -79,8 +78,7 @@ public:
 
 		wrapper_osgDB_OutputStream* self=Luna< osgDB::OutputStream >::checkSubType< wrapper_osgDB_OutputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::OutputStream::public_findOrCreateArrayID(const osg::Array *, bool &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::OutputStream::public_findOrCreateArrayID(const osg::Array *, bool &). Got : '%s'\n%s",typeid(Luna< osgDB::OutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->public_findOrCreateArrayID(array, newID);
 		lua_pushnumber(L,lret);
@@ -92,8 +90,7 @@ public:
 	// unsigned int osgDB::OutputStream::public_findOrCreateObjectID(const osg::Object * obj, bool & newID)
 	static int _bind_public_findOrCreateObjectID(lua_State *L) {
 		if (!_lg_typecheck_public_findOrCreateObjectID(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgDB::OutputStream::public_findOrCreateObjectID(const osg::Object * obj, bool & newID) function, expected prototype:\nunsigned int osgDB::OutputStream::public_findOrCreateObjectID(const osg::Object * obj, bool & newID)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::OutputStream::public_findOrCreateObjectID(const osg::Object * obj, bool & newID) function, expected prototype:\nunsigned int osgDB::OutputStream::public_findOrCreateObjectID(const osg::Object * obj, bool & newID)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
@@ -101,8 +98,7 @@ public:
 
 		wrapper_osgDB_OutputStream* self=Luna< osgDB::OutputStream >::checkSubType< wrapper_osgDB_OutputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::OutputStream::public_findOrCreateObjectID(const osg::Object *, bool &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::OutputStream::public_findOrCreateObjectID(const osg::Object *, bool &). Got : '%s'\n%s",typeid(Luna< osgDB::OutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->public_findOrCreateObjectID(obj, newID);
 		lua_pushnumber(L,lret);

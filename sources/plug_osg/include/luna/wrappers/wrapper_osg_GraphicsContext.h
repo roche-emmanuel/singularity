@@ -349,16 +349,14 @@ public:
 	// void osg::GraphicsContext::public_addCamera(osg::Camera * camera)
 	static int _bind_public_addCamera(lua_State *L) {
 		if (!_lg_typecheck_public_addCamera(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::public_addCamera(osg::Camera * camera) function, expected prototype:\nvoid osg::GraphicsContext::public_addCamera(osg::Camera * camera)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::public_addCamera(osg::Camera * camera) function, expected prototype:\nvoid osg::GraphicsContext::public_addCamera(osg::Camera * camera)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Camera* camera=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
 
 		wrapper_osg_GraphicsContext* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_GraphicsContext >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::public_addCamera(osg::Camera *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::public_addCamera(osg::Camera *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_addCamera(camera);
 
@@ -368,16 +366,14 @@ public:
 	// void osg::GraphicsContext::public_removeCamera(osg::Camera * camera)
 	static int _bind_public_removeCamera(lua_State *L) {
 		if (!_lg_typecheck_public_removeCamera(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::public_removeCamera(osg::Camera * camera) function, expected prototype:\nvoid osg::GraphicsContext::public_removeCamera(osg::Camera * camera)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::public_removeCamera(osg::Camera * camera) function, expected prototype:\nvoid osg::GraphicsContext::public_removeCamera(osg::Camera * camera)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Camera* camera=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
 
 		wrapper_osg_GraphicsContext* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_GraphicsContext >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::public_removeCamera(osg::Camera *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::public_removeCamera(osg::Camera *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_removeCamera(camera);
 
@@ -387,16 +383,14 @@ public:
 	// static void osg::GraphicsContext::public_registerGraphicsContext(osg::GraphicsContext * gc)
 	static int _bind_public_registerGraphicsContext(lua_State *L) {
 		if (!_lg_typecheck_public_registerGraphicsContext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osg::GraphicsContext::public_registerGraphicsContext(osg::GraphicsContext * gc) function, expected prototype:\nstatic void osg::GraphicsContext::public_registerGraphicsContext(osg::GraphicsContext * gc)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in static void osg::GraphicsContext::public_registerGraphicsContext(osg::GraphicsContext * gc) function, expected prototype:\nstatic void osg::GraphicsContext::public_registerGraphicsContext(osg::GraphicsContext * gc)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::GraphicsContext* gc=(Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,1));
 
 		wrapper_osg_GraphicsContext* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_GraphicsContext >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osg::GraphicsContext::public_registerGraphicsContext(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void osg::GraphicsContext::public_registerGraphicsContext(osg::GraphicsContext *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_registerGraphicsContext(gc);
 
@@ -406,16 +400,14 @@ public:
 	// static void osg::GraphicsContext::public_unregisterGraphicsContext(osg::GraphicsContext * gc)
 	static int _bind_public_unregisterGraphicsContext(lua_State *L) {
 		if (!_lg_typecheck_public_unregisterGraphicsContext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osg::GraphicsContext::public_unregisterGraphicsContext(osg::GraphicsContext * gc) function, expected prototype:\nstatic void osg::GraphicsContext::public_unregisterGraphicsContext(osg::GraphicsContext * gc)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in static void osg::GraphicsContext::public_unregisterGraphicsContext(osg::GraphicsContext * gc) function, expected prototype:\nstatic void osg::GraphicsContext::public_unregisterGraphicsContext(osg::GraphicsContext * gc)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::GraphicsContext* gc=(Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,1));
 
 		wrapper_osg_GraphicsContext* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_GraphicsContext >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osg::GraphicsContext::public_unregisterGraphicsContext(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void osg::GraphicsContext::public_unregisterGraphicsContext(osg::GraphicsContext *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_unregisterGraphicsContext(gc);
 
@@ -425,8 +417,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -434,8 +425,7 @@ public:
 
 		wrapper_osg_GraphicsContext* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_GraphicsContext >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -445,15 +435,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_GraphicsContext* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_GraphicsContext >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

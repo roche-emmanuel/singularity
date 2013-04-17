@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::VertexAccessOrderVisitor* self= (osgUtil::VertexAccessOrderVisitor*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -200,8 +197,7 @@ public:
 	// osgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(osgUtil::Optimizer * optimizer = 0)
 	static osgUtil::VertexAccessOrderVisitor* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(osgUtil::Optimizer * optimizer = 0) function, expected prototype:\nosgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(osgUtil::Optimizer * optimizer = 0)\nClass arguments details:\narg 1 ID = 85233381\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(osgUtil::Optimizer * optimizer = 0) function, expected prototype:\nosgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(osgUtil::Optimizer * optimizer = 0)\nClass arguments details:\narg 1 ID = 85233381\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -214,8 +210,7 @@ public:
 	// osgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(lua_Table * data, osgUtil::Optimizer * optimizer = 0)
 	static osgUtil::VertexAccessOrderVisitor* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(lua_Table * data, osgUtil::Optimizer * optimizer = 0) function, expected prototype:\nosgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(lua_Table * data, osgUtil::Optimizer * optimizer = 0)\nClass arguments details:\narg 2 ID = 85233381\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(lua_Table * data, osgUtil::Optimizer * optimizer = 0) function, expected prototype:\nosgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(lua_Table * data, osgUtil::Optimizer * optimizer = 0)\nClass arguments details:\narg 2 ID = 85233381\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -239,15 +234,13 @@ public:
 	// void osgUtil::VertexAccessOrderVisitor::optimizeOrder()
 	static int _bind_optimizeOrder_overload_1(lua_State *L) {
 		if (!_lg_typecheck_optimizeOrder_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::VertexAccessOrderVisitor::optimizeOrder() function, expected prototype:\nvoid osgUtil::VertexAccessOrderVisitor::optimizeOrder()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::VertexAccessOrderVisitor::optimizeOrder() function, expected prototype:\nvoid osgUtil::VertexAccessOrderVisitor::optimizeOrder()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::VertexAccessOrderVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexAccessOrderVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::VertexAccessOrderVisitor::optimizeOrder(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::VertexAccessOrderVisitor::optimizeOrder(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->optimizeOrder();
 
@@ -257,8 +250,7 @@ public:
 	// void osgUtil::VertexAccessOrderVisitor::optimizeOrder(osg::Geometry & geom)
 	static int _bind_optimizeOrder_overload_2(lua_State *L) {
 		if (!_lg_typecheck_optimizeOrder_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::VertexAccessOrderVisitor::optimizeOrder(osg::Geometry & geom) function, expected prototype:\nvoid osgUtil::VertexAccessOrderVisitor::optimizeOrder(osg::Geometry & geom)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::VertexAccessOrderVisitor::optimizeOrder(osg::Geometry & geom) function, expected prototype:\nvoid osgUtil::VertexAccessOrderVisitor::optimizeOrder(osg::Geometry & geom)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geometry* geom_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
@@ -269,8 +261,7 @@ public:
 
 		osgUtil::VertexAccessOrderVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexAccessOrderVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::VertexAccessOrderVisitor::optimizeOrder(osg::Geometry &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::VertexAccessOrderVisitor::optimizeOrder(osg::Geometry &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->optimizeOrder(geom);
 
@@ -289,16 +280,14 @@ public:
 	// void osgUtil::VertexAccessOrderVisitor::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::VertexAccessOrderVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::VertexAccessOrderVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::VertexAccessOrderVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::VertexAccessOrderVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::VertexAccessOrderVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexAccessOrderVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::VertexAccessOrderVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::VertexAccessOrderVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VertexAccessOrderVisitor::setThreadSafeRefUnref(threadSafe);
 
@@ -308,15 +297,13 @@ public:
 	// const char * osgUtil::VertexAccessOrderVisitor::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::VertexAccessOrderVisitor::base_libraryName() const function, expected prototype:\nconst char * osgUtil::VertexAccessOrderVisitor::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::VertexAccessOrderVisitor::base_libraryName() const function, expected prototype:\nconst char * osgUtil::VertexAccessOrderVisitor::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::VertexAccessOrderVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexAccessOrderVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::VertexAccessOrderVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::VertexAccessOrderVisitor::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->VertexAccessOrderVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -327,15 +314,13 @@ public:
 	// const char * osgUtil::VertexAccessOrderVisitor::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::VertexAccessOrderVisitor::base_className() const function, expected prototype:\nconst char * osgUtil::VertexAccessOrderVisitor::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::VertexAccessOrderVisitor::base_className() const function, expected prototype:\nconst char * osgUtil::VertexAccessOrderVisitor::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::VertexAccessOrderVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexAccessOrderVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::VertexAccessOrderVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::VertexAccessOrderVisitor::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->VertexAccessOrderVisitor::className();
 		lua_pushstring(L,lret);
@@ -346,15 +331,13 @@ public:
 	// osg::Vec3f osgUtil::VertexAccessOrderVisitor::base_getEyePoint() const
 	static int _bind_base_getEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::VertexAccessOrderVisitor::base_getEyePoint() const function, expected prototype:\nosg::Vec3f osgUtil::VertexAccessOrderVisitor::base_getEyePoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::VertexAccessOrderVisitor::base_getEyePoint() const function, expected prototype:\nosg::Vec3f osgUtil::VertexAccessOrderVisitor::base_getEyePoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::VertexAccessOrderVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexAccessOrderVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::VertexAccessOrderVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::VertexAccessOrderVisitor::base_getEyePoint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->VertexAccessOrderVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -368,15 +351,13 @@ public:
 	// osg::Vec3f osgUtil::VertexAccessOrderVisitor::base_getViewPoint() const
 	static int _bind_base_getViewPoint(lua_State *L) {
 		if (!_lg_typecheck_base_getViewPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::VertexAccessOrderVisitor::base_getViewPoint() const function, expected prototype:\nosg::Vec3f osgUtil::VertexAccessOrderVisitor::base_getViewPoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::VertexAccessOrderVisitor::base_getViewPoint() const function, expected prototype:\nosg::Vec3f osgUtil::VertexAccessOrderVisitor::base_getViewPoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::VertexAccessOrderVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexAccessOrderVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::VertexAccessOrderVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::VertexAccessOrderVisitor::base_getViewPoint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->VertexAccessOrderVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -390,8 +371,7 @@ public:
 	// float osgUtil::VertexAccessOrderVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceToEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceToEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::VertexAccessOrderVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::VertexAccessOrderVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::VertexAccessOrderVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::VertexAccessOrderVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -403,8 +383,7 @@ public:
 
 		osgUtil::VertexAccessOrderVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexAccessOrderVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::VertexAccessOrderVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::VertexAccessOrderVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->VertexAccessOrderVisitor::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -415,8 +394,7 @@ public:
 	// float osgUtil::VertexAccessOrderVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceFromEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceFromEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::VertexAccessOrderVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::VertexAccessOrderVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::VertexAccessOrderVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::VertexAccessOrderVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -428,8 +406,7 @@ public:
 
 		osgUtil::VertexAccessOrderVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexAccessOrderVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::VertexAccessOrderVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::VertexAccessOrderVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->VertexAccessOrderVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -440,8 +417,7 @@ public:
 	// float osgUtil::VertexAccessOrderVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceToViewPoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceToViewPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::VertexAccessOrderVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::VertexAccessOrderVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::VertexAccessOrderVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::VertexAccessOrderVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -453,8 +429,7 @@ public:
 
 		osgUtil::VertexAccessOrderVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexAccessOrderVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::VertexAccessOrderVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::VertexAccessOrderVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->VertexAccessOrderVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -465,15 +440,13 @@ public:
 	// void osgUtil::VertexAccessOrderVisitor::base_reset()
 	static int _bind_base_reset(lua_State *L) {
 		if (!_lg_typecheck_base_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::VertexAccessOrderVisitor::base_reset() function, expected prototype:\nvoid osgUtil::VertexAccessOrderVisitor::base_reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::VertexAccessOrderVisitor::base_reset() function, expected prototype:\nvoid osgUtil::VertexAccessOrderVisitor::base_reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::VertexAccessOrderVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexAccessOrderVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::VertexAccessOrderVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::VertexAccessOrderVisitor::base_reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VertexAccessOrderVisitor::reset();
 
@@ -483,8 +456,7 @@ public:
 	// void osgUtil::VertexAccessOrderVisitor::base_apply(osg::Geode & geode)
 	static int _bind_base_apply(lua_State *L) {
 		if (!_lg_typecheck_base_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::VertexAccessOrderVisitor::base_apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::VertexAccessOrderVisitor::base_apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::VertexAccessOrderVisitor::base_apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::VertexAccessOrderVisitor::base_apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geode* geode_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geode >(L,2));
@@ -495,8 +467,7 @@ public:
 
 		osgUtil::VertexAccessOrderVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexAccessOrderVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::VertexAccessOrderVisitor::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::VertexAccessOrderVisitor::base_apply(osg::Geode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VertexAccessOrderVisitor::apply(geode);
 

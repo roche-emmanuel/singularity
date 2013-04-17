@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::CoordinateSystemNode* self= (osg::CoordinateSystemNode*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -462,8 +459,7 @@ public:
 	// osg::CoordinateSystemNode::CoordinateSystemNode()
 	static osg::CoordinateSystemNode* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode() function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode() function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -473,8 +469,7 @@ public:
 	// osg::CoordinateSystemNode::CoordinateSystemNode(const std::string & format, const std::string & cs)
 	static osg::CoordinateSystemNode* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode(const std::string & format, const std::string & cs) function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode(const std::string & format, const std::string & cs)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode(const std::string & format, const std::string & cs) function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode(const std::string & format, const std::string & cs)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string format(lua_tostring(L,1),lua_objlen(L,1));
@@ -486,8 +481,7 @@ public:
 	// osg::CoordinateSystemNode::CoordinateSystemNode(const osg::CoordinateSystemNode & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::CoordinateSystemNode* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode(const osg::CoordinateSystemNode & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode(const osg::CoordinateSystemNode & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode(const osg::CoordinateSystemNode & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode(const osg::CoordinateSystemNode & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -509,8 +503,7 @@ public:
 	// osg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data)
 	static osg::CoordinateSystemNode* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data) function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data) function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -520,8 +513,7 @@ public:
 	// osg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const std::string & format, const std::string & cs)
 	static osg::CoordinateSystemNode* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const std::string & format, const std::string & cs) function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const std::string & format, const std::string & cs)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const std::string & format, const std::string & cs) function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const std::string & format, const std::string & cs)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string format(lua_tostring(L,2),lua_objlen(L,2));
@@ -533,8 +525,7 @@ public:
 	// osg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const osg::CoordinateSystemNode & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::CoordinateSystemNode* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const osg::CoordinateSystemNode & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const osg::CoordinateSystemNode & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const osg::CoordinateSystemNode & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const osg::CoordinateSystemNode & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -571,15 +562,13 @@ public:
 	// osg::Object * osg::CoordinateSystemNode::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::CoordinateSystemNode::cloneType() const function, expected prototype:\nosg::Object * osg::CoordinateSystemNode::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::CoordinateSystemNode::cloneType() const function, expected prototype:\nosg::Object * osg::CoordinateSystemNode::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::CoordinateSystemNode::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::CoordinateSystemNode::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -592,8 +581,7 @@ public:
 	// osg::Object * osg::CoordinateSystemNode::clone(const osg::CopyOp & copyop) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::CoordinateSystemNode::clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::CoordinateSystemNode::clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::CoordinateSystemNode::clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::CoordinateSystemNode::clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -604,8 +592,7 @@ public:
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::CoordinateSystemNode::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::CoordinateSystemNode::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -618,16 +605,14 @@ public:
 	// bool osg::CoordinateSystemNode::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::CoordinateSystemNode::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::CoordinateSystemNode::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::CoordinateSystemNode::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::CoordinateSystemNode::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CoordinateSystemNode::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::CoordinateSystemNode::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -638,15 +623,13 @@ public:
 	// const char * osg::CoordinateSystemNode::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::CoordinateSystemNode::className() const function, expected prototype:\nconst char * osg::CoordinateSystemNode::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::CoordinateSystemNode::className() const function, expected prototype:\nconst char * osg::CoordinateSystemNode::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::CoordinateSystemNode::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::CoordinateSystemNode::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -657,15 +640,13 @@ public:
 	// const char * osg::CoordinateSystemNode::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::CoordinateSystemNode::libraryName() const function, expected prototype:\nconst char * osg::CoordinateSystemNode::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::CoordinateSystemNode::libraryName() const function, expected prototype:\nconst char * osg::CoordinateSystemNode::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::CoordinateSystemNode::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::CoordinateSystemNode::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -676,8 +657,7 @@ public:
 	// void osg::CoordinateSystemNode::accept(osg::NodeVisitor & nv)
 	static int _bind_accept(lua_State *L) {
 		if (!_lg_typecheck_accept(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::CoordinateSystemNode::accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::CoordinateSystemNode::accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -688,8 +668,7 @@ public:
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::accept(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->accept(nv);
 
@@ -699,8 +678,7 @@ public:
 	// void osg::CoordinateSystemNode::set(const osg::CoordinateSystemNode & csn)
 	static int _bind_set(lua_State *L) {
 		if (!_lg_typecheck_set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::set(const osg::CoordinateSystemNode & csn) function, expected prototype:\nvoid osg::CoordinateSystemNode::set(const osg::CoordinateSystemNode & csn)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::set(const osg::CoordinateSystemNode & csn) function, expected prototype:\nvoid osg::CoordinateSystemNode::set(const osg::CoordinateSystemNode & csn)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CoordinateSystemNode* csn_ptr=(Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,2));
@@ -711,8 +689,7 @@ public:
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::set(const osg::CoordinateSystemNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::set(const osg::CoordinateSystemNode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(csn);
 
@@ -722,16 +699,14 @@ public:
 	// void osg::CoordinateSystemNode::setFormat(const std::string & format)
 	static int _bind_setFormat(lua_State *L) {
 		if (!_lg_typecheck_setFormat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::setFormat(const std::string & format) function, expected prototype:\nvoid osg::CoordinateSystemNode::setFormat(const std::string & format)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::setFormat(const std::string & format) function, expected prototype:\nvoid osg::CoordinateSystemNode::setFormat(const std::string & format)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string format(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::setFormat(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::setFormat(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFormat(format);
 
@@ -741,15 +716,13 @@ public:
 	// const std::string & osg::CoordinateSystemNode::getFormat() const
 	static int _bind_getFormat(lua_State *L) {
 		if (!_lg_typecheck_getFormat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osg::CoordinateSystemNode::getFormat() const function, expected prototype:\nconst std::string & osg::CoordinateSystemNode::getFormat() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osg::CoordinateSystemNode::getFormat() const function, expected prototype:\nconst std::string & osg::CoordinateSystemNode::getFormat() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::CoordinateSystemNode::getFormat() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osg::CoordinateSystemNode::getFormat() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getFormat();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -760,16 +733,14 @@ public:
 	// void osg::CoordinateSystemNode::setCoordinateSystem(const std::string & cs)
 	static int _bind_setCoordinateSystem(lua_State *L) {
 		if (!_lg_typecheck_setCoordinateSystem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::setCoordinateSystem(const std::string & cs) function, expected prototype:\nvoid osg::CoordinateSystemNode::setCoordinateSystem(const std::string & cs)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::setCoordinateSystem(const std::string & cs) function, expected prototype:\nvoid osg::CoordinateSystemNode::setCoordinateSystem(const std::string & cs)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string cs(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::setCoordinateSystem(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::setCoordinateSystem(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCoordinateSystem(cs);
 
@@ -779,15 +750,13 @@ public:
 	// const std::string & osg::CoordinateSystemNode::getCoordinateSystem() const
 	static int _bind_getCoordinateSystem(lua_State *L) {
 		if (!_lg_typecheck_getCoordinateSystem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osg::CoordinateSystemNode::getCoordinateSystem() const function, expected prototype:\nconst std::string & osg::CoordinateSystemNode::getCoordinateSystem() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osg::CoordinateSystemNode::getCoordinateSystem() const function, expected prototype:\nconst std::string & osg::CoordinateSystemNode::getCoordinateSystem() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::CoordinateSystemNode::getCoordinateSystem() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osg::CoordinateSystemNode::getCoordinateSystem() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getCoordinateSystem();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -798,16 +767,14 @@ public:
 	// void osg::CoordinateSystemNode::setEllipsoidModel(osg::EllipsoidModel * ellipsode)
 	static int _bind_setEllipsoidModel(lua_State *L) {
 		if (!_lg_typecheck_setEllipsoidModel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::setEllipsoidModel(osg::EllipsoidModel * ellipsode) function, expected prototype:\nvoid osg::CoordinateSystemNode::setEllipsoidModel(osg::EllipsoidModel * ellipsode)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::setEllipsoidModel(osg::EllipsoidModel * ellipsode) function, expected prototype:\nvoid osg::CoordinateSystemNode::setEllipsoidModel(osg::EllipsoidModel * ellipsode)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::EllipsoidModel* ellipsode=(Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,2));
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::setEllipsoidModel(osg::EllipsoidModel *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::setEllipsoidModel(osg::EllipsoidModel *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setEllipsoidModel(ellipsode);
 
@@ -817,15 +784,13 @@ public:
 	// osg::EllipsoidModel * osg::CoordinateSystemNode::getEllipsoidModel()
 	static int _bind_getEllipsoidModel_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getEllipsoidModel_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::EllipsoidModel * osg::CoordinateSystemNode::getEllipsoidModel() function, expected prototype:\nosg::EllipsoidModel * osg::CoordinateSystemNode::getEllipsoidModel()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::EllipsoidModel * osg::CoordinateSystemNode::getEllipsoidModel() function, expected prototype:\nosg::EllipsoidModel * osg::CoordinateSystemNode::getEllipsoidModel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::EllipsoidModel * osg::CoordinateSystemNode::getEllipsoidModel(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::EllipsoidModel * osg::CoordinateSystemNode::getEllipsoidModel(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::EllipsoidModel * lret = self->getEllipsoidModel();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -838,15 +803,13 @@ public:
 	// const osg::EllipsoidModel * osg::CoordinateSystemNode::getEllipsoidModel() const
 	static int _bind_getEllipsoidModel_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getEllipsoidModel_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::EllipsoidModel * osg::CoordinateSystemNode::getEllipsoidModel() const function, expected prototype:\nconst osg::EllipsoidModel * osg::CoordinateSystemNode::getEllipsoidModel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::EllipsoidModel * osg::CoordinateSystemNode::getEllipsoidModel() const function, expected prototype:\nconst osg::EllipsoidModel * osg::CoordinateSystemNode::getEllipsoidModel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::EllipsoidModel * osg::CoordinateSystemNode::getEllipsoidModel() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::EllipsoidModel * osg::CoordinateSystemNode::getEllipsoidModel() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::EllipsoidModel * lret = self->getEllipsoidModel();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -868,8 +831,7 @@ public:
 	// osg::Matrixd osg::CoordinateSystemNode::computeLocalCoordinateFrame(const osg::Vec3d & position) const
 	static int _bind_computeLocalCoordinateFrame(lua_State *L) {
 		if (!_lg_typecheck_computeLocalCoordinateFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osg::CoordinateSystemNode::computeLocalCoordinateFrame(const osg::Vec3d & position) const function, expected prototype:\nosg::Matrixd osg::CoordinateSystemNode::computeLocalCoordinateFrame(const osg::Vec3d & position) const\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osg::CoordinateSystemNode::computeLocalCoordinateFrame(const osg::Vec3d & position) const function, expected prototype:\nosg::Matrixd osg::CoordinateSystemNode::computeLocalCoordinateFrame(const osg::Vec3d & position) const\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* position_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -880,8 +842,7 @@ public:
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osg::CoordinateSystemNode::computeLocalCoordinateFrame(const osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osg::CoordinateSystemNode::computeLocalCoordinateFrame(const osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixd stack_lret = self->computeLocalCoordinateFrame(position);
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -895,8 +856,7 @@ public:
 	// osg::Vec3d osg::CoordinateSystemNode::computeLocalUpVector(const osg::Vec3d & position) const
 	static int _bind_computeLocalUpVector(lua_State *L) {
 		if (!_lg_typecheck_computeLocalUpVector(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::CoordinateSystemNode::computeLocalUpVector(const osg::Vec3d & position) const function, expected prototype:\nosg::Vec3d osg::CoordinateSystemNode::computeLocalUpVector(const osg::Vec3d & position) const\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::CoordinateSystemNode::computeLocalUpVector(const osg::Vec3d & position) const function, expected prototype:\nosg::Vec3d osg::CoordinateSystemNode::computeLocalUpVector(const osg::Vec3d & position) const\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* position_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -907,8 +867,7 @@ public:
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d osg::CoordinateSystemNode::computeLocalUpVector(const osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3d osg::CoordinateSystemNode::computeLocalUpVector(const osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3d stack_lret = self->computeLocalUpVector(position);
 		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
@@ -922,16 +881,14 @@ public:
 	// void osg::CoordinateSystemNode::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_setName(const std::string & name) function, expected prototype:\nvoid osg::CoordinateSystemNode::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_setName(const std::string & name) function, expected prototype:\nvoid osg::CoordinateSystemNode::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CoordinateSystemNode::setName(name);
 
@@ -941,15 +898,13 @@ public:
 	// void osg::CoordinateSystemNode::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_computeDataVariance() function, expected prototype:\nvoid osg::CoordinateSystemNode::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_computeDataVariance() function, expected prototype:\nvoid osg::CoordinateSystemNode::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CoordinateSystemNode::computeDataVariance();
 
@@ -959,16 +914,14 @@ public:
 	// void osg::CoordinateSystemNode::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::CoordinateSystemNode::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::CoordinateSystemNode::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CoordinateSystemNode::setUserData(obj);
 
@@ -978,15 +931,13 @@ public:
 	// osg::Referenced * osg::CoordinateSystemNode::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::CoordinateSystemNode::base_getUserData() function, expected prototype:\nosg::Referenced * osg::CoordinateSystemNode::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::CoordinateSystemNode::base_getUserData() function, expected prototype:\nosg::Referenced * osg::CoordinateSystemNode::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::CoordinateSystemNode::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::CoordinateSystemNode::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->CoordinateSystemNode::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -999,15 +950,13 @@ public:
 	// const osg::Referenced * osg::CoordinateSystemNode::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::CoordinateSystemNode::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::CoordinateSystemNode::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::CoordinateSystemNode::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::CoordinateSystemNode::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::CoordinateSystemNode::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::CoordinateSystemNode::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->CoordinateSystemNode::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1029,15 +978,13 @@ public:
 	// osg::Transform * osg::CoordinateSystemNode::base_asTransform()
 	static int _bind_base_asTransform_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asTransform_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Transform * osg::CoordinateSystemNode::base_asTransform() function, expected prototype:\nosg::Transform * osg::CoordinateSystemNode::base_asTransform()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Transform * osg::CoordinateSystemNode::base_asTransform() function, expected prototype:\nosg::Transform * osg::CoordinateSystemNode::base_asTransform()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * osg::CoordinateSystemNode::base_asTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Transform * osg::CoordinateSystemNode::base_asTransform(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Transform * lret = self->CoordinateSystemNode::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1050,15 +997,13 @@ public:
 	// const osg::Transform * osg::CoordinateSystemNode::base_asTransform() const
 	static int _bind_base_asTransform_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asTransform_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Transform * osg::CoordinateSystemNode::base_asTransform() const function, expected prototype:\nconst osg::Transform * osg::CoordinateSystemNode::base_asTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Transform * osg::CoordinateSystemNode::base_asTransform() const function, expected prototype:\nconst osg::Transform * osg::CoordinateSystemNode::base_asTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * osg::CoordinateSystemNode::base_asTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Transform * osg::CoordinateSystemNode::base_asTransform() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Transform * lret = self->CoordinateSystemNode::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1080,15 +1025,13 @@ public:
 	// osg::Camera * osg::CoordinateSystemNode::base_asCamera()
 	static int _bind_base_asCamera_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asCamera_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Camera * osg::CoordinateSystemNode::base_asCamera() function, expected prototype:\nosg::Camera * osg::CoordinateSystemNode::base_asCamera()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Camera * osg::CoordinateSystemNode::base_asCamera() function, expected prototype:\nosg::Camera * osg::CoordinateSystemNode::base_asCamera()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera * osg::CoordinateSystemNode::base_asCamera(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Camera * osg::CoordinateSystemNode::base_asCamera(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Camera * lret = self->CoordinateSystemNode::asCamera();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1101,15 +1044,13 @@ public:
 	// const osg::Camera * osg::CoordinateSystemNode::base_asCamera() const
 	static int _bind_base_asCamera_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asCamera_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Camera * osg::CoordinateSystemNode::base_asCamera() const function, expected prototype:\nconst osg::Camera * osg::CoordinateSystemNode::base_asCamera() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Camera * osg::CoordinateSystemNode::base_asCamera() const function, expected prototype:\nconst osg::Camera * osg::CoordinateSystemNode::base_asCamera() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Camera * osg::CoordinateSystemNode::base_asCamera() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Camera * osg::CoordinateSystemNode::base_asCamera() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Camera * lret = self->CoordinateSystemNode::asCamera();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1131,15 +1072,13 @@ public:
 	// osg::Switch * osg::CoordinateSystemNode::base_asSwitch()
 	static int _bind_base_asSwitch_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asSwitch_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Switch * osg::CoordinateSystemNode::base_asSwitch() function, expected prototype:\nosg::Switch * osg::CoordinateSystemNode::base_asSwitch()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Switch * osg::CoordinateSystemNode::base_asSwitch() function, expected prototype:\nosg::Switch * osg::CoordinateSystemNode::base_asSwitch()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osg::CoordinateSystemNode::base_asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Switch * osg::CoordinateSystemNode::base_asSwitch(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Switch * lret = self->CoordinateSystemNode::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1152,15 +1091,13 @@ public:
 	// const osg::Switch * osg::CoordinateSystemNode::base_asSwitch() const
 	static int _bind_base_asSwitch_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asSwitch_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Switch * osg::CoordinateSystemNode::base_asSwitch() const function, expected prototype:\nconst osg::Switch * osg::CoordinateSystemNode::base_asSwitch() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Switch * osg::CoordinateSystemNode::base_asSwitch() const function, expected prototype:\nconst osg::Switch * osg::CoordinateSystemNode::base_asSwitch() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osg::CoordinateSystemNode::base_asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Switch * osg::CoordinateSystemNode::base_asSwitch() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Switch * lret = self->CoordinateSystemNode::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1182,15 +1119,13 @@ public:
 	// osg::Geode * osg::CoordinateSystemNode::base_asGeode()
 	static int _bind_base_asGeode_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asGeode_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geode * osg::CoordinateSystemNode::base_asGeode() function, expected prototype:\nosg::Geode * osg::CoordinateSystemNode::base_asGeode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Geode * osg::CoordinateSystemNode::base_asGeode() function, expected prototype:\nosg::Geode * osg::CoordinateSystemNode::base_asGeode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osg::CoordinateSystemNode::base_asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Geode * osg::CoordinateSystemNode::base_asGeode(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Geode * lret = self->CoordinateSystemNode::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1203,15 +1138,13 @@ public:
 	// const osg::Geode * osg::CoordinateSystemNode::base_asGeode() const
 	static int _bind_base_asGeode_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asGeode_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Geode * osg::CoordinateSystemNode::base_asGeode() const function, expected prototype:\nconst osg::Geode * osg::CoordinateSystemNode::base_asGeode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Geode * osg::CoordinateSystemNode::base_asGeode() const function, expected prototype:\nconst osg::Geode * osg::CoordinateSystemNode::base_asGeode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osg::CoordinateSystemNode::base_asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Geode * osg::CoordinateSystemNode::base_asGeode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Geode * lret = self->CoordinateSystemNode::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1233,8 +1166,7 @@ public:
 	// void osg::CoordinateSystemNode::base_ascend(osg::NodeVisitor & nv)
 	static int _bind_base_ascend(lua_State *L) {
 		if (!_lg_typecheck_base_ascend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_ascend(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::CoordinateSystemNode::base_ascend(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_ascend(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::CoordinateSystemNode::base_ascend(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1245,8 +1177,7 @@ public:
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_ascend(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_ascend(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CoordinateSystemNode::ascend(nv);
 
@@ -1256,15 +1187,13 @@ public:
 	// osg::Group * osg::CoordinateSystemNode::base_asGroup()
 	static int _bind_base_asGroup_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asGroup_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Group * osg::CoordinateSystemNode::base_asGroup() function, expected prototype:\nosg::Group * osg::CoordinateSystemNode::base_asGroup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Group * osg::CoordinateSystemNode::base_asGroup() function, expected prototype:\nosg::Group * osg::CoordinateSystemNode::base_asGroup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Group * osg::CoordinateSystemNode::base_asGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Group * osg::CoordinateSystemNode::base_asGroup(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Group * lret = self->CoordinateSystemNode::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1277,15 +1206,13 @@ public:
 	// const osg::Group * osg::CoordinateSystemNode::base_asGroup() const
 	static int _bind_base_asGroup_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asGroup_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Group * osg::CoordinateSystemNode::base_asGroup() const function, expected prototype:\nconst osg::Group * osg::CoordinateSystemNode::base_asGroup() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Group * osg::CoordinateSystemNode::base_asGroup() const function, expected prototype:\nconst osg::Group * osg::CoordinateSystemNode::base_asGroup() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Group * osg::CoordinateSystemNode::base_asGroup() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Group * osg::CoordinateSystemNode::base_asGroup() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Group * lret = self->CoordinateSystemNode::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1307,8 +1234,7 @@ public:
 	// void osg::CoordinateSystemNode::base_traverse(osg::NodeVisitor & arg1)
 	static int _bind_base_traverse(lua_State *L) {
 		if (!_lg_typecheck_base_traverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_traverse(osg::NodeVisitor & arg1) function, expected prototype:\nvoid osg::CoordinateSystemNode::base_traverse(osg::NodeVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_traverse(osg::NodeVisitor & arg1) function, expected prototype:\nvoid osg::CoordinateSystemNode::base_traverse(osg::NodeVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1319,8 +1245,7 @@ public:
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_traverse(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CoordinateSystemNode::traverse(_arg1);
 
@@ -1330,16 +1255,14 @@ public:
 	// bool osg::CoordinateSystemNode::base_addChild(osg::Node * child)
 	static int _bind_base_addChild(lua_State *L) {
 		if (!_lg_typecheck_base_addChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::CoordinateSystemNode::base_addChild(osg::Node * child) function, expected prototype:\nbool osg::CoordinateSystemNode::base_addChild(osg::Node * child)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::CoordinateSystemNode::base_addChild(osg::Node * child) function, expected prototype:\nbool osg::CoordinateSystemNode::base_addChild(osg::Node * child)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* child=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CoordinateSystemNode::base_addChild(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::CoordinateSystemNode::base_addChild(osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CoordinateSystemNode::addChild(child);
 		lua_pushboolean(L,lret?1:0);
@@ -1350,8 +1273,7 @@ public:
 	// bool osg::CoordinateSystemNode::base_insertChild(unsigned int index, osg::Node * child)
 	static int _bind_base_insertChild(lua_State *L) {
 		if (!_lg_typecheck_base_insertChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::CoordinateSystemNode::base_insertChild(unsigned int index, osg::Node * child) function, expected prototype:\nbool osg::CoordinateSystemNode::base_insertChild(unsigned int index, osg::Node * child)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::CoordinateSystemNode::base_insertChild(unsigned int index, osg::Node * child) function, expected prototype:\nbool osg::CoordinateSystemNode::base_insertChild(unsigned int index, osg::Node * child)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
@@ -1359,8 +1281,7 @@ public:
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CoordinateSystemNode::base_insertChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::CoordinateSystemNode::base_insertChild(unsigned int, osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CoordinateSystemNode::insertChild(index, child);
 		lua_pushboolean(L,lret?1:0);
@@ -1371,8 +1292,7 @@ public:
 	// bool osg::CoordinateSystemNode::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove)
 	static int _bind_base_removeChildren(lua_State *L) {
 		if (!_lg_typecheck_base_removeChildren(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::CoordinateSystemNode::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove) function, expected prototype:\nbool osg::CoordinateSystemNode::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::CoordinateSystemNode::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove) function, expected prototype:\nbool osg::CoordinateSystemNode::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int pos=(unsigned int)lua_tointeger(L,2);
@@ -1380,8 +1300,7 @@ public:
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CoordinateSystemNode::base_removeChildren(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::CoordinateSystemNode::base_removeChildren(unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CoordinateSystemNode::removeChildren(pos, numChildrenToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -1392,8 +1311,7 @@ public:
 	// bool osg::CoordinateSystemNode::base_replaceChild(osg::Node * origChild, osg::Node * newChild)
 	static int _bind_base_replaceChild(lua_State *L) {
 		if (!_lg_typecheck_base_replaceChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::CoordinateSystemNode::base_replaceChild(osg::Node * origChild, osg::Node * newChild) function, expected prototype:\nbool osg::CoordinateSystemNode::base_replaceChild(osg::Node * origChild, osg::Node * newChild)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::CoordinateSystemNode::base_replaceChild(osg::Node * origChild, osg::Node * newChild) function, expected prototype:\nbool osg::CoordinateSystemNode::base_replaceChild(osg::Node * origChild, osg::Node * newChild)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* origChild=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
@@ -1401,8 +1319,7 @@ public:
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CoordinateSystemNode::base_replaceChild(osg::Node *, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::CoordinateSystemNode::base_replaceChild(osg::Node *, osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CoordinateSystemNode::replaceChild(origChild, newChild);
 		lua_pushboolean(L,lret?1:0);
@@ -1413,8 +1330,7 @@ public:
 	// bool osg::CoordinateSystemNode::base_setChild(unsigned int i, osg::Node * node)
 	static int _bind_base_setChild(lua_State *L) {
 		if (!_lg_typecheck_base_setChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::CoordinateSystemNode::base_setChild(unsigned int i, osg::Node * node) function, expected prototype:\nbool osg::CoordinateSystemNode::base_setChild(unsigned int i, osg::Node * node)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::CoordinateSystemNode::base_setChild(unsigned int i, osg::Node * node) function, expected prototype:\nbool osg::CoordinateSystemNode::base_setChild(unsigned int i, osg::Node * node)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
@@ -1422,8 +1338,7 @@ public:
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CoordinateSystemNode::base_setChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::CoordinateSystemNode::base_setChild(unsigned int, osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CoordinateSystemNode::setChild(i, node);
 		lua_pushboolean(L,lret?1:0);
@@ -1434,16 +1349,14 @@ public:
 	// void osg::CoordinateSystemNode::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::CoordinateSystemNode::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::CoordinateSystemNode::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CoordinateSystemNode::setThreadSafeRefUnref(threadSafe);
 
@@ -1453,8 +1366,7 @@ public:
 	// void osg::CoordinateSystemNode::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::CoordinateSystemNode::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::CoordinateSystemNode::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1463,8 +1375,7 @@ public:
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CoordinateSystemNode::releaseGLObjects(_arg1);
 
@@ -1474,15 +1385,13 @@ public:
 	// osg::BoundingSphered osg::CoordinateSystemNode::base_computeBound() const
 	static int _bind_base_computeBound(lua_State *L) {
 		if (!_lg_typecheck_base_computeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::CoordinateSystemNode::base_computeBound() const function, expected prototype:\nosg::BoundingSphered osg::CoordinateSystemNode::base_computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::CoordinateSystemNode::base_computeBound() const function, expected prototype:\nosg::BoundingSphered osg::CoordinateSystemNode::base_computeBound() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::CoordinateSystemNode::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::CoordinateSystemNode::base_computeBound() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::BoundingSphered stack_lret = self->CoordinateSystemNode::computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -1496,15 +1405,13 @@ public:
 	// osg::Object * osg::CoordinateSystemNode::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::CoordinateSystemNode::base_cloneType() const function, expected prototype:\nosg::Object * osg::CoordinateSystemNode::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::CoordinateSystemNode::base_cloneType() const function, expected prototype:\nosg::Object * osg::CoordinateSystemNode::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::CoordinateSystemNode::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::CoordinateSystemNode::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->CoordinateSystemNode::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1517,8 +1424,7 @@ public:
 	// osg::Object * osg::CoordinateSystemNode::base_clone(const osg::CopyOp & copyop) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::CoordinateSystemNode::base_clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::CoordinateSystemNode::base_clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::CoordinateSystemNode::base_clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::CoordinateSystemNode::base_clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1529,8 +1435,7 @@ public:
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::CoordinateSystemNode::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::CoordinateSystemNode::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->CoordinateSystemNode::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1543,16 +1448,14 @@ public:
 	// bool osg::CoordinateSystemNode::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::CoordinateSystemNode::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::CoordinateSystemNode::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::CoordinateSystemNode::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::CoordinateSystemNode::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CoordinateSystemNode::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::CoordinateSystemNode::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CoordinateSystemNode::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1563,15 +1466,13 @@ public:
 	// const char * osg::CoordinateSystemNode::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::CoordinateSystemNode::base_className() const function, expected prototype:\nconst char * osg::CoordinateSystemNode::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::CoordinateSystemNode::base_className() const function, expected prototype:\nconst char * osg::CoordinateSystemNode::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::CoordinateSystemNode::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::CoordinateSystemNode::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->CoordinateSystemNode::className();
 		lua_pushstring(L,lret);
@@ -1582,15 +1483,13 @@ public:
 	// const char * osg::CoordinateSystemNode::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::CoordinateSystemNode::base_libraryName() const function, expected prototype:\nconst char * osg::CoordinateSystemNode::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::CoordinateSystemNode::base_libraryName() const function, expected prototype:\nconst char * osg::CoordinateSystemNode::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::CoordinateSystemNode::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::CoordinateSystemNode::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->CoordinateSystemNode::libraryName();
 		lua_pushstring(L,lret);
@@ -1601,8 +1500,7 @@ public:
 	// void osg::CoordinateSystemNode::base_accept(osg::NodeVisitor & nv)
 	static int _bind_base_accept(lua_State *L) {
 		if (!_lg_typecheck_base_accept(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::CoordinateSystemNode::base_accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::CoordinateSystemNode::base_accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::CoordinateSystemNode::base_accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1613,8 +1511,7 @@ public:
 
 		osg::CoordinateSystemNode* self=Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CoordinateSystemNode::base_accept(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CoordinateSystemNode::accept(nv);
 

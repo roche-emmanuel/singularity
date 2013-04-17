@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ClipPlane* self= (osg::ClipPlane*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -465,8 +462,7 @@ public:
 	// osg::ClipPlane::ClipPlane()
 	static osg::ClipPlane* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane() function, expected prototype:\nosg::ClipPlane::ClipPlane()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane() function, expected prototype:\nosg::ClipPlane::ClipPlane()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -476,8 +472,7 @@ public:
 	// osg::ClipPlane::ClipPlane(unsigned int no)
 	static osg::ClipPlane* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(unsigned int no) function, expected prototype:\nosg::ClipPlane::ClipPlane(unsigned int no)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(unsigned int no) function, expected prototype:\nosg::ClipPlane::ClipPlane(unsigned int no)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int no=(unsigned int)lua_tointeger(L,1);
@@ -488,8 +483,7 @@ public:
 	// osg::ClipPlane::ClipPlane(unsigned int no, const osg::Vec4d & plane)
 	static osg::ClipPlane* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(unsigned int no, const osg::Vec4d & plane) function, expected prototype:\nosg::ClipPlane::ClipPlane(unsigned int no, const osg::Vec4d & plane)\nClass arguments details:\narg 2 ID = 92303233\n");
+			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(unsigned int no, const osg::Vec4d & plane) function, expected prototype:\nosg::ClipPlane::ClipPlane(unsigned int no, const osg::Vec4d & plane)\nClass arguments details:\narg 2 ID = 92303233\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int no=(unsigned int)lua_tointeger(L,1);
@@ -505,8 +499,7 @@ public:
 	// osg::ClipPlane::ClipPlane(unsigned int no, const osg::Plane & plane)
 	static osg::ClipPlane* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(unsigned int no, const osg::Plane & plane) function, expected prototype:\nosg::ClipPlane::ClipPlane(unsigned int no, const osg::Plane & plane)\nClass arguments details:\narg 2 ID = 86970521\n");
+			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(unsigned int no, const osg::Plane & plane) function, expected prototype:\nosg::ClipPlane::ClipPlane(unsigned int no, const osg::Plane & plane)\nClass arguments details:\narg 2 ID = 86970521\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int no=(unsigned int)lua_tointeger(L,1);
@@ -522,8 +515,7 @@ public:
 	// osg::ClipPlane::ClipPlane(unsigned int no, double a, double b, double c, double d)
 	static osg::ClipPlane* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(unsigned int no, double a, double b, double c, double d) function, expected prototype:\nosg::ClipPlane::ClipPlane(unsigned int no, double a, double b, double c, double d)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(unsigned int no, double a, double b, double c, double d) function, expected prototype:\nosg::ClipPlane::ClipPlane(unsigned int no, double a, double b, double c, double d)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int no=(unsigned int)lua_tointeger(L,1);
@@ -538,8 +530,7 @@ public:
 	// osg::ClipPlane::ClipPlane(const osg::ClipPlane & cp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::ClipPlane* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(const osg::ClipPlane & cp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::ClipPlane::ClipPlane(const osg::ClipPlane & cp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(const osg::ClipPlane & cp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::ClipPlane::ClipPlane(const osg::ClipPlane & cp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -561,8 +552,7 @@ public:
 	// osg::ClipPlane::ClipPlane(lua_Table * data)
 	static osg::ClipPlane* _bind_ctor_overload_7(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(lua_Table * data) function, expected prototype:\nosg::ClipPlane::ClipPlane(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(lua_Table * data) function, expected prototype:\nosg::ClipPlane::ClipPlane(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -572,8 +562,7 @@ public:
 	// osg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no)
 	static osg::ClipPlane* _bind_ctor_overload_8(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no) function, expected prototype:\nosg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no) function, expected prototype:\nosg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int no=(unsigned int)lua_tointeger(L,2);
@@ -584,8 +573,7 @@ public:
 	// osg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no, const osg::Vec4d & plane)
 	static osg::ClipPlane* _bind_ctor_overload_9(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_9(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no, const osg::Vec4d & plane) function, expected prototype:\nosg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no, const osg::Vec4d & plane)\nClass arguments details:\narg 3 ID = 92303233\n");
+			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no, const osg::Vec4d & plane) function, expected prototype:\nosg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no, const osg::Vec4d & plane)\nClass arguments details:\narg 3 ID = 92303233\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int no=(unsigned int)lua_tointeger(L,2);
@@ -601,8 +589,7 @@ public:
 	// osg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no, const osg::Plane & plane)
 	static osg::ClipPlane* _bind_ctor_overload_10(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_10(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no, const osg::Plane & plane) function, expected prototype:\nosg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no, const osg::Plane & plane)\nClass arguments details:\narg 3 ID = 86970521\n");
+			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no, const osg::Plane & plane) function, expected prototype:\nosg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no, const osg::Plane & plane)\nClass arguments details:\narg 3 ID = 86970521\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int no=(unsigned int)lua_tointeger(L,2);
@@ -618,8 +605,7 @@ public:
 	// osg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no, double a, double b, double c, double d)
 	static osg::ClipPlane* _bind_ctor_overload_11(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_11(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no, double a, double b, double c, double d) function, expected prototype:\nosg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no, double a, double b, double c, double d)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no, double a, double b, double c, double d) function, expected prototype:\nosg::ClipPlane::ClipPlane(lua_Table * data, unsigned int no, double a, double b, double c, double d)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int no=(unsigned int)lua_tointeger(L,2);
@@ -634,8 +620,7 @@ public:
 	// osg::ClipPlane::ClipPlane(lua_Table * data, const osg::ClipPlane & cp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::ClipPlane* _bind_ctor_overload_12(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_12(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(lua_Table * data, const osg::ClipPlane & cp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::ClipPlane::ClipPlane(lua_Table * data, const osg::ClipPlane & cp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::ClipPlane::ClipPlane(lua_Table * data, const osg::ClipPlane & cp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::ClipPlane::ClipPlane(lua_Table * data, const osg::ClipPlane & cp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -678,15 +663,13 @@ public:
 	// osg::Object * osg::ClipPlane::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClipPlane::cloneType() const function, expected prototype:\nosg::Object * osg::ClipPlane::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClipPlane::cloneType() const function, expected prototype:\nosg::Object * osg::ClipPlane::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClipPlane::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClipPlane::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -699,8 +682,7 @@ public:
 	// osg::Object * osg::ClipPlane::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClipPlane::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ClipPlane::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClipPlane::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ClipPlane::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -711,8 +693,7 @@ public:
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClipPlane::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClipPlane::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -725,16 +706,14 @@ public:
 	// bool osg::ClipPlane::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ClipPlane::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::ClipPlane::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ClipPlane::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::ClipPlane::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClipPlane::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ClipPlane::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -745,15 +724,13 @@ public:
 	// const char * osg::ClipPlane::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::ClipPlane::libraryName() const function, expected prototype:\nconst char * osg::ClipPlane::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::ClipPlane::libraryName() const function, expected prototype:\nconst char * osg::ClipPlane::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClipPlane::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::ClipPlane::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -764,15 +741,13 @@ public:
 	// const char * osg::ClipPlane::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::ClipPlane::className() const function, expected prototype:\nconst char * osg::ClipPlane::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::ClipPlane::className() const function, expected prototype:\nconst char * osg::ClipPlane::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClipPlane::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::ClipPlane::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -783,15 +758,13 @@ public:
 	// osg::StateAttribute::Type osg::ClipPlane::getType() const
 	static int _bind_getType(lua_State *L) {
 		if (!_lg_typecheck_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::ClipPlane::getType() const function, expected prototype:\nosg::StateAttribute::Type osg::ClipPlane::getType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::ClipPlane::getType() const function, expected prototype:\nosg::StateAttribute::Type osg::ClipPlane::getType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ClipPlane::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ClipPlane::getType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -802,8 +775,7 @@ public:
 	// int osg::ClipPlane::compare(const osg::StateAttribute & sa) const
 	static int _bind_compare(lua_State *L) {
 		if (!_lg_typecheck_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::ClipPlane::compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::ClipPlane::compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osg::ClipPlane::compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::ClipPlane::compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* sa_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
@@ -814,8 +786,7 @@ public:
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::ClipPlane::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::ClipPlane::compare(const osg::StateAttribute &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -826,15 +797,13 @@ public:
 	// unsigned int osg::ClipPlane::getMember() const
 	static int _bind_getMember(lua_State *L) {
 		if (!_lg_typecheck_getMember(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::ClipPlane::getMember() const function, expected prototype:\nunsigned int osg::ClipPlane::getMember() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::ClipPlane::getMember() const function, expected prototype:\nunsigned int osg::ClipPlane::getMember() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::ClipPlane::getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::ClipPlane::getMember() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getMember();
 		lua_pushnumber(L,lret);
@@ -845,8 +814,7 @@ public:
 	// bool osg::ClipPlane::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
 	static int _bind_getModeUsage(lua_State *L) {
 		if (!_lg_typecheck_getModeUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ClipPlane::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::ClipPlane::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ClipPlane::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::ClipPlane::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateAttribute::ModeUsage* _arg1_ptr=(Luna< osg::StateAttribute::ModeUsage >::check(L,2));
@@ -857,8 +825,7 @@ public:
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClipPlane::getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ClipPlane::getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -869,8 +836,7 @@ public:
 	// void osg::ClipPlane::setClipPlane(const osg::Plane & plane)
 	static int _bind_setClipPlane_overload_1(lua_State *L) {
 		if (!_lg_typecheck_setClipPlane_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::setClipPlane(const osg::Plane & plane) function, expected prototype:\nvoid osg::ClipPlane::setClipPlane(const osg::Plane & plane)\nClass arguments details:\narg 1 ID = 86970521\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::setClipPlane(const osg::Plane & plane) function, expected prototype:\nvoid osg::ClipPlane::setClipPlane(const osg::Plane & plane)\nClass arguments details:\narg 1 ID = 86970521\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Plane* plane_ptr=(Luna< osg::Plane >::check(L,2));
@@ -881,8 +847,7 @@ public:
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClipPlane::setClipPlane(const osg::Plane &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClipPlane::setClipPlane(const osg::Plane &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setClipPlane(plane);
 
@@ -892,8 +857,7 @@ public:
 	// void osg::ClipPlane::setClipPlane(double a, double b, double c, double d)
 	static int _bind_setClipPlane_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setClipPlane_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::setClipPlane(double a, double b, double c, double d) function, expected prototype:\nvoid osg::ClipPlane::setClipPlane(double a, double b, double c, double d)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::setClipPlane(double a, double b, double c, double d) function, expected prototype:\nvoid osg::ClipPlane::setClipPlane(double a, double b, double c, double d)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double a=(double)lua_tonumber(L,2);
@@ -903,8 +867,7 @@ public:
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClipPlane::setClipPlane(double, double, double, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClipPlane::setClipPlane(double, double, double, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setClipPlane(a, b, c, d);
 
@@ -914,8 +877,7 @@ public:
 	// void osg::ClipPlane::setClipPlane(const osg::Vec4d & plane)
 	static int _bind_setClipPlane_overload_3(lua_State *L) {
 		if (!_lg_typecheck_setClipPlane_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::setClipPlane(const osg::Vec4d & plane) function, expected prototype:\nvoid osg::ClipPlane::setClipPlane(const osg::Vec4d & plane)\nClass arguments details:\narg 1 ID = 92303233\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::setClipPlane(const osg::Vec4d & plane) function, expected prototype:\nvoid osg::ClipPlane::setClipPlane(const osg::Vec4d & plane)\nClass arguments details:\narg 1 ID = 92303233\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4d* plane_ptr=(Luna< osg::Vec4d >::check(L,2));
@@ -926,8 +888,7 @@ public:
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClipPlane::setClipPlane(const osg::Vec4d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClipPlane::setClipPlane(const osg::Vec4d &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setClipPlane(plane);
 
@@ -947,15 +908,13 @@ public:
 	// const osg::Vec4d & osg::ClipPlane::getClipPlane() const
 	static int _bind_getClipPlane(lua_State *L) {
 		if (!_lg_typecheck_getClipPlane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec4d & osg::ClipPlane::getClipPlane() const function, expected prototype:\nconst osg::Vec4d & osg::ClipPlane::getClipPlane() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec4d & osg::ClipPlane::getClipPlane() const function, expected prototype:\nconst osg::Vec4d & osg::ClipPlane::getClipPlane() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4d & osg::ClipPlane::getClipPlane() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec4d & osg::ClipPlane::getClipPlane() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec4d* lret = &self->getClipPlane();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -968,16 +927,14 @@ public:
 	// void osg::ClipPlane::setClipPlaneNum(unsigned int num)
 	static int _bind_setClipPlaneNum(lua_State *L) {
 		if (!_lg_typecheck_setClipPlaneNum(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::setClipPlaneNum(unsigned int num) function, expected prototype:\nvoid osg::ClipPlane::setClipPlaneNum(unsigned int num)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::setClipPlaneNum(unsigned int num) function, expected prototype:\nvoid osg::ClipPlane::setClipPlaneNum(unsigned int num)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int num=(unsigned int)lua_tointeger(L,2);
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClipPlane::setClipPlaneNum(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClipPlane::setClipPlaneNum(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setClipPlaneNum(num);
 
@@ -987,15 +944,13 @@ public:
 	// unsigned int osg::ClipPlane::getClipPlaneNum() const
 	static int _bind_getClipPlaneNum(lua_State *L) {
 		if (!_lg_typecheck_getClipPlaneNum(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::ClipPlane::getClipPlaneNum() const function, expected prototype:\nunsigned int osg::ClipPlane::getClipPlaneNum() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::ClipPlane::getClipPlaneNum() const function, expected prototype:\nunsigned int osg::ClipPlane::getClipPlaneNum() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::ClipPlane::getClipPlaneNum() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::ClipPlane::getClipPlaneNum() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getClipPlaneNum();
 		lua_pushnumber(L,lret);
@@ -1006,8 +961,7 @@ public:
 	// void osg::ClipPlane::apply(osg::State & state) const
 	static int _bind_apply(lua_State *L) {
 		if (!_lg_typecheck_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::apply(osg::State & state) const function, expected prototype:\nvoid osg::ClipPlane::apply(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::apply(osg::State & state) const function, expected prototype:\nvoid osg::ClipPlane::apply(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1018,8 +972,7 @@ public:
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClipPlane::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClipPlane::apply(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(state);
 
@@ -1029,16 +982,14 @@ public:
 	// void osg::ClipPlane::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::ClipPlane::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::ClipPlane::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClipPlane::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClipPlane::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClipPlane::setThreadSafeRefUnref(threadSafe);
 
@@ -1048,16 +999,14 @@ public:
 	// void osg::ClipPlane::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::base_setName(const std::string & name) function, expected prototype:\nvoid osg::ClipPlane::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::base_setName(const std::string & name) function, expected prototype:\nvoid osg::ClipPlane::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClipPlane::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClipPlane::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClipPlane::setName(name);
 
@@ -1067,15 +1016,13 @@ public:
 	// void osg::ClipPlane::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::base_computeDataVariance() function, expected prototype:\nvoid osg::ClipPlane::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::base_computeDataVariance() function, expected prototype:\nvoid osg::ClipPlane::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClipPlane::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClipPlane::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClipPlane::computeDataVariance();
 
@@ -1085,16 +1032,14 @@ public:
 	// void osg::ClipPlane::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::ClipPlane::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::ClipPlane::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClipPlane::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClipPlane::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClipPlane::setUserData(obj);
 
@@ -1104,15 +1049,13 @@ public:
 	// osg::Referenced * osg::ClipPlane::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::ClipPlane::base_getUserData() function, expected prototype:\nosg::Referenced * osg::ClipPlane::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::ClipPlane::base_getUserData() function, expected prototype:\nosg::Referenced * osg::ClipPlane::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ClipPlane::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ClipPlane::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->ClipPlane::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1125,15 +1068,13 @@ public:
 	// const osg::Referenced * osg::ClipPlane::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::ClipPlane::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::ClipPlane::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::ClipPlane::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::ClipPlane::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ClipPlane::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ClipPlane::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->ClipPlane::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1155,15 +1096,13 @@ public:
 	// osg::Texture * osg::ClipPlane::base_asTexture()
 	static int _bind_base_asTexture_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asTexture_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture * osg::ClipPlane::base_asTexture() function, expected prototype:\nosg::Texture * osg::ClipPlane::base_asTexture()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture * osg::ClipPlane::base_asTexture() function, expected prototype:\nosg::Texture * osg::ClipPlane::base_asTexture()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::ClipPlane::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::ClipPlane::base_asTexture(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture * lret = self->ClipPlane::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1176,15 +1115,13 @@ public:
 	// const osg::Texture * osg::ClipPlane::base_asTexture() const
 	static int _bind_base_asTexture_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asTexture_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::ClipPlane::base_asTexture() const function, expected prototype:\nconst osg::Texture * osg::ClipPlane::base_asTexture() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::ClipPlane::base_asTexture() const function, expected prototype:\nconst osg::Texture * osg::ClipPlane::base_asTexture() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::ClipPlane::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::ClipPlane::base_asTexture() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Texture * lret = self->ClipPlane::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1206,15 +1143,13 @@ public:
 	// bool osg::ClipPlane::base_isTextureAttribute() const
 	static int _bind_base_isTextureAttribute(lua_State *L) {
 		if (!_lg_typecheck_base_isTextureAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ClipPlane::base_isTextureAttribute() const function, expected prototype:\nbool osg::ClipPlane::base_isTextureAttribute() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ClipPlane::base_isTextureAttribute() const function, expected prototype:\nbool osg::ClipPlane::base_isTextureAttribute() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClipPlane::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ClipPlane::base_isTextureAttribute() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ClipPlane::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -1225,8 +1160,7 @@ public:
 	// bool osg::ClipPlane::base_checkValidityOfAssociatedModes(osg::State & arg1) const
 	static int _bind_base_checkValidityOfAssociatedModes(lua_State *L) {
 		if (!_lg_typecheck_base_checkValidityOfAssociatedModes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ClipPlane::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osg::ClipPlane::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ClipPlane::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osg::ClipPlane::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1237,8 +1171,7 @@ public:
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClipPlane::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ClipPlane::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ClipPlane::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1249,8 +1182,7 @@ public:
 	// void osg::ClipPlane::base_compileGLObjects(osg::State & arg1) const
 	static int _bind_base_compileGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_compileGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::base_compileGLObjects(osg::State & arg1) const function, expected prototype:\nvoid osg::ClipPlane::base_compileGLObjects(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::base_compileGLObjects(osg::State & arg1) const function, expected prototype:\nvoid osg::ClipPlane::base_compileGLObjects(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1261,8 +1193,7 @@ public:
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClipPlane::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClipPlane::base_compileGLObjects(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClipPlane::compileGLObjects(_arg1);
 
@@ -1272,8 +1203,7 @@ public:
 	// void osg::ClipPlane::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::ClipPlane::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::ClipPlane::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1282,8 +1212,7 @@ public:
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClipPlane::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClipPlane::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClipPlane::releaseGLObjects(_arg1);
 
@@ -1293,15 +1222,13 @@ public:
 	// osg::Object * osg::ClipPlane::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClipPlane::base_cloneType() const function, expected prototype:\nosg::Object * osg::ClipPlane::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClipPlane::base_cloneType() const function, expected prototype:\nosg::Object * osg::ClipPlane::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClipPlane::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClipPlane::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->ClipPlane::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1314,8 +1241,7 @@ public:
 	// osg::Object * osg::ClipPlane::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClipPlane::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ClipPlane::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClipPlane::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ClipPlane::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1326,8 +1252,7 @@ public:
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClipPlane::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClipPlane::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->ClipPlane::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1340,16 +1265,14 @@ public:
 	// bool osg::ClipPlane::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ClipPlane::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::ClipPlane::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ClipPlane::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::ClipPlane::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClipPlane::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ClipPlane::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ClipPlane::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1360,15 +1283,13 @@ public:
 	// const char * osg::ClipPlane::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::ClipPlane::base_libraryName() const function, expected prototype:\nconst char * osg::ClipPlane::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::ClipPlane::base_libraryName() const function, expected prototype:\nconst char * osg::ClipPlane::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClipPlane::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::ClipPlane::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->ClipPlane::libraryName();
 		lua_pushstring(L,lret);
@@ -1379,15 +1300,13 @@ public:
 	// const char * osg::ClipPlane::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::ClipPlane::base_className() const function, expected prototype:\nconst char * osg::ClipPlane::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::ClipPlane::base_className() const function, expected prototype:\nconst char * osg::ClipPlane::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClipPlane::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::ClipPlane::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->ClipPlane::className();
 		lua_pushstring(L,lret);
@@ -1398,15 +1317,13 @@ public:
 	// osg::StateAttribute::Type osg::ClipPlane::base_getType() const
 	static int _bind_base_getType(lua_State *L) {
 		if (!_lg_typecheck_base_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::ClipPlane::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osg::ClipPlane::base_getType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::ClipPlane::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osg::ClipPlane::base_getType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ClipPlane::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ClipPlane::base_getType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute::Type lret = self->ClipPlane::getType();
 		lua_pushnumber(L,lret);
@@ -1417,8 +1334,7 @@ public:
 	// int osg::ClipPlane::base_compare(const osg::StateAttribute & sa) const
 	static int _bind_base_compare(lua_State *L) {
 		if (!_lg_typecheck_base_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::ClipPlane::base_compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::ClipPlane::base_compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osg::ClipPlane::base_compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::ClipPlane::base_compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* sa_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
@@ -1429,8 +1345,7 @@ public:
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::ClipPlane::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::ClipPlane::base_compare(const osg::StateAttribute &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->ClipPlane::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1441,15 +1356,13 @@ public:
 	// unsigned int osg::ClipPlane::base_getMember() const
 	static int _bind_base_getMember(lua_State *L) {
 		if (!_lg_typecheck_base_getMember(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::ClipPlane::base_getMember() const function, expected prototype:\nunsigned int osg::ClipPlane::base_getMember() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::ClipPlane::base_getMember() const function, expected prototype:\nunsigned int osg::ClipPlane::base_getMember() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::ClipPlane::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::ClipPlane::base_getMember() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->ClipPlane::getMember();
 		lua_pushnumber(L,lret);
@@ -1460,8 +1373,7 @@ public:
 	// bool osg::ClipPlane::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
 	static int _bind_base_getModeUsage(lua_State *L) {
 		if (!_lg_typecheck_base_getModeUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ClipPlane::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::ClipPlane::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ClipPlane::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::ClipPlane::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateAttribute::ModeUsage* _arg1_ptr=(Luna< osg::StateAttribute::ModeUsage >::check(L,2));
@@ -1472,8 +1384,7 @@ public:
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClipPlane::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ClipPlane::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ClipPlane::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1484,8 +1395,7 @@ public:
 	// void osg::ClipPlane::base_apply(osg::State & state) const
 	static int _bind_base_apply(lua_State *L) {
 		if (!_lg_typecheck_base_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::base_apply(osg::State & state) const function, expected prototype:\nvoid osg::ClipPlane::base_apply(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClipPlane::base_apply(osg::State & state) const function, expected prototype:\nvoid osg::ClipPlane::base_apply(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1496,8 +1406,7 @@ public:
 
 		osg::ClipPlane* self=Luna< osg::Referenced >::checkSubType< osg::ClipPlane >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClipPlane::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClipPlane::base_apply(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClipPlane::apply(state);
 

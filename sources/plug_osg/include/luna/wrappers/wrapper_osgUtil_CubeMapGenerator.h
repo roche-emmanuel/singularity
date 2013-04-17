@@ -134,8 +134,7 @@ public:
 	// void osgUtil::CubeMapGenerator::public_set_pixel(int index, int c, int r, const osg::Vec4f & color)
 	static int _bind_public_set_pixel(lua_State *L) {
 		if (!_lg_typecheck_public_set_pixel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::CubeMapGenerator::public_set_pixel(int index, int c, int r, const osg::Vec4f & color) function, expected prototype:\nvoid osgUtil::CubeMapGenerator::public_set_pixel(int index, int c, int r, const osg::Vec4f & color)\nClass arguments details:\narg 4 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::CubeMapGenerator::public_set_pixel(int index, int c, int r, const osg::Vec4f & color) function, expected prototype:\nvoid osgUtil::CubeMapGenerator::public_set_pixel(int index, int c, int r, const osg::Vec4f & color)\nClass arguments details:\narg 4 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -149,8 +148,7 @@ public:
 
 		wrapper_osgUtil_CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CubeMapGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::CubeMapGenerator::public_set_pixel(int, int, int, const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::CubeMapGenerator::public_set_pixel(int, int, int, const osg::Vec4f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_set_pixel(index, c, r, color);
 
@@ -160,8 +158,7 @@ public:
 	// static osg::Vec4f osgUtil::CubeMapGenerator::public_vector_to_color(const osg::Vec3f & vec)
 	static int _bind_public_vector_to_color(lua_State *L) {
 		if (!_lg_typecheck_public_vector_to_color(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Vec4f osgUtil::CubeMapGenerator::public_vector_to_color(const osg::Vec3f & vec) function, expected prototype:\nstatic osg::Vec4f osgUtil::CubeMapGenerator::public_vector_to_color(const osg::Vec3f & vec)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in static osg::Vec4f osgUtil::CubeMapGenerator::public_vector_to_color(const osg::Vec3f & vec) function, expected prototype:\nstatic osg::Vec4f osgUtil::CubeMapGenerator::public_vector_to_color(const osg::Vec3f & vec)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* vec_ptr=(Luna< osg::Vec3f >::check(L,1));
@@ -172,8 +169,7 @@ public:
 
 		wrapper_osgUtil_CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CubeMapGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static osg::Vec4f osgUtil::CubeMapGenerator::public_vector_to_color(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static osg::Vec4f osgUtil::CubeMapGenerator::public_vector_to_color(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec4f stack_lret = self->public_vector_to_color(vec);
 		osg::Vec4f* lret = new osg::Vec4f(stack_lret);
@@ -187,8 +183,7 @@ public:
 	// osgUtil::CubeMapGenerator & osgUtil::CubeMapGenerator::public_op_assign(const osgUtil::CubeMapGenerator & arg1)
 	static int _bind_public_op_assign(lua_State *L) {
 		if (!_lg_typecheck_public_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::CubeMapGenerator & osgUtil::CubeMapGenerator::public_op_assign(const osgUtil::CubeMapGenerator & arg1) function, expected prototype:\nosgUtil::CubeMapGenerator & osgUtil::CubeMapGenerator::public_op_assign(const osgUtil::CubeMapGenerator & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::CubeMapGenerator & osgUtil::CubeMapGenerator::public_op_assign(const osgUtil::CubeMapGenerator & arg1) function, expected prototype:\nosgUtil::CubeMapGenerator & osgUtil::CubeMapGenerator::public_op_assign(const osgUtil::CubeMapGenerator & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgUtil::CubeMapGenerator* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::CubeMapGenerator >(L,2));
@@ -199,8 +194,7 @@ public:
 
 		wrapper_osgUtil_CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CubeMapGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::CubeMapGenerator & osgUtil::CubeMapGenerator::public_op_assign(const osgUtil::CubeMapGenerator &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::CubeMapGenerator & osgUtil::CubeMapGenerator::public_op_assign(const osgUtil::CubeMapGenerator &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::CubeMapGenerator* lret = &self->public_op_assign(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -213,8 +207,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -222,8 +215,7 @@ public:
 
 		wrapper_osgUtil_CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CubeMapGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -233,15 +225,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgUtil_CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CubeMapGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

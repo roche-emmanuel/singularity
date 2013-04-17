@@ -181,6 +181,7 @@ ReflectionGenerator.generate{
 		"std::vector< osg::NodePath >",
 		"std::vector< osg::Plane >",
 		"std::vector< osg::Node %* >",
+		"std::vector< osg::Vec3d >",
 		"TemplateSerializer",
 		"PropByValSerializer",
 		"PropByRefSerializer",

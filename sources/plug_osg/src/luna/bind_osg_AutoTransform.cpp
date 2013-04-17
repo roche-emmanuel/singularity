@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::AutoTransform* self= (osg::AutoTransform*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -629,8 +626,7 @@ public:
 	// osg::AutoTransform::AutoTransform()
 	static osg::AutoTransform* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AutoTransform::AutoTransform() function, expected prototype:\nosg::AutoTransform::AutoTransform()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::AutoTransform::AutoTransform() function, expected prototype:\nosg::AutoTransform::AutoTransform()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -640,8 +636,7 @@ public:
 	// osg::AutoTransform::AutoTransform(const osg::AutoTransform & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::AutoTransform* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AutoTransform::AutoTransform(const osg::AutoTransform & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::AutoTransform::AutoTransform(const osg::AutoTransform & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::AutoTransform::AutoTransform(const osg::AutoTransform & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::AutoTransform::AutoTransform(const osg::AutoTransform & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -663,8 +658,7 @@ public:
 	// osg::AutoTransform::AutoTransform(lua_Table * data)
 	static osg::AutoTransform* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AutoTransform::AutoTransform(lua_Table * data) function, expected prototype:\nosg::AutoTransform::AutoTransform(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::AutoTransform::AutoTransform(lua_Table * data) function, expected prototype:\nosg::AutoTransform::AutoTransform(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -674,8 +668,7 @@ public:
 	// osg::AutoTransform::AutoTransform(lua_Table * data, const osg::AutoTransform & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::AutoTransform* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AutoTransform::AutoTransform(lua_Table * data, const osg::AutoTransform & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::AutoTransform::AutoTransform(lua_Table * data, const osg::AutoTransform & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::AutoTransform::AutoTransform(lua_Table * data, const osg::AutoTransform & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::AutoTransform::AutoTransform(lua_Table * data, const osg::AutoTransform & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -710,15 +703,13 @@ public:
 	// osg::Object * osg::AutoTransform::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::AutoTransform::cloneType() const function, expected prototype:\nosg::Object * osg::AutoTransform::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::AutoTransform::cloneType() const function, expected prototype:\nosg::Object * osg::AutoTransform::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::AutoTransform::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::AutoTransform::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -731,8 +722,7 @@ public:
 	// osg::Object * osg::AutoTransform::clone(const osg::CopyOp & copyop) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::AutoTransform::clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::AutoTransform::clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::AutoTransform::clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::AutoTransform::clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -743,8 +733,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::AutoTransform::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::AutoTransform::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -757,16 +746,14 @@ public:
 	// bool osg::AutoTransform::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::AutoTransform::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::AutoTransform::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -777,15 +764,13 @@ public:
 	// const char * osg::AutoTransform::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::AutoTransform::className() const function, expected prototype:\nconst char * osg::AutoTransform::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::AutoTransform::className() const function, expected prototype:\nconst char * osg::AutoTransform::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AutoTransform::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::AutoTransform::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -796,15 +781,13 @@ public:
 	// const char * osg::AutoTransform::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::AutoTransform::libraryName() const function, expected prototype:\nconst char * osg::AutoTransform::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::AutoTransform::libraryName() const function, expected prototype:\nconst char * osg::AutoTransform::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AutoTransform::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::AutoTransform::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -815,8 +798,7 @@ public:
 	// void osg::AutoTransform::accept(osg::NodeVisitor & nv)
 	static int _bind_accept(lua_State *L) {
 		if (!_lg_typecheck_accept(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::AutoTransform::accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::AutoTransform::accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -827,8 +809,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::accept(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->accept(nv);
 
@@ -838,15 +819,13 @@ public:
 	// osg::AutoTransform * osg::AutoTransform::asAutoTransform()
 	static int _bind_asAutoTransform_overload_1(lua_State *L) {
 		if (!_lg_typecheck_asAutoTransform_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AutoTransform * osg::AutoTransform::asAutoTransform() function, expected prototype:\nosg::AutoTransform * osg::AutoTransform::asAutoTransform()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::AutoTransform * osg::AutoTransform::asAutoTransform() function, expected prototype:\nosg::AutoTransform * osg::AutoTransform::asAutoTransform()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::AutoTransform * osg::AutoTransform::asAutoTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::AutoTransform * osg::AutoTransform::asAutoTransform(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::AutoTransform * lret = self->asAutoTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -859,15 +838,13 @@ public:
 	// const osg::AutoTransform * osg::AutoTransform::asAutoTransform() const
 	static int _bind_asAutoTransform_overload_2(lua_State *L) {
 		if (!_lg_typecheck_asAutoTransform_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::AutoTransform * osg::AutoTransform::asAutoTransform() const function, expected prototype:\nconst osg::AutoTransform * osg::AutoTransform::asAutoTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::AutoTransform * osg::AutoTransform::asAutoTransform() const function, expected prototype:\nconst osg::AutoTransform * osg::AutoTransform::asAutoTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::AutoTransform * osg::AutoTransform::asAutoTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::AutoTransform * osg::AutoTransform::asAutoTransform() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::AutoTransform * lret = self->asAutoTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -889,8 +866,7 @@ public:
 	// void osg::AutoTransform::setPosition(const osg::Vec3d & pos)
 	static int _bind_setPosition(lua_State *L) {
 		if (!_lg_typecheck_setPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setPosition(const osg::Vec3d & pos) function, expected prototype:\nvoid osg::AutoTransform::setPosition(const osg::Vec3d & pos)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setPosition(const osg::Vec3d & pos) function, expected prototype:\nvoid osg::AutoTransform::setPosition(const osg::Vec3d & pos)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* pos_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -901,8 +877,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setPosition(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setPosition(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPosition(pos);
 
@@ -912,15 +887,13 @@ public:
 	// const osg::Vec3d & osg::AutoTransform::getPosition() const
 	static int _bind_getPosition(lua_State *L) {
 		if (!_lg_typecheck_getPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::AutoTransform::getPosition() const function, expected prototype:\nconst osg::Vec3d & osg::AutoTransform::getPosition() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::AutoTransform::getPosition() const function, expected prototype:\nconst osg::Vec3d & osg::AutoTransform::getPosition() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AutoTransform::getPosition() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AutoTransform::getPosition() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3d* lret = &self->getPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -933,8 +906,7 @@ public:
 	// void osg::AutoTransform::setRotation(const osg::Quat & quat)
 	static int _bind_setRotation(lua_State *L) {
 		if (!_lg_typecheck_setRotation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setRotation(const osg::Quat & quat) function, expected prototype:\nvoid osg::AutoTransform::setRotation(const osg::Quat & quat)\nClass arguments details:\narg 1 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setRotation(const osg::Quat & quat) function, expected prototype:\nvoid osg::AutoTransform::setRotation(const osg::Quat & quat)\nClass arguments details:\narg 1 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Quat* quat_ptr=(Luna< osg::Quat >::check(L,2));
@@ -945,8 +917,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setRotation(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setRotation(const osg::Quat &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRotation(quat);
 
@@ -956,15 +927,13 @@ public:
 	// const osg::Quat & osg::AutoTransform::getRotation() const
 	static int _bind_getRotation(lua_State *L) {
 		if (!_lg_typecheck_getRotation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Quat & osg::AutoTransform::getRotation() const function, expected prototype:\nconst osg::Quat & osg::AutoTransform::getRotation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Quat & osg::AutoTransform::getRotation() const function, expected prototype:\nconst osg::Quat & osg::AutoTransform::getRotation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Quat & osg::AutoTransform::getRotation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Quat & osg::AutoTransform::getRotation() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Quat* lret = &self->getRotation();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -977,16 +946,14 @@ public:
 	// void osg::AutoTransform::setScale(double scale)
 	static int _bind_setScale_overload_1(lua_State *L) {
 		if (!_lg_typecheck_setScale_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setScale(double scale) function, expected prototype:\nvoid osg::AutoTransform::setScale(double scale)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setScale(double scale) function, expected prototype:\nvoid osg::AutoTransform::setScale(double scale)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double scale=(double)lua_tonumber(L,2);
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setScale(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setScale(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setScale(scale);
 
@@ -996,8 +963,7 @@ public:
 	// void osg::AutoTransform::setScale(const osg::Vec3d & scale)
 	static int _bind_setScale_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setScale_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setScale(const osg::Vec3d & scale) function, expected prototype:\nvoid osg::AutoTransform::setScale(const osg::Vec3d & scale)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setScale(const osg::Vec3d & scale) function, expected prototype:\nvoid osg::AutoTransform::setScale(const osg::Vec3d & scale)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* scale_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1008,8 +974,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setScale(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setScale(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setScale(scale);
 
@@ -1028,15 +993,13 @@ public:
 	// const osg::Vec3d & osg::AutoTransform::getScale() const
 	static int _bind_getScale(lua_State *L) {
 		if (!_lg_typecheck_getScale(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::AutoTransform::getScale() const function, expected prototype:\nconst osg::Vec3d & osg::AutoTransform::getScale() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::AutoTransform::getScale() const function, expected prototype:\nconst osg::Vec3d & osg::AutoTransform::getScale() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AutoTransform::getScale() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AutoTransform::getScale() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3d* lret = &self->getScale();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1049,16 +1012,14 @@ public:
 	// void osg::AutoTransform::setMinimumScale(double minimumScale)
 	static int _bind_setMinimumScale(lua_State *L) {
 		if (!_lg_typecheck_setMinimumScale(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setMinimumScale(double minimumScale) function, expected prototype:\nvoid osg::AutoTransform::setMinimumScale(double minimumScale)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setMinimumScale(double minimumScale) function, expected prototype:\nvoid osg::AutoTransform::setMinimumScale(double minimumScale)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double minimumScale=(double)lua_tonumber(L,2);
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setMinimumScale(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setMinimumScale(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMinimumScale(minimumScale);
 
@@ -1068,15 +1029,13 @@ public:
 	// double osg::AutoTransform::getMinimumScale() const
 	static int _bind_getMinimumScale(lua_State *L) {
 		if (!_lg_typecheck_getMinimumScale(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::AutoTransform::getMinimumScale() const function, expected prototype:\ndouble osg::AutoTransform::getMinimumScale() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::AutoTransform::getMinimumScale() const function, expected prototype:\ndouble osg::AutoTransform::getMinimumScale() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::AutoTransform::getMinimumScale() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::AutoTransform::getMinimumScale() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getMinimumScale();
 		lua_pushnumber(L,lret);
@@ -1087,16 +1046,14 @@ public:
 	// void osg::AutoTransform::setMaximumScale(double maximumScale)
 	static int _bind_setMaximumScale(lua_State *L) {
 		if (!_lg_typecheck_setMaximumScale(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setMaximumScale(double maximumScale) function, expected prototype:\nvoid osg::AutoTransform::setMaximumScale(double maximumScale)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setMaximumScale(double maximumScale) function, expected prototype:\nvoid osg::AutoTransform::setMaximumScale(double maximumScale)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double maximumScale=(double)lua_tonumber(L,2);
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setMaximumScale(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setMaximumScale(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMaximumScale(maximumScale);
 
@@ -1106,15 +1063,13 @@ public:
 	// double osg::AutoTransform::getMaximumScale() const
 	static int _bind_getMaximumScale(lua_State *L) {
 		if (!_lg_typecheck_getMaximumScale(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::AutoTransform::getMaximumScale() const function, expected prototype:\ndouble osg::AutoTransform::getMaximumScale() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::AutoTransform::getMaximumScale() const function, expected prototype:\ndouble osg::AutoTransform::getMaximumScale() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::AutoTransform::getMaximumScale() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::AutoTransform::getMaximumScale() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getMaximumScale();
 		lua_pushnumber(L,lret);
@@ -1125,8 +1080,7 @@ public:
 	// void osg::AutoTransform::setPivotPoint(const osg::Vec3d & pivot)
 	static int _bind_setPivotPoint(lua_State *L) {
 		if (!_lg_typecheck_setPivotPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setPivotPoint(const osg::Vec3d & pivot) function, expected prototype:\nvoid osg::AutoTransform::setPivotPoint(const osg::Vec3d & pivot)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setPivotPoint(const osg::Vec3d & pivot) function, expected prototype:\nvoid osg::AutoTransform::setPivotPoint(const osg::Vec3d & pivot)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* pivot_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1137,8 +1091,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setPivotPoint(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setPivotPoint(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPivotPoint(pivot);
 
@@ -1148,15 +1101,13 @@ public:
 	// const osg::Vec3d & osg::AutoTransform::getPivotPoint() const
 	static int _bind_getPivotPoint(lua_State *L) {
 		if (!_lg_typecheck_getPivotPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::AutoTransform::getPivotPoint() const function, expected prototype:\nconst osg::Vec3d & osg::AutoTransform::getPivotPoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::AutoTransform::getPivotPoint() const function, expected prototype:\nconst osg::Vec3d & osg::AutoTransform::getPivotPoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AutoTransform::getPivotPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AutoTransform::getPivotPoint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3d* lret = &self->getPivotPoint();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1169,16 +1120,14 @@ public:
 	// void osg::AutoTransform::setAutoUpdateEyeMovementTolerance(float tolerance)
 	static int _bind_setAutoUpdateEyeMovementTolerance(lua_State *L) {
 		if (!_lg_typecheck_setAutoUpdateEyeMovementTolerance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setAutoUpdateEyeMovementTolerance(float tolerance) function, expected prototype:\nvoid osg::AutoTransform::setAutoUpdateEyeMovementTolerance(float tolerance)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setAutoUpdateEyeMovementTolerance(float tolerance) function, expected prototype:\nvoid osg::AutoTransform::setAutoUpdateEyeMovementTolerance(float tolerance)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float tolerance=(float)lua_tonumber(L,2);
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setAutoUpdateEyeMovementTolerance(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setAutoUpdateEyeMovementTolerance(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAutoUpdateEyeMovementTolerance(tolerance);
 
@@ -1188,15 +1137,13 @@ public:
 	// float osg::AutoTransform::getAutoUpdateEyeMovementTolerance() const
 	static int _bind_getAutoUpdateEyeMovementTolerance(lua_State *L) {
 		if (!_lg_typecheck_getAutoUpdateEyeMovementTolerance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::AutoTransform::getAutoUpdateEyeMovementTolerance() const function, expected prototype:\nfloat osg::AutoTransform::getAutoUpdateEyeMovementTolerance() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::AutoTransform::getAutoUpdateEyeMovementTolerance() const function, expected prototype:\nfloat osg::AutoTransform::getAutoUpdateEyeMovementTolerance() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::AutoTransform::getAutoUpdateEyeMovementTolerance() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::AutoTransform::getAutoUpdateEyeMovementTolerance() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getAutoUpdateEyeMovementTolerance();
 		lua_pushnumber(L,lret);
@@ -1207,16 +1154,14 @@ public:
 	// void osg::AutoTransform::setAutoRotateMode(osg::AutoTransform::AutoRotateMode mode)
 	static int _bind_setAutoRotateMode(lua_State *L) {
 		if (!_lg_typecheck_setAutoRotateMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setAutoRotateMode(osg::AutoTransform::AutoRotateMode mode) function, expected prototype:\nvoid osg::AutoTransform::setAutoRotateMode(osg::AutoTransform::AutoRotateMode mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setAutoRotateMode(osg::AutoTransform::AutoRotateMode mode) function, expected prototype:\nvoid osg::AutoTransform::setAutoRotateMode(osg::AutoTransform::AutoRotateMode mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::AutoTransform::AutoRotateMode mode=(osg::AutoTransform::AutoRotateMode)lua_tointeger(L,2);
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setAutoRotateMode(osg::AutoTransform::AutoRotateMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setAutoRotateMode(osg::AutoTransform::AutoRotateMode). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAutoRotateMode(mode);
 
@@ -1226,15 +1171,13 @@ public:
 	// osg::AutoTransform::AutoRotateMode osg::AutoTransform::getAutoRotateMode() const
 	static int _bind_getAutoRotateMode(lua_State *L) {
 		if (!_lg_typecheck_getAutoRotateMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AutoTransform::AutoRotateMode osg::AutoTransform::getAutoRotateMode() const function, expected prototype:\nosg::AutoTransform::AutoRotateMode osg::AutoTransform::getAutoRotateMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::AutoTransform::AutoRotateMode osg::AutoTransform::getAutoRotateMode() const function, expected prototype:\nosg::AutoTransform::AutoRotateMode osg::AutoTransform::getAutoRotateMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::AutoTransform::AutoRotateMode osg::AutoTransform::getAutoRotateMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::AutoTransform::AutoRotateMode osg::AutoTransform::getAutoRotateMode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::AutoTransform::AutoRotateMode lret = self->getAutoRotateMode();
 		lua_pushnumber(L,lret);
@@ -1245,8 +1188,7 @@ public:
 	// void osg::AutoTransform::setAxis(const osg::Vec3f & axis)
 	static int _bind_setAxis(lua_State *L) {
 		if (!_lg_typecheck_setAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setAxis(const osg::Vec3f & axis) function, expected prototype:\nvoid osg::AutoTransform::setAxis(const osg::Vec3f & axis)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setAxis(const osg::Vec3f & axis) function, expected prototype:\nvoid osg::AutoTransform::setAxis(const osg::Vec3f & axis)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* axis_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -1257,8 +1199,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setAxis(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setAxis(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAxis(axis);
 
@@ -1268,15 +1209,13 @@ public:
 	// const osg::Vec3f & osg::AutoTransform::getAxis() const
 	static int _bind_getAxis(lua_State *L) {
 		if (!_lg_typecheck_getAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::AutoTransform::getAxis() const function, expected prototype:\nconst osg::Vec3f & osg::AutoTransform::getAxis() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::AutoTransform::getAxis() const function, expected prototype:\nconst osg::Vec3f & osg::AutoTransform::getAxis() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::AutoTransform::getAxis() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::AutoTransform::getAxis() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->getAxis();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1289,8 +1228,7 @@ public:
 	// void osg::AutoTransform::setNormal(const osg::Vec3f & normal)
 	static int _bind_setNormal(lua_State *L) {
 		if (!_lg_typecheck_setNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setNormal(const osg::Vec3f & normal) function, expected prototype:\nvoid osg::AutoTransform::setNormal(const osg::Vec3f & normal)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setNormal(const osg::Vec3f & normal) function, expected prototype:\nvoid osg::AutoTransform::setNormal(const osg::Vec3f & normal)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* normal_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -1301,8 +1239,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setNormal(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setNormal(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setNormal(normal);
 
@@ -1312,15 +1249,13 @@ public:
 	// const osg::Vec3f & osg::AutoTransform::getNormal() const
 	static int _bind_getNormal(lua_State *L) {
 		if (!_lg_typecheck_getNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::AutoTransform::getNormal() const function, expected prototype:\nconst osg::Vec3f & osg::AutoTransform::getNormal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::AutoTransform::getNormal() const function, expected prototype:\nconst osg::Vec3f & osg::AutoTransform::getNormal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::AutoTransform::getNormal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::AutoTransform::getNormal() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->getNormal();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1333,16 +1268,14 @@ public:
 	// void osg::AutoTransform::setAutoScaleToScreen(bool autoScaleToScreen)
 	static int _bind_setAutoScaleToScreen(lua_State *L) {
 		if (!_lg_typecheck_setAutoScaleToScreen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setAutoScaleToScreen(bool autoScaleToScreen) function, expected prototype:\nvoid osg::AutoTransform::setAutoScaleToScreen(bool autoScaleToScreen)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setAutoScaleToScreen(bool autoScaleToScreen) function, expected prototype:\nvoid osg::AutoTransform::setAutoScaleToScreen(bool autoScaleToScreen)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool autoScaleToScreen=(bool)(lua_toboolean(L,2)==1);
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setAutoScaleToScreen(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setAutoScaleToScreen(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAutoScaleToScreen(autoScaleToScreen);
 
@@ -1352,15 +1285,13 @@ public:
 	// bool osg::AutoTransform::getAutoScaleToScreen() const
 	static int _bind_getAutoScaleToScreen(lua_State *L) {
 		if (!_lg_typecheck_getAutoScaleToScreen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::getAutoScaleToScreen() const function, expected prototype:\nbool osg::AutoTransform::getAutoScaleToScreen() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::getAutoScaleToScreen() const function, expected prototype:\nbool osg::AutoTransform::getAutoScaleToScreen() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::getAutoScaleToScreen() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::getAutoScaleToScreen() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getAutoScaleToScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -1371,16 +1302,14 @@ public:
 	// void osg::AutoTransform::setAutoScaleTransitionWidthRatio(float ratio)
 	static int _bind_setAutoScaleTransitionWidthRatio(lua_State *L) {
 		if (!_lg_typecheck_setAutoScaleTransitionWidthRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setAutoScaleTransitionWidthRatio(float ratio) function, expected prototype:\nvoid osg::AutoTransform::setAutoScaleTransitionWidthRatio(float ratio)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::setAutoScaleTransitionWidthRatio(float ratio) function, expected prototype:\nvoid osg::AutoTransform::setAutoScaleTransitionWidthRatio(float ratio)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float ratio=(float)lua_tonumber(L,2);
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setAutoScaleTransitionWidthRatio(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::setAutoScaleTransitionWidthRatio(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAutoScaleTransitionWidthRatio(ratio);
 
@@ -1390,15 +1319,13 @@ public:
 	// float osg::AutoTransform::getAutoScaleTransitionWidthRatio() const
 	static int _bind_getAutoScaleTransitionWidthRatio(lua_State *L) {
 		if (!_lg_typecheck_getAutoScaleTransitionWidthRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::AutoTransform::getAutoScaleTransitionWidthRatio() const function, expected prototype:\nfloat osg::AutoTransform::getAutoScaleTransitionWidthRatio() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::AutoTransform::getAutoScaleTransitionWidthRatio() const function, expected prototype:\nfloat osg::AutoTransform::getAutoScaleTransitionWidthRatio() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::AutoTransform::getAutoScaleTransitionWidthRatio() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::AutoTransform::getAutoScaleTransitionWidthRatio() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getAutoScaleTransitionWidthRatio();
 		lua_pushnumber(L,lret);
@@ -1409,8 +1336,7 @@ public:
 	// bool osg::AutoTransform::computeLocalToWorldMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const
 	static int _bind_computeLocalToWorldMatrix(lua_State *L) {
 		if (!_lg_typecheck_computeLocalToWorldMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::computeLocalToWorldMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const function, expected prototype:\nbool osg::AutoTransform::computeLocalToWorldMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::computeLocalToWorldMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const function, expected prototype:\nbool osg::AutoTransform::computeLocalToWorldMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -1422,8 +1348,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::computeLocalToWorldMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::computeLocalToWorldMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->computeLocalToWorldMatrix(matrix, nv);
 		lua_pushboolean(L,lret?1:0);
@@ -1434,8 +1359,7 @@ public:
 	// bool osg::AutoTransform::computeWorldToLocalMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const
 	static int _bind_computeWorldToLocalMatrix(lua_State *L) {
 		if (!_lg_typecheck_computeWorldToLocalMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::computeWorldToLocalMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const function, expected prototype:\nbool osg::AutoTransform::computeWorldToLocalMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::computeWorldToLocalMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const function, expected prototype:\nbool osg::AutoTransform::computeWorldToLocalMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -1447,8 +1371,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::computeWorldToLocalMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::computeWorldToLocalMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->computeWorldToLocalMatrix(matrix, nv);
 		lua_pushboolean(L,lret?1:0);
@@ -1459,15 +1382,13 @@ public:
 	// osg::BoundingSphered osg::AutoTransform::computeBound() const
 	static int _bind_computeBound(lua_State *L) {
 		if (!_lg_typecheck_computeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::AutoTransform::computeBound() const function, expected prototype:\nosg::BoundingSphered osg::AutoTransform::computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::AutoTransform::computeBound() const function, expected prototype:\nosg::BoundingSphered osg::AutoTransform::computeBound() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::AutoTransform::computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::AutoTransform::computeBound() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::BoundingSphered stack_lret = self->computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -1481,16 +1402,14 @@ public:
 	// void osg::AutoTransform::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_setName(const std::string & name) function, expected prototype:\nvoid osg::AutoTransform::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_setName(const std::string & name) function, expected prototype:\nvoid osg::AutoTransform::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoTransform::setName(name);
 
@@ -1500,15 +1419,13 @@ public:
 	// void osg::AutoTransform::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_computeDataVariance() function, expected prototype:\nvoid osg::AutoTransform::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_computeDataVariance() function, expected prototype:\nvoid osg::AutoTransform::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoTransform::computeDataVariance();
 
@@ -1518,16 +1435,14 @@ public:
 	// void osg::AutoTransform::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::AutoTransform::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::AutoTransform::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoTransform::setUserData(obj);
 
@@ -1537,15 +1452,13 @@ public:
 	// osg::Referenced * osg::AutoTransform::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::AutoTransform::base_getUserData() function, expected prototype:\nosg::Referenced * osg::AutoTransform::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::AutoTransform::base_getUserData() function, expected prototype:\nosg::Referenced * osg::AutoTransform::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::AutoTransform::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::AutoTransform::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->AutoTransform::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1558,15 +1471,13 @@ public:
 	// const osg::Referenced * osg::AutoTransform::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::AutoTransform::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::AutoTransform::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::AutoTransform::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::AutoTransform::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::AutoTransform::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::AutoTransform::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->AutoTransform::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1588,15 +1499,13 @@ public:
 	// osg::Camera * osg::AutoTransform::base_asCamera()
 	static int _bind_base_asCamera_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asCamera_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Camera * osg::AutoTransform::base_asCamera() function, expected prototype:\nosg::Camera * osg::AutoTransform::base_asCamera()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Camera * osg::AutoTransform::base_asCamera() function, expected prototype:\nosg::Camera * osg::AutoTransform::base_asCamera()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera * osg::AutoTransform::base_asCamera(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Camera * osg::AutoTransform::base_asCamera(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Camera * lret = self->AutoTransform::asCamera();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1609,15 +1518,13 @@ public:
 	// const osg::Camera * osg::AutoTransform::base_asCamera() const
 	static int _bind_base_asCamera_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asCamera_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Camera * osg::AutoTransform::base_asCamera() const function, expected prototype:\nconst osg::Camera * osg::AutoTransform::base_asCamera() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Camera * osg::AutoTransform::base_asCamera() const function, expected prototype:\nconst osg::Camera * osg::AutoTransform::base_asCamera() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Camera * osg::AutoTransform::base_asCamera() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Camera * osg::AutoTransform::base_asCamera() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Camera * lret = self->AutoTransform::asCamera();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1639,15 +1546,13 @@ public:
 	// osg::Switch * osg::AutoTransform::base_asSwitch()
 	static int _bind_base_asSwitch_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asSwitch_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Switch * osg::AutoTransform::base_asSwitch() function, expected prototype:\nosg::Switch * osg::AutoTransform::base_asSwitch()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Switch * osg::AutoTransform::base_asSwitch() function, expected prototype:\nosg::Switch * osg::AutoTransform::base_asSwitch()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osg::AutoTransform::base_asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Switch * osg::AutoTransform::base_asSwitch(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Switch * lret = self->AutoTransform::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1660,15 +1565,13 @@ public:
 	// const osg::Switch * osg::AutoTransform::base_asSwitch() const
 	static int _bind_base_asSwitch_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asSwitch_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Switch * osg::AutoTransform::base_asSwitch() const function, expected prototype:\nconst osg::Switch * osg::AutoTransform::base_asSwitch() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Switch * osg::AutoTransform::base_asSwitch() const function, expected prototype:\nconst osg::Switch * osg::AutoTransform::base_asSwitch() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osg::AutoTransform::base_asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Switch * osg::AutoTransform::base_asSwitch() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Switch * lret = self->AutoTransform::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1690,15 +1593,13 @@ public:
 	// osg::Geode * osg::AutoTransform::base_asGeode()
 	static int _bind_base_asGeode_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asGeode_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geode * osg::AutoTransform::base_asGeode() function, expected prototype:\nosg::Geode * osg::AutoTransform::base_asGeode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Geode * osg::AutoTransform::base_asGeode() function, expected prototype:\nosg::Geode * osg::AutoTransform::base_asGeode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osg::AutoTransform::base_asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Geode * osg::AutoTransform::base_asGeode(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Geode * lret = self->AutoTransform::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1711,15 +1612,13 @@ public:
 	// const osg::Geode * osg::AutoTransform::base_asGeode() const
 	static int _bind_base_asGeode_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asGeode_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Geode * osg::AutoTransform::base_asGeode() const function, expected prototype:\nconst osg::Geode * osg::AutoTransform::base_asGeode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Geode * osg::AutoTransform::base_asGeode() const function, expected prototype:\nconst osg::Geode * osg::AutoTransform::base_asGeode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osg::AutoTransform::base_asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Geode * osg::AutoTransform::base_asGeode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Geode * lret = self->AutoTransform::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1741,8 +1640,7 @@ public:
 	// void osg::AutoTransform::base_ascend(osg::NodeVisitor & nv)
 	static int _bind_base_ascend(lua_State *L) {
 		if (!_lg_typecheck_base_ascend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_ascend(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::AutoTransform::base_ascend(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_ascend(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::AutoTransform::base_ascend(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1753,8 +1651,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_ascend(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_ascend(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoTransform::ascend(nv);
 
@@ -1764,15 +1661,13 @@ public:
 	// osg::Group * osg::AutoTransform::base_asGroup()
 	static int _bind_base_asGroup_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asGroup_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Group * osg::AutoTransform::base_asGroup() function, expected prototype:\nosg::Group * osg::AutoTransform::base_asGroup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Group * osg::AutoTransform::base_asGroup() function, expected prototype:\nosg::Group * osg::AutoTransform::base_asGroup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Group * osg::AutoTransform::base_asGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Group * osg::AutoTransform::base_asGroup(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Group * lret = self->AutoTransform::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1785,15 +1680,13 @@ public:
 	// const osg::Group * osg::AutoTransform::base_asGroup() const
 	static int _bind_base_asGroup_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asGroup_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Group * osg::AutoTransform::base_asGroup() const function, expected prototype:\nconst osg::Group * osg::AutoTransform::base_asGroup() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Group * osg::AutoTransform::base_asGroup() const function, expected prototype:\nconst osg::Group * osg::AutoTransform::base_asGroup() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Group * osg::AutoTransform::base_asGroup() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Group * osg::AutoTransform::base_asGroup() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Group * lret = self->AutoTransform::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1815,8 +1708,7 @@ public:
 	// void osg::AutoTransform::base_traverse(osg::NodeVisitor & arg1)
 	static int _bind_base_traverse(lua_State *L) {
 		if (!_lg_typecheck_base_traverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_traverse(osg::NodeVisitor & arg1) function, expected prototype:\nvoid osg::AutoTransform::base_traverse(osg::NodeVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_traverse(osg::NodeVisitor & arg1) function, expected prototype:\nvoid osg::AutoTransform::base_traverse(osg::NodeVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1827,8 +1719,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_traverse(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoTransform::traverse(_arg1);
 
@@ -1838,16 +1729,14 @@ public:
 	// bool osg::AutoTransform::base_addChild(osg::Node * child)
 	static int _bind_base_addChild(lua_State *L) {
 		if (!_lg_typecheck_base_addChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_addChild(osg::Node * child) function, expected prototype:\nbool osg::AutoTransform::base_addChild(osg::Node * child)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_addChild(osg::Node * child) function, expected prototype:\nbool osg::AutoTransform::base_addChild(osg::Node * child)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* child=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_addChild(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_addChild(osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoTransform::addChild(child);
 		lua_pushboolean(L,lret?1:0);
@@ -1858,8 +1747,7 @@ public:
 	// bool osg::AutoTransform::base_insertChild(unsigned int index, osg::Node * child)
 	static int _bind_base_insertChild(lua_State *L) {
 		if (!_lg_typecheck_base_insertChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_insertChild(unsigned int index, osg::Node * child) function, expected prototype:\nbool osg::AutoTransform::base_insertChild(unsigned int index, osg::Node * child)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_insertChild(unsigned int index, osg::Node * child) function, expected prototype:\nbool osg::AutoTransform::base_insertChild(unsigned int index, osg::Node * child)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
@@ -1867,8 +1755,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_insertChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_insertChild(unsigned int, osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoTransform::insertChild(index, child);
 		lua_pushboolean(L,lret?1:0);
@@ -1879,8 +1766,7 @@ public:
 	// bool osg::AutoTransform::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove)
 	static int _bind_base_removeChildren(lua_State *L) {
 		if (!_lg_typecheck_base_removeChildren(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove) function, expected prototype:\nbool osg::AutoTransform::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove) function, expected prototype:\nbool osg::AutoTransform::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int pos=(unsigned int)lua_tointeger(L,2);
@@ -1888,8 +1774,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_removeChildren(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_removeChildren(unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoTransform::removeChildren(pos, numChildrenToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -1900,8 +1785,7 @@ public:
 	// bool osg::AutoTransform::base_replaceChild(osg::Node * origChild, osg::Node * newChild)
 	static int _bind_base_replaceChild(lua_State *L) {
 		if (!_lg_typecheck_base_replaceChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_replaceChild(osg::Node * origChild, osg::Node * newChild) function, expected prototype:\nbool osg::AutoTransform::base_replaceChild(osg::Node * origChild, osg::Node * newChild)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_replaceChild(osg::Node * origChild, osg::Node * newChild) function, expected prototype:\nbool osg::AutoTransform::base_replaceChild(osg::Node * origChild, osg::Node * newChild)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* origChild=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
@@ -1909,8 +1793,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_replaceChild(osg::Node *, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_replaceChild(osg::Node *, osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoTransform::replaceChild(origChild, newChild);
 		lua_pushboolean(L,lret?1:0);
@@ -1921,8 +1804,7 @@ public:
 	// bool osg::AutoTransform::base_setChild(unsigned int i, osg::Node * node)
 	static int _bind_base_setChild(lua_State *L) {
 		if (!_lg_typecheck_base_setChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_setChild(unsigned int i, osg::Node * node) function, expected prototype:\nbool osg::AutoTransform::base_setChild(unsigned int i, osg::Node * node)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_setChild(unsigned int i, osg::Node * node) function, expected prototype:\nbool osg::AutoTransform::base_setChild(unsigned int i, osg::Node * node)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
@@ -1930,8 +1812,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_setChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_setChild(unsigned int, osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoTransform::setChild(i, node);
 		lua_pushboolean(L,lret?1:0);
@@ -1942,16 +1823,14 @@ public:
 	// void osg::AutoTransform::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::AutoTransform::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::AutoTransform::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoTransform::setThreadSafeRefUnref(threadSafe);
 
@@ -1961,8 +1840,7 @@ public:
 	// void osg::AutoTransform::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::AutoTransform::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::AutoTransform::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1971,8 +1849,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoTransform::releaseGLObjects(_arg1);
 
@@ -1982,15 +1859,13 @@ public:
 	// osg::Transform * osg::AutoTransform::base_asTransform()
 	static int _bind_base_asTransform_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asTransform_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Transform * osg::AutoTransform::base_asTransform() function, expected prototype:\nosg::Transform * osg::AutoTransform::base_asTransform()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Transform * osg::AutoTransform::base_asTransform() function, expected prototype:\nosg::Transform * osg::AutoTransform::base_asTransform()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * osg::AutoTransform::base_asTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Transform * osg::AutoTransform::base_asTransform(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Transform * lret = self->AutoTransform::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2003,15 +1878,13 @@ public:
 	// const osg::Transform * osg::AutoTransform::base_asTransform() const
 	static int _bind_base_asTransform_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asTransform_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Transform * osg::AutoTransform::base_asTransform() const function, expected prototype:\nconst osg::Transform * osg::AutoTransform::base_asTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Transform * osg::AutoTransform::base_asTransform() const function, expected prototype:\nconst osg::Transform * osg::AutoTransform::base_asTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * osg::AutoTransform::base_asTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Transform * osg::AutoTransform::base_asTransform() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Transform * lret = self->AutoTransform::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2033,15 +1906,13 @@ public:
 	// osg::MatrixTransform * osg::AutoTransform::base_asMatrixTransform()
 	static int _bind_base_asMatrixTransform_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asMatrixTransform_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::MatrixTransform * osg::AutoTransform::base_asMatrixTransform() function, expected prototype:\nosg::MatrixTransform * osg::AutoTransform::base_asMatrixTransform()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::MatrixTransform * osg::AutoTransform::base_asMatrixTransform() function, expected prototype:\nosg::MatrixTransform * osg::AutoTransform::base_asMatrixTransform()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::MatrixTransform * osg::AutoTransform::base_asMatrixTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::MatrixTransform * osg::AutoTransform::base_asMatrixTransform(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::MatrixTransform * lret = self->AutoTransform::asMatrixTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2054,15 +1925,13 @@ public:
 	// const osg::MatrixTransform * osg::AutoTransform::base_asMatrixTransform() const
 	static int _bind_base_asMatrixTransform_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asMatrixTransform_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::MatrixTransform * osg::AutoTransform::base_asMatrixTransform() const function, expected prototype:\nconst osg::MatrixTransform * osg::AutoTransform::base_asMatrixTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::MatrixTransform * osg::AutoTransform::base_asMatrixTransform() const function, expected prototype:\nconst osg::MatrixTransform * osg::AutoTransform::base_asMatrixTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::MatrixTransform * osg::AutoTransform::base_asMatrixTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::MatrixTransform * osg::AutoTransform::base_asMatrixTransform() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::MatrixTransform * lret = self->AutoTransform::asMatrixTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2084,15 +1953,13 @@ public:
 	// osg::PositionAttitudeTransform * osg::AutoTransform::base_asPositionAttitudeTransform()
 	static int _bind_base_asPositionAttitudeTransform_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asPositionAttitudeTransform_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::PositionAttitudeTransform * osg::AutoTransform::base_asPositionAttitudeTransform() function, expected prototype:\nosg::PositionAttitudeTransform * osg::AutoTransform::base_asPositionAttitudeTransform()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::PositionAttitudeTransform * osg::AutoTransform::base_asPositionAttitudeTransform() function, expected prototype:\nosg::PositionAttitudeTransform * osg::AutoTransform::base_asPositionAttitudeTransform()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::PositionAttitudeTransform * osg::AutoTransform::base_asPositionAttitudeTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::PositionAttitudeTransform * osg::AutoTransform::base_asPositionAttitudeTransform(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::PositionAttitudeTransform * lret = self->AutoTransform::asPositionAttitudeTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2105,15 +1972,13 @@ public:
 	// const osg::PositionAttitudeTransform * osg::AutoTransform::base_asPositionAttitudeTransform() const
 	static int _bind_base_asPositionAttitudeTransform_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asPositionAttitudeTransform_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::PositionAttitudeTransform * osg::AutoTransform::base_asPositionAttitudeTransform() const function, expected prototype:\nconst osg::PositionAttitudeTransform * osg::AutoTransform::base_asPositionAttitudeTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::PositionAttitudeTransform * osg::AutoTransform::base_asPositionAttitudeTransform() const function, expected prototype:\nconst osg::PositionAttitudeTransform * osg::AutoTransform::base_asPositionAttitudeTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::PositionAttitudeTransform * osg::AutoTransform::base_asPositionAttitudeTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::PositionAttitudeTransform * osg::AutoTransform::base_asPositionAttitudeTransform() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::PositionAttitudeTransform * lret = self->AutoTransform::asPositionAttitudeTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2135,15 +2000,13 @@ public:
 	// osg::Object * osg::AutoTransform::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::AutoTransform::base_cloneType() const function, expected prototype:\nosg::Object * osg::AutoTransform::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::AutoTransform::base_cloneType() const function, expected prototype:\nosg::Object * osg::AutoTransform::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::AutoTransform::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::AutoTransform::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->AutoTransform::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2156,8 +2019,7 @@ public:
 	// osg::Object * osg::AutoTransform::base_clone(const osg::CopyOp & copyop) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::AutoTransform::base_clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::AutoTransform::base_clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::AutoTransform::base_clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::AutoTransform::base_clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -2168,8 +2030,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::AutoTransform::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::AutoTransform::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->AutoTransform::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2182,16 +2043,14 @@ public:
 	// bool osg::AutoTransform::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::AutoTransform::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::AutoTransform::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoTransform::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -2202,15 +2061,13 @@ public:
 	// const char * osg::AutoTransform::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::AutoTransform::base_className() const function, expected prototype:\nconst char * osg::AutoTransform::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::AutoTransform::base_className() const function, expected prototype:\nconst char * osg::AutoTransform::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AutoTransform::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::AutoTransform::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->AutoTransform::className();
 		lua_pushstring(L,lret);
@@ -2221,15 +2078,13 @@ public:
 	// const char * osg::AutoTransform::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::AutoTransform::base_libraryName() const function, expected prototype:\nconst char * osg::AutoTransform::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::AutoTransform::base_libraryName() const function, expected prototype:\nconst char * osg::AutoTransform::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AutoTransform::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::AutoTransform::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->AutoTransform::libraryName();
 		lua_pushstring(L,lret);
@@ -2240,8 +2095,7 @@ public:
 	// void osg::AutoTransform::base_accept(osg::NodeVisitor & nv)
 	static int _bind_base_accept(lua_State *L) {
 		if (!_lg_typecheck_base_accept(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::AutoTransform::base_accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AutoTransform::base_accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::AutoTransform::base_accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -2252,8 +2106,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AutoTransform::base_accept(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoTransform::accept(nv);
 
@@ -2263,15 +2116,13 @@ public:
 	// osg::AutoTransform * osg::AutoTransform::base_asAutoTransform()
 	static int _bind_base_asAutoTransform_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asAutoTransform_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AutoTransform * osg::AutoTransform::base_asAutoTransform() function, expected prototype:\nosg::AutoTransform * osg::AutoTransform::base_asAutoTransform()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::AutoTransform * osg::AutoTransform::base_asAutoTransform() function, expected prototype:\nosg::AutoTransform * osg::AutoTransform::base_asAutoTransform()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::AutoTransform * osg::AutoTransform::base_asAutoTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::AutoTransform * osg::AutoTransform::base_asAutoTransform(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::AutoTransform * lret = self->AutoTransform::asAutoTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2284,15 +2135,13 @@ public:
 	// const osg::AutoTransform * osg::AutoTransform::base_asAutoTransform() const
 	static int _bind_base_asAutoTransform_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asAutoTransform_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::AutoTransform * osg::AutoTransform::base_asAutoTransform() const function, expected prototype:\nconst osg::AutoTransform * osg::AutoTransform::base_asAutoTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::AutoTransform * osg::AutoTransform::base_asAutoTransform() const function, expected prototype:\nconst osg::AutoTransform * osg::AutoTransform::base_asAutoTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::AutoTransform * osg::AutoTransform::base_asAutoTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::AutoTransform * osg::AutoTransform::base_asAutoTransform() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::AutoTransform * lret = self->AutoTransform::asAutoTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2314,8 +2163,7 @@ public:
 	// bool osg::AutoTransform::base_computeLocalToWorldMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const
 	static int _bind_base_computeLocalToWorldMatrix(lua_State *L) {
 		if (!_lg_typecheck_base_computeLocalToWorldMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_computeLocalToWorldMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const function, expected prototype:\nbool osg::AutoTransform::base_computeLocalToWorldMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_computeLocalToWorldMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const function, expected prototype:\nbool osg::AutoTransform::base_computeLocalToWorldMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -2327,8 +2175,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_computeLocalToWorldMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_computeLocalToWorldMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoTransform::computeLocalToWorldMatrix(matrix, nv);
 		lua_pushboolean(L,lret?1:0);
@@ -2339,8 +2186,7 @@ public:
 	// bool osg::AutoTransform::base_computeWorldToLocalMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const
 	static int _bind_base_computeWorldToLocalMatrix(lua_State *L) {
 		if (!_lg_typecheck_base_computeWorldToLocalMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_computeWorldToLocalMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const function, expected prototype:\nbool osg::AutoTransform::base_computeWorldToLocalMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AutoTransform::base_computeWorldToLocalMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const function, expected prototype:\nbool osg::AutoTransform::base_computeWorldToLocalMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -2352,8 +2198,7 @@ public:
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_computeWorldToLocalMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AutoTransform::base_computeWorldToLocalMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoTransform::computeWorldToLocalMatrix(matrix, nv);
 		lua_pushboolean(L,lret?1:0);
@@ -2364,15 +2209,13 @@ public:
 	// osg::BoundingSphered osg::AutoTransform::base_computeBound() const
 	static int _bind_base_computeBound(lua_State *L) {
 		if (!_lg_typecheck_base_computeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::AutoTransform::base_computeBound() const function, expected prototype:\nosg::BoundingSphered osg::AutoTransform::base_computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::AutoTransform::base_computeBound() const function, expected prototype:\nosg::BoundingSphered osg::AutoTransform::base_computeBound() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AutoTransform* self=Luna< osg::Referenced >::checkSubType< osg::AutoTransform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::AutoTransform::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::AutoTransform::base_computeBound() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::BoundingSphered stack_lret = self->AutoTransform::computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);

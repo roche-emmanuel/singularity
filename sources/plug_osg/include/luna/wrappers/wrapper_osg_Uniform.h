@@ -606,16 +606,14 @@ public:
 	// bool osg::Uniform::public_isCompatibleType(osg::Uniform::Type t) const
 	static int _bind_public_isCompatibleType(lua_State *L) {
 		if (!_lg_typecheck_public_isCompatibleType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Uniform::public_isCompatibleType(osg::Uniform::Type t) const function, expected prototype:\nbool osg::Uniform::public_isCompatibleType(osg::Uniform::Type t) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Uniform::public_isCompatibleType(osg::Uniform::Type t) const function, expected prototype:\nbool osg::Uniform::public_isCompatibleType(osg::Uniform::Type t) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Uniform::Type t=(osg::Uniform::Type)lua_tointeger(L,2);
 
 		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::public_isCompatibleType(osg::Uniform::Type) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::public_isCompatibleType(osg::Uniform::Type) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_isCompatibleType(t);
 		lua_pushboolean(L,lret?1:0);
@@ -626,15 +624,13 @@ public:
 	// bool osg::Uniform::public_isScalar() const
 	static int _bind_public_isScalar(lua_State *L) {
 		if (!_lg_typecheck_public_isScalar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Uniform::public_isScalar() const function, expected prototype:\nbool osg::Uniform::public_isScalar() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Uniform::public_isScalar() const function, expected prototype:\nbool osg::Uniform::public_isScalar() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::public_isScalar() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::public_isScalar() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_isScalar();
 		lua_pushboolean(L,lret?1:0);
@@ -645,15 +641,13 @@ public:
 	// void osg::Uniform::public_allocateDataArray()
 	static int _bind_public_allocateDataArray(lua_State *L) {
 		if (!_lg_typecheck_public_allocateDataArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Uniform::public_allocateDataArray() function, expected prototype:\nvoid osg::Uniform::public_allocateDataArray()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Uniform::public_allocateDataArray() function, expected prototype:\nvoid osg::Uniform::public_allocateDataArray()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::public_allocateDataArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Uniform::public_allocateDataArray(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_allocateDataArray();
 
@@ -663,16 +657,14 @@ public:
 	// void osg::Uniform::public_addParent(osg::StateSet * object)
 	static int _bind_public_addParent(lua_State *L) {
 		if (!_lg_typecheck_public_addParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Uniform::public_addParent(osg::StateSet * object) function, expected prototype:\nvoid osg::Uniform::public_addParent(osg::StateSet * object)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Uniform::public_addParent(osg::StateSet * object) function, expected prototype:\nvoid osg::Uniform::public_addParent(osg::StateSet * object)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateSet* object=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 
 		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::public_addParent(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Uniform::public_addParent(osg::StateSet *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_addParent(object);
 
@@ -682,16 +674,14 @@ public:
 	// void osg::Uniform::public_removeParent(osg::StateSet * object)
 	static int _bind_public_removeParent(lua_State *L) {
 		if (!_lg_typecheck_public_removeParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Uniform::public_removeParent(osg::StateSet * object) function, expected prototype:\nvoid osg::Uniform::public_removeParent(osg::StateSet * object)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Uniform::public_removeParent(osg::StateSet * object) function, expected prototype:\nvoid osg::Uniform::public_removeParent(osg::StateSet * object)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateSet* object=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 
 		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::public_removeParent(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Uniform::public_removeParent(osg::StateSet *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_removeParent(object);
 
@@ -701,8 +691,7 @@ public:
 	// osg::Uniform & osg::Uniform::public_op_assign(const osg::Uniform & arg1)
 	static int _bind_public_op_assign(lua_State *L) {
 		if (!_lg_typecheck_public_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Uniform & osg::Uniform::public_op_assign(const osg::Uniform & arg1) function, expected prototype:\nosg::Uniform & osg::Uniform::public_op_assign(const osg::Uniform & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Uniform & osg::Uniform::public_op_assign(const osg::Uniform & arg1) function, expected prototype:\nosg::Uniform & osg::Uniform::public_op_assign(const osg::Uniform & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Uniform* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,2));
@@ -713,8 +702,7 @@ public:
 
 		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Uniform & osg::Uniform::public_op_assign(const osg::Uniform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Uniform & osg::Uniform::public_op_assign(const osg::Uniform &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Uniform* lret = &self->public_op_assign(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -727,8 +715,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -736,8 +723,7 @@ public:
 
 		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -747,15 +733,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

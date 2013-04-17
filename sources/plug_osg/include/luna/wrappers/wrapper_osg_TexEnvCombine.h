@@ -354,16 +354,14 @@ public:
 	// bool osg::TexEnvCombine::public_needsTexEnvCombiner(int value) const
 	static int _bind_public_needsTexEnvCombiner(lua_State *L) {
 		if (!_lg_typecheck_public_needsTexEnvCombiner(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::TexEnvCombine::public_needsTexEnvCombiner(int value) const function, expected prototype:\nbool osg::TexEnvCombine::public_needsTexEnvCombiner(int value) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::TexEnvCombine::public_needsTexEnvCombiner(int value) const function, expected prototype:\nbool osg::TexEnvCombine::public_needsTexEnvCombiner(int value) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		wrapper_osg_TexEnvCombine* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_TexEnvCombine >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TexEnvCombine::public_needsTexEnvCombiner(int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::TexEnvCombine::public_needsTexEnvCombiner(int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_needsTexEnvCombiner(value);
 		lua_pushboolean(L,lret?1:0);
@@ -374,15 +372,13 @@ public:
 	// void osg::TexEnvCombine::public_computeNeedForTexEnvCombiners()
 	static int _bind_public_computeNeedForTexEnvCombiners(lua_State *L) {
 		if (!_lg_typecheck_public_computeNeedForTexEnvCombiners(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TexEnvCombine::public_computeNeedForTexEnvCombiners() function, expected prototype:\nvoid osg::TexEnvCombine::public_computeNeedForTexEnvCombiners()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::TexEnvCombine::public_computeNeedForTexEnvCombiners() function, expected prototype:\nvoid osg::TexEnvCombine::public_computeNeedForTexEnvCombiners()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_TexEnvCombine* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_TexEnvCombine >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexEnvCombine::public_computeNeedForTexEnvCombiners(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TexEnvCombine::public_computeNeedForTexEnvCombiners(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computeNeedForTexEnvCombiners();
 
@@ -392,16 +388,14 @@ public:
 	// void osg::StateAttribute::public_addParent(osg::StateSet * object)
 	static int _bind_public_addParent(lua_State *L) {
 		if (!_lg_typecheck_public_addParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StateAttribute::public_addParent(osg::StateSet * object) function, expected prototype:\nvoid osg::StateAttribute::public_addParent(osg::StateSet * object)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::StateAttribute::public_addParent(osg::StateSet * object) function, expected prototype:\nvoid osg::StateAttribute::public_addParent(osg::StateSet * object)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateSet* object=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 
 		wrapper_osg_TexEnvCombine* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_TexEnvCombine >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_addParent(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_addParent(osg::StateSet *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_addParent(object);
 
@@ -411,16 +405,14 @@ public:
 	// void osg::StateAttribute::public_removeParent(osg::StateSet * object)
 	static int _bind_public_removeParent(lua_State *L) {
 		if (!_lg_typecheck_public_removeParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StateAttribute::public_removeParent(osg::StateSet * object) function, expected prototype:\nvoid osg::StateAttribute::public_removeParent(osg::StateSet * object)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::StateAttribute::public_removeParent(osg::StateSet * object) function, expected prototype:\nvoid osg::StateAttribute::public_removeParent(osg::StateSet * object)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateSet* object=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 
 		wrapper_osg_TexEnvCombine* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_TexEnvCombine >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_removeParent(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_removeParent(osg::StateSet *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_removeParent(object);
 
@@ -430,8 +422,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -439,8 +430,7 @@ public:
 
 		wrapper_osg_TexEnvCombine* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_TexEnvCombine >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -450,15 +440,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_TexEnvCombine* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_TexEnvCombine >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

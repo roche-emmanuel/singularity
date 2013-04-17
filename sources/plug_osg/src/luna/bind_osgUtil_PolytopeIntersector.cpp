@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::PolytopeIntersector* self= (osgUtil::PolytopeIntersector*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -290,8 +287,7 @@ public:
 	// osgUtil::PolytopeIntersector::PolytopeIntersector(const osg::Polytope & polytope)
 	static osgUtil::PolytopeIntersector* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::PolytopeIntersector(const osg::Polytope & polytope) function, expected prototype:\nosgUtil::PolytopeIntersector::PolytopeIntersector(const osg::Polytope & polytope)\nClass arguments details:\narg 1 ID = 26652350\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::PolytopeIntersector(const osg::Polytope & polytope) function, expected prototype:\nosgUtil::PolytopeIntersector::PolytopeIntersector(const osg::Polytope & polytope)\nClass arguments details:\narg 1 ID = 26652350\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Polytope* polytope_ptr=(Luna< osg::Polytope >::check(L,1));
@@ -306,8 +302,7 @@ public:
 	// osgUtil::PolytopeIntersector::PolytopeIntersector(osgUtil::Intersector::CoordinateFrame cf, const osg::Polytope & polytope)
 	static osgUtil::PolytopeIntersector* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::PolytopeIntersector(osgUtil::Intersector::CoordinateFrame cf, const osg::Polytope & polytope) function, expected prototype:\nosgUtil::PolytopeIntersector::PolytopeIntersector(osgUtil::Intersector::CoordinateFrame cf, const osg::Polytope & polytope)\nClass arguments details:\narg 2 ID = 26652350\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::PolytopeIntersector(osgUtil::Intersector::CoordinateFrame cf, const osg::Polytope & polytope) function, expected prototype:\nosgUtil::PolytopeIntersector::PolytopeIntersector(osgUtil::Intersector::CoordinateFrame cf, const osg::Polytope & polytope)\nClass arguments details:\narg 2 ID = 26652350\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Intersector::CoordinateFrame cf=(osgUtil::Intersector::CoordinateFrame)lua_tointeger(L,1);
@@ -323,8 +318,7 @@ public:
 	// osgUtil::PolytopeIntersector::PolytopeIntersector(osgUtil::Intersector::CoordinateFrame cf, double xMin, double yMin, double xMax, double yMax)
 	static osgUtil::PolytopeIntersector* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::PolytopeIntersector(osgUtil::Intersector::CoordinateFrame cf, double xMin, double yMin, double xMax, double yMax) function, expected prototype:\nosgUtil::PolytopeIntersector::PolytopeIntersector(osgUtil::Intersector::CoordinateFrame cf, double xMin, double yMin, double xMax, double yMax)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::PolytopeIntersector(osgUtil::Intersector::CoordinateFrame cf, double xMin, double yMin, double xMax, double yMax) function, expected prototype:\nosgUtil::PolytopeIntersector::PolytopeIntersector(osgUtil::Intersector::CoordinateFrame cf, double xMin, double yMin, double xMax, double yMax)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Intersector::CoordinateFrame cf=(osgUtil::Intersector::CoordinateFrame)lua_tointeger(L,1);
@@ -339,8 +333,7 @@ public:
 	// osgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, const osg::Polytope & polytope)
 	static osgUtil::PolytopeIntersector* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, const osg::Polytope & polytope) function, expected prototype:\nosgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, const osg::Polytope & polytope)\nClass arguments details:\narg 2 ID = 26652350\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, const osg::Polytope & polytope) function, expected prototype:\nosgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, const osg::Polytope & polytope)\nClass arguments details:\narg 2 ID = 26652350\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Polytope* polytope_ptr=(Luna< osg::Polytope >::check(L,2));
@@ -355,8 +348,7 @@ public:
 	// osgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, const osg::Polytope & polytope)
 	static osgUtil::PolytopeIntersector* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, const osg::Polytope & polytope) function, expected prototype:\nosgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, const osg::Polytope & polytope)\nClass arguments details:\narg 3 ID = 26652350\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, const osg::Polytope & polytope) function, expected prototype:\nosgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, const osg::Polytope & polytope)\nClass arguments details:\narg 3 ID = 26652350\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Intersector::CoordinateFrame cf=(osgUtil::Intersector::CoordinateFrame)lua_tointeger(L,2);
@@ -372,8 +364,7 @@ public:
 	// osgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, double xMin, double yMin, double xMax, double yMax)
 	static osgUtil::PolytopeIntersector* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, double xMin, double yMin, double xMax, double yMax) function, expected prototype:\nosgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, double xMin, double yMin, double xMax, double yMax)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, double xMin, double yMin, double xMax, double yMax) function, expected prototype:\nosgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, double xMin, double yMin, double xMax, double yMax)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Intersector::CoordinateFrame cf=(osgUtil::Intersector::CoordinateFrame)lua_tointeger(L,2);
@@ -403,8 +394,7 @@ public:
 	// void osgUtil::PolytopeIntersector::insertIntersection(const osgUtil::PolytopeIntersector::Intersection & intersection)
 	static int _bind_insertIntersection(lua_State *L) {
 		if (!_lg_typecheck_insertIntersection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::insertIntersection(const osgUtil::PolytopeIntersector::Intersection & intersection) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::insertIntersection(const osgUtil::PolytopeIntersector::Intersection & intersection)\nClass arguments details:\narg 1 ID = 31087672\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::insertIntersection(const osgUtil::PolytopeIntersector::Intersection & intersection) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::insertIntersection(const osgUtil::PolytopeIntersector::Intersection & intersection)\nClass arguments details:\narg 1 ID = 31087672\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgUtil::PolytopeIntersector::Intersection* intersection_ptr=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,2));
@@ -415,8 +405,7 @@ public:
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::insertIntersection(const osgUtil::PolytopeIntersector::Intersection &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::insertIntersection(const osgUtil::PolytopeIntersector::Intersection &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->insertIntersection(intersection);
 
@@ -426,15 +415,13 @@ public:
 	// osgUtil::PolytopeIntersector::Intersections & osgUtil::PolytopeIntersector::getIntersections()
 	static int _bind_getIntersections(lua_State *L) {
 		if (!_lg_typecheck_getIntersections(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::Intersections & osgUtil::PolytopeIntersector::getIntersections() function, expected prototype:\nosgUtil::PolytopeIntersector::Intersections & osgUtil::PolytopeIntersector::getIntersections()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::Intersections & osgUtil::PolytopeIntersector::getIntersections() function, expected prototype:\nosgUtil::PolytopeIntersector::Intersections & osgUtil::PolytopeIntersector::getIntersections()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::PolytopeIntersector::Intersections & osgUtil::PolytopeIntersector::getIntersections(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::PolytopeIntersector::Intersections & osgUtil::PolytopeIntersector::getIntersections(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::PolytopeIntersector::Intersections* lret = &self->getIntersections();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -447,15 +434,13 @@ public:
 	// osgUtil::PolytopeIntersector::Intersection osgUtil::PolytopeIntersector::getFirstIntersection()
 	static int _bind_getFirstIntersection(lua_State *L) {
 		if (!_lg_typecheck_getFirstIntersection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::Intersection osgUtil::PolytopeIntersector::getFirstIntersection() function, expected prototype:\nosgUtil::PolytopeIntersector::Intersection osgUtil::PolytopeIntersector::getFirstIntersection()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::Intersection osgUtil::PolytopeIntersector::getFirstIntersection() function, expected prototype:\nosgUtil::PolytopeIntersector::Intersection osgUtil::PolytopeIntersector::getFirstIntersection()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::PolytopeIntersector::Intersection osgUtil::PolytopeIntersector::getFirstIntersection(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::PolytopeIntersector::Intersection osgUtil::PolytopeIntersector::getFirstIntersection(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::PolytopeIntersector::Intersection stack_lret = self->getFirstIntersection();
 		osgUtil::PolytopeIntersector::Intersection* lret = new osgUtil::PolytopeIntersector::Intersection(stack_lret);
@@ -469,15 +454,13 @@ public:
 	// unsigned int osgUtil::PolytopeIntersector::getDimensionMask() const
 	static int _bind_getDimensionMask(lua_State *L) {
 		if (!_lg_typecheck_getDimensionMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::PolytopeIntersector::getDimensionMask() const function, expected prototype:\nunsigned int osgUtil::PolytopeIntersector::getDimensionMask() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::PolytopeIntersector::getDimensionMask() const function, expected prototype:\nunsigned int osgUtil::PolytopeIntersector::getDimensionMask() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::PolytopeIntersector::getDimensionMask() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::PolytopeIntersector::getDimensionMask() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getDimensionMask();
 		lua_pushnumber(L,lret);
@@ -488,16 +471,14 @@ public:
 	// void osgUtil::PolytopeIntersector::setDimensionMask(unsigned int dimensionMask)
 	static int _bind_setDimensionMask(lua_State *L) {
 		if (!_lg_typecheck_setDimensionMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::setDimensionMask(unsigned int dimensionMask) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::setDimensionMask(unsigned int dimensionMask)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::setDimensionMask(unsigned int dimensionMask) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::setDimensionMask(unsigned int dimensionMask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int dimensionMask=(unsigned int)lua_tointeger(L,2);
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::setDimensionMask(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::setDimensionMask(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDimensionMask(dimensionMask);
 
@@ -507,15 +488,13 @@ public:
 	// const osg::Plane & osgUtil::PolytopeIntersector::getReferencePlane() const
 	static int _bind_getReferencePlane(lua_State *L) {
 		if (!_lg_typecheck_getReferencePlane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Plane & osgUtil::PolytopeIntersector::getReferencePlane() const function, expected prototype:\nconst osg::Plane & osgUtil::PolytopeIntersector::getReferencePlane() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Plane & osgUtil::PolytopeIntersector::getReferencePlane() const function, expected prototype:\nconst osg::Plane & osgUtil::PolytopeIntersector::getReferencePlane() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Plane & osgUtil::PolytopeIntersector::getReferencePlane() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Plane & osgUtil::PolytopeIntersector::getReferencePlane() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Plane* lret = &self->getReferencePlane();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -528,8 +507,7 @@ public:
 	// void osgUtil::PolytopeIntersector::setReferencePlane(const osg::Plane & plane)
 	static int _bind_setReferencePlane(lua_State *L) {
 		if (!_lg_typecheck_setReferencePlane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::setReferencePlane(const osg::Plane & plane) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::setReferencePlane(const osg::Plane & plane)\nClass arguments details:\narg 1 ID = 86970521\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::setReferencePlane(const osg::Plane & plane) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::setReferencePlane(const osg::Plane & plane)\nClass arguments details:\narg 1 ID = 86970521\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Plane* plane_ptr=(Luna< osg::Plane >::check(L,2));
@@ -540,8 +518,7 @@ public:
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::setReferencePlane(const osg::Plane &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::setReferencePlane(const osg::Plane &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setReferencePlane(plane);
 
@@ -551,8 +528,7 @@ public:
 	// osgUtil::Intersector * osgUtil::PolytopeIntersector::clone(osgUtil::IntersectionVisitor & iv)
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Intersector * osgUtil::PolytopeIntersector::clone(osgUtil::IntersectionVisitor & iv) function, expected prototype:\nosgUtil::Intersector * osgUtil::PolytopeIntersector::clone(osgUtil::IntersectionVisitor & iv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::Intersector * osgUtil::PolytopeIntersector::clone(osgUtil::IntersectionVisitor & iv) function, expected prototype:\nosgUtil::Intersector * osgUtil::PolytopeIntersector::clone(osgUtil::IntersectionVisitor & iv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::IntersectionVisitor* iv_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,2));
@@ -563,8 +539,7 @@ public:
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::PolytopeIntersector::clone(osgUtil::IntersectionVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::PolytopeIntersector::clone(osgUtil::IntersectionVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::Intersector * lret = self->clone(iv);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -577,8 +552,7 @@ public:
 	// bool osgUtil::PolytopeIntersector::enter(const osg::Node & node)
 	static int _bind_enter(lua_State *L) {
 		if (!_lg_typecheck_enter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::PolytopeIntersector::enter(const osg::Node & node) function, expected prototype:\nbool osgUtil::PolytopeIntersector::enter(const osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::PolytopeIntersector::enter(const osg::Node & node) function, expected prototype:\nbool osgUtil::PolytopeIntersector::enter(const osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
@@ -589,8 +563,7 @@ public:
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::enter(const osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::enter(const osg::Node &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->enter(node);
 		lua_pushboolean(L,lret?1:0);
@@ -601,15 +574,13 @@ public:
 	// void osgUtil::PolytopeIntersector::leave()
 	static int _bind_leave(lua_State *L) {
 		if (!_lg_typecheck_leave(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::leave() function, expected prototype:\nvoid osgUtil::PolytopeIntersector::leave()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::leave() function, expected prototype:\nvoid osgUtil::PolytopeIntersector::leave()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::leave(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::leave(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->leave();
 
@@ -619,8 +590,7 @@ public:
 	// void osgUtil::PolytopeIntersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)
 	static int _bind_intersect(lua_State *L) {
 		if (!_lg_typecheck_intersect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::IntersectionVisitor* iv_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,2));
@@ -632,8 +602,7 @@ public:
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::intersect(osgUtil::IntersectionVisitor &, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::intersect(osgUtil::IntersectionVisitor &, osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->intersect(iv, drawable);
 
@@ -643,15 +612,13 @@ public:
 	// void osgUtil::PolytopeIntersector::reset()
 	static int _bind_reset(lua_State *L) {
 		if (!_lg_typecheck_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::reset() function, expected prototype:\nvoid osgUtil::PolytopeIntersector::reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::reset() function, expected prototype:\nvoid osgUtil::PolytopeIntersector::reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reset();
 
@@ -661,15 +628,13 @@ public:
 	// bool osgUtil::PolytopeIntersector::containsIntersections()
 	static int _bind_containsIntersections(lua_State *L) {
 		if (!_lg_typecheck_containsIntersections(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::PolytopeIntersector::containsIntersections() function, expected prototype:\nbool osgUtil::PolytopeIntersector::containsIntersections()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::PolytopeIntersector::containsIntersections() function, expected prototype:\nbool osgUtil::PolytopeIntersector::containsIntersections()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::containsIntersections(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::containsIntersections(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->containsIntersections();
 		lua_pushboolean(L,lret?1:0);
@@ -680,16 +645,14 @@ public:
 	// void osgUtil::PolytopeIntersector::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PolytopeIntersector::setThreadSafeRefUnref(threadSafe);
 
@@ -699,8 +662,7 @@ public:
 	// osgUtil::Intersector * osgUtil::PolytopeIntersector::base_clone(osgUtil::IntersectionVisitor & iv)
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Intersector * osgUtil::PolytopeIntersector::base_clone(osgUtil::IntersectionVisitor & iv) function, expected prototype:\nosgUtil::Intersector * osgUtil::PolytopeIntersector::base_clone(osgUtil::IntersectionVisitor & iv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::Intersector * osgUtil::PolytopeIntersector::base_clone(osgUtil::IntersectionVisitor & iv) function, expected prototype:\nosgUtil::Intersector * osgUtil::PolytopeIntersector::base_clone(osgUtil::IntersectionVisitor & iv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::IntersectionVisitor* iv_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,2));
@@ -711,8 +673,7 @@ public:
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::PolytopeIntersector::base_clone(osgUtil::IntersectionVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::PolytopeIntersector::base_clone(osgUtil::IntersectionVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::Intersector * lret = self->PolytopeIntersector::clone(iv);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -725,8 +686,7 @@ public:
 	// bool osgUtil::PolytopeIntersector::base_enter(const osg::Node & node)
 	static int _bind_base_enter(lua_State *L) {
 		if (!_lg_typecheck_base_enter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::PolytopeIntersector::base_enter(const osg::Node & node) function, expected prototype:\nbool osgUtil::PolytopeIntersector::base_enter(const osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::PolytopeIntersector::base_enter(const osg::Node & node) function, expected prototype:\nbool osgUtil::PolytopeIntersector::base_enter(const osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
@@ -737,8 +697,7 @@ public:
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::base_enter(const osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::base_enter(const osg::Node &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PolytopeIntersector::enter(node);
 		lua_pushboolean(L,lret?1:0);
@@ -749,15 +708,13 @@ public:
 	// void osgUtil::PolytopeIntersector::base_leave()
 	static int _bind_base_leave(lua_State *L) {
 		if (!_lg_typecheck_base_leave(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::base_leave() function, expected prototype:\nvoid osgUtil::PolytopeIntersector::base_leave()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::base_leave() function, expected prototype:\nvoid osgUtil::PolytopeIntersector::base_leave()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::base_leave(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::base_leave(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PolytopeIntersector::leave();
 
@@ -767,8 +724,7 @@ public:
 	// void osgUtil::PolytopeIntersector::base_intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)
 	static int _bind_base_intersect(lua_State *L) {
 		if (!_lg_typecheck_base_intersect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::base_intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::base_intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::base_intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::base_intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::IntersectionVisitor* iv_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,2));
@@ -780,8 +736,7 @@ public:
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::base_intersect(osgUtil::IntersectionVisitor &, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::base_intersect(osgUtil::IntersectionVisitor &, osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PolytopeIntersector::intersect(iv, drawable);
 
@@ -791,15 +746,13 @@ public:
 	// void osgUtil::PolytopeIntersector::base_reset()
 	static int _bind_base_reset(lua_State *L) {
 		if (!_lg_typecheck_base_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::base_reset() function, expected prototype:\nvoid osgUtil::PolytopeIntersector::base_reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::base_reset() function, expected prototype:\nvoid osgUtil::PolytopeIntersector::base_reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::base_reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PolytopeIntersector::reset();
 
@@ -809,15 +762,13 @@ public:
 	// bool osgUtil::PolytopeIntersector::base_containsIntersections()
 	static int _bind_base_containsIntersections(lua_State *L) {
 		if (!_lg_typecheck_base_containsIntersections(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::PolytopeIntersector::base_containsIntersections() function, expected prototype:\nbool osgUtil::PolytopeIntersector::base_containsIntersections()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::PolytopeIntersector::base_containsIntersections() function, expected prototype:\nbool osgUtil::PolytopeIntersector::base_containsIntersections()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::base_containsIntersections(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::base_containsIntersections(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PolytopeIntersector::containsIntersections();
 		lua_pushboolean(L,lret?1:0);

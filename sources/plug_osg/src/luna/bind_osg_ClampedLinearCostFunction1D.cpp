@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::ClampedLinearCostFunction1D*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::ClampedLinearCostFunction1D*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ClampedLinearCostFunction1D* rhs =(Luna< osg::ClampedLinearCostFunction1D >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ClampedLinearCostFunction1D* self= (osg::ClampedLinearCostFunction1D*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::ClampedLinearCostFunction1D >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -175,8 +171,7 @@ public:
 	// osg::ClampedLinearCostFunction1D::ClampedLinearCostFunction1D(double cost0 = 0.0, double dcost_di = 0.0, unsigned int min_input = 0)
 	static osg::ClampedLinearCostFunction1D* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClampedLinearCostFunction1D::ClampedLinearCostFunction1D(double cost0 = 0.0, double dcost_di = 0.0, unsigned int min_input = 0) function, expected prototype:\nosg::ClampedLinearCostFunction1D::ClampedLinearCostFunction1D(double cost0 = 0.0, double dcost_di = 0.0, unsigned int min_input = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ClampedLinearCostFunction1D::ClampedLinearCostFunction1D(double cost0 = 0.0, double dcost_di = 0.0, unsigned int min_input = 0) function, expected prototype:\nosg::ClampedLinearCostFunction1D::ClampedLinearCostFunction1D(double cost0 = 0.0, double dcost_di = 0.0, unsigned int min_input = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -193,8 +188,7 @@ public:
 	// void osg::ClampedLinearCostFunction1D::set(double cost0, double dcost_di, unsigned int min_input)
 	static int _bind_set(lua_State *L) {
 		if (!_lg_typecheck_set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClampedLinearCostFunction1D::set(double cost0, double dcost_di, unsigned int min_input) function, expected prototype:\nvoid osg::ClampedLinearCostFunction1D::set(double cost0, double dcost_di, unsigned int min_input)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClampedLinearCostFunction1D::set(double cost0, double dcost_di, unsigned int min_input) function, expected prototype:\nvoid osg::ClampedLinearCostFunction1D::set(double cost0, double dcost_di, unsigned int min_input)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double cost0=(double)lua_tonumber(L,2);
@@ -203,8 +197,7 @@ public:
 
 		osg::ClampedLinearCostFunction1D* self=(Luna< osg::ClampedLinearCostFunction1D >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampedLinearCostFunction1D::set(double, double, unsigned int). Got : '%s'",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClampedLinearCostFunction1D::set(double, double, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(cost0, dcost_di, min_input);
 
@@ -214,15 +207,13 @@ public:
 	// double osg::ClampedLinearCostFunction1D::_cost0()
 	static int _bind_getCost0(lua_State *L) {
 		if (!_lg_typecheck_getCost0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ClampedLinearCostFunction1D::_cost0() function, expected prototype:\ndouble osg::ClampedLinearCostFunction1D::_cost0()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ClampedLinearCostFunction1D::_cost0() function, expected prototype:\ndouble osg::ClampedLinearCostFunction1D::_cost0()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClampedLinearCostFunction1D* self=(Luna< osg::ClampedLinearCostFunction1D >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ClampedLinearCostFunction1D::_cost0(). Got : '%s'",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ClampedLinearCostFunction1D::_cost0(). Got : '%s'\n%s",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->_cost0;
 		lua_pushnumber(L,lret);
@@ -233,15 +224,13 @@ public:
 	// double osg::ClampedLinearCostFunction1D::_dcost_di()
 	static int _bind_get_dcost_di(lua_State *L) {
 		if (!_lg_typecheck_get_dcost_di(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ClampedLinearCostFunction1D::_dcost_di() function, expected prototype:\ndouble osg::ClampedLinearCostFunction1D::_dcost_di()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ClampedLinearCostFunction1D::_dcost_di() function, expected prototype:\ndouble osg::ClampedLinearCostFunction1D::_dcost_di()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClampedLinearCostFunction1D* self=(Luna< osg::ClampedLinearCostFunction1D >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ClampedLinearCostFunction1D::_dcost_di(). Got : '%s'",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ClampedLinearCostFunction1D::_dcost_di(). Got : '%s'\n%s",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->_dcost_di;
 		lua_pushnumber(L,lret);
@@ -252,15 +241,13 @@ public:
 	// unsigned int osg::ClampedLinearCostFunction1D::_min_input()
 	static int _bind_get_min_input(lua_State *L) {
 		if (!_lg_typecheck_get_min_input(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::ClampedLinearCostFunction1D::_min_input() function, expected prototype:\nunsigned int osg::ClampedLinearCostFunction1D::_min_input()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::ClampedLinearCostFunction1D::_min_input() function, expected prototype:\nunsigned int osg::ClampedLinearCostFunction1D::_min_input()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClampedLinearCostFunction1D* self=(Luna< osg::ClampedLinearCostFunction1D >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::ClampedLinearCostFunction1D::_min_input(). Got : '%s'",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::ClampedLinearCostFunction1D::_min_input(). Got : '%s'\n%s",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_min_input;
 		lua_pushnumber(L,lret);
@@ -271,16 +258,14 @@ public:
 	// void osg::ClampedLinearCostFunction1D::_cost0(double value)
 	static int _bind_setCost0(lua_State *L) {
 		if (!_lg_typecheck_setCost0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClampedLinearCostFunction1D::_cost0(double value) function, expected prototype:\nvoid osg::ClampedLinearCostFunction1D::_cost0(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClampedLinearCostFunction1D::_cost0(double value) function, expected prototype:\nvoid osg::ClampedLinearCostFunction1D::_cost0(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osg::ClampedLinearCostFunction1D* self=(Luna< osg::ClampedLinearCostFunction1D >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampedLinearCostFunction1D::_cost0(double). Got : '%s'",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClampedLinearCostFunction1D::_cost0(double). Got : '%s'\n%s",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_cost0 = value;
 
@@ -290,16 +275,14 @@ public:
 	// void osg::ClampedLinearCostFunction1D::_dcost_di(double value)
 	static int _bind_set_dcost_di(lua_State *L) {
 		if (!_lg_typecheck_set_dcost_di(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClampedLinearCostFunction1D::_dcost_di(double value) function, expected prototype:\nvoid osg::ClampedLinearCostFunction1D::_dcost_di(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClampedLinearCostFunction1D::_dcost_di(double value) function, expected prototype:\nvoid osg::ClampedLinearCostFunction1D::_dcost_di(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osg::ClampedLinearCostFunction1D* self=(Luna< osg::ClampedLinearCostFunction1D >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampedLinearCostFunction1D::_dcost_di(double). Got : '%s'",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClampedLinearCostFunction1D::_dcost_di(double). Got : '%s'\n%s",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_dcost_di = value;
 
@@ -309,16 +292,14 @@ public:
 	// void osg::ClampedLinearCostFunction1D::_min_input(unsigned int value)
 	static int _bind_set_min_input(lua_State *L) {
 		if (!_lg_typecheck_set_min_input(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClampedLinearCostFunction1D::_min_input(unsigned int value) function, expected prototype:\nvoid osg::ClampedLinearCostFunction1D::_min_input(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClampedLinearCostFunction1D::_min_input(unsigned int value) function, expected prototype:\nvoid osg::ClampedLinearCostFunction1D::_min_input(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::ClampedLinearCostFunction1D* self=(Luna< osg::ClampedLinearCostFunction1D >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampedLinearCostFunction1D::_min_input(unsigned int). Got : '%s'",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClampedLinearCostFunction1D::_min_input(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_min_input = value;
 
@@ -330,16 +311,14 @@ public:
 	// double osg::ClampedLinearCostFunction1D::operator()(unsigned int input) const
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ClampedLinearCostFunction1D::operator()(unsigned int input) const function, expected prototype:\ndouble osg::ClampedLinearCostFunction1D::operator()(unsigned int input) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ClampedLinearCostFunction1D::operator()(unsigned int input) const function, expected prototype:\ndouble osg::ClampedLinearCostFunction1D::operator()(unsigned int input) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int input=(unsigned int)lua_tointeger(L,2);
 
 		osg::ClampedLinearCostFunction1D* self=(Luna< osg::ClampedLinearCostFunction1D >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ClampedLinearCostFunction1D::operator()(unsigned int) const. Got : '%s'",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ClampedLinearCostFunction1D::operator()(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->operator()(input);
 		lua_pushnumber(L,lret);

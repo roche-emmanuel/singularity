@@ -525,8 +525,7 @@ public:
 	// bool osgGA::UFOManipulator::public_intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection) const
 	static int _bind_public_intersect(lua_State *L) {
 		if (!_lg_typecheck_public_intersect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::UFOManipulator::public_intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection) const function, expected prototype:\nbool osgGA::UFOManipulator::public_intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::UFOManipulator::public_intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection) const function, expected prototype:\nbool osgGA::UFOManipulator::public_intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* start_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -547,8 +546,7 @@ public:
 
 		wrapper_osgGA_UFOManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_UFOManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::UFOManipulator::public_intersect(const osg::Vec3d &, const osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::UFOManipulator::public_intersect(const osg::Vec3d &, const osg::Vec3d &, osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_intersect(start, end, intersection);
 		lua_pushboolean(L,lret?1:0);
@@ -559,15 +557,13 @@ public:
 	// void osgGA::UFOManipulator::public__stop()
 	static int _bind_public__stop(lua_State *L) {
 		if (!_lg_typecheck_public__stop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::UFOManipulator::public__stop() function, expected prototype:\nvoid osgGA::UFOManipulator::public__stop()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::UFOManipulator::public__stop() function, expected prototype:\nvoid osgGA::UFOManipulator::public__stop()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgGA_UFOManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_UFOManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::UFOManipulator::public__stop(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::UFOManipulator::public__stop(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public__stop();
 
@@ -577,8 +573,7 @@ public:
 	// void osgGA::UFOManipulator::public__keyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2)
 	static int _bind_public__keyDown(lua_State *L) {
 		if (!_lg_typecheck_public__keyDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::UFOManipulator::public__keyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::UFOManipulator::public__keyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::UFOManipulator::public__keyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::UFOManipulator::public__keyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -594,8 +589,7 @@ public:
 
 		wrapper_osgGA_UFOManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_UFOManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::UFOManipulator::public__keyDown(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::UFOManipulator::public__keyDown(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public__keyDown(ea, _arg2);
 
@@ -605,8 +599,7 @@ public:
 	// void osgGA::UFOManipulator::public__keyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2)
 	static int _bind_public__keyUp(lua_State *L) {
 		if (!_lg_typecheck_public__keyUp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::UFOManipulator::public__keyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::UFOManipulator::public__keyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::UFOManipulator::public__keyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::UFOManipulator::public__keyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -622,8 +615,7 @@ public:
 
 		wrapper_osgGA_UFOManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_UFOManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::UFOManipulator::public__keyUp(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::UFOManipulator::public__keyUp(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public__keyUp(ea, _arg2);
 
@@ -633,8 +625,7 @@ public:
 	// void osgGA::UFOManipulator::public__frame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2)
 	static int _bind_public__frame(lua_State *L) {
 		if (!_lg_typecheck_public__frame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::UFOManipulator::public__frame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::UFOManipulator::public__frame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::UFOManipulator::public__frame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::UFOManipulator::public__frame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -650,8 +641,7 @@ public:
 
 		wrapper_osgGA_UFOManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_UFOManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::UFOManipulator::public__frame(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::UFOManipulator::public__frame(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public__frame(ea, _arg2);
 
@@ -661,15 +651,13 @@ public:
 	// void osgGA::UFOManipulator::public__adjustPosition()
 	static int _bind_public__adjustPosition(lua_State *L) {
 		if (!_lg_typecheck_public__adjustPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::UFOManipulator::public__adjustPosition() function, expected prototype:\nvoid osgGA::UFOManipulator::public__adjustPosition()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::UFOManipulator::public__adjustPosition() function, expected prototype:\nvoid osgGA::UFOManipulator::public__adjustPosition()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgGA_UFOManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_UFOManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::UFOManipulator::public__adjustPosition(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::UFOManipulator::public__adjustPosition(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public__adjustPosition();
 
@@ -679,15 +667,13 @@ public:
 	// std::string osgGA::CameraManipulator::public_getManipulatorName() const
 	static int _bind_public_getManipulatorName(lua_State *L) {
 		if (!_lg_typecheck_public_getManipulatorName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string osgGA::CameraManipulator::public_getManipulatorName() const function, expected prototype:\nstd::string osgGA::CameraManipulator::public_getManipulatorName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string osgGA::CameraManipulator::public_getManipulatorName() const function, expected prototype:\nstd::string osgGA::CameraManipulator::public_getManipulatorName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgGA_UFOManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_UFOManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgGA::CameraManipulator::public_getManipulatorName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string osgGA::CameraManipulator::public_getManipulatorName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->public_getManipulatorName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -698,8 +684,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -707,8 +692,7 @@ public:
 
 		wrapper_osgGA_UFOManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_UFOManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -718,15 +702,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgGA_UFOManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_UFOManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

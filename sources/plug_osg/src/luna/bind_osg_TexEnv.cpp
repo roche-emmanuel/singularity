@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::TexEnv* self= (osg::TexEnv*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -373,8 +370,7 @@ public:
 	// osg::TexEnv::TexEnv(osg::TexEnv::Mode mode = osg::TexEnv::MODULATE)
 	static osg::TexEnv* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::TexEnv::TexEnv(osg::TexEnv::Mode mode = osg::TexEnv::MODULATE) function, expected prototype:\nosg::TexEnv::TexEnv(osg::TexEnv::Mode mode = osg::TexEnv::MODULATE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::TexEnv::TexEnv(osg::TexEnv::Mode mode = osg::TexEnv::MODULATE) function, expected prototype:\nosg::TexEnv::TexEnv(osg::TexEnv::Mode mode = osg::TexEnv::MODULATE)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -387,8 +383,7 @@ public:
 	// osg::TexEnv::TexEnv(const osg::TexEnv & texenv, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::TexEnv* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::TexEnv::TexEnv(const osg::TexEnv & texenv, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::TexEnv::TexEnv(const osg::TexEnv & texenv, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::TexEnv::TexEnv(const osg::TexEnv & texenv, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::TexEnv::TexEnv(const osg::TexEnv & texenv, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -410,8 +405,7 @@ public:
 	// osg::TexEnv::TexEnv(lua_Table * data, osg::TexEnv::Mode mode = osg::TexEnv::MODULATE)
 	static osg::TexEnv* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::TexEnv::TexEnv(lua_Table * data, osg::TexEnv::Mode mode = osg::TexEnv::MODULATE) function, expected prototype:\nosg::TexEnv::TexEnv(lua_Table * data, osg::TexEnv::Mode mode = osg::TexEnv::MODULATE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::TexEnv::TexEnv(lua_Table * data, osg::TexEnv::Mode mode = osg::TexEnv::MODULATE) function, expected prototype:\nosg::TexEnv::TexEnv(lua_Table * data, osg::TexEnv::Mode mode = osg::TexEnv::MODULATE)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -424,8 +418,7 @@ public:
 	// osg::TexEnv::TexEnv(lua_Table * data, const osg::TexEnv & texenv, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::TexEnv* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::TexEnv::TexEnv(lua_Table * data, const osg::TexEnv & texenv, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::TexEnv::TexEnv(lua_Table * data, const osg::TexEnv & texenv, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::TexEnv::TexEnv(lua_Table * data, const osg::TexEnv & texenv, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::TexEnv::TexEnv(lua_Table * data, const osg::TexEnv & texenv, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -460,15 +453,13 @@ public:
 	// osg::Object * osg::TexEnv::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::TexEnv::cloneType() const function, expected prototype:\nosg::Object * osg::TexEnv::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::TexEnv::cloneType() const function, expected prototype:\nosg::Object * osg::TexEnv::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TexEnv::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TexEnv::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -481,8 +472,7 @@ public:
 	// osg::Object * osg::TexEnv::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::TexEnv::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::TexEnv::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::TexEnv::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::TexEnv::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -493,8 +483,7 @@ public:
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TexEnv::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TexEnv::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -507,16 +496,14 @@ public:
 	// bool osg::TexEnv::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::TexEnv::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::TexEnv::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::TexEnv::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::TexEnv::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TexEnv::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::TexEnv::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -527,15 +514,13 @@ public:
 	// const char * osg::TexEnv::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::TexEnv::libraryName() const function, expected prototype:\nconst char * osg::TexEnv::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::TexEnv::libraryName() const function, expected prototype:\nconst char * osg::TexEnv::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TexEnv::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::TexEnv::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -546,15 +531,13 @@ public:
 	// const char * osg::TexEnv::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::TexEnv::className() const function, expected prototype:\nconst char * osg::TexEnv::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::TexEnv::className() const function, expected prototype:\nconst char * osg::TexEnv::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TexEnv::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::TexEnv::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -565,15 +548,13 @@ public:
 	// osg::StateAttribute::Type osg::TexEnv::getType() const
 	static int _bind_getType(lua_State *L) {
 		if (!_lg_typecheck_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::TexEnv::getType() const function, expected prototype:\nosg::StateAttribute::Type osg::TexEnv::getType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::TexEnv::getType() const function, expected prototype:\nosg::StateAttribute::Type osg::TexEnv::getType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::TexEnv::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::TexEnv::getType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -584,15 +565,13 @@ public:
 	// bool osg::TexEnv::isTextureAttribute() const
 	static int _bind_isTextureAttribute(lua_State *L) {
 		if (!_lg_typecheck_isTextureAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::TexEnv::isTextureAttribute() const function, expected prototype:\nbool osg::TexEnv::isTextureAttribute() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::TexEnv::isTextureAttribute() const function, expected prototype:\nbool osg::TexEnv::isTextureAttribute() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TexEnv::isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::TexEnv::isTextureAttribute() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -603,8 +582,7 @@ public:
 	// int osg::TexEnv::compare(const osg::StateAttribute & sa) const
 	static int _bind_compare(lua_State *L) {
 		if (!_lg_typecheck_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::TexEnv::compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::TexEnv::compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osg::TexEnv::compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::TexEnv::compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* sa_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
@@ -615,8 +593,7 @@ public:
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::TexEnv::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::TexEnv::compare(const osg::StateAttribute &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -627,16 +604,14 @@ public:
 	// void osg::TexEnv::setMode(osg::TexEnv::Mode mode)
 	static int _bind_setMode(lua_State *L) {
 		if (!_lg_typecheck_setMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TexEnv::setMode(osg::TexEnv::Mode mode) function, expected prototype:\nvoid osg::TexEnv::setMode(osg::TexEnv::Mode mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::TexEnv::setMode(osg::TexEnv::Mode mode) function, expected prototype:\nvoid osg::TexEnv::setMode(osg::TexEnv::Mode mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::TexEnv::Mode mode=(osg::TexEnv::Mode)lua_tointeger(L,2);
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexEnv::setMode(osg::TexEnv::Mode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TexEnv::setMode(osg::TexEnv::Mode). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMode(mode);
 
@@ -646,15 +621,13 @@ public:
 	// osg::TexEnv::Mode osg::TexEnv::getMode() const
 	static int _bind_getMode(lua_State *L) {
 		if (!_lg_typecheck_getMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::TexEnv::Mode osg::TexEnv::getMode() const function, expected prototype:\nosg::TexEnv::Mode osg::TexEnv::getMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::TexEnv::Mode osg::TexEnv::getMode() const function, expected prototype:\nosg::TexEnv::Mode osg::TexEnv::getMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::TexEnv::Mode osg::TexEnv::getMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::TexEnv::Mode osg::TexEnv::getMode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::TexEnv::Mode lret = self->getMode();
 		lua_pushnumber(L,lret);
@@ -665,8 +638,7 @@ public:
 	// void osg::TexEnv::setColor(const osg::Vec4f & color)
 	static int _bind_setColor(lua_State *L) {
 		if (!_lg_typecheck_setColor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TexEnv::setColor(const osg::Vec4f & color) function, expected prototype:\nvoid osg::TexEnv::setColor(const osg::Vec4f & color)\nClass arguments details:\narg 1 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osg::TexEnv::setColor(const osg::Vec4f & color) function, expected prototype:\nvoid osg::TexEnv::setColor(const osg::Vec4f & color)\nClass arguments details:\narg 1 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4f* color_ptr=(Luna< osg::Vec4f >::check(L,2));
@@ -677,8 +649,7 @@ public:
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexEnv::setColor(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TexEnv::setColor(const osg::Vec4f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setColor(color);
 
@@ -688,15 +659,13 @@ public:
 	// osg::Vec4f & osg::TexEnv::getColor()
 	static int _bind_getColor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getColor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec4f & osg::TexEnv::getColor() function, expected prototype:\nosg::Vec4f & osg::TexEnv::getColor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec4f & osg::TexEnv::getColor() function, expected prototype:\nosg::Vec4f & osg::TexEnv::getColor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4f & osg::TexEnv::getColor(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec4f & osg::TexEnv::getColor(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec4f* lret = &self->getColor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -709,15 +678,13 @@ public:
 	// const osg::Vec4f & osg::TexEnv::getColor() const
 	static int _bind_getColor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getColor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec4f & osg::TexEnv::getColor() const function, expected prototype:\nconst osg::Vec4f & osg::TexEnv::getColor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec4f & osg::TexEnv::getColor() const function, expected prototype:\nconst osg::Vec4f & osg::TexEnv::getColor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4f & osg::TexEnv::getColor() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec4f & osg::TexEnv::getColor() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec4f* lret = &self->getColor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -739,8 +706,7 @@ public:
 	// void osg::TexEnv::apply(osg::State & arg1) const
 	static int _bind_apply(lua_State *L) {
 		if (!_lg_typecheck_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TexEnv::apply(osg::State & arg1) const function, expected prototype:\nvoid osg::TexEnv::apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::TexEnv::apply(osg::State & arg1) const function, expected prototype:\nvoid osg::TexEnv::apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -751,8 +717,7 @@ public:
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexEnv::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TexEnv::apply(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -762,16 +727,14 @@ public:
 	// void osg::TexEnv::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TexEnv::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::TexEnv::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::TexEnv::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::TexEnv::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexEnv::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TexEnv::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TexEnv::setThreadSafeRefUnref(threadSafe);
 
@@ -781,16 +744,14 @@ public:
 	// void osg::TexEnv::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TexEnv::base_setName(const std::string & name) function, expected prototype:\nvoid osg::TexEnv::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::TexEnv::base_setName(const std::string & name) function, expected prototype:\nvoid osg::TexEnv::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexEnv::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TexEnv::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TexEnv::setName(name);
 
@@ -800,15 +761,13 @@ public:
 	// void osg::TexEnv::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TexEnv::base_computeDataVariance() function, expected prototype:\nvoid osg::TexEnv::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::TexEnv::base_computeDataVariance() function, expected prototype:\nvoid osg::TexEnv::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexEnv::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TexEnv::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TexEnv::computeDataVariance();
 
@@ -818,16 +777,14 @@ public:
 	// void osg::TexEnv::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TexEnv::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::TexEnv::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::TexEnv::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::TexEnv::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexEnv::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TexEnv::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TexEnv::setUserData(obj);
 
@@ -837,15 +794,13 @@ public:
 	// osg::Referenced * osg::TexEnv::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::TexEnv::base_getUserData() function, expected prototype:\nosg::Referenced * osg::TexEnv::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::TexEnv::base_getUserData() function, expected prototype:\nosg::Referenced * osg::TexEnv::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::TexEnv::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::TexEnv::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->TexEnv::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -858,15 +813,13 @@ public:
 	// const osg::Referenced * osg::TexEnv::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::TexEnv::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::TexEnv::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::TexEnv::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::TexEnv::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::TexEnv::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::TexEnv::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->TexEnv::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -888,15 +841,13 @@ public:
 	// osg::Texture * osg::TexEnv::base_asTexture()
 	static int _bind_base_asTexture_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asTexture_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture * osg::TexEnv::base_asTexture() function, expected prototype:\nosg::Texture * osg::TexEnv::base_asTexture()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture * osg::TexEnv::base_asTexture() function, expected prototype:\nosg::Texture * osg::TexEnv::base_asTexture()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::TexEnv::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::TexEnv::base_asTexture(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture * lret = self->TexEnv::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -909,15 +860,13 @@ public:
 	// const osg::Texture * osg::TexEnv::base_asTexture() const
 	static int _bind_base_asTexture_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asTexture_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::TexEnv::base_asTexture() const function, expected prototype:\nconst osg::Texture * osg::TexEnv::base_asTexture() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::TexEnv::base_asTexture() const function, expected prototype:\nconst osg::Texture * osg::TexEnv::base_asTexture() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::TexEnv::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::TexEnv::base_asTexture() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Texture * lret = self->TexEnv::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -939,15 +888,13 @@ public:
 	// unsigned int osg::TexEnv::base_getMember() const
 	static int _bind_base_getMember(lua_State *L) {
 		if (!_lg_typecheck_base_getMember(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::TexEnv::base_getMember() const function, expected prototype:\nunsigned int osg::TexEnv::base_getMember() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::TexEnv::base_getMember() const function, expected prototype:\nunsigned int osg::TexEnv::base_getMember() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::TexEnv::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::TexEnv::base_getMember() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->TexEnv::getMember();
 		lua_pushnumber(L,lret);
@@ -958,8 +905,7 @@ public:
 	// bool osg::TexEnv::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
 	static int _bind_base_getModeUsage(lua_State *L) {
 		if (!_lg_typecheck_base_getModeUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::TexEnv::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::TexEnv::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n");
+			luaL_error(L, "luna typecheck failed in bool osg::TexEnv::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::TexEnv::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateAttribute::ModeUsage* _arg1_ptr=(Luna< osg::StateAttribute::ModeUsage >::check(L,2));
@@ -970,8 +916,7 @@ public:
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TexEnv::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::TexEnv::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->TexEnv::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -982,8 +927,7 @@ public:
 	// bool osg::TexEnv::base_checkValidityOfAssociatedModes(osg::State & arg1) const
 	static int _bind_base_checkValidityOfAssociatedModes(lua_State *L) {
 		if (!_lg_typecheck_base_checkValidityOfAssociatedModes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::TexEnv::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osg::TexEnv::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::TexEnv::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osg::TexEnv::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -994,8 +938,7 @@ public:
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TexEnv::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::TexEnv::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->TexEnv::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1006,8 +949,7 @@ public:
 	// void osg::TexEnv::base_compileGLObjects(osg::State & arg1) const
 	static int _bind_base_compileGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_compileGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TexEnv::base_compileGLObjects(osg::State & arg1) const function, expected prototype:\nvoid osg::TexEnv::base_compileGLObjects(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::TexEnv::base_compileGLObjects(osg::State & arg1) const function, expected prototype:\nvoid osg::TexEnv::base_compileGLObjects(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1018,8 +960,7 @@ public:
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexEnv::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TexEnv::base_compileGLObjects(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TexEnv::compileGLObjects(_arg1);
 
@@ -1029,8 +970,7 @@ public:
 	// void osg::TexEnv::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TexEnv::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::TexEnv::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::TexEnv::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::TexEnv::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1039,8 +979,7 @@ public:
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexEnv::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TexEnv::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TexEnv::releaseGLObjects(_arg1);
 
@@ -1050,15 +989,13 @@ public:
 	// osg::Object * osg::TexEnv::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::TexEnv::base_cloneType() const function, expected prototype:\nosg::Object * osg::TexEnv::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::TexEnv::base_cloneType() const function, expected prototype:\nosg::Object * osg::TexEnv::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TexEnv::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TexEnv::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->TexEnv::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1071,8 +1008,7 @@ public:
 	// osg::Object * osg::TexEnv::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::TexEnv::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::TexEnv::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::TexEnv::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::TexEnv::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1083,8 +1019,7 @@ public:
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TexEnv::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TexEnv::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->TexEnv::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1097,16 +1032,14 @@ public:
 	// bool osg::TexEnv::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::TexEnv::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::TexEnv::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::TexEnv::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::TexEnv::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TexEnv::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::TexEnv::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->TexEnv::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1117,15 +1050,13 @@ public:
 	// const char * osg::TexEnv::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::TexEnv::base_libraryName() const function, expected prototype:\nconst char * osg::TexEnv::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::TexEnv::base_libraryName() const function, expected prototype:\nconst char * osg::TexEnv::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TexEnv::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::TexEnv::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->TexEnv::libraryName();
 		lua_pushstring(L,lret);
@@ -1136,15 +1067,13 @@ public:
 	// const char * osg::TexEnv::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::TexEnv::base_className() const function, expected prototype:\nconst char * osg::TexEnv::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::TexEnv::base_className() const function, expected prototype:\nconst char * osg::TexEnv::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TexEnv::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::TexEnv::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->TexEnv::className();
 		lua_pushstring(L,lret);
@@ -1155,15 +1084,13 @@ public:
 	// osg::StateAttribute::Type osg::TexEnv::base_getType() const
 	static int _bind_base_getType(lua_State *L) {
 		if (!_lg_typecheck_base_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::TexEnv::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osg::TexEnv::base_getType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::TexEnv::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osg::TexEnv::base_getType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::TexEnv::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::TexEnv::base_getType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute::Type lret = self->TexEnv::getType();
 		lua_pushnumber(L,lret);
@@ -1174,15 +1101,13 @@ public:
 	// bool osg::TexEnv::base_isTextureAttribute() const
 	static int _bind_base_isTextureAttribute(lua_State *L) {
 		if (!_lg_typecheck_base_isTextureAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::TexEnv::base_isTextureAttribute() const function, expected prototype:\nbool osg::TexEnv::base_isTextureAttribute() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::TexEnv::base_isTextureAttribute() const function, expected prototype:\nbool osg::TexEnv::base_isTextureAttribute() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TexEnv::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::TexEnv::base_isTextureAttribute() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->TexEnv::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -1193,8 +1118,7 @@ public:
 	// int osg::TexEnv::base_compare(const osg::StateAttribute & sa) const
 	static int _bind_base_compare(lua_State *L) {
 		if (!_lg_typecheck_base_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::TexEnv::base_compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::TexEnv::base_compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osg::TexEnv::base_compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::TexEnv::base_compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* sa_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
@@ -1205,8 +1129,7 @@ public:
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::TexEnv::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::TexEnv::base_compare(const osg::StateAttribute &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->TexEnv::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1217,8 +1140,7 @@ public:
 	// void osg::TexEnv::base_apply(osg::State & arg1) const
 	static int _bind_base_apply(lua_State *L) {
 		if (!_lg_typecheck_base_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TexEnv::base_apply(osg::State & arg1) const function, expected prototype:\nvoid osg::TexEnv::base_apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::TexEnv::base_apply(osg::State & arg1) const function, expected prototype:\nvoid osg::TexEnv::base_apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1229,8 +1151,7 @@ public:
 
 		osg::TexEnv* self=Luna< osg::Referenced >::checkSubType< osg::TexEnv >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexEnv::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TexEnv::base_apply(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TexEnv::apply(_arg1);
 

@@ -281,16 +281,14 @@ public:
 	// void osgViewer::WindowSizeHandler::public_toggleFullscreen(osgViewer::GraphicsWindow * window)
 	static int _bind_public_toggleFullscreen(lua_State *L) {
 		if (!_lg_typecheck_public_toggleFullscreen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::WindowSizeHandler::public_toggleFullscreen(osgViewer::GraphicsWindow * window) function, expected prototype:\nvoid osgViewer::WindowSizeHandler::public_toggleFullscreen(osgViewer::GraphicsWindow * window)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::WindowSizeHandler::public_toggleFullscreen(osgViewer::GraphicsWindow * window) function, expected prototype:\nvoid osgViewer::WindowSizeHandler::public_toggleFullscreen(osgViewer::GraphicsWindow * window)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgViewer::GraphicsWindow* window=(Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,2));
 
 		wrapper_osgViewer_WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_WindowSizeHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::public_toggleFullscreen(osgViewer::GraphicsWindow *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::public_toggleFullscreen(osgViewer::GraphicsWindow *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_toggleFullscreen(window);
 
@@ -300,8 +298,7 @@ public:
 	// void osgViewer::WindowSizeHandler::public_changeWindowedResolution(osgViewer::GraphicsWindow * window, bool increase)
 	static int _bind_public_changeWindowedResolution(lua_State *L) {
 		if (!_lg_typecheck_public_changeWindowedResolution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::WindowSizeHandler::public_changeWindowedResolution(osgViewer::GraphicsWindow * window, bool increase) function, expected prototype:\nvoid osgViewer::WindowSizeHandler::public_changeWindowedResolution(osgViewer::GraphicsWindow * window, bool increase)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::WindowSizeHandler::public_changeWindowedResolution(osgViewer::GraphicsWindow * window, bool increase) function, expected prototype:\nvoid osgViewer::WindowSizeHandler::public_changeWindowedResolution(osgViewer::GraphicsWindow * window, bool increase)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgViewer::GraphicsWindow* window=(Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,2));
@@ -309,8 +306,7 @@ public:
 
 		wrapper_osgViewer_WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_WindowSizeHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::public_changeWindowedResolution(osgViewer::GraphicsWindow *, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::public_changeWindowedResolution(osgViewer::GraphicsWindow *, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_changeWindowedResolution(window, increase);
 
@@ -320,8 +316,7 @@ public:
 	// unsigned int osgViewer::WindowSizeHandler::public_getNearestResolution(int screenWidth, int screenHeight, int width, int height) const
 	static int _bind_public_getNearestResolution(lua_State *L) {
 		if (!_lg_typecheck_public_getNearestResolution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgViewer::WindowSizeHandler::public_getNearestResolution(int screenWidth, int screenHeight, int width, int height) const function, expected prototype:\nunsigned int osgViewer::WindowSizeHandler::public_getNearestResolution(int screenWidth, int screenHeight, int width, int height) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgViewer::WindowSizeHandler::public_getNearestResolution(int screenWidth, int screenHeight, int width, int height) const function, expected prototype:\nunsigned int osgViewer::WindowSizeHandler::public_getNearestResolution(int screenWidth, int screenHeight, int width, int height) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int screenWidth=(int)lua_tointeger(L,2);
@@ -331,8 +326,7 @@ public:
 
 		wrapper_osgViewer_WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_WindowSizeHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgViewer::WindowSizeHandler::public_getNearestResolution(int, int, int, int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgViewer::WindowSizeHandler::public_getNearestResolution(int, int, int, int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->public_getNearestResolution(screenWidth, screenHeight, width, height);
 		lua_pushnumber(L,lret);
@@ -343,8 +337,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -352,8 +345,7 @@ public:
 
 		wrapper_osgViewer_WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_WindowSizeHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -363,15 +355,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgViewer_WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_WindowSizeHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

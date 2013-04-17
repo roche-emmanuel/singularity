@@ -74,7 +74,7 @@ function Class:deformedToTangentFrame(deformedPt)
 end
 
 function Class:getVisibility(localBox)
-	return SceneManager:getVisibility(t:getDeformedFrustumPlanes(), localBox);
+	return sgt.getVisibility(t:getDeformedFrustumPlanes(), localBox);
 end
 
 function Class:setUniforms(ptr<SceneNode> context, ptr<TerrainNode> n, ptr<Program> prog)

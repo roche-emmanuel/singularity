@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgGA::GUIEventHandlerVisitor*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgGA::GUIEventHandlerVisitor*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::GUIEventHandlerVisitor* rhs =(Luna< osgGA::GUIEventHandlerVisitor >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::GUIEventHandlerVisitor* self= (osgGA::GUIEventHandlerVisitor*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgGA::GUIEventHandlerVisitor >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -119,8 +115,7 @@ public:
 	// void osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler & arg1)
 	static int _bind_visit(lua_State *L) {
 		if (!_lg_typecheck_visit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler & arg1) function, expected prototype:\nvoid osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler & arg1) function, expected prototype:\nvoid osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::GUIEventHandler* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventHandler >(L,2));
@@ -131,8 +126,7 @@ public:
 
 		osgGA::GUIEventHandlerVisitor* self=(Luna< osgGA::GUIEventHandlerVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler &). Got : '%s'",typeid(Luna< osgGA::GUIEventHandlerVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler &). Got : '%s'\n%s",typeid(Luna< osgGA::GUIEventHandlerVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->visit(_arg1);
 

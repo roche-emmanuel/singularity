@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::DeleteHandler*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::DeleteHandler*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::DeleteHandler* rhs =(Luna< osg::DeleteHandler >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::DeleteHandler* self= (osg::DeleteHandler*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::DeleteHandler >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -224,8 +219,7 @@ public:
 	// osg::DeleteHandler::DeleteHandler(int numberOfFramesToRetainObjects = 0)
 	static osg::DeleteHandler* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::DeleteHandler::DeleteHandler(int numberOfFramesToRetainObjects = 0) function, expected prototype:\nosg::DeleteHandler::DeleteHandler(int numberOfFramesToRetainObjects = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::DeleteHandler::DeleteHandler(int numberOfFramesToRetainObjects = 0) function, expected prototype:\nosg::DeleteHandler::DeleteHandler(int numberOfFramesToRetainObjects = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -238,8 +232,7 @@ public:
 	// osg::DeleteHandler::DeleteHandler(lua_Table * data, int numberOfFramesToRetainObjects = 0)
 	static osg::DeleteHandler* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::DeleteHandler::DeleteHandler(lua_Table * data, int numberOfFramesToRetainObjects = 0) function, expected prototype:\nosg::DeleteHandler::DeleteHandler(lua_Table * data, int numberOfFramesToRetainObjects = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::DeleteHandler::DeleteHandler(lua_Table * data, int numberOfFramesToRetainObjects = 0) function, expected prototype:\nosg::DeleteHandler::DeleteHandler(lua_Table * data, int numberOfFramesToRetainObjects = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -263,16 +256,14 @@ public:
 	// void osg::DeleteHandler::setNumFramesToRetainObjects(unsigned int numberOfFramesToRetainObjects)
 	static int _bind_setNumFramesToRetainObjects(lua_State *L) {
 		if (!_lg_typecheck_setNumFramesToRetainObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::setNumFramesToRetainObjects(unsigned int numberOfFramesToRetainObjects) function, expected prototype:\nvoid osg::DeleteHandler::setNumFramesToRetainObjects(unsigned int numberOfFramesToRetainObjects)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::setNumFramesToRetainObjects(unsigned int numberOfFramesToRetainObjects) function, expected prototype:\nvoid osg::DeleteHandler::setNumFramesToRetainObjects(unsigned int numberOfFramesToRetainObjects)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int numberOfFramesToRetainObjects=(unsigned int)lua_tointeger(L,2);
 
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::setNumFramesToRetainObjects(unsigned int). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::setNumFramesToRetainObjects(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::DeleteHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setNumFramesToRetainObjects(numberOfFramesToRetainObjects);
 
@@ -282,15 +273,13 @@ public:
 	// unsigned int osg::DeleteHandler::getNumFramesToRetainObjects() const
 	static int _bind_getNumFramesToRetainObjects(lua_State *L) {
 		if (!_lg_typecheck_getNumFramesToRetainObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DeleteHandler::getNumFramesToRetainObjects() const function, expected prototype:\nunsigned int osg::DeleteHandler::getNumFramesToRetainObjects() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::DeleteHandler::getNumFramesToRetainObjects() const function, expected prototype:\nunsigned int osg::DeleteHandler::getNumFramesToRetainObjects() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DeleteHandler::getNumFramesToRetainObjects() const. Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::DeleteHandler::getNumFramesToRetainObjects() const. Got : '%s'\n%s",typeid(Luna< osg::DeleteHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getNumFramesToRetainObjects();
 		lua_pushnumber(L,lret);
@@ -301,16 +290,14 @@ public:
 	// void osg::DeleteHandler::setFrameNumber(unsigned int frameNumber)
 	static int _bind_setFrameNumber(lua_State *L) {
 		if (!_lg_typecheck_setFrameNumber(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::setFrameNumber(unsigned int frameNumber) function, expected prototype:\nvoid osg::DeleteHandler::setFrameNumber(unsigned int frameNumber)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::setFrameNumber(unsigned int frameNumber) function, expected prototype:\nvoid osg::DeleteHandler::setFrameNumber(unsigned int frameNumber)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int frameNumber=(unsigned int)lua_tointeger(L,2);
 
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::setFrameNumber(unsigned int). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::setFrameNumber(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::DeleteHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFrameNumber(frameNumber);
 
@@ -320,15 +307,13 @@ public:
 	// unsigned int osg::DeleteHandler::getFrameNumber() const
 	static int _bind_getFrameNumber(lua_State *L) {
 		if (!_lg_typecheck_getFrameNumber(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DeleteHandler::getFrameNumber() const function, expected prototype:\nunsigned int osg::DeleteHandler::getFrameNumber() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::DeleteHandler::getFrameNumber() const function, expected prototype:\nunsigned int osg::DeleteHandler::getFrameNumber() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DeleteHandler::getFrameNumber() const. Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::DeleteHandler::getFrameNumber() const. Got : '%s'\n%s",typeid(Luna< osg::DeleteHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getFrameNumber();
 		lua_pushnumber(L,lret);
@@ -339,16 +324,14 @@ public:
 	// void osg::DeleteHandler::doDelete(const osg::Referenced * object)
 	static int _bind_doDelete(lua_State *L) {
 		if (!_lg_typecheck_doDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::doDelete(const osg::Referenced * object) function, expected prototype:\nvoid osg::DeleteHandler::doDelete(const osg::Referenced * object)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::doDelete(const osg::Referenced * object) function, expected prototype:\nvoid osg::DeleteHandler::doDelete(const osg::Referenced * object)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Referenced* object=(Luna< osg::Referenced >::check(L,2));
 
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::doDelete(const osg::Referenced *). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::doDelete(const osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::DeleteHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->doDelete(object);
 
@@ -358,15 +341,13 @@ public:
 	// void osg::DeleteHandler::flush()
 	static int _bind_flush(lua_State *L) {
 		if (!_lg_typecheck_flush(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::flush() function, expected prototype:\nvoid osg::DeleteHandler::flush()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::flush() function, expected prototype:\nvoid osg::DeleteHandler::flush()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::flush(). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::flush(). Got : '%s'\n%s",typeid(Luna< osg::DeleteHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->flush();
 
@@ -376,15 +357,13 @@ public:
 	// void osg::DeleteHandler::flushAll()
 	static int _bind_flushAll(lua_State *L) {
 		if (!_lg_typecheck_flushAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::flushAll() function, expected prototype:\nvoid osg::DeleteHandler::flushAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::flushAll() function, expected prototype:\nvoid osg::DeleteHandler::flushAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::flushAll(). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::flushAll(). Got : '%s'\n%s",typeid(Luna< osg::DeleteHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->flushAll();
 
@@ -394,16 +373,14 @@ public:
 	// void osg::DeleteHandler::requestDelete(const osg::Referenced * object)
 	static int _bind_requestDelete(lua_State *L) {
 		if (!_lg_typecheck_requestDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::requestDelete(const osg::Referenced * object) function, expected prototype:\nvoid osg::DeleteHandler::requestDelete(const osg::Referenced * object)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::requestDelete(const osg::Referenced * object) function, expected prototype:\nvoid osg::DeleteHandler::requestDelete(const osg::Referenced * object)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Referenced* object=(Luna< osg::Referenced >::check(L,2));
 
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::requestDelete(const osg::Referenced *). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::requestDelete(const osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::DeleteHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->requestDelete(object);
 
@@ -413,15 +390,13 @@ public:
 	// void osg::DeleteHandler::base_flush()
 	static int _bind_base_flush(lua_State *L) {
 		if (!_lg_typecheck_base_flush(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::base_flush() function, expected prototype:\nvoid osg::DeleteHandler::base_flush()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::base_flush() function, expected prototype:\nvoid osg::DeleteHandler::base_flush()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::base_flush(). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::base_flush(). Got : '%s'\n%s",typeid(Luna< osg::DeleteHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DeleteHandler::flush();
 
@@ -431,15 +406,13 @@ public:
 	// void osg::DeleteHandler::base_flushAll()
 	static int _bind_base_flushAll(lua_State *L) {
 		if (!_lg_typecheck_base_flushAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::base_flushAll() function, expected prototype:\nvoid osg::DeleteHandler::base_flushAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::base_flushAll() function, expected prototype:\nvoid osg::DeleteHandler::base_flushAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::base_flushAll(). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::base_flushAll(). Got : '%s'\n%s",typeid(Luna< osg::DeleteHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DeleteHandler::flushAll();
 
@@ -449,16 +422,14 @@ public:
 	// void osg::DeleteHandler::base_requestDelete(const osg::Referenced * object)
 	static int _bind_base_requestDelete(lua_State *L) {
 		if (!_lg_typecheck_base_requestDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::base_requestDelete(const osg::Referenced * object) function, expected prototype:\nvoid osg::DeleteHandler::base_requestDelete(const osg::Referenced * object)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::base_requestDelete(const osg::Referenced * object) function, expected prototype:\nvoid osg::DeleteHandler::base_requestDelete(const osg::Referenced * object)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Referenced* object=(Luna< osg::Referenced >::check(L,2));
 
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::base_requestDelete(const osg::Referenced *). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::base_requestDelete(const osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::DeleteHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DeleteHandler::requestDelete(object);
 

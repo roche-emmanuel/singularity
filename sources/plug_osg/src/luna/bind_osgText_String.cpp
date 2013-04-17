@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgText::String*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgText::String*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::String* rhs =(Luna< osgText::String >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::String* self= (osgText::String*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgText::String >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -167,8 +163,7 @@ public:
 	// osgText::String::String()
 	static osgText::String* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::String::String() function, expected prototype:\nosgText::String::String()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::String::String() function, expected prototype:\nosgText::String::String()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -178,8 +173,7 @@ public:
 	// osgText::String::String(const osgText::String & str)
 	static osgText::String* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::String::String(const osgText::String & str) function, expected prototype:\nosgText::String::String(const osgText::String & str)\nClass arguments details:\narg 1 ID = 42086333\n");
+			luaL_error(L, "luna typecheck failed in osgText::String::String(const osgText::String & str) function, expected prototype:\nosgText::String::String(const osgText::String & str)\nClass arguments details:\narg 1 ID = 42086333\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgText::String* str_ptr=(Luna< osgText::String >::check(L,1));
@@ -194,8 +188,7 @@ public:
 	// osgText::String::String(const std::string & str)
 	static osgText::String* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::String::String(const std::string & str) function, expected prototype:\nosgText::String::String(const std::string & str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::String::String(const std::string & str) function, expected prototype:\nosgText::String::String(const std::string & str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,1),lua_objlen(L,1));
@@ -206,8 +199,7 @@ public:
 	// osgText::String::String(const std::string & text, osgText::String::Encoding encoding)
 	static osgText::String* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::String::String(const std::string & text, osgText::String::Encoding encoding) function, expected prototype:\nosgText::String::String(const std::string & text, osgText::String::Encoding encoding)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::String::String(const std::string & text, osgText::String::Encoding encoding) function, expected prototype:\nosgText::String::String(const std::string & text, osgText::String::Encoding encoding)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string text(lua_tostring(L,1),lua_objlen(L,1));
@@ -232,16 +224,14 @@ public:
 	// void osgText::String::set(const std::string & str)
 	static int _bind_set_overload_1(lua_State *L) {
 		if (!_lg_typecheck_set_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::String::set(const std::string & str) function, expected prototype:\nvoid osgText::String::set(const std::string & str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::String::set(const std::string & str) function, expected prototype:\nvoid osgText::String::set(const std::string & str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgText::String* self=(Luna< osgText::String >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::String::set(const std::string &). Got : '%s'",typeid(Luna< osgText::String >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::String::set(const std::string &). Got : '%s'\n%s",typeid(Luna< osgText::String >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(str);
 
@@ -251,8 +241,7 @@ public:
 	// void osgText::String::set(const std::string & text, osgText::String::Encoding encoding)
 	static int _bind_set_overload_2(lua_State *L) {
 		if (!_lg_typecheck_set_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::String::set(const std::string & text, osgText::String::Encoding encoding) function, expected prototype:\nvoid osgText::String::set(const std::string & text, osgText::String::Encoding encoding)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::String::set(const std::string & text, osgText::String::Encoding encoding) function, expected prototype:\nvoid osgText::String::set(const std::string & text, osgText::String::Encoding encoding)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string text(lua_tostring(L,2),lua_objlen(L,2));
@@ -260,8 +249,7 @@ public:
 
 		osgText::String* self=(Luna< osgText::String >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::String::set(const std::string &, osgText::String::Encoding). Got : '%s'",typeid(Luna< osgText::String >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::String::set(const std::string &, osgText::String::Encoding). Got : '%s'\n%s",typeid(Luna< osgText::String >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(text, encoding);
 
@@ -280,15 +268,13 @@ public:
 	// std::string osgText::String::createUTF8EncodedString() const
 	static int _bind_createUTF8EncodedString(lua_State *L) {
 		if (!_lg_typecheck_createUTF8EncodedString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string osgText::String::createUTF8EncodedString() const function, expected prototype:\nstd::string osgText::String::createUTF8EncodedString() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string osgText::String::createUTF8EncodedString() const function, expected prototype:\nstd::string osgText::String::createUTF8EncodedString() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::String* self=(Luna< osgText::String >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgText::String::createUTF8EncodedString() const. Got : '%s'",typeid(Luna< osgText::String >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string osgText::String::createUTF8EncodedString() const. Got : '%s'\n%s",typeid(Luna< osgText::String >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->createUTF8EncodedString();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -301,8 +287,7 @@ public:
 	// osgText::String & osgText::String::operator=(const osgText::String & str)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::String & osgText::String::operator=(const osgText::String & str) function, expected prototype:\nosgText::String & osgText::String::operator=(const osgText::String & str)\nClass arguments details:\narg 1 ID = 42086333\n");
+			luaL_error(L, "luna typecheck failed in osgText::String & osgText::String::operator=(const osgText::String & str) function, expected prototype:\nosgText::String & osgText::String::operator=(const osgText::String & str)\nClass arguments details:\narg 1 ID = 42086333\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgText::String* str_ptr=(Luna< osgText::String >::check(L,2));
@@ -313,8 +298,7 @@ public:
 
 		osgText::String* self=(Luna< osgText::String >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::String & osgText::String::operator=(const osgText::String &). Got : '%s'",typeid(Luna< osgText::String >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::String & osgText::String::operator=(const osgText::String &). Got : '%s'\n%s",typeid(Luna< osgText::String >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::String* lret = &self->operator=(str);
 		if(!lret) return 0; // Do not write NULL pointers.

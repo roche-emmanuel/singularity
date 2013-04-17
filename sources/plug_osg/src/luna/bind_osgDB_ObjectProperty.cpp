@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ObjectProperty*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ObjectProperty*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ObjectProperty* rhs =(Luna< osgDB::ObjectProperty >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ObjectProperty* self= (osgDB::ObjectProperty*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgDB::ObjectProperty >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -193,8 +189,7 @@ public:
 	// osgDB::ObjectProperty::ObjectProperty()
 	static osgDB::ObjectProperty* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ObjectProperty::ObjectProperty() function, expected prototype:\nosgDB::ObjectProperty::ObjectProperty()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectProperty::ObjectProperty() function, expected prototype:\nosgDB::ObjectProperty::ObjectProperty()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -204,8 +199,7 @@ public:
 	// osgDB::ObjectProperty::ObjectProperty(const char * name, int value = 0, bool useMap = false)
 	static osgDB::ObjectProperty* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ObjectProperty::ObjectProperty(const char * name, int value = 0, bool useMap = false) function, expected prototype:\nosgDB::ObjectProperty::ObjectProperty(const char * name, int value = 0, bool useMap = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectProperty::ObjectProperty(const char * name, int value = 0, bool useMap = false) function, expected prototype:\nosgDB::ObjectProperty::ObjectProperty(const char * name, int value = 0, bool useMap = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -220,8 +214,7 @@ public:
 	// osgDB::ObjectProperty::ObjectProperty(const osgDB::ObjectProperty & copy)
 	static osgDB::ObjectProperty* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ObjectProperty::ObjectProperty(const osgDB::ObjectProperty & copy) function, expected prototype:\nosgDB::ObjectProperty::ObjectProperty(const osgDB::ObjectProperty & copy)\nClass arguments details:\narg 1 ID = 23791141\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectProperty::ObjectProperty(const osgDB::ObjectProperty & copy) function, expected prototype:\nosgDB::ObjectProperty::ObjectProperty(const osgDB::ObjectProperty & copy)\nClass arguments details:\narg 1 ID = 23791141\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgDB::ObjectProperty* copy_ptr=(Luna< osgDB::ObjectProperty >::check(L,1));
@@ -248,16 +241,14 @@ public:
 	// void osgDB::ObjectProperty::set(int v)
 	static int _bind_set(lua_State *L) {
 		if (!_lg_typecheck_set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ObjectProperty::set(int v) function, expected prototype:\nvoid osgDB::ObjectProperty::set(int v)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectProperty::set(int v) function, expected prototype:\nvoid osgDB::ObjectProperty::set(int v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int v=(int)lua_tointeger(L,2);
 
 		osgDB::ObjectProperty* self=(Luna< osgDB::ObjectProperty >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectProperty::set(int). Got : '%s'",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectProperty::set(int). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(v);
 
@@ -267,15 +258,13 @@ public:
 	// int osgDB::ObjectProperty::get() const
 	static int _bind_get(lua_State *L) {
 		if (!_lg_typecheck_get(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgDB::ObjectProperty::get() const function, expected prototype:\nint osgDB::ObjectProperty::get() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgDB::ObjectProperty::get() const function, expected prototype:\nint osgDB::ObjectProperty::get() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ObjectProperty* self=(Luna< osgDB::ObjectProperty >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgDB::ObjectProperty::get() const. Got : '%s'",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgDB::ObjectProperty::get() const. Got : '%s'\n%s",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->get();
 		lua_pushnumber(L,lret);
@@ -286,15 +275,13 @@ public:
 	// std::string osgDB::ObjectProperty::_name()
 	static int _bind_getName(lua_State *L) {
 		if (!_lg_typecheck_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string osgDB::ObjectProperty::_name() function, expected prototype:\nstd::string osgDB::ObjectProperty::_name()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string osgDB::ObjectProperty::_name() function, expected prototype:\nstd::string osgDB::ObjectProperty::_name()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ObjectProperty* self=(Luna< osgDB::ObjectProperty >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgDB::ObjectProperty::_name(). Got : '%s'",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string osgDB::ObjectProperty::_name(). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->_name;
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -305,15 +292,13 @@ public:
 	// int osgDB::ObjectProperty::_value()
 	static int _bind_getValue(lua_State *L) {
 		if (!_lg_typecheck_getValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgDB::ObjectProperty::_value() function, expected prototype:\nint osgDB::ObjectProperty::_value()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgDB::ObjectProperty::_value() function, expected prototype:\nint osgDB::ObjectProperty::_value()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ObjectProperty* self=(Luna< osgDB::ObjectProperty >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgDB::ObjectProperty::_value(). Got : '%s'",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgDB::ObjectProperty::_value(). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->_value;
 		lua_pushnumber(L,lret);
@@ -324,15 +309,13 @@ public:
 	// bool osgDB::ObjectProperty::_mapProperty()
 	static int _bind_getMapProperty(lua_State *L) {
 		if (!_lg_typecheck_getMapProperty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::ObjectProperty::_mapProperty() function, expected prototype:\nbool osgDB::ObjectProperty::_mapProperty()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::ObjectProperty::_mapProperty() function, expected prototype:\nbool osgDB::ObjectProperty::_mapProperty()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ObjectProperty* self=(Luna< osgDB::ObjectProperty >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ObjectProperty::_mapProperty(). Got : '%s'",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::ObjectProperty::_mapProperty(). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->_mapProperty;
 		lua_pushboolean(L,lret?1:0);
@@ -343,16 +326,14 @@ public:
 	// void osgDB::ObjectProperty::_name(std::string value)
 	static int _bind_setName(lua_State *L) {
 		if (!_lg_typecheck_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ObjectProperty::_name(std::string value) function, expected prototype:\nvoid osgDB::ObjectProperty::_name(std::string value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectProperty::_name(std::string value) function, expected prototype:\nvoid osgDB::ObjectProperty::_name(std::string value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::ObjectProperty* self=(Luna< osgDB::ObjectProperty >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectProperty::_name(std::string). Got : '%s'",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectProperty::_name(std::string). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_name = value;
 
@@ -362,16 +343,14 @@ public:
 	// void osgDB::ObjectProperty::_value(int value)
 	static int _bind_setValue(lua_State *L) {
 		if (!_lg_typecheck_setValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ObjectProperty::_value(int value) function, expected prototype:\nvoid osgDB::ObjectProperty::_value(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectProperty::_value(int value) function, expected prototype:\nvoid osgDB::ObjectProperty::_value(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osgDB::ObjectProperty* self=(Luna< osgDB::ObjectProperty >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectProperty::_value(int). Got : '%s'",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectProperty::_value(int). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_value = value;
 
@@ -381,16 +360,14 @@ public:
 	// void osgDB::ObjectProperty::_mapProperty(bool value)
 	static int _bind_setMapProperty(lua_State *L) {
 		if (!_lg_typecheck_setMapProperty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ObjectProperty::_mapProperty(bool value) function, expected prototype:\nvoid osgDB::ObjectProperty::_mapProperty(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectProperty::_mapProperty(bool value) function, expected prototype:\nvoid osgDB::ObjectProperty::_mapProperty(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::ObjectProperty* self=(Luna< osgDB::ObjectProperty >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectProperty::_mapProperty(bool). Got : '%s'",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectProperty::_mapProperty(bool). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_mapProperty = value;
 
@@ -402,16 +379,14 @@ public:
 	// osgDB::ObjectProperty & osgDB::ObjectProperty::operator()(const char * name)
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ObjectProperty & osgDB::ObjectProperty::operator()(const char * name) function, expected prototype:\nosgDB::ObjectProperty & osgDB::ObjectProperty::operator()(const char * name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectProperty & osgDB::ObjectProperty::operator()(const char * name) function, expected prototype:\nosgDB::ObjectProperty & osgDB::ObjectProperty::operator()(const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * name=(const char *)lua_tostring(L,2);
 
 		osgDB::ObjectProperty* self=(Luna< osgDB::ObjectProperty >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ObjectProperty & osgDB::ObjectProperty::operator()(const char *). Got : '%s'",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::ObjectProperty & osgDB::ObjectProperty::operator()(const char *). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgDB::ObjectProperty* lret = &self->operator()(name);
 		if(!lret) return 0; // Do not write NULL pointers.

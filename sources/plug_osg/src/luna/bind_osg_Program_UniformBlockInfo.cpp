@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Program::UniformBlockInfo*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Program::UniformBlockInfo*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Program::UniformBlockInfo* rhs =(Luna< osg::Program::UniformBlockInfo >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Program::UniformBlockInfo* self= (osg::Program::UniformBlockInfo*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Program::UniformBlockInfo >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -150,8 +146,7 @@ public:
 	// osg::Program::UniformBlockInfo::UniformBlockInfo()
 	static osg::Program::UniformBlockInfo* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Program::UniformBlockInfo::UniformBlockInfo() function, expected prototype:\nosg::Program::UniformBlockInfo::UniformBlockInfo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Program::UniformBlockInfo::UniformBlockInfo() function, expected prototype:\nosg::Program::UniformBlockInfo::UniformBlockInfo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -161,8 +156,7 @@ public:
 	// osg::Program::UniformBlockInfo::UniformBlockInfo(unsigned int index, int size)
 	static osg::Program::UniformBlockInfo* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Program::UniformBlockInfo::UniformBlockInfo(unsigned int index, int size) function, expected prototype:\nosg::Program::UniformBlockInfo::UniformBlockInfo(unsigned int index, int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Program::UniformBlockInfo::UniformBlockInfo(unsigned int index, int size) function, expected prototype:\nosg::Program::UniformBlockInfo::UniformBlockInfo(unsigned int index, int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -185,15 +179,13 @@ public:
 	// unsigned int osg::Program::UniformBlockInfo::_index()
 	static int _bind_getIndex(lua_State *L) {
 		if (!_lg_typecheck_getIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Program::UniformBlockInfo::_index() function, expected prototype:\nunsigned int osg::Program::UniformBlockInfo::_index()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Program::UniformBlockInfo::_index() function, expected prototype:\nunsigned int osg::Program::UniformBlockInfo::_index()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Program::UniformBlockInfo* self=(Luna< osg::Program::UniformBlockInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Program::UniformBlockInfo::_index(). Got : '%s'",typeid(Luna< osg::Program::UniformBlockInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Program::UniformBlockInfo::_index(). Got : '%s'\n%s",typeid(Luna< osg::Program::UniformBlockInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_index;
 		lua_pushnumber(L,lret);
@@ -204,15 +196,13 @@ public:
 	// int osg::Program::UniformBlockInfo::_size()
 	static int _bind_getSize(lua_State *L) {
 		if (!_lg_typecheck_getSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Program::UniformBlockInfo::_size() function, expected prototype:\nint osg::Program::UniformBlockInfo::_size()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::Program::UniformBlockInfo::_size() function, expected prototype:\nint osg::Program::UniformBlockInfo::_size()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Program::UniformBlockInfo* self=(Luna< osg::Program::UniformBlockInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Program::UniformBlockInfo::_size(). Got : '%s'",typeid(Luna< osg::Program::UniformBlockInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Program::UniformBlockInfo::_size(). Got : '%s'\n%s",typeid(Luna< osg::Program::UniformBlockInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->_size;
 		lua_pushnumber(L,lret);
@@ -223,16 +213,14 @@ public:
 	// void osg::Program::UniformBlockInfo::_index(unsigned int value)
 	static int _bind_setIndex(lua_State *L) {
 		if (!_lg_typecheck_setIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Program::UniformBlockInfo::_index(unsigned int value) function, expected prototype:\nvoid osg::Program::UniformBlockInfo::_index(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Program::UniformBlockInfo::_index(unsigned int value) function, expected prototype:\nvoid osg::Program::UniformBlockInfo::_index(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::Program::UniformBlockInfo* self=(Luna< osg::Program::UniformBlockInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::UniformBlockInfo::_index(unsigned int). Got : '%s'",typeid(Luna< osg::Program::UniformBlockInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Program::UniformBlockInfo::_index(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Program::UniformBlockInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_index = value;
 
@@ -242,16 +230,14 @@ public:
 	// void osg::Program::UniformBlockInfo::_size(int value)
 	static int _bind_setSize(lua_State *L) {
 		if (!_lg_typecheck_setSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Program::UniformBlockInfo::_size(int value) function, expected prototype:\nvoid osg::Program::UniformBlockInfo::_size(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Program::UniformBlockInfo::_size(int value) function, expected prototype:\nvoid osg::Program::UniformBlockInfo::_size(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::Program::UniformBlockInfo* self=(Luna< osg::Program::UniformBlockInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::UniformBlockInfo::_size(int). Got : '%s'",typeid(Luna< osg::Program::UniformBlockInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Program::UniformBlockInfo::_size(int). Got : '%s'\n%s",typeid(Luna< osg::Program::UniformBlockInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_size = value;
 

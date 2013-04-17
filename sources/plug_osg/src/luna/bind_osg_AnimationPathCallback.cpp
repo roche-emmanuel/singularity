@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::AnimationPathCallback* self= (osg::AnimationPathCallback*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -452,8 +449,7 @@ public:
 	// osg::AnimationPathCallback::AnimationPathCallback()
 	static osg::AnimationPathCallback* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback() function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback() function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -463,8 +459,7 @@ public:
 	// osg::AnimationPathCallback::AnimationPathCallback(const osg::AnimationPathCallback & apc, const osg::CopyOp & copyop)
 	static osg::AnimationPathCallback* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback(const osg::AnimationPathCallback & apc, const osg::CopyOp & copyop) function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback(const osg::AnimationPathCallback & apc, const osg::CopyOp & copyop)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback(const osg::AnimationPathCallback & apc, const osg::CopyOp & copyop) function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback(const osg::AnimationPathCallback & apc, const osg::CopyOp & copyop)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::AnimationPathCallback* apc_ptr=(Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1));
@@ -484,8 +479,7 @@ public:
 	// osg::AnimationPathCallback::AnimationPathCallback(osg::AnimationPath * ap, double timeOffset = 0.0, double timeMultiplier = 1.0)
 	static osg::AnimationPathCallback* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback(osg::AnimationPath * ap, double timeOffset = 0.0, double timeMultiplier = 1.0) function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback(osg::AnimationPath * ap, double timeOffset = 0.0, double timeMultiplier = 1.0)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback(osg::AnimationPath * ap, double timeOffset = 0.0, double timeMultiplier = 1.0) function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback(osg::AnimationPath * ap, double timeOffset = 0.0, double timeMultiplier = 1.0)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -500,8 +494,7 @@ public:
 	// osg::AnimationPathCallback::AnimationPathCallback(const osg::Vec3d & pivot, const osg::Vec3d & axis, float angularVelocity)
 	static osg::AnimationPathCallback* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback(const osg::Vec3d & pivot, const osg::Vec3d & axis, float angularVelocity) function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback(const osg::Vec3d & pivot, const osg::Vec3d & axis, float angularVelocity)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback(const osg::Vec3d & pivot, const osg::Vec3d & axis, float angularVelocity) function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback(const osg::Vec3d & pivot, const osg::Vec3d & axis, float angularVelocity)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* pivot_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -522,8 +515,7 @@ public:
 	// osg::AnimationPathCallback::AnimationPathCallback(lua_Table * data)
 	static osg::AnimationPathCallback* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback(lua_Table * data) function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback(lua_Table * data) function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -533,8 +525,7 @@ public:
 	// osg::AnimationPathCallback::AnimationPathCallback(lua_Table * data, const osg::AnimationPathCallback & apc, const osg::CopyOp & copyop)
 	static osg::AnimationPathCallback* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback(lua_Table * data, const osg::AnimationPathCallback & apc, const osg::CopyOp & copyop) function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback(lua_Table * data, const osg::AnimationPathCallback & apc, const osg::CopyOp & copyop)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback(lua_Table * data, const osg::AnimationPathCallback & apc, const osg::CopyOp & copyop) function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback(lua_Table * data, const osg::AnimationPathCallback & apc, const osg::CopyOp & copyop)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::AnimationPathCallback* apc_ptr=(Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,2));
@@ -554,8 +545,7 @@ public:
 	// osg::AnimationPathCallback::AnimationPathCallback(lua_Table * data, osg::AnimationPath * ap, double timeOffset = 0.0, double timeMultiplier = 1.0)
 	static osg::AnimationPathCallback* _bind_ctor_overload_7(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback(lua_Table * data, osg::AnimationPath * ap, double timeOffset = 0.0, double timeMultiplier = 1.0) function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback(lua_Table * data, osg::AnimationPath * ap, double timeOffset = 0.0, double timeMultiplier = 1.0)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback(lua_Table * data, osg::AnimationPath * ap, double timeOffset = 0.0, double timeMultiplier = 1.0) function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback(lua_Table * data, osg::AnimationPath * ap, double timeOffset = 0.0, double timeMultiplier = 1.0)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -570,8 +560,7 @@ public:
 	// osg::AnimationPathCallback::AnimationPathCallback(lua_Table * data, const osg::Vec3d & pivot, const osg::Vec3d & axis, float angularVelocity)
 	static osg::AnimationPathCallback* _bind_ctor_overload_8(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback(lua_Table * data, const osg::Vec3d & pivot, const osg::Vec3d & axis, float angularVelocity) function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback(lua_Table * data, const osg::Vec3d & pivot, const osg::Vec3d & axis, float angularVelocity)\nClass arguments details:\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in osg::AnimationPathCallback::AnimationPathCallback(lua_Table * data, const osg::Vec3d & pivot, const osg::Vec3d & axis, float angularVelocity) function, expected prototype:\nosg::AnimationPathCallback::AnimationPathCallback(lua_Table * data, const osg::Vec3d & pivot, const osg::Vec3d & axis, float angularVelocity)\nClass arguments details:\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* pivot_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -609,15 +598,13 @@ public:
 	// osg::Object * osg::AnimationPathCallback::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::AnimationPathCallback::cloneType() const function, expected prototype:\nosg::Object * osg::AnimationPathCallback::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::AnimationPathCallback::cloneType() const function, expected prototype:\nosg::Object * osg::AnimationPathCallback::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::AnimationPathCallback::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::AnimationPathCallback::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -630,8 +617,7 @@ public:
 	// osg::Object * osg::AnimationPathCallback::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::AnimationPathCallback::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::AnimationPathCallback::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::AnimationPathCallback::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::AnimationPathCallback::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -642,8 +628,7 @@ public:
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::AnimationPathCallback::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::AnimationPathCallback::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -656,16 +641,14 @@ public:
 	// bool osg::AnimationPathCallback::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AnimationPathCallback::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::AnimationPathCallback::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AnimationPathCallback::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::AnimationPathCallback::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AnimationPathCallback::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AnimationPathCallback::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -676,15 +659,13 @@ public:
 	// const char * osg::AnimationPathCallback::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::AnimationPathCallback::libraryName() const function, expected prototype:\nconst char * osg::AnimationPathCallback::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::AnimationPathCallback::libraryName() const function, expected prototype:\nconst char * osg::AnimationPathCallback::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AnimationPathCallback::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::AnimationPathCallback::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -695,15 +676,13 @@ public:
 	// const char * osg::AnimationPathCallback::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::AnimationPathCallback::className() const function, expected prototype:\nconst char * osg::AnimationPathCallback::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::AnimationPathCallback::className() const function, expected prototype:\nconst char * osg::AnimationPathCallback::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AnimationPathCallback::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::AnimationPathCallback::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -714,16 +693,14 @@ public:
 	// void osg::AnimationPathCallback::setAnimationPath(osg::AnimationPath * path)
 	static int _bind_setAnimationPath(lua_State *L) {
 		if (!_lg_typecheck_setAnimationPath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::setAnimationPath(osg::AnimationPath * path) function, expected prototype:\nvoid osg::AnimationPathCallback::setAnimationPath(osg::AnimationPath * path)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::setAnimationPath(osg::AnimationPath * path) function, expected prototype:\nvoid osg::AnimationPathCallback::setAnimationPath(osg::AnimationPath * path)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::AnimationPath* path=(Luna< osg::Referenced >::checkSubType< osg::AnimationPath >(L,2));
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::setAnimationPath(osg::AnimationPath *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::setAnimationPath(osg::AnimationPath *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAnimationPath(path);
 
@@ -733,15 +710,13 @@ public:
 	// osg::AnimationPath * osg::AnimationPathCallback::getAnimationPath()
 	static int _bind_getAnimationPath_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getAnimationPath_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AnimationPath * osg::AnimationPathCallback::getAnimationPath() function, expected prototype:\nosg::AnimationPath * osg::AnimationPathCallback::getAnimationPath()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::AnimationPath * osg::AnimationPathCallback::getAnimationPath() function, expected prototype:\nosg::AnimationPath * osg::AnimationPathCallback::getAnimationPath()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::AnimationPath * osg::AnimationPathCallback::getAnimationPath(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::AnimationPath * osg::AnimationPathCallback::getAnimationPath(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::AnimationPath * lret = self->getAnimationPath();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -754,15 +729,13 @@ public:
 	// const osg::AnimationPath * osg::AnimationPathCallback::getAnimationPath() const
 	static int _bind_getAnimationPath_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getAnimationPath_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::AnimationPath * osg::AnimationPathCallback::getAnimationPath() const function, expected prototype:\nconst osg::AnimationPath * osg::AnimationPathCallback::getAnimationPath() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::AnimationPath * osg::AnimationPathCallback::getAnimationPath() const function, expected prototype:\nconst osg::AnimationPath * osg::AnimationPathCallback::getAnimationPath() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::AnimationPath * osg::AnimationPathCallback::getAnimationPath() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::AnimationPath * osg::AnimationPathCallback::getAnimationPath() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::AnimationPath * lret = self->getAnimationPath();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -784,8 +757,7 @@ public:
 	// void osg::AnimationPathCallback::setPivotPoint(const osg::Vec3d & pivot)
 	static int _bind_setPivotPoint(lua_State *L) {
 		if (!_lg_typecheck_setPivotPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::setPivotPoint(const osg::Vec3d & pivot) function, expected prototype:\nvoid osg::AnimationPathCallback::setPivotPoint(const osg::Vec3d & pivot)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::setPivotPoint(const osg::Vec3d & pivot) function, expected prototype:\nvoid osg::AnimationPathCallback::setPivotPoint(const osg::Vec3d & pivot)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* pivot_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -796,8 +768,7 @@ public:
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::setPivotPoint(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::setPivotPoint(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPivotPoint(pivot);
 
@@ -807,15 +778,13 @@ public:
 	// const osg::Vec3d & osg::AnimationPathCallback::getPivotPoint() const
 	static int _bind_getPivotPoint(lua_State *L) {
 		if (!_lg_typecheck_getPivotPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::AnimationPathCallback::getPivotPoint() const function, expected prototype:\nconst osg::Vec3d & osg::AnimationPathCallback::getPivotPoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::AnimationPathCallback::getPivotPoint() const function, expected prototype:\nconst osg::Vec3d & osg::AnimationPathCallback::getPivotPoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AnimationPathCallback::getPivotPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AnimationPathCallback::getPivotPoint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3d* lret = &self->getPivotPoint();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -828,16 +797,14 @@ public:
 	// void osg::AnimationPathCallback::setUseInverseMatrix(bool useInverseMatrix)
 	static int _bind_setUseInverseMatrix(lua_State *L) {
 		if (!_lg_typecheck_setUseInverseMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::setUseInverseMatrix(bool useInverseMatrix) function, expected prototype:\nvoid osg::AnimationPathCallback::setUseInverseMatrix(bool useInverseMatrix)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::setUseInverseMatrix(bool useInverseMatrix) function, expected prototype:\nvoid osg::AnimationPathCallback::setUseInverseMatrix(bool useInverseMatrix)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useInverseMatrix=(bool)(lua_toboolean(L,2)==1);
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::setUseInverseMatrix(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::setUseInverseMatrix(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setUseInverseMatrix(useInverseMatrix);
 
@@ -847,15 +814,13 @@ public:
 	// bool osg::AnimationPathCallback::getUseInverseMatrix() const
 	static int _bind_getUseInverseMatrix(lua_State *L) {
 		if (!_lg_typecheck_getUseInverseMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AnimationPathCallback::getUseInverseMatrix() const function, expected prototype:\nbool osg::AnimationPathCallback::getUseInverseMatrix() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AnimationPathCallback::getUseInverseMatrix() const function, expected prototype:\nbool osg::AnimationPathCallback::getUseInverseMatrix() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AnimationPathCallback::getUseInverseMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AnimationPathCallback::getUseInverseMatrix() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getUseInverseMatrix();
 		lua_pushboolean(L,lret?1:0);
@@ -866,16 +831,14 @@ public:
 	// void osg::AnimationPathCallback::setTimeOffset(double offset)
 	static int _bind_setTimeOffset(lua_State *L) {
 		if (!_lg_typecheck_setTimeOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::setTimeOffset(double offset) function, expected prototype:\nvoid osg::AnimationPathCallback::setTimeOffset(double offset)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::setTimeOffset(double offset) function, expected prototype:\nvoid osg::AnimationPathCallback::setTimeOffset(double offset)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double offset=(double)lua_tonumber(L,2);
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::setTimeOffset(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::setTimeOffset(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTimeOffset(offset);
 
@@ -885,15 +848,13 @@ public:
 	// double osg::AnimationPathCallback::getTimeOffset() const
 	static int _bind_getTimeOffset(lua_State *L) {
 		if (!_lg_typecheck_getTimeOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::getTimeOffset() const function, expected prototype:\ndouble osg::AnimationPathCallback::getTimeOffset() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::getTimeOffset() const function, expected prototype:\ndouble osg::AnimationPathCallback::getTimeOffset() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::getTimeOffset() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::getTimeOffset() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getTimeOffset();
 		lua_pushnumber(L,lret);
@@ -904,16 +865,14 @@ public:
 	// void osg::AnimationPathCallback::setTimeMultiplier(double multiplier)
 	static int _bind_setTimeMultiplier(lua_State *L) {
 		if (!_lg_typecheck_setTimeMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::setTimeMultiplier(double multiplier) function, expected prototype:\nvoid osg::AnimationPathCallback::setTimeMultiplier(double multiplier)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::setTimeMultiplier(double multiplier) function, expected prototype:\nvoid osg::AnimationPathCallback::setTimeMultiplier(double multiplier)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double multiplier=(double)lua_tonumber(L,2);
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::setTimeMultiplier(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::setTimeMultiplier(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTimeMultiplier(multiplier);
 
@@ -923,15 +882,13 @@ public:
 	// double osg::AnimationPathCallback::getTimeMultiplier() const
 	static int _bind_getTimeMultiplier(lua_State *L) {
 		if (!_lg_typecheck_getTimeMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::getTimeMultiplier() const function, expected prototype:\ndouble osg::AnimationPathCallback::getTimeMultiplier() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::getTimeMultiplier() const function, expected prototype:\ndouble osg::AnimationPathCallback::getTimeMultiplier() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::getTimeMultiplier() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::getTimeMultiplier() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getTimeMultiplier();
 		lua_pushnumber(L,lret);
@@ -942,15 +899,13 @@ public:
 	// void osg::AnimationPathCallback::reset()
 	static int _bind_reset(lua_State *L) {
 		if (!_lg_typecheck_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::reset() function, expected prototype:\nvoid osg::AnimationPathCallback::reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::reset() function, expected prototype:\nvoid osg::AnimationPathCallback::reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reset();
 
@@ -960,16 +915,14 @@ public:
 	// void osg::AnimationPathCallback::setPause(bool pause)
 	static int _bind_setPause(lua_State *L) {
 		if (!_lg_typecheck_setPause(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::setPause(bool pause) function, expected prototype:\nvoid osg::AnimationPathCallback::setPause(bool pause)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::setPause(bool pause) function, expected prototype:\nvoid osg::AnimationPathCallback::setPause(bool pause)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool pause=(bool)(lua_toboolean(L,2)==1);
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::setPause(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::setPause(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPause(pause);
 
@@ -979,15 +932,13 @@ public:
 	// bool osg::AnimationPathCallback::getPause() const
 	static int _bind_getPause(lua_State *L) {
 		if (!_lg_typecheck_getPause(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AnimationPathCallback::getPause() const function, expected prototype:\nbool osg::AnimationPathCallback::getPause() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AnimationPathCallback::getPause() const function, expected prototype:\nbool osg::AnimationPathCallback::getPause() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AnimationPathCallback::getPause() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AnimationPathCallback::getPause() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getPause();
 		lua_pushboolean(L,lret?1:0);
@@ -998,15 +949,13 @@ public:
 	// double osg::AnimationPathCallback::getAnimationTime() const
 	static int _bind_getAnimationTime(lua_State *L) {
 		if (!_lg_typecheck_getAnimationTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::getAnimationTime() const function, expected prototype:\ndouble osg::AnimationPathCallback::getAnimationTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::getAnimationTime() const function, expected prototype:\ndouble osg::AnimationPathCallback::getAnimationTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::getAnimationTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::getAnimationTime() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getAnimationTime();
 		lua_pushnumber(L,lret);
@@ -1017,8 +966,7 @@ public:
 	// void osg::AnimationPathCallback::update(osg::Node & node)
 	static int _bind_update(lua_State *L) {
 		if (!_lg_typecheck_update(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::update(osg::Node & node) function, expected prototype:\nvoid osg::AnimationPathCallback::update(osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::update(osg::Node & node) function, expected prototype:\nvoid osg::AnimationPathCallback::update(osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
@@ -1029,8 +977,7 @@ public:
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::update(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::update(osg::Node &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->update(node);
 
@@ -1040,15 +987,13 @@ public:
 	// double osg::AnimationPathCallback::_firstTime()
 	static int _bind_getFirstTime(lua_State *L) {
 		if (!_lg_typecheck_getFirstTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::_firstTime() function, expected prototype:\ndouble osg::AnimationPathCallback::_firstTime()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::_firstTime() function, expected prototype:\ndouble osg::AnimationPathCallback::_firstTime()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::_firstTime(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::_firstTime(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->_firstTime;
 		lua_pushnumber(L,lret);
@@ -1059,15 +1004,13 @@ public:
 	// double osg::AnimationPathCallback::_latestTime()
 	static int _bind_getLatestTime(lua_State *L) {
 		if (!_lg_typecheck_getLatestTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::_latestTime() function, expected prototype:\ndouble osg::AnimationPathCallback::_latestTime()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::_latestTime() function, expected prototype:\ndouble osg::AnimationPathCallback::_latestTime()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::_latestTime(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::_latestTime(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->_latestTime;
 		lua_pushnumber(L,lret);
@@ -1078,15 +1021,13 @@ public:
 	// double osg::AnimationPathCallback::_pauseTime()
 	static int _bind_getPauseTime(lua_State *L) {
 		if (!_lg_typecheck_getPauseTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::_pauseTime() function, expected prototype:\ndouble osg::AnimationPathCallback::_pauseTime()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::_pauseTime() function, expected prototype:\ndouble osg::AnimationPathCallback::_pauseTime()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::_pauseTime(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::_pauseTime(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->_pauseTime;
 		lua_pushnumber(L,lret);
@@ -1097,16 +1038,14 @@ public:
 	// void osg::AnimationPathCallback::_firstTime(double value)
 	static int _bind_setFirstTime(lua_State *L) {
 		if (!_lg_typecheck_setFirstTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::_firstTime(double value) function, expected prototype:\nvoid osg::AnimationPathCallback::_firstTime(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::_firstTime(double value) function, expected prototype:\nvoid osg::AnimationPathCallback::_firstTime(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::_firstTime(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::_firstTime(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_firstTime = value;
 
@@ -1116,16 +1055,14 @@ public:
 	// void osg::AnimationPathCallback::_latestTime(double value)
 	static int _bind_setLatestTime(lua_State *L) {
 		if (!_lg_typecheck_setLatestTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::_latestTime(double value) function, expected prototype:\nvoid osg::AnimationPathCallback::_latestTime(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::_latestTime(double value) function, expected prototype:\nvoid osg::AnimationPathCallback::_latestTime(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::_latestTime(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::_latestTime(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_latestTime = value;
 
@@ -1135,16 +1072,14 @@ public:
 	// void osg::AnimationPathCallback::_pauseTime(double value)
 	static int _bind_setPauseTime(lua_State *L) {
 		if (!_lg_typecheck_setPauseTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::_pauseTime(double value) function, expected prototype:\nvoid osg::AnimationPathCallback::_pauseTime(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::_pauseTime(double value) function, expected prototype:\nvoid osg::AnimationPathCallback::_pauseTime(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::_pauseTime(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::_pauseTime(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_pauseTime = value;
 
@@ -1154,16 +1089,14 @@ public:
 	// void osg::AnimationPathCallback::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::AnimationPathCallback::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::AnimationPathCallback::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AnimationPathCallback::setThreadSafeRefUnref(threadSafe);
 
@@ -1173,16 +1106,14 @@ public:
 	// void osg::AnimationPathCallback::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::base_setName(const std::string & name) function, expected prototype:\nvoid osg::AnimationPathCallback::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::base_setName(const std::string & name) function, expected prototype:\nvoid osg::AnimationPathCallback::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AnimationPathCallback::setName(name);
 
@@ -1192,15 +1123,13 @@ public:
 	// void osg::AnimationPathCallback::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::base_computeDataVariance() function, expected prototype:\nvoid osg::AnimationPathCallback::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::base_computeDataVariance() function, expected prototype:\nvoid osg::AnimationPathCallback::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AnimationPathCallback::computeDataVariance();
 
@@ -1210,16 +1139,14 @@ public:
 	// void osg::AnimationPathCallback::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::AnimationPathCallback::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::AnimationPathCallback::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AnimationPathCallback::setUserData(obj);
 
@@ -1229,15 +1156,13 @@ public:
 	// osg::Referenced * osg::AnimationPathCallback::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::AnimationPathCallback::base_getUserData() function, expected prototype:\nosg::Referenced * osg::AnimationPathCallback::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::AnimationPathCallback::base_getUserData() function, expected prototype:\nosg::Referenced * osg::AnimationPathCallback::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::AnimationPathCallback::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::AnimationPathCallback::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->AnimationPathCallback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1250,15 +1175,13 @@ public:
 	// const osg::Referenced * osg::AnimationPathCallback::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::AnimationPathCallback::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::AnimationPathCallback::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::AnimationPathCallback::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::AnimationPathCallback::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::AnimationPathCallback::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::AnimationPathCallback::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->AnimationPathCallback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1280,8 +1203,7 @@ public:
 	// void osg::AnimationPathCallback::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::AnimationPathCallback::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::AnimationPathCallback::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1290,8 +1212,7 @@ public:
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AnimationPathCallback::releaseGLObjects(_arg1);
 
@@ -1301,15 +1222,13 @@ public:
 	// osg::Object * osg::AnimationPathCallback::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::AnimationPathCallback::base_cloneType() const function, expected prototype:\nosg::Object * osg::AnimationPathCallback::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::AnimationPathCallback::base_cloneType() const function, expected prototype:\nosg::Object * osg::AnimationPathCallback::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::AnimationPathCallback::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::AnimationPathCallback::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->AnimationPathCallback::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1322,8 +1241,7 @@ public:
 	// osg::Object * osg::AnimationPathCallback::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::AnimationPathCallback::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::AnimationPathCallback::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::AnimationPathCallback::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::AnimationPathCallback::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1334,8 +1252,7 @@ public:
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::AnimationPathCallback::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::AnimationPathCallback::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->AnimationPathCallback::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1348,16 +1265,14 @@ public:
 	// bool osg::AnimationPathCallback::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AnimationPathCallback::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::AnimationPathCallback::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AnimationPathCallback::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::AnimationPathCallback::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AnimationPathCallback::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AnimationPathCallback::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AnimationPathCallback::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1368,15 +1283,13 @@ public:
 	// const char * osg::AnimationPathCallback::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::AnimationPathCallback::base_libraryName() const function, expected prototype:\nconst char * osg::AnimationPathCallback::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::AnimationPathCallback::base_libraryName() const function, expected prototype:\nconst char * osg::AnimationPathCallback::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AnimationPathCallback::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::AnimationPathCallback::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->AnimationPathCallback::libraryName();
 		lua_pushstring(L,lret);
@@ -1387,15 +1300,13 @@ public:
 	// const char * osg::AnimationPathCallback::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::AnimationPathCallback::base_className() const function, expected prototype:\nconst char * osg::AnimationPathCallback::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::AnimationPathCallback::base_className() const function, expected prototype:\nconst char * osg::AnimationPathCallback::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AnimationPathCallback::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::AnimationPathCallback::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->AnimationPathCallback::className();
 		lua_pushstring(L,lret);
@@ -1406,15 +1317,13 @@ public:
 	// void osg::AnimationPathCallback::base_reset()
 	static int _bind_base_reset(lua_State *L) {
 		if (!_lg_typecheck_base_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::base_reset() function, expected prototype:\nvoid osg::AnimationPathCallback::base_reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::base_reset() function, expected prototype:\nvoid osg::AnimationPathCallback::base_reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::base_reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AnimationPathCallback::reset();
 
@@ -1424,15 +1333,13 @@ public:
 	// double osg::AnimationPathCallback::base_getAnimationTime() const
 	static int _bind_base_getAnimationTime(lua_State *L) {
 		if (!_lg_typecheck_base_getAnimationTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::base_getAnimationTime() const function, expected prototype:\ndouble osg::AnimationPathCallback::base_getAnimationTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::base_getAnimationTime() const function, expected prototype:\ndouble osg::AnimationPathCallback::base_getAnimationTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::base_getAnimationTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::base_getAnimationTime() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->AnimationPathCallback::getAnimationTime();
 		lua_pushnumber(L,lret);
@@ -1445,8 +1352,7 @@ public:
 	// void osg::AnimationPathCallback::operator()(osg::Node * node, osg::NodeVisitor * nv)
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::operator()(osg::Node * node, osg::NodeVisitor * nv) function, expected prototype:\nvoid osg::AnimationPathCallback::operator()(osg::Node * node, osg::NodeVisitor * nv)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::operator()(osg::Node * node, osg::NodeVisitor * nv) function, expected prototype:\nvoid osg::AnimationPathCallback::operator()(osg::Node * node, osg::NodeVisitor * nv)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
@@ -1454,8 +1360,7 @@ public:
 
 		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::operator()(osg::Node *, osg::NodeVisitor *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::operator()(osg::Node *, osg::NodeVisitor *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->operator()(node, nv);
 

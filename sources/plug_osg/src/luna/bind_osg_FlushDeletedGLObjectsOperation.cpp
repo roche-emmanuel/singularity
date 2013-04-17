@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::FlushDeletedGLObjectsOperation* self= (osg::FlushDeletedGLObjectsOperation*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -151,8 +148,7 @@ public:
 	// osg::FlushDeletedGLObjectsOperation::FlushDeletedGLObjectsOperation(double availableTime, bool keep = false)
 	static osg::FlushDeletedGLObjectsOperation* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FlushDeletedGLObjectsOperation::FlushDeletedGLObjectsOperation(double availableTime, bool keep = false) function, expected prototype:\nosg::FlushDeletedGLObjectsOperation::FlushDeletedGLObjectsOperation(double availableTime, bool keep = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::FlushDeletedGLObjectsOperation::FlushDeletedGLObjectsOperation(double availableTime, bool keep = false) function, expected prototype:\nosg::FlushDeletedGLObjectsOperation::FlushDeletedGLObjectsOperation(double availableTime, bool keep = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -166,8 +162,7 @@ public:
 	// osg::FlushDeletedGLObjectsOperation::FlushDeletedGLObjectsOperation(lua_Table * data, double availableTime, bool keep = false)
 	static osg::FlushDeletedGLObjectsOperation* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FlushDeletedGLObjectsOperation::FlushDeletedGLObjectsOperation(lua_Table * data, double availableTime, bool keep = false) function, expected prototype:\nosg::FlushDeletedGLObjectsOperation::FlushDeletedGLObjectsOperation(lua_Table * data, double availableTime, bool keep = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::FlushDeletedGLObjectsOperation::FlushDeletedGLObjectsOperation(lua_Table * data, double availableTime, bool keep = false) function, expected prototype:\nosg::FlushDeletedGLObjectsOperation::FlushDeletedGLObjectsOperation(lua_Table * data, double availableTime, bool keep = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -192,15 +187,13 @@ public:
 	// double osg::FlushDeletedGLObjectsOperation::_availableTime()
 	static int _bind_getAvailableTime(lua_State *L) {
 		if (!_lg_typecheck_getAvailableTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::FlushDeletedGLObjectsOperation::_availableTime() function, expected prototype:\ndouble osg::FlushDeletedGLObjectsOperation::_availableTime()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::FlushDeletedGLObjectsOperation::_availableTime() function, expected prototype:\ndouble osg::FlushDeletedGLObjectsOperation::_availableTime()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FlushDeletedGLObjectsOperation* self=Luna< osg::Referenced >::checkSubType< osg::FlushDeletedGLObjectsOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::FlushDeletedGLObjectsOperation::_availableTime(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::FlushDeletedGLObjectsOperation::_availableTime(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->_availableTime;
 		lua_pushnumber(L,lret);
@@ -211,16 +204,14 @@ public:
 	// void osg::FlushDeletedGLObjectsOperation::_availableTime(double value)
 	static int _bind_setAvailableTime(lua_State *L) {
 		if (!_lg_typecheck_setAvailableTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FlushDeletedGLObjectsOperation::_availableTime(double value) function, expected prototype:\nvoid osg::FlushDeletedGLObjectsOperation::_availableTime(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::FlushDeletedGLObjectsOperation::_availableTime(double value) function, expected prototype:\nvoid osg::FlushDeletedGLObjectsOperation::_availableTime(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osg::FlushDeletedGLObjectsOperation* self=Luna< osg::Referenced >::checkSubType< osg::FlushDeletedGLObjectsOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FlushDeletedGLObjectsOperation::_availableTime(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FlushDeletedGLObjectsOperation::_availableTime(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_availableTime = value;
 
@@ -230,16 +221,14 @@ public:
 	// void osg::FlushDeletedGLObjectsOperation::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FlushDeletedGLObjectsOperation::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::FlushDeletedGLObjectsOperation::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::FlushDeletedGLObjectsOperation::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::FlushDeletedGLObjectsOperation::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::FlushDeletedGLObjectsOperation* self=Luna< osg::Referenced >::checkSubType< osg::FlushDeletedGLObjectsOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FlushDeletedGLObjectsOperation::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FlushDeletedGLObjectsOperation::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlushDeletedGLObjectsOperation::setThreadSafeRefUnref(threadSafe);
 
@@ -249,15 +238,13 @@ public:
 	// void osg::FlushDeletedGLObjectsOperation::base_release()
 	static int _bind_base_release(lua_State *L) {
 		if (!_lg_typecheck_base_release(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FlushDeletedGLObjectsOperation::base_release() function, expected prototype:\nvoid osg::FlushDeletedGLObjectsOperation::base_release()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::FlushDeletedGLObjectsOperation::base_release() function, expected prototype:\nvoid osg::FlushDeletedGLObjectsOperation::base_release()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FlushDeletedGLObjectsOperation* self=Luna< osg::Referenced >::checkSubType< osg::FlushDeletedGLObjectsOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FlushDeletedGLObjectsOperation::base_release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FlushDeletedGLObjectsOperation::base_release(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlushDeletedGLObjectsOperation::release();
 
@@ -269,16 +256,14 @@ public:
 	// void osg::FlushDeletedGLObjectsOperation::operator()(osg::GraphicsContext * arg1)
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FlushDeletedGLObjectsOperation::operator()(osg::GraphicsContext * arg1) function, expected prototype:\nvoid osg::FlushDeletedGLObjectsOperation::operator()(osg::GraphicsContext * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::FlushDeletedGLObjectsOperation::operator()(osg::GraphicsContext * arg1) function, expected prototype:\nvoid osg::FlushDeletedGLObjectsOperation::operator()(osg::GraphicsContext * arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::GraphicsContext* _arg1=(Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,2));
 
 		osg::FlushDeletedGLObjectsOperation* self=Luna< osg::Referenced >::checkSubType< osg::FlushDeletedGLObjectsOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FlushDeletedGLObjectsOperation::operator()(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FlushDeletedGLObjectsOperation::operator()(osg::GraphicsContext *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->operator()(_arg1);
 

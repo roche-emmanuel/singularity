@@ -117,8 +117,7 @@ public:
 	// void osgUtil::TangentSpaceGenerator::public_compute(osg::PrimitiveSet * pset, const osg::Array * vx, const osg::Array * nx, const osg::Array * tx, int iA, int iB, int iC)
 	static int _bind_public_compute(lua_State *L) {
 		if (!_lg_typecheck_public_compute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::TangentSpaceGenerator::public_compute(osg::PrimitiveSet * pset, const osg::Array * vx, const osg::Array * nx, const osg::Array * tx, int iA, int iB, int iC) function, expected prototype:\nvoid osgUtil::TangentSpaceGenerator::public_compute(osg::PrimitiveSet * pset, const osg::Array * vx, const osg::Array * nx, const osg::Array * tx, int iA, int iB, int iC)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\narg 4 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::TangentSpaceGenerator::public_compute(osg::PrimitiveSet * pset, const osg::Array * vx, const osg::Array * nx, const osg::Array * tx, int iA, int iB, int iC) function, expected prototype:\nvoid osgUtil::TangentSpaceGenerator::public_compute(osg::PrimitiveSet * pset, const osg::Array * vx, const osg::Array * nx, const osg::Array * tx, int iA, int iB, int iC)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\narg 4 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::PrimitiveSet* pset=(Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,2));
@@ -131,8 +130,7 @@ public:
 
 		wrapper_osgUtil_TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::public_compute(osg::PrimitiveSet *, const osg::Array *, const osg::Array *, const osg::Array *, int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::public_compute(osg::PrimitiveSet *, const osg::Array *, const osg::Array *, const osg::Array *, int, int, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_compute(pset, vx, nx, tx, iA, iB, iC);
 
@@ -142,8 +140,7 @@ public:
 	// osgUtil::TangentSpaceGenerator & osgUtil::TangentSpaceGenerator::public_op_assign(const osgUtil::TangentSpaceGenerator & arg1)
 	static int _bind_public_op_assign(lua_State *L) {
 		if (!_lg_typecheck_public_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::TangentSpaceGenerator & osgUtil::TangentSpaceGenerator::public_op_assign(const osgUtil::TangentSpaceGenerator & arg1) function, expected prototype:\nosgUtil::TangentSpaceGenerator & osgUtil::TangentSpaceGenerator::public_op_assign(const osgUtil::TangentSpaceGenerator & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::TangentSpaceGenerator & osgUtil::TangentSpaceGenerator::public_op_assign(const osgUtil::TangentSpaceGenerator & arg1) function, expected prototype:\nosgUtil::TangentSpaceGenerator & osgUtil::TangentSpaceGenerator::public_op_assign(const osgUtil::TangentSpaceGenerator & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgUtil::TangentSpaceGenerator* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,2));
@@ -154,8 +151,7 @@ public:
 
 		wrapper_osgUtil_TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::TangentSpaceGenerator & osgUtil::TangentSpaceGenerator::public_op_assign(const osgUtil::TangentSpaceGenerator &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::TangentSpaceGenerator & osgUtil::TangentSpaceGenerator::public_op_assign(const osgUtil::TangentSpaceGenerator &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::TangentSpaceGenerator* lret = &self->public_op_assign(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -168,8 +164,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -177,8 +172,7 @@ public:
 
 		wrapper_osgUtil_TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -188,15 +182,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgUtil_TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

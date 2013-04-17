@@ -228,8 +228,7 @@ public:
 	// void osgUtil::Tessellator::public_reduceArray(osg::Array * cold, const unsigned int nnu)
 	static int _bind_public_reduceArray(lua_State *L) {
 		if (!_lg_typecheck_public_reduceArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_reduceArray(osg::Array * cold, const unsigned int nnu) function, expected prototype:\nvoid osgUtil::Tessellator::public_reduceArray(osg::Array * cold, const unsigned int nnu)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_reduceArray(osg::Array * cold, const unsigned int nnu) function, expected prototype:\nvoid osgUtil::Tessellator::public_reduceArray(osg::Array * cold, const unsigned int nnu)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Array* cold=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
@@ -237,8 +236,7 @@ public:
 
 		wrapper_osgUtil_Tessellator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_Tessellator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::public_reduceArray(osg::Array *, const unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::public_reduceArray(osg::Array *, const unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_reduceArray(cold, nnu);
 
@@ -248,8 +246,7 @@ public:
 	// void osgUtil::Tessellator::public_collectTessellation(osg::Geometry & cxgeom, unsigned int originalIndex)
 	static int _bind_public_collectTessellation(lua_State *L) {
 		if (!_lg_typecheck_public_collectTessellation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_collectTessellation(osg::Geometry & cxgeom, unsigned int originalIndex) function, expected prototype:\nvoid osgUtil::Tessellator::public_collectTessellation(osg::Geometry & cxgeom, unsigned int originalIndex)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_collectTessellation(osg::Geometry & cxgeom, unsigned int originalIndex) function, expected prototype:\nvoid osgUtil::Tessellator::public_collectTessellation(osg::Geometry & cxgeom, unsigned int originalIndex)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geometry* cxgeom_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
@@ -261,8 +258,7 @@ public:
 
 		wrapper_osgUtil_Tessellator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_Tessellator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::public_collectTessellation(osg::Geometry &, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::public_collectTessellation(osg::Geometry &, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_collectTessellation(cxgeom, originalIndex);
 
@@ -272,8 +268,7 @@ public:
 	// void osgUtil::Tessellator::public_addContour(unsigned int mode, unsigned int first, unsigned int last, osg::Vec3Array * vertices)
 	static int _bind_public_addContour(lua_State *L) {
 		if (!_lg_typecheck_public_addContour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_addContour(unsigned int mode, unsigned int first, unsigned int last, osg::Vec3Array * vertices) function, expected prototype:\nvoid osgUtil::Tessellator::public_addContour(unsigned int mode, unsigned int first, unsigned int last, osg::Vec3Array * vertices)\nClass arguments details:\narg 4 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_addContour(unsigned int mode, unsigned int first, unsigned int last, osg::Vec3Array * vertices) function, expected prototype:\nvoid osgUtil::Tessellator::public_addContour(unsigned int mode, unsigned int first, unsigned int last, osg::Vec3Array * vertices)\nClass arguments details:\narg 4 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
@@ -283,8 +278,7 @@ public:
 
 		wrapper_osgUtil_Tessellator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_Tessellator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::public_addContour(unsigned int, unsigned int, unsigned int, osg::Vec3Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::public_addContour(unsigned int, unsigned int, unsigned int, osg::Vec3Array *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_addContour(mode, first, last, vertices);
 
@@ -294,16 +288,14 @@ public:
 	// void osgUtil::Tessellator::public_begin(unsigned int mode)
 	static int _bind_public_begin(lua_State *L) {
 		if (!_lg_typecheck_public_begin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_begin(unsigned int mode) function, expected prototype:\nvoid osgUtil::Tessellator::public_begin(unsigned int mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_begin(unsigned int mode) function, expected prototype:\nvoid osgUtil::Tessellator::public_begin(unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 
 		wrapper_osgUtil_Tessellator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_Tessellator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::public_begin(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::public_begin(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_begin(mode);
 
@@ -313,16 +305,14 @@ public:
 	// void osgUtil::Tessellator::public_vertex(osg::Vec3f * vertex)
 	static int _bind_public_vertex(lua_State *L) {
 		if (!_lg_typecheck_public_vertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_vertex(osg::Vec3f * vertex) function, expected prototype:\nvoid osgUtil::Tessellator::public_vertex(osg::Vec3f * vertex)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_vertex(osg::Vec3f * vertex) function, expected prototype:\nvoid osgUtil::Tessellator::public_vertex(osg::Vec3f * vertex)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3f* vertex=(Luna< osg::Vec3f >::check(L,2));
 
 		wrapper_osgUtil_Tessellator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_Tessellator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::public_vertex(osg::Vec3f *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::public_vertex(osg::Vec3f *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_vertex(vertex);
 
@@ -332,15 +322,13 @@ public:
 	// void osgUtil::Tessellator::public_end()
 	static int _bind_public_end(lua_State *L) {
 		if (!_lg_typecheck_public_end(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_end() function, expected prototype:\nvoid osgUtil::Tessellator::public_end()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_end() function, expected prototype:\nvoid osgUtil::Tessellator::public_end()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgUtil_Tessellator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_Tessellator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::public_end(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::public_end(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_end();
 
@@ -350,16 +338,14 @@ public:
 	// void osgUtil::Tessellator::public_error(unsigned int errorCode)
 	static int _bind_public_error(lua_State *L) {
 		if (!_lg_typecheck_public_error(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_error(unsigned int errorCode) function, expected prototype:\nvoid osgUtil::Tessellator::public_error(unsigned int errorCode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_error(unsigned int errorCode) function, expected prototype:\nvoid osgUtil::Tessellator::public_error(unsigned int errorCode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int errorCode=(unsigned int)lua_tointeger(L,2);
 
 		wrapper_osgUtil_Tessellator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_Tessellator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::public_error(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::public_error(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_error(errorCode);
 
@@ -369,8 +355,7 @@ public:
 	// static void osgUtil::Tessellator::public_beginCallback(unsigned int which, void * userData)
 	static int _bind_public_beginCallback(lua_State *L) {
 		if (!_lg_typecheck_public_beginCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osgUtil::Tessellator::public_beginCallback(unsigned int which, void * userData) function, expected prototype:\nstatic void osgUtil::Tessellator::public_beginCallback(unsigned int which, void * userData)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osgUtil::Tessellator::public_beginCallback(unsigned int which, void * userData) function, expected prototype:\nstatic void osgUtil::Tessellator::public_beginCallback(unsigned int which, void * userData)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int which=(unsigned int)lua_tointeger(L,1);
@@ -378,8 +363,7 @@ public:
 
 		wrapper_osgUtil_Tessellator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_Tessellator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osgUtil::Tessellator::public_beginCallback(unsigned int, void *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void osgUtil::Tessellator::public_beginCallback(unsigned int, void *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_beginCallback(which, userData);
 
@@ -389,8 +373,7 @@ public:
 	// static void osgUtil::Tessellator::public_vertexCallback(void * data, void * userData)
 	static int _bind_public_vertexCallback(lua_State *L) {
 		if (!_lg_typecheck_public_vertexCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osgUtil::Tessellator::public_vertexCallback(void * data, void * userData) function, expected prototype:\nstatic void osgUtil::Tessellator::public_vertexCallback(void * data, void * userData)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osgUtil::Tessellator::public_vertexCallback(void * data, void * userData) function, expected prototype:\nstatic void osgUtil::Tessellator::public_vertexCallback(void * data, void * userData)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* data=(Luna< void >::check(L,1));
@@ -398,8 +381,7 @@ public:
 
 		wrapper_osgUtil_Tessellator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_Tessellator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osgUtil::Tessellator::public_vertexCallback(void *, void *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void osgUtil::Tessellator::public_vertexCallback(void *, void *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_vertexCallback(data, userData);
 
@@ -409,16 +391,14 @@ public:
 	// static void osgUtil::Tessellator::public_endCallback(void * userData)
 	static int _bind_public_endCallback(lua_State *L) {
 		if (!_lg_typecheck_public_endCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osgUtil::Tessellator::public_endCallback(void * userData) function, expected prototype:\nstatic void osgUtil::Tessellator::public_endCallback(void * userData)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osgUtil::Tessellator::public_endCallback(void * userData) function, expected prototype:\nstatic void osgUtil::Tessellator::public_endCallback(void * userData)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* userData=(Luna< void >::check(L,1));
 
 		wrapper_osgUtil_Tessellator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_Tessellator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osgUtil::Tessellator::public_endCallback(void *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void osgUtil::Tessellator::public_endCallback(void *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_endCallback(userData);
 
@@ -428,8 +408,7 @@ public:
 	// static void osgUtil::Tessellator::public_errorCallback(unsigned int errorCode, void * userData)
 	static int _bind_public_errorCallback(lua_State *L) {
 		if (!_lg_typecheck_public_errorCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osgUtil::Tessellator::public_errorCallback(unsigned int errorCode, void * userData) function, expected prototype:\nstatic void osgUtil::Tessellator::public_errorCallback(unsigned int errorCode, void * userData)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osgUtil::Tessellator::public_errorCallback(unsigned int errorCode, void * userData) function, expected prototype:\nstatic void osgUtil::Tessellator::public_errorCallback(unsigned int errorCode, void * userData)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int errorCode=(unsigned int)lua_tointeger(L,1);
@@ -437,8 +416,7 @@ public:
 
 		wrapper_osgUtil_Tessellator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_Tessellator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osgUtil::Tessellator::public_errorCallback(unsigned int, void *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void osgUtil::Tessellator::public_errorCallback(unsigned int, void *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_errorCallback(errorCode, userData);
 
@@ -448,8 +426,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -457,8 +434,7 @@ public:
 
 		wrapper_osgUtil_Tessellator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_Tessellator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -468,15 +444,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgUtil_Tessellator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_Tessellator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

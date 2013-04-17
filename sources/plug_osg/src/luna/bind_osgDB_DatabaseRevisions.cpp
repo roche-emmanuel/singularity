@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::DatabaseRevisions* self= (osgDB::DatabaseRevisions*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -294,8 +291,7 @@ public:
 	// osgDB::DatabaseRevisions::DatabaseRevisions()
 	static osgDB::DatabaseRevisions* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::DatabaseRevisions::DatabaseRevisions() function, expected prototype:\nosgDB::DatabaseRevisions::DatabaseRevisions()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::DatabaseRevisions::DatabaseRevisions() function, expected prototype:\nosgDB::DatabaseRevisions::DatabaseRevisions()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -305,8 +301,7 @@ public:
 	// osgDB::DatabaseRevisions::DatabaseRevisions(const osgDB::DatabaseRevisions & revisions, const osg::CopyOp arg2 = osg::CopyOp::SHALLOW_COPY)
 	static osgDB::DatabaseRevisions* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::DatabaseRevisions::DatabaseRevisions(const osgDB::DatabaseRevisions & revisions, const osg::CopyOp arg2 = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgDB::DatabaseRevisions::DatabaseRevisions(const osgDB::DatabaseRevisions & revisions, const osg::CopyOp arg2 = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgDB::DatabaseRevisions::DatabaseRevisions(const osgDB::DatabaseRevisions & revisions, const osg::CopyOp arg2 = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgDB::DatabaseRevisions::DatabaseRevisions(const osgDB::DatabaseRevisions & revisions, const osg::CopyOp arg2 = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -328,8 +323,7 @@ public:
 	// osgDB::DatabaseRevisions::DatabaseRevisions(lua_Table * data)
 	static osgDB::DatabaseRevisions* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::DatabaseRevisions::DatabaseRevisions(lua_Table * data) function, expected prototype:\nosgDB::DatabaseRevisions::DatabaseRevisions(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::DatabaseRevisions::DatabaseRevisions(lua_Table * data) function, expected prototype:\nosgDB::DatabaseRevisions::DatabaseRevisions(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -339,8 +333,7 @@ public:
 	// osgDB::DatabaseRevisions::DatabaseRevisions(lua_Table * data, const osgDB::DatabaseRevisions & revisions, const osg::CopyOp arg3 = osg::CopyOp::SHALLOW_COPY)
 	static osgDB::DatabaseRevisions* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::DatabaseRevisions::DatabaseRevisions(lua_Table * data, const osgDB::DatabaseRevisions & revisions, const osg::CopyOp arg3 = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgDB::DatabaseRevisions::DatabaseRevisions(lua_Table * data, const osgDB::DatabaseRevisions & revisions, const osg::CopyOp arg3 = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgDB::DatabaseRevisions::DatabaseRevisions(lua_Table * data, const osgDB::DatabaseRevisions & revisions, const osg::CopyOp arg3 = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgDB::DatabaseRevisions::DatabaseRevisions(lua_Table * data, const osgDB::DatabaseRevisions & revisions, const osg::CopyOp arg3 = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -375,15 +368,13 @@ public:
 	// osg::Object * osgDB::DatabaseRevisions::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::DatabaseRevisions::cloneType() const function, expected prototype:\nosg::Object * osgDB::DatabaseRevisions::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::DatabaseRevisions::cloneType() const function, expected prototype:\nosg::Object * osgDB::DatabaseRevisions::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -396,8 +387,7 @@ public:
 	// osg::Object * osgDB::DatabaseRevisions::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::DatabaseRevisions::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgDB::DatabaseRevisions::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::DatabaseRevisions::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgDB::DatabaseRevisions::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -408,8 +398,7 @@ public:
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -422,16 +411,14 @@ public:
 	// bool osgDB::DatabaseRevisions::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::DatabaseRevisions::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgDB::DatabaseRevisions::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::DatabaseRevisions::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgDB::DatabaseRevisions::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -442,15 +429,13 @@ public:
 	// const char * osgDB::DatabaseRevisions::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgDB::DatabaseRevisions::libraryName() const function, expected prototype:\nconst char * osgDB::DatabaseRevisions::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgDB::DatabaseRevisions::libraryName() const function, expected prototype:\nconst char * osgDB::DatabaseRevisions::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -461,15 +446,13 @@ public:
 	// const char * osgDB::DatabaseRevisions::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgDB::DatabaseRevisions::className() const function, expected prototype:\nconst char * osgDB::DatabaseRevisions::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgDB::DatabaseRevisions::className() const function, expected prototype:\nconst char * osgDB::DatabaseRevisions::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -480,16 +463,14 @@ public:
 	// void osgDB::DatabaseRevisions::setDatabasePath(const std::string & path)
 	static int _bind_setDatabasePath(lua_State *L) {
 		if (!_lg_typecheck_setDatabasePath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::setDatabasePath(const std::string & path) function, expected prototype:\nvoid osgDB::DatabaseRevisions::setDatabasePath(const std::string & path)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::setDatabasePath(const std::string & path) function, expected prototype:\nvoid osgDB::DatabaseRevisions::setDatabasePath(const std::string & path)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string path(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::setDatabasePath(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::setDatabasePath(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDatabasePath(path);
 
@@ -499,15 +480,13 @@ public:
 	// const std::string & osgDB::DatabaseRevisions::getDatabasePath() const
 	static int _bind_getDatabasePath(lua_State *L) {
 		if (!_lg_typecheck_getDatabasePath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osgDB::DatabaseRevisions::getDatabasePath() const function, expected prototype:\nconst std::string & osgDB::DatabaseRevisions::getDatabasePath() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osgDB::DatabaseRevisions::getDatabasePath() const function, expected prototype:\nconst std::string & osgDB::DatabaseRevisions::getDatabasePath() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::DatabaseRevisions::getDatabasePath() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::DatabaseRevisions::getDatabasePath() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getDatabasePath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -518,16 +497,14 @@ public:
 	// void osgDB::DatabaseRevisions::addRevision(osgDB::DatabaseRevision * revision)
 	static int _bind_addRevision(lua_State *L) {
 		if (!_lg_typecheck_addRevision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::addRevision(osgDB::DatabaseRevision * revision) function, expected prototype:\nvoid osgDB::DatabaseRevisions::addRevision(osgDB::DatabaseRevision * revision)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::addRevision(osgDB::DatabaseRevision * revision) function, expected prototype:\nvoid osgDB::DatabaseRevisions::addRevision(osgDB::DatabaseRevision * revision)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::DatabaseRevision* revision=(Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevision >(L,2));
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::addRevision(osgDB::DatabaseRevision *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::addRevision(osgDB::DatabaseRevision *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addRevision(revision);
 
@@ -537,16 +514,14 @@ public:
 	// void osgDB::DatabaseRevisions::removeRevision(osgDB::DatabaseRevision * revision)
 	static int _bind_removeRevision(lua_State *L) {
 		if (!_lg_typecheck_removeRevision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::removeRevision(osgDB::DatabaseRevision * revision) function, expected prototype:\nvoid osgDB::DatabaseRevisions::removeRevision(osgDB::DatabaseRevision * revision)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::removeRevision(osgDB::DatabaseRevision * revision) function, expected prototype:\nvoid osgDB::DatabaseRevisions::removeRevision(osgDB::DatabaseRevision * revision)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::DatabaseRevision* revision=(Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevision >(L,2));
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::removeRevision(osgDB::DatabaseRevision *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::removeRevision(osgDB::DatabaseRevision *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removeRevision(revision);
 
@@ -556,16 +531,14 @@ public:
 	// osgDB::DatabaseRevision * osgDB::DatabaseRevisions::getDatabaseRevision(unsigned int i)
 	static int _bind_getDatabaseRevision(lua_State *L) {
 		if (!_lg_typecheck_getDatabaseRevision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::DatabaseRevision * osgDB::DatabaseRevisions::getDatabaseRevision(unsigned int i) function, expected prototype:\nosgDB::DatabaseRevision * osgDB::DatabaseRevisions::getDatabaseRevision(unsigned int i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::DatabaseRevision * osgDB::DatabaseRevisions::getDatabaseRevision(unsigned int i) function, expected prototype:\nosgDB::DatabaseRevision * osgDB::DatabaseRevisions::getDatabaseRevision(unsigned int i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::DatabaseRevision * osgDB::DatabaseRevisions::getDatabaseRevision(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::DatabaseRevision * osgDB::DatabaseRevisions::getDatabaseRevision(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::DatabaseRevision * lret = self->getDatabaseRevision(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -578,16 +551,14 @@ public:
 	// bool osgDB::DatabaseRevisions::isFileBlackListed(const std::string & filename) const
 	static int _bind_isFileBlackListed(lua_State *L) {
 		if (!_lg_typecheck_isFileBlackListed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::DatabaseRevisions::isFileBlackListed(const std::string & filename) const function, expected prototype:\nbool osgDB::DatabaseRevisions::isFileBlackListed(const std::string & filename) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::DatabaseRevisions::isFileBlackListed(const std::string & filename) const function, expected prototype:\nbool osgDB::DatabaseRevisions::isFileBlackListed(const std::string & filename) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::isFileBlackListed(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::isFileBlackListed(const std::string &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isFileBlackListed(filename);
 		lua_pushboolean(L,lret?1:0);
@@ -598,16 +569,14 @@ public:
 	// bool osgDB::DatabaseRevisions::removeFile(const std::string & filename)
 	static int _bind_removeFile(lua_State *L) {
 		if (!_lg_typecheck_removeFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::DatabaseRevisions::removeFile(const std::string & filename) function, expected prototype:\nbool osgDB::DatabaseRevisions::removeFile(const std::string & filename)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::DatabaseRevisions::removeFile(const std::string & filename) function, expected prototype:\nbool osgDB::DatabaseRevisions::removeFile(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::removeFile(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::removeFile(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->removeFile(filename);
 		lua_pushboolean(L,lret?1:0);
@@ -618,16 +587,14 @@ public:
 	// void osgDB::DatabaseRevisions::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::DatabaseRevisions::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::DatabaseRevisions::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DatabaseRevisions::setThreadSafeRefUnref(threadSafe);
 
@@ -637,16 +604,14 @@ public:
 	// void osgDB::DatabaseRevisions::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::base_setName(const std::string & name) function, expected prototype:\nvoid osgDB::DatabaseRevisions::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::base_setName(const std::string & name) function, expected prototype:\nvoid osgDB::DatabaseRevisions::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DatabaseRevisions::setName(name);
 
@@ -656,15 +621,13 @@ public:
 	// void osgDB::DatabaseRevisions::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::base_computeDataVariance() function, expected prototype:\nvoid osgDB::DatabaseRevisions::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::base_computeDataVariance() function, expected prototype:\nvoid osgDB::DatabaseRevisions::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DatabaseRevisions::computeDataVariance();
 
@@ -674,16 +637,14 @@ public:
 	// void osgDB::DatabaseRevisions::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgDB::DatabaseRevisions::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgDB::DatabaseRevisions::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DatabaseRevisions::setUserData(obj);
 
@@ -693,15 +654,13 @@ public:
 	// osg::Referenced * osgDB::DatabaseRevisions::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osgDB::DatabaseRevisions::base_getUserData() function, expected prototype:\nosg::Referenced * osgDB::DatabaseRevisions::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osgDB::DatabaseRevisions::base_getUserData() function, expected prototype:\nosg::Referenced * osgDB::DatabaseRevisions::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgDB::DatabaseRevisions::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgDB::DatabaseRevisions::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->DatabaseRevisions::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -714,15 +673,13 @@ public:
 	// const osg::Referenced * osgDB::DatabaseRevisions::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgDB::DatabaseRevisions::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgDB::DatabaseRevisions::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgDB::DatabaseRevisions::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgDB::DatabaseRevisions::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgDB::DatabaseRevisions::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgDB::DatabaseRevisions::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->DatabaseRevisions::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -744,8 +701,7 @@ public:
 	// void osgDB::DatabaseRevisions::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgDB::DatabaseRevisions::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabaseRevisions::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgDB::DatabaseRevisions::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -754,8 +710,7 @@ public:
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DatabaseRevisions::releaseGLObjects(_arg1);
 
@@ -765,15 +720,13 @@ public:
 	// osg::Object * osgDB::DatabaseRevisions::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::DatabaseRevisions::base_cloneType() const function, expected prototype:\nosg::Object * osgDB::DatabaseRevisions::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::DatabaseRevisions::base_cloneType() const function, expected prototype:\nosg::Object * osgDB::DatabaseRevisions::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->DatabaseRevisions::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -786,8 +739,7 @@ public:
 	// osg::Object * osgDB::DatabaseRevisions::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::DatabaseRevisions::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgDB::DatabaseRevisions::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::DatabaseRevisions::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgDB::DatabaseRevisions::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -798,8 +750,7 @@ public:
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->DatabaseRevisions::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -812,16 +763,14 @@ public:
 	// bool osgDB::DatabaseRevisions::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::DatabaseRevisions::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgDB::DatabaseRevisions::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::DatabaseRevisions::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgDB::DatabaseRevisions::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DatabaseRevisions::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -832,15 +781,13 @@ public:
 	// const char * osgDB::DatabaseRevisions::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgDB::DatabaseRevisions::base_libraryName() const function, expected prototype:\nconst char * osgDB::DatabaseRevisions::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgDB::DatabaseRevisions::base_libraryName() const function, expected prototype:\nconst char * osgDB::DatabaseRevisions::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->DatabaseRevisions::libraryName();
 		lua_pushstring(L,lret);
@@ -851,15 +798,13 @@ public:
 	// const char * osgDB::DatabaseRevisions::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgDB::DatabaseRevisions::base_className() const function, expected prototype:\nconst char * osgDB::DatabaseRevisions::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgDB::DatabaseRevisions::base_className() const function, expected prototype:\nconst char * osgDB::DatabaseRevisions::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->DatabaseRevisions::className();
 		lua_pushstring(L,lret);

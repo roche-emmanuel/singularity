@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::FBOExtensions* self= (osg::FBOExtensions*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -140,8 +137,7 @@ public:
 	// static osg::FBOExtensions * osg::FBOExtensions::instance(unsigned int contextID, bool createIfNotInitalized)
 	static int _bind_instance(lua_State *L) {
 		if (!_lg_typecheck_instance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::FBOExtensions * osg::FBOExtensions::instance(unsigned int contextID, bool createIfNotInitalized) function, expected prototype:\nstatic osg::FBOExtensions * osg::FBOExtensions::instance(unsigned int contextID, bool createIfNotInitalized)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::FBOExtensions * osg::FBOExtensions::instance(unsigned int contextID, bool createIfNotInitalized) function, expected prototype:\nstatic osg::FBOExtensions * osg::FBOExtensions::instance(unsigned int contextID, bool createIfNotInitalized)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned contextID=(unsigned)lua_tointeger(L,1);
@@ -158,15 +154,13 @@ public:
 	// bool osg::FBOExtensions::isSupported() const
 	static int _bind_isSupported(lua_State *L) {
 		if (!_lg_typecheck_isSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::FBOExtensions::isSupported() const function, expected prototype:\nbool osg::FBOExtensions::isSupported() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::FBOExtensions::isSupported() const function, expected prototype:\nbool osg::FBOExtensions::isSupported() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FBOExtensions* self=Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isSupported() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -177,15 +171,13 @@ public:
 	// bool osg::FBOExtensions::isMultisampleSupported() const
 	static int _bind_isMultisampleSupported(lua_State *L) {
 		if (!_lg_typecheck_isMultisampleSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::FBOExtensions::isMultisampleSupported() const function, expected prototype:\nbool osg::FBOExtensions::isMultisampleSupported() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::FBOExtensions::isMultisampleSupported() const function, expected prototype:\nbool osg::FBOExtensions::isMultisampleSupported() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FBOExtensions* self=Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isMultisampleSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isMultisampleSupported() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isMultisampleSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -196,15 +188,13 @@ public:
 	// bool osg::FBOExtensions::isMultisampleCoverageSupported() const
 	static int _bind_isMultisampleCoverageSupported(lua_State *L) {
 		if (!_lg_typecheck_isMultisampleCoverageSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::FBOExtensions::isMultisampleCoverageSupported() const function, expected prototype:\nbool osg::FBOExtensions::isMultisampleCoverageSupported() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::FBOExtensions::isMultisampleCoverageSupported() const function, expected prototype:\nbool osg::FBOExtensions::isMultisampleCoverageSupported() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FBOExtensions* self=Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isMultisampleCoverageSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isMultisampleCoverageSupported() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isMultisampleCoverageSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -215,15 +205,13 @@ public:
 	// bool osg::FBOExtensions::isPackedDepthStencilSupported() const
 	static int _bind_isPackedDepthStencilSupported(lua_State *L) {
 		if (!_lg_typecheck_isPackedDepthStencilSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::FBOExtensions::isPackedDepthStencilSupported() const function, expected prototype:\nbool osg::FBOExtensions::isPackedDepthStencilSupported() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::FBOExtensions::isPackedDepthStencilSupported() const function, expected prototype:\nbool osg::FBOExtensions::isPackedDepthStencilSupported() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FBOExtensions* self=Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isPackedDepthStencilSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isPackedDepthStencilSupported() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isPackedDepthStencilSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -234,16 +222,14 @@ public:
 	// void osg::FBOExtensions::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FBOExtensions::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::FBOExtensions::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::FBOExtensions::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::FBOExtensions::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::FBOExtensions* self=Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FBOExtensions::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FBOExtensions::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FBOExtensions::setThreadSafeRefUnref(threadSafe);
 

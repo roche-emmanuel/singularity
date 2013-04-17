@@ -97,15 +97,13 @@ public:
 	// void osgDB::Field::public__init()
 	static int _bind_public__init(lua_State *L) {
 		if (!_lg_typecheck_public__init(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Field::public__init() function, expected prototype:\nvoid osgDB::Field::public__init()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Field::public__init() function, expected prototype:\nvoid osgDB::Field::public__init()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgDB_Field* self=Luna< osgDB::Field >::checkSubType< wrapper_osgDB_Field >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Field::public__init(). Got : '%s'",typeid(Luna< osgDB::Field >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Field::public__init(). Got : '%s'\n%s",typeid(Luna< osgDB::Field >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public__init();
 
@@ -115,15 +113,13 @@ public:
 	// void osgDB::Field::public__free()
 	static int _bind_public__free(lua_State *L) {
 		if (!_lg_typecheck_public__free(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Field::public__free() function, expected prototype:\nvoid osgDB::Field::public__free()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Field::public__free() function, expected prototype:\nvoid osgDB::Field::public__free()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgDB_Field* self=Luna< osgDB::Field >::checkSubType< wrapper_osgDB_Field >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Field::public__free(). Got : '%s'",typeid(Luna< osgDB::Field >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Field::public__free(). Got : '%s'\n%s",typeid(Luna< osgDB::Field >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public__free();
 
@@ -133,8 +129,7 @@ public:
 	// void osgDB::Field::public__copy(const osgDB::Field & ic)
 	static int _bind_public__copy(lua_State *L) {
 		if (!_lg_typecheck_public__copy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Field::public__copy(const osgDB::Field & ic) function, expected prototype:\nvoid osgDB::Field::public__copy(const osgDB::Field & ic)\nClass arguments details:\narg 1 ID = 7546407\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Field::public__copy(const osgDB::Field & ic) function, expected prototype:\nvoid osgDB::Field::public__copy(const osgDB::Field & ic)\nClass arguments details:\narg 1 ID = 7546407\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgDB::Field* ic_ptr=(Luna< osgDB::Field >::check(L,2));
@@ -145,8 +140,7 @@ public:
 
 		wrapper_osgDB_Field* self=Luna< osgDB::Field >::checkSubType< wrapper_osgDB_Field >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Field::public__copy(const osgDB::Field &). Got : '%s'",typeid(Luna< osgDB::Field >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Field::public__copy(const osgDB::Field &). Got : '%s'\n%s",typeid(Luna< osgDB::Field >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public__copy(ic);
 

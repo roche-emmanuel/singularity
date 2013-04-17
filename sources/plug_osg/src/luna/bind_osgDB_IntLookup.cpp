@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::IntLookup*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::IntLookup*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::IntLookup* rhs =(Luna< osgDB::IntLookup >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::IntLookup* self= (osgDB::IntLookup*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgDB::IntLookup >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -144,8 +140,7 @@ public:
 	// osgDB::IntLookup::IntLookup()
 	static osgDB::IntLookup* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::IntLookup::IntLookup() function, expected prototype:\nosgDB::IntLookup::IntLookup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::IntLookup::IntLookup() function, expected prototype:\nosgDB::IntLookup::IntLookup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -157,15 +152,13 @@ public:
 	// unsigned int osgDB::IntLookup::size() const
 	static int _bind_size(lua_State *L) {
 		if (!_lg_typecheck_size(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgDB::IntLookup::size() const function, expected prototype:\nunsigned int osgDB::IntLookup::size() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::IntLookup::size() const function, expected prototype:\nunsigned int osgDB::IntLookup::size() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::IntLookup* self=(Luna< osgDB::IntLookup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::IntLookup::size() const. Got : '%s'",typeid(Luna< osgDB::IntLookup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::IntLookup::size() const. Got : '%s'\n%s",typeid(Luna< osgDB::IntLookup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->size();
 		lua_pushnumber(L,lret);
@@ -176,8 +169,7 @@ public:
 	// void osgDB::IntLookup::add(const char * str, int value)
 	static int _bind_add(lua_State *L) {
 		if (!_lg_typecheck_add(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::IntLookup::add(const char * str, int value) function, expected prototype:\nvoid osgDB::IntLookup::add(const char * str, int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::IntLookup::add(const char * str, int value) function, expected prototype:\nvoid osgDB::IntLookup::add(const char * str, int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,2);
@@ -185,8 +177,7 @@ public:
 
 		osgDB::IntLookup* self=(Luna< osgDB::IntLookup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::IntLookup::add(const char *, int). Got : '%s'",typeid(Luna< osgDB::IntLookup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::IntLookup::add(const char *, int). Got : '%s'\n%s",typeid(Luna< osgDB::IntLookup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->add(str, value);
 
@@ -196,16 +187,14 @@ public:
 	// int osgDB::IntLookup::getValue(const char * str)
 	static int _bind_getValue(lua_State *L) {
 		if (!_lg_typecheck_getValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgDB::IntLookup::getValue(const char * str) function, expected prototype:\nint osgDB::IntLookup::getValue(const char * str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgDB::IntLookup::getValue(const char * str) function, expected prototype:\nint osgDB::IntLookup::getValue(const char * str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,2);
 
 		osgDB::IntLookup* self=(Luna< osgDB::IntLookup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgDB::IntLookup::getValue(const char *). Got : '%s'",typeid(Luna< osgDB::IntLookup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgDB::IntLookup::getValue(const char *). Got : '%s'\n%s",typeid(Luna< osgDB::IntLookup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getValue(str);
 		lua_pushnumber(L,lret);
@@ -216,16 +205,14 @@ public:
 	// const std::string & osgDB::IntLookup::getString(int value)
 	static int _bind_getString(lua_State *L) {
 		if (!_lg_typecheck_getString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osgDB::IntLookup::getString(int value) function, expected prototype:\nconst std::string & osgDB::IntLookup::getString(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osgDB::IntLookup::getString(int value) function, expected prototype:\nconst std::string & osgDB::IntLookup::getString(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osgDB::IntLookup* self=(Luna< osgDB::IntLookup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::IntLookup::getString(int). Got : '%s'",typeid(Luna< osgDB::IntLookup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::IntLookup::getString(int). Got : '%s'\n%s",typeid(Luna< osgDB::IntLookup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getString(value);
 		lua_pushlstring(L,lret.data(),lret.size());

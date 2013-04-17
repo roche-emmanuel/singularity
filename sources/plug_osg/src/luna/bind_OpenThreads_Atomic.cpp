@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(OpenThreads::Atomic*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(OpenThreads::Atomic*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::Atomic* rhs =(Luna< OpenThreads::Atomic >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::Atomic* self= (OpenThreads::Atomic*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< OpenThreads::Atomic >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -159,8 +155,7 @@ public:
 	// OpenThreads::Atomic::Atomic(unsigned int value = 0)
 	static OpenThreads::Atomic* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in OpenThreads::Atomic::Atomic(unsigned int value = 0) function, expected prototype:\nOpenThreads::Atomic::Atomic(unsigned int value = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in OpenThreads::Atomic::Atomic(unsigned int value = 0) function, expected prototype:\nOpenThreads::Atomic::Atomic(unsigned int value = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -175,16 +170,14 @@ public:
 	// unsigned int OpenThreads::Atomic::AND(unsigned int value)
 	static int _bind_AND(lua_State *L) {
 		if (!_lg_typecheck_AND(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::Atomic::AND(unsigned int value) function, expected prototype:\nunsigned int OpenThreads::Atomic::AND(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::Atomic::AND(unsigned int value) function, expected prototype:\nunsigned int OpenThreads::Atomic::AND(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned value=(unsigned)lua_tointeger(L,2);
 
 		OpenThreads::Atomic* self=(Luna< OpenThreads::Atomic >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::Atomic::AND(unsigned int). Got : '%s'",typeid(Luna< OpenThreads::Atomic >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::Atomic::AND(unsigned int). Got : '%s'\n%s",typeid(Luna< OpenThreads::Atomic >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->AND(value);
 		lua_pushnumber(L,lret);
@@ -195,16 +188,14 @@ public:
 	// unsigned int OpenThreads::Atomic::OR(unsigned int value)
 	static int _bind_OR(lua_State *L) {
 		if (!_lg_typecheck_OR(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::Atomic::OR(unsigned int value) function, expected prototype:\nunsigned int OpenThreads::Atomic::OR(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::Atomic::OR(unsigned int value) function, expected prototype:\nunsigned int OpenThreads::Atomic::OR(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned value=(unsigned)lua_tointeger(L,2);
 
 		OpenThreads::Atomic* self=(Luna< OpenThreads::Atomic >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::Atomic::OR(unsigned int). Got : '%s'",typeid(Luna< OpenThreads::Atomic >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::Atomic::OR(unsigned int). Got : '%s'\n%s",typeid(Luna< OpenThreads::Atomic >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->OR(value);
 		lua_pushnumber(L,lret);
@@ -215,16 +206,14 @@ public:
 	// unsigned int OpenThreads::Atomic::XOR(unsigned int value)
 	static int _bind_XOR(lua_State *L) {
 		if (!_lg_typecheck_XOR(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::Atomic::XOR(unsigned int value) function, expected prototype:\nunsigned int OpenThreads::Atomic::XOR(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::Atomic::XOR(unsigned int value) function, expected prototype:\nunsigned int OpenThreads::Atomic::XOR(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned value=(unsigned)lua_tointeger(L,2);
 
 		OpenThreads::Atomic* self=(Luna< OpenThreads::Atomic >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::Atomic::XOR(unsigned int). Got : '%s'",typeid(Luna< OpenThreads::Atomic >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::Atomic::XOR(unsigned int). Got : '%s'\n%s",typeid(Luna< OpenThreads::Atomic >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->XOR(value);
 		lua_pushnumber(L,lret);
@@ -235,8 +224,7 @@ public:
 	// unsigned int OpenThreads::Atomic::exchange(unsigned int value = 0)
 	static int _bind_exchange(lua_State *L) {
 		if (!_lg_typecheck_exchange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::Atomic::exchange(unsigned int value = 0) function, expected prototype:\nunsigned int OpenThreads::Atomic::exchange(unsigned int value = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::Atomic::exchange(unsigned int value = 0) function, expected prototype:\nunsigned int OpenThreads::Atomic::exchange(unsigned int value = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -245,8 +233,7 @@ public:
 
 		OpenThreads::Atomic* self=(Luna< OpenThreads::Atomic >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::Atomic::exchange(unsigned int). Got : '%s'",typeid(Luna< OpenThreads::Atomic >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::Atomic::exchange(unsigned int). Got : '%s'\n%s",typeid(Luna< OpenThreads::Atomic >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->exchange(value);
 		lua_pushnumber(L,lret);
@@ -259,15 +246,13 @@ public:
 	// unsigned int OpenThreads::Atomic::operator++()
 	static int _bind_op_inc(lua_State *L) {
 		if (!_lg_typecheck_op_inc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::Atomic::operator++() function, expected prototype:\nunsigned int OpenThreads::Atomic::operator++()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::Atomic::operator++() function, expected prototype:\nunsigned int OpenThreads::Atomic::operator++()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Atomic* self=(Luna< OpenThreads::Atomic >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::Atomic::operator++(). Got : '%s'",typeid(Luna< OpenThreads::Atomic >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::Atomic::operator++(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Atomic >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->operator++();
 		lua_pushnumber(L,lret);
@@ -278,15 +263,13 @@ public:
 	// unsigned int OpenThreads::Atomic::operator--()
 	static int _bind_op_dec(lua_State *L) {
 		if (!_lg_typecheck_op_dec(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::Atomic::operator--() function, expected prototype:\nunsigned int OpenThreads::Atomic::operator--()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::Atomic::operator--() function, expected prototype:\nunsigned int OpenThreads::Atomic::operator--()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Atomic* self=(Luna< OpenThreads::Atomic >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::Atomic::operator--(). Got : '%s'",typeid(Luna< OpenThreads::Atomic >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::Atomic::operator--(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Atomic >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->operator--();
 		lua_pushnumber(L,lret);

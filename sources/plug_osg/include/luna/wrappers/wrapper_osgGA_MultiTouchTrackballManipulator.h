@@ -1092,8 +1092,7 @@ public:
 	// void osgGA::MultiTouchTrackballManipulator::public_handleMultiTouchDrag(osgGA::GUIEventAdapter::TouchData * now, osgGA::GUIEventAdapter::TouchData * last, const double eventTimeDelta)
 	static int _bind_public_handleMultiTouchDrag(lua_State *L) {
 		if (!_lg_typecheck_public_handleMultiTouchDrag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::MultiTouchTrackballManipulator::public_handleMultiTouchDrag(osgGA::GUIEventAdapter::TouchData * now, osgGA::GUIEventAdapter::TouchData * last, const double eventTimeDelta) function, expected prototype:\nvoid osgGA::MultiTouchTrackballManipulator::public_handleMultiTouchDrag(osgGA::GUIEventAdapter::TouchData * now, osgGA::GUIEventAdapter::TouchData * last, const double eventTimeDelta)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::MultiTouchTrackballManipulator::public_handleMultiTouchDrag(osgGA::GUIEventAdapter::TouchData * now, osgGA::GUIEventAdapter::TouchData * last, const double eventTimeDelta) function, expected prototype:\nvoid osgGA::MultiTouchTrackballManipulator::public_handleMultiTouchDrag(osgGA::GUIEventAdapter::TouchData * now, osgGA::GUIEventAdapter::TouchData * last, const double eventTimeDelta)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::GUIEventAdapter::TouchData* now=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,2));
@@ -1102,8 +1101,7 @@ public:
 
 		wrapper_osgGA_MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::public_handleMultiTouchDrag(osgGA::GUIEventAdapter::TouchData *, osgGA::GUIEventAdapter::TouchData *, const double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::public_handleMultiTouchDrag(osgGA::GUIEventAdapter::TouchData *, osgGA::GUIEventAdapter::TouchData *, const double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_handleMultiTouchDrag(now, last, eventTimeDelta);
 
@@ -1113,8 +1111,7 @@ public:
 	// void osgGA::OrbitManipulator::public_trackball(osg::Vec3d & axis, float & angle, float p1x, float p1y, float p2x, float p2y)
 	static int _bind_public_trackball(lua_State *L) {
 		if (!_lg_typecheck_public_trackball(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::OrbitManipulator::public_trackball(osg::Vec3d & axis, float & angle, float p1x, float p1y, float p2x, float p2y) function, expected prototype:\nvoid osgGA::OrbitManipulator::public_trackball(osg::Vec3d & axis, float & angle, float p1x, float p1y, float p2x, float p2y)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::OrbitManipulator::public_trackball(osg::Vec3d & axis, float & angle, float p1x, float p1y, float p2x, float p2y) function, expected prototype:\nvoid osgGA::OrbitManipulator::public_trackball(osg::Vec3d & axis, float & angle, float p1x, float p1y, float p2x, float p2y)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3d* axis_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1130,8 +1127,7 @@ public:
 
 		wrapper_osgGA_MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::OrbitManipulator::public_trackball(osg::Vec3d &, float &, float, float, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::OrbitManipulator::public_trackball(osg::Vec3d &, float &, float, float, float, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_trackball(axis, angle, p1x, p1y, p2x, p2y);
 
@@ -1142,8 +1138,7 @@ public:
 	// float osgGA::OrbitManipulator::public_tb_project_to_sphere(float r, float x, float y)
 	static int _bind_public_tb_project_to_sphere(lua_State *L) {
 		if (!_lg_typecheck_public_tb_project_to_sphere(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgGA::OrbitManipulator::public_tb_project_to_sphere(float r, float x, float y) function, expected prototype:\nfloat osgGA::OrbitManipulator::public_tb_project_to_sphere(float r, float x, float y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgGA::OrbitManipulator::public_tb_project_to_sphere(float r, float x, float y) function, expected prototype:\nfloat osgGA::OrbitManipulator::public_tb_project_to_sphere(float r, float x, float y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float r=(float)lua_tonumber(L,2);
@@ -1152,8 +1147,7 @@ public:
 
 		wrapper_osgGA_MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::OrbitManipulator::public_tb_project_to_sphere(float, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgGA::OrbitManipulator::public_tb_project_to_sphere(float, float, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->public_tb_project_to_sphere(r, x, y);
 		lua_pushnumber(L,lret);
@@ -1164,8 +1158,7 @@ public:
 	// void osgGA::StandardManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea)
 	static int _bind_public_addMouseEvent(lua_State *L) {
 		if (!_lg_typecheck_public_addMouseEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea) function, expected prototype:\nvoid osgGA::StandardManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea) function, expected prototype:\nvoid osgGA::StandardManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -1176,8 +1169,7 @@ public:
 
 		wrapper_osgGA_MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_addMouseEvent(ea);
 
@@ -1187,15 +1179,13 @@ public:
 	// void osgGA::StandardManipulator::public_flushMouseEventStack()
 	static int _bind_public_flushMouseEventStack(lua_State *L) {
 		if (!_lg_typecheck_public_flushMouseEventStack(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::public_flushMouseEventStack() function, expected prototype:\nvoid osgGA::StandardManipulator::public_flushMouseEventStack()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::public_flushMouseEventStack() function, expected prototype:\nvoid osgGA::StandardManipulator::public_flushMouseEventStack()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgGA_MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_flushMouseEventStack(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_flushMouseEventStack(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_flushMouseEventStack();
 
@@ -1205,16 +1195,14 @@ public:
 	// float osgGA::StandardManipulator::public_getThrowScale(const double eventTimeDelta) const
 	static int _bind_public_getThrowScale(lua_State *L) {
 		if (!_lg_typecheck_public_getThrowScale(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgGA::StandardManipulator::public_getThrowScale(const double eventTimeDelta) const function, expected prototype:\nfloat osgGA::StandardManipulator::public_getThrowScale(const double eventTimeDelta) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgGA::StandardManipulator::public_getThrowScale(const double eventTimeDelta) const function, expected prototype:\nfloat osgGA::StandardManipulator::public_getThrowScale(const double eventTimeDelta) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const double eventTimeDelta=(const double)lua_tonumber(L,2);
 
 		wrapper_osgGA_MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::StandardManipulator::public_getThrowScale(const double) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgGA::StandardManipulator::public_getThrowScale(const double) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->public_getThrowScale(eventTimeDelta);
 		lua_pushnumber(L,lret);
@@ -1225,8 +1213,7 @@ public:
 	// void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver)
 	static int _bind_public_fixVerticalAxis(lua_State *L) {
 		if (!_lg_typecheck_public_fixVerticalAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver) function, expected prototype:\nvoid osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver) function, expected prototype:\nvoid osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1243,8 +1230,7 @@ public:
 
 		wrapper_osgGA_MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d &, osg::Quat &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d &, osg::Quat &, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_fixVerticalAxis(eye, rotation, disallowFlipOver);
 
@@ -1254,16 +1240,14 @@ public:
 	// bool osgGA::StandardManipulator::public_getRelativeFlag(int index) const
 	static int _bind_public_getRelativeFlag(lua_State *L) {
 		if (!_lg_typecheck_public_getRelativeFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::StandardManipulator::public_getRelativeFlag(int index) const function, expected prototype:\nbool osgGA::StandardManipulator::public_getRelativeFlag(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::StandardManipulator::public_getRelativeFlag(int index) const function, expected prototype:\nbool osgGA::StandardManipulator::public_getRelativeFlag(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		wrapper_osgGA_MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::public_getRelativeFlag(int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::public_getRelativeFlag(int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_getRelativeFlag(index);
 		lua_pushboolean(L,lret?1:0);
@@ -1274,8 +1258,7 @@ public:
 	// void osgGA::StandardManipulator::public_setRelativeFlag(int index, bool value)
 	static int _bind_public_setRelativeFlag(lua_State *L) {
 		if (!_lg_typecheck_public_setRelativeFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::public_setRelativeFlag(int index, bool value) function, expected prototype:\nvoid osgGA::StandardManipulator::public_setRelativeFlag(int index, bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::public_setRelativeFlag(int index, bool value) function, expected prototype:\nvoid osgGA::StandardManipulator::public_setRelativeFlag(int index, bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -1283,8 +1266,7 @@ public:
 
 		wrapper_osgGA_MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_setRelativeFlag(int, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_setRelativeFlag(int, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setRelativeFlag(index, value);
 
@@ -1294,8 +1276,7 @@ public:
 	// static void osgGA::StandardManipulator::public_rotateYawPitch(osg::Quat & rotation, const double yaw, const double pitch, const osg::Vec3d & localUp = osg::Vec3d (0., 0., 0.))
 	static int _bind_public_rotateYawPitch(lua_State *L) {
 		if (!_lg_typecheck_public_rotateYawPitch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osgGA::StandardManipulator::public_rotateYawPitch(osg::Quat & rotation, const double yaw, const double pitch, const osg::Vec3d & localUp = osg::Vec3d (0., 0., 0.)) function, expected prototype:\nstatic void osgGA::StandardManipulator::public_rotateYawPitch(osg::Quat & rotation, const double yaw, const double pitch, const osg::Vec3d & localUp = osg::Vec3d (0., 0., 0.))\nClass arguments details:\narg 1 ID = 80263306\narg 4 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in static void osgGA::StandardManipulator::public_rotateYawPitch(osg::Quat & rotation, const double yaw, const double pitch, const osg::Vec3d & localUp = osg::Vec3d (0., 0., 0.)) function, expected prototype:\nstatic void osgGA::StandardManipulator::public_rotateYawPitch(osg::Quat & rotation, const double yaw, const double pitch, const osg::Vec3d & localUp = osg::Vec3d (0., 0., 0.))\nClass arguments details:\narg 1 ID = 80263306\narg 4 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1315,8 +1296,7 @@ public:
 
 		wrapper_osgGA_MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osgGA::StandardManipulator::public_rotateYawPitch(osg::Quat &, const double, const double, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void osgGA::StandardManipulator::public_rotateYawPitch(osg::Quat &, const double, const double, const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_rotateYawPitch(rotation, yaw, pitch, localUp);
 
@@ -1326,15 +1306,13 @@ public:
 	// static int osgGA::StandardManipulator::public_allocateRelativeFlag()
 	static int _bind_public_allocateRelativeFlag(lua_State *L) {
 		if (!_lg_typecheck_public_allocateRelativeFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int osgGA::StandardManipulator::public_allocateRelativeFlag() function, expected prototype:\nstatic int osgGA::StandardManipulator::public_allocateRelativeFlag()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static int osgGA::StandardManipulator::public_allocateRelativeFlag() function, expected prototype:\nstatic int osgGA::StandardManipulator::public_allocateRelativeFlag()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgGA_MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static int osgGA::StandardManipulator::public_allocateRelativeFlag(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static int osgGA::StandardManipulator::public_allocateRelativeFlag(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_allocateRelativeFlag();
 		lua_pushnumber(L,lret);
@@ -1345,15 +1323,13 @@ public:
 	// std::string osgGA::CameraManipulator::public_getManipulatorName() const
 	static int _bind_public_getManipulatorName(lua_State *L) {
 		if (!_lg_typecheck_public_getManipulatorName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string osgGA::CameraManipulator::public_getManipulatorName() const function, expected prototype:\nstd::string osgGA::CameraManipulator::public_getManipulatorName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string osgGA::CameraManipulator::public_getManipulatorName() const function, expected prototype:\nstd::string osgGA::CameraManipulator::public_getManipulatorName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgGA_MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgGA::CameraManipulator::public_getManipulatorName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string osgGA::CameraManipulator::public_getManipulatorName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->public_getManipulatorName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1364,8 +1340,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -1373,8 +1348,7 @@ public:
 
 		wrapper_osgGA_MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -1384,15 +1358,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgGA_MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

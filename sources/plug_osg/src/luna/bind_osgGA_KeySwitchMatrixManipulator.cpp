@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::KeySwitchMatrixManipulator* self= (osgGA::KeySwitchMatrixManipulator*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -540,8 +537,7 @@ public:
 	// osgGA::KeySwitchMatrixManipulator::KeySwitchMatrixManipulator()
 	static osgGA::KeySwitchMatrixManipulator* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::KeySwitchMatrixManipulator::KeySwitchMatrixManipulator() function, expected prototype:\nosgGA::KeySwitchMatrixManipulator::KeySwitchMatrixManipulator()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::KeySwitchMatrixManipulator::KeySwitchMatrixManipulator() function, expected prototype:\nosgGA::KeySwitchMatrixManipulator::KeySwitchMatrixManipulator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -551,8 +547,7 @@ public:
 	// osgGA::KeySwitchMatrixManipulator::KeySwitchMatrixManipulator(lua_Table * data)
 	static osgGA::KeySwitchMatrixManipulator* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::KeySwitchMatrixManipulator::KeySwitchMatrixManipulator(lua_Table * data) function, expected prototype:\nosgGA::KeySwitchMatrixManipulator::KeySwitchMatrixManipulator(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::KeySwitchMatrixManipulator::KeySwitchMatrixManipulator(lua_Table * data) function, expected prototype:\nosgGA::KeySwitchMatrixManipulator::KeySwitchMatrixManipulator(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -573,15 +568,13 @@ public:
 	// const char * osgGA::KeySwitchMatrixManipulator::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgGA::KeySwitchMatrixManipulator::className() const function, expected prototype:\nconst char * osgGA::KeySwitchMatrixManipulator::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgGA::KeySwitchMatrixManipulator::className() const function, expected prototype:\nconst char * osgGA::KeySwitchMatrixManipulator::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::KeySwitchMatrixManipulator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgGA::KeySwitchMatrixManipulator::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -592,8 +585,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::addMatrixManipulator(int key, std::string name, osgGA::CameraManipulator * cm)
 	static int _bind_addMatrixManipulator(lua_State *L) {
 		if (!_lg_typecheck_addMatrixManipulator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::addMatrixManipulator(int key, std::string name, osgGA::CameraManipulator * cm) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::addMatrixManipulator(int key, std::string name, osgGA::CameraManipulator * cm)\nClass arguments details:\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::addMatrixManipulator(int key, std::string name, osgGA::CameraManipulator * cm) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::addMatrixManipulator(int key, std::string name, osgGA::CameraManipulator * cm)\nClass arguments details:\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int key=(int)lua_tointeger(L,2);
@@ -602,8 +594,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::addMatrixManipulator(int, std::string, osgGA::CameraManipulator *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::addMatrixManipulator(int, std::string, osgGA::CameraManipulator *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addMatrixManipulator(key, name, cm);
 
@@ -613,16 +604,14 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::addNumberedMatrixManipulator(osgGA::CameraManipulator * cm)
 	static int _bind_addNumberedMatrixManipulator(lua_State *L) {
 		if (!_lg_typecheck_addNumberedMatrixManipulator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::addNumberedMatrixManipulator(osgGA::CameraManipulator * cm) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::addNumberedMatrixManipulator(osgGA::CameraManipulator * cm)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::addNumberedMatrixManipulator(osgGA::CameraManipulator * cm) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::addNumberedMatrixManipulator(osgGA::CameraManipulator * cm)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::CameraManipulator* cm=(Luna< osg::Referenced >::checkSubType< osgGA::CameraManipulator >(L,2));
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::addNumberedMatrixManipulator(osgGA::CameraManipulator *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::addNumberedMatrixManipulator(osgGA::CameraManipulator *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addNumberedMatrixManipulator(cm);
 
@@ -632,15 +621,13 @@ public:
 	// unsigned int osgGA::KeySwitchMatrixManipulator::getNumMatrixManipulators() const
 	static int _bind_getNumMatrixManipulators(lua_State *L) {
 		if (!_lg_typecheck_getNumMatrixManipulators(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgGA::KeySwitchMatrixManipulator::getNumMatrixManipulators() const function, expected prototype:\nunsigned int osgGA::KeySwitchMatrixManipulator::getNumMatrixManipulators() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgGA::KeySwitchMatrixManipulator::getNumMatrixManipulators() const function, expected prototype:\nunsigned int osgGA::KeySwitchMatrixManipulator::getNumMatrixManipulators() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgGA::KeySwitchMatrixManipulator::getNumMatrixManipulators() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgGA::KeySwitchMatrixManipulator::getNumMatrixManipulators() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getNumMatrixManipulators();
 		lua_pushnumber(L,lret);
@@ -651,16 +638,14 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::selectMatrixManipulator(unsigned int num)
 	static int _bind_selectMatrixManipulator(lua_State *L) {
 		if (!_lg_typecheck_selectMatrixManipulator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::selectMatrixManipulator(unsigned int num) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::selectMatrixManipulator(unsigned int num)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::selectMatrixManipulator(unsigned int num) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::selectMatrixManipulator(unsigned int num)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int num=(unsigned int)lua_tointeger(L,2);
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::selectMatrixManipulator(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::selectMatrixManipulator(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->selectMatrixManipulator(num);
 
@@ -670,15 +655,13 @@ public:
 	// osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap()
 	static int _bind_getKeyManipMap_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getKeyManipMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap() function, expected prototype:\nosgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap() function, expected prototype:\nosgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgGA::KeySwitchMatrixManipulator::KeyManipMap* lret = &self->getKeyManipMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -691,15 +674,13 @@ public:
 	// const osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap() const
 	static int _bind_getKeyManipMap_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getKeyManipMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap() const function, expected prototype:\nconst osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap() const function, expected prototype:\nconst osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgGA::KeySwitchMatrixManipulator::KeyManipMap* lret = &self->getKeyManipMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -721,15 +702,13 @@ public:
 	// osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getCurrentMatrixManipulator()
 	static int _bind_getCurrentMatrixManipulator_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getCurrentMatrixManipulator_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getCurrentMatrixManipulator() function, expected prototype:\nosgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getCurrentMatrixManipulator()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getCurrentMatrixManipulator() function, expected prototype:\nosgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getCurrentMatrixManipulator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getCurrentMatrixManipulator(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getCurrentMatrixManipulator(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgGA::CameraManipulator * lret = self->getCurrentMatrixManipulator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -742,15 +721,13 @@ public:
 	// const osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getCurrentMatrixManipulator() const
 	static int _bind_getCurrentMatrixManipulator_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getCurrentMatrixManipulator_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getCurrentMatrixManipulator() const function, expected prototype:\nconst osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getCurrentMatrixManipulator() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getCurrentMatrixManipulator() const function, expected prototype:\nconst osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getCurrentMatrixManipulator() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getCurrentMatrixManipulator() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getCurrentMatrixManipulator() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgGA::CameraManipulator * lret = self->getCurrentMatrixManipulator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -772,16 +749,14 @@ public:
 	// osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithIndex(unsigned int key)
 	static int _bind_getMatrixManipulatorWithIndex_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getMatrixManipulatorWithIndex_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithIndex(unsigned int key) function, expected prototype:\nosgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithIndex(unsigned int key)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithIndex(unsigned int key) function, expected prototype:\nosgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithIndex(unsigned int key)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int key=(unsigned int)lua_tointeger(L,2);
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithIndex(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithIndex(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgGA::CameraManipulator * lret = self->getMatrixManipulatorWithIndex(key);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -794,16 +769,14 @@ public:
 	// const osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithIndex(unsigned int key) const
 	static int _bind_getMatrixManipulatorWithIndex_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getMatrixManipulatorWithIndex_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithIndex(unsigned int key) const function, expected prototype:\nconst osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithIndex(unsigned int key) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithIndex(unsigned int key) const function, expected prototype:\nconst osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithIndex(unsigned int key) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int key=(unsigned int)lua_tointeger(L,2);
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithIndex(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithIndex(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgGA::CameraManipulator * lret = self->getMatrixManipulatorWithIndex(key);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -825,16 +798,14 @@ public:
 	// osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithKey(unsigned int key)
 	static int _bind_getMatrixManipulatorWithKey_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getMatrixManipulatorWithKey_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithKey(unsigned int key) function, expected prototype:\nosgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithKey(unsigned int key)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithKey(unsigned int key) function, expected prototype:\nosgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithKey(unsigned int key)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int key=(unsigned int)lua_tointeger(L,2);
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithKey(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithKey(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgGA::CameraManipulator * lret = self->getMatrixManipulatorWithKey(key);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -847,16 +818,14 @@ public:
 	// const osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithKey(unsigned int key) const
 	static int _bind_getMatrixManipulatorWithKey_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getMatrixManipulatorWithKey_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithKey(unsigned int key) const function, expected prototype:\nconst osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithKey(unsigned int key) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithKey(unsigned int key) const function, expected prototype:\nconst osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithKey(unsigned int key) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int key=(unsigned int)lua_tointeger(L,2);
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithKey(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgGA::CameraManipulator * osgGA::KeySwitchMatrixManipulator::getMatrixManipulatorWithKey(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgGA::CameraManipulator * lret = self->getMatrixManipulatorWithKey(key);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -878,16 +847,14 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)
 	static int _bind_setCoordinateFrameCallback(lua_State *L) {
 		if (!_lg_typecheck_setCoordinateFrameCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::CameraManipulator::CoordinateFrameCallback* cb=(Luna< osg::Referenced >::checkSubType< osgGA::CameraManipulator::CoordinateFrameCallback >(L,2));
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCoordinateFrameCallback(cb);
 
@@ -897,8 +864,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::setByMatrix(const osg::Matrixd & matrix)
 	static int _bind_setByMatrix(lua_State *L) {
 		if (!_lg_typecheck_setByMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::setByMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::setByMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::setByMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::setByMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -909,8 +875,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::setByMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::setByMatrix(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setByMatrix(matrix);
 
@@ -920,8 +885,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::setByInverseMatrix(const osg::Matrixd & matrix)
 	static int _bind_setByInverseMatrix(lua_State *L) {
 		if (!_lg_typecheck_setByInverseMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::setByInverseMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::setByInverseMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::setByInverseMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::setByInverseMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -932,8 +896,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::setByInverseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::setByInverseMatrix(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setByInverseMatrix(matrix);
 
@@ -943,15 +906,13 @@ public:
 	// osg::Matrixd osgGA::KeySwitchMatrixManipulator::getMatrix() const
 	static int _bind_getMatrix(lua_State *L) {
 		if (!_lg_typecheck_getMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::KeySwitchMatrixManipulator::getMatrix() const function, expected prototype:\nosg::Matrixd osgGA::KeySwitchMatrixManipulator::getMatrix() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::KeySwitchMatrixManipulator::getMatrix() const function, expected prototype:\nosg::Matrixd osgGA::KeySwitchMatrixManipulator::getMatrix() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::KeySwitchMatrixManipulator::getMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::KeySwitchMatrixManipulator::getMatrix() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixd stack_lret = self->getMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -965,15 +926,13 @@ public:
 	// osg::Matrixd osgGA::KeySwitchMatrixManipulator::getInverseMatrix() const
 	static int _bind_getInverseMatrix(lua_State *L) {
 		if (!_lg_typecheck_getInverseMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::KeySwitchMatrixManipulator::getInverseMatrix() const function, expected prototype:\nosg::Matrixd osgGA::KeySwitchMatrixManipulator::getInverseMatrix() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::KeySwitchMatrixManipulator::getInverseMatrix() const function, expected prototype:\nosg::Matrixd osgGA::KeySwitchMatrixManipulator::getInverseMatrix() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::KeySwitchMatrixManipulator::getInverseMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::KeySwitchMatrixManipulator::getInverseMatrix() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixd stack_lret = self->getInverseMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -987,15 +946,13 @@ public:
 	// osgUtil::SceneView::FusionDistanceMode osgGA::KeySwitchMatrixManipulator::getFusionDistanceMode() const
 	static int _bind_getFusionDistanceMode(lua_State *L) {
 		if (!_lg_typecheck_getFusionDistanceMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::SceneView::FusionDistanceMode osgGA::KeySwitchMatrixManipulator::getFusionDistanceMode() const function, expected prototype:\nosgUtil::SceneView::FusionDistanceMode osgGA::KeySwitchMatrixManipulator::getFusionDistanceMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::SceneView::FusionDistanceMode osgGA::KeySwitchMatrixManipulator::getFusionDistanceMode() const function, expected prototype:\nosgUtil::SceneView::FusionDistanceMode osgGA::KeySwitchMatrixManipulator::getFusionDistanceMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::KeySwitchMatrixManipulator::getFusionDistanceMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::KeySwitchMatrixManipulator::getFusionDistanceMode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::SceneView::FusionDistanceMode lret = self->getFusionDistanceMode();
 		lua_pushnumber(L,lret);
@@ -1006,15 +963,13 @@ public:
 	// float osgGA::KeySwitchMatrixManipulator::getFusionDistanceValue() const
 	static int _bind_getFusionDistanceValue(lua_State *L) {
 		if (!_lg_typecheck_getFusionDistanceValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgGA::KeySwitchMatrixManipulator::getFusionDistanceValue() const function, expected prototype:\nfloat osgGA::KeySwitchMatrixManipulator::getFusionDistanceValue() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgGA::KeySwitchMatrixManipulator::getFusionDistanceValue() const function, expected prototype:\nfloat osgGA::KeySwitchMatrixManipulator::getFusionDistanceValue() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::KeySwitchMatrixManipulator::getFusionDistanceValue() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgGA::KeySwitchMatrixManipulator::getFusionDistanceValue() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getFusionDistanceValue();
 		lua_pushnumber(L,lret);
@@ -1025,16 +980,14 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::setNode(osg::Node * arg1)
 	static int _bind_setNode(lua_State *L) {
 		if (!_lg_typecheck_setNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::setNode(osg::Node * arg1) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::setNode(osg::Node * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::setNode(osg::Node * arg1) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::setNode(osg::Node * arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* _arg1=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::setNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::setNode(osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setNode(_arg1);
 
@@ -1044,15 +997,13 @@ public:
 	// const osg::Node * osgGA::KeySwitchMatrixManipulator::getNode() const
 	static int _bind_getNode_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getNode_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Node * osgGA::KeySwitchMatrixManipulator::getNode() const function, expected prototype:\nconst osg::Node * osgGA::KeySwitchMatrixManipulator::getNode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Node * osgGA::KeySwitchMatrixManipulator::getNode() const function, expected prototype:\nconst osg::Node * osgGA::KeySwitchMatrixManipulator::getNode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::KeySwitchMatrixManipulator::getNode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::KeySwitchMatrixManipulator::getNode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Node * lret = self->getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1065,15 +1016,13 @@ public:
 	// osg::Node * osgGA::KeySwitchMatrixManipulator::getNode()
 	static int _bind_getNode_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getNode_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Node * osgGA::KeySwitchMatrixManipulator::getNode() function, expected prototype:\nosg::Node * osgGA::KeySwitchMatrixManipulator::getNode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Node * osgGA::KeySwitchMatrixManipulator::getNode() function, expected prototype:\nosg::Node * osgGA::KeySwitchMatrixManipulator::getNode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgGA::KeySwitchMatrixManipulator::getNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Node * osgGA::KeySwitchMatrixManipulator::getNode(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Node * lret = self->getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1095,8 +1044,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)
 	static int _bind_setHomePosition(lua_State *L) {
 		if (!_lg_typecheck_setHomePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1120,8 +1068,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setHomePosition(eye, center, up, autoComputeHomePosition);
 
@@ -1131,16 +1078,14 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::setAutoComputeHomePosition(bool flag)
 	static int _bind_setAutoComputeHomePosition(lua_State *L) {
 		if (!_lg_typecheck_setAutoComputeHomePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::setAutoComputeHomePosition(bool flag) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::setAutoComputeHomePosition(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::setAutoComputeHomePosition(bool flag) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::setAutoComputeHomePosition(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::setAutoComputeHomePosition(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::setAutoComputeHomePosition(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAutoComputeHomePosition(flag);
 
@@ -1150,15 +1095,13 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::computeHomePosition()
 	static int _bind_computeHomePosition(lua_State *L) {
 		if (!_lg_typecheck_computeHomePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::computeHomePosition() function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::computeHomePosition()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::computeHomePosition() function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::computeHomePosition()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::computeHomePosition(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::computeHomePosition(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->computeHomePosition();
 
@@ -1168,8 +1111,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_home(lua_State *L) {
 		if (!_lg_typecheck_home(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -1185,8 +1127,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->home(_arg1, _arg2);
 
@@ -1196,8 +1137,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_init(lua_State *L) {
 		if (!_lg_typecheck_init(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -1213,8 +1153,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->init(_arg1, _arg2);
 
@@ -1224,8 +1163,7 @@ public:
 	// bool osgGA::KeySwitchMatrixManipulator::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
 	static int _bind_handle(lua_State *L) {
 		if (!_lg_typecheck_handle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::KeySwitchMatrixManipulator::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) function, expected prototype:\nbool osgGA::KeySwitchMatrixManipulator::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::KeySwitchMatrixManipulator::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) function, expected prototype:\nbool osgGA::KeySwitchMatrixManipulator::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -1241,8 +1179,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::KeySwitchMatrixManipulator::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::KeySwitchMatrixManipulator::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->handle(ea, us);
 		lua_pushboolean(L,lret?1:0);
@@ -1253,8 +1190,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::getUsage(osg::ApplicationUsage & usage) const
 	static int _bind_getUsage(lua_State *L) {
 		if (!_lg_typecheck_getUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::getUsage(osg::ApplicationUsage & usage) const function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::getUsage(osg::ApplicationUsage & usage) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::getUsage(osg::ApplicationUsage & usage) const function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::getUsage(osg::ApplicationUsage & usage) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ApplicationUsage* usage_ptr=(Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,2));
@@ -1265,8 +1201,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::getUsage(osg::ApplicationUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getUsage(usage);
 
@@ -1276,16 +1211,14 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::setThreadSafeRefUnref(threadSafe);
 
@@ -1295,16 +1228,14 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setName(const std::string & name) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setName(const std::string & name) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::setName(name);
 
@@ -1314,15 +1245,13 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_computeDataVariance() function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_computeDataVariance() function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::computeDataVariance();
 
@@ -1332,16 +1261,14 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::setUserData(obj);
 
@@ -1351,15 +1278,13 @@ public:
 	// osg::Referenced * osgGA::KeySwitchMatrixManipulator::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osgGA::KeySwitchMatrixManipulator::base_getUserData() function, expected prototype:\nosg::Referenced * osgGA::KeySwitchMatrixManipulator::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osgGA::KeySwitchMatrixManipulator::base_getUserData() function, expected prototype:\nosg::Referenced * osgGA::KeySwitchMatrixManipulator::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::KeySwitchMatrixManipulator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::KeySwitchMatrixManipulator::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->KeySwitchMatrixManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1372,15 +1297,13 @@ public:
 	// const osg::Referenced * osgGA::KeySwitchMatrixManipulator::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgGA::KeySwitchMatrixManipulator::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgGA::KeySwitchMatrixManipulator::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgGA::KeySwitchMatrixManipulator::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgGA::KeySwitchMatrixManipulator::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::KeySwitchMatrixManipulator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::KeySwitchMatrixManipulator::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->KeySwitchMatrixManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1402,8 +1325,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1412,8 +1334,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::releaseGLObjects(_arg1);
 
@@ -1423,15 +1344,13 @@ public:
 	// osg::Object * osgGA::KeySwitchMatrixManipulator::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::KeySwitchMatrixManipulator::base_cloneType() const function, expected prototype:\nosg::Object * osgGA::KeySwitchMatrixManipulator::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::KeySwitchMatrixManipulator::base_cloneType() const function, expected prototype:\nosg::Object * osgGA::KeySwitchMatrixManipulator::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::KeySwitchMatrixManipulator::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::KeySwitchMatrixManipulator::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->KeySwitchMatrixManipulator::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1444,8 +1363,7 @@ public:
 	// osg::Object * osgGA::KeySwitchMatrixManipulator::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::KeySwitchMatrixManipulator::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::KeySwitchMatrixManipulator::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::KeySwitchMatrixManipulator::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::KeySwitchMatrixManipulator::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1456,8 +1374,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::KeySwitchMatrixManipulator::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::KeySwitchMatrixManipulator::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->KeySwitchMatrixManipulator::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1470,16 +1387,14 @@ public:
 	// bool osgGA::KeySwitchMatrixManipulator::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::KeySwitchMatrixManipulator::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgGA::KeySwitchMatrixManipulator::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::KeySwitchMatrixManipulator::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgGA::KeySwitchMatrixManipulator::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::KeySwitchMatrixManipulator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::KeySwitchMatrixManipulator::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->KeySwitchMatrixManipulator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1490,15 +1405,13 @@ public:
 	// const char * osgGA::KeySwitchMatrixManipulator::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgGA::KeySwitchMatrixManipulator::base_libraryName() const function, expected prototype:\nconst char * osgGA::KeySwitchMatrixManipulator::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgGA::KeySwitchMatrixManipulator::base_libraryName() const function, expected prototype:\nconst char * osgGA::KeySwitchMatrixManipulator::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::KeySwitchMatrixManipulator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgGA::KeySwitchMatrixManipulator::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->KeySwitchMatrixManipulator::libraryName();
 		lua_pushstring(L,lret);
@@ -1509,8 +1422,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable)
 	static int _bind_base_event(lua_State *L) {
 		if (!_lg_typecheck_base_event(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1518,8 +1430,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::event(nv, drawable);
 
@@ -1529,8 +1440,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_updateCamera(osg::Camera & camera)
 	static int _bind_base_updateCamera(lua_State *L) {
 		if (!_lg_typecheck_base_updateCamera(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_updateCamera(osg::Camera & camera) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_updateCamera(osg::Camera & camera)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_updateCamera(osg::Camera & camera) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_updateCamera(osg::Camera & camera)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Camera* camera_ptr=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
@@ -1541,8 +1451,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_updateCamera(osg::Camera &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_updateCamera(osg::Camera &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::updateCamera(camera);
 
@@ -1552,8 +1461,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
 	static int _bind_base_getHomePosition(lua_State *L) {
 		if (!_lg_typecheck_base_getHomePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1574,8 +1482,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::getHomePosition(eye, center, up);
 
@@ -1585,15 +1492,13 @@ public:
 	// const char * osgGA::KeySwitchMatrixManipulator::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgGA::KeySwitchMatrixManipulator::base_className() const function, expected prototype:\nconst char * osgGA::KeySwitchMatrixManipulator::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgGA::KeySwitchMatrixManipulator::base_className() const function, expected prototype:\nconst char * osgGA::KeySwitchMatrixManipulator::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::KeySwitchMatrixManipulator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgGA::KeySwitchMatrixManipulator::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->KeySwitchMatrixManipulator::className();
 		lua_pushstring(L,lret);
@@ -1604,16 +1509,14 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)
 	static int _bind_base_setCoordinateFrameCallback(lua_State *L) {
 		if (!_lg_typecheck_base_setCoordinateFrameCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::CameraManipulator::CoordinateFrameCallback* cb=(Luna< osg::Referenced >::checkSubType< osgGA::CameraManipulator::CoordinateFrameCallback >(L,2));
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::setCoordinateFrameCallback(cb);
 
@@ -1623,8 +1526,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_setByMatrix(const osg::Matrixd & matrix)
 	static int _bind_base_setByMatrix(lua_State *L) {
 		if (!_lg_typecheck_base_setByMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setByMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setByMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setByMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setByMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -1635,8 +1537,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setByMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setByMatrix(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::setByMatrix(matrix);
 
@@ -1646,8 +1547,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_setByInverseMatrix(const osg::Matrixd & matrix)
 	static int _bind_base_setByInverseMatrix(lua_State *L) {
 		if (!_lg_typecheck_base_setByInverseMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setByInverseMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setByInverseMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setByInverseMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setByInverseMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -1658,8 +1558,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setByInverseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setByInverseMatrix(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::setByInverseMatrix(matrix);
 
@@ -1669,15 +1568,13 @@ public:
 	// osg::Matrixd osgGA::KeySwitchMatrixManipulator::base_getMatrix() const
 	static int _bind_base_getMatrix(lua_State *L) {
 		if (!_lg_typecheck_base_getMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::KeySwitchMatrixManipulator::base_getMatrix() const function, expected prototype:\nosg::Matrixd osgGA::KeySwitchMatrixManipulator::base_getMatrix() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::KeySwitchMatrixManipulator::base_getMatrix() const function, expected prototype:\nosg::Matrixd osgGA::KeySwitchMatrixManipulator::base_getMatrix() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::KeySwitchMatrixManipulator::base_getMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::KeySwitchMatrixManipulator::base_getMatrix() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixd stack_lret = self->KeySwitchMatrixManipulator::getMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1691,15 +1588,13 @@ public:
 	// osg::Matrixd osgGA::KeySwitchMatrixManipulator::base_getInverseMatrix() const
 	static int _bind_base_getInverseMatrix(lua_State *L) {
 		if (!_lg_typecheck_base_getInverseMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::KeySwitchMatrixManipulator::base_getInverseMatrix() const function, expected prototype:\nosg::Matrixd osgGA::KeySwitchMatrixManipulator::base_getInverseMatrix() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::KeySwitchMatrixManipulator::base_getInverseMatrix() const function, expected prototype:\nosg::Matrixd osgGA::KeySwitchMatrixManipulator::base_getInverseMatrix() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::KeySwitchMatrixManipulator::base_getInverseMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::KeySwitchMatrixManipulator::base_getInverseMatrix() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixd stack_lret = self->KeySwitchMatrixManipulator::getInverseMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1713,15 +1608,13 @@ public:
 	// osgUtil::SceneView::FusionDistanceMode osgGA::KeySwitchMatrixManipulator::base_getFusionDistanceMode() const
 	static int _bind_base_getFusionDistanceMode(lua_State *L) {
 		if (!_lg_typecheck_base_getFusionDistanceMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::SceneView::FusionDistanceMode osgGA::KeySwitchMatrixManipulator::base_getFusionDistanceMode() const function, expected prototype:\nosgUtil::SceneView::FusionDistanceMode osgGA::KeySwitchMatrixManipulator::base_getFusionDistanceMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::SceneView::FusionDistanceMode osgGA::KeySwitchMatrixManipulator::base_getFusionDistanceMode() const function, expected prototype:\nosgUtil::SceneView::FusionDistanceMode osgGA::KeySwitchMatrixManipulator::base_getFusionDistanceMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::KeySwitchMatrixManipulator::base_getFusionDistanceMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::KeySwitchMatrixManipulator::base_getFusionDistanceMode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::SceneView::FusionDistanceMode lret = self->KeySwitchMatrixManipulator::getFusionDistanceMode();
 		lua_pushnumber(L,lret);
@@ -1732,15 +1625,13 @@ public:
 	// float osgGA::KeySwitchMatrixManipulator::base_getFusionDistanceValue() const
 	static int _bind_base_getFusionDistanceValue(lua_State *L) {
 		if (!_lg_typecheck_base_getFusionDistanceValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgGA::KeySwitchMatrixManipulator::base_getFusionDistanceValue() const function, expected prototype:\nfloat osgGA::KeySwitchMatrixManipulator::base_getFusionDistanceValue() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgGA::KeySwitchMatrixManipulator::base_getFusionDistanceValue() const function, expected prototype:\nfloat osgGA::KeySwitchMatrixManipulator::base_getFusionDistanceValue() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::KeySwitchMatrixManipulator::base_getFusionDistanceValue() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgGA::KeySwitchMatrixManipulator::base_getFusionDistanceValue() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->KeySwitchMatrixManipulator::getFusionDistanceValue();
 		lua_pushnumber(L,lret);
@@ -1751,16 +1642,14 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_setNode(osg::Node * arg1)
 	static int _bind_base_setNode(lua_State *L) {
 		if (!_lg_typecheck_base_setNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setNode(osg::Node * arg1) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setNode(osg::Node * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setNode(osg::Node * arg1) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setNode(osg::Node * arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* _arg1=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setNode(osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::setNode(_arg1);
 
@@ -1770,15 +1659,13 @@ public:
 	// const osg::Node * osgGA::KeySwitchMatrixManipulator::base_getNode() const
 	static int _bind_base_getNode_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getNode_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Node * osgGA::KeySwitchMatrixManipulator::base_getNode() const function, expected prototype:\nconst osg::Node * osgGA::KeySwitchMatrixManipulator::base_getNode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Node * osgGA::KeySwitchMatrixManipulator::base_getNode() const function, expected prototype:\nconst osg::Node * osgGA::KeySwitchMatrixManipulator::base_getNode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::KeySwitchMatrixManipulator::base_getNode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::KeySwitchMatrixManipulator::base_getNode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Node * lret = self->KeySwitchMatrixManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1791,15 +1678,13 @@ public:
 	// osg::Node * osgGA::KeySwitchMatrixManipulator::base_getNode()
 	static int _bind_base_getNode_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getNode_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Node * osgGA::KeySwitchMatrixManipulator::base_getNode() function, expected prototype:\nosg::Node * osgGA::KeySwitchMatrixManipulator::base_getNode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Node * osgGA::KeySwitchMatrixManipulator::base_getNode() function, expected prototype:\nosg::Node * osgGA::KeySwitchMatrixManipulator::base_getNode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgGA::KeySwitchMatrixManipulator::base_getNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Node * osgGA::KeySwitchMatrixManipulator::base_getNode(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Node * lret = self->KeySwitchMatrixManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1821,8 +1706,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)
 	static int _bind_base_setHomePosition(lua_State *L) {
 		if (!_lg_typecheck_base_setHomePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1846,8 +1730,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
 
@@ -1857,16 +1740,14 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_setAutoComputeHomePosition(bool flag)
 	static int _bind_base_setAutoComputeHomePosition(lua_State *L) {
 		if (!_lg_typecheck_base_setAutoComputeHomePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setAutoComputeHomePosition(bool flag) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setAutoComputeHomePosition(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_setAutoComputeHomePosition(bool flag) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_setAutoComputeHomePosition(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setAutoComputeHomePosition(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_setAutoComputeHomePosition(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::setAutoComputeHomePosition(flag);
 
@@ -1876,15 +1757,13 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_computeHomePosition()
 	static int _bind_base_computeHomePosition(lua_State *L) {
 		if (!_lg_typecheck_base_computeHomePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_computeHomePosition() function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_computeHomePosition()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_computeHomePosition() function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_computeHomePosition()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_computeHomePosition(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_computeHomePosition(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::computeHomePosition();
 
@@ -1894,8 +1773,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_base_home(lua_State *L) {
 		if (!_lg_typecheck_base_home(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -1911,8 +1789,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::home(_arg1, _arg2);
 
@@ -1922,8 +1799,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_base_init(lua_State *L) {
 		if (!_lg_typecheck_base_init(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -1939,8 +1815,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::init(_arg1, _arg2);
 
@@ -1950,8 +1825,7 @@ public:
 	// bool osgGA::KeySwitchMatrixManipulator::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
 	static int _bind_base_handle(lua_State *L) {
 		if (!_lg_typecheck_base_handle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::KeySwitchMatrixManipulator::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) function, expected prototype:\nbool osgGA::KeySwitchMatrixManipulator::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::KeySwitchMatrixManipulator::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) function, expected prototype:\nbool osgGA::KeySwitchMatrixManipulator::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -1967,8 +1841,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::KeySwitchMatrixManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::KeySwitchMatrixManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->KeySwitchMatrixManipulator::handle(ea, us);
 		lua_pushboolean(L,lret?1:0);
@@ -1979,8 +1852,7 @@ public:
 	// void osgGA::KeySwitchMatrixManipulator::base_getUsage(osg::ApplicationUsage & usage) const
 	static int _bind_base_getUsage(lua_State *L) {
 		if (!_lg_typecheck_base_getUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_getUsage(osg::ApplicationUsage & usage) const function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_getUsage(osg::ApplicationUsage & usage) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_getUsage(osg::ApplicationUsage & usage) const function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_getUsage(osg::ApplicationUsage & usage) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ApplicationUsage* usage_ptr=(Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,2));
@@ -1991,8 +1863,7 @@ public:
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KeySwitchMatrixManipulator::getUsage(usage);
 

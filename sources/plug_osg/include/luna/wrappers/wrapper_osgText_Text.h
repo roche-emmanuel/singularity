@@ -721,15 +721,13 @@ public:
 	// osgText::Font * osgText::Text::public_getActiveFont()
 	static int _bind_public_getActiveFont(lua_State *L) {
 		if (!_lg_typecheck_public_getActiveFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::Font * osgText::Text::public_getActiveFont() function, expected prototype:\nosgText::Font * osgText::Text::public_getActiveFont()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::Font * osgText::Text::public_getActiveFont() function, expected prototype:\nosgText::Font * osgText::Text::public_getActiveFont()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Font * osgText::Text::public_getActiveFont(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::Font * osgText::Text::public_getActiveFont(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgText::Font * lret = self->public_getActiveFont();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -742,8 +740,7 @@ public:
 	// bool osgText::Text::public_computeAverageGlyphWidthAndHeight(float & avg_width, float & avg_height) const
 	static int _bind_public_computeAverageGlyphWidthAndHeight(lua_State *L) {
 		if (!_lg_typecheck_public_computeAverageGlyphWidthAndHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgText::Text::public_computeAverageGlyphWidthAndHeight(float & avg_width, float & avg_height) const function, expected prototype:\nbool osgText::Text::public_computeAverageGlyphWidthAndHeight(float & avg_width, float & avg_height) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgText::Text::public_computeAverageGlyphWidthAndHeight(float & avg_width, float & avg_height) const function, expected prototype:\nbool osgText::Text::public_computeAverageGlyphWidthAndHeight(float & avg_width, float & avg_height) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float avg_width=(float)lua_tonumber(L,2);
@@ -751,8 +748,7 @@ public:
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::Text::public_computeAverageGlyphWidthAndHeight(float &, float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgText::Text::public_computeAverageGlyphWidthAndHeight(float &, float &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_computeAverageGlyphWidthAndHeight(avg_width, avg_height);
 		lua_pushboolean(L,lret?1:0);
@@ -765,16 +761,14 @@ public:
 	// void osgText::Text::public_computeBackdropPositions(unsigned int contextID) const
 	static int _bind_public_computeBackdropPositions(lua_State *L) {
 		if (!_lg_typecheck_public_computeBackdropPositions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::public_computeBackdropPositions(unsigned int contextID) const function, expected prototype:\nvoid osgText::Text::public_computeBackdropPositions(unsigned int contextID) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::public_computeBackdropPositions(unsigned int contextID) const function, expected prototype:\nvoid osgText::Text::public_computeBackdropPositions(unsigned int contextID) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::public_computeBackdropPositions(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::public_computeBackdropPositions(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computeBackdropPositions(contextID);
 
@@ -784,15 +778,13 @@ public:
 	// void osgText::Text::public_computeBackdropBoundingBox() const
 	static int _bind_public_computeBackdropBoundingBox(lua_State *L) {
 		if (!_lg_typecheck_public_computeBackdropBoundingBox(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::public_computeBackdropBoundingBox() const function, expected prototype:\nvoid osgText::Text::public_computeBackdropBoundingBox() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::public_computeBackdropBoundingBox() const function, expected prototype:\nvoid osgText::Text::public_computeBackdropBoundingBox() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::public_computeBackdropBoundingBox() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::public_computeBackdropBoundingBox() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computeBackdropBoundingBox();
 
@@ -802,15 +794,13 @@ public:
 	// void osgText::Text::public_computeBoundingBoxMargin() const
 	static int _bind_public_computeBoundingBoxMargin(lua_State *L) {
 		if (!_lg_typecheck_public_computeBoundingBoxMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::public_computeBoundingBoxMargin() const function, expected prototype:\nvoid osgText::Text::public_computeBoundingBoxMargin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::public_computeBoundingBoxMargin() const function, expected prototype:\nvoid osgText::Text::public_computeBoundingBoxMargin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::public_computeBoundingBoxMargin() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::public_computeBoundingBoxMargin() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computeBoundingBoxMargin();
 
@@ -820,15 +810,13 @@ public:
 	// void osgText::Text::public_computeColorGradients() const
 	static int _bind_public_computeColorGradients(lua_State *L) {
 		if (!_lg_typecheck_public_computeColorGradients(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::public_computeColorGradients() const function, expected prototype:\nvoid osgText::Text::public_computeColorGradients() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::public_computeColorGradients() const function, expected prototype:\nvoid osgText::Text::public_computeColorGradients() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::public_computeColorGradients() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::public_computeColorGradients() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computeColorGradients();
 
@@ -838,15 +826,13 @@ public:
 	// void osgText::Text::public_computeColorGradientsOverall() const
 	static int _bind_public_computeColorGradientsOverall(lua_State *L) {
 		if (!_lg_typecheck_public_computeColorGradientsOverall(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::public_computeColorGradientsOverall() const function, expected prototype:\nvoid osgText::Text::public_computeColorGradientsOverall() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::public_computeColorGradientsOverall() const function, expected prototype:\nvoid osgText::Text::public_computeColorGradientsOverall() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::public_computeColorGradientsOverall() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::public_computeColorGradientsOverall() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computeColorGradientsOverall();
 
@@ -856,15 +842,13 @@ public:
 	// void osgText::Text::public_computeColorGradientsPerCharacter() const
 	static int _bind_public_computeColorGradientsPerCharacter(lua_State *L) {
 		if (!_lg_typecheck_public_computeColorGradientsPerCharacter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::public_computeColorGradientsPerCharacter() const function, expected prototype:\nvoid osgText::Text::public_computeColorGradientsPerCharacter() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::public_computeColorGradientsPerCharacter() const function, expected prototype:\nvoid osgText::Text::public_computeColorGradientsPerCharacter() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::public_computeColorGradientsPerCharacter() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::public_computeColorGradientsPerCharacter() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computeColorGradientsPerCharacter();
 
@@ -874,8 +858,7 @@ public:
 	// void osgText::Text::public_drawImplementation(osg::State & state, const osg::Vec4f & colorMultiplier) const
 	static int _bind_public_drawImplementation(lua_State *L) {
 		if (!_lg_typecheck_public_drawImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::public_drawImplementation(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_drawImplementation(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::public_drawImplementation(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_drawImplementation(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -891,8 +874,7 @@ public:
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::public_drawImplementation(osg::State &, const osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::public_drawImplementation(osg::State &, const osg::Vec4f &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_drawImplementation(state, colorMultiplier);
 
@@ -902,8 +884,7 @@ public:
 	// void osgText::Text::public_drawForegroundText(osg::State & state, const osgText::Text::GlyphQuads & glyphquad, const osg::Vec4f & colorMultiplier) const
 	static int _bind_public_drawForegroundText(lua_State *L) {
 		if (!_lg_typecheck_public_drawForegroundText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::public_drawForegroundText(osg::State & state, const osgText::Text::GlyphQuads & glyphquad, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_drawForegroundText(osg::State & state, const osgText::Text::GlyphQuads & glyphquad, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 89190250\narg 3 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::public_drawForegroundText(osg::State & state, const osgText::Text::GlyphQuads & glyphquad, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_drawForegroundText(osg::State & state, const osgText::Text::GlyphQuads & glyphquad, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 89190250\narg 3 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -924,8 +905,7 @@ public:
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::public_drawForegroundText(osg::State &, const osgText::Text::GlyphQuads &, const osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::public_drawForegroundText(osg::State &, const osgText::Text::GlyphQuads &, const osg::Vec4f &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_drawForegroundText(state, glyphquad, colorMultiplier);
 
@@ -935,8 +915,7 @@ public:
 	// void osgText::Text::public_drawTextWithBackdrop(osg::State & state, const osg::Vec4f & colorMultiplier) const
 	static int _bind_public_drawTextWithBackdrop(lua_State *L) {
 		if (!_lg_typecheck_public_drawTextWithBackdrop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::public_drawTextWithBackdrop(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_drawTextWithBackdrop(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::public_drawTextWithBackdrop(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_drawTextWithBackdrop(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -952,8 +931,7 @@ public:
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::public_drawTextWithBackdrop(osg::State &, const osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::public_drawTextWithBackdrop(osg::State &, const osg::Vec4f &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_drawTextWithBackdrop(state, colorMultiplier);
 
@@ -963,8 +941,7 @@ public:
 	// void osgText::Text::public_renderOnlyForegroundText(osg::State & state, const osg::Vec4f & colorMultiplier) const
 	static int _bind_public_renderOnlyForegroundText(lua_State *L) {
 		if (!_lg_typecheck_public_renderOnlyForegroundText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::public_renderOnlyForegroundText(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_renderOnlyForegroundText(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::public_renderOnlyForegroundText(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_renderOnlyForegroundText(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -980,8 +957,7 @@ public:
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::public_renderOnlyForegroundText(osg::State &, const osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::public_renderOnlyForegroundText(osg::State &, const osg::Vec4f &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_renderOnlyForegroundText(state, colorMultiplier);
 
@@ -991,8 +967,7 @@ public:
 	// void osgText::Text::public_renderWithPolygonOffset(osg::State & state, const osg::Vec4f & colorMultiplier) const
 	static int _bind_public_renderWithPolygonOffset(lua_State *L) {
 		if (!_lg_typecheck_public_renderWithPolygonOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::public_renderWithPolygonOffset(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_renderWithPolygonOffset(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::public_renderWithPolygonOffset(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_renderWithPolygonOffset(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1008,8 +983,7 @@ public:
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::public_renderWithPolygonOffset(osg::State &, const osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::public_renderWithPolygonOffset(osg::State &, const osg::Vec4f &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_renderWithPolygonOffset(state, colorMultiplier);
 
@@ -1019,8 +993,7 @@ public:
 	// void osgText::Text::public_renderWithNoDepthBuffer(osg::State & state, const osg::Vec4f & colorMultiplier) const
 	static int _bind_public_renderWithNoDepthBuffer(lua_State *L) {
 		if (!_lg_typecheck_public_renderWithNoDepthBuffer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::public_renderWithNoDepthBuffer(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_renderWithNoDepthBuffer(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::public_renderWithNoDepthBuffer(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_renderWithNoDepthBuffer(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1036,8 +1009,7 @@ public:
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::public_renderWithNoDepthBuffer(osg::State &, const osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::public_renderWithNoDepthBuffer(osg::State &, const osg::Vec4f &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_renderWithNoDepthBuffer(state, colorMultiplier);
 
@@ -1047,8 +1019,7 @@ public:
 	// void osgText::Text::public_renderWithDepthRange(osg::State & state, const osg::Vec4f & colorMultiplier) const
 	static int _bind_public_renderWithDepthRange(lua_State *L) {
 		if (!_lg_typecheck_public_renderWithDepthRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::public_renderWithDepthRange(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_renderWithDepthRange(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::public_renderWithDepthRange(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_renderWithDepthRange(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1064,8 +1035,7 @@ public:
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::public_renderWithDepthRange(osg::State &, const osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::public_renderWithDepthRange(osg::State &, const osg::Vec4f &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_renderWithDepthRange(state, colorMultiplier);
 
@@ -1075,8 +1045,7 @@ public:
 	// void osgText::Text::public_renderWithStencilBuffer(osg::State & state, const osg::Vec4f & colorMultiplier) const
 	static int _bind_public_renderWithStencilBuffer(lua_State *L) {
 		if (!_lg_typecheck_public_renderWithStencilBuffer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::public_renderWithStencilBuffer(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_renderWithStencilBuffer(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::public_renderWithStencilBuffer(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_renderWithStencilBuffer(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1092,8 +1061,7 @@ public:
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::public_renderWithStencilBuffer(osg::State &, const osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::public_renderWithStencilBuffer(osg::State &, const osg::Vec4f &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_renderWithStencilBuffer(state, colorMultiplier);
 
@@ -1103,8 +1071,7 @@ public:
 	// void osgText::Text::public_renderWithDelayedDepthWrites(osg::State & state, const osg::Vec4f & colorMultiplier) const
 	static int _bind_public_renderWithDelayedDepthWrites(lua_State *L) {
 		if (!_lg_typecheck_public_renderWithDelayedDepthWrites(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::public_renderWithDelayedDepthWrites(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_renderWithDelayedDepthWrites(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::public_renderWithDelayedDepthWrites(osg::State & state, const osg::Vec4f & colorMultiplier) const function, expected prototype:\nvoid osgText::Text::public_renderWithDelayedDepthWrites(osg::State & state, const osg::Vec4f & colorMultiplier) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1120,8 +1087,7 @@ public:
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::public_renderWithDelayedDepthWrites(osg::State &, const osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::public_renderWithDelayedDepthWrites(osg::State &, const osg::Vec4f &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_renderWithDelayedDepthWrites(state, colorMultiplier);
 
@@ -1131,8 +1097,7 @@ public:
 	// float osgText::Text::public_bilinearInterpolate(float x1, float x2, float y1, float y2, float x, float y, float q11, float q12, float q21, float q22) const
 	static int _bind_public_bilinearInterpolate(lua_State *L) {
 		if (!_lg_typecheck_public_bilinearInterpolate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgText::Text::public_bilinearInterpolate(float x1, float x2, float y1, float y2, float x, float y, float q11, float q12, float q21, float q22) const function, expected prototype:\nfloat osgText::Text::public_bilinearInterpolate(float x1, float x2, float y1, float y2, float x, float y, float q11, float q12, float q21, float q22) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgText::Text::public_bilinearInterpolate(float x1, float x2, float y1, float y2, float x, float y, float q11, float q12, float q21, float q22) const function, expected prototype:\nfloat osgText::Text::public_bilinearInterpolate(float x1, float x2, float y1, float y2, float x, float y, float q11, float q12, float q21, float q22) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x1=(float)lua_tonumber(L,2);
@@ -1148,8 +1113,7 @@ public:
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::Text::public_bilinearInterpolate(float, float, float, float, float, float, float, float, float, float) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgText::Text::public_bilinearInterpolate(float, float, float, float, float, float, float, float, float, float) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->public_bilinearInterpolate(x1, x2, y1, y2, x, y, q11, q12, q21, q22);
 		lua_pushnumber(L,lret);
@@ -1160,8 +1124,7 @@ public:
 	// void osgText::TextBase::public_positionCursor(const osg::Vec2f & endOfLine_coords, osg::Vec2f & cursor, unsigned int linelength)
 	static int _bind_public_positionCursor(lua_State *L) {
 		if (!_lg_typecheck_public_positionCursor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::public_positionCursor(const osg::Vec2f & endOfLine_coords, osg::Vec2f & cursor, unsigned int linelength) function, expected prototype:\nvoid osgText::TextBase::public_positionCursor(const osg::Vec2f & endOfLine_coords, osg::Vec2f & cursor, unsigned int linelength)\nClass arguments details:\narg 1 ID = 92303173\narg 2 ID = 92303173\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::public_positionCursor(const osg::Vec2f & endOfLine_coords, osg::Vec2f & cursor, unsigned int linelength) function, expected prototype:\nvoid osgText::TextBase::public_positionCursor(const osg::Vec2f & endOfLine_coords, osg::Vec2f & cursor, unsigned int linelength)\nClass arguments details:\narg 1 ID = 92303173\narg 2 ID = 92303173\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec2f* endOfLine_coords_ptr=(Luna< osg::Vec2f >::check(L,2));
@@ -1178,8 +1141,7 @@ public:
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::public_positionCursor(const osg::Vec2f &, osg::Vec2f &, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::public_positionCursor(const osg::Vec2f &, osg::Vec2f &, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_positionCursor(endOfLine_coords, cursor, linelength);
 
@@ -1189,15 +1151,13 @@ public:
 	// void osgText::TextBase::public_computePositions()
 	static int _bind_public_computePositions(lua_State *L) {
 		if (!_lg_typecheck_public_computePositions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::public_computePositions() function, expected prototype:\nvoid osgText::TextBase::public_computePositions()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::public_computePositions() function, expected prototype:\nvoid osgText::TextBase::public_computePositions()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::public_computePositions(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::public_computePositions(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computePositions();
 
@@ -1207,8 +1167,7 @@ public:
 	// void osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const
 	static int _bind_public_setBound(lua_State *L) {
 		if (!_lg_typecheck_public_setBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const function, expected prototype:\nvoid osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const function, expected prototype:\nvoid osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
@@ -1219,8 +1178,7 @@ public:
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setBound(const osg::BoundingBoxd &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setBound(const osg::BoundingBoxd &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setBound(bb);
 
@@ -1230,16 +1188,14 @@ public:
 	// void osg::Drawable::public_addParent(osg::Node * node)
 	static int _bind_public_addParent(lua_State *L) {
 		if (!_lg_typecheck_public_addParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_addParent(osg::Node * node) function, expected prototype:\nvoid osg::Drawable::public_addParent(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_addParent(osg::Node * node) function, expected prototype:\nvoid osg::Drawable::public_addParent(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_addParent(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_addParent(osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_addParent(node);
 
@@ -1249,16 +1205,14 @@ public:
 	// void osg::Drawable::public_removeParent(osg::Node * node)
 	static int _bind_public_removeParent(lua_State *L) {
 		if (!_lg_typecheck_public_removeParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_removeParent(osg::Node * node) function, expected prototype:\nvoid osg::Drawable::public_removeParent(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_removeParent(osg::Node * node) function, expected prototype:\nvoid osg::Drawable::public_removeParent(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_removeParent(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_removeParent(osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_removeParent(node);
 
@@ -1268,16 +1222,14 @@ public:
 	// void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num)
 	static int _bind_public_setNumChildrenRequiringUpdateTraversal(lua_State *L) {
 		if (!_lg_typecheck_public_setNumChildrenRequiringUpdateTraversal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num) function, expected prototype:\nvoid osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num) function, expected prototype:\nvoid osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int num=(unsigned int)lua_tointeger(L,2);
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setNumChildrenRequiringUpdateTraversal(num);
 
@@ -1287,15 +1239,13 @@ public:
 	// unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const
 	static int _bind_public_getNumChildrenRequiringUpdateTraversal(lua_State *L) {
 		if (!_lg_typecheck_public_getNumChildrenRequiringUpdateTraversal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const function, expected prototype:\nunsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const function, expected prototype:\nunsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->public_getNumChildrenRequiringUpdateTraversal();
 		lua_pushnumber(L,lret);
@@ -1306,16 +1256,14 @@ public:
 	// void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num)
 	static int _bind_public_setNumChildrenRequiringEventTraversal(lua_State *L) {
 		if (!_lg_typecheck_public_setNumChildrenRequiringEventTraversal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num) function, expected prototype:\nvoid osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num) function, expected prototype:\nvoid osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int num=(unsigned int)lua_tointeger(L,2);
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setNumChildrenRequiringEventTraversal(num);
 
@@ -1325,15 +1273,13 @@ public:
 	// unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const
 	static int _bind_public_getNumChildrenRequiringEventTraversal(lua_State *L) {
 		if (!_lg_typecheck_public_getNumChildrenRequiringEventTraversal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const function, expected prototype:\nunsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const function, expected prototype:\nunsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->public_getNumChildrenRequiringEventTraversal();
 		lua_pushnumber(L,lret);
@@ -1344,8 +1290,7 @@ public:
 	// osg::Drawable & osg::Drawable::public_op_assign(const osg::Drawable & arg1)
 	static int _bind_public_op_assign(lua_State *L) {
 		if (!_lg_typecheck_public_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Drawable & osg::Drawable::public_op_assign(const osg::Drawable & arg1) function, expected prototype:\nosg::Drawable & osg::Drawable::public_op_assign(const osg::Drawable & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Drawable & osg::Drawable::public_op_assign(const osg::Drawable & arg1) function, expected prototype:\nosg::Drawable & osg::Drawable::public_op_assign(const osg::Drawable & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Drawable* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
@@ -1356,8 +1301,7 @@ public:
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Drawable & osg::Drawable::public_op_assign(const osg::Drawable &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Drawable & osg::Drawable::public_op_assign(const osg::Drawable &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Drawable* lret = &self->public_op_assign(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1370,8 +1314,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -1379,8 +1322,7 @@ public:
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -1390,15 +1332,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgText_Text* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

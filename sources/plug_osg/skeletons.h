@@ -260,10 +260,10 @@ public:
 
 };
 
-class UpdateCallback: public osg::StateAttributeCallback {
+class UpdateCallback: public osg::Object {
 };
 
-class UpdateCallback: public osg::Object {
+class UpdateCallback: public osg::StateAttributeCallback {
 };
 
 class UpdateSlaveCallback: public osg::Referenced {
@@ -1891,6 +1891,15 @@ namespace osg {
 	};
 
 	class Matrix3d {
+	};
+
+	class Vec2dVector {
+	};
+
+	class Vec3dVector {
+	};
+
+	class Vec4dVector {
 	};
 
 };

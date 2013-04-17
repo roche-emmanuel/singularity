@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::Input* self= (osgDB::Input*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgDB::FieldReaderIterator >::check(L,1));
@@ -588,8 +585,7 @@ public:
 	// osgDB::Input::Input()
 	static osgDB::Input* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::Input::Input() function, expected prototype:\nosgDB::Input::Input()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::Input::Input() function, expected prototype:\nosgDB::Input::Input()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -599,8 +595,7 @@ public:
 	// osgDB::Input::Input(lua_Table * data)
 	static osgDB::Input* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::Input::Input(lua_Table * data) function, expected prototype:\nosgDB::Input::Input(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::Input::Input(lua_Table * data) function, expected prototype:\nosgDB::Input::Input(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -621,16 +616,14 @@ public:
 	// void osgDB::Input::setOptions(const osgDB::Options * options)
 	static int _bind_setOptions(lua_State *L) {
 		if (!_lg_typecheck_setOptions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Input::setOptions(const osgDB::Options * options) function, expected prototype:\nvoid osgDB::Input::setOptions(const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Input::setOptions(const osgDB::Options * options) function, expected prototype:\nvoid osgDB::Input::setOptions(const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Input::setOptions(const osgDB::Options *). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Input::setOptions(const osgDB::Options *). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setOptions(options);
 
@@ -640,15 +633,13 @@ public:
 	// const osgDB::Options * osgDB::Input::getOptions() const
 	static int _bind_getOptions(lua_State *L) {
 		if (!_lg_typecheck_getOptions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgDB::Options * osgDB::Input::getOptions() const function, expected prototype:\nconst osgDB::Options * osgDB::Input::getOptions() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgDB::Options * osgDB::Input::getOptions() const function, expected prototype:\nconst osgDB::Options * osgDB::Input::getOptions() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::Options * osgDB::Input::getOptions() const. Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgDB::Options * osgDB::Input::getOptions() const. Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgDB::Options * lret = self->getOptions();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -661,8 +652,7 @@ public:
 	// osg::Object * osgDB::Input::readObjectOfType(const osg::Object & compObj)
 	static int _bind_readObjectOfType_overload_1(lua_State *L) {
 		if (!_lg_typecheck_readObjectOfType_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::readObjectOfType(const osg::Object & compObj) function, expected prototype:\nosg::Object * osgDB::Input::readObjectOfType(const osg::Object & compObj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::readObjectOfType(const osg::Object & compObj) function, expected prototype:\nosg::Object * osgDB::Input::readObjectOfType(const osg::Object & compObj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* compObj_ptr=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
@@ -673,8 +663,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::readObjectOfType(const osg::Object &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::readObjectOfType(const osg::Object &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->readObjectOfType(compObj);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -687,8 +676,7 @@ public:
 	// osg::Object * osgDB::Input::readObjectOfType(const osgDB::basic_type_wrapper & btw)
 	static int _bind_readObjectOfType_overload_2(lua_State *L) {
 		if (!_lg_typecheck_readObjectOfType_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::readObjectOfType(const osgDB::basic_type_wrapper & btw) function, expected prototype:\nosg::Object * osgDB::Input::readObjectOfType(const osgDB::basic_type_wrapper & btw)\nClass arguments details:\narg 1 ID = 56095127\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::readObjectOfType(const osgDB::basic_type_wrapper & btw) function, expected prototype:\nosg::Object * osgDB::Input::readObjectOfType(const osgDB::basic_type_wrapper & btw)\nClass arguments details:\narg 1 ID = 56095127\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgDB::basic_type_wrapper* btw_ptr=(Luna< osgDB::basic_type_wrapper >::check(L,2));
@@ -699,8 +687,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::readObjectOfType(const osgDB::basic_type_wrapper &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::readObjectOfType(const osgDB::basic_type_wrapper &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->readObjectOfType(btw);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -722,15 +709,13 @@ public:
 	// osg::Object * osgDB::Input::readObject()
 	static int _bind_readObject_overload_1(lua_State *L) {
 		if (!_lg_typecheck_readObject_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::readObject() function, expected prototype:\nosg::Object * osgDB::Input::readObject()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::readObject() function, expected prototype:\nosg::Object * osgDB::Input::readObject()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::readObject(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::readObject(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->readObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -743,16 +728,14 @@ public:
 	// osg::Object * osgDB::Input::readObject(const std::string & fileName)
 	static int _bind_readObject_overload_2(lua_State *L) {
 		if (!_lg_typecheck_readObject_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::readObject(const std::string & fileName) function, expected prototype:\nosg::Object * osgDB::Input::readObject(const std::string & fileName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::readObject(const std::string & fileName) function, expected prototype:\nosg::Object * osgDB::Input::readObject(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::readObject(const std::string &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::readObject(const std::string &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->readObject(fileName);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -774,15 +757,13 @@ public:
 	// osg::Image * osgDB::Input::readImage()
 	static int _bind_readImage_overload_1(lua_State *L) {
 		if (!_lg_typecheck_readImage_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * osgDB::Input::readImage() function, expected prototype:\nosg::Image * osgDB::Input::readImage()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * osgDB::Input::readImage() function, expected prototype:\nosg::Image * osgDB::Input::readImage()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osgDB::Input::readImage(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Image * osgDB::Input::readImage(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Image * lret = self->readImage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -795,16 +776,14 @@ public:
 	// osg::Image * osgDB::Input::readImage(const std::string & fileName)
 	static int _bind_readImage_overload_2(lua_State *L) {
 		if (!_lg_typecheck_readImage_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * osgDB::Input::readImage(const std::string & fileName) function, expected prototype:\nosg::Image * osgDB::Input::readImage(const std::string & fileName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * osgDB::Input::readImage(const std::string & fileName) function, expected prototype:\nosg::Image * osgDB::Input::readImage(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osgDB::Input::readImage(const std::string &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Image * osgDB::Input::readImage(const std::string &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Image * lret = self->readImage(fileName);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -826,15 +805,13 @@ public:
 	// osg::Drawable * osgDB::Input::readDrawable()
 	static int _bind_readDrawable(lua_State *L) {
 		if (!_lg_typecheck_readDrawable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Drawable * osgDB::Input::readDrawable() function, expected prototype:\nosg::Drawable * osgDB::Input::readDrawable()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Drawable * osgDB::Input::readDrawable() function, expected prototype:\nosg::Drawable * osgDB::Input::readDrawable()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Drawable * osgDB::Input::readDrawable(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Drawable * osgDB::Input::readDrawable(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Drawable * lret = self->readDrawable();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -847,15 +824,13 @@ public:
 	// osg::StateAttribute * osgDB::Input::readStateAttribute()
 	static int _bind_readStateAttribute(lua_State *L) {
 		if (!_lg_typecheck_readStateAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute * osgDB::Input::readStateAttribute() function, expected prototype:\nosg::StateAttribute * osgDB::Input::readStateAttribute()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute * osgDB::Input::readStateAttribute() function, expected prototype:\nosg::StateAttribute * osgDB::Input::readStateAttribute()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute * osgDB::Input::readStateAttribute(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute * osgDB::Input::readStateAttribute(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute * lret = self->readStateAttribute();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -868,15 +843,13 @@ public:
 	// osg::Uniform * osgDB::Input::readUniform()
 	static int _bind_readUniform(lua_State *L) {
 		if (!_lg_typecheck_readUniform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Uniform * osgDB::Input::readUniform() function, expected prototype:\nosg::Uniform * osgDB::Input::readUniform()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Uniform * osgDB::Input::readUniform() function, expected prototype:\nosg::Uniform * osgDB::Input::readUniform()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Uniform * osgDB::Input::readUniform(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Uniform * osgDB::Input::readUniform(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Uniform * lret = self->readUniform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -889,15 +862,13 @@ public:
 	// osg::Node * osgDB::Input::readNode()
 	static int _bind_readNode_overload_1(lua_State *L) {
 		if (!_lg_typecheck_readNode_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Node * osgDB::Input::readNode() function, expected prototype:\nosg::Node * osgDB::Input::readNode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Node * osgDB::Input::readNode() function, expected prototype:\nosg::Node * osgDB::Input::readNode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgDB::Input::readNode(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Node * osgDB::Input::readNode(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Node * lret = self->readNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -910,16 +881,14 @@ public:
 	// osg::Node * osgDB::Input::readNode(const std::string & fileName)
 	static int _bind_readNode_overload_2(lua_State *L) {
 		if (!_lg_typecheck_readNode_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Node * osgDB::Input::readNode(const std::string & fileName) function, expected prototype:\nosg::Node * osgDB::Input::readNode(const std::string & fileName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Node * osgDB::Input::readNode(const std::string & fileName) function, expected prototype:\nosg::Node * osgDB::Input::readNode(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgDB::Input::readNode(const std::string &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Node * osgDB::Input::readNode(const std::string &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Node * lret = self->readNode(fileName);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -941,15 +910,13 @@ public:
 	// osg::Shader * osgDB::Input::readShader()
 	static int _bind_readShader_overload_1(lua_State *L) {
 		if (!_lg_typecheck_readShader_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::Input::readShader() function, expected prototype:\nosg::Shader * osgDB::Input::readShader()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::Input::readShader() function, expected prototype:\nosg::Shader * osgDB::Input::readShader()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Shader * osgDB::Input::readShader(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Shader * osgDB::Input::readShader(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Shader * lret = self->readShader();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -962,16 +929,14 @@ public:
 	// osg::Shader * osgDB::Input::readShader(const std::string & fileName)
 	static int _bind_readShader_overload_2(lua_State *L) {
 		if (!_lg_typecheck_readShader_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::Input::readShader(const std::string & fileName) function, expected prototype:\nosg::Shader * osgDB::Input::readShader(const std::string & fileName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::Input::readShader(const std::string & fileName) function, expected prototype:\nosg::Shader * osgDB::Input::readShader(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Shader * osgDB::Input::readShader(const std::string &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Shader * osgDB::Input::readShader(const std::string &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Shader * lret = self->readShader(fileName);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -993,16 +958,14 @@ public:
 	// osg::Object * osgDB::Input::getObjectForUniqueID(const std::string & uniqueID)
 	static int _bind_getObjectForUniqueID(lua_State *L) {
 		if (!_lg_typecheck_getObjectForUniqueID(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::getObjectForUniqueID(const std::string & uniqueID) function, expected prototype:\nosg::Object * osgDB::Input::getObjectForUniqueID(const std::string & uniqueID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::getObjectForUniqueID(const std::string & uniqueID) function, expected prototype:\nosg::Object * osgDB::Input::getObjectForUniqueID(const std::string & uniqueID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string uniqueID(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::getObjectForUniqueID(const std::string &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::getObjectForUniqueID(const std::string &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->getObjectForUniqueID(uniqueID);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1015,8 +978,7 @@ public:
 	// void osgDB::Input::registerUniqueIDForObject(const std::string & uniqueID, osg::Object * obj)
 	static int _bind_registerUniqueIDForObject(lua_State *L) {
 		if (!_lg_typecheck_registerUniqueIDForObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Input::registerUniqueIDForObject(const std::string & uniqueID, osg::Object * obj) function, expected prototype:\nvoid osgDB::Input::registerUniqueIDForObject(const std::string & uniqueID, osg::Object * obj)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Input::registerUniqueIDForObject(const std::string & uniqueID, osg::Object * obj) function, expected prototype:\nvoid osgDB::Input::registerUniqueIDForObject(const std::string & uniqueID, osg::Object * obj)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string uniqueID(lua_tostring(L,2),lua_objlen(L,2));
@@ -1024,8 +986,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Input::registerUniqueIDForObject(const std::string &, osg::Object *). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Input::registerUniqueIDForObject(const std::string &, osg::Object *). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->registerUniqueIDForObject(uniqueID, obj);
 
@@ -1035,8 +996,7 @@ public:
 	// bool osgDB::Input::read(osg::ArgumentParser::Parameter value1)
 	static int _bind_read_overload_1(lua_State *L) {
 		if (!_lg_typecheck_read_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1)\nClass arguments details:\narg 1 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1)\nClass arguments details:\narg 1 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ArgumentParser::Parameter* value1_ptr=(Luna< osg::ArgumentParser::Parameter >::check(L,2));
@@ -1047,8 +1007,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(value1);
 		lua_pushboolean(L,lret?1:0);
@@ -1059,8 +1018,7 @@ public:
 	// bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2)
 	static int _bind_read_overload_2(lua_State *L) {
 		if (!_lg_typecheck_read_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2)\nClass arguments details:\narg 1 ID = 67360031\narg 2 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2)\nClass arguments details:\narg 1 ID = 67360031\narg 2 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ArgumentParser::Parameter* value1_ptr=(Luna< osg::ArgumentParser::Parameter >::check(L,2));
@@ -1076,8 +1034,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(value1, value2);
 		lua_pushboolean(L,lret?1:0);
@@ -1088,8 +1045,7 @@ public:
 	// bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3)
 	static int _bind_read_overload_3(lua_State *L) {
 		if (!_lg_typecheck_read_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3)\nClass arguments details:\narg 1 ID = 67360031\narg 2 ID = 67360031\narg 3 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3)\nClass arguments details:\narg 1 ID = 67360031\narg 2 ID = 67360031\narg 3 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ArgumentParser::Parameter* value1_ptr=(Luna< osg::ArgumentParser::Parameter >::check(L,2));
@@ -1110,8 +1066,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(value1, value2, value3);
 		lua_pushboolean(L,lret?1:0);
@@ -1122,8 +1077,7 @@ public:
 	// bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4)
 	static int _bind_read_overload_4(lua_State *L) {
 		if (!_lg_typecheck_read_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4)\nClass arguments details:\narg 1 ID = 67360031\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4)\nClass arguments details:\narg 1 ID = 67360031\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ArgumentParser::Parameter* value1_ptr=(Luna< osg::ArgumentParser::Parameter >::check(L,2));
@@ -1149,8 +1103,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(value1, value2, value3, value4);
 		lua_pushboolean(L,lret?1:0);
@@ -1161,8 +1114,7 @@ public:
 	// bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5)
 	static int _bind_read_overload_5(lua_State *L) {
 		if (!_lg_typecheck_read_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5)\nClass arguments details:\narg 1 ID = 67360031\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5)\nClass arguments details:\narg 1 ID = 67360031\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ArgumentParser::Parameter* value1_ptr=(Luna< osg::ArgumentParser::Parameter >::check(L,2));
@@ -1193,8 +1145,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(value1, value2, value3, value4, value5);
 		lua_pushboolean(L,lret?1:0);
@@ -1205,8 +1156,7 @@ public:
 	// bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6)
 	static int _bind_read_overload_6(lua_State *L) {
 		if (!_lg_typecheck_read_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6)\nClass arguments details:\narg 1 ID = 67360031\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6)\nClass arguments details:\narg 1 ID = 67360031\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ArgumentParser::Parameter* value1_ptr=(Luna< osg::ArgumentParser::Parameter >::check(L,2));
@@ -1242,8 +1192,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(value1, value2, value3, value4, value5, value6);
 		lua_pushboolean(L,lret?1:0);
@@ -1254,8 +1203,7 @@ public:
 	// bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7)
 	static int _bind_read_overload_7(lua_State *L) {
 		if (!_lg_typecheck_read_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7)\nClass arguments details:\narg 1 ID = 67360031\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7)\nClass arguments details:\narg 1 ID = 67360031\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ArgumentParser::Parameter* value1_ptr=(Luna< osg::ArgumentParser::Parameter >::check(L,2));
@@ -1296,8 +1244,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(value1, value2, value3, value4, value5, value6, value7);
 		lua_pushboolean(L,lret?1:0);
@@ -1308,8 +1255,7 @@ public:
 	// bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8)
 	static int _bind_read_overload_8(lua_State *L) {
 		if (!_lg_typecheck_read_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8)\nClass arguments details:\narg 1 ID = 67360031\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8) function, expected prototype:\nbool osgDB::Input::read(osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8)\nClass arguments details:\narg 1 ID = 67360031\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ArgumentParser::Parameter* value1_ptr=(Luna< osg::ArgumentParser::Parameter >::check(L,2));
@@ -1355,8 +1301,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(value1, value2, value3, value4, value5, value6, value7, value8);
 		lua_pushboolean(L,lret?1:0);
@@ -1367,16 +1312,14 @@ public:
 	// bool osgDB::Input::read(const char * str)
 	static int _bind_read_overload_9(lua_State *L) {
 		if (!_lg_typecheck_read_overload_9(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str) function, expected prototype:\nbool osgDB::Input::read(const char * str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str) function, expected prototype:\nbool osgDB::Input::read(const char * str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,2);
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str);
 		lua_pushboolean(L,lret?1:0);
@@ -1387,8 +1330,7 @@ public:
 	// bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1)
 	static int _bind_read_overload_10(lua_State *L) {
 		if (!_lg_typecheck_read_overload_10(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1)\nClass arguments details:\narg 2 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1)\nClass arguments details:\narg 2 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,2);
@@ -1400,8 +1342,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1);
 		lua_pushboolean(L,lret?1:0);
@@ -1412,8 +1353,7 @@ public:
 	// bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2)
 	static int _bind_read_overload_11(lua_State *L) {
 		if (!_lg_typecheck_read_overload_11(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,2);
@@ -1430,8 +1370,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1, value2);
 		lua_pushboolean(L,lret?1:0);
@@ -1442,8 +1381,7 @@ public:
 	// bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3)
 	static int _bind_read_overload_12(lua_State *L) {
 		if (!_lg_typecheck_read_overload_12(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,2);
@@ -1465,8 +1403,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1, value2, value3);
 		lua_pushboolean(L,lret?1:0);
@@ -1477,8 +1414,7 @@ public:
 	// bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4)
 	static int _bind_read_overload_13(lua_State *L) {
 		if (!_lg_typecheck_read_overload_13(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,2);
@@ -1505,8 +1441,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1, value2, value3, value4);
 		lua_pushboolean(L,lret?1:0);
@@ -1517,8 +1452,7 @@ public:
 	// bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5)
 	static int _bind_read_overload_14(lua_State *L) {
 		if (!_lg_typecheck_read_overload_14(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,2);
@@ -1550,8 +1484,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1, value2, value3, value4, value5);
 		lua_pushboolean(L,lret?1:0);
@@ -1562,8 +1495,7 @@ public:
 	// bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6)
 	static int _bind_read_overload_15(lua_State *L) {
 		if (!_lg_typecheck_read_overload_15(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,2);
@@ -1600,8 +1532,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1, value2, value3, value4, value5, value6);
 		lua_pushboolean(L,lret?1:0);
@@ -1612,8 +1543,7 @@ public:
 	// bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7)
 	static int _bind_read_overload_16(lua_State *L) {
 		if (!_lg_typecheck_read_overload_16(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,2);
@@ -1655,8 +1585,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1, value2, value3, value4, value5, value6, value7);
 		lua_pushboolean(L,lret?1:0);
@@ -1667,8 +1596,7 @@ public:
 	// bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8)
 	static int _bind_read_overload_17(lua_State *L) {
 		if (!_lg_typecheck_read_overload_17(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\narg 9 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8) function, expected prototype:\nbool osgDB::Input::read(const char * str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\narg 9 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,2);
@@ -1715,8 +1643,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::read(const char *, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1, value2, value3, value4, value5, value6, value7, value8);
 		lua_pushboolean(L,lret?1:0);
@@ -1751,15 +1678,13 @@ public:
 	// bool osgDB::Input::base_eof() const
 	static int _bind_base_eof(lua_State *L) {
 		if (!_lg_typecheck_base_eof(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Input::base_eof() const function, expected prototype:\nbool osgDB::Input::base_eof() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Input::base_eof() const function, expected prototype:\nbool osgDB::Input::base_eof() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Input::base_eof() const. Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Input::base_eof() const. Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Input::eof();
 		lua_pushboolean(L,lret?1:0);
@@ -1770,8 +1695,7 @@ public:
 	// osg::Object * osgDB::Input::base_readObjectOfType(const osg::Object & compObj)
 	static int _bind_base_readObjectOfType_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_readObjectOfType_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::base_readObjectOfType(const osg::Object & compObj) function, expected prototype:\nosg::Object * osgDB::Input::base_readObjectOfType(const osg::Object & compObj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::base_readObjectOfType(const osg::Object & compObj) function, expected prototype:\nosg::Object * osgDB::Input::base_readObjectOfType(const osg::Object & compObj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* compObj_ptr=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
@@ -1782,8 +1706,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::base_readObjectOfType(const osg::Object &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::base_readObjectOfType(const osg::Object &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->Input::readObjectOfType(compObj);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1796,8 +1719,7 @@ public:
 	// osg::Object * osgDB::Input::base_readObjectOfType(const osgDB::basic_type_wrapper & btw)
 	static int _bind_base_readObjectOfType_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_readObjectOfType_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::base_readObjectOfType(const osgDB::basic_type_wrapper & btw) function, expected prototype:\nosg::Object * osgDB::Input::base_readObjectOfType(const osgDB::basic_type_wrapper & btw)\nClass arguments details:\narg 1 ID = 56095127\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::base_readObjectOfType(const osgDB::basic_type_wrapper & btw) function, expected prototype:\nosg::Object * osgDB::Input::base_readObjectOfType(const osgDB::basic_type_wrapper & btw)\nClass arguments details:\narg 1 ID = 56095127\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgDB::basic_type_wrapper* btw_ptr=(Luna< osgDB::basic_type_wrapper >::check(L,2));
@@ -1808,8 +1730,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::base_readObjectOfType(const osgDB::basic_type_wrapper &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::base_readObjectOfType(const osgDB::basic_type_wrapper &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->Input::readObjectOfType(btw);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1831,15 +1752,13 @@ public:
 	// osg::Object * osgDB::Input::base_readObject()
 	static int _bind_base_readObject_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_readObject_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::base_readObject() function, expected prototype:\nosg::Object * osgDB::Input::base_readObject()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::base_readObject() function, expected prototype:\nosg::Object * osgDB::Input::base_readObject()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::base_readObject(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::base_readObject(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->Input::readObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1852,16 +1771,14 @@ public:
 	// osg::Object * osgDB::Input::base_readObject(const std::string & fileName)
 	static int _bind_base_readObject_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_readObject_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::base_readObject(const std::string & fileName) function, expected prototype:\nosg::Object * osgDB::Input::base_readObject(const std::string & fileName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::base_readObject(const std::string & fileName) function, expected prototype:\nosg::Object * osgDB::Input::base_readObject(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::base_readObject(const std::string &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::base_readObject(const std::string &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->Input::readObject(fileName);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1883,15 +1800,13 @@ public:
 	// osg::Image * osgDB::Input::base_readImage()
 	static int _bind_base_readImage_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_readImage_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * osgDB::Input::base_readImage() function, expected prototype:\nosg::Image * osgDB::Input::base_readImage()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * osgDB::Input::base_readImage() function, expected prototype:\nosg::Image * osgDB::Input::base_readImage()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osgDB::Input::base_readImage(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Image * osgDB::Input::base_readImage(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Image * lret = self->Input::readImage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1904,16 +1819,14 @@ public:
 	// osg::Image * osgDB::Input::base_readImage(const std::string & fileName)
 	static int _bind_base_readImage_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_readImage_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * osgDB::Input::base_readImage(const std::string & fileName) function, expected prototype:\nosg::Image * osgDB::Input::base_readImage(const std::string & fileName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * osgDB::Input::base_readImage(const std::string & fileName) function, expected prototype:\nosg::Image * osgDB::Input::base_readImage(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osgDB::Input::base_readImage(const std::string &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Image * osgDB::Input::base_readImage(const std::string &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Image * lret = self->Input::readImage(fileName);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1935,15 +1848,13 @@ public:
 	// osg::Drawable * osgDB::Input::base_readDrawable()
 	static int _bind_base_readDrawable(lua_State *L) {
 		if (!_lg_typecheck_base_readDrawable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Drawable * osgDB::Input::base_readDrawable() function, expected prototype:\nosg::Drawable * osgDB::Input::base_readDrawable()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Drawable * osgDB::Input::base_readDrawable() function, expected prototype:\nosg::Drawable * osgDB::Input::base_readDrawable()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Drawable * osgDB::Input::base_readDrawable(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Drawable * osgDB::Input::base_readDrawable(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Drawable * lret = self->Input::readDrawable();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1956,15 +1867,13 @@ public:
 	// osg::StateAttribute * osgDB::Input::base_readStateAttribute()
 	static int _bind_base_readStateAttribute(lua_State *L) {
 		if (!_lg_typecheck_base_readStateAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute * osgDB::Input::base_readStateAttribute() function, expected prototype:\nosg::StateAttribute * osgDB::Input::base_readStateAttribute()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute * osgDB::Input::base_readStateAttribute() function, expected prototype:\nosg::StateAttribute * osgDB::Input::base_readStateAttribute()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute * osgDB::Input::base_readStateAttribute(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute * osgDB::Input::base_readStateAttribute(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute * lret = self->Input::readStateAttribute();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1977,15 +1886,13 @@ public:
 	// osg::Uniform * osgDB::Input::base_readUniform()
 	static int _bind_base_readUniform(lua_State *L) {
 		if (!_lg_typecheck_base_readUniform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Uniform * osgDB::Input::base_readUniform() function, expected prototype:\nosg::Uniform * osgDB::Input::base_readUniform()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Uniform * osgDB::Input::base_readUniform() function, expected prototype:\nosg::Uniform * osgDB::Input::base_readUniform()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Uniform * osgDB::Input::base_readUniform(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Uniform * osgDB::Input::base_readUniform(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Uniform * lret = self->Input::readUniform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1998,15 +1905,13 @@ public:
 	// osg::Node * osgDB::Input::base_readNode()
 	static int _bind_base_readNode_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_readNode_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Node * osgDB::Input::base_readNode() function, expected prototype:\nosg::Node * osgDB::Input::base_readNode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Node * osgDB::Input::base_readNode() function, expected prototype:\nosg::Node * osgDB::Input::base_readNode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgDB::Input::base_readNode(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Node * osgDB::Input::base_readNode(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Node * lret = self->Input::readNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2019,16 +1924,14 @@ public:
 	// osg::Node * osgDB::Input::base_readNode(const std::string & fileName)
 	static int _bind_base_readNode_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_readNode_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Node * osgDB::Input::base_readNode(const std::string & fileName) function, expected prototype:\nosg::Node * osgDB::Input::base_readNode(const std::string & fileName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Node * osgDB::Input::base_readNode(const std::string & fileName) function, expected prototype:\nosg::Node * osgDB::Input::base_readNode(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgDB::Input::base_readNode(const std::string &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Node * osgDB::Input::base_readNode(const std::string &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Node * lret = self->Input::readNode(fileName);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2050,15 +1953,13 @@ public:
 	// osg::Shader * osgDB::Input::base_readShader()
 	static int _bind_base_readShader_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_readShader_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::Input::base_readShader() function, expected prototype:\nosg::Shader * osgDB::Input::base_readShader()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::Input::base_readShader() function, expected prototype:\nosg::Shader * osgDB::Input::base_readShader()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Shader * osgDB::Input::base_readShader(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Shader * osgDB::Input::base_readShader(). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Shader * lret = self->Input::readShader();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2071,16 +1972,14 @@ public:
 	// osg::Shader * osgDB::Input::base_readShader(const std::string & fileName)
 	static int _bind_base_readShader_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_readShader_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::Input::base_readShader(const std::string & fileName) function, expected prototype:\nosg::Shader * osgDB::Input::base_readShader(const std::string & fileName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::Input::base_readShader(const std::string & fileName) function, expected prototype:\nosg::Shader * osgDB::Input::base_readShader(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Shader * osgDB::Input::base_readShader(const std::string &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Shader * osgDB::Input::base_readShader(const std::string &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Shader * lret = self->Input::readShader(fileName);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2102,16 +2001,14 @@ public:
 	// osg::Object * osgDB::Input::base_getObjectForUniqueID(const std::string & uniqueID)
 	static int _bind_base_getObjectForUniqueID(lua_State *L) {
 		if (!_lg_typecheck_base_getObjectForUniqueID(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::base_getObjectForUniqueID(const std::string & uniqueID) function, expected prototype:\nosg::Object * osgDB::Input::base_getObjectForUniqueID(const std::string & uniqueID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Input::base_getObjectForUniqueID(const std::string & uniqueID) function, expected prototype:\nosg::Object * osgDB::Input::base_getObjectForUniqueID(const std::string & uniqueID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string uniqueID(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::base_getObjectForUniqueID(const std::string &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Input::base_getObjectForUniqueID(const std::string &). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->Input::getObjectForUniqueID(uniqueID);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2124,8 +2021,7 @@ public:
 	// void osgDB::Input::base_registerUniqueIDForObject(const std::string & uniqueID, osg::Object * obj)
 	static int _bind_base_registerUniqueIDForObject(lua_State *L) {
 		if (!_lg_typecheck_base_registerUniqueIDForObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Input::base_registerUniqueIDForObject(const std::string & uniqueID, osg::Object * obj) function, expected prototype:\nvoid osgDB::Input::base_registerUniqueIDForObject(const std::string & uniqueID, osg::Object * obj)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Input::base_registerUniqueIDForObject(const std::string & uniqueID, osg::Object * obj) function, expected prototype:\nvoid osgDB::Input::base_registerUniqueIDForObject(const std::string & uniqueID, osg::Object * obj)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string uniqueID(lua_tostring(L,2),lua_objlen(L,2));
@@ -2133,8 +2029,7 @@ public:
 
 		osgDB::Input* self=Luna< osgDB::FieldReaderIterator >::checkSubType< osgDB::Input >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Input::base_registerUniqueIDForObject(const std::string &, osg::Object *). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Input::base_registerUniqueIDForObject(const std::string &, osg::Object *). Got : '%s'\n%s",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Input::registerUniqueIDForObject(uniqueID, obj);
 

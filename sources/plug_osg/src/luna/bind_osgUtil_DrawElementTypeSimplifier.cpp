@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::DrawElementTypeSimplifier*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::DrawElementTypeSimplifier*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::DrawElementTypeSimplifier* rhs =(Luna< osgUtil::DrawElementTypeSimplifier >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::DrawElementTypeSimplifier* self= (osgUtil::DrawElementTypeSimplifier*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgUtil::DrawElementTypeSimplifier >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -119,8 +115,7 @@ public:
 	// void osgUtil::DrawElementTypeSimplifier::simplify(osg::Geometry & geometry) const
 	static int _bind_simplify(lua_State *L) {
 		if (!_lg_typecheck_simplify(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::DrawElementTypeSimplifier::simplify(osg::Geometry & geometry) const function, expected prototype:\nvoid osgUtil::DrawElementTypeSimplifier::simplify(osg::Geometry & geometry) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::DrawElementTypeSimplifier::simplify(osg::Geometry & geometry) const function, expected prototype:\nvoid osgUtil::DrawElementTypeSimplifier::simplify(osg::Geometry & geometry) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geometry* geometry_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
@@ -131,8 +126,7 @@ public:
 
 		osgUtil::DrawElementTypeSimplifier* self=(Luna< osgUtil::DrawElementTypeSimplifier >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DrawElementTypeSimplifier::simplify(osg::Geometry &) const. Got : '%s'",typeid(Luna< osgUtil::DrawElementTypeSimplifier >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::DrawElementTypeSimplifier::simplify(osg::Geometry &) const. Got : '%s'\n%s",typeid(Luna< osgUtil::DrawElementTypeSimplifier >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->simplify(geometry);
 

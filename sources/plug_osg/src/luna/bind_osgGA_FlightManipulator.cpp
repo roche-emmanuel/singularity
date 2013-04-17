@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::FlightManipulator* self= (osgGA::FlightManipulator*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -544,8 +541,7 @@ public:
 	// osgGA::FlightManipulator::FlightManipulator(int flags = osgGA::StandardManipulator::UPDATE_MODEL_SIZE | osgGA::StandardManipulator::COMPUTE_HOME_USING_BBOX)
 	static osgGA::FlightManipulator* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::FlightManipulator::FlightManipulator(int flags = osgGA::StandardManipulator::UPDATE_MODEL_SIZE | osgGA::StandardManipulator::COMPUTE_HOME_USING_BBOX) function, expected prototype:\nosgGA::FlightManipulator::FlightManipulator(int flags = osgGA::StandardManipulator::UPDATE_MODEL_SIZE | osgGA::StandardManipulator::COMPUTE_HOME_USING_BBOX)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::FlightManipulator::FlightManipulator(int flags = osgGA::StandardManipulator::UPDATE_MODEL_SIZE | osgGA::StandardManipulator::COMPUTE_HOME_USING_BBOX) function, expected prototype:\nosgGA::FlightManipulator::FlightManipulator(int flags = osgGA::StandardManipulator::UPDATE_MODEL_SIZE | osgGA::StandardManipulator::COMPUTE_HOME_USING_BBOX)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -558,8 +554,7 @@ public:
 	// osgGA::FlightManipulator::FlightManipulator(const osgGA::FlightManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)
 	static osgGA::FlightManipulator* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::FlightManipulator::FlightManipulator(const osgGA::FlightManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgGA::FlightManipulator::FlightManipulator(const osgGA::FlightManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgGA::FlightManipulator::FlightManipulator(const osgGA::FlightManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgGA::FlightManipulator::FlightManipulator(const osgGA::FlightManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -581,8 +576,7 @@ public:
 	// osgGA::FlightManipulator::FlightManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::UPDATE_MODEL_SIZE | osgGA::StandardManipulator::COMPUTE_HOME_USING_BBOX)
 	static osgGA::FlightManipulator* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::FlightManipulator::FlightManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::UPDATE_MODEL_SIZE | osgGA::StandardManipulator::COMPUTE_HOME_USING_BBOX) function, expected prototype:\nosgGA::FlightManipulator::FlightManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::UPDATE_MODEL_SIZE | osgGA::StandardManipulator::COMPUTE_HOME_USING_BBOX)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::FlightManipulator::FlightManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::UPDATE_MODEL_SIZE | osgGA::StandardManipulator::COMPUTE_HOME_USING_BBOX) function, expected prototype:\nosgGA::FlightManipulator::FlightManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::UPDATE_MODEL_SIZE | osgGA::StandardManipulator::COMPUTE_HOME_USING_BBOX)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -595,8 +589,7 @@ public:
 	// osgGA::FlightManipulator::FlightManipulator(lua_Table * data, const osgGA::FlightManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)
 	static osgGA::FlightManipulator* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::FlightManipulator::FlightManipulator(lua_Table * data, const osgGA::FlightManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgGA::FlightManipulator::FlightManipulator(lua_Table * data, const osgGA::FlightManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgGA::FlightManipulator::FlightManipulator(lua_Table * data, const osgGA::FlightManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgGA::FlightManipulator::FlightManipulator(lua_Table * data, const osgGA::FlightManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -631,15 +624,13 @@ public:
 	// osg::Object * osgGA::FlightManipulator::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::FlightManipulator::cloneType() const function, expected prototype:\nosg::Object * osgGA::FlightManipulator::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::FlightManipulator::cloneType() const function, expected prototype:\nosg::Object * osgGA::FlightManipulator::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FlightManipulator::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FlightManipulator::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -652,8 +643,7 @@ public:
 	// osg::Object * osgGA::FlightManipulator::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::FlightManipulator::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::FlightManipulator::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::FlightManipulator::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::FlightManipulator::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -664,8 +654,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FlightManipulator::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FlightManipulator::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -678,16 +667,14 @@ public:
 	// bool osgGA::FlightManipulator::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::FlightManipulator::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgGA::FlightManipulator::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::FlightManipulator::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgGA::FlightManipulator::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::FlightManipulator::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::FlightManipulator::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -698,15 +685,13 @@ public:
 	// const char * osgGA::FlightManipulator::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgGA::FlightManipulator::libraryName() const function, expected prototype:\nconst char * osgGA::FlightManipulator::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgGA::FlightManipulator::libraryName() const function, expected prototype:\nconst char * osgGA::FlightManipulator::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::FlightManipulator::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgGA::FlightManipulator::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -717,15 +702,13 @@ public:
 	// const char * osgGA::FlightManipulator::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgGA::FlightManipulator::className() const function, expected prototype:\nconst char * osgGA::FlightManipulator::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgGA::FlightManipulator::className() const function, expected prototype:\nconst char * osgGA::FlightManipulator::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::FlightManipulator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgGA::FlightManipulator::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -736,16 +719,14 @@ public:
 	// void osgGA::FlightManipulator::setYawControlMode(osgGA::FlightManipulator::YawControlMode ycm)
 	static int _bind_setYawControlMode(lua_State *L) {
 		if (!_lg_typecheck_setYawControlMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::setYawControlMode(osgGA::FlightManipulator::YawControlMode ycm) function, expected prototype:\nvoid osgGA::FlightManipulator::setYawControlMode(osgGA::FlightManipulator::YawControlMode ycm)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::setYawControlMode(osgGA::FlightManipulator::YawControlMode ycm) function, expected prototype:\nvoid osgGA::FlightManipulator::setYawControlMode(osgGA::FlightManipulator::YawControlMode ycm)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::FlightManipulator::YawControlMode ycm=(osgGA::FlightManipulator::YawControlMode)lua_tointeger(L,2);
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::setYawControlMode(osgGA::FlightManipulator::YawControlMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::setYawControlMode(osgGA::FlightManipulator::YawControlMode). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setYawControlMode(ycm);
 
@@ -755,15 +736,13 @@ public:
 	// osgGA::FlightManipulator::YawControlMode osgGA::FlightManipulator::getYawControlMode() const
 	static int _bind_getYawControlMode(lua_State *L) {
 		if (!_lg_typecheck_getYawControlMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::FlightManipulator::YawControlMode osgGA::FlightManipulator::getYawControlMode() const function, expected prototype:\nosgGA::FlightManipulator::YawControlMode osgGA::FlightManipulator::getYawControlMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::FlightManipulator::YawControlMode osgGA::FlightManipulator::getYawControlMode() const function, expected prototype:\nosgGA::FlightManipulator::YawControlMode osgGA::FlightManipulator::getYawControlMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::FlightManipulator::YawControlMode osgGA::FlightManipulator::getYawControlMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgGA::FlightManipulator::YawControlMode osgGA::FlightManipulator::getYawControlMode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgGA::FlightManipulator::YawControlMode lret = self->getYawControlMode();
 		lua_pushnumber(L,lret);
@@ -774,8 +753,7 @@ public:
 	// void osgGA::FlightManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_home(lua_State *L) {
 		if (!_lg_typecheck_home(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::FlightManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::FlightManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -791,8 +769,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->home(_arg1, _arg2);
 
@@ -802,8 +779,7 @@ public:
 	// void osgGA::FlightManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_init(lua_State *L) {
 		if (!_lg_typecheck_init(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::FlightManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::FlightManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -819,8 +795,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->init(_arg1, _arg2);
 
@@ -830,8 +805,7 @@ public:
 	// void osgGA::FlightManipulator::getUsage(osg::ApplicationUsage & arg1) const
 	static int _bind_getUsage(lua_State *L) {
 		if (!_lg_typecheck_getUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::getUsage(osg::ApplicationUsage & arg1) const function, expected prototype:\nvoid osgGA::FlightManipulator::getUsage(osg::ApplicationUsage & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::getUsage(osg::ApplicationUsage & arg1) const function, expected prototype:\nvoid osgGA::FlightManipulator::getUsage(osg::ApplicationUsage & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ApplicationUsage* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,2));
@@ -842,8 +816,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::getUsage(osg::ApplicationUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getUsage(_arg1);
 
@@ -853,16 +826,14 @@ public:
 	// void osgGA::FlightManipulator::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setThreadSafeRefUnref(threadSafe);
 
@@ -872,16 +843,14 @@ public:
 	// void osgGA::FlightManipulator::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setName(const std::string & name) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setName(const std::string & name) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setName(name);
 
@@ -891,15 +860,13 @@ public:
 	// void osgGA::FlightManipulator::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_computeDataVariance() function, expected prototype:\nvoid osgGA::FlightManipulator::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_computeDataVariance() function, expected prototype:\nvoid osgGA::FlightManipulator::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::computeDataVariance();
 
@@ -909,16 +876,14 @@ public:
 	// void osgGA::FlightManipulator::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setUserData(obj);
 
@@ -928,15 +893,13 @@ public:
 	// osg::Referenced * osgGA::FlightManipulator::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osgGA::FlightManipulator::base_getUserData() function, expected prototype:\nosg::Referenced * osgGA::FlightManipulator::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osgGA::FlightManipulator::base_getUserData() function, expected prototype:\nosg::Referenced * osgGA::FlightManipulator::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::FlightManipulator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::FlightManipulator::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->FlightManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -949,15 +912,13 @@ public:
 	// const osg::Referenced * osgGA::FlightManipulator::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgGA::FlightManipulator::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgGA::FlightManipulator::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgGA::FlightManipulator::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgGA::FlightManipulator::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::FlightManipulator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::FlightManipulator::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->FlightManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -979,8 +940,7 @@ public:
 	// void osgGA::FlightManipulator::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgGA::FlightManipulator::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgGA::FlightManipulator::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -989,8 +949,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::releaseGLObjects(_arg1);
 
@@ -1000,8 +959,7 @@ public:
 	// void osgGA::FlightManipulator::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable)
 	static int _bind_base_event(lua_State *L) {
 		if (!_lg_typecheck_base_event(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable) function, expected prototype:\nvoid osgGA::FlightManipulator::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable) function, expected prototype:\nvoid osgGA::FlightManipulator::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1009,8 +967,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::event(nv, drawable);
 
@@ -1020,16 +977,14 @@ public:
 	// void osgGA::FlightManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)
 	static int _bind_base_setCoordinateFrameCallback(lua_State *L) {
 		if (!_lg_typecheck_base_setCoordinateFrameCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::CameraManipulator::CoordinateFrameCallback* cb=(Luna< osg::Referenced >::checkSubType< osgGA::CameraManipulator::CoordinateFrameCallback >(L,2));
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setCoordinateFrameCallback(cb);
 
@@ -1039,8 +994,7 @@ public:
 	// void osgGA::FlightManipulator::base_updateCamera(osg::Camera & camera)
 	static int _bind_base_updateCamera(lua_State *L) {
 		if (!_lg_typecheck_base_updateCamera(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_updateCamera(osg::Camera & camera) function, expected prototype:\nvoid osgGA::FlightManipulator::base_updateCamera(osg::Camera & camera)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_updateCamera(osg::Camera & camera) function, expected prototype:\nvoid osgGA::FlightManipulator::base_updateCamera(osg::Camera & camera)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Camera* camera_ptr=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
@@ -1051,8 +1005,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_updateCamera(osg::Camera &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_updateCamera(osg::Camera &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::updateCamera(camera);
 
@@ -1062,15 +1015,13 @@ public:
 	// osgUtil::SceneView::FusionDistanceMode osgGA::FlightManipulator::base_getFusionDistanceMode() const
 	static int _bind_base_getFusionDistanceMode(lua_State *L) {
 		if (!_lg_typecheck_base_getFusionDistanceMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::SceneView::FusionDistanceMode osgGA::FlightManipulator::base_getFusionDistanceMode() const function, expected prototype:\nosgUtil::SceneView::FusionDistanceMode osgGA::FlightManipulator::base_getFusionDistanceMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::SceneView::FusionDistanceMode osgGA::FlightManipulator::base_getFusionDistanceMode() const function, expected prototype:\nosgUtil::SceneView::FusionDistanceMode osgGA::FlightManipulator::base_getFusionDistanceMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::FlightManipulator::base_getFusionDistanceMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::FlightManipulator::base_getFusionDistanceMode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::SceneView::FusionDistanceMode lret = self->FlightManipulator::getFusionDistanceMode();
 		lua_pushnumber(L,lret);
@@ -1081,15 +1032,13 @@ public:
 	// float osgGA::FlightManipulator::base_getFusionDistanceValue() const
 	static int _bind_base_getFusionDistanceValue(lua_State *L) {
 		if (!_lg_typecheck_base_getFusionDistanceValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgGA::FlightManipulator::base_getFusionDistanceValue() const function, expected prototype:\nfloat osgGA::FlightManipulator::base_getFusionDistanceValue() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgGA::FlightManipulator::base_getFusionDistanceValue() const function, expected prototype:\nfloat osgGA::FlightManipulator::base_getFusionDistanceValue() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::FlightManipulator::base_getFusionDistanceValue() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgGA::FlightManipulator::base_getFusionDistanceValue() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->FlightManipulator::getFusionDistanceValue();
 		lua_pushnumber(L,lret);
@@ -1100,8 +1049,7 @@ public:
 	// void osgGA::FlightManipulator::base_setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)
 	static int _bind_base_setHomePosition(lua_State *L) {
 		if (!_lg_typecheck_base_setHomePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1125,8 +1073,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
 
@@ -1136,8 +1083,7 @@ public:
 	// void osgGA::FlightManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
 	static int _bind_base_getHomePosition(lua_State *L) {
 		if (!_lg_typecheck_base_getHomePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const function, expected prototype:\nvoid osgGA::FlightManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const function, expected prototype:\nvoid osgGA::FlightManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1158,8 +1104,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::getHomePosition(eye, center, up);
 
@@ -1169,16 +1114,14 @@ public:
 	// void osgGA::FlightManipulator::base_setAutoComputeHomePosition(bool flag)
 	static int _bind_base_setAutoComputeHomePosition(lua_State *L) {
 		if (!_lg_typecheck_base_setAutoComputeHomePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setAutoComputeHomePosition(bool flag) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setAutoComputeHomePosition(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setAutoComputeHomePosition(bool flag) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setAutoComputeHomePosition(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setAutoComputeHomePosition(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setAutoComputeHomePosition(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setAutoComputeHomePosition(flag);
 
@@ -1188,8 +1131,7 @@ public:
 	// void osgGA::FlightManipulator::base_computeHomePosition(const osg::Camera * camera = NULL, bool useBoundingBox = false)
 	static int _bind_base_computeHomePosition(lua_State *L) {
 		if (!_lg_typecheck_base_computeHomePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_computeHomePosition(const osg::Camera * camera = NULL, bool useBoundingBox = false) function, expected prototype:\nvoid osgGA::FlightManipulator::base_computeHomePosition(const osg::Camera * camera = NULL, bool useBoundingBox = false)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_computeHomePosition(const osg::Camera * camera = NULL, bool useBoundingBox = false) function, expected prototype:\nvoid osgGA::FlightManipulator::base_computeHomePosition(const osg::Camera * camera = NULL, bool useBoundingBox = false)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1199,8 +1141,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_computeHomePosition(const osg::Camera *, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_computeHomePosition(const osg::Camera *, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::computeHomePosition(camera, useBoundingBox);
 
@@ -1210,16 +1151,14 @@ public:
 	// void osgGA::FlightManipulator::base_setNode(osg::Node * arg1)
 	static int _bind_base_setNode(lua_State *L) {
 		if (!_lg_typecheck_base_setNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setNode(osg::Node * arg1) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setNode(osg::Node * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setNode(osg::Node * arg1) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setNode(osg::Node * arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* _arg1=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setNode(osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setNode(_arg1);
 
@@ -1229,15 +1168,13 @@ public:
 	// const osg::Node * osgGA::FlightManipulator::base_getNode() const
 	static int _bind_base_getNode_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getNode_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Node * osgGA::FlightManipulator::base_getNode() const function, expected prototype:\nconst osg::Node * osgGA::FlightManipulator::base_getNode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Node * osgGA::FlightManipulator::base_getNode() const function, expected prototype:\nconst osg::Node * osgGA::FlightManipulator::base_getNode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::FlightManipulator::base_getNode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::FlightManipulator::base_getNode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Node * lret = self->FlightManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1250,15 +1187,13 @@ public:
 	// osg::Node * osgGA::FlightManipulator::base_getNode()
 	static int _bind_base_getNode_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getNode_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Node * osgGA::FlightManipulator::base_getNode() function, expected prototype:\nosg::Node * osgGA::FlightManipulator::base_getNode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Node * osgGA::FlightManipulator::base_getNode() function, expected prototype:\nosg::Node * osgGA::FlightManipulator::base_getNode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgGA::FlightManipulator::base_getNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Node * osgGA::FlightManipulator::base_getNode(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Node * lret = self->FlightManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1280,16 +1215,14 @@ public:
 	// void osgGA::FlightManipulator::base_setVerticalAxisFixed(bool value)
 	static int _bind_base_setVerticalAxisFixed(lua_State *L) {
 		if (!_lg_typecheck_base_setVerticalAxisFixed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setVerticalAxisFixed(bool value) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setVerticalAxisFixed(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setVerticalAxisFixed(bool value) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setVerticalAxisFixed(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setVerticalAxisFixed(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setVerticalAxisFixed(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setVerticalAxisFixed(value);
 
@@ -1299,16 +1232,14 @@ public:
 	// void osgGA::FlightManipulator::base_setAllowThrow(bool allowThrow)
 	static int _bind_base_setAllowThrow(lua_State *L) {
 		if (!_lg_typecheck_base_setAllowThrow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setAllowThrow(bool allowThrow) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setAllowThrow(bool allowThrow)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setAllowThrow(bool allowThrow) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setAllowThrow(bool allowThrow)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool allowThrow=(bool)(lua_toboolean(L,2)==1);
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setAllowThrow(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setAllowThrow(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setAllowThrow(allowThrow);
 
@@ -1318,16 +1249,14 @@ public:
 	// void osgGA::FlightManipulator::base_setAnimationTime(const double t)
 	static int _bind_base_setAnimationTime(lua_State *L) {
 		if (!_lg_typecheck_base_setAnimationTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setAnimationTime(const double t) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setAnimationTime(const double t)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setAnimationTime(const double t) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setAnimationTime(const double t)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const double t=(const double)lua_tonumber(L,2);
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setAnimationTime(const double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setAnimationTime(const double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setAnimationTime(t);
 
@@ -1337,15 +1266,13 @@ public:
 	// void osgGA::FlightManipulator::base_finishAnimation()
 	static int _bind_base_finishAnimation(lua_State *L) {
 		if (!_lg_typecheck_base_finishAnimation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_finishAnimation() function, expected prototype:\nvoid osgGA::FlightManipulator::base_finishAnimation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_finishAnimation() function, expected prototype:\nvoid osgGA::FlightManipulator::base_finishAnimation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_finishAnimation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_finishAnimation(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::finishAnimation();
 
@@ -1355,8 +1282,7 @@ public:
 	// bool osgGA::FlightManipulator::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
 	static int _bind_base_handle(lua_State *L) {
 		if (!_lg_typecheck_base_handle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::FlightManipulator::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) function, expected prototype:\nbool osgGA::FlightManipulator::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::FlightManipulator::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) function, expected prototype:\nbool osgGA::FlightManipulator::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -1372,8 +1298,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::FlightManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::FlightManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->FlightManipulator::handle(ea, us);
 		lua_pushboolean(L,lret?1:0);
@@ -1384,8 +1309,7 @@ public:
 	// void osgGA::FlightManipulator::base_setByMatrix(const osg::Matrixd & matrix)
 	static int _bind_base_setByMatrix(lua_State *L) {
 		if (!_lg_typecheck_base_setByMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setByMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setByMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setByMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setByMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -1396,8 +1320,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setByMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setByMatrix(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setByMatrix(matrix);
 
@@ -1407,8 +1330,7 @@ public:
 	// void osgGA::FlightManipulator::base_setByInverseMatrix(const osg::Matrixd & matrix)
 	static int _bind_base_setByInverseMatrix(lua_State *L) {
 		if (!_lg_typecheck_base_setByInverseMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setByInverseMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setByInverseMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setByInverseMatrix(const osg::Matrixd & matrix) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setByInverseMatrix(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -1419,8 +1341,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setByInverseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setByInverseMatrix(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setByInverseMatrix(matrix);
 
@@ -1430,15 +1351,13 @@ public:
 	// osg::Matrixd osgGA::FlightManipulator::base_getMatrix() const
 	static int _bind_base_getMatrix(lua_State *L) {
 		if (!_lg_typecheck_base_getMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::FlightManipulator::base_getMatrix() const function, expected prototype:\nosg::Matrixd osgGA::FlightManipulator::base_getMatrix() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::FlightManipulator::base_getMatrix() const function, expected prototype:\nosg::Matrixd osgGA::FlightManipulator::base_getMatrix() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::FlightManipulator::base_getMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::FlightManipulator::base_getMatrix() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixd stack_lret = self->FlightManipulator::getMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1452,15 +1371,13 @@ public:
 	// osg::Matrixd osgGA::FlightManipulator::base_getInverseMatrix() const
 	static int _bind_base_getInverseMatrix(lua_State *L) {
 		if (!_lg_typecheck_base_getInverseMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::FlightManipulator::base_getInverseMatrix() const function, expected prototype:\nosg::Matrixd osgGA::FlightManipulator::base_getInverseMatrix() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osgGA::FlightManipulator::base_getInverseMatrix() const function, expected prototype:\nosg::Matrixd osgGA::FlightManipulator::base_getInverseMatrix() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::FlightManipulator::base_getInverseMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::FlightManipulator::base_getInverseMatrix() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixd stack_lret = self->FlightManipulator::getInverseMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1474,8 +1391,7 @@ public:
 	// void osgGA::FlightManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Quat & rotation)
 	static int _bind_base_setTransformation_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_setTransformation_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Quat & rotation) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Quat & rotation)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Quat & rotation) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Quat & rotation)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1491,8 +1407,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setTransformation(const osg::Vec3d &, const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setTransformation(const osg::Vec3d &, const osg::Quat &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setTransformation(eye, rotation);
 
@@ -1502,8 +1417,7 @@ public:
 	// void osgGA::FlightManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)
 	static int _bind_base_setTransformation_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_setTransformation_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setTransformation(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1524,8 +1438,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setTransformation(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setTransformation(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setTransformation(eye, center, up);
 
@@ -1544,8 +1457,7 @@ public:
 	// void osgGA::FlightManipulator::base_getTransformation(osg::Vec3d & eye, osg::Quat & rotation) const
 	static int _bind_base_getTransformation_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getTransformation_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_getTransformation(osg::Vec3d & eye, osg::Quat & rotation) const function, expected prototype:\nvoid osgGA::FlightManipulator::base_getTransformation(osg::Vec3d & eye, osg::Quat & rotation) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_getTransformation(osg::Vec3d & eye, osg::Quat & rotation) const function, expected prototype:\nvoid osgGA::FlightManipulator::base_getTransformation(osg::Vec3d & eye, osg::Quat & rotation) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1561,8 +1473,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_getTransformation(osg::Vec3d &, osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_getTransformation(osg::Vec3d &, osg::Quat &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::getTransformation(eye, rotation);
 
@@ -1572,8 +1483,7 @@ public:
 	// void osgGA::FlightManipulator::base_getTransformation(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
 	static int _bind_base_getTransformation_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getTransformation_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_getTransformation(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const function, expected prototype:\nvoid osgGA::FlightManipulator::base_getTransformation(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_getTransformation(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const function, expected prototype:\nvoid osgGA::FlightManipulator::base_getTransformation(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1594,8 +1504,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_getTransformation(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_getTransformation(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::getTransformation(eye, center, up);
 
@@ -1614,16 +1523,14 @@ public:
 	// void osgGA::FlightManipulator::base_setVelocity(const double & velocity)
 	static int _bind_base_setVelocity(lua_State *L) {
 		if (!_lg_typecheck_base_setVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setVelocity(const double & velocity) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setVelocity(const double & velocity)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setVelocity(const double & velocity) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setVelocity(const double & velocity)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const double velocity=(const double)lua_tonumber(L,2);
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setVelocity(const double &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setVelocity(const double &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setVelocity(velocity);
 
@@ -1633,8 +1540,7 @@ public:
 	// void osgGA::FlightManipulator::base_setAcceleration(const double & acceleration, bool relativeToModelSize = false)
 	static int _bind_base_setAcceleration(lua_State *L) {
 		if (!_lg_typecheck_base_setAcceleration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setAcceleration(const double & acceleration, bool relativeToModelSize = false) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setAcceleration(const double & acceleration, bool relativeToModelSize = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setAcceleration(const double & acceleration, bool relativeToModelSize = false) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setAcceleration(const double & acceleration, bool relativeToModelSize = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1644,8 +1550,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setAcceleration(const double &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setAcceleration(const double &, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setAcceleration(acceleration, relativeToModelSize);
 
@@ -1655,8 +1560,7 @@ public:
 	// void osgGA::FlightManipulator::base_setMaxVelocity(const double & maxVelocity, bool relativeToModelSize = false)
 	static int _bind_base_setMaxVelocity(lua_State *L) {
 		if (!_lg_typecheck_base_setMaxVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setMaxVelocity(const double & maxVelocity, bool relativeToModelSize = false) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setMaxVelocity(const double & maxVelocity, bool relativeToModelSize = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setMaxVelocity(const double & maxVelocity, bool relativeToModelSize = false) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setMaxVelocity(const double & maxVelocity, bool relativeToModelSize = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1666,8 +1570,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setMaxVelocity(const double &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setMaxVelocity(const double &, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setMaxVelocity(maxVelocity, relativeToModelSize);
 
@@ -1677,8 +1580,7 @@ public:
 	// void osgGA::FlightManipulator::base_setWheelMovement(const double & wheelMovement, bool relativeToModelSize = false)
 	static int _bind_base_setWheelMovement(lua_State *L) {
 		if (!_lg_typecheck_base_setWheelMovement(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setWheelMovement(const double & wheelMovement, bool relativeToModelSize = false) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setWheelMovement(const double & wheelMovement, bool relativeToModelSize = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setWheelMovement(const double & wheelMovement, bool relativeToModelSize = false) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setWheelMovement(const double & wheelMovement, bool relativeToModelSize = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1688,8 +1590,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setWheelMovement(const double &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setWheelMovement(const double &, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setWheelMovement(wheelMovement, relativeToModelSize);
 
@@ -1699,15 +1600,13 @@ public:
 	// osg::Object * osgGA::FlightManipulator::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::FlightManipulator::base_cloneType() const function, expected prototype:\nosg::Object * osgGA::FlightManipulator::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::FlightManipulator::base_cloneType() const function, expected prototype:\nosg::Object * osgGA::FlightManipulator::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FlightManipulator::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FlightManipulator::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->FlightManipulator::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1720,8 +1619,7 @@ public:
 	// osg::Object * osgGA::FlightManipulator::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::FlightManipulator::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::FlightManipulator::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::FlightManipulator::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::FlightManipulator::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1732,8 +1630,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FlightManipulator::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FlightManipulator::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->FlightManipulator::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1746,16 +1643,14 @@ public:
 	// bool osgGA::FlightManipulator::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::FlightManipulator::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgGA::FlightManipulator::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::FlightManipulator::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgGA::FlightManipulator::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::FlightManipulator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::FlightManipulator::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->FlightManipulator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1766,15 +1661,13 @@ public:
 	// const char * osgGA::FlightManipulator::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgGA::FlightManipulator::base_libraryName() const function, expected prototype:\nconst char * osgGA::FlightManipulator::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgGA::FlightManipulator::base_libraryName() const function, expected prototype:\nconst char * osgGA::FlightManipulator::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::FlightManipulator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgGA::FlightManipulator::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->FlightManipulator::libraryName();
 		lua_pushstring(L,lret);
@@ -1785,15 +1678,13 @@ public:
 	// const char * osgGA::FlightManipulator::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgGA::FlightManipulator::base_className() const function, expected prototype:\nconst char * osgGA::FlightManipulator::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgGA::FlightManipulator::base_className() const function, expected prototype:\nconst char * osgGA::FlightManipulator::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::FlightManipulator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgGA::FlightManipulator::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->FlightManipulator::className();
 		lua_pushstring(L,lret);
@@ -1804,16 +1695,14 @@ public:
 	// void osgGA::FlightManipulator::base_setYawControlMode(osgGA::FlightManipulator::YawControlMode ycm)
 	static int _bind_base_setYawControlMode(lua_State *L) {
 		if (!_lg_typecheck_base_setYawControlMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setYawControlMode(osgGA::FlightManipulator::YawControlMode ycm) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setYawControlMode(osgGA::FlightManipulator::YawControlMode ycm)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setYawControlMode(osgGA::FlightManipulator::YawControlMode ycm) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setYawControlMode(osgGA::FlightManipulator::YawControlMode ycm)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::FlightManipulator::YawControlMode ycm=(osgGA::FlightManipulator::YawControlMode)lua_tointeger(L,2);
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setYawControlMode(osgGA::FlightManipulator::YawControlMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_setYawControlMode(osgGA::FlightManipulator::YawControlMode). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::setYawControlMode(ycm);
 
@@ -1823,8 +1712,7 @@ public:
 	// void osgGA::FlightManipulator::base_home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_base_home(lua_State *L) {
 		if (!_lg_typecheck_base_home(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::FlightManipulator::base_home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::FlightManipulator::base_home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -1840,8 +1728,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::home(_arg1, _arg2);
 
@@ -1851,8 +1738,7 @@ public:
 	// void osgGA::FlightManipulator::base_init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_base_init(lua_State *L) {
 		if (!_lg_typecheck_base_init(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::FlightManipulator::base_init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::FlightManipulator::base_init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -1868,8 +1754,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::init(_arg1, _arg2);
 
@@ -1879,8 +1764,7 @@ public:
 	// void osgGA::FlightManipulator::base_getUsage(osg::ApplicationUsage & arg1) const
 	static int _bind_base_getUsage(lua_State *L) {
 		if (!_lg_typecheck_base_getUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_getUsage(osg::ApplicationUsage & arg1) const function, expected prototype:\nvoid osgGA::FlightManipulator::base_getUsage(osg::ApplicationUsage & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_getUsage(osg::ApplicationUsage & arg1) const function, expected prototype:\nvoid osgGA::FlightManipulator::base_getUsage(osg::ApplicationUsage & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ApplicationUsage* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,2));
@@ -1891,8 +1775,7 @@ public:
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::FlightManipulator::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlightManipulator::getUsage(_arg1);
 

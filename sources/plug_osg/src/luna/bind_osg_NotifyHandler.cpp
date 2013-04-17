@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NotifyHandler* self= (osg::NotifyHandler*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -121,8 +118,7 @@ public:
 	// osg::NotifyHandler::NotifyHandler(lua_Table * data)
 	static osg::NotifyHandler* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::NotifyHandler::NotifyHandler(lua_Table * data) function, expected prototype:\nosg::NotifyHandler::NotifyHandler(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::NotifyHandler::NotifyHandler(lua_Table * data) function, expected prototype:\nosg::NotifyHandler::NotifyHandler(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -134,8 +130,7 @@ public:
 	// void osg::NotifyHandler::notify(osg::NotifySeverity severity, const char * message)
 	static int _bind_notify(lua_State *L) {
 		if (!_lg_typecheck_notify(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::NotifyHandler::notify(osg::NotifySeverity severity, const char * message) function, expected prototype:\nvoid osg::NotifyHandler::notify(osg::NotifySeverity severity, const char * message)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::NotifyHandler::notify(osg::NotifySeverity severity, const char * message) function, expected prototype:\nvoid osg::NotifyHandler::notify(osg::NotifySeverity severity, const char * message)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NotifySeverity severity=(osg::NotifySeverity)lua_tointeger(L,2);
@@ -143,8 +138,7 @@ public:
 
 		osg::NotifyHandler* self=Luna< osg::Referenced >::checkSubType< osg::NotifyHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NotifyHandler::notify(osg::NotifySeverity, const char *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::NotifyHandler::notify(osg::NotifySeverity, const char *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->notify(severity, message);
 
@@ -154,16 +148,14 @@ public:
 	// void osg::NotifyHandler::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::NotifyHandler::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::NotifyHandler::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::NotifyHandler::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::NotifyHandler::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::NotifyHandler* self=Luna< osg::Referenced >::checkSubType< osg::NotifyHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NotifyHandler::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::NotifyHandler::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->NotifyHandler::setThreadSafeRefUnref(threadSafe);
 

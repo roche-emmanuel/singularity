@@ -229,4 +229,30 @@ function suite.test_infinity()
 	log:info("Done testing Infinity value.")
 end
 
+function suite.test_frustum()
+	log:info("Testing frustum computation")
+	
+	local fovy = 20.0 + math.random()*50.0;
+	local aspect = 1.0 + math.random()*0.66;
+	
+	local mat = osg.Matrixd.perspective(fovy,aspect,0.1,10000.0);
+	
+	local planes = mat:extractFrustumPlanes()
+	assert_equal(6,planes:size(),"Invalid frustum plane count result.")
+	
+	-- retrieve the normals from the planes:
+	local bottom = planes:at(2):asVec4():xyz():normalized()
+	local top = planes:at(3):getNormal():normalized()
+	
+	assert_lt(1e-10,math.abs(1.0-bottom:length()),"Invalid plane normal length.")
+	--assert_equal(1.0,bottom:length(),"Invalid plane normal length bis.")
+	
+	local fov = math.deg(math.acos(-(bottom*top)));
+	log:info("Tests","Testing frustum computation with fovy=",fovy)
+	
+	assert_lt(1e-10,math.abs(fovy-fov),"Invalid fovy computation result.")
+	
+	log:info("Done testing frustum computation")
+end
+
 return suite

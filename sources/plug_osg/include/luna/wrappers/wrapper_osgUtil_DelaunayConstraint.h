@@ -486,8 +486,7 @@ public:
 	// bool osg::Geometry::public_verifyBindings(const osg::Geometry::ArrayData & arrayData) const
 	static int _bind_public_verifyBindings(lua_State *L) {
 		if (!_lg_typecheck_public_verifyBindings(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Geometry::public_verifyBindings(const osg::Geometry::ArrayData & arrayData) const function, expected prototype:\nbool osg::Geometry::public_verifyBindings(const osg::Geometry::ArrayData & arrayData) const\nClass arguments details:\narg 1 ID = 26680564\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Geometry::public_verifyBindings(const osg::Geometry::ArrayData & arrayData) const function, expected prototype:\nbool osg::Geometry::public_verifyBindings(const osg::Geometry::ArrayData & arrayData) const\nClass arguments details:\narg 1 ID = 26680564\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Geometry::ArrayData* arrayData_ptr=(Luna< osg::Geometry::ArrayData >::check(L,2));
@@ -498,8 +497,7 @@ public:
 
 		wrapper_osgUtil_DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geometry::public_verifyBindings(const osg::Geometry::ArrayData &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Geometry::public_verifyBindings(const osg::Geometry::ArrayData &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_verifyBindings(arrayData);
 		lua_pushboolean(L,lret?1:0);
@@ -510,8 +508,7 @@ public:
 	// void osg::Geometry::public_computeCorrectBindingsAndArraySizes(osg::Geometry::ArrayData & arrayData, const char * arrayName)
 	static int _bind_public_computeCorrectBindingsAndArraySizes(lua_State *L) {
 		if (!_lg_typecheck_public_computeCorrectBindingsAndArraySizes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Geometry::public_computeCorrectBindingsAndArraySizes(osg::Geometry::ArrayData & arrayData, const char * arrayName) function, expected prototype:\nvoid osg::Geometry::public_computeCorrectBindingsAndArraySizes(osg::Geometry::ArrayData & arrayData, const char * arrayName)\nClass arguments details:\narg 1 ID = 26680564\n");
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::public_computeCorrectBindingsAndArraySizes(osg::Geometry::ArrayData & arrayData, const char * arrayName) function, expected prototype:\nvoid osg::Geometry::public_computeCorrectBindingsAndArraySizes(osg::Geometry::ArrayData & arrayData, const char * arrayName)\nClass arguments details:\narg 1 ID = 26680564\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geometry::ArrayData* arrayData_ptr=(Luna< osg::Geometry::ArrayData >::check(L,2));
@@ -523,8 +520,7 @@ public:
 
 		wrapper_osgUtil_DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Geometry::public_computeCorrectBindingsAndArraySizes(osg::Geometry::ArrayData &, const char *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Geometry::public_computeCorrectBindingsAndArraySizes(osg::Geometry::ArrayData &, const char *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computeCorrectBindingsAndArraySizes(arrayData, arrayName);
 
@@ -534,16 +530,14 @@ public:
 	// void osg::Geometry::public_addVertexBufferObjectIfRequired(osg::Array * array)
 	static int _bind_public_addVertexBufferObjectIfRequired(lua_State *L) {
 		if (!_lg_typecheck_public_addVertexBufferObjectIfRequired(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Geometry::public_addVertexBufferObjectIfRequired(osg::Array * array) function, expected prototype:\nvoid osg::Geometry::public_addVertexBufferObjectIfRequired(osg::Array * array)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::public_addVertexBufferObjectIfRequired(osg::Array * array) function, expected prototype:\nvoid osg::Geometry::public_addVertexBufferObjectIfRequired(osg::Array * array)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
 
 		wrapper_osgUtil_DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Geometry::public_addVertexBufferObjectIfRequired(osg::Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Geometry::public_addVertexBufferObjectIfRequired(osg::Array *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_addVertexBufferObjectIfRequired(array);
 
@@ -553,16 +547,14 @@ public:
 	// void osg::Geometry::public_addElementBufferObjectIfRequired(osg::PrimitiveSet * primitiveSet)
 	static int _bind_public_addElementBufferObjectIfRequired(lua_State *L) {
 		if (!_lg_typecheck_public_addElementBufferObjectIfRequired(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Geometry::public_addElementBufferObjectIfRequired(osg::PrimitiveSet * primitiveSet) function, expected prototype:\nvoid osg::Geometry::public_addElementBufferObjectIfRequired(osg::PrimitiveSet * primitiveSet)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::public_addElementBufferObjectIfRequired(osg::PrimitiveSet * primitiveSet) function, expected prototype:\nvoid osg::Geometry::public_addElementBufferObjectIfRequired(osg::PrimitiveSet * primitiveSet)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::PrimitiveSet* primitiveSet=(Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,2));
 
 		wrapper_osgUtil_DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Geometry::public_addElementBufferObjectIfRequired(osg::PrimitiveSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Geometry::public_addElementBufferObjectIfRequired(osg::PrimitiveSet *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_addElementBufferObjectIfRequired(primitiveSet);
 
@@ -572,8 +564,7 @@ public:
 	// osg::Geometry & osg::Geometry::public_op_assign(const osg::Geometry & arg1)
 	static int _bind_public_op_assign(lua_State *L) {
 		if (!_lg_typecheck_public_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geometry & osg::Geometry::public_op_assign(const osg::Geometry & arg1) function, expected prototype:\nosg::Geometry & osg::Geometry::public_op_assign(const osg::Geometry & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Geometry & osg::Geometry::public_op_assign(const osg::Geometry & arg1) function, expected prototype:\nosg::Geometry & osg::Geometry::public_op_assign(const osg::Geometry & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Geometry* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
@@ -584,8 +575,7 @@ public:
 
 		wrapper_osgUtil_DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry & osg::Geometry::public_op_assign(const osg::Geometry &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Geometry & osg::Geometry::public_op_assign(const osg::Geometry &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Geometry* lret = &self->public_op_assign(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -598,8 +588,7 @@ public:
 	// void osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const
 	static int _bind_public_setBound(lua_State *L) {
 		if (!_lg_typecheck_public_setBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const function, expected prototype:\nvoid osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const function, expected prototype:\nvoid osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
@@ -610,8 +599,7 @@ public:
 
 		wrapper_osgUtil_DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setBound(const osg::BoundingBoxd &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setBound(const osg::BoundingBoxd &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setBound(bb);
 
@@ -621,16 +609,14 @@ public:
 	// void osg::Drawable::public_addParent(osg::Node * node)
 	static int _bind_public_addParent(lua_State *L) {
 		if (!_lg_typecheck_public_addParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_addParent(osg::Node * node) function, expected prototype:\nvoid osg::Drawable::public_addParent(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_addParent(osg::Node * node) function, expected prototype:\nvoid osg::Drawable::public_addParent(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		wrapper_osgUtil_DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_addParent(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_addParent(osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_addParent(node);
 
@@ -640,16 +626,14 @@ public:
 	// void osg::Drawable::public_removeParent(osg::Node * node)
 	static int _bind_public_removeParent(lua_State *L) {
 		if (!_lg_typecheck_public_removeParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_removeParent(osg::Node * node) function, expected prototype:\nvoid osg::Drawable::public_removeParent(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_removeParent(osg::Node * node) function, expected prototype:\nvoid osg::Drawable::public_removeParent(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		wrapper_osgUtil_DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_removeParent(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_removeParent(osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_removeParent(node);
 
@@ -659,16 +643,14 @@ public:
 	// void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num)
 	static int _bind_public_setNumChildrenRequiringUpdateTraversal(lua_State *L) {
 		if (!_lg_typecheck_public_setNumChildrenRequiringUpdateTraversal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num) function, expected prototype:\nvoid osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num) function, expected prototype:\nvoid osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int num=(unsigned int)lua_tointeger(L,2);
 
 		wrapper_osgUtil_DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setNumChildrenRequiringUpdateTraversal(num);
 
@@ -678,15 +660,13 @@ public:
 	// unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const
 	static int _bind_public_getNumChildrenRequiringUpdateTraversal(lua_State *L) {
 		if (!_lg_typecheck_public_getNumChildrenRequiringUpdateTraversal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const function, expected prototype:\nunsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const function, expected prototype:\nunsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgUtil_DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->public_getNumChildrenRequiringUpdateTraversal();
 		lua_pushnumber(L,lret);
@@ -697,16 +677,14 @@ public:
 	// void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num)
 	static int _bind_public_setNumChildrenRequiringEventTraversal(lua_State *L) {
 		if (!_lg_typecheck_public_setNumChildrenRequiringEventTraversal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num) function, expected prototype:\nvoid osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num) function, expected prototype:\nvoid osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int num=(unsigned int)lua_tointeger(L,2);
 
 		wrapper_osgUtil_DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setNumChildrenRequiringEventTraversal(num);
 
@@ -716,15 +694,13 @@ public:
 	// unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const
 	static int _bind_public_getNumChildrenRequiringEventTraversal(lua_State *L) {
 		if (!_lg_typecheck_public_getNumChildrenRequiringEventTraversal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const function, expected prototype:\nunsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const function, expected prototype:\nunsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgUtil_DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->public_getNumChildrenRequiringEventTraversal();
 		lua_pushnumber(L,lret);
@@ -735,8 +711,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -744,8 +719,7 @@ public:
 
 		wrapper_osgUtil_DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -755,15 +729,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgUtil_DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

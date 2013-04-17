@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Simplifier* self= (osgUtil::Simplifier*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -336,8 +333,7 @@ public:
 	// osgUtil::Simplifier::Simplifier(double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0)
 	static osgUtil::Simplifier* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Simplifier::Simplifier(double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0) function, expected prototype:\nosgUtil::Simplifier::Simplifier(double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::Simplifier::Simplifier(double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0) function, expected prototype:\nosgUtil::Simplifier::Simplifier(double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -352,8 +348,7 @@ public:
 	// osgUtil::Simplifier::Simplifier(lua_Table * data, double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0)
 	static osgUtil::Simplifier* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Simplifier::Simplifier(lua_Table * data, double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0) function, expected prototype:\nosgUtil::Simplifier::Simplifier(lua_Table * data, double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::Simplifier::Simplifier(lua_Table * data, double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0) function, expected prototype:\nosgUtil::Simplifier::Simplifier(lua_Table * data, double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -379,15 +374,13 @@ public:
 	// const char * osgUtil::Simplifier::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::Simplifier::libraryName() const function, expected prototype:\nconst char * osgUtil::Simplifier::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::Simplifier::libraryName() const function, expected prototype:\nconst char * osgUtil::Simplifier::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -398,15 +391,13 @@ public:
 	// const char * osgUtil::Simplifier::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::Simplifier::className() const function, expected prototype:\nconst char * osgUtil::Simplifier::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::Simplifier::className() const function, expected prototype:\nconst char * osgUtil::Simplifier::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -417,16 +408,14 @@ public:
 	// void osgUtil::Simplifier::setSampleRatio(float sampleRatio)
 	static int _bind_setSampleRatio(lua_State *L) {
 		if (!_lg_typecheck_setSampleRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::setSampleRatio(float sampleRatio) function, expected prototype:\nvoid osgUtil::Simplifier::setSampleRatio(float sampleRatio)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::setSampleRatio(float sampleRatio) function, expected prototype:\nvoid osgUtil::Simplifier::setSampleRatio(float sampleRatio)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float sampleRatio=(float)lua_tonumber(L,2);
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setSampleRatio(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setSampleRatio(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSampleRatio(sampleRatio);
 
@@ -436,15 +425,13 @@ public:
 	// float osgUtil::Simplifier::getSampleRatio() const
 	static int _bind_getSampleRatio(lua_State *L) {
 		if (!_lg_typecheck_getSampleRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::Simplifier::getSampleRatio() const function, expected prototype:\nfloat osgUtil::Simplifier::getSampleRatio() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::Simplifier::getSampleRatio() const function, expected prototype:\nfloat osgUtil::Simplifier::getSampleRatio() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::getSampleRatio() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::getSampleRatio() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getSampleRatio();
 		lua_pushnumber(L,lret);
@@ -455,16 +442,14 @@ public:
 	// void osgUtil::Simplifier::setMaximumError(float error)
 	static int _bind_setMaximumError(lua_State *L) {
 		if (!_lg_typecheck_setMaximumError(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::setMaximumError(float error) function, expected prototype:\nvoid osgUtil::Simplifier::setMaximumError(float error)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::setMaximumError(float error) function, expected prototype:\nvoid osgUtil::Simplifier::setMaximumError(float error)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float error=(float)lua_tonumber(L,2);
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setMaximumError(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setMaximumError(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMaximumError(error);
 
@@ -474,15 +459,13 @@ public:
 	// float osgUtil::Simplifier::getMaximumError() const
 	static int _bind_getMaximumError(lua_State *L) {
 		if (!_lg_typecheck_getMaximumError(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::Simplifier::getMaximumError() const function, expected prototype:\nfloat osgUtil::Simplifier::getMaximumError() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::Simplifier::getMaximumError() const function, expected prototype:\nfloat osgUtil::Simplifier::getMaximumError() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::getMaximumError() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::getMaximumError() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getMaximumError();
 		lua_pushnumber(L,lret);
@@ -493,16 +476,14 @@ public:
 	// void osgUtil::Simplifier::setMaximumLength(float length)
 	static int _bind_setMaximumLength(lua_State *L) {
 		if (!_lg_typecheck_setMaximumLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::setMaximumLength(float length) function, expected prototype:\nvoid osgUtil::Simplifier::setMaximumLength(float length)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::setMaximumLength(float length) function, expected prototype:\nvoid osgUtil::Simplifier::setMaximumLength(float length)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float length=(float)lua_tonumber(L,2);
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setMaximumLength(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setMaximumLength(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMaximumLength(length);
 
@@ -512,15 +493,13 @@ public:
 	// float osgUtil::Simplifier::getMaximumLength() const
 	static int _bind_getMaximumLength(lua_State *L) {
 		if (!_lg_typecheck_getMaximumLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::Simplifier::getMaximumLength() const function, expected prototype:\nfloat osgUtil::Simplifier::getMaximumLength() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::Simplifier::getMaximumLength() const function, expected prototype:\nfloat osgUtil::Simplifier::getMaximumLength() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::getMaximumLength() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::getMaximumLength() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getMaximumLength();
 		lua_pushnumber(L,lret);
@@ -531,16 +510,14 @@ public:
 	// void osgUtil::Simplifier::setDoTriStrip(bool on)
 	static int _bind_setDoTriStrip(lua_State *L) {
 		if (!_lg_typecheck_setDoTriStrip(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::setDoTriStrip(bool on) function, expected prototype:\nvoid osgUtil::Simplifier::setDoTriStrip(bool on)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::setDoTriStrip(bool on) function, expected prototype:\nvoid osgUtil::Simplifier::setDoTriStrip(bool on)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool on=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setDoTriStrip(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setDoTriStrip(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDoTriStrip(on);
 
@@ -550,15 +527,13 @@ public:
 	// bool osgUtil::Simplifier::getDoTriStrip() const
 	static int _bind_getDoTriStrip(lua_State *L) {
 		if (!_lg_typecheck_getDoTriStrip(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::Simplifier::getDoTriStrip() const function, expected prototype:\nbool osgUtil::Simplifier::getDoTriStrip() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::Simplifier::getDoTriStrip() const function, expected prototype:\nbool osgUtil::Simplifier::getDoTriStrip() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::getDoTriStrip() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::getDoTriStrip() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getDoTriStrip();
 		lua_pushboolean(L,lret?1:0);
@@ -569,16 +544,14 @@ public:
 	// void osgUtil::Simplifier::setSmoothing(bool on)
 	static int _bind_setSmoothing(lua_State *L) {
 		if (!_lg_typecheck_setSmoothing(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::setSmoothing(bool on) function, expected prototype:\nvoid osgUtil::Simplifier::setSmoothing(bool on)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::setSmoothing(bool on) function, expected prototype:\nvoid osgUtil::Simplifier::setSmoothing(bool on)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool on=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setSmoothing(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setSmoothing(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSmoothing(on);
 
@@ -588,15 +561,13 @@ public:
 	// bool osgUtil::Simplifier::getSmoothing() const
 	static int _bind_getSmoothing(lua_State *L) {
 		if (!_lg_typecheck_getSmoothing(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::Simplifier::getSmoothing() const function, expected prototype:\nbool osgUtil::Simplifier::getSmoothing() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::Simplifier::getSmoothing() const function, expected prototype:\nbool osgUtil::Simplifier::getSmoothing() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::getSmoothing() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::getSmoothing() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getSmoothing();
 		lua_pushboolean(L,lret?1:0);
@@ -607,16 +578,14 @@ public:
 	// void osgUtil::Simplifier::setContinueSimplificationCallback(osgUtil::Simplifier::ContinueSimplificationCallback * cb)
 	static int _bind_setContinueSimplificationCallback(lua_State *L) {
 		if (!_lg_typecheck_setContinueSimplificationCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::setContinueSimplificationCallback(osgUtil::Simplifier::ContinueSimplificationCallback * cb) function, expected prototype:\nvoid osgUtil::Simplifier::setContinueSimplificationCallback(osgUtil::Simplifier::ContinueSimplificationCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::setContinueSimplificationCallback(osgUtil::Simplifier::ContinueSimplificationCallback * cb) function, expected prototype:\nvoid osgUtil::Simplifier::setContinueSimplificationCallback(osgUtil::Simplifier::ContinueSimplificationCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Simplifier::ContinueSimplificationCallback* cb=(Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier::ContinueSimplificationCallback >(L,2));
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setContinueSimplificationCallback(osgUtil::Simplifier::ContinueSimplificationCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setContinueSimplificationCallback(osgUtil::Simplifier::ContinueSimplificationCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setContinueSimplificationCallback(cb);
 
@@ -626,15 +595,13 @@ public:
 	// osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback()
 	static int _bind_getContinueSimplificationCallback_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getContinueSimplificationCallback_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback() function, expected prototype:\nosgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback() function, expected prototype:\nosgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::Simplifier::ContinueSimplificationCallback * lret = self->getContinueSimplificationCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -647,15 +614,13 @@ public:
 	// const osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback() const
 	static int _bind_getContinueSimplificationCallback_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getContinueSimplificationCallback_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback() const function, expected prototype:\nconst osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback() const function, expected prototype:\nconst osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::Simplifier::ContinueSimplificationCallback * lret = self->getContinueSimplificationCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -677,8 +642,7 @@ public:
 	// bool osgUtil::Simplifier::continueSimplification(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const
 	static int _bind_continueSimplification(lua_State *L) {
 		if (!_lg_typecheck_continueSimplification(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::Simplifier::continueSimplification(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const function, expected prototype:\nbool osgUtil::Simplifier::continueSimplification(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::Simplifier::continueSimplification(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const function, expected prototype:\nbool osgUtil::Simplifier::continueSimplification(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float nextError=(float)lua_tonumber(L,2);
@@ -687,8 +651,7 @@ public:
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::continueSimplification(float, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::continueSimplification(float, unsigned int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->continueSimplification(nextError, numOriginalPrimitives, numRemainingPrimitives);
 		lua_pushboolean(L,lret?1:0);
@@ -699,8 +662,7 @@ public:
 	// bool osgUtil::Simplifier::continueSimplificationImplementation(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const
 	static int _bind_continueSimplificationImplementation(lua_State *L) {
 		if (!_lg_typecheck_continueSimplificationImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::Simplifier::continueSimplificationImplementation(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const function, expected prototype:\nbool osgUtil::Simplifier::continueSimplificationImplementation(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::Simplifier::continueSimplificationImplementation(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const function, expected prototype:\nbool osgUtil::Simplifier::continueSimplificationImplementation(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float nextError=(float)lua_tonumber(L,2);
@@ -709,8 +671,7 @@ public:
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::continueSimplificationImplementation(float, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::continueSimplificationImplementation(float, unsigned int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->continueSimplificationImplementation(nextError, numOriginalPrimitives, numRemainingPrimitives);
 		lua_pushboolean(L,lret?1:0);
@@ -721,8 +682,7 @@ public:
 	// void osgUtil::Simplifier::apply(osg::Geode & geode)
 	static int _bind_apply(lua_State *L) {
 		if (!_lg_typecheck_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::Simplifier::apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::Simplifier::apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geode* geode_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geode >(L,2));
@@ -733,8 +693,7 @@ public:
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::apply(osg::Geode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(geode);
 
@@ -744,8 +703,7 @@ public:
 	// void osgUtil::Simplifier::simplify(osg::Geometry & geometry)
 	static int _bind_simplify_overload_1(lua_State *L) {
 		if (!_lg_typecheck_simplify_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::simplify(osg::Geometry & geometry) function, expected prototype:\nvoid osgUtil::Simplifier::simplify(osg::Geometry & geometry)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::simplify(osg::Geometry & geometry) function, expected prototype:\nvoid osgUtil::Simplifier::simplify(osg::Geometry & geometry)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geometry* geometry_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
@@ -756,8 +714,7 @@ public:
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::simplify(osg::Geometry &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::simplify(osg::Geometry &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->simplify(geometry);
 
@@ -767,8 +724,7 @@ public:
 	// void osgUtil::Simplifier::simplify(osg::Geometry & geometry, const osgUtil::Simplifier::IndexList & protectedPoints)
 	static int _bind_simplify_overload_2(lua_State *L) {
 		if (!_lg_typecheck_simplify_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::simplify(osg::Geometry & geometry, const osgUtil::Simplifier::IndexList & protectedPoints) function, expected prototype:\nvoid osgUtil::Simplifier::simplify(osg::Geometry & geometry, const osgUtil::Simplifier::IndexList & protectedPoints)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 12058436\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::simplify(osg::Geometry & geometry, const osgUtil::Simplifier::IndexList & protectedPoints) function, expected prototype:\nvoid osgUtil::Simplifier::simplify(osg::Geometry & geometry, const osgUtil::Simplifier::IndexList & protectedPoints)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 12058436\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geometry* geometry_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
@@ -784,8 +740,7 @@ public:
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::simplify(osg::Geometry &, const osgUtil::Simplifier::IndexList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::simplify(osg::Geometry &, const osgUtil::Simplifier::IndexList &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->simplify(geometry, protectedPoints);
 
@@ -804,16 +759,14 @@ public:
 	// void osgUtil::Simplifier::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::Simplifier::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::Simplifier::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Simplifier::setThreadSafeRefUnref(threadSafe);
 
@@ -823,15 +776,13 @@ public:
 	// void osgUtil::Simplifier::base_reset()
 	static int _bind_base_reset(lua_State *L) {
 		if (!_lg_typecheck_base_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::base_reset() function, expected prototype:\nvoid osgUtil::Simplifier::base_reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::base_reset() function, expected prototype:\nvoid osgUtil::Simplifier::base_reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::base_reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Simplifier::reset();
 
@@ -841,15 +792,13 @@ public:
 	// osg::Vec3f osgUtil::Simplifier::base_getEyePoint() const
 	static int _bind_base_getEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::Simplifier::base_getEyePoint() const function, expected prototype:\nosg::Vec3f osgUtil::Simplifier::base_getEyePoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::Simplifier::base_getEyePoint() const function, expected prototype:\nosg::Vec3f osgUtil::Simplifier::base_getEyePoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::Simplifier::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::Simplifier::base_getEyePoint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->Simplifier::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -863,15 +812,13 @@ public:
 	// osg::Vec3f osgUtil::Simplifier::base_getViewPoint() const
 	static int _bind_base_getViewPoint(lua_State *L) {
 		if (!_lg_typecheck_base_getViewPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::Simplifier::base_getViewPoint() const function, expected prototype:\nosg::Vec3f osgUtil::Simplifier::base_getViewPoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::Simplifier::base_getViewPoint() const function, expected prototype:\nosg::Vec3f osgUtil::Simplifier::base_getViewPoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::Simplifier::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::Simplifier::base_getViewPoint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->Simplifier::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -885,8 +832,7 @@ public:
 	// float osgUtil::Simplifier::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceToEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceToEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::Simplifier::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::Simplifier::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::Simplifier::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::Simplifier::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -898,8 +844,7 @@ public:
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->Simplifier::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -910,8 +855,7 @@ public:
 	// float osgUtil::Simplifier::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceFromEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceFromEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::Simplifier::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::Simplifier::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::Simplifier::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::Simplifier::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -923,8 +867,7 @@ public:
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->Simplifier::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -935,8 +878,7 @@ public:
 	// float osgUtil::Simplifier::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceToViewPoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceToViewPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::Simplifier::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::Simplifier::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::Simplifier::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::Simplifier::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -948,8 +890,7 @@ public:
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->Simplifier::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -960,15 +901,13 @@ public:
 	// const char * osgUtil::Simplifier::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::Simplifier::base_libraryName() const function, expected prototype:\nconst char * osgUtil::Simplifier::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::Simplifier::base_libraryName() const function, expected prototype:\nconst char * osgUtil::Simplifier::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Simplifier::libraryName();
 		lua_pushstring(L,lret);
@@ -979,15 +918,13 @@ public:
 	// const char * osgUtil::Simplifier::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::Simplifier::base_className() const function, expected prototype:\nconst char * osgUtil::Simplifier::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::Simplifier::base_className() const function, expected prototype:\nconst char * osgUtil::Simplifier::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Simplifier::className();
 		lua_pushstring(L,lret);
@@ -998,8 +935,7 @@ public:
 	// bool osgUtil::Simplifier::base_continueSimplificationImplementation(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const
 	static int _bind_base_continueSimplificationImplementation(lua_State *L) {
 		if (!_lg_typecheck_base_continueSimplificationImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::Simplifier::base_continueSimplificationImplementation(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const function, expected prototype:\nbool osgUtil::Simplifier::base_continueSimplificationImplementation(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::Simplifier::base_continueSimplificationImplementation(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const function, expected prototype:\nbool osgUtil::Simplifier::base_continueSimplificationImplementation(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float nextError=(float)lua_tonumber(L,2);
@@ -1008,8 +944,7 @@ public:
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::base_continueSimplificationImplementation(float, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::base_continueSimplificationImplementation(float, unsigned int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Simplifier::continueSimplificationImplementation(nextError, numOriginalPrimitives, numRemainingPrimitives);
 		lua_pushboolean(L,lret?1:0);
@@ -1020,8 +955,7 @@ public:
 	// void osgUtil::Simplifier::base_apply(osg::Geode & geode)
 	static int _bind_base_apply(lua_State *L) {
 		if (!_lg_typecheck_base_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::base_apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::Simplifier::base_apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::base_apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::Simplifier::base_apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geode* geode_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geode >(L,2));
@@ -1032,8 +966,7 @@ public:
 
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::base_apply(osg::Geode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Simplifier::apply(geode);
 

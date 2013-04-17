@@ -502,8 +502,7 @@ public:
 	// bool osgGA::DriveManipulator::public_intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection, osg::Vec3d & normal) const
 	static int _bind_public_intersect(lua_State *L) {
 		if (!_lg_typecheck_public_intersect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::DriveManipulator::public_intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection, osg::Vec3d & normal) const function, expected prototype:\nbool osgGA::DriveManipulator::public_intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection, osg::Vec3d & normal) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\narg 4 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::DriveManipulator::public_intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection, osg::Vec3d & normal) const function, expected prototype:\nbool osgGA::DriveManipulator::public_intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection, osg::Vec3d & normal) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\narg 4 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* start_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -529,8 +528,7 @@ public:
 
 		wrapper_osgGA_DriveManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_DriveManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::DriveManipulator::public_intersect(const osg::Vec3d &, const osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::DriveManipulator::public_intersect(const osg::Vec3d &, const osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_intersect(start, end, intersection, normal);
 		lua_pushboolean(L,lret?1:0);
@@ -541,15 +539,13 @@ public:
 	// void osgGA::DriveManipulator::public_flushMouseEventStack()
 	static int _bind_public_flushMouseEventStack(lua_State *L) {
 		if (!_lg_typecheck_public_flushMouseEventStack(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::DriveManipulator::public_flushMouseEventStack() function, expected prototype:\nvoid osgGA::DriveManipulator::public_flushMouseEventStack()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::DriveManipulator::public_flushMouseEventStack() function, expected prototype:\nvoid osgGA::DriveManipulator::public_flushMouseEventStack()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgGA_DriveManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_DriveManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::DriveManipulator::public_flushMouseEventStack(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::DriveManipulator::public_flushMouseEventStack(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_flushMouseEventStack();
 
@@ -559,8 +555,7 @@ public:
 	// void osgGA::DriveManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea)
 	static int _bind_public_addMouseEvent(lua_State *L) {
 		if (!_lg_typecheck_public_addMouseEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::DriveManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea) function, expected prototype:\nvoid osgGA::DriveManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::DriveManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea) function, expected prototype:\nvoid osgGA::DriveManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -571,8 +566,7 @@ public:
 
 		wrapper_osgGA_DriveManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_DriveManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::DriveManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::DriveManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_addMouseEvent(ea);
 
@@ -582,8 +576,7 @@ public:
 	// void osgGA::DriveManipulator::public_computePosition(const osg::Vec3d & eye, const osg::Vec3d & lv, const osg::Vec3d & up)
 	static int _bind_public_computePosition(lua_State *L) {
 		if (!_lg_typecheck_public_computePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::DriveManipulator::public_computePosition(const osg::Vec3d & eye, const osg::Vec3d & lv, const osg::Vec3d & up) function, expected prototype:\nvoid osgGA::DriveManipulator::public_computePosition(const osg::Vec3d & eye, const osg::Vec3d & lv, const osg::Vec3d & up)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::DriveManipulator::public_computePosition(const osg::Vec3d & eye, const osg::Vec3d & lv, const osg::Vec3d & up) function, expected prototype:\nvoid osgGA::DriveManipulator::public_computePosition(const osg::Vec3d & eye, const osg::Vec3d & lv, const osg::Vec3d & up)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -604,8 +597,7 @@ public:
 
 		wrapper_osgGA_DriveManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_DriveManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::DriveManipulator::public_computePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::DriveManipulator::public_computePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computePosition(eye, lv, up);
 
@@ -615,15 +607,13 @@ public:
 	// bool osgGA::DriveManipulator::public_calcMovement()
 	static int _bind_public_calcMovement(lua_State *L) {
 		if (!_lg_typecheck_public_calcMovement(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::DriveManipulator::public_calcMovement() function, expected prototype:\nbool osgGA::DriveManipulator::public_calcMovement()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::DriveManipulator::public_calcMovement() function, expected prototype:\nbool osgGA::DriveManipulator::public_calcMovement()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgGA_DriveManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_DriveManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::DriveManipulator::public_calcMovement(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::DriveManipulator::public_calcMovement(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_calcMovement();
 		lua_pushboolean(L,lret?1:0);
@@ -634,15 +624,13 @@ public:
 	// std::string osgGA::CameraManipulator::public_getManipulatorName() const
 	static int _bind_public_getManipulatorName(lua_State *L) {
 		if (!_lg_typecheck_public_getManipulatorName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string osgGA::CameraManipulator::public_getManipulatorName() const function, expected prototype:\nstd::string osgGA::CameraManipulator::public_getManipulatorName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string osgGA::CameraManipulator::public_getManipulatorName() const function, expected prototype:\nstd::string osgGA::CameraManipulator::public_getManipulatorName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgGA_DriveManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_DriveManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgGA::CameraManipulator::public_getManipulatorName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string osgGA::CameraManipulator::public_getManipulatorName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->public_getManipulatorName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -653,8 +641,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -662,8 +649,7 @@ public:
 
 		wrapper_osgGA_DriveManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_DriveManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -673,15 +659,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgGA_DriveManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_DriveManipulator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Matrixf* self= (osg::Matrixf*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Matrixf >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -1198,8 +1195,7 @@ public:
 	// osg::Matrixf::Matrixf()
 	static osg::Matrixf* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixf::Matrixf() function, expected prototype:\nosg::Matrixf::Matrixf()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixf::Matrixf() function, expected prototype:\nosg::Matrixf::Matrixf()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -1209,8 +1205,7 @@ public:
 	// osg::Matrixf::Matrixf(const osg::Matrixf & mat)
 	static osg::Matrixf* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixf::Matrixf(const osg::Matrixf & mat) function, expected prototype:\nosg::Matrixf::Matrixf(const osg::Matrixf & mat)\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixf::Matrixf(const osg::Matrixf & mat) function, expected prototype:\nosg::Matrixf::Matrixf(const osg::Matrixf & mat)\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* mat_ptr=(Luna< osg::Matrixf >::check(L,1));
@@ -1225,8 +1220,7 @@ public:
 	// osg::Matrixf::Matrixf(const osg::Matrixd & mat)
 	static osg::Matrixf* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixf::Matrixf(const osg::Matrixd & mat) function, expected prototype:\nosg::Matrixf::Matrixf(const osg::Matrixd & mat)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixf::Matrixf(const osg::Matrixd & mat) function, expected prototype:\nosg::Matrixf::Matrixf(const osg::Matrixd & mat)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* mat_ptr=(Luna< osg::Matrixd >::check(L,1));
@@ -1241,8 +1235,7 @@ public:
 	// osg::Matrixf::Matrixf(const osg::Quat & quat)
 	static osg::Matrixf* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixf::Matrixf(const osg::Quat & quat) function, expected prototype:\nosg::Matrixf::Matrixf(const osg::Quat & quat)\nClass arguments details:\narg 1 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixf::Matrixf(const osg::Quat & quat) function, expected prototype:\nosg::Matrixf::Matrixf(const osg::Quat & quat)\nClass arguments details:\narg 1 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Quat* quat_ptr=(Luna< osg::Quat >::check(L,1));
@@ -1257,8 +1250,7 @@ public:
 	// osg::Matrixf::Matrixf(float a00, float a01, float a02, float a03, float a10, float a11, float a12, float a13, float a20, float a21, float a22, float a23, float a30, float a31, float a32, float a33)
 	static osg::Matrixf* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixf::Matrixf(float a00, float a01, float a02, float a03, float a10, float a11, float a12, float a13, float a20, float a21, float a22, float a23, float a30, float a31, float a32, float a33) function, expected prototype:\nosg::Matrixf::Matrixf(float a00, float a01, float a02, float a03, float a10, float a11, float a12, float a13, float a20, float a21, float a22, float a23, float a30, float a31, float a32, float a33)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixf::Matrixf(float a00, float a01, float a02, float a03, float a10, float a11, float a12, float a13, float a20, float a21, float a22, float a23, float a30, float a31, float a32, float a33) function, expected prototype:\nosg::Matrixf::Matrixf(float a00, float a01, float a02, float a03, float a10, float a11, float a12, float a13, float a20, float a21, float a22, float a23, float a30, float a31, float a32, float a33)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float a00=(float)lua_tonumber(L,1);
@@ -1298,8 +1290,7 @@ public:
 	// int osg::Matrixf::compare(const osg::Matrixf & m) const
 	static int _bind_compare(lua_State *L) {
 		if (!_lg_typecheck_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Matrixf::compare(const osg::Matrixf & m) const function, expected prototype:\nint osg::Matrixf::compare(const osg::Matrixf & m) const\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in int osg::Matrixf::compare(const osg::Matrixf & m) const function, expected prototype:\nint osg::Matrixf::compare(const osg::Matrixf & m) const\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* m_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -1310,8 +1301,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Matrixf::compare(const osg::Matrixf &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Matrixf::compare(const osg::Matrixf &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->compare(m);
 		lua_pushnumber(L,lret);
@@ -1322,15 +1312,13 @@ public:
 	// bool osg::Matrixf::valid() const
 	static int _bind_valid(lua_State *L) {
 		if (!_lg_typecheck_valid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::valid() const function, expected prototype:\nbool osg::Matrixf::valid() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::valid() const function, expected prototype:\nbool osg::Matrixf::valid() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Matrixf::valid() const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Matrixf::valid() const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->valid();
 		lua_pushboolean(L,lret?1:0);
@@ -1341,15 +1329,13 @@ public:
 	// bool osg::Matrixf::isNaN() const
 	static int _bind_isNaN(lua_State *L) {
 		if (!_lg_typecheck_isNaN(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::isNaN() const function, expected prototype:\nbool osg::Matrixf::isNaN() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::isNaN() const function, expected prototype:\nbool osg::Matrixf::isNaN() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Matrixf::isNaN() const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Matrixf::isNaN() const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isNaN();
 		lua_pushboolean(L,lret?1:0);
@@ -1360,8 +1346,7 @@ public:
 	// void osg::Matrixf::set(const osg::Matrixf & rhs)
 	static int _bind_set_overload_1(lua_State *L) {
 		if (!_lg_typecheck_set_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::set(const osg::Matrixf & rhs) function, expected prototype:\nvoid osg::Matrixf::set(const osg::Matrixf & rhs)\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::set(const osg::Matrixf & rhs) function, expected prototype:\nvoid osg::Matrixf::set(const osg::Matrixf & rhs)\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* rhs_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -1372,8 +1357,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::set(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::set(const osg::Matrixf &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(rhs);
 
@@ -1383,8 +1367,7 @@ public:
 	// void osg::Matrixf::set(const osg::Matrixd & rhs)
 	static int _bind_set_overload_2(lua_State *L) {
 		if (!_lg_typecheck_set_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::set(const osg::Matrixd & rhs) function, expected prototype:\nvoid osg::Matrixf::set(const osg::Matrixd & rhs)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::set(const osg::Matrixd & rhs) function, expected prototype:\nvoid osg::Matrixf::set(const osg::Matrixd & rhs)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* rhs_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -1395,8 +1378,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::set(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::set(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(rhs);
 
@@ -1406,8 +1388,7 @@ public:
 	// void osg::Matrixf::set(float a00, float a01, float a02, float a03, float a10, float a11, float a12, float a13, float a20, float a21, float a22, float a23, float a30, float a31, float a32, float a33)
 	static int _bind_set_overload_3(lua_State *L) {
 		if (!_lg_typecheck_set_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::set(float a00, float a01, float a02, float a03, float a10, float a11, float a12, float a13, float a20, float a21, float a22, float a23, float a30, float a31, float a32, float a33) function, expected prototype:\nvoid osg::Matrixf::set(float a00, float a01, float a02, float a03, float a10, float a11, float a12, float a13, float a20, float a21, float a22, float a23, float a30, float a31, float a32, float a33)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::set(float a00, float a01, float a02, float a03, float a10, float a11, float a12, float a13, float a20, float a21, float a22, float a23, float a30, float a31, float a32, float a33) function, expected prototype:\nvoid osg::Matrixf::set(float a00, float a01, float a02, float a03, float a10, float a11, float a12, float a13, float a20, float a21, float a22, float a23, float a30, float a31, float a32, float a33)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float a00=(float)lua_tonumber(L,2);
@@ -1429,8 +1410,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::set(float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::set(float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(a00, a01, a02, a03, a10, a11, a12, a13, a20, a21, a22, a23, a30, a31, a32, a33);
 
@@ -1440,8 +1420,7 @@ public:
 	// void osg::Matrixf::set(const osg::Quat & q)
 	static int _bind_set_overload_4(lua_State *L) {
 		if (!_lg_typecheck_set_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::set(const osg::Quat & q) function, expected prototype:\nvoid osg::Matrixf::set(const osg::Quat & q)\nClass arguments details:\narg 1 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::set(const osg::Quat & q) function, expected prototype:\nvoid osg::Matrixf::set(const osg::Quat & q)\nClass arguments details:\narg 1 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Quat* q_ptr=(Luna< osg::Quat >::check(L,2));
@@ -1452,8 +1431,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::set(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::set(const osg::Quat &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(q);
 
@@ -1474,15 +1452,13 @@ public:
 	// float * osg::Matrixf::ptr()
 	static int _bind_ptr_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ptr_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float * osg::Matrixf::ptr() function, expected prototype:\nfloat * osg::Matrixf::ptr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float * osg::Matrixf::ptr() function, expected prototype:\nfloat * osg::Matrixf::ptr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float * osg::Matrixf::ptr(). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float * osg::Matrixf::ptr(). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float * lret = self->ptr();
 		lua_pushnumber(L,*lret);
@@ -1493,15 +1469,13 @@ public:
 	// const float * osg::Matrixf::ptr() const
 	static int _bind_ptr_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ptr_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const float * osg::Matrixf::ptr() const function, expected prototype:\nconst float * osg::Matrixf::ptr() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const float * osg::Matrixf::ptr() const function, expected prototype:\nconst float * osg::Matrixf::ptr() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const float * osg::Matrixf::ptr() const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const float * osg::Matrixf::ptr() const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const float * lret = self->ptr();
 		lua_pushnumber(L,*lret);
@@ -1521,15 +1495,13 @@ public:
 	// bool osg::Matrixf::isIdentity() const
 	static int _bind_isIdentity(lua_State *L) {
 		if (!_lg_typecheck_isIdentity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::isIdentity() const function, expected prototype:\nbool osg::Matrixf::isIdentity() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::isIdentity() const function, expected prototype:\nbool osg::Matrixf::isIdentity() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Matrixf::isIdentity() const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Matrixf::isIdentity() const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isIdentity();
 		lua_pushboolean(L,lret?1:0);
@@ -1540,15 +1512,13 @@ public:
 	// void osg::Matrixf::makeIdentity()
 	static int _bind_makeIdentity(lua_State *L) {
 		if (!_lg_typecheck_makeIdentity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeIdentity() function, expected prototype:\nvoid osg::Matrixf::makeIdentity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeIdentity() function, expected prototype:\nvoid osg::Matrixf::makeIdentity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeIdentity(). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeIdentity(). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeIdentity();
 
@@ -1558,8 +1528,7 @@ public:
 	// void osg::Matrixf::makeScale(const osg::Vec3f & arg1)
 	static int _bind_makeScale_overload_1(lua_State *L) {
 		if (!_lg_typecheck_makeScale_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeScale(const osg::Vec3f & arg1) function, expected prototype:\nvoid osg::Matrixf::makeScale(const osg::Vec3f & arg1)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeScale(const osg::Vec3f & arg1) function, expected prototype:\nvoid osg::Matrixf::makeScale(const osg::Vec3f & arg1)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -1570,8 +1539,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeScale(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeScale(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeScale(_arg1);
 
@@ -1581,8 +1549,7 @@ public:
 	// void osg::Matrixf::makeScale(const osg::Vec3d & arg1)
 	static int _bind_makeScale_overload_2(lua_State *L) {
 		if (!_lg_typecheck_makeScale_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeScale(const osg::Vec3d & arg1) function, expected prototype:\nvoid osg::Matrixf::makeScale(const osg::Vec3d & arg1)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeScale(const osg::Vec3d & arg1) function, expected prototype:\nvoid osg::Matrixf::makeScale(const osg::Vec3d & arg1)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* _arg1_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1593,8 +1560,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeScale(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeScale(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeScale(_arg1);
 
@@ -1604,8 +1570,7 @@ public:
 	// void osg::Matrixf::makeScale(float arg1, float arg2, float arg3)
 	static int _bind_makeScale_overload_3(lua_State *L) {
 		if (!_lg_typecheck_makeScale_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeScale(float arg1, float arg2, float arg3) function, expected prototype:\nvoid osg::Matrixf::makeScale(float arg1, float arg2, float arg3)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeScale(float arg1, float arg2, float arg3) function, expected prototype:\nvoid osg::Matrixf::makeScale(float arg1, float arg2, float arg3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float _arg1=(float)lua_tonumber(L,2);
@@ -1614,8 +1579,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeScale(float, float, float). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeScale(float, float, float). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeScale(_arg1, _arg2, _arg3);
 
@@ -1635,8 +1599,7 @@ public:
 	// void osg::Matrixf::makeTranslate(const osg::Vec3f & arg1)
 	static int _bind_makeTranslate_overload_1(lua_State *L) {
 		if (!_lg_typecheck_makeTranslate_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeTranslate(const osg::Vec3f & arg1) function, expected prototype:\nvoid osg::Matrixf::makeTranslate(const osg::Vec3f & arg1)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeTranslate(const osg::Vec3f & arg1) function, expected prototype:\nvoid osg::Matrixf::makeTranslate(const osg::Vec3f & arg1)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -1647,8 +1610,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeTranslate(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeTranslate(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeTranslate(_arg1);
 
@@ -1658,8 +1620,7 @@ public:
 	// void osg::Matrixf::makeTranslate(const osg::Vec3d & arg1)
 	static int _bind_makeTranslate_overload_2(lua_State *L) {
 		if (!_lg_typecheck_makeTranslate_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeTranslate(const osg::Vec3d & arg1) function, expected prototype:\nvoid osg::Matrixf::makeTranslate(const osg::Vec3d & arg1)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeTranslate(const osg::Vec3d & arg1) function, expected prototype:\nvoid osg::Matrixf::makeTranslate(const osg::Vec3d & arg1)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* _arg1_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1670,8 +1631,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeTranslate(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeTranslate(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeTranslate(_arg1);
 
@@ -1681,8 +1641,7 @@ public:
 	// void osg::Matrixf::makeTranslate(float arg1, float arg2, float arg3)
 	static int _bind_makeTranslate_overload_3(lua_State *L) {
 		if (!_lg_typecheck_makeTranslate_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeTranslate(float arg1, float arg2, float arg3) function, expected prototype:\nvoid osg::Matrixf::makeTranslate(float arg1, float arg2, float arg3)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeTranslate(float arg1, float arg2, float arg3) function, expected prototype:\nvoid osg::Matrixf::makeTranslate(float arg1, float arg2, float arg3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float _arg1=(float)lua_tonumber(L,2);
@@ -1691,8 +1650,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeTranslate(float, float, float). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeTranslate(float, float, float). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeTranslate(_arg1, _arg2, _arg3);
 
@@ -1712,8 +1670,7 @@ public:
 	// void osg::Matrixf::makeRotate(const osg::Vec3f & from, const osg::Vec3f & to)
 	static int _bind_makeRotate_overload_1(lua_State *L) {
 		if (!_lg_typecheck_makeRotate_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(const osg::Vec3f & from, const osg::Vec3f & to) function, expected prototype:\nvoid osg::Matrixf::makeRotate(const osg::Vec3f & from, const osg::Vec3f & to)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(const osg::Vec3f & from, const osg::Vec3f & to) function, expected prototype:\nvoid osg::Matrixf::makeRotate(const osg::Vec3f & from, const osg::Vec3f & to)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* from_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -1729,8 +1686,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(const osg::Vec3f &, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(const osg::Vec3f &, const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeRotate(from, to);
 
@@ -1740,8 +1696,7 @@ public:
 	// void osg::Matrixf::makeRotate(const osg::Vec3d & from, const osg::Vec3d & to)
 	static int _bind_makeRotate_overload_2(lua_State *L) {
 		if (!_lg_typecheck_makeRotate_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(const osg::Vec3d & from, const osg::Vec3d & to) function, expected prototype:\nvoid osg::Matrixf::makeRotate(const osg::Vec3d & from, const osg::Vec3d & to)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(const osg::Vec3d & from, const osg::Vec3d & to) function, expected prototype:\nvoid osg::Matrixf::makeRotate(const osg::Vec3d & from, const osg::Vec3d & to)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* from_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1757,8 +1712,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(const osg::Vec3d &, const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeRotate(from, to);
 
@@ -1768,8 +1722,7 @@ public:
 	// void osg::Matrixf::makeRotate(float angle, const osg::Vec3f & axis)
 	static int _bind_makeRotate_overload_3(lua_State *L) {
 		if (!_lg_typecheck_makeRotate_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(float angle, const osg::Vec3f & axis) function, expected prototype:\nvoid osg::Matrixf::makeRotate(float angle, const osg::Vec3f & axis)\nClass arguments details:\narg 2 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(float angle, const osg::Vec3f & axis) function, expected prototype:\nvoid osg::Matrixf::makeRotate(float angle, const osg::Vec3f & axis)\nClass arguments details:\narg 2 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float angle=(float)lua_tonumber(L,2);
@@ -1781,8 +1734,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(float, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(float, const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeRotate(angle, axis);
 
@@ -1792,8 +1744,7 @@ public:
 	// void osg::Matrixf::makeRotate(float angle, const osg::Vec3d & axis)
 	static int _bind_makeRotate_overload_4(lua_State *L) {
 		if (!_lg_typecheck_makeRotate_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(float angle, const osg::Vec3d & axis) function, expected prototype:\nvoid osg::Matrixf::makeRotate(float angle, const osg::Vec3d & axis)\nClass arguments details:\narg 2 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(float angle, const osg::Vec3d & axis) function, expected prototype:\nvoid osg::Matrixf::makeRotate(float angle, const osg::Vec3d & axis)\nClass arguments details:\narg 2 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float angle=(float)lua_tonumber(L,2);
@@ -1805,8 +1756,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(float, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(float, const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeRotate(angle, axis);
 
@@ -1816,8 +1766,7 @@ public:
 	// void osg::Matrixf::makeRotate(float angle, float x, float y, float z)
 	static int _bind_makeRotate_overload_5(lua_State *L) {
 		if (!_lg_typecheck_makeRotate_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(float angle, float x, float y, float z) function, expected prototype:\nvoid osg::Matrixf::makeRotate(float angle, float x, float y, float z)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(float angle, float x, float y, float z) function, expected prototype:\nvoid osg::Matrixf::makeRotate(float angle, float x, float y, float z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float angle=(float)lua_tonumber(L,2);
@@ -1827,8 +1776,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(float, float, float, float). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(float, float, float, float). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeRotate(angle, x, y, z);
 
@@ -1838,8 +1786,7 @@ public:
 	// void osg::Matrixf::makeRotate(const osg::Quat & arg1)
 	static int _bind_makeRotate_overload_6(lua_State *L) {
 		if (!_lg_typecheck_makeRotate_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(const osg::Quat & arg1) function, expected prototype:\nvoid osg::Matrixf::makeRotate(const osg::Quat & arg1)\nClass arguments details:\narg 1 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(const osg::Quat & arg1) function, expected prototype:\nvoid osg::Matrixf::makeRotate(const osg::Quat & arg1)\nClass arguments details:\narg 1 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Quat* _arg1_ptr=(Luna< osg::Quat >::check(L,2));
@@ -1850,8 +1797,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(const osg::Quat &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeRotate(_arg1);
 
@@ -1861,8 +1807,7 @@ public:
 	// void osg::Matrixf::makeRotate(float angle1, const osg::Vec3f & axis1, float angle2, const osg::Vec3f & axis2, float angle3, const osg::Vec3f & axis3)
 	static int _bind_makeRotate_overload_7(lua_State *L) {
 		if (!_lg_typecheck_makeRotate_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(float angle1, const osg::Vec3f & axis1, float angle2, const osg::Vec3f & axis2, float angle3, const osg::Vec3f & axis3) function, expected prototype:\nvoid osg::Matrixf::makeRotate(float angle1, const osg::Vec3f & axis1, float angle2, const osg::Vec3f & axis2, float angle3, const osg::Vec3f & axis3)\nClass arguments details:\narg 2 ID = 92303204\narg 4 ID = 92303204\narg 6 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(float angle1, const osg::Vec3f & axis1, float angle2, const osg::Vec3f & axis2, float angle3, const osg::Vec3f & axis3) function, expected prototype:\nvoid osg::Matrixf::makeRotate(float angle1, const osg::Vec3f & axis1, float angle2, const osg::Vec3f & axis2, float angle3, const osg::Vec3f & axis3)\nClass arguments details:\narg 2 ID = 92303204\narg 4 ID = 92303204\narg 6 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float angle1=(float)lua_tonumber(L,2);
@@ -1886,8 +1831,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(float, const osg::Vec3f &, float, const osg::Vec3f &, float, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(float, const osg::Vec3f &, float, const osg::Vec3f &, float, const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeRotate(angle1, axis1, angle2, axis2, angle3, axis3);
 
@@ -1897,8 +1841,7 @@ public:
 	// void osg::Matrixf::makeRotate(float angle1, const osg::Vec3d & axis1, float angle2, const osg::Vec3d & axis2, float angle3, const osg::Vec3d & axis3)
 	static int _bind_makeRotate_overload_8(lua_State *L) {
 		if (!_lg_typecheck_makeRotate_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(float angle1, const osg::Vec3d & axis1, float angle2, const osg::Vec3d & axis2, float angle3, const osg::Vec3d & axis3) function, expected prototype:\nvoid osg::Matrixf::makeRotate(float angle1, const osg::Vec3d & axis1, float angle2, const osg::Vec3d & axis2, float angle3, const osg::Vec3d & axis3)\nClass arguments details:\narg 2 ID = 92303202\narg 4 ID = 92303202\narg 6 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeRotate(float angle1, const osg::Vec3d & axis1, float angle2, const osg::Vec3d & axis2, float angle3, const osg::Vec3d & axis3) function, expected prototype:\nvoid osg::Matrixf::makeRotate(float angle1, const osg::Vec3d & axis1, float angle2, const osg::Vec3d & axis2, float angle3, const osg::Vec3d & axis3)\nClass arguments details:\narg 2 ID = 92303202\narg 4 ID = 92303202\narg 6 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float angle1=(float)lua_tonumber(L,2);
@@ -1922,8 +1865,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(float, const osg::Vec3d &, float, const osg::Vec3d &, float, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeRotate(float, const osg::Vec3d &, float, const osg::Vec3d &, float, const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeRotate(angle1, axis1, angle2, axis2, angle3, axis3);
 
@@ -1948,8 +1890,7 @@ public:
 	// void osg::Matrixf::decompose(osg::Vec3f & translation, osg::Quat & rotation, osg::Vec3f & scale, osg::Quat & so) const
 	static int _bind_decompose_overload_1(lua_State *L) {
 		if (!_lg_typecheck_decompose_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::decompose(osg::Vec3f & translation, osg::Quat & rotation, osg::Vec3f & scale, osg::Quat & so) const function, expected prototype:\nvoid osg::Matrixf::decompose(osg::Vec3f & translation, osg::Quat & rotation, osg::Vec3f & scale, osg::Quat & so) const\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 80263306\narg 3 ID = 92303204\narg 4 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::decompose(osg::Vec3f & translation, osg::Quat & rotation, osg::Vec3f & scale, osg::Quat & so) const function, expected prototype:\nvoid osg::Matrixf::decompose(osg::Vec3f & translation, osg::Quat & rotation, osg::Vec3f & scale, osg::Quat & so) const\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 80263306\narg 3 ID = 92303204\narg 4 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3f* translation_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -1975,8 +1916,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::decompose(osg::Vec3f &, osg::Quat &, osg::Vec3f &, osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::decompose(osg::Vec3f &, osg::Quat &, osg::Vec3f &, osg::Quat &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->decompose(translation, rotation, scale, so);
 
@@ -1986,8 +1926,7 @@ public:
 	// void osg::Matrixf::decompose(osg::Vec3d & translation, osg::Quat & rotation, osg::Vec3d & scale, osg::Quat & so) const
 	static int _bind_decompose_overload_2(lua_State *L) {
 		if (!_lg_typecheck_decompose_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::decompose(osg::Vec3d & translation, osg::Quat & rotation, osg::Vec3d & scale, osg::Quat & so) const function, expected prototype:\nvoid osg::Matrixf::decompose(osg::Vec3d & translation, osg::Quat & rotation, osg::Vec3d & scale, osg::Quat & so) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\narg 3 ID = 92303202\narg 4 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::decompose(osg::Vec3d & translation, osg::Quat & rotation, osg::Vec3d & scale, osg::Quat & so) const function, expected prototype:\nvoid osg::Matrixf::decompose(osg::Vec3d & translation, osg::Quat & rotation, osg::Vec3d & scale, osg::Quat & so) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\narg 3 ID = 92303202\narg 4 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3d* translation_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -2013,8 +1952,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::decompose(osg::Vec3d &, osg::Quat &, osg::Vec3d &, osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::decompose(osg::Vec3d &, osg::Quat &, osg::Vec3d &, osg::Quat &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->decompose(translation, rotation, scale, so);
 
@@ -2033,8 +1971,7 @@ public:
 	// void osg::Matrixf::makeOrtho(double left, double right, double bottom, double top, double zNear, double zFar)
 	static int _bind_makeOrtho(lua_State *L) {
 		if (!_lg_typecheck_makeOrtho(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeOrtho(double left, double right, double bottom, double top, double zNear, double zFar) function, expected prototype:\nvoid osg::Matrixf::makeOrtho(double left, double right, double bottom, double top, double zNear, double zFar)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeOrtho(double left, double right, double bottom, double top, double zNear, double zFar) function, expected prototype:\nvoid osg::Matrixf::makeOrtho(double left, double right, double bottom, double top, double zNear, double zFar)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double left=(double)lua_tonumber(L,2);
@@ -2046,8 +1983,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeOrtho(double, double, double, double, double, double). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeOrtho(double, double, double, double, double, double). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeOrtho(left, right, bottom, top, zNear, zFar);
 
@@ -2057,8 +1993,7 @@ public:
 	// bool osg::Matrixf::getOrtho(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const
 	static int _bind_getOrtho_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getOrtho_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::getOrtho(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const function, expected prototype:\nbool osg::Matrixf::getOrtho(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::getOrtho(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const function, expected prototype:\nbool osg::Matrixf::getOrtho(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double left=(double)lua_tonumber(L,2);
@@ -2070,8 +2005,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Matrixf::getOrtho(double &, double &, double &, double &, double &, double &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Matrixf::getOrtho(double &, double &, double &, double &, double &, double &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getOrtho(left, right, bottom, top, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
@@ -2088,8 +2022,7 @@ public:
 	// bool osg::Matrixf::getOrtho(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const
 	static int _bind_getOrtho_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getOrtho_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::getOrtho(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const function, expected prototype:\nbool osg::Matrixf::getOrtho(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::getOrtho(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const function, expected prototype:\nbool osg::Matrixf::getOrtho(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float left=(float)lua_tonumber(L,2);
@@ -2101,8 +2034,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Matrixf::getOrtho(float &, float &, float &, float &, float &, float &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Matrixf::getOrtho(float &, float &, float &, float &, float &, float &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getOrtho(left, right, bottom, top, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
@@ -2128,8 +2060,7 @@ public:
 	// void osg::Matrixf::makeOrtho2D(double left, double right, double bottom, double top)
 	static int _bind_makeOrtho2D(lua_State *L) {
 		if (!_lg_typecheck_makeOrtho2D(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeOrtho2D(double left, double right, double bottom, double top) function, expected prototype:\nvoid osg::Matrixf::makeOrtho2D(double left, double right, double bottom, double top)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeOrtho2D(double left, double right, double bottom, double top) function, expected prototype:\nvoid osg::Matrixf::makeOrtho2D(double left, double right, double bottom, double top)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double left=(double)lua_tonumber(L,2);
@@ -2139,8 +2070,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeOrtho2D(double, double, double, double). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeOrtho2D(double, double, double, double). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeOrtho2D(left, right, bottom, top);
 
@@ -2150,8 +2080,7 @@ public:
 	// void osg::Matrixf::makeFrustum(double left, double right, double bottom, double top, double zNear, double zFar)
 	static int _bind_makeFrustum(lua_State *L) {
 		if (!_lg_typecheck_makeFrustum(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeFrustum(double left, double right, double bottom, double top, double zNear, double zFar) function, expected prototype:\nvoid osg::Matrixf::makeFrustum(double left, double right, double bottom, double top, double zNear, double zFar)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeFrustum(double left, double right, double bottom, double top, double zNear, double zFar) function, expected prototype:\nvoid osg::Matrixf::makeFrustum(double left, double right, double bottom, double top, double zNear, double zFar)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double left=(double)lua_tonumber(L,2);
@@ -2163,8 +2092,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeFrustum(double, double, double, double, double, double). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeFrustum(double, double, double, double, double, double). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeFrustum(left, right, bottom, top, zNear, zFar);
 
@@ -2174,8 +2102,7 @@ public:
 	// bool osg::Matrixf::getFrustum(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const
 	static int _bind_getFrustum_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getFrustum_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::getFrustum(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const function, expected prototype:\nbool osg::Matrixf::getFrustum(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::getFrustum(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const function, expected prototype:\nbool osg::Matrixf::getFrustum(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double left=(double)lua_tonumber(L,2);
@@ -2187,8 +2114,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Matrixf::getFrustum(double &, double &, double &, double &, double &, double &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Matrixf::getFrustum(double &, double &, double &, double &, double &, double &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getFrustum(left, right, bottom, top, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
@@ -2205,8 +2131,7 @@ public:
 	// bool osg::Matrixf::getFrustum(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const
 	static int _bind_getFrustum_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getFrustum_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::getFrustum(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const function, expected prototype:\nbool osg::Matrixf::getFrustum(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::getFrustum(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const function, expected prototype:\nbool osg::Matrixf::getFrustum(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float left=(float)lua_tonumber(L,2);
@@ -2218,8 +2143,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Matrixf::getFrustum(float &, float &, float &, float &, float &, float &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Matrixf::getFrustum(float &, float &, float &, float &, float &, float &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getFrustum(left, right, bottom, top, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
@@ -2245,8 +2169,7 @@ public:
 	// void osg::Matrixf::makePerspective(double fovy, double aspectRatio, double zNear, double zFar)
 	static int _bind_makePerspective(lua_State *L) {
 		if (!_lg_typecheck_makePerspective(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makePerspective(double fovy, double aspectRatio, double zNear, double zFar) function, expected prototype:\nvoid osg::Matrixf::makePerspective(double fovy, double aspectRatio, double zNear, double zFar)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makePerspective(double fovy, double aspectRatio, double zNear, double zFar) function, expected prototype:\nvoid osg::Matrixf::makePerspective(double fovy, double aspectRatio, double zNear, double zFar)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double fovy=(double)lua_tonumber(L,2);
@@ -2256,8 +2179,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makePerspective(double, double, double, double). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makePerspective(double, double, double, double). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makePerspective(fovy, aspectRatio, zNear, zFar);
 
@@ -2267,8 +2189,7 @@ public:
 	// bool osg::Matrixf::getPerspective(double & fovy, double & aspectRatio, double & zNear, double & zFar) const
 	static int _bind_getPerspective_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getPerspective_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::getPerspective(double & fovy, double & aspectRatio, double & zNear, double & zFar) const function, expected prototype:\nbool osg::Matrixf::getPerspective(double & fovy, double & aspectRatio, double & zNear, double & zFar) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::getPerspective(double & fovy, double & aspectRatio, double & zNear, double & zFar) const function, expected prototype:\nbool osg::Matrixf::getPerspective(double & fovy, double & aspectRatio, double & zNear, double & zFar) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double fovy=(double)lua_tonumber(L,2);
@@ -2278,8 +2199,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Matrixf::getPerspective(double &, double &, double &, double &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Matrixf::getPerspective(double &, double &, double &, double &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getPerspective(fovy, aspectRatio, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
@@ -2294,8 +2214,7 @@ public:
 	// bool osg::Matrixf::getPerspective(float & fovy, float & aspectRatio, float & zNear, float & zFar) const
 	static int _bind_getPerspective_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getPerspective_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::getPerspective(float & fovy, float & aspectRatio, float & zNear, float & zFar) const function, expected prototype:\nbool osg::Matrixf::getPerspective(float & fovy, float & aspectRatio, float & zNear, float & zFar) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::getPerspective(float & fovy, float & aspectRatio, float & zNear, float & zFar) const function, expected prototype:\nbool osg::Matrixf::getPerspective(float & fovy, float & aspectRatio, float & zNear, float & zFar) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float fovy=(float)lua_tonumber(L,2);
@@ -2305,8 +2224,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Matrixf::getPerspective(float &, float &, float &, float &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Matrixf::getPerspective(float &, float &, float &, float &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getPerspective(fovy, aspectRatio, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
@@ -2330,8 +2248,7 @@ public:
 	// void osg::Matrixf::makeLookAt(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)
 	static int _bind_makeLookAt(lua_State *L) {
 		if (!_lg_typecheck_makeLookAt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeLookAt(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up) function, expected prototype:\nvoid osg::Matrixf::makeLookAt(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::makeLookAt(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up) function, expected prototype:\nvoid osg::Matrixf::makeLookAt(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -2352,8 +2269,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeLookAt(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::makeLookAt(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeLookAt(eye, center, up);
 
@@ -2363,8 +2279,7 @@ public:
 	// void osg::Matrixf::getLookAt(osg::Vec3f & eye, osg::Vec3f & center, osg::Vec3f & up, float lookDistance = 1.0f) const
 	static int _bind_getLookAt_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getLookAt_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::getLookAt(osg::Vec3f & eye, osg::Vec3f & center, osg::Vec3f & up, float lookDistance = 1.0f) const function, expected prototype:\nvoid osg::Matrixf::getLookAt(osg::Vec3f & eye, osg::Vec3f & center, osg::Vec3f & up, float lookDistance = 1.0f) const\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\narg 3 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::getLookAt(osg::Vec3f & eye, osg::Vec3f & center, osg::Vec3f & up, float lookDistance = 1.0f) const function, expected prototype:\nvoid osg::Matrixf::getLookAt(osg::Vec3f & eye, osg::Vec3f & center, osg::Vec3f & up, float lookDistance = 1.0f) const\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\narg 3 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2388,8 +2303,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::getLookAt(osg::Vec3f &, osg::Vec3f &, osg::Vec3f &, float) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::getLookAt(osg::Vec3f &, osg::Vec3f &, osg::Vec3f &, float) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getLookAt(eye, center, up, lookDistance);
 
@@ -2399,8 +2313,7 @@ public:
 	// void osg::Matrixf::getLookAt(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up, float lookDistance = 1.0f) const
 	static int _bind_getLookAt_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getLookAt_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::getLookAt(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up, float lookDistance = 1.0f) const function, expected prototype:\nvoid osg::Matrixf::getLookAt(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up, float lookDistance = 1.0f) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::getLookAt(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up, float lookDistance = 1.0f) const function, expected prototype:\nvoid osg::Matrixf::getLookAt(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up, float lookDistance = 1.0f) const\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2424,8 +2337,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::getLookAt(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &, float) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::getLookAt(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &, float) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getLookAt(eye, center, up, lookDistance);
 
@@ -2444,8 +2356,7 @@ public:
 	// bool osg::Matrixf::invert(const osg::Matrixf & rhs)
 	static int _bind_invert(lua_State *L) {
 		if (!_lg_typecheck_invert(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::invert(const osg::Matrixf & rhs) function, expected prototype:\nbool osg::Matrixf::invert(const osg::Matrixf & rhs)\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::invert(const osg::Matrixf & rhs) function, expected prototype:\nbool osg::Matrixf::invert(const osg::Matrixf & rhs)\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* rhs_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -2456,8 +2367,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Matrixf::invert(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Matrixf::invert(const osg::Matrixf &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->invert(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -2468,8 +2378,7 @@ public:
 	// bool osg::Matrixf::invert_4x3(const osg::Matrixf & rhs)
 	static int _bind_invert_4x3(lua_State *L) {
 		if (!_lg_typecheck_invert_4x3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::invert_4x3(const osg::Matrixf & rhs) function, expected prototype:\nbool osg::Matrixf::invert_4x3(const osg::Matrixf & rhs)\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::invert_4x3(const osg::Matrixf & rhs) function, expected prototype:\nbool osg::Matrixf::invert_4x3(const osg::Matrixf & rhs)\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* rhs_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -2480,8 +2389,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Matrixf::invert_4x3(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Matrixf::invert_4x3(const osg::Matrixf &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->invert_4x3(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -2492,8 +2400,7 @@ public:
 	// bool osg::Matrixf::invert_4x4(const osg::Matrixf & rhs)
 	static int _bind_invert_4x4(lua_State *L) {
 		if (!_lg_typecheck_invert_4x4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::invert_4x4(const osg::Matrixf & rhs) function, expected prototype:\nbool osg::Matrixf::invert_4x4(const osg::Matrixf & rhs)\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::invert_4x4(const osg::Matrixf & rhs) function, expected prototype:\nbool osg::Matrixf::invert_4x4(const osg::Matrixf & rhs)\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* rhs_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -2504,8 +2411,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Matrixf::invert_4x4(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Matrixf::invert_4x4(const osg::Matrixf &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->invert_4x4(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -2516,8 +2422,7 @@ public:
 	// void osg::Matrixf::orthoNormalize(const osg::Matrixf & rhs)
 	static int _bind_orthoNormalize(lua_State *L) {
 		if (!_lg_typecheck_orthoNormalize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::orthoNormalize(const osg::Matrixf & rhs) function, expected prototype:\nvoid osg::Matrixf::orthoNormalize(const osg::Matrixf & rhs)\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::orthoNormalize(const osg::Matrixf & rhs) function, expected prototype:\nvoid osg::Matrixf::orthoNormalize(const osg::Matrixf & rhs)\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* rhs_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -2528,8 +2433,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::orthoNormalize(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::orthoNormalize(const osg::Matrixf &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->orthoNormalize(rhs);
 
@@ -2539,8 +2443,7 @@ public:
 	// osg::Vec3f osg::Matrixf::preMult(const osg::Vec3f & v) const
 	static int _bind_preMult_overload_1(lua_State *L) {
 		if (!_lg_typecheck_preMult_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osg::Matrixf::preMult(const osg::Vec3f & v) const function, expected prototype:\nosg::Vec3f osg::Matrixf::preMult(const osg::Vec3f & v) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osg::Matrixf::preMult(const osg::Vec3f & v) const function, expected prototype:\nosg::Vec3f osg::Matrixf::preMult(const osg::Vec3f & v) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -2551,8 +2454,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osg::Matrixf::preMult(const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osg::Matrixf::preMult(const osg::Vec3f &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->preMult(v);
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -2566,8 +2468,7 @@ public:
 	// osg::Vec3d osg::Matrixf::preMult(const osg::Vec3d & v) const
 	static int _bind_preMult_overload_2(lua_State *L) {
 		if (!_lg_typecheck_preMult_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::Matrixf::preMult(const osg::Vec3d & v) const function, expected prototype:\nosg::Vec3d osg::Matrixf::preMult(const osg::Vec3d & v) const\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::Matrixf::preMult(const osg::Vec3d & v) const function, expected prototype:\nosg::Vec3d osg::Matrixf::preMult(const osg::Vec3d & v) const\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* v_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -2578,8 +2479,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Matrixf::preMult(const osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Matrixf::preMult(const osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3d stack_lret = self->preMult(v);
 		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
@@ -2593,8 +2493,7 @@ public:
 	// osg::Vec4f osg::Matrixf::preMult(const osg::Vec4f & v) const
 	static int _bind_preMult_overload_3(lua_State *L) {
 		if (!_lg_typecheck_preMult_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec4f osg::Matrixf::preMult(const osg::Vec4f & v) const function, expected prototype:\nosg::Vec4f osg::Matrixf::preMult(const osg::Vec4f & v) const\nClass arguments details:\narg 1 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec4f osg::Matrixf::preMult(const osg::Vec4f & v) const function, expected prototype:\nosg::Vec4f osg::Matrixf::preMult(const osg::Vec4f & v) const\nClass arguments details:\narg 1 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4f* v_ptr=(Luna< osg::Vec4f >::check(L,2));
@@ -2605,8 +2504,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4f osg::Matrixf::preMult(const osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec4f osg::Matrixf::preMult(const osg::Vec4f &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec4f stack_lret = self->preMult(v);
 		osg::Vec4f* lret = new osg::Vec4f(stack_lret);
@@ -2620,8 +2518,7 @@ public:
 	// osg::Vec4d osg::Matrixf::preMult(const osg::Vec4d & v) const
 	static int _bind_preMult_overload_4(lua_State *L) {
 		if (!_lg_typecheck_preMult_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec4d osg::Matrixf::preMult(const osg::Vec4d & v) const function, expected prototype:\nosg::Vec4d osg::Matrixf::preMult(const osg::Vec4d & v) const\nClass arguments details:\narg 1 ID = 92303233\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec4d osg::Matrixf::preMult(const osg::Vec4d & v) const function, expected prototype:\nosg::Vec4d osg::Matrixf::preMult(const osg::Vec4d & v) const\nClass arguments details:\narg 1 ID = 92303233\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4d* v_ptr=(Luna< osg::Vec4d >::check(L,2));
@@ -2632,8 +2529,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4d osg::Matrixf::preMult(const osg::Vec4d &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec4d osg::Matrixf::preMult(const osg::Vec4d &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec4d stack_lret = self->preMult(v);
 		osg::Vec4d* lret = new osg::Vec4d(stack_lret);
@@ -2647,8 +2543,7 @@ public:
 	// void osg::Matrixf::preMult(const osg::Matrixf & arg1)
 	static int _bind_preMult_overload_5(lua_State *L) {
 		if (!_lg_typecheck_preMult_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::preMult(const osg::Matrixf & arg1) function, expected prototype:\nvoid osg::Matrixf::preMult(const osg::Matrixf & arg1)\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::preMult(const osg::Matrixf & arg1) function, expected prototype:\nvoid osg::Matrixf::preMult(const osg::Matrixf & arg1)\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* _arg1_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -2659,8 +2554,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::preMult(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::preMult(const osg::Matrixf &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->preMult(_arg1);
 
@@ -2682,8 +2576,7 @@ public:
 	// osg::Vec3f osg::Matrixf::postMult(const osg::Vec3f & v) const
 	static int _bind_postMult_overload_1(lua_State *L) {
 		if (!_lg_typecheck_postMult_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osg::Matrixf::postMult(const osg::Vec3f & v) const function, expected prototype:\nosg::Vec3f osg::Matrixf::postMult(const osg::Vec3f & v) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osg::Matrixf::postMult(const osg::Vec3f & v) const function, expected prototype:\nosg::Vec3f osg::Matrixf::postMult(const osg::Vec3f & v) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -2694,8 +2587,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osg::Matrixf::postMult(const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osg::Matrixf::postMult(const osg::Vec3f &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->postMult(v);
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -2709,8 +2601,7 @@ public:
 	// osg::Vec3d osg::Matrixf::postMult(const osg::Vec3d & v) const
 	static int _bind_postMult_overload_2(lua_State *L) {
 		if (!_lg_typecheck_postMult_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::Matrixf::postMult(const osg::Vec3d & v) const function, expected prototype:\nosg::Vec3d osg::Matrixf::postMult(const osg::Vec3d & v) const\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::Matrixf::postMult(const osg::Vec3d & v) const function, expected prototype:\nosg::Vec3d osg::Matrixf::postMult(const osg::Vec3d & v) const\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* v_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -2721,8 +2612,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Matrixf::postMult(const osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Matrixf::postMult(const osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3d stack_lret = self->postMult(v);
 		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
@@ -2736,8 +2626,7 @@ public:
 	// osg::Vec4f osg::Matrixf::postMult(const osg::Vec4f & v) const
 	static int _bind_postMult_overload_3(lua_State *L) {
 		if (!_lg_typecheck_postMult_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec4f osg::Matrixf::postMult(const osg::Vec4f & v) const function, expected prototype:\nosg::Vec4f osg::Matrixf::postMult(const osg::Vec4f & v) const\nClass arguments details:\narg 1 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec4f osg::Matrixf::postMult(const osg::Vec4f & v) const function, expected prototype:\nosg::Vec4f osg::Matrixf::postMult(const osg::Vec4f & v) const\nClass arguments details:\narg 1 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4f* v_ptr=(Luna< osg::Vec4f >::check(L,2));
@@ -2748,8 +2637,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4f osg::Matrixf::postMult(const osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec4f osg::Matrixf::postMult(const osg::Vec4f &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec4f stack_lret = self->postMult(v);
 		osg::Vec4f* lret = new osg::Vec4f(stack_lret);
@@ -2763,8 +2651,7 @@ public:
 	// osg::Vec4d osg::Matrixf::postMult(const osg::Vec4d & v) const
 	static int _bind_postMult_overload_4(lua_State *L) {
 		if (!_lg_typecheck_postMult_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec4d osg::Matrixf::postMult(const osg::Vec4d & v) const function, expected prototype:\nosg::Vec4d osg::Matrixf::postMult(const osg::Vec4d & v) const\nClass arguments details:\narg 1 ID = 92303233\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec4d osg::Matrixf::postMult(const osg::Vec4d & v) const function, expected prototype:\nosg::Vec4d osg::Matrixf::postMult(const osg::Vec4d & v) const\nClass arguments details:\narg 1 ID = 92303233\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4d* v_ptr=(Luna< osg::Vec4d >::check(L,2));
@@ -2775,8 +2662,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4d osg::Matrixf::postMult(const osg::Vec4d &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec4d osg::Matrixf::postMult(const osg::Vec4d &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec4d stack_lret = self->postMult(v);
 		osg::Vec4d* lret = new osg::Vec4d(stack_lret);
@@ -2790,8 +2676,7 @@ public:
 	// void osg::Matrixf::postMult(const osg::Matrixf & arg1)
 	static int _bind_postMult_overload_5(lua_State *L) {
 		if (!_lg_typecheck_postMult_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::postMult(const osg::Matrixf & arg1) function, expected prototype:\nvoid osg::Matrixf::postMult(const osg::Matrixf & arg1)\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::postMult(const osg::Matrixf & arg1) function, expected prototype:\nvoid osg::Matrixf::postMult(const osg::Matrixf & arg1)\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* _arg1_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -2802,8 +2687,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::postMult(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::postMult(const osg::Matrixf &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->postMult(_arg1);
 
@@ -2825,8 +2709,7 @@ public:
 	// void osg::Matrixf::get(osg::Quat & q) const
 	static int _bind_get(lua_State *L) {
 		if (!_lg_typecheck_get(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::get(osg::Quat & q) const function, expected prototype:\nvoid osg::Matrixf::get(osg::Quat & q) const\nClass arguments details:\narg 1 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::get(osg::Quat & q) const function, expected prototype:\nvoid osg::Matrixf::get(osg::Quat & q) const\nClass arguments details:\narg 1 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Quat* q_ptr=(Luna< osg::Quat >::check(L,2));
@@ -2837,8 +2720,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::get(osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::get(osg::Quat &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->get(q);
 
@@ -2848,8 +2730,7 @@ public:
 	// void osg::Matrixf::setRotate(const osg::Quat & q)
 	static int _bind_setRotate(lua_State *L) {
 		if (!_lg_typecheck_setRotate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::setRotate(const osg::Quat & q) function, expected prototype:\nvoid osg::Matrixf::setRotate(const osg::Quat & q)\nClass arguments details:\narg 1 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::setRotate(const osg::Quat & q) function, expected prototype:\nvoid osg::Matrixf::setRotate(const osg::Quat & q)\nClass arguments details:\narg 1 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Quat* q_ptr=(Luna< osg::Quat >::check(L,2));
@@ -2860,8 +2741,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::setRotate(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::setRotate(const osg::Quat &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRotate(q);
 
@@ -2871,15 +2751,13 @@ public:
 	// osg::Quat osg::Matrixf::getRotate() const
 	static int _bind_getRotate(lua_State *L) {
 		if (!_lg_typecheck_getRotate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Quat osg::Matrixf::getRotate() const function, expected prototype:\nosg::Quat osg::Matrixf::getRotate() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Quat osg::Matrixf::getRotate() const function, expected prototype:\nosg::Quat osg::Matrixf::getRotate() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Quat osg::Matrixf::getRotate() const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Quat osg::Matrixf::getRotate() const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Quat stack_lret = self->getRotate();
 		osg::Quat* lret = new osg::Quat(stack_lret);
@@ -2893,8 +2771,7 @@ public:
 	// void osg::Matrixf::setTrans(float tx, float ty, float tz)
 	static int _bind_setTrans_overload_1(lua_State *L) {
 		if (!_lg_typecheck_setTrans_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::setTrans(float tx, float ty, float tz) function, expected prototype:\nvoid osg::Matrixf::setTrans(float tx, float ty, float tz)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::setTrans(float tx, float ty, float tz) function, expected prototype:\nvoid osg::Matrixf::setTrans(float tx, float ty, float tz)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float tx=(float)lua_tonumber(L,2);
@@ -2903,8 +2780,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::setTrans(float, float, float). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::setTrans(float, float, float). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTrans(tx, ty, tz);
 
@@ -2914,8 +2790,7 @@ public:
 	// void osg::Matrixf::setTrans(const osg::Vec3f & v)
 	static int _bind_setTrans_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setTrans_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::setTrans(const osg::Vec3f & v) function, expected prototype:\nvoid osg::Matrixf::setTrans(const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::setTrans(const osg::Vec3f & v) function, expected prototype:\nvoid osg::Matrixf::setTrans(const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -2926,8 +2801,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::setTrans(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::setTrans(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTrans(v);
 
@@ -2937,8 +2811,7 @@ public:
 	// void osg::Matrixf::setTrans(const osg::Vec3d & v)
 	static int _bind_setTrans_overload_3(lua_State *L) {
 		if (!_lg_typecheck_setTrans_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::setTrans(const osg::Vec3d & v) function, expected prototype:\nvoid osg::Matrixf::setTrans(const osg::Vec3d & v)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::setTrans(const osg::Vec3d & v) function, expected prototype:\nvoid osg::Matrixf::setTrans(const osg::Vec3d & v)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* v_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -2949,8 +2822,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::setTrans(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::setTrans(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTrans(v);
 
@@ -2970,15 +2842,13 @@ public:
 	// osg::Vec3d osg::Matrixf::getTrans() const
 	static int _bind_getTrans(lua_State *L) {
 		if (!_lg_typecheck_getTrans(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::Matrixf::getTrans() const function, expected prototype:\nosg::Vec3d osg::Matrixf::getTrans() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::Matrixf::getTrans() const function, expected prototype:\nosg::Vec3d osg::Matrixf::getTrans() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Matrixf::getTrans() const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Matrixf::getTrans() const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3d stack_lret = self->getTrans();
 		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
@@ -2992,15 +2862,13 @@ public:
 	// osg::Vec3d osg::Matrixf::getScale() const
 	static int _bind_getScale(lua_State *L) {
 		if (!_lg_typecheck_getScale(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::Matrixf::getScale() const function, expected prototype:\nosg::Vec3d osg::Matrixf::getScale() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::Matrixf::getScale() const function, expected prototype:\nosg::Vec3d osg::Matrixf::getScale() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Matrixf::getScale() const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Matrixf::getScale() const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3d stack_lret = self->getScale();
 		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
@@ -3014,8 +2882,7 @@ public:
 	// void osg::Matrixf::mult(const osg::Matrixf & arg1, const osg::Matrixf & arg2)
 	static int _bind_mult(lua_State *L) {
 		if (!_lg_typecheck_mult(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::mult(const osg::Matrixf & arg1, const osg::Matrixf & arg2) function, expected prototype:\nvoid osg::Matrixf::mult(const osg::Matrixf & arg1, const osg::Matrixf & arg2)\nClass arguments details:\narg 1 ID = 18903840\narg 2 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::mult(const osg::Matrixf & arg1, const osg::Matrixf & arg2) function, expected prototype:\nvoid osg::Matrixf::mult(const osg::Matrixf & arg1, const osg::Matrixf & arg2)\nClass arguments details:\narg 1 ID = 18903840\narg 2 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* _arg1_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -3031,8 +2898,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::mult(const osg::Matrixf &, const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::mult(const osg::Matrixf &, const osg::Matrixf &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mult(_arg1, _arg2);
 
@@ -3042,8 +2908,7 @@ public:
 	// void osg::Matrixf::preMultTranslate(const osg::Vec3d & v)
 	static int _bind_preMultTranslate_overload_1(lua_State *L) {
 		if (!_lg_typecheck_preMultTranslate_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::preMultTranslate(const osg::Vec3d & v) function, expected prototype:\nvoid osg::Matrixf::preMultTranslate(const osg::Vec3d & v)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::preMultTranslate(const osg::Vec3d & v) function, expected prototype:\nvoid osg::Matrixf::preMultTranslate(const osg::Vec3d & v)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* v_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -3054,8 +2919,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::preMultTranslate(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::preMultTranslate(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->preMultTranslate(v);
 
@@ -3065,8 +2929,7 @@ public:
 	// void osg::Matrixf::preMultTranslate(const osg::Vec3f & v)
 	static int _bind_preMultTranslate_overload_2(lua_State *L) {
 		if (!_lg_typecheck_preMultTranslate_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::preMultTranslate(const osg::Vec3f & v) function, expected prototype:\nvoid osg::Matrixf::preMultTranslate(const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::preMultTranslate(const osg::Vec3f & v) function, expected prototype:\nvoid osg::Matrixf::preMultTranslate(const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -3077,8 +2940,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::preMultTranslate(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::preMultTranslate(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->preMultTranslate(v);
 
@@ -3097,8 +2959,7 @@ public:
 	// void osg::Matrixf::postMultTranslate(const osg::Vec3d & v)
 	static int _bind_postMultTranslate_overload_1(lua_State *L) {
 		if (!_lg_typecheck_postMultTranslate_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::postMultTranslate(const osg::Vec3d & v) function, expected prototype:\nvoid osg::Matrixf::postMultTranslate(const osg::Vec3d & v)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::postMultTranslate(const osg::Vec3d & v) function, expected prototype:\nvoid osg::Matrixf::postMultTranslate(const osg::Vec3d & v)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* v_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -3109,8 +2970,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::postMultTranslate(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::postMultTranslate(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->postMultTranslate(v);
 
@@ -3120,8 +2980,7 @@ public:
 	// void osg::Matrixf::postMultTranslate(const osg::Vec3f & v)
 	static int _bind_postMultTranslate_overload_2(lua_State *L) {
 		if (!_lg_typecheck_postMultTranslate_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::postMultTranslate(const osg::Vec3f & v) function, expected prototype:\nvoid osg::Matrixf::postMultTranslate(const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::postMultTranslate(const osg::Vec3f & v) function, expected prototype:\nvoid osg::Matrixf::postMultTranslate(const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -3132,8 +2991,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::postMultTranslate(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::postMultTranslate(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->postMultTranslate(v);
 
@@ -3152,8 +3010,7 @@ public:
 	// void osg::Matrixf::preMultScale(const osg::Vec3d & v)
 	static int _bind_preMultScale_overload_1(lua_State *L) {
 		if (!_lg_typecheck_preMultScale_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::preMultScale(const osg::Vec3d & v) function, expected prototype:\nvoid osg::Matrixf::preMultScale(const osg::Vec3d & v)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::preMultScale(const osg::Vec3d & v) function, expected prototype:\nvoid osg::Matrixf::preMultScale(const osg::Vec3d & v)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* v_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -3164,8 +3021,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::preMultScale(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::preMultScale(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->preMultScale(v);
 
@@ -3175,8 +3031,7 @@ public:
 	// void osg::Matrixf::preMultScale(const osg::Vec3f & v)
 	static int _bind_preMultScale_overload_2(lua_State *L) {
 		if (!_lg_typecheck_preMultScale_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::preMultScale(const osg::Vec3f & v) function, expected prototype:\nvoid osg::Matrixf::preMultScale(const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::preMultScale(const osg::Vec3f & v) function, expected prototype:\nvoid osg::Matrixf::preMultScale(const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -3187,8 +3042,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::preMultScale(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::preMultScale(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->preMultScale(v);
 
@@ -3207,8 +3061,7 @@ public:
 	// void osg::Matrixf::postMultScale(const osg::Vec3d & v)
 	static int _bind_postMultScale_overload_1(lua_State *L) {
 		if (!_lg_typecheck_postMultScale_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::postMultScale(const osg::Vec3d & v) function, expected prototype:\nvoid osg::Matrixf::postMultScale(const osg::Vec3d & v)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::postMultScale(const osg::Vec3d & v) function, expected prototype:\nvoid osg::Matrixf::postMultScale(const osg::Vec3d & v)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* v_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -3219,8 +3072,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::postMultScale(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::postMultScale(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->postMultScale(v);
 
@@ -3230,8 +3082,7 @@ public:
 	// void osg::Matrixf::postMultScale(const osg::Vec3f & v)
 	static int _bind_postMultScale_overload_2(lua_State *L) {
 		if (!_lg_typecheck_postMultScale_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::postMultScale(const osg::Vec3f & v) function, expected prototype:\nvoid osg::Matrixf::postMultScale(const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::postMultScale(const osg::Vec3f & v) function, expected prototype:\nvoid osg::Matrixf::postMultScale(const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -3242,8 +3093,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::postMultScale(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::postMultScale(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->postMultScale(v);
 
@@ -3262,8 +3112,7 @@ public:
 	// void osg::Matrixf::preMultRotate(const osg::Quat & q)
 	static int _bind_preMultRotate(lua_State *L) {
 		if (!_lg_typecheck_preMultRotate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::preMultRotate(const osg::Quat & q) function, expected prototype:\nvoid osg::Matrixf::preMultRotate(const osg::Quat & q)\nClass arguments details:\narg 1 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::preMultRotate(const osg::Quat & q) function, expected prototype:\nvoid osg::Matrixf::preMultRotate(const osg::Quat & q)\nClass arguments details:\narg 1 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Quat* q_ptr=(Luna< osg::Quat >::check(L,2));
@@ -3274,8 +3123,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::preMultRotate(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::preMultRotate(const osg::Quat &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->preMultRotate(q);
 
@@ -3285,8 +3133,7 @@ public:
 	// void osg::Matrixf::postMultRotate(const osg::Quat & q)
 	static int _bind_postMultRotate(lua_State *L) {
 		if (!_lg_typecheck_postMultRotate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::postMultRotate(const osg::Quat & q) function, expected prototype:\nvoid osg::Matrixf::postMultRotate(const osg::Quat & q)\nClass arguments details:\narg 1 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::postMultRotate(const osg::Quat & q) function, expected prototype:\nvoid osg::Matrixf::postMultRotate(const osg::Quat & q)\nClass arguments details:\narg 1 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Quat* q_ptr=(Luna< osg::Quat >::check(L,2));
@@ -3297,8 +3144,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::postMultRotate(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::postMultRotate(const osg::Quat &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->postMultRotate(q);
 
@@ -3308,8 +3154,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::identity()
 	static int _bind_identity(lua_State *L) {
 		if (!_lg_typecheck_identity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::identity() function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::identity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::identity() function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::identity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -3325,8 +3170,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::scale(const osg::Vec3f & sv)
 	static int _bind_scale_overload_1(lua_State *L) {
 		if (!_lg_typecheck_scale_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::scale(const osg::Vec3f & sv) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::scale(const osg::Vec3f & sv)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::scale(const osg::Vec3f & sv) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::scale(const osg::Vec3f & sv)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* sv_ptr=(Luna< osg::Vec3f >::check(L,1));
@@ -3347,8 +3191,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::scale(const osg::Vec3d & sv)
 	static int _bind_scale_overload_2(lua_State *L) {
 		if (!_lg_typecheck_scale_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::scale(const osg::Vec3d & sv) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::scale(const osg::Vec3d & sv)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::scale(const osg::Vec3d & sv) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::scale(const osg::Vec3d & sv)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* sv_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -3369,8 +3212,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::scale(float sx, float sy, float sz)
 	static int _bind_scale_overload_3(lua_State *L) {
 		if (!_lg_typecheck_scale_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::scale(float sx, float sy, float sz) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::scale(float sx, float sy, float sz)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::scale(float sx, float sy, float sz) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::scale(float sx, float sy, float sz)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float sx=(float)lua_tonumber(L,1);
@@ -3399,8 +3241,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::translate(const osg::Vec3f & dv)
 	static int _bind_translate_overload_1(lua_State *L) {
 		if (!_lg_typecheck_translate_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::translate(const osg::Vec3f & dv) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::translate(const osg::Vec3f & dv)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::translate(const osg::Vec3f & dv) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::translate(const osg::Vec3f & dv)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* dv_ptr=(Luna< osg::Vec3f >::check(L,1));
@@ -3421,8 +3262,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::translate(const osg::Vec3d & dv)
 	static int _bind_translate_overload_2(lua_State *L) {
 		if (!_lg_typecheck_translate_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::translate(const osg::Vec3d & dv) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::translate(const osg::Vec3d & dv)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::translate(const osg::Vec3d & dv) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::translate(const osg::Vec3d & dv)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* dv_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -3443,8 +3283,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::translate(float x, float y, float z)
 	static int _bind_translate_overload_3(lua_State *L) {
 		if (!_lg_typecheck_translate_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::translate(float x, float y, float z) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::translate(float x, float y, float z)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::translate(float x, float y, float z) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::translate(float x, float y, float z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,1);
@@ -3473,8 +3312,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::rotate(const osg::Vec3f & from, const osg::Vec3f & to)
 	static int _bind_rotate_overload_1(lua_State *L) {
 		if (!_lg_typecheck_rotate_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(const osg::Vec3f & from, const osg::Vec3f & to) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(const osg::Vec3f & from, const osg::Vec3f & to)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(const osg::Vec3f & from, const osg::Vec3f & to) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(const osg::Vec3f & from, const osg::Vec3f & to)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* from_ptr=(Luna< osg::Vec3f >::check(L,1));
@@ -3500,8 +3338,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::rotate(const osg::Vec3d & from, const osg::Vec3d & to)
 	static int _bind_rotate_overload_2(lua_State *L) {
 		if (!_lg_typecheck_rotate_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(const osg::Vec3d & from, const osg::Vec3d & to) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(const osg::Vec3d & from, const osg::Vec3d & to)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(const osg::Vec3d & from, const osg::Vec3d & to) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(const osg::Vec3d & from, const osg::Vec3d & to)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* from_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -3527,8 +3364,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::rotate(float angle, float x, float y, float z)
 	static int _bind_rotate_overload_3(lua_State *L) {
 		if (!_lg_typecheck_rotate_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(float angle, float x, float y, float z) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(float angle, float x, float y, float z)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(float angle, float x, float y, float z) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(float angle, float x, float y, float z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float angle=(float)lua_tonumber(L,1);
@@ -3548,8 +3384,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::rotate(float angle, const osg::Vec3f & axis)
 	static int _bind_rotate_overload_4(lua_State *L) {
 		if (!_lg_typecheck_rotate_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(float angle, const osg::Vec3f & axis) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(float angle, const osg::Vec3f & axis)\nClass arguments details:\narg 2 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(float angle, const osg::Vec3f & axis) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(float angle, const osg::Vec3f & axis)\nClass arguments details:\narg 2 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float angle=(float)lua_tonumber(L,1);
@@ -3571,8 +3406,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::rotate(float angle, const osg::Vec3d & axis)
 	static int _bind_rotate_overload_5(lua_State *L) {
 		if (!_lg_typecheck_rotate_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(float angle, const osg::Vec3d & axis) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(float angle, const osg::Vec3d & axis)\nClass arguments details:\narg 2 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(float angle, const osg::Vec3d & axis) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(float angle, const osg::Vec3d & axis)\nClass arguments details:\narg 2 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float angle=(float)lua_tonumber(L,1);
@@ -3594,8 +3428,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::rotate(float angle1, const osg::Vec3f & axis1, float angle2, const osg::Vec3f & axis2, float angle3, const osg::Vec3f & axis3)
 	static int _bind_rotate_overload_6(lua_State *L) {
 		if (!_lg_typecheck_rotate_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(float angle1, const osg::Vec3f & axis1, float angle2, const osg::Vec3f & axis2, float angle3, const osg::Vec3f & axis3) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(float angle1, const osg::Vec3f & axis1, float angle2, const osg::Vec3f & axis2, float angle3, const osg::Vec3f & axis3)\nClass arguments details:\narg 2 ID = 92303204\narg 4 ID = 92303204\narg 6 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(float angle1, const osg::Vec3f & axis1, float angle2, const osg::Vec3f & axis2, float angle3, const osg::Vec3f & axis3) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(float angle1, const osg::Vec3f & axis1, float angle2, const osg::Vec3f & axis2, float angle3, const osg::Vec3f & axis3)\nClass arguments details:\narg 2 ID = 92303204\narg 4 ID = 92303204\narg 6 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float angle1=(float)lua_tonumber(L,1);
@@ -3629,8 +3462,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::rotate(float angle1, const osg::Vec3d & axis1, float angle2, const osg::Vec3d & axis2, float angle3, const osg::Vec3d & axis3)
 	static int _bind_rotate_overload_7(lua_State *L) {
 		if (!_lg_typecheck_rotate_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(float angle1, const osg::Vec3d & axis1, float angle2, const osg::Vec3d & axis2, float angle3, const osg::Vec3d & axis3) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(float angle1, const osg::Vec3d & axis1, float angle2, const osg::Vec3d & axis2, float angle3, const osg::Vec3d & axis3)\nClass arguments details:\narg 2 ID = 92303202\narg 4 ID = 92303202\narg 6 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(float angle1, const osg::Vec3d & axis1, float angle2, const osg::Vec3d & axis2, float angle3, const osg::Vec3d & axis3) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(float angle1, const osg::Vec3d & axis1, float angle2, const osg::Vec3d & axis2, float angle3, const osg::Vec3d & axis3)\nClass arguments details:\narg 2 ID = 92303202\narg 4 ID = 92303202\narg 6 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float angle1=(float)lua_tonumber(L,1);
@@ -3664,8 +3496,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::rotate(const osg::Quat & quat)
 	static int _bind_rotate_overload_8(lua_State *L) {
 		if (!_lg_typecheck_rotate_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(const osg::Quat & quat) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(const osg::Quat & quat)\nClass arguments details:\narg 1 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::rotate(const osg::Quat & quat) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::rotate(const osg::Quat & quat)\nClass arguments details:\narg 1 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Quat* quat_ptr=(Luna< osg::Quat >::check(L,1));
@@ -3701,8 +3532,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::inverse(const osg::Matrixf & matrix)
 	static int _bind_inverse(lua_State *L) {
 		if (!_lg_typecheck_inverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::inverse(const osg::Matrixf & matrix) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::inverse(const osg::Matrixf & matrix)\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::inverse(const osg::Matrixf & matrix) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::inverse(const osg::Matrixf & matrix)\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* matrix_ptr=(Luna< osg::Matrixf >::check(L,1));
@@ -3723,8 +3553,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::orthoNormal(const osg::Matrixf & matrix)
 	static int _bind_orthoNormal(lua_State *L) {
 		if (!_lg_typecheck_orthoNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::orthoNormal(const osg::Matrixf & matrix) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::orthoNormal(const osg::Matrixf & matrix)\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::orthoNormal(const osg::Matrixf & matrix) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::orthoNormal(const osg::Matrixf & matrix)\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* matrix_ptr=(Luna< osg::Matrixf >::check(L,1));
@@ -3745,8 +3574,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::ortho(double left, double right, double bottom, double top, double zNear, double zFar)
 	static int _bind_ortho(lua_State *L) {
 		if (!_lg_typecheck_ortho(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::ortho(double left, double right, double bottom, double top, double zNear, double zFar) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::ortho(double left, double right, double bottom, double top, double zNear, double zFar)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::ortho(double left, double right, double bottom, double top, double zNear, double zFar) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::ortho(double left, double right, double bottom, double top, double zNear, double zFar)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double left=(double)lua_tonumber(L,1);
@@ -3768,8 +3596,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::ortho2D(double left, double right, double bottom, double top)
 	static int _bind_ortho2D(lua_State *L) {
 		if (!_lg_typecheck_ortho2D(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::ortho2D(double left, double right, double bottom, double top) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::ortho2D(double left, double right, double bottom, double top)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::ortho2D(double left, double right, double bottom, double top) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::ortho2D(double left, double right, double bottom, double top)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double left=(double)lua_tonumber(L,1);
@@ -3789,8 +3616,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::frustum(double left, double right, double bottom, double top, double zNear, double zFar)
 	static int _bind_frustum(lua_State *L) {
 		if (!_lg_typecheck_frustum(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::frustum(double left, double right, double bottom, double top, double zNear, double zFar) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::frustum(double left, double right, double bottom, double top, double zNear, double zFar)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::frustum(double left, double right, double bottom, double top, double zNear, double zFar) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::frustum(double left, double right, double bottom, double top, double zNear, double zFar)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double left=(double)lua_tonumber(L,1);
@@ -3812,8 +3638,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::perspective(double fovy, double aspectRatio, double zNear, double zFar)
 	static int _bind_perspective(lua_State *L) {
 		if (!_lg_typecheck_perspective(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::perspective(double fovy, double aspectRatio, double zNear, double zFar) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::perspective(double fovy, double aspectRatio, double zNear, double zFar)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::perspective(double fovy, double aspectRatio, double zNear, double zFar) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::perspective(double fovy, double aspectRatio, double zNear, double zFar)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double fovy=(double)lua_tonumber(L,1);
@@ -3833,8 +3658,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::lookAt(const osg::Vec3f & eye, const osg::Vec3f & center, const osg::Vec3f & up)
 	static int _bind_lookAt_overload_1(lua_State *L) {
 		if (!_lg_typecheck_lookAt_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::lookAt(const osg::Vec3f & eye, const osg::Vec3f & center, const osg::Vec3f & up) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::lookAt(const osg::Vec3f & eye, const osg::Vec3f & center, const osg::Vec3f & up)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\narg 3 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::lookAt(const osg::Vec3f & eye, const osg::Vec3f & center, const osg::Vec3f & up) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::lookAt(const osg::Vec3f & eye, const osg::Vec3f & center, const osg::Vec3f & up)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\narg 3 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* eye_ptr=(Luna< osg::Vec3f >::check(L,1));
@@ -3865,8 +3689,7 @@ public:
 	// static osg::Matrixf osg::Matrixf::lookAt(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)
 	static int _bind_lookAt_overload_2(lua_State *L) {
 		if (!_lg_typecheck_lookAt_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::lookAt(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::lookAt(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in static osg::Matrixf osg::Matrixf::lookAt(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up) function, expected prototype:\nstatic osg::Matrixf osg::Matrixf::lookAt(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -3906,8 +3729,7 @@ public:
 	// static osg::Vec3f osg::Matrixf::transform3x3(const osg::Vec3f & v, const osg::Matrixf & m)
 	static int _bind_transform3x3_overload_1(lua_State *L) {
 		if (!_lg_typecheck_transform3x3_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Vec3f osg::Matrixf::transform3x3(const osg::Vec3f & v, const osg::Matrixf & m) function, expected prototype:\nstatic osg::Vec3f osg::Matrixf::transform3x3(const osg::Vec3f & v, const osg::Matrixf & m)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in static osg::Vec3f osg::Matrixf::transform3x3(const osg::Vec3f & v, const osg::Matrixf & m) function, expected prototype:\nstatic osg::Vec3f osg::Matrixf::transform3x3(const osg::Vec3f & v, const osg::Matrixf & m)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,1));
@@ -3933,8 +3755,7 @@ public:
 	// static osg::Vec3d osg::Matrixf::transform3x3(const osg::Vec3d & v, const osg::Matrixf & m)
 	static int _bind_transform3x3_overload_2(lua_State *L) {
 		if (!_lg_typecheck_transform3x3_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Vec3d osg::Matrixf::transform3x3(const osg::Vec3d & v, const osg::Matrixf & m) function, expected prototype:\nstatic osg::Vec3d osg::Matrixf::transform3x3(const osg::Vec3d & v, const osg::Matrixf & m)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in static osg::Vec3d osg::Matrixf::transform3x3(const osg::Vec3d & v, const osg::Matrixf & m) function, expected prototype:\nstatic osg::Vec3d osg::Matrixf::transform3x3(const osg::Vec3d & v, const osg::Matrixf & m)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* v_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -3960,8 +3781,7 @@ public:
 	// static osg::Vec3f osg::Matrixf::transform3x3(const osg::Matrixf & m, const osg::Vec3f & v)
 	static int _bind_transform3x3_overload_3(lua_State *L) {
 		if (!_lg_typecheck_transform3x3_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Vec3f osg::Matrixf::transform3x3(const osg::Matrixf & m, const osg::Vec3f & v) function, expected prototype:\nstatic osg::Vec3f osg::Matrixf::transform3x3(const osg::Matrixf & m, const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 18903840\narg 2 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in static osg::Vec3f osg::Matrixf::transform3x3(const osg::Matrixf & m, const osg::Vec3f & v) function, expected prototype:\nstatic osg::Vec3f osg::Matrixf::transform3x3(const osg::Matrixf & m, const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 18903840\narg 2 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* m_ptr=(Luna< osg::Matrixf >::check(L,1));
@@ -3987,8 +3807,7 @@ public:
 	// static osg::Vec3d osg::Matrixf::transform3x3(const osg::Matrixf & m, const osg::Vec3d & v)
 	static int _bind_transform3x3_overload_4(lua_State *L) {
 		if (!_lg_typecheck_transform3x3_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Vec3d osg::Matrixf::transform3x3(const osg::Matrixf & m, const osg::Vec3d & v) function, expected prototype:\nstatic osg::Vec3d osg::Matrixf::transform3x3(const osg::Matrixf & m, const osg::Vec3d & v)\nClass arguments details:\narg 1 ID = 18903840\narg 2 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in static osg::Vec3d osg::Matrixf::transform3x3(const osg::Matrixf & m, const osg::Vec3d & v) function, expected prototype:\nstatic osg::Vec3d osg::Matrixf::transform3x3(const osg::Matrixf & m, const osg::Vec3d & v)\nClass arguments details:\narg 1 ID = 18903840\narg 2 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* m_ptr=(Luna< osg::Matrixf >::check(L,1));
@@ -4027,8 +3846,7 @@ public:
 	// bool osg::Matrixf::operator<(const osg::Matrixf & m) const
 	static int _bind___lt(lua_State *L) {
 		if (!_lg_typecheck___lt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::operator<(const osg::Matrixf & m) const function, expected prototype:\nbool osg::Matrixf::operator<(const osg::Matrixf & m) const\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::operator<(const osg::Matrixf & m) const function, expected prototype:\nbool osg::Matrixf::operator<(const osg::Matrixf & m) const\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* m_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -4039,8 +3857,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Matrixf::operator<(const osg::Matrixf &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Matrixf::operator<(const osg::Matrixf &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator<(m);
 		lua_pushboolean(L,lret?1:0);
@@ -4051,8 +3868,7 @@ public:
 	// bool osg::Matrixf::operator==(const osg::Matrixf & m) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::operator==(const osg::Matrixf & m) const function, expected prototype:\nbool osg::Matrixf::operator==(const osg::Matrixf & m) const\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::operator==(const osg::Matrixf & m) const function, expected prototype:\nbool osg::Matrixf::operator==(const osg::Matrixf & m) const\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* m_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -4063,8 +3879,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Matrixf::operator==(const osg::Matrixf &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Matrixf::operator==(const osg::Matrixf &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(m);
 		lua_pushboolean(L,lret?1:0);
@@ -4075,8 +3890,7 @@ public:
 	// bool osg::Matrixf::operator!=(const osg::Matrixf & m) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::operator!=(const osg::Matrixf & m) const function, expected prototype:\nbool osg::Matrixf::operator!=(const osg::Matrixf & m) const\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixf::operator!=(const osg::Matrixf & m) const function, expected prototype:\nbool osg::Matrixf::operator!=(const osg::Matrixf & m) const\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* m_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -4087,8 +3901,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Matrixf::operator!=(const osg::Matrixf &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Matrixf::operator!=(const osg::Matrixf &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(m);
 		lua_pushboolean(L,lret?1:0);
@@ -4099,8 +3912,7 @@ public:
 	// float & osg::Matrixf::operator()(int row, int col)
 	static int _bind_op_call_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float & osg::Matrixf::operator()(int row, int col) function, expected prototype:\nfloat & osg::Matrixf::operator()(int row, int col)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float & osg::Matrixf::operator()(int row, int col) function, expected prototype:\nfloat & osg::Matrixf::operator()(int row, int col)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int row=(int)lua_tointeger(L,2);
@@ -4108,8 +3920,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float & osg::Matrixf::operator()(int, int). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float & osg::Matrixf::operator()(int, int). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float & lret = self->operator()(row, col);
 		lua_pushnumber(L,lret);
@@ -4120,8 +3931,7 @@ public:
 	// float osg::Matrixf::operator()(int row, int col) const
 	static int _bind_op_call_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::Matrixf::operator()(int row, int col) const function, expected prototype:\nfloat osg::Matrixf::operator()(int row, int col) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::Matrixf::operator()(int row, int col) const function, expected prototype:\nfloat osg::Matrixf::operator()(int row, int col) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int row=(int)lua_tointeger(L,2);
@@ -4129,8 +3939,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::Matrixf::operator()(int, int) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::Matrixf::operator()(int, int) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->operator()(row, col);
 		lua_pushnumber(L,lret);
@@ -4150,8 +3959,7 @@ public:
 	// osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixf & rhs)
 	static int _bind_op_assign_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_assign_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixf & rhs) function, expected prototype:\nosg::Matrixf & osg::Matrixf::operator=(const osg::Matrixf & rhs)\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixf & rhs) function, expected prototype:\nosg::Matrixf & osg::Matrixf::operator=(const osg::Matrixf & rhs)\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* rhs_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -4162,8 +3970,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixf &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Matrixf* lret = &self->operator=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4176,8 +3983,7 @@ public:
 	// osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixd & other)
 	static int _bind_op_assign_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_assign_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixd & other) function, expected prototype:\nosg::Matrixf & osg::Matrixf::operator=(const osg::Matrixd & other)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixd & other) function, expected prototype:\nosg::Matrixf & osg::Matrixf::operator=(const osg::Matrixd & other)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* other_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -4188,8 +3994,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Matrixf* lret = &self->operator=(other);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4211,8 +4016,7 @@ public:
 	// osg::Vec3f osg::Matrixf::operator*(const osg::Vec3f & v) const
 	static int _bind___mul_overload_1(lua_State *L) {
 		if (!_lg_typecheck___mul_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osg::Matrixf::operator*(const osg::Vec3f & v) const function, expected prototype:\nosg::Vec3f osg::Matrixf::operator*(const osg::Vec3f & v) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osg::Matrixf::operator*(const osg::Vec3f & v) const function, expected prototype:\nosg::Vec3f osg::Matrixf::operator*(const osg::Vec3f & v) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -4223,8 +4027,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osg::Matrixf::operator*(const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osg::Matrixf::operator*(const osg::Vec3f &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->operator*(v);
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -4238,8 +4041,7 @@ public:
 	// osg::Vec3d osg::Matrixf::operator*(const osg::Vec3d & v) const
 	static int _bind___mul_overload_2(lua_State *L) {
 		if (!_lg_typecheck___mul_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::Matrixf::operator*(const osg::Vec3d & v) const function, expected prototype:\nosg::Vec3d osg::Matrixf::operator*(const osg::Vec3d & v) const\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::Matrixf::operator*(const osg::Vec3d & v) const function, expected prototype:\nosg::Vec3d osg::Matrixf::operator*(const osg::Vec3d & v) const\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* v_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -4250,8 +4052,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Matrixf::operator*(const osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Matrixf::operator*(const osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3d stack_lret = self->operator*(v);
 		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
@@ -4265,8 +4066,7 @@ public:
 	// osg::Vec4f osg::Matrixf::operator*(const osg::Vec4f & v) const
 	static int _bind___mul_overload_3(lua_State *L) {
 		if (!_lg_typecheck___mul_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec4f osg::Matrixf::operator*(const osg::Vec4f & v) const function, expected prototype:\nosg::Vec4f osg::Matrixf::operator*(const osg::Vec4f & v) const\nClass arguments details:\narg 1 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec4f osg::Matrixf::operator*(const osg::Vec4f & v) const function, expected prototype:\nosg::Vec4f osg::Matrixf::operator*(const osg::Vec4f & v) const\nClass arguments details:\narg 1 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4f* v_ptr=(Luna< osg::Vec4f >::check(L,2));
@@ -4277,8 +4077,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4f osg::Matrixf::operator*(const osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec4f osg::Matrixf::operator*(const osg::Vec4f &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec4f stack_lret = self->operator*(v);
 		osg::Vec4f* lret = new osg::Vec4f(stack_lret);
@@ -4292,8 +4091,7 @@ public:
 	// osg::Vec4d osg::Matrixf::operator*(const osg::Vec4d & v) const
 	static int _bind___mul_overload_4(lua_State *L) {
 		if (!_lg_typecheck___mul_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec4d osg::Matrixf::operator*(const osg::Vec4d & v) const function, expected prototype:\nosg::Vec4d osg::Matrixf::operator*(const osg::Vec4d & v) const\nClass arguments details:\narg 1 ID = 92303233\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec4d osg::Matrixf::operator*(const osg::Vec4d & v) const function, expected prototype:\nosg::Vec4d osg::Matrixf::operator*(const osg::Vec4d & v) const\nClass arguments details:\narg 1 ID = 92303233\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4d* v_ptr=(Luna< osg::Vec4d >::check(L,2));
@@ -4304,8 +4102,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4d osg::Matrixf::operator*(const osg::Vec4d &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec4d osg::Matrixf::operator*(const osg::Vec4d &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec4d stack_lret = self->operator*(v);
 		osg::Vec4d* lret = new osg::Vec4d(stack_lret);
@@ -4319,8 +4116,7 @@ public:
 	// osg::Matrixf osg::Matrixf::operator*(const osg::Matrixf & m) const
 	static int _bind___mul_overload_5(lua_State *L) {
 		if (!_lg_typecheck___mul_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixf osg::Matrixf::operator*(const osg::Matrixf & m) const function, expected prototype:\nosg::Matrixf osg::Matrixf::operator*(const osg::Matrixf & m) const\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixf osg::Matrixf::operator*(const osg::Matrixf & m) const function, expected prototype:\nosg::Matrixf osg::Matrixf::operator*(const osg::Matrixf & m) const\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* m_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -4331,8 +4127,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixf osg::Matrixf::operator*(const osg::Matrixf &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixf osg::Matrixf::operator*(const osg::Matrixf &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixf stack_lret = self->operator*(m);
 		osg::Matrixf* lret = new osg::Matrixf(stack_lret);
@@ -4346,16 +4141,14 @@ public:
 	// osg::Matrixf osg::Matrixf::operator*(float rhs) const
 	static int _bind___mul_overload_6(lua_State *L) {
 		if (!_lg_typecheck___mul_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixf osg::Matrixf::operator*(float rhs) const function, expected prototype:\nosg::Matrixf osg::Matrixf::operator*(float rhs) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixf osg::Matrixf::operator*(float rhs) const function, expected prototype:\nosg::Matrixf osg::Matrixf::operator*(float rhs) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float rhs=(float)lua_tonumber(L,2);
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixf osg::Matrixf::operator*(float) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixf osg::Matrixf::operator*(float) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixf stack_lret = self->operator*(rhs);
 		osg::Matrixf* lret = new osg::Matrixf(stack_lret);
@@ -4382,8 +4175,7 @@ public:
 	// void osg::Matrixf::operator*=(const osg::Matrixf & other)
 	static int _bind_op_mult_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_mult_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Matrixf::operator*=(const osg::Matrixf & other) function, expected prototype:\nvoid osg::Matrixf::operator*=(const osg::Matrixf & other)\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in void osg::Matrixf::operator*=(const osg::Matrixf & other) function, expected prototype:\nvoid osg::Matrixf::operator*=(const osg::Matrixf & other)\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* other_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -4394,8 +4186,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrixf::operator*=(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Matrixf::operator*=(const osg::Matrixf &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->operator*=(other);
 
@@ -4405,16 +4196,14 @@ public:
 	// osg::Matrixf & osg::Matrixf::operator*=(float rhs)
 	static int _bind_op_mult_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_mult_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixf & osg::Matrixf::operator*=(float rhs) function, expected prototype:\nosg::Matrixf & osg::Matrixf::operator*=(float rhs)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixf & osg::Matrixf::operator*=(float rhs) function, expected prototype:\nosg::Matrixf & osg::Matrixf::operator*=(float rhs)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float rhs=(float)lua_tonumber(L,2);
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixf & osg::Matrixf::operator*=(float). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixf & osg::Matrixf::operator*=(float). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Matrixf* lret = &self->operator*=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4436,16 +4225,14 @@ public:
 	// osg::Matrixf osg::Matrixf::operator/(float rhs) const
 	static int _bind___div(lua_State *L) {
 		if (!_lg_typecheck___div(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixf osg::Matrixf::operator/(float rhs) const function, expected prototype:\nosg::Matrixf osg::Matrixf::operator/(float rhs) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixf osg::Matrixf::operator/(float rhs) const function, expected prototype:\nosg::Matrixf osg::Matrixf::operator/(float rhs) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float rhs=(float)lua_tonumber(L,2);
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixf osg::Matrixf::operator/(float) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixf osg::Matrixf::operator/(float) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixf stack_lret = self->operator/(rhs);
 		osg::Matrixf* lret = new osg::Matrixf(stack_lret);
@@ -4459,16 +4246,14 @@ public:
 	// osg::Matrixf & osg::Matrixf::operator/=(float rhs)
 	static int _bind_op_div(lua_State *L) {
 		if (!_lg_typecheck_op_div(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixf & osg::Matrixf::operator/=(float rhs) function, expected prototype:\nosg::Matrixf & osg::Matrixf::operator/=(float rhs)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixf & osg::Matrixf::operator/=(float rhs) function, expected prototype:\nosg::Matrixf & osg::Matrixf::operator/=(float rhs)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float rhs=(float)lua_tonumber(L,2);
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixf & osg::Matrixf::operator/=(float). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixf & osg::Matrixf::operator/=(float). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Matrixf* lret = &self->operator/=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4481,8 +4266,7 @@ public:
 	// osg::Matrixf osg::Matrixf::operator+(const osg::Matrixf & rhs) const
 	static int _bind___add(lua_State *L) {
 		if (!_lg_typecheck___add(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixf osg::Matrixf::operator+(const osg::Matrixf & rhs) const function, expected prototype:\nosg::Matrixf osg::Matrixf::operator+(const osg::Matrixf & rhs) const\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixf osg::Matrixf::operator+(const osg::Matrixf & rhs) const function, expected prototype:\nosg::Matrixf osg::Matrixf::operator+(const osg::Matrixf & rhs) const\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* rhs_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -4493,8 +4277,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixf osg::Matrixf::operator+(const osg::Matrixf &) const. Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixf osg::Matrixf::operator+(const osg::Matrixf &) const. Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixf stack_lret = self->operator+(rhs);
 		osg::Matrixf* lret = new osg::Matrixf(stack_lret);
@@ -4508,8 +4291,7 @@ public:
 	// osg::Matrixf & osg::Matrixf::operator+=(const osg::Matrixf & rhs)
 	static int _bind_op_add(lua_State *L) {
 		if (!_lg_typecheck_op_add(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixf & osg::Matrixf::operator+=(const osg::Matrixf & rhs) function, expected prototype:\nosg::Matrixf & osg::Matrixf::operator+=(const osg::Matrixf & rhs)\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixf & osg::Matrixf::operator+=(const osg::Matrixf & rhs) function, expected prototype:\nosg::Matrixf & osg::Matrixf::operator+=(const osg::Matrixf & rhs)\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* rhs_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -4520,8 +4302,7 @@ public:
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixf & osg::Matrixf::operator+=(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixf & osg::Matrixf::operator+=(const osg::Matrixf &). Got : '%s'\n%s",typeid(Luna< osg::Matrixf >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Matrixf* lret = &self->operator+=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.

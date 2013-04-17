@@ -103,16 +103,14 @@ public:
 	// void osg::OperationQueue::public_addOperationThread(osg::OperationThread * thread)
 	static int _bind_public_addOperationThread(lua_State *L) {
 		if (!_lg_typecheck_public_addOperationThread(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OperationQueue::public_addOperationThread(osg::OperationThread * thread) function, expected prototype:\nvoid osg::OperationQueue::public_addOperationThread(osg::OperationThread * thread)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OperationQueue::public_addOperationThread(osg::OperationThread * thread) function, expected prototype:\nvoid osg::OperationQueue::public_addOperationThread(osg::OperationThread * thread)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::OperationThread* thread=(Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,2));
 
 		wrapper_osg_OperationQueue* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_OperationQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OperationQueue::public_addOperationThread(osg::OperationThread *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OperationQueue::public_addOperationThread(osg::OperationThread *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_addOperationThread(thread);
 
@@ -122,16 +120,14 @@ public:
 	// void osg::OperationQueue::public_removeOperationThread(osg::OperationThread * thread)
 	static int _bind_public_removeOperationThread(lua_State *L) {
 		if (!_lg_typecheck_public_removeOperationThread(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OperationQueue::public_removeOperationThread(osg::OperationThread * thread) function, expected prototype:\nvoid osg::OperationQueue::public_removeOperationThread(osg::OperationThread * thread)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OperationQueue::public_removeOperationThread(osg::OperationThread * thread) function, expected prototype:\nvoid osg::OperationQueue::public_removeOperationThread(osg::OperationThread * thread)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::OperationThread* thread=(Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,2));
 
 		wrapper_osg_OperationQueue* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_OperationQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OperationQueue::public_removeOperationThread(osg::OperationThread *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OperationQueue::public_removeOperationThread(osg::OperationThread *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_removeOperationThread(thread);
 
@@ -141,8 +137,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -150,8 +145,7 @@ public:
 
 		wrapper_osg_OperationQueue* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_OperationQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -161,15 +155,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_OperationQueue* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_OperationQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

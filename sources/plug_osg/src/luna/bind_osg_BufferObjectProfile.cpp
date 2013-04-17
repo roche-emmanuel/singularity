@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::BufferObjectProfile* self= (osg::BufferObjectProfile*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::BufferObjectProfile >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -178,8 +175,7 @@ public:
 	// osg::BufferObjectProfile::BufferObjectProfile()
 	static osg::BufferObjectProfile* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BufferObjectProfile::BufferObjectProfile() function, expected prototype:\nosg::BufferObjectProfile::BufferObjectProfile()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BufferObjectProfile::BufferObjectProfile() function, expected prototype:\nosg::BufferObjectProfile::BufferObjectProfile()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -189,8 +185,7 @@ public:
 	// osg::BufferObjectProfile::BufferObjectProfile(unsigned int target, unsigned int usage, unsigned int size)
 	static osg::BufferObjectProfile* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BufferObjectProfile::BufferObjectProfile(unsigned int target, unsigned int usage, unsigned int size) function, expected prototype:\nosg::BufferObjectProfile::BufferObjectProfile(unsigned int target, unsigned int usage, unsigned int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BufferObjectProfile::BufferObjectProfile(unsigned int target, unsigned int usage, unsigned int size) function, expected prototype:\nosg::BufferObjectProfile::BufferObjectProfile(unsigned int target, unsigned int usage, unsigned int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -203,8 +198,7 @@ public:
 	// osg::BufferObjectProfile::BufferObjectProfile(const osg::BufferObjectProfile & bpo)
 	static osg::BufferObjectProfile* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BufferObjectProfile::BufferObjectProfile(const osg::BufferObjectProfile & bpo) function, expected prototype:\nosg::BufferObjectProfile::BufferObjectProfile(const osg::BufferObjectProfile & bpo)\nClass arguments details:\narg 1 ID = 12032151\n");
+			luaL_error(L, "luna typecheck failed in osg::BufferObjectProfile::BufferObjectProfile(const osg::BufferObjectProfile & bpo) function, expected prototype:\nosg::BufferObjectProfile::BufferObjectProfile(const osg::BufferObjectProfile & bpo)\nClass arguments details:\narg 1 ID = 12032151\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BufferObjectProfile* bpo_ptr=(Luna< osg::BufferObjectProfile >::check(L,1));
@@ -231,8 +225,7 @@ public:
 	// void osg::BufferObjectProfile::setProfile(unsigned int target, unsigned int usage, unsigned int size)
 	static int _bind_setProfile(lua_State *L) {
 		if (!_lg_typecheck_setProfile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::BufferObjectProfile::setProfile(unsigned int target, unsigned int usage, unsigned int size) function, expected prototype:\nvoid osg::BufferObjectProfile::setProfile(unsigned int target, unsigned int usage, unsigned int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::BufferObjectProfile::setProfile(unsigned int target, unsigned int usage, unsigned int size) function, expected prototype:\nvoid osg::BufferObjectProfile::setProfile(unsigned int target, unsigned int usage, unsigned int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
@@ -241,8 +234,7 @@ public:
 
 		osg::BufferObjectProfile* self=(Luna< osg::BufferObjectProfile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BufferObjectProfile::setProfile(unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::BufferObjectProfile::setProfile(unsigned int, unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setProfile(target, usage, size);
 
@@ -252,15 +244,13 @@ public:
 	// unsigned int osg::BufferObjectProfile::_target()
 	static int _bind_getTarget(lua_State *L) {
 		if (!_lg_typecheck_getTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::BufferObjectProfile::_target() function, expected prototype:\nunsigned int osg::BufferObjectProfile::_target()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::BufferObjectProfile::_target() function, expected prototype:\nunsigned int osg::BufferObjectProfile::_target()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::BufferObjectProfile* self=(Luna< osg::BufferObjectProfile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::BufferObjectProfile::_target(). Got : '%s'",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::BufferObjectProfile::_target(). Got : '%s'\n%s",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_target;
 		lua_pushnumber(L,lret);
@@ -271,15 +261,13 @@ public:
 	// unsigned int osg::BufferObjectProfile::_usage()
 	static int _bind_getUsage(lua_State *L) {
 		if (!_lg_typecheck_getUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::BufferObjectProfile::_usage() function, expected prototype:\nunsigned int osg::BufferObjectProfile::_usage()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::BufferObjectProfile::_usage() function, expected prototype:\nunsigned int osg::BufferObjectProfile::_usage()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::BufferObjectProfile* self=(Luna< osg::BufferObjectProfile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::BufferObjectProfile::_usage(). Got : '%s'",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::BufferObjectProfile::_usage(). Got : '%s'\n%s",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_usage;
 		lua_pushnumber(L,lret);
@@ -290,15 +278,13 @@ public:
 	// unsigned int osg::BufferObjectProfile::_size()
 	static int _bind_getSize(lua_State *L) {
 		if (!_lg_typecheck_getSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::BufferObjectProfile::_size() function, expected prototype:\nunsigned int osg::BufferObjectProfile::_size()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::BufferObjectProfile::_size() function, expected prototype:\nunsigned int osg::BufferObjectProfile::_size()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::BufferObjectProfile* self=(Luna< osg::BufferObjectProfile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::BufferObjectProfile::_size(). Got : '%s'",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::BufferObjectProfile::_size(). Got : '%s'\n%s",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_size;
 		lua_pushnumber(L,lret);
@@ -309,16 +295,14 @@ public:
 	// void osg::BufferObjectProfile::_target(unsigned int value)
 	static int _bind_setTarget(lua_State *L) {
 		if (!_lg_typecheck_setTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::BufferObjectProfile::_target(unsigned int value) function, expected prototype:\nvoid osg::BufferObjectProfile::_target(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::BufferObjectProfile::_target(unsigned int value) function, expected prototype:\nvoid osg::BufferObjectProfile::_target(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::BufferObjectProfile* self=(Luna< osg::BufferObjectProfile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BufferObjectProfile::_target(unsigned int). Got : '%s'",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::BufferObjectProfile::_target(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_target = value;
 
@@ -328,16 +312,14 @@ public:
 	// void osg::BufferObjectProfile::_usage(unsigned int value)
 	static int _bind_setUsage(lua_State *L) {
 		if (!_lg_typecheck_setUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::BufferObjectProfile::_usage(unsigned int value) function, expected prototype:\nvoid osg::BufferObjectProfile::_usage(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::BufferObjectProfile::_usage(unsigned int value) function, expected prototype:\nvoid osg::BufferObjectProfile::_usage(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::BufferObjectProfile* self=(Luna< osg::BufferObjectProfile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BufferObjectProfile::_usage(unsigned int). Got : '%s'",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::BufferObjectProfile::_usage(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_usage = value;
 
@@ -347,16 +329,14 @@ public:
 	// void osg::BufferObjectProfile::_size(unsigned int value)
 	static int _bind_setSize(lua_State *L) {
 		if (!_lg_typecheck_setSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::BufferObjectProfile::_size(unsigned int value) function, expected prototype:\nvoid osg::BufferObjectProfile::_size(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::BufferObjectProfile::_size(unsigned int value) function, expected prototype:\nvoid osg::BufferObjectProfile::_size(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::BufferObjectProfile* self=(Luna< osg::BufferObjectProfile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BufferObjectProfile::_size(unsigned int). Got : '%s'",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::BufferObjectProfile::_size(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_size = value;
 
@@ -368,8 +348,7 @@ public:
 	// bool osg::BufferObjectProfile::operator<(const osg::BufferObjectProfile & rhs) const
 	static int _bind___lt(lua_State *L) {
 		if (!_lg_typecheck___lt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::BufferObjectProfile::operator<(const osg::BufferObjectProfile & rhs) const function, expected prototype:\nbool osg::BufferObjectProfile::operator<(const osg::BufferObjectProfile & rhs) const\nClass arguments details:\narg 1 ID = 12032151\n");
+			luaL_error(L, "luna typecheck failed in bool osg::BufferObjectProfile::operator<(const osg::BufferObjectProfile & rhs) const function, expected prototype:\nbool osg::BufferObjectProfile::operator<(const osg::BufferObjectProfile & rhs) const\nClass arguments details:\narg 1 ID = 12032151\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BufferObjectProfile* rhs_ptr=(Luna< osg::BufferObjectProfile >::check(L,2));
@@ -380,8 +359,7 @@ public:
 
 		osg::BufferObjectProfile* self=(Luna< osg::BufferObjectProfile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BufferObjectProfile::operator<(const osg::BufferObjectProfile &) const. Got : '%s'",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::BufferObjectProfile::operator<(const osg::BufferObjectProfile &) const. Got : '%s'\n%s",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -392,8 +370,7 @@ public:
 	// bool osg::BufferObjectProfile::operator==(const osg::BufferObjectProfile & rhs) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::BufferObjectProfile::operator==(const osg::BufferObjectProfile & rhs) const function, expected prototype:\nbool osg::BufferObjectProfile::operator==(const osg::BufferObjectProfile & rhs) const\nClass arguments details:\narg 1 ID = 12032151\n");
+			luaL_error(L, "luna typecheck failed in bool osg::BufferObjectProfile::operator==(const osg::BufferObjectProfile & rhs) const function, expected prototype:\nbool osg::BufferObjectProfile::operator==(const osg::BufferObjectProfile & rhs) const\nClass arguments details:\narg 1 ID = 12032151\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BufferObjectProfile* rhs_ptr=(Luna< osg::BufferObjectProfile >::check(L,2));
@@ -404,8 +381,7 @@ public:
 
 		osg::BufferObjectProfile* self=(Luna< osg::BufferObjectProfile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BufferObjectProfile::operator==(const osg::BufferObjectProfile &) const. Got : '%s'",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::BufferObjectProfile::operator==(const osg::BufferObjectProfile &) const. Got : '%s'\n%s",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -416,8 +392,7 @@ public:
 	// osg::BufferObjectProfile & osg::BufferObjectProfile::operator=(const osg::BufferObjectProfile & rhs)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BufferObjectProfile & osg::BufferObjectProfile::operator=(const osg::BufferObjectProfile & rhs) function, expected prototype:\nosg::BufferObjectProfile & osg::BufferObjectProfile::operator=(const osg::BufferObjectProfile & rhs)\nClass arguments details:\narg 1 ID = 12032151\n");
+			luaL_error(L, "luna typecheck failed in osg::BufferObjectProfile & osg::BufferObjectProfile::operator=(const osg::BufferObjectProfile & rhs) function, expected prototype:\nosg::BufferObjectProfile & osg::BufferObjectProfile::operator=(const osg::BufferObjectProfile & rhs)\nClass arguments details:\narg 1 ID = 12032151\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BufferObjectProfile* rhs_ptr=(Luna< osg::BufferObjectProfile >::check(L,2));
@@ -428,8 +403,7 @@ public:
 
 		osg::BufferObjectProfile* self=(Luna< osg::BufferObjectProfile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BufferObjectProfile & osg::BufferObjectProfile::operator=(const osg::BufferObjectProfile &). Got : '%s'",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BufferObjectProfile & osg::BufferObjectProfile::operator=(const osg::BufferObjectProfile &). Got : '%s'\n%s",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::BufferObjectProfile* lret = &self->operator=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.

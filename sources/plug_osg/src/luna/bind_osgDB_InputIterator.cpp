@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::InputIterator* self= (osgDB::InputIterator*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -345,8 +342,7 @@ public:
 	// osgDB::InputIterator::InputIterator(lua_Table * data)
 	static osgDB::InputIterator* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::InputIterator::InputIterator(lua_Table * data) function, expected prototype:\nosgDB::InputIterator::InputIterator(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::InputIterator::InputIterator(lua_Table * data) function, expected prototype:\nosgDB::InputIterator::InputIterator(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -358,16 +354,14 @@ public:
 	// void osgDB::InputIterator::setStream(std::istream * istream)
 	static int _bind_setStream(lua_State *L) {
 		if (!_lg_typecheck_setStream(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::setStream(std::istream * istream) function, expected prototype:\nvoid osgDB::InputIterator::setStream(std::istream * istream)\nClass arguments details:\narg 1 ID = 77972206\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::setStream(std::istream * istream) function, expected prototype:\nvoid osgDB::InputIterator::setStream(std::istream * istream)\nClass arguments details:\narg 1 ID = 77972206\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::istream* istream=(Luna< std::istream >::check(L,2));
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::setStream(std::istream *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::setStream(std::istream *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setStream(istream);
 
@@ -377,15 +371,13 @@ public:
 	// std::istream * osgDB::InputIterator::getStream()
 	static int _bind_getStream_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getStream_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::istream * osgDB::InputIterator::getStream() function, expected prototype:\nstd::istream * osgDB::InputIterator::getStream()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::istream * osgDB::InputIterator::getStream() function, expected prototype:\nstd::istream * osgDB::InputIterator::getStream()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::istream * osgDB::InputIterator::getStream(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::istream * osgDB::InputIterator::getStream(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::istream * lret = self->getStream();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -398,15 +390,13 @@ public:
 	// const std::istream * osgDB::InputIterator::getStream() const
 	static int _bind_getStream_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getStream_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::istream * osgDB::InputIterator::getStream() const function, expected prototype:\nconst std::istream * osgDB::InputIterator::getStream() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::istream * osgDB::InputIterator::getStream() const function, expected prototype:\nconst std::istream * osgDB::InputIterator::getStream() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::istream * osgDB::InputIterator::getStream() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::istream * osgDB::InputIterator::getStream() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::istream * lret = self->getStream();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -428,16 +418,14 @@ public:
 	// void osgDB::InputIterator::setInputStream(osgDB::InputStream * inputStream)
 	static int _bind_setInputStream(lua_State *L) {
 		if (!_lg_typecheck_setInputStream(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::setInputStream(osgDB::InputStream * inputStream) function, expected prototype:\nvoid osgDB::InputIterator::setInputStream(osgDB::InputStream * inputStream)\nClass arguments details:\narg 1 ID = 47918182\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::setInputStream(osgDB::InputStream * inputStream) function, expected prototype:\nvoid osgDB::InputIterator::setInputStream(osgDB::InputStream * inputStream)\nClass arguments details:\narg 1 ID = 47918182\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::InputStream* inputStream=(Luna< osgDB::InputStream >::check(L,2));
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::setInputStream(osgDB::InputStream *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::setInputStream(osgDB::InputStream *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setInputStream(inputStream);
 
@@ -447,15 +435,13 @@ public:
 	// osgDB::InputStream * osgDB::InputIterator::getInputStream()
 	static int _bind_getInputStream_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getInputStream_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::InputStream * osgDB::InputIterator::getInputStream() function, expected prototype:\nosgDB::InputStream * osgDB::InputIterator::getInputStream()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::InputStream * osgDB::InputIterator::getInputStream() function, expected prototype:\nosgDB::InputStream * osgDB::InputIterator::getInputStream()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::InputStream * osgDB::InputIterator::getInputStream(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::InputStream * osgDB::InputIterator::getInputStream(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::InputStream * lret = self->getInputStream();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -468,15 +454,13 @@ public:
 	// const osgDB::InputStream * osgDB::InputIterator::getInputStream() const
 	static int _bind_getInputStream_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getInputStream_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgDB::InputStream * osgDB::InputIterator::getInputStream() const function, expected prototype:\nconst osgDB::InputStream * osgDB::InputIterator::getInputStream() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgDB::InputStream * osgDB::InputIterator::getInputStream() const function, expected prototype:\nconst osgDB::InputStream * osgDB::InputIterator::getInputStream() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::InputStream * osgDB::InputIterator::getInputStream() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgDB::InputStream * osgDB::InputIterator::getInputStream() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgDB::InputStream * lret = self->getInputStream();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -498,16 +482,14 @@ public:
 	// void osgDB::InputIterator::setByteSwap(int byteSwap)
 	static int _bind_setByteSwap(lua_State *L) {
 		if (!_lg_typecheck_setByteSwap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::setByteSwap(int byteSwap) function, expected prototype:\nvoid osgDB::InputIterator::setByteSwap(int byteSwap)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::setByteSwap(int byteSwap) function, expected prototype:\nvoid osgDB::InputIterator::setByteSwap(int byteSwap)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int byteSwap=(int)lua_tointeger(L,2);
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::setByteSwap(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::setByteSwap(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setByteSwap(byteSwap);
 
@@ -517,15 +499,13 @@ public:
 	// int osgDB::InputIterator::getByteSwap() const
 	static int _bind_getByteSwap(lua_State *L) {
 		if (!_lg_typecheck_getByteSwap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgDB::InputIterator::getByteSwap() const function, expected prototype:\nint osgDB::InputIterator::getByteSwap() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgDB::InputIterator::getByteSwap() const function, expected prototype:\nint osgDB::InputIterator::getByteSwap() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgDB::InputIterator::getByteSwap() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgDB::InputIterator::getByteSwap() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getByteSwap();
 		lua_pushnumber(L,lret);
@@ -536,15 +516,13 @@ public:
 	// void osgDB::InputIterator::checkStream() const
 	static int _bind_checkStream(lua_State *L) {
 		if (!_lg_typecheck_checkStream(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::checkStream() const function, expected prototype:\nvoid osgDB::InputIterator::checkStream() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::checkStream() const function, expected prototype:\nvoid osgDB::InputIterator::checkStream() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::checkStream() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::checkStream() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->checkStream();
 
@@ -554,15 +532,13 @@ public:
 	// bool osgDB::InputIterator::isFailed() const
 	static int _bind_isFailed(lua_State *L) {
 		if (!_lg_typecheck_isFailed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::InputIterator::isFailed() const function, expected prototype:\nbool osgDB::InputIterator::isFailed() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::InputIterator::isFailed() const function, expected prototype:\nbool osgDB::InputIterator::isFailed() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::InputIterator::isFailed() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::InputIterator::isFailed() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isFailed();
 		lua_pushboolean(L,lret?1:0);
@@ -573,15 +549,13 @@ public:
 	// bool osgDB::InputIterator::isBinary() const
 	static int _bind_isBinary(lua_State *L) {
 		if (!_lg_typecheck_isBinary(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::InputIterator::isBinary() const function, expected prototype:\nbool osgDB::InputIterator::isBinary() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::InputIterator::isBinary() const function, expected prototype:\nbool osgDB::InputIterator::isBinary() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::InputIterator::isBinary() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::InputIterator::isBinary() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isBinary();
 		lua_pushboolean(L,lret?1:0);
@@ -592,16 +566,14 @@ public:
 	// void osgDB::InputIterator::readBool(bool & b)
 	static int _bind_readBool(lua_State *L) {
 		if (!_lg_typecheck_readBool(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readBool(bool & b) function, expected prototype:\nvoid osgDB::InputIterator::readBool(bool & b)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readBool(bool & b) function, expected prototype:\nvoid osgDB::InputIterator::readBool(bool & b)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool b=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readBool(bool &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readBool(bool &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readBool(b);
 
@@ -612,16 +584,14 @@ public:
 	// void osgDB::InputIterator::readChar(char & c)
 	static int _bind_readChar(lua_State *L) {
 		if (!_lg_typecheck_readChar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readChar(char & c) function, expected prototype:\nvoid osgDB::InputIterator::readChar(char & c)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readChar(char & c) function, expected prototype:\nvoid osgDB::InputIterator::readChar(char & c)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		char c=(char)lua_tointeger(L,2);
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readChar(char &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readChar(char &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readChar(c);
 
@@ -632,16 +602,14 @@ public:
 	// void osgDB::InputIterator::readSChar(signed char & c)
 	static int _bind_readSChar(lua_State *L) {
 		if (!_lg_typecheck_readSChar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readSChar(signed char & c) function, expected prototype:\nvoid osgDB::InputIterator::readSChar(signed char & c)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readSChar(signed char & c) function, expected prototype:\nvoid osgDB::InputIterator::readSChar(signed char & c)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed char c=(signed char)lua_tointeger(L,2);
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readSChar(signed char &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readSChar(signed char &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readSChar(c);
 
@@ -652,16 +620,14 @@ public:
 	// void osgDB::InputIterator::readUChar(unsigned char & c)
 	static int _bind_readUChar(lua_State *L) {
 		if (!_lg_typecheck_readUChar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readUChar(unsigned char & c) function, expected prototype:\nvoid osgDB::InputIterator::readUChar(unsigned char & c)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readUChar(unsigned char & c) function, expected prototype:\nvoid osgDB::InputIterator::readUChar(unsigned char & c)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char c = (unsigned char)(lua_tointeger(L,2));
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readUChar(unsigned char &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readUChar(unsigned char &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readUChar(c);
 
@@ -672,16 +638,14 @@ public:
 	// void osgDB::InputIterator::readShort(short & s)
 	static int _bind_readShort(lua_State *L) {
 		if (!_lg_typecheck_readShort(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readShort(short & s) function, expected prototype:\nvoid osgDB::InputIterator::readShort(short & s)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readShort(short & s) function, expected prototype:\nvoid osgDB::InputIterator::readShort(short & s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		short s=(short)lua_tointeger(L,2);
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readShort(short &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readShort(short &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readShort(s);
 
@@ -692,16 +656,14 @@ public:
 	// void osgDB::InputIterator::readUShort(unsigned short & s)
 	static int _bind_readUShort(lua_State *L) {
 		if (!_lg_typecheck_readUShort(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readUShort(unsigned short & s) function, expected prototype:\nvoid osgDB::InputIterator::readUShort(unsigned short & s)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readUShort(unsigned short & s) function, expected prototype:\nvoid osgDB::InputIterator::readUShort(unsigned short & s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short s=(unsigned short)lua_tointeger(L,2);
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readUShort(unsigned short &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readUShort(unsigned short &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readUShort(s);
 
@@ -712,16 +674,14 @@ public:
 	// void osgDB::InputIterator::readInt(int & i)
 	static int _bind_readInt(lua_State *L) {
 		if (!_lg_typecheck_readInt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readInt(int & i) function, expected prototype:\nvoid osgDB::InputIterator::readInt(int & i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readInt(int & i) function, expected prototype:\nvoid osgDB::InputIterator::readInt(int & i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int i=(int)lua_tointeger(L,2);
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readInt(int &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readInt(int &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readInt(i);
 
@@ -732,16 +692,14 @@ public:
 	// void osgDB::InputIterator::readUInt(unsigned int & i)
 	static int _bind_readUInt(lua_State *L) {
 		if (!_lg_typecheck_readUInt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readUInt(unsigned int & i) function, expected prototype:\nvoid osgDB::InputIterator::readUInt(unsigned int & i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readUInt(unsigned int & i) function, expected prototype:\nvoid osgDB::InputIterator::readUInt(unsigned int & i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readUInt(unsigned int &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readUInt(unsigned int &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readUInt(i);
 
@@ -752,16 +710,14 @@ public:
 	// void osgDB::InputIterator::readLong(long & l)
 	static int _bind_readLong(lua_State *L) {
 		if (!_lg_typecheck_readLong(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readLong(long & l) function, expected prototype:\nvoid osgDB::InputIterator::readLong(long & l)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readLong(long & l) function, expected prototype:\nvoid osgDB::InputIterator::readLong(long & l)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		long l=(long)lua_tointeger(L,2);
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readLong(long &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readLong(long &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readLong(l);
 
@@ -772,16 +728,14 @@ public:
 	// void osgDB::InputIterator::readULong(unsigned long & l)
 	static int _bind_readULong(lua_State *L) {
 		if (!_lg_typecheck_readULong(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readULong(unsigned long & l) function, expected prototype:\nvoid osgDB::InputIterator::readULong(unsigned long & l)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readULong(unsigned long & l) function, expected prototype:\nvoid osgDB::InputIterator::readULong(unsigned long & l)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned long l=(unsigned long)lua_tointeger(L,2);
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readULong(unsigned long &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readULong(unsigned long &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readULong(l);
 
@@ -792,16 +746,14 @@ public:
 	// void osgDB::InputIterator::readFloat(float & f)
 	static int _bind_readFloat(lua_State *L) {
 		if (!_lg_typecheck_readFloat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readFloat(float & f) function, expected prototype:\nvoid osgDB::InputIterator::readFloat(float & f)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readFloat(float & f) function, expected prototype:\nvoid osgDB::InputIterator::readFloat(float & f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float f=(float)lua_tonumber(L,2);
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readFloat(float &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readFloat(float &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readFloat(f);
 
@@ -812,16 +764,14 @@ public:
 	// void osgDB::InputIterator::readDouble(double & d)
 	static int _bind_readDouble(lua_State *L) {
 		if (!_lg_typecheck_readDouble(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readDouble(double & d) function, expected prototype:\nvoid osgDB::InputIterator::readDouble(double & d)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readDouble(double & d) function, expected prototype:\nvoid osgDB::InputIterator::readDouble(double & d)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double d=(double)lua_tonumber(L,2);
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readDouble(double &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readDouble(double &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readDouble(d);
 
@@ -832,16 +782,14 @@ public:
 	// void osgDB::InputIterator::readString(std::string & s)
 	static int _bind_readString(lua_State *L) {
 		if (!_lg_typecheck_readString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readString(std::string & s) function, expected prototype:\nvoid osgDB::InputIterator::readString(std::string & s)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readString(std::string & s) function, expected prototype:\nvoid osgDB::InputIterator::readString(std::string & s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string s(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readString(std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readString(std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readString(s);
 
@@ -852,8 +800,7 @@ public:
 	// void osgDB::InputIterator::readGLenum(osgDB::ObjectGLenum & value)
 	static int _bind_readGLenum(lua_State *L) {
 		if (!_lg_typecheck_readGLenum(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readGLenum(osgDB::ObjectGLenum & value) function, expected prototype:\nvoid osgDB::InputIterator::readGLenum(osgDB::ObjectGLenum & value)\nClass arguments details:\narg 1 ID = 32567652\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readGLenum(osgDB::ObjectGLenum & value) function, expected prototype:\nvoid osgDB::InputIterator::readGLenum(osgDB::ObjectGLenum & value)\nClass arguments details:\narg 1 ID = 32567652\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ObjectGLenum* value_ptr=(Luna< osgDB::ObjectGLenum >::check(L,2));
@@ -864,8 +811,7 @@ public:
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readGLenum(osgDB::ObjectGLenum &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readGLenum(osgDB::ObjectGLenum &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readGLenum(value);
 
@@ -875,8 +821,7 @@ public:
 	// void osgDB::InputIterator::readProperty(osgDB::ObjectProperty & prop)
 	static int _bind_readProperty(lua_State *L) {
 		if (!_lg_typecheck_readProperty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readProperty(osgDB::ObjectProperty & prop) function, expected prototype:\nvoid osgDB::InputIterator::readProperty(osgDB::ObjectProperty & prop)\nClass arguments details:\narg 1 ID = 23791141\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readProperty(osgDB::ObjectProperty & prop) function, expected prototype:\nvoid osgDB::InputIterator::readProperty(osgDB::ObjectProperty & prop)\nClass arguments details:\narg 1 ID = 23791141\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ObjectProperty* prop_ptr=(Luna< osgDB::ObjectProperty >::check(L,2));
@@ -887,8 +832,7 @@ public:
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readProperty(osgDB::ObjectProperty &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readProperty(osgDB::ObjectProperty &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readProperty(prop);
 
@@ -898,8 +842,7 @@ public:
 	// void osgDB::InputIterator::readMark(osgDB::ObjectMark & mark)
 	static int _bind_readMark(lua_State *L) {
 		if (!_lg_typecheck_readMark(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readMark(osgDB::ObjectMark & mark) function, expected prototype:\nvoid osgDB::InputIterator::readMark(osgDB::ObjectMark & mark)\nClass arguments details:\narg 1 ID = 60066730\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readMark(osgDB::ObjectMark & mark) function, expected prototype:\nvoid osgDB::InputIterator::readMark(osgDB::ObjectMark & mark)\nClass arguments details:\narg 1 ID = 60066730\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ObjectMark* mark_ptr=(Luna< osgDB::ObjectMark >::check(L,2));
@@ -910,8 +853,7 @@ public:
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readMark(osgDB::ObjectMark &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readMark(osgDB::ObjectMark &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readMark(mark);
 
@@ -921,8 +863,7 @@ public:
 	// void osgDB::InputIterator::readCharArray(char * s, unsigned int size)
 	static int _bind_readCharArray(lua_State *L) {
 		if (!_lg_typecheck_readCharArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readCharArray(char * s, unsigned int size) function, expected prototype:\nvoid osgDB::InputIterator::readCharArray(char * s, unsigned int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readCharArray(char * s, unsigned int size) function, expected prototype:\nvoid osgDB::InputIterator::readCharArray(char * s, unsigned int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		char* s=(char*)Luna< void >::check(L,2);
@@ -930,8 +871,7 @@ public:
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readCharArray(char *, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readCharArray(char *, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readCharArray(s, size);
 
@@ -941,16 +881,14 @@ public:
 	// void osgDB::InputIterator::readWrappedString(std::string & str)
 	static int _bind_readWrappedString(lua_State *L) {
 		if (!_lg_typecheck_readWrappedString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readWrappedString(std::string & str) function, expected prototype:\nvoid osgDB::InputIterator::readWrappedString(std::string & str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readWrappedString(std::string & str) function, expected prototype:\nvoid osgDB::InputIterator::readWrappedString(std::string & str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readWrappedString(std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readWrappedString(std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readWrappedString(str);
 
@@ -961,16 +899,14 @@ public:
 	// bool osgDB::InputIterator::matchString(const std::string & arg1)
 	static int _bind_matchString(lua_State *L) {
 		if (!_lg_typecheck_matchString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::InputIterator::matchString(const std::string & arg1) function, expected prototype:\nbool osgDB::InputIterator::matchString(const std::string & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::InputIterator::matchString(const std::string & arg1) function, expected prototype:\nbool osgDB::InputIterator::matchString(const std::string & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string _arg1(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::InputIterator::matchString(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::InputIterator::matchString(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->matchString(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -981,15 +917,13 @@ public:
 	// void osgDB::InputIterator::advanceToCurrentEndBracket()
 	static int _bind_advanceToCurrentEndBracket(lua_State *L) {
 		if (!_lg_typecheck_advanceToCurrentEndBracket(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::advanceToCurrentEndBracket() function, expected prototype:\nvoid osgDB::InputIterator::advanceToCurrentEndBracket()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::advanceToCurrentEndBracket() function, expected prototype:\nvoid osgDB::InputIterator::advanceToCurrentEndBracket()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::advanceToCurrentEndBracket(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::advanceToCurrentEndBracket(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->advanceToCurrentEndBracket();
 
@@ -999,8 +933,7 @@ public:
 	// void osgDB::InputIterator::readComponentArray(char * s, unsigned int numElements, unsigned int numComponentsPerElements, unsigned int componentSizeInBytes)
 	static int _bind_readComponentArray(lua_State *L) {
 		if (!_lg_typecheck_readComponentArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readComponentArray(char * s, unsigned int numElements, unsigned int numComponentsPerElements, unsigned int componentSizeInBytes) function, expected prototype:\nvoid osgDB::InputIterator::readComponentArray(char * s, unsigned int numElements, unsigned int numComponentsPerElements, unsigned int componentSizeInBytes)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readComponentArray(char * s, unsigned int numElements, unsigned int numComponentsPerElements, unsigned int componentSizeInBytes) function, expected prototype:\nvoid osgDB::InputIterator::readComponentArray(char * s, unsigned int numElements, unsigned int numComponentsPerElements, unsigned int componentSizeInBytes)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		char* s=(char*)Luna< void >::check(L,2);
@@ -1010,8 +943,7 @@ public:
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readComponentArray(char *, unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readComponentArray(char *, unsigned int, unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readComponentArray(s, numElements, numComponentsPerElements, componentSizeInBytes);
 
@@ -1021,16 +953,14 @@ public:
 	// void osgDB::InputIterator::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::InputIterator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::InputIterator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->InputIterator::setThreadSafeRefUnref(threadSafe);
 
@@ -1040,16 +970,14 @@ public:
 	// bool osgDB::InputIterator::base_matchString(const std::string & arg1)
 	static int _bind_base_matchString(lua_State *L) {
 		if (!_lg_typecheck_base_matchString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::InputIterator::base_matchString(const std::string & arg1) function, expected prototype:\nbool osgDB::InputIterator::base_matchString(const std::string & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::InputIterator::base_matchString(const std::string & arg1) function, expected prototype:\nbool osgDB::InputIterator::base_matchString(const std::string & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string _arg1(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::InputIterator::base_matchString(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::InputIterator::base_matchString(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->InputIterator::matchString(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1060,15 +988,13 @@ public:
 	// void osgDB::InputIterator::base_advanceToCurrentEndBracket()
 	static int _bind_base_advanceToCurrentEndBracket(lua_State *L) {
 		if (!_lg_typecheck_base_advanceToCurrentEndBracket(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::base_advanceToCurrentEndBracket() function, expected prototype:\nvoid osgDB::InputIterator::base_advanceToCurrentEndBracket()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::base_advanceToCurrentEndBracket() function, expected prototype:\nvoid osgDB::InputIterator::base_advanceToCurrentEndBracket()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::base_advanceToCurrentEndBracket(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::base_advanceToCurrentEndBracket(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->InputIterator::advanceToCurrentEndBracket();
 

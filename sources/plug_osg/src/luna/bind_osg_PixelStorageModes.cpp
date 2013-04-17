@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::PixelStorageModes*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::PixelStorageModes*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::PixelStorageModes* rhs =(Luna< osg::PixelStorageModes >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::PixelStorageModes* self= (osg::PixelStorageModes*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::PixelStorageModes >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -336,8 +332,7 @@ public:
 	// osg::PixelStorageModes::PixelStorageModes()
 	static osg::PixelStorageModes* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::PixelStorageModes::PixelStorageModes() function, expected prototype:\nosg::PixelStorageModes::PixelStorageModes()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::PixelStorageModes::PixelStorageModes() function, expected prototype:\nosg::PixelStorageModes::PixelStorageModes()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -349,15 +344,13 @@ public:
 	// void osg::PixelStorageModes::retrieveStoreModes()
 	static int _bind_retrieveStoreModes(lua_State *L) {
 		if (!_lg_typecheck_retrieveStoreModes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::retrieveStoreModes() function, expected prototype:\nvoid osg::PixelStorageModes::retrieveStoreModes()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::retrieveStoreModes() function, expected prototype:\nvoid osg::PixelStorageModes::retrieveStoreModes()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::retrieveStoreModes(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::retrieveStoreModes(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->retrieveStoreModes();
 
@@ -367,15 +360,13 @@ public:
 	// void osg::PixelStorageModes::retrieveStoreModes3D()
 	static int _bind_retrieveStoreModes3D(lua_State *L) {
 		if (!_lg_typecheck_retrieveStoreModes3D(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::retrieveStoreModes3D() function, expected prototype:\nvoid osg::PixelStorageModes::retrieveStoreModes3D()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::retrieveStoreModes3D() function, expected prototype:\nvoid osg::PixelStorageModes::retrieveStoreModes3D()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::retrieveStoreModes3D(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::retrieveStoreModes3D(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->retrieveStoreModes3D();
 
@@ -385,15 +376,13 @@ public:
 	// int osg::PixelStorageModes::pack_alignment()
 	static int _bind_get_pack_alignment(lua_State *L) {
 		if (!_lg_typecheck_get_pack_alignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_alignment() function, expected prototype:\nint osg::PixelStorageModes::pack_alignment()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_alignment() function, expected prototype:\nint osg::PixelStorageModes::pack_alignment()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_alignment(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_alignment(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->pack_alignment;
 		lua_pushnumber(L,lret);
@@ -404,15 +393,13 @@ public:
 	// int osg::PixelStorageModes::pack_row_length()
 	static int _bind_get_pack_row_length(lua_State *L) {
 		if (!_lg_typecheck_get_pack_row_length(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_row_length() function, expected prototype:\nint osg::PixelStorageModes::pack_row_length()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_row_length() function, expected prototype:\nint osg::PixelStorageModes::pack_row_length()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_row_length(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_row_length(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->pack_row_length;
 		lua_pushnumber(L,lret);
@@ -423,15 +410,13 @@ public:
 	// int osg::PixelStorageModes::pack_skip_rows()
 	static int _bind_get_pack_skip_rows(lua_State *L) {
 		if (!_lg_typecheck_get_pack_skip_rows(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_skip_rows() function, expected prototype:\nint osg::PixelStorageModes::pack_skip_rows()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_skip_rows() function, expected prototype:\nint osg::PixelStorageModes::pack_skip_rows()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_skip_rows(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_skip_rows(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->pack_skip_rows;
 		lua_pushnumber(L,lret);
@@ -442,15 +427,13 @@ public:
 	// int osg::PixelStorageModes::pack_skip_pixels()
 	static int _bind_get_pack_skip_pixels(lua_State *L) {
 		if (!_lg_typecheck_get_pack_skip_pixels(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_skip_pixels() function, expected prototype:\nint osg::PixelStorageModes::pack_skip_pixels()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_skip_pixels() function, expected prototype:\nint osg::PixelStorageModes::pack_skip_pixels()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_skip_pixels(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_skip_pixels(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->pack_skip_pixels;
 		lua_pushnumber(L,lret);
@@ -461,15 +444,13 @@ public:
 	// int osg::PixelStorageModes::pack_lsb_first()
 	static int _bind_get_pack_lsb_first(lua_State *L) {
 		if (!_lg_typecheck_get_pack_lsb_first(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_lsb_first() function, expected prototype:\nint osg::PixelStorageModes::pack_lsb_first()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_lsb_first() function, expected prototype:\nint osg::PixelStorageModes::pack_lsb_first()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_lsb_first(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_lsb_first(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->pack_lsb_first;
 		lua_pushnumber(L,lret);
@@ -480,15 +461,13 @@ public:
 	// int osg::PixelStorageModes::pack_swap_bytes()
 	static int _bind_get_pack_swap_bytes(lua_State *L) {
 		if (!_lg_typecheck_get_pack_swap_bytes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_swap_bytes() function, expected prototype:\nint osg::PixelStorageModes::pack_swap_bytes()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_swap_bytes() function, expected prototype:\nint osg::PixelStorageModes::pack_swap_bytes()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_swap_bytes(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_swap_bytes(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->pack_swap_bytes;
 		lua_pushnumber(L,lret);
@@ -499,15 +478,13 @@ public:
 	// int osg::PixelStorageModes::pack_skip_images()
 	static int _bind_get_pack_skip_images(lua_State *L) {
 		if (!_lg_typecheck_get_pack_skip_images(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_skip_images() function, expected prototype:\nint osg::PixelStorageModes::pack_skip_images()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_skip_images() function, expected prototype:\nint osg::PixelStorageModes::pack_skip_images()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_skip_images(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_skip_images(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->pack_skip_images;
 		lua_pushnumber(L,lret);
@@ -518,15 +495,13 @@ public:
 	// int osg::PixelStorageModes::pack_image_height()
 	static int _bind_get_pack_image_height(lua_State *L) {
 		if (!_lg_typecheck_get_pack_image_height(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_image_height() function, expected prototype:\nint osg::PixelStorageModes::pack_image_height()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::pack_image_height() function, expected prototype:\nint osg::PixelStorageModes::pack_image_height()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_image_height(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::pack_image_height(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->pack_image_height;
 		lua_pushnumber(L,lret);
@@ -537,15 +512,13 @@ public:
 	// int osg::PixelStorageModes::unpack_alignment()
 	static int _bind_get_unpack_alignment(lua_State *L) {
 		if (!_lg_typecheck_get_unpack_alignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_alignment() function, expected prototype:\nint osg::PixelStorageModes::unpack_alignment()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_alignment() function, expected prototype:\nint osg::PixelStorageModes::unpack_alignment()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_alignment(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_alignment(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->unpack_alignment;
 		lua_pushnumber(L,lret);
@@ -556,15 +529,13 @@ public:
 	// int osg::PixelStorageModes::unpack_row_length()
 	static int _bind_get_unpack_row_length(lua_State *L) {
 		if (!_lg_typecheck_get_unpack_row_length(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_row_length() function, expected prototype:\nint osg::PixelStorageModes::unpack_row_length()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_row_length() function, expected prototype:\nint osg::PixelStorageModes::unpack_row_length()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_row_length(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_row_length(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->unpack_row_length;
 		lua_pushnumber(L,lret);
@@ -575,15 +546,13 @@ public:
 	// int osg::PixelStorageModes::unpack_skip_rows()
 	static int _bind_get_unpack_skip_rows(lua_State *L) {
 		if (!_lg_typecheck_get_unpack_skip_rows(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_skip_rows() function, expected prototype:\nint osg::PixelStorageModes::unpack_skip_rows()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_skip_rows() function, expected prototype:\nint osg::PixelStorageModes::unpack_skip_rows()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_skip_rows(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_skip_rows(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->unpack_skip_rows;
 		lua_pushnumber(L,lret);
@@ -594,15 +563,13 @@ public:
 	// int osg::PixelStorageModes::unpack_skip_pixels()
 	static int _bind_get_unpack_skip_pixels(lua_State *L) {
 		if (!_lg_typecheck_get_unpack_skip_pixels(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_skip_pixels() function, expected prototype:\nint osg::PixelStorageModes::unpack_skip_pixels()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_skip_pixels() function, expected prototype:\nint osg::PixelStorageModes::unpack_skip_pixels()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_skip_pixels(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_skip_pixels(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->unpack_skip_pixels;
 		lua_pushnumber(L,lret);
@@ -613,15 +580,13 @@ public:
 	// int osg::PixelStorageModes::unpack_lsb_first()
 	static int _bind_get_unpack_lsb_first(lua_State *L) {
 		if (!_lg_typecheck_get_unpack_lsb_first(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_lsb_first() function, expected prototype:\nint osg::PixelStorageModes::unpack_lsb_first()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_lsb_first() function, expected prototype:\nint osg::PixelStorageModes::unpack_lsb_first()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_lsb_first(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_lsb_first(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->unpack_lsb_first;
 		lua_pushnumber(L,lret);
@@ -632,15 +597,13 @@ public:
 	// int osg::PixelStorageModes::unpack_swap_bytes()
 	static int _bind_get_unpack_swap_bytes(lua_State *L) {
 		if (!_lg_typecheck_get_unpack_swap_bytes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_swap_bytes() function, expected prototype:\nint osg::PixelStorageModes::unpack_swap_bytes()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_swap_bytes() function, expected prototype:\nint osg::PixelStorageModes::unpack_swap_bytes()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_swap_bytes(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_swap_bytes(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->unpack_swap_bytes;
 		lua_pushnumber(L,lret);
@@ -651,15 +614,13 @@ public:
 	// int osg::PixelStorageModes::unpack_skip_images()
 	static int _bind_get_unpack_skip_images(lua_State *L) {
 		if (!_lg_typecheck_get_unpack_skip_images(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_skip_images() function, expected prototype:\nint osg::PixelStorageModes::unpack_skip_images()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_skip_images() function, expected prototype:\nint osg::PixelStorageModes::unpack_skip_images()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_skip_images(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_skip_images(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->unpack_skip_images;
 		lua_pushnumber(L,lret);
@@ -670,15 +631,13 @@ public:
 	// int osg::PixelStorageModes::unpack_image_height()
 	static int _bind_get_unpack_image_height(lua_State *L) {
 		if (!_lg_typecheck_get_unpack_image_height(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_image_height() function, expected prototype:\nint osg::PixelStorageModes::unpack_image_height()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::PixelStorageModes::unpack_image_height() function, expected prototype:\nint osg::PixelStorageModes::unpack_image_height()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_image_height(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PixelStorageModes::unpack_image_height(). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->unpack_image_height;
 		lua_pushnumber(L,lret);
@@ -689,16 +648,14 @@ public:
 	// void osg::PixelStorageModes::pack_alignment(int value)
 	static int _bind_set_pack_alignment(lua_State *L) {
 		if (!_lg_typecheck_set_pack_alignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_alignment(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_alignment(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_alignment(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_alignment(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_alignment(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_alignment(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pack_alignment = value;
 
@@ -708,16 +665,14 @@ public:
 	// void osg::PixelStorageModes::pack_row_length(int value)
 	static int _bind_set_pack_row_length(lua_State *L) {
 		if (!_lg_typecheck_set_pack_row_length(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_row_length(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_row_length(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_row_length(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_row_length(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_row_length(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_row_length(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pack_row_length = value;
 
@@ -727,16 +682,14 @@ public:
 	// void osg::PixelStorageModes::pack_skip_rows(int value)
 	static int _bind_set_pack_skip_rows(lua_State *L) {
 		if (!_lg_typecheck_set_pack_skip_rows(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_skip_rows(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_skip_rows(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_skip_rows(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_skip_rows(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_skip_rows(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_skip_rows(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pack_skip_rows = value;
 
@@ -746,16 +699,14 @@ public:
 	// void osg::PixelStorageModes::pack_skip_pixels(int value)
 	static int _bind_set_pack_skip_pixels(lua_State *L) {
 		if (!_lg_typecheck_set_pack_skip_pixels(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_skip_pixels(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_skip_pixels(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_skip_pixels(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_skip_pixels(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_skip_pixels(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_skip_pixels(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pack_skip_pixels = value;
 
@@ -765,16 +716,14 @@ public:
 	// void osg::PixelStorageModes::pack_lsb_first(int value)
 	static int _bind_set_pack_lsb_first(lua_State *L) {
 		if (!_lg_typecheck_set_pack_lsb_first(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_lsb_first(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_lsb_first(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_lsb_first(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_lsb_first(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_lsb_first(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_lsb_first(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pack_lsb_first = value;
 
@@ -784,16 +733,14 @@ public:
 	// void osg::PixelStorageModes::pack_swap_bytes(int value)
 	static int _bind_set_pack_swap_bytes(lua_State *L) {
 		if (!_lg_typecheck_set_pack_swap_bytes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_swap_bytes(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_swap_bytes(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_swap_bytes(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_swap_bytes(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_swap_bytes(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_swap_bytes(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pack_swap_bytes = value;
 
@@ -803,16 +750,14 @@ public:
 	// void osg::PixelStorageModes::pack_skip_images(int value)
 	static int _bind_set_pack_skip_images(lua_State *L) {
 		if (!_lg_typecheck_set_pack_skip_images(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_skip_images(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_skip_images(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_skip_images(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_skip_images(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_skip_images(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_skip_images(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pack_skip_images = value;
 
@@ -822,16 +767,14 @@ public:
 	// void osg::PixelStorageModes::pack_image_height(int value)
 	static int _bind_set_pack_image_height(lua_State *L) {
 		if (!_lg_typecheck_set_pack_image_height(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_image_height(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_image_height(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::pack_image_height(int value) function, expected prototype:\nvoid osg::PixelStorageModes::pack_image_height(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_image_height(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::pack_image_height(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pack_image_height = value;
 
@@ -841,16 +784,14 @@ public:
 	// void osg::PixelStorageModes::unpack_alignment(int value)
 	static int _bind_set_unpack_alignment(lua_State *L) {
 		if (!_lg_typecheck_set_unpack_alignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_alignment(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_alignment(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_alignment(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_alignment(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_alignment(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_alignment(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->unpack_alignment = value;
 
@@ -860,16 +801,14 @@ public:
 	// void osg::PixelStorageModes::unpack_row_length(int value)
 	static int _bind_set_unpack_row_length(lua_State *L) {
 		if (!_lg_typecheck_set_unpack_row_length(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_row_length(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_row_length(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_row_length(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_row_length(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_row_length(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_row_length(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->unpack_row_length = value;
 
@@ -879,16 +818,14 @@ public:
 	// void osg::PixelStorageModes::unpack_skip_rows(int value)
 	static int _bind_set_unpack_skip_rows(lua_State *L) {
 		if (!_lg_typecheck_set_unpack_skip_rows(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_skip_rows(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_skip_rows(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_skip_rows(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_skip_rows(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_skip_rows(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_skip_rows(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->unpack_skip_rows = value;
 
@@ -898,16 +835,14 @@ public:
 	// void osg::PixelStorageModes::unpack_skip_pixels(int value)
 	static int _bind_set_unpack_skip_pixels(lua_State *L) {
 		if (!_lg_typecheck_set_unpack_skip_pixels(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_skip_pixels(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_skip_pixels(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_skip_pixels(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_skip_pixels(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_skip_pixels(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_skip_pixels(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->unpack_skip_pixels = value;
 
@@ -917,16 +852,14 @@ public:
 	// void osg::PixelStorageModes::unpack_lsb_first(int value)
 	static int _bind_set_unpack_lsb_first(lua_State *L) {
 		if (!_lg_typecheck_set_unpack_lsb_first(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_lsb_first(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_lsb_first(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_lsb_first(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_lsb_first(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_lsb_first(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_lsb_first(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->unpack_lsb_first = value;
 
@@ -936,16 +869,14 @@ public:
 	// void osg::PixelStorageModes::unpack_swap_bytes(int value)
 	static int _bind_set_unpack_swap_bytes(lua_State *L) {
 		if (!_lg_typecheck_set_unpack_swap_bytes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_swap_bytes(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_swap_bytes(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_swap_bytes(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_swap_bytes(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_swap_bytes(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_swap_bytes(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->unpack_swap_bytes = value;
 
@@ -955,16 +886,14 @@ public:
 	// void osg::PixelStorageModes::unpack_skip_images(int value)
 	static int _bind_set_unpack_skip_images(lua_State *L) {
 		if (!_lg_typecheck_set_unpack_skip_images(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_skip_images(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_skip_images(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_skip_images(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_skip_images(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_skip_images(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_skip_images(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->unpack_skip_images = value;
 
@@ -974,16 +903,14 @@ public:
 	// void osg::PixelStorageModes::unpack_image_height(int value)
 	static int _bind_set_unpack_image_height(lua_State *L) {
 		if (!_lg_typecheck_set_unpack_image_height(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_image_height(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_image_height(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PixelStorageModes::unpack_image_height(int value) function, expected prototype:\nvoid osg::PixelStorageModes::unpack_image_height(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_image_height(int). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::unpack_image_height(int). Got : '%s'\n%s",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->unpack_image_height = value;
 

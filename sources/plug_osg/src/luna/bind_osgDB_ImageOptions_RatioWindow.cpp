@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ImageOptions::RatioWindow*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ImageOptions::RatioWindow*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ImageOptions::RatioWindow* rhs =(Luna< osgDB::ImageOptions::RatioWindow >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ImageOptions::RatioWindow* self= (osgDB::ImageOptions::RatioWindow*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -178,8 +174,7 @@ public:
 	// osgDB::ImageOptions::RatioWindow::RatioWindow()
 	static osgDB::ImageOptions::RatioWindow* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::RatioWindow::RatioWindow() function, expected prototype:\nosgDB::ImageOptions::RatioWindow::RatioWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::RatioWindow::RatioWindow() function, expected prototype:\nosgDB::ImageOptions::RatioWindow::RatioWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -191,8 +186,7 @@ public:
 	// void osgDB::ImageOptions::RatioWindow::set(double x, double y, double w, double h)
 	static int _bind_set(lua_State *L) {
 		if (!_lg_typecheck_set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::RatioWindow::set(double x, double y, double w, double h) function, expected prototype:\nvoid osgDB::ImageOptions::RatioWindow::set(double x, double y, double w, double h)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::RatioWindow::set(double x, double y, double w, double h) function, expected prototype:\nvoid osgDB::ImageOptions::RatioWindow::set(double x, double y, double w, double h)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double x=(double)lua_tonumber(L,2);
@@ -202,8 +196,7 @@ public:
 
 		osgDB::ImageOptions::RatioWindow* self=(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::RatioWindow::set(double, double, double, double). Got : '%s'",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::RatioWindow::set(double, double, double, double). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(x, y, w, h);
 
@@ -213,15 +206,13 @@ public:
 	// double osgDB::ImageOptions::RatioWindow::windowX()
 	static int _bind_getWindowX(lua_State *L) {
 		if (!_lg_typecheck_getWindowX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgDB::ImageOptions::RatioWindow::windowX() function, expected prototype:\ndouble osgDB::ImageOptions::RatioWindow::windowX()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgDB::ImageOptions::RatioWindow::windowX() function, expected prototype:\ndouble osgDB::ImageOptions::RatioWindow::windowX()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ImageOptions::RatioWindow* self=(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgDB::ImageOptions::RatioWindow::windowX(). Got : '%s'",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgDB::ImageOptions::RatioWindow::windowX(). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->windowX;
 		lua_pushnumber(L,lret);
@@ -232,15 +223,13 @@ public:
 	// double osgDB::ImageOptions::RatioWindow::windowY()
 	static int _bind_getWindowY(lua_State *L) {
 		if (!_lg_typecheck_getWindowY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgDB::ImageOptions::RatioWindow::windowY() function, expected prototype:\ndouble osgDB::ImageOptions::RatioWindow::windowY()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgDB::ImageOptions::RatioWindow::windowY() function, expected prototype:\ndouble osgDB::ImageOptions::RatioWindow::windowY()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ImageOptions::RatioWindow* self=(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgDB::ImageOptions::RatioWindow::windowY(). Got : '%s'",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgDB::ImageOptions::RatioWindow::windowY(). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->windowY;
 		lua_pushnumber(L,lret);
@@ -251,15 +240,13 @@ public:
 	// double osgDB::ImageOptions::RatioWindow::windowWidth()
 	static int _bind_getWindowWidth(lua_State *L) {
 		if (!_lg_typecheck_getWindowWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgDB::ImageOptions::RatioWindow::windowWidth() function, expected prototype:\ndouble osgDB::ImageOptions::RatioWindow::windowWidth()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgDB::ImageOptions::RatioWindow::windowWidth() function, expected prototype:\ndouble osgDB::ImageOptions::RatioWindow::windowWidth()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ImageOptions::RatioWindow* self=(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgDB::ImageOptions::RatioWindow::windowWidth(). Got : '%s'",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgDB::ImageOptions::RatioWindow::windowWidth(). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->windowWidth;
 		lua_pushnumber(L,lret);
@@ -270,15 +257,13 @@ public:
 	// double osgDB::ImageOptions::RatioWindow::windowHeight()
 	static int _bind_getWindowHeight(lua_State *L) {
 		if (!_lg_typecheck_getWindowHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgDB::ImageOptions::RatioWindow::windowHeight() function, expected prototype:\ndouble osgDB::ImageOptions::RatioWindow::windowHeight()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgDB::ImageOptions::RatioWindow::windowHeight() function, expected prototype:\ndouble osgDB::ImageOptions::RatioWindow::windowHeight()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ImageOptions::RatioWindow* self=(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgDB::ImageOptions::RatioWindow::windowHeight(). Got : '%s'",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgDB::ImageOptions::RatioWindow::windowHeight(). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->windowHeight;
 		lua_pushnumber(L,lret);
@@ -289,16 +274,14 @@ public:
 	// void osgDB::ImageOptions::RatioWindow::windowX(double value)
 	static int _bind_setWindowX(lua_State *L) {
 		if (!_lg_typecheck_setWindowX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::RatioWindow::windowX(double value) function, expected prototype:\nvoid osgDB::ImageOptions::RatioWindow::windowX(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::RatioWindow::windowX(double value) function, expected prototype:\nvoid osgDB::ImageOptions::RatioWindow::windowX(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osgDB::ImageOptions::RatioWindow* self=(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::RatioWindow::windowX(double). Got : '%s'",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::RatioWindow::windowX(double). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->windowX = value;
 
@@ -308,16 +291,14 @@ public:
 	// void osgDB::ImageOptions::RatioWindow::windowY(double value)
 	static int _bind_setWindowY(lua_State *L) {
 		if (!_lg_typecheck_setWindowY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::RatioWindow::windowY(double value) function, expected prototype:\nvoid osgDB::ImageOptions::RatioWindow::windowY(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::RatioWindow::windowY(double value) function, expected prototype:\nvoid osgDB::ImageOptions::RatioWindow::windowY(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osgDB::ImageOptions::RatioWindow* self=(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::RatioWindow::windowY(double). Got : '%s'",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::RatioWindow::windowY(double). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->windowY = value;
 
@@ -327,16 +308,14 @@ public:
 	// void osgDB::ImageOptions::RatioWindow::windowWidth(double value)
 	static int _bind_setWindowWidth(lua_State *L) {
 		if (!_lg_typecheck_setWindowWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::RatioWindow::windowWidth(double value) function, expected prototype:\nvoid osgDB::ImageOptions::RatioWindow::windowWidth(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::RatioWindow::windowWidth(double value) function, expected prototype:\nvoid osgDB::ImageOptions::RatioWindow::windowWidth(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osgDB::ImageOptions::RatioWindow* self=(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::RatioWindow::windowWidth(double). Got : '%s'",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::RatioWindow::windowWidth(double). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->windowWidth = value;
 
@@ -346,16 +325,14 @@ public:
 	// void osgDB::ImageOptions::RatioWindow::windowHeight(double value)
 	static int _bind_setWindowHeight(lua_State *L) {
 		if (!_lg_typecheck_setWindowHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::RatioWindow::windowHeight(double value) function, expected prototype:\nvoid osgDB::ImageOptions::RatioWindow::windowHeight(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::RatioWindow::windowHeight(double value) function, expected prototype:\nvoid osgDB::ImageOptions::RatioWindow::windowHeight(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osgDB::ImageOptions::RatioWindow* self=(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::RatioWindow::windowHeight(double). Got : '%s'",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::RatioWindow::windowHeight(double). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->windowHeight = value;
 

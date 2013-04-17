@@ -233,6 +233,7 @@ public:
 };
 
 
+std::string SGTCORE_EXPORT luna_dumpStack(lua_State* L);
 void SGTCORE_EXPORT luna_printStack(lua_State* L, bool compact=false);
 void SGTCORE_EXPORT luna_dostring(lua_State* L, const char* luacode);
 SGTCORE_EXPORT void luna_setTypeName(long hash,const std::string& className);

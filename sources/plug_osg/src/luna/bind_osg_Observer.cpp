@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Observer* self=(Luna< osg::Observer >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Observer*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Observer*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Observer* rhs =(Luna< osg::Observer >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Observer* self= (osg::Observer*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Observer >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -163,8 +158,7 @@ public:
 	// osg::Observer::Observer()
 	static osg::Observer* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Observer::Observer() function, expected prototype:\nosg::Observer::Observer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Observer::Observer() function, expected prototype:\nosg::Observer::Observer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -174,8 +168,7 @@ public:
 	// osg::Observer::Observer(lua_Table * data)
 	static osg::Observer* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Observer::Observer(lua_Table * data) function, expected prototype:\nosg::Observer::Observer(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Observer::Observer(lua_Table * data) function, expected prototype:\nosg::Observer::Observer(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -196,16 +189,14 @@ public:
 	// void osg::Observer::objectDeleted(void * arg1)
 	static int _bind_objectDeleted(lua_State *L) {
 		if (!_lg_typecheck_objectDeleted(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Observer::objectDeleted(void * arg1) function, expected prototype:\nvoid osg::Observer::objectDeleted(void * arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Observer::objectDeleted(void * arg1) function, expected prototype:\nvoid osg::Observer::objectDeleted(void * arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* _arg1=(Luna< void >::check(L,2));
 
 		osg::Observer* self=(Luna< osg::Observer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Observer::objectDeleted(void *). Got : '%s'",typeid(Luna< osg::Observer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Observer::objectDeleted(void *). Got : '%s'\n%s",typeid(Luna< osg::Observer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->objectDeleted(_arg1);
 
@@ -215,16 +206,14 @@ public:
 	// void osg::Observer::base_objectDeleted(void * arg1)
 	static int _bind_base_objectDeleted(lua_State *L) {
 		if (!_lg_typecheck_base_objectDeleted(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Observer::base_objectDeleted(void * arg1) function, expected prototype:\nvoid osg::Observer::base_objectDeleted(void * arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Observer::base_objectDeleted(void * arg1) function, expected prototype:\nvoid osg::Observer::base_objectDeleted(void * arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* _arg1=(Luna< void >::check(L,2));
 
 		osg::Observer* self=(Luna< osg::Observer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Observer::base_objectDeleted(void *). Got : '%s'",typeid(Luna< osg::Observer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Observer::base_objectDeleted(void *). Got : '%s'\n%s",typeid(Luna< osg::Observer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Observer::objectDeleted(_arg1);
 

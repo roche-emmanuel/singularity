@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::PositionalStateContainer* self= (osgUtil::PositionalStateContainer*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -327,8 +324,7 @@ public:
 	// osgUtil::PositionalStateContainer::PositionalStateContainer()
 	static osgUtil::PositionalStateContainer* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::PositionalStateContainer() function, expected prototype:\nosgUtil::PositionalStateContainer::PositionalStateContainer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::PositionalStateContainer() function, expected prototype:\nosgUtil::PositionalStateContainer::PositionalStateContainer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -338,8 +334,7 @@ public:
 	// osgUtil::PositionalStateContainer::PositionalStateContainer(lua_Table * data)
 	static osgUtil::PositionalStateContainer* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::PositionalStateContainer(lua_Table * data) function, expected prototype:\nosgUtil::PositionalStateContainer::PositionalStateContainer(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::PositionalStateContainer(lua_Table * data) function, expected prototype:\nosgUtil::PositionalStateContainer::PositionalStateContainer(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -360,15 +355,13 @@ public:
 	// osg::Object * osgUtil::PositionalStateContainer::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::PositionalStateContainer::cloneType() const function, expected prototype:\nosg::Object * osgUtil::PositionalStateContainer::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::PositionalStateContainer::cloneType() const function, expected prototype:\nosg::Object * osgUtil::PositionalStateContainer::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::PositionalStateContainer::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::PositionalStateContainer::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -381,8 +374,7 @@ public:
 	// osg::Object * osgUtil::PositionalStateContainer::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::PositionalStateContainer::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgUtil::PositionalStateContainer::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::PositionalStateContainer::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgUtil::PositionalStateContainer::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -393,8 +385,7 @@ public:
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::PositionalStateContainer::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::PositionalStateContainer::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -407,16 +398,14 @@ public:
 	// bool osgUtil::PositionalStateContainer::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::PositionalStateContainer::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgUtil::PositionalStateContainer::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::PositionalStateContainer::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgUtil::PositionalStateContainer::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PositionalStateContainer::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::PositionalStateContainer::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -427,15 +416,13 @@ public:
 	// const char * osgUtil::PositionalStateContainer::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::PositionalStateContainer::libraryName() const function, expected prototype:\nconst char * osgUtil::PositionalStateContainer::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::PositionalStateContainer::libraryName() const function, expected prototype:\nconst char * osgUtil::PositionalStateContainer::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::PositionalStateContainer::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::PositionalStateContainer::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -446,15 +433,13 @@ public:
 	// const char * osgUtil::PositionalStateContainer::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::PositionalStateContainer::className() const function, expected prototype:\nconst char * osgUtil::PositionalStateContainer::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::PositionalStateContainer::className() const function, expected prototype:\nconst char * osgUtil::PositionalStateContainer::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::PositionalStateContainer::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::PositionalStateContainer::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -465,15 +450,13 @@ public:
 	// void osgUtil::PositionalStateContainer::reset()
 	static int _bind_reset(lua_State *L) {
 		if (!_lg_typecheck_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::reset() function, expected prototype:\nvoid osgUtil::PositionalStateContainer::reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::reset() function, expected prototype:\nvoid osgUtil::PositionalStateContainer::reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reset();
 
@@ -483,15 +466,13 @@ public:
 	// osgUtil::PositionalStateContainer::AttrMatrixList & osgUtil::PositionalStateContainer::getAttrMatrixList()
 	static int _bind_getAttrMatrixList(lua_State *L) {
 		if (!_lg_typecheck_getAttrMatrixList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::AttrMatrixList & osgUtil::PositionalStateContainer::getAttrMatrixList() function, expected prototype:\nosgUtil::PositionalStateContainer::AttrMatrixList & osgUtil::PositionalStateContainer::getAttrMatrixList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::AttrMatrixList & osgUtil::PositionalStateContainer::getAttrMatrixList() function, expected prototype:\nosgUtil::PositionalStateContainer::AttrMatrixList & osgUtil::PositionalStateContainer::getAttrMatrixList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::PositionalStateContainer::AttrMatrixList & osgUtil::PositionalStateContainer::getAttrMatrixList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::PositionalStateContainer::AttrMatrixList & osgUtil::PositionalStateContainer::getAttrMatrixList(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::PositionalStateContainer::AttrMatrixList* lret = &self->getAttrMatrixList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -504,8 +485,7 @@ public:
 	// void osgUtil::PositionalStateContainer::addPositionedAttribute(osg::RefMatrixd * matrix, const osg::StateAttribute * attr)
 	static int _bind_addPositionedAttribute(lua_State *L) {
 		if (!_lg_typecheck_addPositionedAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::addPositionedAttribute(osg::RefMatrixd * matrix, const osg::StateAttribute * attr) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::addPositionedAttribute(osg::RefMatrixd * matrix, const osg::StateAttribute * attr)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::addPositionedAttribute(osg::RefMatrixd * matrix, const osg::StateAttribute * attr) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::addPositionedAttribute(osg::RefMatrixd * matrix, const osg::StateAttribute * attr)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RefMatrixd* matrix=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,2));
@@ -513,8 +493,7 @@ public:
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::addPositionedAttribute(osg::RefMatrixd *, const osg::StateAttribute *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::addPositionedAttribute(osg::RefMatrixd *, const osg::StateAttribute *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addPositionedAttribute(matrix, attr);
 
@@ -524,15 +503,13 @@ public:
 	// osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap & osgUtil::PositionalStateContainer::getTexUnitAttrMatrixListMap()
 	static int _bind_getTexUnitAttrMatrixListMap(lua_State *L) {
 		if (!_lg_typecheck_getTexUnitAttrMatrixListMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap & osgUtil::PositionalStateContainer::getTexUnitAttrMatrixListMap() function, expected prototype:\nosgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap & osgUtil::PositionalStateContainer::getTexUnitAttrMatrixListMap()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap & osgUtil::PositionalStateContainer::getTexUnitAttrMatrixListMap() function, expected prototype:\nosgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap & osgUtil::PositionalStateContainer::getTexUnitAttrMatrixListMap()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap & osgUtil::PositionalStateContainer::getTexUnitAttrMatrixListMap(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap & osgUtil::PositionalStateContainer::getTexUnitAttrMatrixListMap(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap* lret = &self->getTexUnitAttrMatrixListMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -545,8 +522,7 @@ public:
 	// void osgUtil::PositionalStateContainer::addPositionedTextureAttribute(unsigned int textureUnit, osg::RefMatrixd * matrix, const osg::StateAttribute * attr)
 	static int _bind_addPositionedTextureAttribute(lua_State *L) {
 		if (!_lg_typecheck_addPositionedTextureAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::addPositionedTextureAttribute(unsigned int textureUnit, osg::RefMatrixd * matrix, const osg::StateAttribute * attr) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::addPositionedTextureAttribute(unsigned int textureUnit, osg::RefMatrixd * matrix, const osg::StateAttribute * attr)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::addPositionedTextureAttribute(unsigned int textureUnit, osg::RefMatrixd * matrix, const osg::StateAttribute * attr) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::addPositionedTextureAttribute(unsigned int textureUnit, osg::RefMatrixd * matrix, const osg::StateAttribute * attr)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int textureUnit=(unsigned int)lua_tointeger(L,2);
@@ -555,8 +531,7 @@ public:
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::addPositionedTextureAttribute(unsigned int, osg::RefMatrixd *, const osg::StateAttribute *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::addPositionedTextureAttribute(unsigned int, osg::RefMatrixd *, const osg::StateAttribute *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addPositionedTextureAttribute(textureUnit, matrix, attr);
 
@@ -566,8 +541,7 @@ public:
 	// void osgUtil::PositionalStateContainer::draw(osg::State & state, osgUtil::RenderLeaf *& previous, const osg::Matrixd * postMultMatrix = 0)
 	static int _bind_draw(lua_State *L) {
 		if (!_lg_typecheck_draw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::draw(osg::State & state, osgUtil::RenderLeaf *& previous, const osg::Matrixd * postMultMatrix = 0) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::draw(osg::State & state, osgUtil::RenderLeaf *& previous, const osg::Matrixd * postMultMatrix = 0)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::draw(osg::State & state, osgUtil::RenderLeaf *& previous, const osg::Matrixd * postMultMatrix = 0) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::draw(osg::State & state, osgUtil::RenderLeaf *& previous, const osg::Matrixd * postMultMatrix = 0)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -582,8 +556,7 @@ public:
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::draw(osg::State &, osgUtil::RenderLeaf *&, const osg::Matrixd *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::draw(osg::State &, osgUtil::RenderLeaf *&, const osg::Matrixd *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->draw(state, previous, postMultMatrix);
 
@@ -593,15 +566,13 @@ public:
 	// osgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList()
 	static int _bind_getAttrList(lua_State *L) {
 		if (!_lg_typecheck_getAttrList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList() function, expected prototype:\nosgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList() function, expected prototype:\nosgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::PositionalStateContainer::AttrMatrixList* lret = &self->_attrList;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -614,15 +585,13 @@ public:
 	// osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap osgUtil::PositionalStateContainer::_texAttrListMap()
 	static int _bind_getTexAttrListMap(lua_State *L) {
 		if (!_lg_typecheck_getTexAttrListMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap osgUtil::PositionalStateContainer::_texAttrListMap() function, expected prototype:\nosgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap osgUtil::PositionalStateContainer::_texAttrListMap()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap osgUtil::PositionalStateContainer::_texAttrListMap() function, expected prototype:\nosgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap osgUtil::PositionalStateContainer::_texAttrListMap()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap osgUtil::PositionalStateContainer::_texAttrListMap(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap osgUtil::PositionalStateContainer::_texAttrListMap(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap* lret = &self->_texAttrListMap;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -635,8 +604,7 @@ public:
 	// void osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList value)
 	static int _bind_setAttrList(lua_State *L) {
 		if (!_lg_typecheck_setAttrList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList value) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList value)\nClass arguments details:\narg 1 ID = 92516775\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList value) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList value)\nClass arguments details:\narg 1 ID = 92516775\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::PositionalStateContainer::AttrMatrixList* value_ptr=(Luna< std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair > >::checkSubType< osgUtil::PositionalStateContainer::AttrMatrixList >(L,2));
@@ -647,8 +615,7 @@ public:
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_attrList = value;
 
@@ -658,8 +625,7 @@ public:
 	// void osgUtil::PositionalStateContainer::_texAttrListMap(osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap value)
 	static int _bind_setTexAttrListMap(lua_State *L) {
 		if (!_lg_typecheck_setTexAttrListMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::_texAttrListMap(osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap value) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::_texAttrListMap(osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap value)\nClass arguments details:\narg 1 ID = 42744840\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::_texAttrListMap(osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap value) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::_texAttrListMap(osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap value)\nClass arguments details:\narg 1 ID = 42744840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap* value_ptr=(Luna< std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList > >::checkSubType< osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap >(L,2));
@@ -670,8 +636,7 @@ public:
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::_texAttrListMap(osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::_texAttrListMap(osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_texAttrListMap = value;
 
@@ -681,16 +646,14 @@ public:
 	// void osgUtil::PositionalStateContainer::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PositionalStateContainer::setThreadSafeRefUnref(threadSafe);
 
@@ -700,16 +663,14 @@ public:
 	// void osgUtil::PositionalStateContainer::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_setName(const std::string & name) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_setName(const std::string & name) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PositionalStateContainer::setName(name);
 
@@ -719,15 +680,13 @@ public:
 	// void osgUtil::PositionalStateContainer::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_computeDataVariance() function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_computeDataVariance() function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PositionalStateContainer::computeDataVariance();
 
@@ -737,16 +696,14 @@ public:
 	// void osgUtil::PositionalStateContainer::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PositionalStateContainer::setUserData(obj);
 
@@ -756,15 +713,13 @@ public:
 	// osg::Referenced * osgUtil::PositionalStateContainer::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osgUtil::PositionalStateContainer::base_getUserData() function, expected prototype:\nosg::Referenced * osgUtil::PositionalStateContainer::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osgUtil::PositionalStateContainer::base_getUserData() function, expected prototype:\nosg::Referenced * osgUtil::PositionalStateContainer::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgUtil::PositionalStateContainer::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgUtil::PositionalStateContainer::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->PositionalStateContainer::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -777,15 +732,13 @@ public:
 	// const osg::Referenced * osgUtil::PositionalStateContainer::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgUtil::PositionalStateContainer::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgUtil::PositionalStateContainer::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgUtil::PositionalStateContainer::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgUtil::PositionalStateContainer::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgUtil::PositionalStateContainer::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgUtil::PositionalStateContainer::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->PositionalStateContainer::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -807,8 +760,7 @@ public:
 	// void osgUtil::PositionalStateContainer::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -817,8 +769,7 @@ public:
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PositionalStateContainer::releaseGLObjects(_arg1);
 
@@ -828,15 +779,13 @@ public:
 	// osg::Object * osgUtil::PositionalStateContainer::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::PositionalStateContainer::base_cloneType() const function, expected prototype:\nosg::Object * osgUtil::PositionalStateContainer::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::PositionalStateContainer::base_cloneType() const function, expected prototype:\nosg::Object * osgUtil::PositionalStateContainer::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::PositionalStateContainer::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::PositionalStateContainer::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->PositionalStateContainer::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -849,8 +798,7 @@ public:
 	// osg::Object * osgUtil::PositionalStateContainer::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::PositionalStateContainer::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgUtil::PositionalStateContainer::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::PositionalStateContainer::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgUtil::PositionalStateContainer::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -861,8 +809,7 @@ public:
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::PositionalStateContainer::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::PositionalStateContainer::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->PositionalStateContainer::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -875,16 +822,14 @@ public:
 	// bool osgUtil::PositionalStateContainer::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::PositionalStateContainer::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgUtil::PositionalStateContainer::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::PositionalStateContainer::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgUtil::PositionalStateContainer::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PositionalStateContainer::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::PositionalStateContainer::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PositionalStateContainer::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -895,15 +840,13 @@ public:
 	// const char * osgUtil::PositionalStateContainer::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::PositionalStateContainer::base_libraryName() const function, expected prototype:\nconst char * osgUtil::PositionalStateContainer::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::PositionalStateContainer::base_libraryName() const function, expected prototype:\nconst char * osgUtil::PositionalStateContainer::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::PositionalStateContainer::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::PositionalStateContainer::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->PositionalStateContainer::libraryName();
 		lua_pushstring(L,lret);
@@ -914,15 +857,13 @@ public:
 	// const char * osgUtil::PositionalStateContainer::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::PositionalStateContainer::base_className() const function, expected prototype:\nconst char * osgUtil::PositionalStateContainer::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::PositionalStateContainer::base_className() const function, expected prototype:\nconst char * osgUtil::PositionalStateContainer::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::PositionalStateContainer::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::PositionalStateContainer::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->PositionalStateContainer::className();
 		lua_pushstring(L,lret);
@@ -933,15 +874,13 @@ public:
 	// void osgUtil::PositionalStateContainer::base_reset()
 	static int _bind_base_reset(lua_State *L) {
 		if (!_lg_typecheck_base_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_reset() function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_reset() function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PositionalStateContainer::reset();
 
@@ -951,8 +890,7 @@ public:
 	// void osgUtil::PositionalStateContainer::base_addPositionedAttribute(osg::RefMatrixd * matrix, const osg::StateAttribute * attr)
 	static int _bind_base_addPositionedAttribute(lua_State *L) {
 		if (!_lg_typecheck_base_addPositionedAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_addPositionedAttribute(osg::RefMatrixd * matrix, const osg::StateAttribute * attr) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_addPositionedAttribute(osg::RefMatrixd * matrix, const osg::StateAttribute * attr)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_addPositionedAttribute(osg::RefMatrixd * matrix, const osg::StateAttribute * attr) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_addPositionedAttribute(osg::RefMatrixd * matrix, const osg::StateAttribute * attr)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RefMatrixd* matrix=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,2));
@@ -960,8 +898,7 @@ public:
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_addPositionedAttribute(osg::RefMatrixd *, const osg::StateAttribute *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_addPositionedAttribute(osg::RefMatrixd *, const osg::StateAttribute *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PositionalStateContainer::addPositionedAttribute(matrix, attr);
 
@@ -971,8 +908,7 @@ public:
 	// void osgUtil::PositionalStateContainer::base_addPositionedTextureAttribute(unsigned int textureUnit, osg::RefMatrixd * matrix, const osg::StateAttribute * attr)
 	static int _bind_base_addPositionedTextureAttribute(lua_State *L) {
 		if (!_lg_typecheck_base_addPositionedTextureAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_addPositionedTextureAttribute(unsigned int textureUnit, osg::RefMatrixd * matrix, const osg::StateAttribute * attr) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_addPositionedTextureAttribute(unsigned int textureUnit, osg::RefMatrixd * matrix, const osg::StateAttribute * attr)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_addPositionedTextureAttribute(unsigned int textureUnit, osg::RefMatrixd * matrix, const osg::StateAttribute * attr) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_addPositionedTextureAttribute(unsigned int textureUnit, osg::RefMatrixd * matrix, const osg::StateAttribute * attr)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int textureUnit=(unsigned int)lua_tointeger(L,2);
@@ -981,8 +917,7 @@ public:
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_addPositionedTextureAttribute(unsigned int, osg::RefMatrixd *, const osg::StateAttribute *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_addPositionedTextureAttribute(unsigned int, osg::RefMatrixd *, const osg::StateAttribute *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PositionalStateContainer::addPositionedTextureAttribute(textureUnit, matrix, attr);
 
@@ -992,8 +927,7 @@ public:
 	// void osgUtil::PositionalStateContainer::base_draw(osg::State & state, osgUtil::RenderLeaf *& previous, const osg::Matrixd * postMultMatrix = 0)
 	static int _bind_base_draw(lua_State *L) {
 		if (!_lg_typecheck_base_draw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_draw(osg::State & state, osgUtil::RenderLeaf *& previous, const osg::Matrixd * postMultMatrix = 0) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_draw(osg::State & state, osgUtil::RenderLeaf *& previous, const osg::Matrixd * postMultMatrix = 0)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::base_draw(osg::State & state, osgUtil::RenderLeaf *& previous, const osg::Matrixd * postMultMatrix = 0) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::base_draw(osg::State & state, osgUtil::RenderLeaf *& previous, const osg::Matrixd * postMultMatrix = 0)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1008,8 +942,7 @@ public:
 
 		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_draw(osg::State &, osgUtil::RenderLeaf *&, const osg::Matrixd *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::base_draw(osg::State &, osgUtil::RenderLeaf *&, const osg::Matrixd *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PositionalStateContainer::draw(state, previous, postMultMatrix);
 

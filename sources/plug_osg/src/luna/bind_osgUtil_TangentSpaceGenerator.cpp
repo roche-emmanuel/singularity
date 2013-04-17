@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::TangentSpaceGenerator* self= (osgUtil::TangentSpaceGenerator*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -214,8 +211,7 @@ public:
 	// osgUtil::TangentSpaceGenerator::TangentSpaceGenerator()
 	static osgUtil::TangentSpaceGenerator* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::TangentSpaceGenerator::TangentSpaceGenerator() function, expected prototype:\nosgUtil::TangentSpaceGenerator::TangentSpaceGenerator()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::TangentSpaceGenerator::TangentSpaceGenerator() function, expected prototype:\nosgUtil::TangentSpaceGenerator::TangentSpaceGenerator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -225,8 +221,7 @@ public:
 	// osgUtil::TangentSpaceGenerator::TangentSpaceGenerator(const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgUtil::TangentSpaceGenerator* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::TangentSpaceGenerator::TangentSpaceGenerator(const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgUtil::TangentSpaceGenerator::TangentSpaceGenerator(const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::TangentSpaceGenerator::TangentSpaceGenerator(const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgUtil::TangentSpaceGenerator::TangentSpaceGenerator(const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -248,8 +243,7 @@ public:
 	// osgUtil::TangentSpaceGenerator::TangentSpaceGenerator(lua_Table * data)
 	static osgUtil::TangentSpaceGenerator* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::TangentSpaceGenerator::TangentSpaceGenerator(lua_Table * data) function, expected prototype:\nosgUtil::TangentSpaceGenerator::TangentSpaceGenerator(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::TangentSpaceGenerator::TangentSpaceGenerator(lua_Table * data) function, expected prototype:\nosgUtil::TangentSpaceGenerator::TangentSpaceGenerator(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -259,8 +253,7 @@ public:
 	// osgUtil::TangentSpaceGenerator::TangentSpaceGenerator(lua_Table * data, const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgUtil::TangentSpaceGenerator* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::TangentSpaceGenerator::TangentSpaceGenerator(lua_Table * data, const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgUtil::TangentSpaceGenerator::TangentSpaceGenerator(lua_Table * data, const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::TangentSpaceGenerator::TangentSpaceGenerator(lua_Table * data, const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgUtil::TangentSpaceGenerator::TangentSpaceGenerator(lua_Table * data, const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -295,8 +288,7 @@ public:
 	// void osgUtil::TangentSpaceGenerator::generate(osg::Geometry * geo, int normal_map_tex_unit = 0)
 	static int _bind_generate(lua_State *L) {
 		if (!_lg_typecheck_generate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::TangentSpaceGenerator::generate(osg::Geometry * geo, int normal_map_tex_unit = 0) function, expected prototype:\nvoid osgUtil::TangentSpaceGenerator::generate(osg::Geometry * geo, int normal_map_tex_unit = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::TangentSpaceGenerator::generate(osg::Geometry * geo, int normal_map_tex_unit = 0) function, expected prototype:\nvoid osgUtil::TangentSpaceGenerator::generate(osg::Geometry * geo, int normal_map_tex_unit = 0)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -306,8 +298,7 @@ public:
 
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::generate(osg::Geometry *, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::generate(osg::Geometry *, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->generate(geo, normal_map_tex_unit);
 
@@ -317,15 +308,13 @@ public:
 	// osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray()
 	static int _bind_getTangentArray_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getTangentArray_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray() function, expected prototype:\nosg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray() function, expected prototype:\nosg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec4Array * lret = self->getTangentArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -338,15 +327,13 @@ public:
 	// const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray() const
 	static int _bind_getTangentArray_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getTangentArray_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray() const function, expected prototype:\nconst osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray() const function, expected prototype:\nconst osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec4Array * lret = self->getTangentArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -368,16 +355,14 @@ public:
 	// void osgUtil::TangentSpaceGenerator::setTangentArray(osg::Vec4Array * array)
 	static int _bind_setTangentArray(lua_State *L) {
 		if (!_lg_typecheck_setTangentArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::TangentSpaceGenerator::setTangentArray(osg::Vec4Array * array) function, expected prototype:\nvoid osgUtil::TangentSpaceGenerator::setTangentArray(osg::Vec4Array * array)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::TangentSpaceGenerator::setTangentArray(osg::Vec4Array * array) function, expected prototype:\nvoid osgUtil::TangentSpaceGenerator::setTangentArray(osg::Vec4Array * array)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec4Array* array=(Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,2));
 
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::setTangentArray(osg::Vec4Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::setTangentArray(osg::Vec4Array *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTangentArray(array);
 
@@ -387,15 +372,13 @@ public:
 	// osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray()
 	static int _bind_getNormalArray_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getNormalArray_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray() function, expected prototype:\nosg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray() function, expected prototype:\nosg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec4Array * lret = self->getNormalArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -408,15 +391,13 @@ public:
 	// const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray() const
 	static int _bind_getNormalArray_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getNormalArray_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray() const function, expected prototype:\nconst osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray() const function, expected prototype:\nconst osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec4Array * lret = self->getNormalArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -438,16 +419,14 @@ public:
 	// void osgUtil::TangentSpaceGenerator::setNormalArray(osg::Vec4Array * array)
 	static int _bind_setNormalArray(lua_State *L) {
 		if (!_lg_typecheck_setNormalArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::TangentSpaceGenerator::setNormalArray(osg::Vec4Array * array) function, expected prototype:\nvoid osgUtil::TangentSpaceGenerator::setNormalArray(osg::Vec4Array * array)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::TangentSpaceGenerator::setNormalArray(osg::Vec4Array * array) function, expected prototype:\nvoid osgUtil::TangentSpaceGenerator::setNormalArray(osg::Vec4Array * array)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec4Array* array=(Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,2));
 
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::setNormalArray(osg::Vec4Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::setNormalArray(osg::Vec4Array *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setNormalArray(array);
 
@@ -457,15 +436,13 @@ public:
 	// osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray()
 	static int _bind_getBinormalArray_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getBinormalArray_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray() function, expected prototype:\nosg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray() function, expected prototype:\nosg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec4Array * lret = self->getBinormalArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -478,15 +455,13 @@ public:
 	// const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray() const
 	static int _bind_getBinormalArray_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getBinormalArray_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray() const function, expected prototype:\nconst osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray() const function, expected prototype:\nconst osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec4Array * lret = self->getBinormalArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -508,16 +483,14 @@ public:
 	// void osgUtil::TangentSpaceGenerator::setBinormalArray(osg::Vec4Array * array)
 	static int _bind_setBinormalArray(lua_State *L) {
 		if (!_lg_typecheck_setBinormalArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::TangentSpaceGenerator::setBinormalArray(osg::Vec4Array * array) function, expected prototype:\nvoid osgUtil::TangentSpaceGenerator::setBinormalArray(osg::Vec4Array * array)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::TangentSpaceGenerator::setBinormalArray(osg::Vec4Array * array) function, expected prototype:\nvoid osgUtil::TangentSpaceGenerator::setBinormalArray(osg::Vec4Array * array)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec4Array* array=(Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,2));
 
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::setBinormalArray(osg::Vec4Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::setBinormalArray(osg::Vec4Array *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setBinormalArray(array);
 
@@ -527,15 +500,13 @@ public:
 	// osg::IndexArray * osgUtil::TangentSpaceGenerator::getIndices()
 	static int _bind_getIndices(lua_State *L) {
 		if (!_lg_typecheck_getIndices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::IndexArray * osgUtil::TangentSpaceGenerator::getIndices() function, expected prototype:\nosg::IndexArray * osgUtil::TangentSpaceGenerator::getIndices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::IndexArray * osgUtil::TangentSpaceGenerator::getIndices() function, expected prototype:\nosg::IndexArray * osgUtil::TangentSpaceGenerator::getIndices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::IndexArray * osgUtil::TangentSpaceGenerator::getIndices(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::IndexArray * osgUtil::TangentSpaceGenerator::getIndices(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::IndexArray * lret = self->getIndices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -548,16 +519,14 @@ public:
 	// void osgUtil::TangentSpaceGenerator::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::TangentSpaceGenerator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::TangentSpaceGenerator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::TangentSpaceGenerator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::TangentSpaceGenerator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TangentSpaceGenerator::setThreadSafeRefUnref(threadSafe);
 

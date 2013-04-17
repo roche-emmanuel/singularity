@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::CullStack* self= (osg::CullStack*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::CullSettings >::check(L,1));
@@ -430,8 +427,7 @@ public:
 	// osg::CullStack::CullStack()
 	static osg::CullStack* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CullStack::CullStack() function, expected prototype:\nosg::CullStack::CullStack()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::CullStack::CullStack() function, expected prototype:\nosg::CullStack::CullStack()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -441,8 +437,7 @@ public:
 	// osg::CullStack::CullStack(const osg::CullStack & cs)
 	static osg::CullStack* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CullStack::CullStack(const osg::CullStack & cs) function, expected prototype:\nosg::CullStack::CullStack(const osg::CullStack & cs)\nClass arguments details:\narg 1 ID = 31435107\n");
+			luaL_error(L, "luna typecheck failed in osg::CullStack::CullStack(const osg::CullStack & cs) function, expected prototype:\nosg::CullStack::CullStack(const osg::CullStack & cs)\nClass arguments details:\narg 1 ID = 31435107\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CullStack* cs_ptr=(Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1));
@@ -457,8 +452,7 @@ public:
 	// osg::CullStack::CullStack(lua_Table * data)
 	static osg::CullStack* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CullStack::CullStack(lua_Table * data) function, expected prototype:\nosg::CullStack::CullStack(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::CullStack::CullStack(lua_Table * data) function, expected prototype:\nosg::CullStack::CullStack(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -468,8 +462,7 @@ public:
 	// osg::CullStack::CullStack(lua_Table * data, const osg::CullStack & cs)
 	static osg::CullStack* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CullStack::CullStack(lua_Table * data, const osg::CullStack & cs) function, expected prototype:\nosg::CullStack::CullStack(lua_Table * data, const osg::CullStack & cs)\nClass arguments details:\narg 2 ID = 31435107\n");
+			luaL_error(L, "luna typecheck failed in osg::CullStack::CullStack(lua_Table * data, const osg::CullStack & cs) function, expected prototype:\nosg::CullStack::CullStack(lua_Table * data, const osg::CullStack & cs)\nClass arguments details:\narg 2 ID = 31435107\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CullStack* cs_ptr=(Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,2));
@@ -497,15 +490,13 @@ public:
 	// void osg::CullStack::reset()
 	static int _bind_reset(lua_State *L) {
 		if (!_lg_typecheck_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::reset() function, expected prototype:\nvoid osg::CullStack::reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::reset() function, expected prototype:\nvoid osg::CullStack::reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::reset(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::reset(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reset();
 
@@ -515,15 +506,13 @@ public:
 	// void osg::CullStack::pushCullingSet()
 	static int _bind_pushCullingSet(lua_State *L) {
 		if (!_lg_typecheck_pushCullingSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::pushCullingSet() function, expected prototype:\nvoid osg::CullStack::pushCullingSet()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::pushCullingSet() function, expected prototype:\nvoid osg::CullStack::pushCullingSet()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::pushCullingSet(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::pushCullingSet(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pushCullingSet();
 
@@ -533,15 +522,13 @@ public:
 	// void osg::CullStack::popCullingSet()
 	static int _bind_popCullingSet(lua_State *L) {
 		if (!_lg_typecheck_popCullingSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::popCullingSet() function, expected prototype:\nvoid osg::CullStack::popCullingSet()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::popCullingSet() function, expected prototype:\nvoid osg::CullStack::popCullingSet()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::popCullingSet(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::popCullingSet(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->popCullingSet();
 
@@ -551,8 +538,7 @@ public:
 	// void osg::CullStack::setOccluderList(const osg::ShadowVolumeOccluderList & svol)
 	static int _bind_setOccluderList(lua_State *L) {
 		if (!_lg_typecheck_setOccluderList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::setOccluderList(const osg::ShadowVolumeOccluderList & svol) function, expected prototype:\nvoid osg::CullStack::setOccluderList(const osg::ShadowVolumeOccluderList & svol)\nClass arguments details:\narg 1 ID = 39369741\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::setOccluderList(const osg::ShadowVolumeOccluderList & svol) function, expected prototype:\nvoid osg::CullStack::setOccluderList(const osg::ShadowVolumeOccluderList & svol)\nClass arguments details:\narg 1 ID = 39369741\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::ShadowVolumeOccluderList* svol_ptr=(Luna< std::vector< osg::ShadowVolumeOccluder > >::checkSubType< osg::ShadowVolumeOccluderList >(L,2));
@@ -563,8 +549,7 @@ public:
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::setOccluderList(const osg::ShadowVolumeOccluderList &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::setOccluderList(const osg::ShadowVolumeOccluderList &). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setOccluderList(svol);
 
@@ -574,15 +559,13 @@ public:
 	// osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList()
 	static int _bind_getOccluderList_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getOccluderList_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList() function, expected prototype:\nosg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList() function, expected prototype:\nosg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ShadowVolumeOccluderList* lret = &self->getOccluderList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -595,15 +578,13 @@ public:
 	// const osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList() const
 	static int _bind_getOccluderList_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getOccluderList_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList() const function, expected prototype:\nconst osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList() const function, expected prototype:\nconst osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList() const. Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ShadowVolumeOccluderList* lret = &self->getOccluderList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -625,16 +606,14 @@ public:
 	// void osg::CullStack::pushViewport(osg::Viewport * viewport)
 	static int _bind_pushViewport(lua_State *L) {
 		if (!_lg_typecheck_pushViewport(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::pushViewport(osg::Viewport * viewport) function, expected prototype:\nvoid osg::CullStack::pushViewport(osg::Viewport * viewport)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::pushViewport(osg::Viewport * viewport) function, expected prototype:\nvoid osg::CullStack::pushViewport(osg::Viewport * viewport)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Viewport* viewport=(Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,2));
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::pushViewport(osg::Viewport *). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::pushViewport(osg::Viewport *). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pushViewport(viewport);
 
@@ -644,15 +623,13 @@ public:
 	// void osg::CullStack::popViewport()
 	static int _bind_popViewport(lua_State *L) {
 		if (!_lg_typecheck_popViewport(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::popViewport() function, expected prototype:\nvoid osg::CullStack::popViewport()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::popViewport() function, expected prototype:\nvoid osg::CullStack::popViewport()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::popViewport(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::popViewport(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->popViewport();
 
@@ -662,16 +639,14 @@ public:
 	// void osg::CullStack::pushProjectionMatrix(osg::RefMatrixd * matrix)
 	static int _bind_pushProjectionMatrix(lua_State *L) {
 		if (!_lg_typecheck_pushProjectionMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::pushProjectionMatrix(osg::RefMatrixd * matrix) function, expected prototype:\nvoid osg::CullStack::pushProjectionMatrix(osg::RefMatrixd * matrix)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::pushProjectionMatrix(osg::RefMatrixd * matrix) function, expected prototype:\nvoid osg::CullStack::pushProjectionMatrix(osg::RefMatrixd * matrix)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RefMatrixd* matrix=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,2));
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::pushProjectionMatrix(osg::RefMatrixd *). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::pushProjectionMatrix(osg::RefMatrixd *). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pushProjectionMatrix(matrix);
 
@@ -681,15 +656,13 @@ public:
 	// void osg::CullStack::popProjectionMatrix()
 	static int _bind_popProjectionMatrix(lua_State *L) {
 		if (!_lg_typecheck_popProjectionMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::popProjectionMatrix() function, expected prototype:\nvoid osg::CullStack::popProjectionMatrix()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::popProjectionMatrix() function, expected prototype:\nvoid osg::CullStack::popProjectionMatrix()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::popProjectionMatrix(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::popProjectionMatrix(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->popProjectionMatrix();
 
@@ -699,8 +672,7 @@ public:
 	// void osg::CullStack::pushModelViewMatrix(osg::RefMatrixd * matrix, osg::Transform::ReferenceFrame referenceFrame)
 	static int _bind_pushModelViewMatrix(lua_State *L) {
 		if (!_lg_typecheck_pushModelViewMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::pushModelViewMatrix(osg::RefMatrixd * matrix, osg::Transform::ReferenceFrame referenceFrame) function, expected prototype:\nvoid osg::CullStack::pushModelViewMatrix(osg::RefMatrixd * matrix, osg::Transform::ReferenceFrame referenceFrame)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::pushModelViewMatrix(osg::RefMatrixd * matrix, osg::Transform::ReferenceFrame referenceFrame) function, expected prototype:\nvoid osg::CullStack::pushModelViewMatrix(osg::RefMatrixd * matrix, osg::Transform::ReferenceFrame referenceFrame)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RefMatrixd* matrix=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,2));
@@ -708,8 +680,7 @@ public:
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::pushModelViewMatrix(osg::RefMatrixd *, osg::Transform::ReferenceFrame). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::pushModelViewMatrix(osg::RefMatrixd *, osg::Transform::ReferenceFrame). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pushModelViewMatrix(matrix, referenceFrame);
 
@@ -719,15 +690,13 @@ public:
 	// void osg::CullStack::popModelViewMatrix()
 	static int _bind_popModelViewMatrix(lua_State *L) {
 		if (!_lg_typecheck_popModelViewMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::popModelViewMatrix() function, expected prototype:\nvoid osg::CullStack::popModelViewMatrix()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::popModelViewMatrix() function, expected prototype:\nvoid osg::CullStack::popModelViewMatrix()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::popModelViewMatrix(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::popModelViewMatrix(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->popModelViewMatrix();
 
@@ -737,15 +706,13 @@ public:
 	// float osg::CullStack::getFrustumVolume()
 	static int _bind_getFrustumVolume(lua_State *L) {
 		if (!_lg_typecheck_getFrustumVolume(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::CullStack::getFrustumVolume() function, expected prototype:\nfloat osg::CullStack::getFrustumVolume()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::CullStack::getFrustumVolume() function, expected prototype:\nfloat osg::CullStack::getFrustumVolume()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullStack::getFrustumVolume(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::CullStack::getFrustumVolume(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getFrustumVolume();
 		lua_pushnumber(L,lret);
@@ -756,8 +723,7 @@ public:
 	// float osg::CullStack::pixelSize(const osg::Vec3f & v, float radius) const
 	static int _bind_pixelSize_overload_1(lua_State *L) {
 		if (!_lg_typecheck_pixelSize_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::CullStack::pixelSize(const osg::Vec3f & v, float radius) const function, expected prototype:\nfloat osg::CullStack::pixelSize(const osg::Vec3f & v, float radius) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osg::CullStack::pixelSize(const osg::Vec3f & v, float radius) const function, expected prototype:\nfloat osg::CullStack::pixelSize(const osg::Vec3f & v, float radius) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -769,8 +735,7 @@ public:
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullStack::pixelSize(const osg::Vec3f &, float) const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::CullStack::pixelSize(const osg::Vec3f &, float) const. Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->pixelSize(v, radius);
 		lua_pushnumber(L,lret);
@@ -781,8 +746,7 @@ public:
 	// float osg::CullStack::pixelSize(const osg::BoundingSphered & bs) const
 	static int _bind_pixelSize_overload_2(lua_State *L) {
 		if (!_lg_typecheck_pixelSize_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::CullStack::pixelSize(const osg::BoundingSphered & bs) const function, expected prototype:\nfloat osg::CullStack::pixelSize(const osg::BoundingSphered & bs) const\nClass arguments details:\narg 1 ID = 54337300\n");
+			luaL_error(L, "luna typecheck failed in float osg::CullStack::pixelSize(const osg::BoundingSphered & bs) const function, expected prototype:\nfloat osg::CullStack::pixelSize(const osg::BoundingSphered & bs) const\nClass arguments details:\narg 1 ID = 54337300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
@@ -793,8 +757,7 @@ public:
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullStack::pixelSize(const osg::BoundingSphered &) const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::CullStack::pixelSize(const osg::BoundingSphered &) const. Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->pixelSize(bs);
 		lua_pushnumber(L,lret);
@@ -814,8 +777,7 @@ public:
 	// float osg::CullStack::clampedPixelSize(const osg::Vec3f & v, float radius) const
 	static int _bind_clampedPixelSize_overload_1(lua_State *L) {
 		if (!_lg_typecheck_clampedPixelSize_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::CullStack::clampedPixelSize(const osg::Vec3f & v, float radius) const function, expected prototype:\nfloat osg::CullStack::clampedPixelSize(const osg::Vec3f & v, float radius) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osg::CullStack::clampedPixelSize(const osg::Vec3f & v, float radius) const function, expected prototype:\nfloat osg::CullStack::clampedPixelSize(const osg::Vec3f & v, float radius) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -827,8 +789,7 @@ public:
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullStack::clampedPixelSize(const osg::Vec3f &, float) const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::CullStack::clampedPixelSize(const osg::Vec3f &, float) const. Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->clampedPixelSize(v, radius);
 		lua_pushnumber(L,lret);
@@ -839,8 +800,7 @@ public:
 	// float osg::CullStack::clampedPixelSize(const osg::BoundingSphered & bs) const
 	static int _bind_clampedPixelSize_overload_2(lua_State *L) {
 		if (!_lg_typecheck_clampedPixelSize_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::CullStack::clampedPixelSize(const osg::BoundingSphered & bs) const function, expected prototype:\nfloat osg::CullStack::clampedPixelSize(const osg::BoundingSphered & bs) const\nClass arguments details:\narg 1 ID = 54337300\n");
+			luaL_error(L, "luna typecheck failed in float osg::CullStack::clampedPixelSize(const osg::BoundingSphered & bs) const function, expected prototype:\nfloat osg::CullStack::clampedPixelSize(const osg::BoundingSphered & bs) const\nClass arguments details:\narg 1 ID = 54337300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
@@ -851,8 +811,7 @@ public:
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullStack::clampedPixelSize(const osg::BoundingSphered &) const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::CullStack::clampedPixelSize(const osg::BoundingSphered &) const. Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->clampedPixelSize(bs);
 		lua_pushnumber(L,lret);
@@ -872,8 +831,7 @@ public:
 	// void osg::CullStack::disableAndPushOccludersCurrentMask(osg::NodePath & nodePath)
 	static int _bind_disableAndPushOccludersCurrentMask(lua_State *L) {
 		if (!_lg_typecheck_disableAndPushOccludersCurrentMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::disableAndPushOccludersCurrentMask(osg::NodePath & nodePath) function, expected prototype:\nvoid osg::CullStack::disableAndPushOccludersCurrentMask(osg::NodePath & nodePath)\nClass arguments details:\narg 1 ID = 52841328\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::disableAndPushOccludersCurrentMask(osg::NodePath & nodePath) function, expected prototype:\nvoid osg::CullStack::disableAndPushOccludersCurrentMask(osg::NodePath & nodePath)\nClass arguments details:\narg 1 ID = 52841328\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,2));
@@ -884,8 +842,7 @@ public:
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::disableAndPushOccludersCurrentMask(osg::NodePath &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::disableAndPushOccludersCurrentMask(osg::NodePath &). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->disableAndPushOccludersCurrentMask(nodePath);
 
@@ -895,8 +852,7 @@ public:
 	// void osg::CullStack::popOccludersCurrentMask(osg::NodePath & nodePath)
 	static int _bind_popOccludersCurrentMask(lua_State *L) {
 		if (!_lg_typecheck_popOccludersCurrentMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::popOccludersCurrentMask(osg::NodePath & nodePath) function, expected prototype:\nvoid osg::CullStack::popOccludersCurrentMask(osg::NodePath & nodePath)\nClass arguments details:\narg 1 ID = 52841328\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::popOccludersCurrentMask(osg::NodePath & nodePath) function, expected prototype:\nvoid osg::CullStack::popOccludersCurrentMask(osg::NodePath & nodePath)\nClass arguments details:\narg 1 ID = 52841328\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,2));
@@ -907,8 +863,7 @@ public:
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::popOccludersCurrentMask(osg::NodePath &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::popOccludersCurrentMask(osg::NodePath &). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->popOccludersCurrentMask(nodePath);
 
@@ -918,8 +873,7 @@ public:
 	// bool osg::CullStack::isCulled(const std::vector< osg::Vec3f > & vertices)
 	static int _bind_isCulled_overload_1(lua_State *L) {
 		if (!_lg_typecheck_isCulled_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::CullStack::isCulled(const std::vector< osg::Vec3f > & vertices) function, expected prototype:\nbool osg::CullStack::isCulled(const std::vector< osg::Vec3f > & vertices)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in bool osg::CullStack::isCulled(const std::vector< osg::Vec3f > & vertices) function, expected prototype:\nbool osg::CullStack::isCulled(const std::vector< osg::Vec3f > & vertices)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const std::vector< osg::Vec3f >* vertices_ptr=(Luna< std::vector< osg::Vec3f > >::check(L,2));
@@ -930,8 +884,7 @@ public:
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const std::vector< osg::Vec3f > &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const std::vector< osg::Vec3f > &). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isCulled(vertices);
 		lua_pushboolean(L,lret?1:0);
@@ -942,8 +895,7 @@ public:
 	// bool osg::CullStack::isCulled(const osg::BoundingBoxd & bb)
 	static int _bind_isCulled_overload_2(lua_State *L) {
 		if (!_lg_typecheck_isCulled_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::CullStack::isCulled(const osg::BoundingBoxd & bb) function, expected prototype:\nbool osg::CullStack::isCulled(const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n");
+			luaL_error(L, "luna typecheck failed in bool osg::CullStack::isCulled(const osg::BoundingBoxd & bb) function, expected prototype:\nbool osg::CullStack::isCulled(const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
@@ -954,8 +906,7 @@ public:
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const osg::BoundingBoxd &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const osg::BoundingBoxd &). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isCulled(bb);
 		lua_pushboolean(L,lret?1:0);
@@ -966,8 +917,7 @@ public:
 	// bool osg::CullStack::isCulled(const osg::BoundingSphered & bs)
 	static int _bind_isCulled_overload_3(lua_State *L) {
 		if (!_lg_typecheck_isCulled_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::CullStack::isCulled(const osg::BoundingSphered & bs) function, expected prototype:\nbool osg::CullStack::isCulled(const osg::BoundingSphered & bs)\nClass arguments details:\narg 1 ID = 54337300\n");
+			luaL_error(L, "luna typecheck failed in bool osg::CullStack::isCulled(const osg::BoundingSphered & bs) function, expected prototype:\nbool osg::CullStack::isCulled(const osg::BoundingSphered & bs)\nClass arguments details:\narg 1 ID = 54337300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
@@ -978,8 +928,7 @@ public:
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const osg::BoundingSphered &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const osg::BoundingSphered &). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isCulled(bs);
 		lua_pushboolean(L,lret?1:0);
@@ -990,8 +939,7 @@ public:
 	// bool osg::CullStack::isCulled(const osg::Node & node)
 	static int _bind_isCulled_overload_4(lua_State *L) {
 		if (!_lg_typecheck_isCulled_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::CullStack::isCulled(const osg::Node & node) function, expected prototype:\nbool osg::CullStack::isCulled(const osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::CullStack::isCulled(const osg::Node & node) function, expected prototype:\nbool osg::CullStack::isCulled(const osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
@@ -1002,8 +950,7 @@ public:
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const osg::Node &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const osg::Node &). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isCulled(node);
 		lua_pushboolean(L,lret?1:0);
@@ -1025,15 +972,13 @@ public:
 	// void osg::CullStack::pushCurrentMask()
 	static int _bind_pushCurrentMask(lua_State *L) {
 		if (!_lg_typecheck_pushCurrentMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::pushCurrentMask() function, expected prototype:\nvoid osg::CullStack::pushCurrentMask()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::pushCurrentMask() function, expected prototype:\nvoid osg::CullStack::pushCurrentMask()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::pushCurrentMask(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::pushCurrentMask(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pushCurrentMask();
 
@@ -1043,15 +988,13 @@ public:
 	// void osg::CullStack::popCurrentMask()
 	static int _bind_popCurrentMask(lua_State *L) {
 		if (!_lg_typecheck_popCurrentMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::popCurrentMask() function, expected prototype:\nvoid osg::CullStack::popCurrentMask()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::popCurrentMask() function, expected prototype:\nvoid osg::CullStack::popCurrentMask()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::popCurrentMask(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::popCurrentMask(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->popCurrentMask();
 
@@ -1061,15 +1004,13 @@ public:
 	// osg::CullStack::CullingStack & osg::CullStack::getClipSpaceCullingStack()
 	static int _bind_getClipSpaceCullingStack(lua_State *L) {
 		if (!_lg_typecheck_getClipSpaceCullingStack(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CullStack::CullingStack & osg::CullStack::getClipSpaceCullingStack() function, expected prototype:\nosg::CullStack::CullingStack & osg::CullStack::getClipSpaceCullingStack()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::CullStack::CullingStack & osg::CullStack::getClipSpaceCullingStack() function, expected prototype:\nosg::CullStack::CullingStack & osg::CullStack::getClipSpaceCullingStack()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CullStack::CullingStack & osg::CullStack::getClipSpaceCullingStack(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::CullStack::CullingStack & osg::CullStack::getClipSpaceCullingStack(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::CullStack::CullingStack* lret = &self->getClipSpaceCullingStack();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1082,15 +1023,13 @@ public:
 	// osg::CullStack::CullingStack & osg::CullStack::getProjectionCullingStack()
 	static int _bind_getProjectionCullingStack(lua_State *L) {
 		if (!_lg_typecheck_getProjectionCullingStack(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CullStack::CullingStack & osg::CullStack::getProjectionCullingStack() function, expected prototype:\nosg::CullStack::CullingStack & osg::CullStack::getProjectionCullingStack()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::CullStack::CullingStack & osg::CullStack::getProjectionCullingStack() function, expected prototype:\nosg::CullStack::CullingStack & osg::CullStack::getProjectionCullingStack()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CullStack::CullingStack & osg::CullStack::getProjectionCullingStack(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::CullStack::CullingStack & osg::CullStack::getProjectionCullingStack(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::CullStack::CullingStack* lret = &self->getProjectionCullingStack();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1103,15 +1042,13 @@ public:
 	// osg::CullStack::CullingStack & osg::CullStack::getModelViewCullingStack()
 	static int _bind_getModelViewCullingStack(lua_State *L) {
 		if (!_lg_typecheck_getModelViewCullingStack(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CullStack::CullingStack & osg::CullStack::getModelViewCullingStack() function, expected prototype:\nosg::CullStack::CullingStack & osg::CullStack::getModelViewCullingStack()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::CullStack::CullingStack & osg::CullStack::getModelViewCullingStack() function, expected prototype:\nosg::CullStack::CullingStack & osg::CullStack::getModelViewCullingStack()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CullStack::CullingStack & osg::CullStack::getModelViewCullingStack(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::CullStack::CullingStack & osg::CullStack::getModelViewCullingStack(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::CullStack::CullingStack* lret = &self->getModelViewCullingStack();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1124,15 +1061,13 @@ public:
 	// osg::CullingSet & osg::CullStack::getCurrentCullingSet()
 	static int _bind_getCurrentCullingSet_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getCurrentCullingSet_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CullingSet & osg::CullStack::getCurrentCullingSet() function, expected prototype:\nosg::CullingSet & osg::CullStack::getCurrentCullingSet()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::CullingSet & osg::CullStack::getCurrentCullingSet() function, expected prototype:\nosg::CullingSet & osg::CullStack::getCurrentCullingSet()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CullingSet & osg::CullStack::getCurrentCullingSet(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::CullingSet & osg::CullStack::getCurrentCullingSet(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::CullingSet* lret = &self->getCurrentCullingSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1145,15 +1080,13 @@ public:
 	// const osg::CullingSet & osg::CullStack::getCurrentCullingSet() const
 	static int _bind_getCurrentCullingSet_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getCurrentCullingSet_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::CullingSet & osg::CullStack::getCurrentCullingSet() const function, expected prototype:\nconst osg::CullingSet & osg::CullStack::getCurrentCullingSet() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::CullingSet & osg::CullStack::getCurrentCullingSet() const function, expected prototype:\nconst osg::CullingSet & osg::CullStack::getCurrentCullingSet() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::CullingSet & osg::CullStack::getCurrentCullingSet() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::CullingSet & osg::CullStack::getCurrentCullingSet() const. Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::CullingSet* lret = &self->getCurrentCullingSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1175,15 +1108,13 @@ public:
 	// osg::Viewport * osg::CullStack::getViewport()
 	static int _bind_getViewport(lua_State *L) {
 		if (!_lg_typecheck_getViewport(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Viewport * osg::CullStack::getViewport() function, expected prototype:\nosg::Viewport * osg::CullStack::getViewport()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Viewport * osg::CullStack::getViewport() function, expected prototype:\nosg::Viewport * osg::CullStack::getViewport()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Viewport * osg::CullStack::getViewport(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Viewport * osg::CullStack::getViewport(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Viewport * lret = self->getViewport();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1196,15 +1127,13 @@ public:
 	// osg::RefMatrixd * osg::CullStack::getModelViewMatrix()
 	static int _bind_getModelViewMatrix(lua_State *L) {
 		if (!_lg_typecheck_getModelViewMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::RefMatrixd * osg::CullStack::getModelViewMatrix() function, expected prototype:\nosg::RefMatrixd * osg::CullStack::getModelViewMatrix()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::RefMatrixd * osg::CullStack::getModelViewMatrix() function, expected prototype:\nosg::RefMatrixd * osg::CullStack::getModelViewMatrix()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::getModelViewMatrix(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::getModelViewMatrix(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::RefMatrixd * lret = self->getModelViewMatrix();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1217,15 +1146,13 @@ public:
 	// osg::RefMatrixd * osg::CullStack::getProjectionMatrix()
 	static int _bind_getProjectionMatrix(lua_State *L) {
 		if (!_lg_typecheck_getProjectionMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::RefMatrixd * osg::CullStack::getProjectionMatrix() function, expected prototype:\nosg::RefMatrixd * osg::CullStack::getProjectionMatrix()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::RefMatrixd * osg::CullStack::getProjectionMatrix() function, expected prototype:\nosg::RefMatrixd * osg::CullStack::getProjectionMatrix()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::getProjectionMatrix(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::getProjectionMatrix(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::RefMatrixd * lret = self->getProjectionMatrix();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1238,15 +1165,13 @@ public:
 	// osg::Matrixd osg::CullStack::getWindowMatrix()
 	static int _bind_getWindowMatrix(lua_State *L) {
 		if (!_lg_typecheck_getWindowMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osg::CullStack::getWindowMatrix() function, expected prototype:\nosg::Matrixd osg::CullStack::getWindowMatrix()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osg::CullStack::getWindowMatrix() function, expected prototype:\nosg::Matrixd osg::CullStack::getWindowMatrix()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osg::CullStack::getWindowMatrix(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osg::CullStack::getWindowMatrix(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixd stack_lret = self->getWindowMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1260,15 +1185,13 @@ public:
 	// const osg::RefMatrixd * osg::CullStack::getMVPW()
 	static int _bind_getMVPW(lua_State *L) {
 		if (!_lg_typecheck_getMVPW(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::RefMatrixd * osg::CullStack::getMVPW() function, expected prototype:\nconst osg::RefMatrixd * osg::CullStack::getMVPW()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::RefMatrixd * osg::CullStack::getMVPW() function, expected prototype:\nconst osg::RefMatrixd * osg::CullStack::getMVPW()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::RefMatrixd * osg::CullStack::getMVPW(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::RefMatrixd * osg::CullStack::getMVPW(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::RefMatrixd * lret = self->getMVPW();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1281,15 +1204,13 @@ public:
 	// const osg::Vec3f & osg::CullStack::getReferenceViewPoint() const
 	static int _bind_getReferenceViewPoint(lua_State *L) {
 		if (!_lg_typecheck_getReferenceViewPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::CullStack::getReferenceViewPoint() const function, expected prototype:\nconst osg::Vec3f & osg::CullStack::getReferenceViewPoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::CullStack::getReferenceViewPoint() const function, expected prototype:\nconst osg::Vec3f & osg::CullStack::getReferenceViewPoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::CullStack::getReferenceViewPoint() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::CullStack::getReferenceViewPoint() const. Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->getReferenceViewPoint();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1302,8 +1223,7 @@ public:
 	// void osg::CullStack::pushReferenceViewPoint(const osg::Vec3f & viewPoint)
 	static int _bind_pushReferenceViewPoint(lua_State *L) {
 		if (!_lg_typecheck_pushReferenceViewPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::pushReferenceViewPoint(const osg::Vec3f & viewPoint) function, expected prototype:\nvoid osg::CullStack::pushReferenceViewPoint(const osg::Vec3f & viewPoint)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::pushReferenceViewPoint(const osg::Vec3f & viewPoint) function, expected prototype:\nvoid osg::CullStack::pushReferenceViewPoint(const osg::Vec3f & viewPoint)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* viewPoint_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -1314,8 +1234,7 @@ public:
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::pushReferenceViewPoint(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::pushReferenceViewPoint(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pushReferenceViewPoint(viewPoint);
 
@@ -1325,15 +1244,13 @@ public:
 	// void osg::CullStack::popReferenceViewPoint()
 	static int _bind_popReferenceViewPoint(lua_State *L) {
 		if (!_lg_typecheck_popReferenceViewPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::popReferenceViewPoint() function, expected prototype:\nvoid osg::CullStack::popReferenceViewPoint()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::popReferenceViewPoint() function, expected prototype:\nvoid osg::CullStack::popReferenceViewPoint()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::popReferenceViewPoint(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::popReferenceViewPoint(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->popReferenceViewPoint();
 
@@ -1343,15 +1260,13 @@ public:
 	// const osg::Vec3f & osg::CullStack::getEyeLocal() const
 	static int _bind_getEyeLocal(lua_State *L) {
 		if (!_lg_typecheck_getEyeLocal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::CullStack::getEyeLocal() const function, expected prototype:\nconst osg::Vec3f & osg::CullStack::getEyeLocal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::CullStack::getEyeLocal() const function, expected prototype:\nconst osg::Vec3f & osg::CullStack::getEyeLocal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::CullStack::getEyeLocal() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::CullStack::getEyeLocal() const. Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->getEyeLocal();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1364,15 +1279,13 @@ public:
 	// const osg::Vec3f & osg::CullStack::getViewPointLocal() const
 	static int _bind_getViewPointLocal(lua_State *L) {
 		if (!_lg_typecheck_getViewPointLocal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::CullStack::getViewPointLocal() const function, expected prototype:\nconst osg::Vec3f & osg::CullStack::getViewPointLocal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::CullStack::getViewPointLocal() const function, expected prototype:\nconst osg::Vec3f & osg::CullStack::getViewPointLocal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::CullStack::getViewPointLocal() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::CullStack::getViewPointLocal() const. Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->getViewPointLocal();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1385,15 +1298,13 @@ public:
 	// const osg::Vec3f osg::CullStack::getUpLocal() const
 	static int _bind_getUpLocal(lua_State *L) {
 		if (!_lg_typecheck_getUpLocal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f osg::CullStack::getUpLocal() const function, expected prototype:\nconst osg::Vec3f osg::CullStack::getUpLocal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f osg::CullStack::getUpLocal() const function, expected prototype:\nconst osg::Vec3f osg::CullStack::getUpLocal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f osg::CullStack::getUpLocal() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f osg::CullStack::getUpLocal() const. Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f stack_lret = self->getUpLocal();
 		const osg::Vec3f* lret = new const osg::Vec3f(stack_lret);
@@ -1407,15 +1318,13 @@ public:
 	// const osg::Vec3f osg::CullStack::getLookVectorLocal() const
 	static int _bind_getLookVectorLocal(lua_State *L) {
 		if (!_lg_typecheck_getLookVectorLocal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f osg::CullStack::getLookVectorLocal() const function, expected prototype:\nconst osg::Vec3f osg::CullStack::getLookVectorLocal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f osg::CullStack::getLookVectorLocal() const function, expected prototype:\nconst osg::Vec3f osg::CullStack::getLookVectorLocal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f osg::CullStack::getLookVectorLocal() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f osg::CullStack::getLookVectorLocal() const. Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f stack_lret = self->getLookVectorLocal();
 		const osg::Vec3f* lret = new const osg::Vec3f(stack_lret);
@@ -1429,15 +1338,13 @@ public:
 	// void osg::CullStack::base_setDefaults()
 	static int _bind_base_setDefaults(lua_State *L) {
 		if (!_lg_typecheck_base_setDefaults(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::base_setDefaults() function, expected prototype:\nvoid osg::CullStack::base_setDefaults()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::base_setDefaults() function, expected prototype:\nvoid osg::CullStack::base_setDefaults()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::base_setDefaults(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::base_setDefaults(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CullStack::setDefaults();
 
@@ -1447,8 +1354,7 @@ public:
 	// void osg::CullStack::base_inheritCullSettings(const osg::CullSettings & settings)
 	static int _bind_base_inheritCullSettings_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_inheritCullSettings_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::base_inheritCullSettings(const osg::CullSettings & settings) function, expected prototype:\nvoid osg::CullStack::base_inheritCullSettings(const osg::CullSettings & settings)\nClass arguments details:\narg 1 ID = 31435107\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::base_inheritCullSettings(const osg::CullSettings & settings) function, expected prototype:\nvoid osg::CullStack::base_inheritCullSettings(const osg::CullSettings & settings)\nClass arguments details:\narg 1 ID = 31435107\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CullSettings* settings_ptr=(Luna< osg::CullSettings >::check(L,2));
@@ -1459,8 +1365,7 @@ public:
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::base_inheritCullSettings(const osg::CullSettings &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::base_inheritCullSettings(const osg::CullSettings &). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CullStack::inheritCullSettings(settings);
 
@@ -1470,8 +1375,7 @@ public:
 	// void osg::CullStack::base_inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask)
 	static int _bind_base_inheritCullSettings_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_inheritCullSettings_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::base_inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask) function, expected prototype:\nvoid osg::CullStack::base_inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask)\nClass arguments details:\narg 1 ID = 31435107\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::base_inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask) function, expected prototype:\nvoid osg::CullStack::base_inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask)\nClass arguments details:\narg 1 ID = 31435107\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CullSettings* settings_ptr=(Luna< osg::CullSettings >::check(L,2));
@@ -1483,8 +1387,7 @@ public:
 
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::base_inheritCullSettings(const osg::CullSettings &, unsigned int). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::base_inheritCullSettings(const osg::CullSettings &, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CullStack::inheritCullSettings(settings, inheritanceMask);
 

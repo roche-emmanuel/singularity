@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgText::Text::GlyphQuads*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgText::Text::GlyphQuads*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::Text::GlyphQuads* rhs =(Luna< osgText::Text::GlyphQuads >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::Text::GlyphQuads* self= (osgText::Text::GlyphQuads*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgText::Text::GlyphQuads >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -221,15 +217,13 @@ public:
 	// osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs()
 	static int _bind_getGlyphs_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getGlyphs_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs() function, expected prototype:\nosgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs() function, expected prototype:\nosgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs(). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs(). Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgText::Text::GlyphQuads::Glyphs stack_lret = self->getGlyphs();
 		osgText::Text::GlyphQuads::Glyphs* lret = new osgText::Text::GlyphQuads::Glyphs(stack_lret);
@@ -243,15 +237,13 @@ public:
 	// const osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs() const
 	static int _bind_getGlyphs_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getGlyphs_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs() const function, expected prototype:\nconst osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs() const function, expected prototype:\nconst osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs() const. Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs() const. Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::Text::GlyphQuads::Glyphs stack_lret = self->getGlyphs();
 		const osgText::Text::GlyphQuads::Glyphs* lret = new const osgText::Text::GlyphQuads::Glyphs(stack_lret);
@@ -274,15 +266,13 @@ public:
 	// osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords()
 	static int _bind_getCoords_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getCoords_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords() function, expected prototype:\nosgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords() function, expected prototype:\nosgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords(). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords(). Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::Text::GlyphQuads::Coords2* lret = &self->getCoords();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -295,15 +285,13 @@ public:
 	// const osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords() const
 	static int _bind_getCoords_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getCoords_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords() const function, expected prototype:\nconst osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords() const function, expected prototype:\nconst osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords() const. Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords() const. Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::Text::GlyphQuads::Coords2* lret = &self->getCoords();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -325,16 +313,14 @@ public:
 	// osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int contexID)
 	static int _bind_getTransformedCoords_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getTransformedCoords_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int contexID) function, expected prototype:\nosgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int contexID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int contexID) function, expected prototype:\nosgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int contexID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contexID=(unsigned int)lua_tointeger(L,2);
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int). Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::Text::GlyphQuads::Coords3* lret = &self->getTransformedCoords(contexID);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -347,16 +333,14 @@ public:
 	// const osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int contexID) const
 	static int _bind_getTransformedCoords_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getTransformedCoords_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int contexID) const function, expected prototype:\nconst osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int contexID) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int contexID) const function, expected prototype:\nconst osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int contexID) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contexID=(unsigned int)lua_tointeger(L,2);
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int) const. Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::Text::GlyphQuads::Coords3* lret = &self->getTransformedCoords(contexID);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -378,15 +362,13 @@ public:
 	// osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords()
 	static int _bind_getTexCoords_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getTexCoords_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords() function, expected prototype:\nosgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords() function, expected prototype:\nosgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords(). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords(). Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::Text::GlyphQuads::TexCoords* lret = &self->getTexCoords();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -399,15 +381,13 @@ public:
 	// const osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords() const
 	static int _bind_getTexCoords_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getTexCoords_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords() const function, expected prototype:\nconst osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords() const function, expected prototype:\nconst osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords() const. Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords() const. Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::Text::GlyphQuads::TexCoords* lret = &self->getTexCoords();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -429,15 +409,13 @@ public:
 	// osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers()
 	static int _bind_getLineNumbers_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getLineNumbers_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers() function, expected prototype:\nosgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers() function, expected prototype:\nosgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers(). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers(). Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::Text::GlyphQuads::LineNumbers* lret = &self->getLineNumbers();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -450,15 +428,13 @@ public:
 	// const osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers() const
 	static int _bind_getLineNumbers_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getLineNumbers_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers() const function, expected prototype:\nconst osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers() const function, expected prototype:\nconst osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers() const. Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers() const. Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::Text::GlyphQuads::LineNumbers* lret = &self->getLineNumbers();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -480,15 +456,13 @@ public:
 	// osgText::Text::GlyphQuads::TexCoords osgText::Text::GlyphQuads::_texcoords()
 	static int _bind_getTexcoords(lua_State *L) {
 		if (!_lg_typecheck_getTexcoords(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::TexCoords osgText::Text::GlyphQuads::_texcoords() function, expected prototype:\nosgText::Text::GlyphQuads::TexCoords osgText::Text::GlyphQuads::_texcoords()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::TexCoords osgText::Text::GlyphQuads::_texcoords() function, expected prototype:\nosgText::Text::GlyphQuads::TexCoords osgText::Text::GlyphQuads::_texcoords()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::TexCoords osgText::Text::GlyphQuads::_texcoords(). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::TexCoords osgText::Text::GlyphQuads::_texcoords(). Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::Text::GlyphQuads::TexCoords* lret = &self->_texcoords;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -501,15 +475,13 @@ public:
 	// osgText::Text::GlyphQuads::ColorCoords osgText::Text::GlyphQuads::_colorCoords()
 	static int _bind_getColorCoords(lua_State *L) {
 		if (!_lg_typecheck_getColorCoords(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::ColorCoords osgText::Text::GlyphQuads::_colorCoords() function, expected prototype:\nosgText::Text::GlyphQuads::ColorCoords osgText::Text::GlyphQuads::_colorCoords()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::ColorCoords osgText::Text::GlyphQuads::_colorCoords() function, expected prototype:\nosgText::Text::GlyphQuads::ColorCoords osgText::Text::GlyphQuads::_colorCoords()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::ColorCoords osgText::Text::GlyphQuads::_colorCoords(). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::ColorCoords osgText::Text::GlyphQuads::_colorCoords(). Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::Text::GlyphQuads::ColorCoords* lret = &self->_colorCoords;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -522,8 +494,7 @@ public:
 	// void osgText::Text::GlyphQuads::_glyphs(osgText::Text::GlyphQuads::Glyphs value)
 	static int _bind_setGlyphs(lua_State *L) {
 		if (!_lg_typecheck_setGlyphs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::GlyphQuads::_glyphs(osgText::Text::GlyphQuads::Glyphs value) function, expected prototype:\nvoid osgText::Text::GlyphQuads::_glyphs(osgText::Text::GlyphQuads::Glyphs value)\nClass arguments details:\narg 1 ID = 3878690\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::GlyphQuads::_glyphs(osgText::Text::GlyphQuads::Glyphs value) function, expected prototype:\nvoid osgText::Text::GlyphQuads::_glyphs(osgText::Text::GlyphQuads::Glyphs value)\nClass arguments details:\narg 1 ID = 3878690\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::Text::GlyphQuads::Glyphs* value_ptr=(Luna< std::vector< osgText::Glyph * > >::checkSubType< osgText::Text::GlyphQuads::Glyphs >(L,2));
@@ -534,8 +505,7 @@ public:
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::GlyphQuads::_glyphs(osgText::Text::GlyphQuads::Glyphs). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::GlyphQuads::_glyphs(osgText::Text::GlyphQuads::Glyphs). Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_glyphs = value;
 
@@ -545,8 +515,7 @@ public:
 	// void osgText::Text::GlyphQuads::_coords(osgText::Text::GlyphQuads::Coords2 value)
 	static int _bind_setCoords(lua_State *L) {
 		if (!_lg_typecheck_setCoords(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::GlyphQuads::_coords(osgText::Text::GlyphQuads::Coords2 value) function, expected prototype:\nvoid osgText::Text::GlyphQuads::_coords(osgText::Text::GlyphQuads::Coords2 value)\nClass arguments details:\narg 1 ID = 46933791\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::GlyphQuads::_coords(osgText::Text::GlyphQuads::Coords2 value) function, expected prototype:\nvoid osgText::Text::GlyphQuads::_coords(osgText::Text::GlyphQuads::Coords2 value)\nClass arguments details:\narg 1 ID = 46933791\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::Text::GlyphQuads::Coords2* value_ptr=(Luna< std::vector< osg::Vec2f > >::checkSubType< osgText::Text::GlyphQuads::Coords2 >(L,2));
@@ -557,8 +526,7 @@ public:
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::GlyphQuads::_coords(osgText::Text::GlyphQuads::Coords2). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::GlyphQuads::_coords(osgText::Text::GlyphQuads::Coords2). Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_coords = value;
 
@@ -568,8 +536,7 @@ public:
 	// void osgText::Text::GlyphQuads::_texcoords(osgText::Text::GlyphQuads::TexCoords value)
 	static int _bind_setTexcoords(lua_State *L) {
 		if (!_lg_typecheck_setTexcoords(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::GlyphQuads::_texcoords(osgText::Text::GlyphQuads::TexCoords value) function, expected prototype:\nvoid osgText::Text::GlyphQuads::_texcoords(osgText::Text::GlyphQuads::TexCoords value)\nClass arguments details:\narg 1 ID = 72230542\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::GlyphQuads::_texcoords(osgText::Text::GlyphQuads::TexCoords value) function, expected prototype:\nvoid osgText::Text::GlyphQuads::_texcoords(osgText::Text::GlyphQuads::TexCoords value)\nClass arguments details:\narg 1 ID = 72230542\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::Text::GlyphQuads::TexCoords* value_ptr=(Luna< std::vector< osg::Vec2f > >::checkSubType< osgText::Text::GlyphQuads::TexCoords >(L,2));
@@ -580,8 +547,7 @@ public:
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::GlyphQuads::_texcoords(osgText::Text::GlyphQuads::TexCoords). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::GlyphQuads::_texcoords(osgText::Text::GlyphQuads::TexCoords). Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_texcoords = value;
 
@@ -591,8 +557,7 @@ public:
 	// void osgText::Text::GlyphQuads::_lineNumbers(osgText::Text::GlyphQuads::LineNumbers value)
 	static int _bind_setLineNumbers(lua_State *L) {
 		if (!_lg_typecheck_setLineNumbers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::GlyphQuads::_lineNumbers(osgText::Text::GlyphQuads::LineNumbers value) function, expected prototype:\nvoid osgText::Text::GlyphQuads::_lineNumbers(osgText::Text::GlyphQuads::LineNumbers value)\nClass arguments details:\narg 1 ID = 43001465\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::GlyphQuads::_lineNumbers(osgText::Text::GlyphQuads::LineNumbers value) function, expected prototype:\nvoid osgText::Text::GlyphQuads::_lineNumbers(osgText::Text::GlyphQuads::LineNumbers value)\nClass arguments details:\narg 1 ID = 43001465\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::Text::GlyphQuads::LineNumbers* value_ptr=(Luna< std::vector< unsigned int > >::checkSubType< osgText::Text::GlyphQuads::LineNumbers >(L,2));
@@ -603,8 +568,7 @@ public:
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::GlyphQuads::_lineNumbers(osgText::Text::GlyphQuads::LineNumbers). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::GlyphQuads::_lineNumbers(osgText::Text::GlyphQuads::LineNumbers). Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_lineNumbers = value;
 
@@ -614,8 +578,7 @@ public:
 	// void osgText::Text::GlyphQuads::_colorCoords(osgText::Text::GlyphQuads::ColorCoords value)
 	static int _bind_setColorCoords(lua_State *L) {
 		if (!_lg_typecheck_setColorCoords(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Text::GlyphQuads::_colorCoords(osgText::Text::GlyphQuads::ColorCoords value) function, expected prototype:\nvoid osgText::Text::GlyphQuads::_colorCoords(osgText::Text::GlyphQuads::ColorCoords value)\nClass arguments details:\narg 1 ID = 26979605\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Text::GlyphQuads::_colorCoords(osgText::Text::GlyphQuads::ColorCoords value) function, expected prototype:\nvoid osgText::Text::GlyphQuads::_colorCoords(osgText::Text::GlyphQuads::ColorCoords value)\nClass arguments details:\narg 1 ID = 26979605\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::Text::GlyphQuads::ColorCoords* value_ptr=(Luna< std::vector< osg::Vec4f > >::checkSubType< osgText::Text::GlyphQuads::ColorCoords >(L,2));
@@ -626,8 +589,7 @@ public:
 
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::GlyphQuads::_colorCoords(osgText::Text::GlyphQuads::ColorCoords). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Text::GlyphQuads::_colorCoords(osgText::Text::GlyphQuads::ColorCoords). Got : '%s'\n%s",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_colorCoords = value;
 

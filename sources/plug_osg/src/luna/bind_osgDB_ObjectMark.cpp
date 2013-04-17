@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ObjectMark*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ObjectMark*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ObjectMark* rhs =(Luna< osgDB::ObjectMark >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ObjectMark* self= (osgDB::ObjectMark*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgDB::ObjectMark >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -159,8 +155,7 @@ public:
 	// osgDB::ObjectMark::ObjectMark()
 	static osgDB::ObjectMark* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ObjectMark::ObjectMark() function, expected prototype:\nosgDB::ObjectMark::ObjectMark()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectMark::ObjectMark() function, expected prototype:\nosgDB::ObjectMark::ObjectMark()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -170,8 +165,7 @@ public:
 	// osgDB::ObjectMark::ObjectMark(const osgDB::ObjectMark & copy)
 	static osgDB::ObjectMark* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ObjectMark::ObjectMark(const osgDB::ObjectMark & copy) function, expected prototype:\nosgDB::ObjectMark::ObjectMark(const osgDB::ObjectMark & copy)\nClass arguments details:\narg 1 ID = 60066730\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectMark::ObjectMark(const osgDB::ObjectMark & copy) function, expected prototype:\nosgDB::ObjectMark::ObjectMark(const osgDB::ObjectMark & copy)\nClass arguments details:\narg 1 ID = 60066730\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgDB::ObjectMark* copy_ptr=(Luna< osgDB::ObjectMark >::check(L,1));
@@ -197,8 +191,7 @@ public:
 	// void osgDB::ObjectMark::set(const char * name, int delta = 0)
 	static int _bind_set(lua_State *L) {
 		if (!_lg_typecheck_set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ObjectMark::set(const char * name, int delta = 0) function, expected prototype:\nvoid osgDB::ObjectMark::set(const char * name, int delta = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectMark::set(const char * name, int delta = 0) function, expected prototype:\nvoid osgDB::ObjectMark::set(const char * name, int delta = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -208,8 +201,7 @@ public:
 
 		osgDB::ObjectMark* self=(Luna< osgDB::ObjectMark >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectMark::set(const char *, int). Got : '%s'",typeid(Luna< osgDB::ObjectMark >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectMark::set(const char *, int). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectMark >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(name, delta);
 
@@ -219,15 +211,13 @@ public:
 	// std::string osgDB::ObjectMark::_name()
 	static int _bind_getName(lua_State *L) {
 		if (!_lg_typecheck_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string osgDB::ObjectMark::_name() function, expected prototype:\nstd::string osgDB::ObjectMark::_name()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string osgDB::ObjectMark::_name() function, expected prototype:\nstd::string osgDB::ObjectMark::_name()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ObjectMark* self=(Luna< osgDB::ObjectMark >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgDB::ObjectMark::_name(). Got : '%s'",typeid(Luna< osgDB::ObjectMark >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string osgDB::ObjectMark::_name(). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectMark >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->_name;
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -238,15 +228,13 @@ public:
 	// int osgDB::ObjectMark::_indentDelta()
 	static int _bind_getIndentDelta(lua_State *L) {
 		if (!_lg_typecheck_getIndentDelta(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgDB::ObjectMark::_indentDelta() function, expected prototype:\nint osgDB::ObjectMark::_indentDelta()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgDB::ObjectMark::_indentDelta() function, expected prototype:\nint osgDB::ObjectMark::_indentDelta()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ObjectMark* self=(Luna< osgDB::ObjectMark >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgDB::ObjectMark::_indentDelta(). Got : '%s'",typeid(Luna< osgDB::ObjectMark >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgDB::ObjectMark::_indentDelta(). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectMark >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->_indentDelta;
 		lua_pushnumber(L,lret);
@@ -257,16 +245,14 @@ public:
 	// void osgDB::ObjectMark::_name(std::string value)
 	static int _bind_setName(lua_State *L) {
 		if (!_lg_typecheck_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ObjectMark::_name(std::string value) function, expected prototype:\nvoid osgDB::ObjectMark::_name(std::string value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectMark::_name(std::string value) function, expected prototype:\nvoid osgDB::ObjectMark::_name(std::string value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::ObjectMark* self=(Luna< osgDB::ObjectMark >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectMark::_name(std::string). Got : '%s'",typeid(Luna< osgDB::ObjectMark >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectMark::_name(std::string). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectMark >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_name = value;
 
@@ -276,16 +262,14 @@ public:
 	// void osgDB::ObjectMark::_indentDelta(int value)
 	static int _bind_setIndentDelta(lua_State *L) {
 		if (!_lg_typecheck_setIndentDelta(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ObjectMark::_indentDelta(int value) function, expected prototype:\nvoid osgDB::ObjectMark::_indentDelta(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectMark::_indentDelta(int value) function, expected prototype:\nvoid osgDB::ObjectMark::_indentDelta(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osgDB::ObjectMark* self=(Luna< osgDB::ObjectMark >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectMark::_indentDelta(int). Got : '%s'",typeid(Luna< osgDB::ObjectMark >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectMark::_indentDelta(int). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectMark >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_indentDelta = value;
 

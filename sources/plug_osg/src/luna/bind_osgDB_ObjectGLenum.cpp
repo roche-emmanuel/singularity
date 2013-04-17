@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ObjectGLenum*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ObjectGLenum*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ObjectGLenum* rhs =(Luna< osgDB::ObjectGLenum >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ObjectGLenum* self= (osgDB::ObjectGLenum*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgDB::ObjectGLenum >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -152,8 +148,7 @@ public:
 	// osgDB::ObjectGLenum::ObjectGLenum(unsigned int value = 0)
 	static osgDB::ObjectGLenum* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ObjectGLenum::ObjectGLenum(unsigned int value = 0) function, expected prototype:\nosgDB::ObjectGLenum::ObjectGLenum(unsigned int value = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectGLenum::ObjectGLenum(unsigned int value = 0) function, expected prototype:\nosgDB::ObjectGLenum::ObjectGLenum(unsigned int value = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -166,8 +161,7 @@ public:
 	// osgDB::ObjectGLenum::ObjectGLenum(const osgDB::ObjectGLenum & copy)
 	static osgDB::ObjectGLenum* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ObjectGLenum::ObjectGLenum(const osgDB::ObjectGLenum & copy) function, expected prototype:\nosgDB::ObjectGLenum::ObjectGLenum(const osgDB::ObjectGLenum & copy)\nClass arguments details:\narg 1 ID = 32567652\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectGLenum::ObjectGLenum(const osgDB::ObjectGLenum & copy) function, expected prototype:\nosgDB::ObjectGLenum::ObjectGLenum(const osgDB::ObjectGLenum & copy)\nClass arguments details:\narg 1 ID = 32567652\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgDB::ObjectGLenum* copy_ptr=(Luna< osgDB::ObjectGLenum >::check(L,1));
@@ -193,16 +187,14 @@ public:
 	// void osgDB::ObjectGLenum::set(unsigned int e)
 	static int _bind_set(lua_State *L) {
 		if (!_lg_typecheck_set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ObjectGLenum::set(unsigned int e) function, expected prototype:\nvoid osgDB::ObjectGLenum::set(unsigned int e)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectGLenum::set(unsigned int e) function, expected prototype:\nvoid osgDB::ObjectGLenum::set(unsigned int e)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int e=(unsigned int)lua_tointeger(L,2);
 
 		osgDB::ObjectGLenum* self=(Luna< osgDB::ObjectGLenum >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectGLenum::set(unsigned int). Got : '%s'",typeid(Luna< osgDB::ObjectGLenum >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectGLenum::set(unsigned int). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectGLenum >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(e);
 
@@ -212,15 +204,13 @@ public:
 	// unsigned int osgDB::ObjectGLenum::get() const
 	static int _bind_get(lua_State *L) {
 		if (!_lg_typecheck_get(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ObjectGLenum::get() const function, expected prototype:\nunsigned int osgDB::ObjectGLenum::get() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ObjectGLenum::get() const function, expected prototype:\nunsigned int osgDB::ObjectGLenum::get() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ObjectGLenum* self=(Luna< osgDB::ObjectGLenum >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::ObjectGLenum::get() const. Got : '%s'",typeid(Luna< osgDB::ObjectGLenum >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::ObjectGLenum::get() const. Got : '%s'\n%s",typeid(Luna< osgDB::ObjectGLenum >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->get();
 		lua_pushnumber(L,lret);
@@ -231,15 +221,13 @@ public:
 	// unsigned int osgDB::ObjectGLenum::_value()
 	static int _bind_getValue(lua_State *L) {
 		if (!_lg_typecheck_getValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ObjectGLenum::_value() function, expected prototype:\nunsigned int osgDB::ObjectGLenum::_value()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ObjectGLenum::_value() function, expected prototype:\nunsigned int osgDB::ObjectGLenum::_value()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ObjectGLenum* self=(Luna< osgDB::ObjectGLenum >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::ObjectGLenum::_value(). Got : '%s'",typeid(Luna< osgDB::ObjectGLenum >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::ObjectGLenum::_value(). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectGLenum >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_value;
 		lua_pushnumber(L,lret);
@@ -250,16 +238,14 @@ public:
 	// void osgDB::ObjectGLenum::_value(unsigned int value)
 	static int _bind_setValue(lua_State *L) {
 		if (!_lg_typecheck_setValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ObjectGLenum::_value(unsigned int value) function, expected prototype:\nvoid osgDB::ObjectGLenum::_value(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectGLenum::_value(unsigned int value) function, expected prototype:\nvoid osgDB::ObjectGLenum::_value(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osgDB::ObjectGLenum* self=(Luna< osgDB::ObjectGLenum >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectGLenum::_value(unsigned int). Got : '%s'",typeid(Luna< osgDB::ObjectGLenum >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectGLenum::_value(unsigned int). Got : '%s'\n%s",typeid(Luna< osgDB::ObjectGLenum >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_value = value;
 

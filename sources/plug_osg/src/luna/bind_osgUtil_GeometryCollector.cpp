@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::GeometryCollector* self= (osgUtil::GeometryCollector*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -205,8 +202,7 @@ public:
 	// osgUtil::GeometryCollector::GeometryCollector(osgUtil::Optimizer * optimizer, osgUtil::Optimizer::OptimizationOptions options)
 	static osgUtil::GeometryCollector* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::GeometryCollector::GeometryCollector(osgUtil::Optimizer * optimizer, osgUtil::Optimizer::OptimizationOptions options) function, expected prototype:\nosgUtil::GeometryCollector::GeometryCollector(osgUtil::Optimizer * optimizer, osgUtil::Optimizer::OptimizationOptions options)\nClass arguments details:\narg 1 ID = 85233381\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::GeometryCollector::GeometryCollector(osgUtil::Optimizer * optimizer, osgUtil::Optimizer::OptimizationOptions options) function, expected prototype:\nosgUtil::GeometryCollector::GeometryCollector(osgUtil::Optimizer * optimizer, osgUtil::Optimizer::OptimizationOptions options)\nClass arguments details:\narg 1 ID = 85233381\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Optimizer* optimizer=(Luna< osgUtil::Optimizer >::check(L,1));
@@ -218,8 +214,7 @@ public:
 	// osgUtil::GeometryCollector::GeometryCollector(lua_Table * data, osgUtil::Optimizer * optimizer, osgUtil::Optimizer::OptimizationOptions options)
 	static osgUtil::GeometryCollector* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::GeometryCollector::GeometryCollector(lua_Table * data, osgUtil::Optimizer * optimizer, osgUtil::Optimizer::OptimizationOptions options) function, expected prototype:\nosgUtil::GeometryCollector::GeometryCollector(lua_Table * data, osgUtil::Optimizer * optimizer, osgUtil::Optimizer::OptimizationOptions options)\nClass arguments details:\narg 2 ID = 85233381\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::GeometryCollector::GeometryCollector(lua_Table * data, osgUtil::Optimizer * optimizer, osgUtil::Optimizer::OptimizationOptions options) function, expected prototype:\nosgUtil::GeometryCollector::GeometryCollector(lua_Table * data, osgUtil::Optimizer * optimizer, osgUtil::Optimizer::OptimizationOptions options)\nClass arguments details:\narg 2 ID = 85233381\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Optimizer* optimizer=(Luna< osgUtil::Optimizer >::check(L,2));
@@ -242,15 +237,13 @@ public:
 	// void osgUtil::GeometryCollector::reset()
 	static int _bind_reset(lua_State *L) {
 		if (!_lg_typecheck_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::GeometryCollector::reset() function, expected prototype:\nvoid osgUtil::GeometryCollector::reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::GeometryCollector::reset() function, expected prototype:\nvoid osgUtil::GeometryCollector::reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reset();
 
@@ -260,8 +253,7 @@ public:
 	// void osgUtil::GeometryCollector::apply(osg::Geode & geode)
 	static int _bind_apply(lua_State *L) {
 		if (!_lg_typecheck_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::GeometryCollector::apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::GeometryCollector::apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::GeometryCollector::apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::GeometryCollector::apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geode* geode_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geode >(L,2));
@@ -272,8 +264,7 @@ public:
 
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::apply(osg::Geode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(geode);
 
@@ -283,15 +274,13 @@ public:
 	// osgUtil::GeometryCollector::GeometryList & osgUtil::GeometryCollector::getGeometryList()
 	static int _bind_getGeometryList(lua_State *L) {
 		if (!_lg_typecheck_getGeometryList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::GeometryCollector::GeometryList & osgUtil::GeometryCollector::getGeometryList() function, expected prototype:\nosgUtil::GeometryCollector::GeometryList & osgUtil::GeometryCollector::getGeometryList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::GeometryCollector::GeometryList & osgUtil::GeometryCollector::getGeometryList() function, expected prototype:\nosgUtil::GeometryCollector::GeometryList & osgUtil::GeometryCollector::getGeometryList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::GeometryCollector::GeometryList & osgUtil::GeometryCollector::getGeometryList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::GeometryCollector::GeometryList & osgUtil::GeometryCollector::getGeometryList(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::GeometryCollector::GeometryList* lret = &self->getGeometryList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -304,16 +293,14 @@ public:
 	// void osgUtil::GeometryCollector::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::GeometryCollector::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::GeometryCollector::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::GeometryCollector::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::GeometryCollector::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GeometryCollector::setThreadSafeRefUnref(threadSafe);
 
@@ -323,15 +310,13 @@ public:
 	// const char * osgUtil::GeometryCollector::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::GeometryCollector::base_libraryName() const function, expected prototype:\nconst char * osgUtil::GeometryCollector::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::GeometryCollector::base_libraryName() const function, expected prototype:\nconst char * osgUtil::GeometryCollector::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::GeometryCollector::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::GeometryCollector::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->GeometryCollector::libraryName();
 		lua_pushstring(L,lret);
@@ -342,15 +327,13 @@ public:
 	// const char * osgUtil::GeometryCollector::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::GeometryCollector::base_className() const function, expected prototype:\nconst char * osgUtil::GeometryCollector::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::GeometryCollector::base_className() const function, expected prototype:\nconst char * osgUtil::GeometryCollector::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::GeometryCollector::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::GeometryCollector::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->GeometryCollector::className();
 		lua_pushstring(L,lret);
@@ -361,15 +344,13 @@ public:
 	// osg::Vec3f osgUtil::GeometryCollector::base_getEyePoint() const
 	static int _bind_base_getEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::GeometryCollector::base_getEyePoint() const function, expected prototype:\nosg::Vec3f osgUtil::GeometryCollector::base_getEyePoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::GeometryCollector::base_getEyePoint() const function, expected prototype:\nosg::Vec3f osgUtil::GeometryCollector::base_getEyePoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::GeometryCollector::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::GeometryCollector::base_getEyePoint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->GeometryCollector::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -383,15 +364,13 @@ public:
 	// osg::Vec3f osgUtil::GeometryCollector::base_getViewPoint() const
 	static int _bind_base_getViewPoint(lua_State *L) {
 		if (!_lg_typecheck_base_getViewPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::GeometryCollector::base_getViewPoint() const function, expected prototype:\nosg::Vec3f osgUtil::GeometryCollector::base_getViewPoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::GeometryCollector::base_getViewPoint() const function, expected prototype:\nosg::Vec3f osgUtil::GeometryCollector::base_getViewPoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::GeometryCollector::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::GeometryCollector::base_getViewPoint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->GeometryCollector::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -405,8 +384,7 @@ public:
 	// float osgUtil::GeometryCollector::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceToEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceToEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::GeometryCollector::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::GeometryCollector::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::GeometryCollector::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::GeometryCollector::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -418,8 +396,7 @@ public:
 
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::GeometryCollector::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::GeometryCollector::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GeometryCollector::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -430,8 +407,7 @@ public:
 	// float osgUtil::GeometryCollector::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceFromEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceFromEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::GeometryCollector::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::GeometryCollector::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::GeometryCollector::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::GeometryCollector::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -443,8 +419,7 @@ public:
 
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::GeometryCollector::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::GeometryCollector::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GeometryCollector::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -455,8 +430,7 @@ public:
 	// float osgUtil::GeometryCollector::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceToViewPoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceToViewPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::GeometryCollector::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::GeometryCollector::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::GeometryCollector::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::GeometryCollector::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -468,8 +442,7 @@ public:
 
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::GeometryCollector::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::GeometryCollector::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GeometryCollector::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -480,15 +453,13 @@ public:
 	// void osgUtil::GeometryCollector::base_reset()
 	static int _bind_base_reset(lua_State *L) {
 		if (!_lg_typecheck_base_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::GeometryCollector::base_reset() function, expected prototype:\nvoid osgUtil::GeometryCollector::base_reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::GeometryCollector::base_reset() function, expected prototype:\nvoid osgUtil::GeometryCollector::base_reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::base_reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GeometryCollector::reset();
 
@@ -498,8 +469,7 @@ public:
 	// void osgUtil::GeometryCollector::base_apply(osg::Geode & geode)
 	static int _bind_base_apply(lua_State *L) {
 		if (!_lg_typecheck_base_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::GeometryCollector::base_apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::GeometryCollector::base_apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::GeometryCollector::base_apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::GeometryCollector::base_apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geode* geode_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geode >(L,2));
@@ -510,8 +480,7 @@ public:
 
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::base_apply(osg::Geode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GeometryCollector::apply(geode);
 

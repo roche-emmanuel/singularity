@@ -506,8 +506,7 @@ public:
 	// void osgParticle::ParticleSystem::public_update_bounds(const osg::Vec3f & p, float r)
 	static int _bind_public_update_bounds(lua_State *L) {
 		if (!_lg_typecheck_public_update_bounds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::ParticleSystem::public_update_bounds(const osg::Vec3f & p, float r) function, expected prototype:\nvoid osgParticle::ParticleSystem::public_update_bounds(const osg::Vec3f & p, float r)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::ParticleSystem::public_update_bounds(const osg::Vec3f & p, float r) function, expected prototype:\nvoid osgParticle::ParticleSystem::public_update_bounds(const osg::Vec3f & p, float r)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* p_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -519,8 +518,7 @@ public:
 
 		wrapper_osgParticle_ParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystem >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ParticleSystem::public_update_bounds(const osg::Vec3f &, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::ParticleSystem::public_update_bounds(const osg::Vec3f &, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_update_bounds(p, r);
 
@@ -530,8 +528,7 @@ public:
 	// void osgParticle::ParticleSystem::public_single_pass_render(osg::RenderInfo & renderInfo, const osg::Matrixd & modelview) const
 	static int _bind_public_single_pass_render(lua_State *L) {
 		if (!_lg_typecheck_public_single_pass_render(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::ParticleSystem::public_single_pass_render(osg::RenderInfo & renderInfo, const osg::Matrixd & modelview) const function, expected prototype:\nvoid osgParticle::ParticleSystem::public_single_pass_render(osg::RenderInfo & renderInfo, const osg::Matrixd & modelview) const\nClass arguments details:\narg 1 ID = 2286263\narg 2 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::ParticleSystem::public_single_pass_render(osg::RenderInfo & renderInfo, const osg::Matrixd & modelview) const function, expected prototype:\nvoid osgParticle::ParticleSystem::public_single_pass_render(osg::RenderInfo & renderInfo, const osg::Matrixd & modelview) const\nClass arguments details:\narg 1 ID = 2286263\narg 2 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
@@ -547,8 +544,7 @@ public:
 
 		wrapper_osgParticle_ParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystem >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ParticleSystem::public_single_pass_render(osg::RenderInfo &, const osg::Matrixd &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::ParticleSystem::public_single_pass_render(osg::RenderInfo &, const osg::Matrixd &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_single_pass_render(renderInfo, modelview);
 
@@ -558,8 +554,7 @@ public:
 	// void osgParticle::ParticleSystem::public_render_vertex_array(osg::RenderInfo & renderInfo) const
 	static int _bind_public_render_vertex_array(lua_State *L) {
 		if (!_lg_typecheck_public_render_vertex_array(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::ParticleSystem::public_render_vertex_array(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid osgParticle::ParticleSystem::public_render_vertex_array(osg::RenderInfo & renderInfo) const\nClass arguments details:\narg 1 ID = 2286263\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::ParticleSystem::public_render_vertex_array(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid osgParticle::ParticleSystem::public_render_vertex_array(osg::RenderInfo & renderInfo) const\nClass arguments details:\narg 1 ID = 2286263\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
@@ -570,8 +565,7 @@ public:
 
 		wrapper_osgParticle_ParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystem >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ParticleSystem::public_render_vertex_array(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::ParticleSystem::public_render_vertex_array(osg::RenderInfo &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_render_vertex_array(renderInfo);
 
@@ -581,8 +575,7 @@ public:
 	// osgParticle::ParticleSystem & osgParticle::ParticleSystem::public_op_assign(const osgParticle::ParticleSystem & arg1)
 	static int _bind_public_op_assign(lua_State *L) {
 		if (!_lg_typecheck_public_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::ParticleSystem & osgParticle::ParticleSystem::public_op_assign(const osgParticle::ParticleSystem & arg1) function, expected prototype:\nosgParticle::ParticleSystem & osgParticle::ParticleSystem::public_op_assign(const osgParticle::ParticleSystem & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::ParticleSystem & osgParticle::ParticleSystem::public_op_assign(const osgParticle::ParticleSystem & arg1) function, expected prototype:\nosgParticle::ParticleSystem & osgParticle::ParticleSystem::public_op_assign(const osgParticle::ParticleSystem & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgParticle::ParticleSystem* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgParticle::ParticleSystem >(L,2));
@@ -593,8 +586,7 @@ public:
 
 		wrapper_osgParticle_ParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystem >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgParticle::ParticleSystem & osgParticle::ParticleSystem::public_op_assign(const osgParticle::ParticleSystem &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgParticle::ParticleSystem & osgParticle::ParticleSystem::public_op_assign(const osgParticle::ParticleSystem &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgParticle::ParticleSystem* lret = &self->public_op_assign(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -607,8 +599,7 @@ public:
 	// void osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const
 	static int _bind_public_setBound(lua_State *L) {
 		if (!_lg_typecheck_public_setBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const function, expected prototype:\nvoid osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const function, expected prototype:\nvoid osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
@@ -619,8 +610,7 @@ public:
 
 		wrapper_osgParticle_ParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystem >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setBound(const osg::BoundingBoxd &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setBound(const osg::BoundingBoxd &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setBound(bb);
 
@@ -630,16 +620,14 @@ public:
 	// void osg::Drawable::public_addParent(osg::Node * node)
 	static int _bind_public_addParent(lua_State *L) {
 		if (!_lg_typecheck_public_addParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_addParent(osg::Node * node) function, expected prototype:\nvoid osg::Drawable::public_addParent(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_addParent(osg::Node * node) function, expected prototype:\nvoid osg::Drawable::public_addParent(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		wrapper_osgParticle_ParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystem >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_addParent(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_addParent(osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_addParent(node);
 
@@ -649,16 +637,14 @@ public:
 	// void osg::Drawable::public_removeParent(osg::Node * node)
 	static int _bind_public_removeParent(lua_State *L) {
 		if (!_lg_typecheck_public_removeParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_removeParent(osg::Node * node) function, expected prototype:\nvoid osg::Drawable::public_removeParent(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_removeParent(osg::Node * node) function, expected prototype:\nvoid osg::Drawable::public_removeParent(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		wrapper_osgParticle_ParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystem >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_removeParent(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_removeParent(osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_removeParent(node);
 
@@ -668,16 +654,14 @@ public:
 	// void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num)
 	static int _bind_public_setNumChildrenRequiringUpdateTraversal(lua_State *L) {
 		if (!_lg_typecheck_public_setNumChildrenRequiringUpdateTraversal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num) function, expected prototype:\nvoid osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num) function, expected prototype:\nvoid osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int num=(unsigned int)lua_tointeger(L,2);
 
 		wrapper_osgParticle_ParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystem >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setNumChildrenRequiringUpdateTraversal(num);
 
@@ -687,15 +671,13 @@ public:
 	// unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const
 	static int _bind_public_getNumChildrenRequiringUpdateTraversal(lua_State *L) {
 		if (!_lg_typecheck_public_getNumChildrenRequiringUpdateTraversal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const function, expected prototype:\nunsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const function, expected prototype:\nunsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgParticle_ParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystem >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->public_getNumChildrenRequiringUpdateTraversal();
 		lua_pushnumber(L,lret);
@@ -706,16 +688,14 @@ public:
 	// void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num)
 	static int _bind_public_setNumChildrenRequiringEventTraversal(lua_State *L) {
 		if (!_lg_typecheck_public_setNumChildrenRequiringEventTraversal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num) function, expected prototype:\nvoid osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num) function, expected prototype:\nvoid osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int num=(unsigned int)lua_tointeger(L,2);
 
 		wrapper_osgParticle_ParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystem >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setNumChildrenRequiringEventTraversal(num);
 
@@ -725,15 +705,13 @@ public:
 	// unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const
 	static int _bind_public_getNumChildrenRequiringEventTraversal(lua_State *L) {
 		if (!_lg_typecheck_public_getNumChildrenRequiringEventTraversal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const function, expected prototype:\nunsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const function, expected prototype:\nunsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgParticle_ParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystem >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->public_getNumChildrenRequiringEventTraversal();
 		lua_pushnumber(L,lret);
@@ -744,8 +722,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -753,8 +730,7 @@ public:
 
 		wrapper_osgParticle_ParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystem >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -764,15 +740,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgParticle_ParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystem >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

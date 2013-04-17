@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::ConvexPlanarPolygon*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::ConvexPlanarPolygon*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ConvexPlanarPolygon* rhs =(Luna< osg::ConvexPlanarPolygon >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ConvexPlanarPolygon* self= (osg::ConvexPlanarPolygon*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::ConvexPlanarPolygon >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -142,8 +138,7 @@ public:
 	// osg::ConvexPlanarPolygon::ConvexPlanarPolygon()
 	static osg::ConvexPlanarPolygon* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ConvexPlanarPolygon::ConvexPlanarPolygon() function, expected prototype:\nosg::ConvexPlanarPolygon::ConvexPlanarPolygon()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ConvexPlanarPolygon::ConvexPlanarPolygon() function, expected prototype:\nosg::ConvexPlanarPolygon::ConvexPlanarPolygon()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -155,8 +150,7 @@ public:
 	// void osg::ConvexPlanarPolygon::add(const osg::Vec3f & v)
 	static int _bind_add(lua_State *L) {
 		if (!_lg_typecheck_add(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConvexPlanarPolygon::add(const osg::Vec3f & v) function, expected prototype:\nvoid osg::ConvexPlanarPolygon::add(const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConvexPlanarPolygon::add(const osg::Vec3f & v) function, expected prototype:\nvoid osg::ConvexPlanarPolygon::add(const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -167,8 +161,7 @@ public:
 
 		osg::ConvexPlanarPolygon* self=(Luna< osg::ConvexPlanarPolygon >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConvexPlanarPolygon::add(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::ConvexPlanarPolygon >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConvexPlanarPolygon::add(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::ConvexPlanarPolygon >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->add(v);
 
@@ -178,8 +171,7 @@ public:
 	// void osg::ConvexPlanarPolygon::setVertexList(const osg::ConvexPlanarPolygon::VertexList & vertexList)
 	static int _bind_setVertexList(lua_State *L) {
 		if (!_lg_typecheck_setVertexList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConvexPlanarPolygon::setVertexList(const osg::ConvexPlanarPolygon::VertexList & vertexList) function, expected prototype:\nvoid osg::ConvexPlanarPolygon::setVertexList(const osg::ConvexPlanarPolygon::VertexList & vertexList)\nClass arguments details:\narg 1 ID = 66044715\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConvexPlanarPolygon::setVertexList(const osg::ConvexPlanarPolygon::VertexList & vertexList) function, expected prototype:\nvoid osg::ConvexPlanarPolygon::setVertexList(const osg::ConvexPlanarPolygon::VertexList & vertexList)\nClass arguments details:\narg 1 ID = 66044715\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::ConvexPlanarPolygon::VertexList* vertexList_ptr=(Luna< std::vector< osg::Vec3f > >::checkSubType< osg::ConvexPlanarPolygon::VertexList >(L,2));
@@ -190,8 +182,7 @@ public:
 
 		osg::ConvexPlanarPolygon* self=(Luna< osg::ConvexPlanarPolygon >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConvexPlanarPolygon::setVertexList(const osg::ConvexPlanarPolygon::VertexList &). Got : '%s'",typeid(Luna< osg::ConvexPlanarPolygon >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConvexPlanarPolygon::setVertexList(const osg::ConvexPlanarPolygon::VertexList &). Got : '%s'\n%s",typeid(Luna< osg::ConvexPlanarPolygon >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setVertexList(vertexList);
 
@@ -201,15 +192,13 @@ public:
 	// osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList()
 	static int _bind_getVertexList_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getVertexList_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList() function, expected prototype:\nosg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList() function, expected prototype:\nosg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ConvexPlanarPolygon* self=(Luna< osg::ConvexPlanarPolygon >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList(). Got : '%s'",typeid(Luna< osg::ConvexPlanarPolygon >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList(). Got : '%s'\n%s",typeid(Luna< osg::ConvexPlanarPolygon >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ConvexPlanarPolygon::VertexList* lret = &self->getVertexList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -222,15 +211,13 @@ public:
 	// const osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList() const
 	static int _bind_getVertexList_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getVertexList_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList() const function, expected prototype:\nconst osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList() const function, expected prototype:\nconst osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ConvexPlanarPolygon* self=(Luna< osg::ConvexPlanarPolygon >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList() const. Got : '%s'",typeid(Luna< osg::ConvexPlanarPolygon >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList() const. Got : '%s'\n%s",typeid(Luna< osg::ConvexPlanarPolygon >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ConvexPlanarPolygon::VertexList* lret = &self->getVertexList();
 		if(!lret) return 0; // Do not write NULL pointers.

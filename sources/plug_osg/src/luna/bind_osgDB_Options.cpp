@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::Options* self= (osgDB::Options*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -504,8 +501,7 @@ public:
 	// osgDB::Options::Options()
 	static osgDB::Options* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::Options::Options() function, expected prototype:\nosgDB::Options::Options()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::Options::Options() function, expected prototype:\nosgDB::Options::Options()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -515,8 +511,7 @@ public:
 	// osgDB::Options::Options(const std::string & str)
 	static osgDB::Options* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::Options::Options(const std::string & str) function, expected prototype:\nosgDB::Options::Options(const std::string & str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::Options::Options(const std::string & str) function, expected prototype:\nosgDB::Options::Options(const std::string & str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,1),lua_objlen(L,1));
@@ -527,8 +522,7 @@ public:
 	// osgDB::Options::Options(const osgDB::Options & options, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgDB::Options* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::Options::Options(const osgDB::Options & options, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgDB::Options::Options(const osgDB::Options & options, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgDB::Options::Options(const osgDB::Options & options, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgDB::Options::Options(const osgDB::Options & options, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -550,8 +544,7 @@ public:
 	// osgDB::Options::Options(lua_Table * data)
 	static osgDB::Options* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::Options::Options(lua_Table * data) function, expected prototype:\nosgDB::Options::Options(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::Options::Options(lua_Table * data) function, expected prototype:\nosgDB::Options::Options(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -561,8 +554,7 @@ public:
 	// osgDB::Options::Options(lua_Table * data, const std::string & str)
 	static osgDB::Options* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::Options::Options(lua_Table * data, const std::string & str) function, expected prototype:\nosgDB::Options::Options(lua_Table * data, const std::string & str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::Options::Options(lua_Table * data, const std::string & str) function, expected prototype:\nosgDB::Options::Options(lua_Table * data, const std::string & str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
@@ -573,8 +565,7 @@ public:
 	// osgDB::Options::Options(lua_Table * data, const osgDB::Options & options, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgDB::Options* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::Options::Options(lua_Table * data, const osgDB::Options & options, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgDB::Options::Options(lua_Table * data, const osgDB::Options & options, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgDB::Options::Options(lua_Table * data, const osgDB::Options & options, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgDB::Options::Options(lua_Table * data, const osgDB::Options & options, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -611,15 +602,13 @@ public:
 	// osg::Object * osgDB::Options::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Options::cloneType() const function, expected prototype:\nosg::Object * osgDB::Options::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Options::cloneType() const function, expected prototype:\nosg::Object * osgDB::Options::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Options::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Options::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -632,8 +621,7 @@ public:
 	// osg::Object * osgDB::Options::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Options::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgDB::Options::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Options::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgDB::Options::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -644,8 +632,7 @@ public:
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Options::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Options::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -658,16 +645,14 @@ public:
 	// bool osgDB::Options::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Options::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgDB::Options::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Options::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgDB::Options::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Options::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Options::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -678,15 +663,13 @@ public:
 	// const char * osgDB::Options::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgDB::Options::libraryName() const function, expected prototype:\nconst char * osgDB::Options::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgDB::Options::libraryName() const function, expected prototype:\nconst char * osgDB::Options::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::Options::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgDB::Options::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -697,15 +680,13 @@ public:
 	// const char * osgDB::Options::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgDB::Options::className() const function, expected prototype:\nconst char * osgDB::Options::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgDB::Options::className() const function, expected prototype:\nconst char * osgDB::Options::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::Options::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgDB::Options::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -716,8 +697,7 @@ public:
 	// osgDB::Options * osgDB::Options::cloneOptions(const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) const
 	static int _bind_cloneOptions(lua_State *L) {
 		if (!_lg_typecheck_cloneOptions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::Options * osgDB::Options::cloneOptions(const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) const function, expected prototype:\nosgDB::Options * osgDB::Options::cloneOptions(const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgDB::Options * osgDB::Options::cloneOptions(const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) const function, expected prototype:\nosgDB::Options * osgDB::Options::cloneOptions(const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -730,8 +710,7 @@ public:
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::Options * osgDB::Options::cloneOptions(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::Options * osgDB::Options::cloneOptions(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::Options * lret = self->cloneOptions(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -744,16 +723,14 @@ public:
 	// void osgDB::Options::setOptionString(const std::string & str)
 	static int _bind_setOptionString(lua_State *L) {
 		if (!_lg_typecheck_setOptionString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::setOptionString(const std::string & str) function, expected prototype:\nvoid osgDB::Options::setOptionString(const std::string & str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::setOptionString(const std::string & str) function, expected prototype:\nvoid osgDB::Options::setOptionString(const std::string & str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::setOptionString(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::setOptionString(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setOptionString(str);
 
@@ -763,15 +740,13 @@ public:
 	// const std::string & osgDB::Options::getOptionString() const
 	static int _bind_getOptionString(lua_State *L) {
 		if (!_lg_typecheck_getOptionString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osgDB::Options::getOptionString() const function, expected prototype:\nconst std::string & osgDB::Options::getOptionString() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osgDB::Options::getOptionString() const function, expected prototype:\nconst std::string & osgDB::Options::getOptionString() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::Options::getOptionString() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::Options::getOptionString() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getOptionString();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -782,16 +757,14 @@ public:
 	// void osgDB::Options::setDatabasePath(const std::string & str)
 	static int _bind_setDatabasePath(lua_State *L) {
 		if (!_lg_typecheck_setDatabasePath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::setDatabasePath(const std::string & str) function, expected prototype:\nvoid osgDB::Options::setDatabasePath(const std::string & str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::setDatabasePath(const std::string & str) function, expected prototype:\nvoid osgDB::Options::setDatabasePath(const std::string & str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::setDatabasePath(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::setDatabasePath(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDatabasePath(str);
 
@@ -801,15 +774,13 @@ public:
 	// osgDB::FilePathList & osgDB::Options::getDatabasePathList()
 	static int _bind_getDatabasePathList_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getDatabasePathList_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::FilePathList & osgDB::Options::getDatabasePathList() function, expected prototype:\nosgDB::FilePathList & osgDB::Options::getDatabasePathList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::FilePathList & osgDB::Options::getDatabasePathList() function, expected prototype:\nosgDB::FilePathList & osgDB::Options::getDatabasePathList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::FilePathList & osgDB::Options::getDatabasePathList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::FilePathList & osgDB::Options::getDatabasePathList(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgDB::FilePathList* lret = &self->getDatabasePathList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -822,15 +793,13 @@ public:
 	// const osgDB::FilePathList & osgDB::Options::getDatabasePathList() const
 	static int _bind_getDatabasePathList_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getDatabasePathList_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgDB::FilePathList & osgDB::Options::getDatabasePathList() const function, expected prototype:\nconst osgDB::FilePathList & osgDB::Options::getDatabasePathList() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgDB::FilePathList & osgDB::Options::getDatabasePathList() const function, expected prototype:\nconst osgDB::FilePathList & osgDB::Options::getDatabasePathList() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::FilePathList & osgDB::Options::getDatabasePathList() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgDB::FilePathList & osgDB::Options::getDatabasePathList() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgDB::FilePathList* lret = &self->getDatabasePathList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -852,16 +821,14 @@ public:
 	// void osgDB::Options::setObjectCacheHint(osgDB::Options::CacheHintOptions useObjectCache)
 	static int _bind_setObjectCacheHint(lua_State *L) {
 		if (!_lg_typecheck_setObjectCacheHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::setObjectCacheHint(osgDB::Options::CacheHintOptions useObjectCache) function, expected prototype:\nvoid osgDB::Options::setObjectCacheHint(osgDB::Options::CacheHintOptions useObjectCache)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::setObjectCacheHint(osgDB::Options::CacheHintOptions useObjectCache) function, expected prototype:\nvoid osgDB::Options::setObjectCacheHint(osgDB::Options::CacheHintOptions useObjectCache)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::Options::CacheHintOptions useObjectCache=(osgDB::Options::CacheHintOptions)lua_tointeger(L,2);
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::setObjectCacheHint(osgDB::Options::CacheHintOptions). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::setObjectCacheHint(osgDB::Options::CacheHintOptions). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setObjectCacheHint(useObjectCache);
 
@@ -871,15 +838,13 @@ public:
 	// osgDB::Options::CacheHintOptions osgDB::Options::getObjectCacheHint() const
 	static int _bind_getObjectCacheHint(lua_State *L) {
 		if (!_lg_typecheck_getObjectCacheHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::Options::CacheHintOptions osgDB::Options::getObjectCacheHint() const function, expected prototype:\nosgDB::Options::CacheHintOptions osgDB::Options::getObjectCacheHint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::Options::CacheHintOptions osgDB::Options::getObjectCacheHint() const function, expected prototype:\nosgDB::Options::CacheHintOptions osgDB::Options::getObjectCacheHint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::Options::CacheHintOptions osgDB::Options::getObjectCacheHint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::Options::CacheHintOptions osgDB::Options::getObjectCacheHint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::Options::CacheHintOptions lret = self->getObjectCacheHint();
 		lua_pushnumber(L,lret);
@@ -890,16 +855,14 @@ public:
 	// void osgDB::Options::setPrecisionHint(osgDB::Options::PrecisionHint hint)
 	static int _bind_setPrecisionHint(lua_State *L) {
 		if (!_lg_typecheck_setPrecisionHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::setPrecisionHint(osgDB::Options::PrecisionHint hint) function, expected prototype:\nvoid osgDB::Options::setPrecisionHint(osgDB::Options::PrecisionHint hint)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::setPrecisionHint(osgDB::Options::PrecisionHint hint) function, expected prototype:\nvoid osgDB::Options::setPrecisionHint(osgDB::Options::PrecisionHint hint)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::Options::PrecisionHint hint=(osgDB::Options::PrecisionHint)lua_tointeger(L,2);
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::setPrecisionHint(osgDB::Options::PrecisionHint). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::setPrecisionHint(osgDB::Options::PrecisionHint). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPrecisionHint(hint);
 
@@ -909,15 +872,13 @@ public:
 	// osgDB::Options::PrecisionHint osgDB::Options::getPrecisionHint() const
 	static int _bind_getPrecisionHint(lua_State *L) {
 		if (!_lg_typecheck_getPrecisionHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::Options::PrecisionHint osgDB::Options::getPrecisionHint() const function, expected prototype:\nosgDB::Options::PrecisionHint osgDB::Options::getPrecisionHint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::Options::PrecisionHint osgDB::Options::getPrecisionHint() const function, expected prototype:\nosgDB::Options::PrecisionHint osgDB::Options::getPrecisionHint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::Options::PrecisionHint osgDB::Options::getPrecisionHint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::Options::PrecisionHint osgDB::Options::getPrecisionHint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::Options::PrecisionHint lret = self->getPrecisionHint();
 		lua_pushnumber(L,lret);
@@ -928,16 +889,14 @@ public:
 	// void osgDB::Options::setBuildKdTreesHint(osgDB::Options::BuildKdTreesHint hint)
 	static int _bind_setBuildKdTreesHint(lua_State *L) {
 		if (!_lg_typecheck_setBuildKdTreesHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::setBuildKdTreesHint(osgDB::Options::BuildKdTreesHint hint) function, expected prototype:\nvoid osgDB::Options::setBuildKdTreesHint(osgDB::Options::BuildKdTreesHint hint)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::setBuildKdTreesHint(osgDB::Options::BuildKdTreesHint hint) function, expected prototype:\nvoid osgDB::Options::setBuildKdTreesHint(osgDB::Options::BuildKdTreesHint hint)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::Options::BuildKdTreesHint hint=(osgDB::Options::BuildKdTreesHint)lua_tointeger(L,2);
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::setBuildKdTreesHint(osgDB::Options::BuildKdTreesHint). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::setBuildKdTreesHint(osgDB::Options::BuildKdTreesHint). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setBuildKdTreesHint(hint);
 
@@ -947,15 +906,13 @@ public:
 	// osgDB::Options::BuildKdTreesHint osgDB::Options::getBuildKdTreesHint() const
 	static int _bind_getBuildKdTreesHint(lua_State *L) {
 		if (!_lg_typecheck_getBuildKdTreesHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::Options::BuildKdTreesHint osgDB::Options::getBuildKdTreesHint() const function, expected prototype:\nosgDB::Options::BuildKdTreesHint osgDB::Options::getBuildKdTreesHint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::Options::BuildKdTreesHint osgDB::Options::getBuildKdTreesHint() const function, expected prototype:\nosgDB::Options::BuildKdTreesHint osgDB::Options::getBuildKdTreesHint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::Options::BuildKdTreesHint osgDB::Options::getBuildKdTreesHint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::Options::BuildKdTreesHint osgDB::Options::getBuildKdTreesHint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::Options::BuildKdTreesHint lret = self->getBuildKdTreesHint();
 		lua_pushnumber(L,lret);
@@ -966,15 +923,13 @@ public:
 	// const osgDB::AuthenticationMap * osgDB::Options::getAuthenticationMap() const
 	static int _bind_getAuthenticationMap(lua_State *L) {
 		if (!_lg_typecheck_getAuthenticationMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgDB::AuthenticationMap * osgDB::Options::getAuthenticationMap() const function, expected prototype:\nconst osgDB::AuthenticationMap * osgDB::Options::getAuthenticationMap() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgDB::AuthenticationMap * osgDB::Options::getAuthenticationMap() const function, expected prototype:\nconst osgDB::AuthenticationMap * osgDB::Options::getAuthenticationMap() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::AuthenticationMap * osgDB::Options::getAuthenticationMap() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgDB::AuthenticationMap * osgDB::Options::getAuthenticationMap() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgDB::AuthenticationMap * lret = self->getAuthenticationMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -987,8 +942,7 @@ public:
 	// void osgDB::Options::setPluginData(const std::string & s, void * v) const
 	static int _bind_setPluginData(lua_State *L) {
 		if (!_lg_typecheck_setPluginData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::setPluginData(const std::string & s, void * v) const function, expected prototype:\nvoid osgDB::Options::setPluginData(const std::string & s, void * v) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::setPluginData(const std::string & s, void * v) const function, expected prototype:\nvoid osgDB::Options::setPluginData(const std::string & s, void * v) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string s(lua_tostring(L,2),lua_objlen(L,2));
@@ -996,8 +950,7 @@ public:
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::setPluginData(const std::string &, void *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::setPluginData(const std::string &, void *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPluginData(s, v);
 
@@ -1007,16 +960,14 @@ public:
 	// void * osgDB::Options::getPluginData(const std::string & s)
 	static int _bind_getPluginData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getPluginData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * osgDB::Options::getPluginData(const std::string & s) function, expected prototype:\nvoid * osgDB::Options::getPluginData(const std::string & s)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * osgDB::Options::getPluginData(const std::string & s) function, expected prototype:\nvoid * osgDB::Options::getPluginData(const std::string & s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string s(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * osgDB::Options::getPluginData(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * osgDB::Options::getPluginData(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->getPluginData(s);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1029,16 +980,14 @@ public:
 	// const void * osgDB::Options::getPluginData(const std::string & s) const
 	static int _bind_getPluginData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getPluginData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const void * osgDB::Options::getPluginData(const std::string & s) const function, expected prototype:\nconst void * osgDB::Options::getPluginData(const std::string & s) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const void * osgDB::Options::getPluginData(const std::string & s) const function, expected prototype:\nconst void * osgDB::Options::getPluginData(const std::string & s) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string s(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * osgDB::Options::getPluginData(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const void * osgDB::Options::getPluginData(const std::string &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const void * lret = self->getPluginData(s);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1060,16 +1009,14 @@ public:
 	// void osgDB::Options::removePluginData(const std::string & s) const
 	static int _bind_removePluginData(lua_State *L) {
 		if (!_lg_typecheck_removePluginData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::removePluginData(const std::string & s) const function, expected prototype:\nvoid osgDB::Options::removePluginData(const std::string & s) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::removePluginData(const std::string & s) const function, expected prototype:\nvoid osgDB::Options::removePluginData(const std::string & s) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string s(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::removePluginData(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::removePluginData(const std::string &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removePluginData(s);
 
@@ -1079,15 +1026,13 @@ public:
 	// unsigned int osgDB::Options::getNumPluginData() const
 	static int _bind_getNumPluginData(lua_State *L) {
 		if (!_lg_typecheck_getNumPluginData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgDB::Options::getNumPluginData() const function, expected prototype:\nunsigned int osgDB::Options::getNumPluginData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::Options::getNumPluginData() const function, expected prototype:\nunsigned int osgDB::Options::getNumPluginData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::Options::getNumPluginData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::Options::getNumPluginData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getNumPluginData();
 		lua_pushnumber(L,lret);
@@ -1098,8 +1043,7 @@ public:
 	// void osgDB::Options::setPluginStringData(const std::string & s, const std::string & v) const
 	static int _bind_setPluginStringData(lua_State *L) {
 		if (!_lg_typecheck_setPluginStringData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::setPluginStringData(const std::string & s, const std::string & v) const function, expected prototype:\nvoid osgDB::Options::setPluginStringData(const std::string & s, const std::string & v) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::setPluginStringData(const std::string & s, const std::string & v) const function, expected prototype:\nvoid osgDB::Options::setPluginStringData(const std::string & s, const std::string & v) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string s(lua_tostring(L,2),lua_objlen(L,2));
@@ -1107,8 +1051,7 @@ public:
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::setPluginStringData(const std::string &, const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::setPluginStringData(const std::string &, const std::string &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPluginStringData(s, v);
 
@@ -1118,16 +1061,14 @@ public:
 	// std::string & osgDB::Options::getPluginStringData(const std::string & s)
 	static int _bind_getPluginStringData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getPluginStringData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string & osgDB::Options::getPluginStringData(const std::string & s) function, expected prototype:\nstd::string & osgDB::Options::getPluginStringData(const std::string & s)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string & osgDB::Options::getPluginStringData(const std::string & s) function, expected prototype:\nstd::string & osgDB::Options::getPluginStringData(const std::string & s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string s(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string & osgDB::Options::getPluginStringData(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string & osgDB::Options::getPluginStringData(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string & lret = self->getPluginStringData(s);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1138,16 +1079,14 @@ public:
 	// const std::string osgDB::Options::getPluginStringData(const std::string & s) const
 	static int _bind_getPluginStringData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getPluginStringData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string osgDB::Options::getPluginStringData(const std::string & s) const function, expected prototype:\nconst std::string osgDB::Options::getPluginStringData(const std::string & s) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string osgDB::Options::getPluginStringData(const std::string & s) const function, expected prototype:\nconst std::string osgDB::Options::getPluginStringData(const std::string & s) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string s(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string osgDB::Options::getPluginStringData(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string osgDB::Options::getPluginStringData(const std::string &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string lret = self->getPluginStringData(s);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1167,16 +1106,14 @@ public:
 	// void osgDB::Options::removePluginStringData(const std::string & s) const
 	static int _bind_removePluginStringData(lua_State *L) {
 		if (!_lg_typecheck_removePluginStringData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::removePluginStringData(const std::string & s) const function, expected prototype:\nvoid osgDB::Options::removePluginStringData(const std::string & s) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::removePluginStringData(const std::string & s) const function, expected prototype:\nvoid osgDB::Options::removePluginStringData(const std::string & s) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string s(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::removePluginStringData(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::removePluginStringData(const std::string &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removePluginStringData(s);
 
@@ -1186,15 +1123,13 @@ public:
 	// unsigned int osgDB::Options::getNumPluginStringData() const
 	static int _bind_getNumPluginStringData(lua_State *L) {
 		if (!_lg_typecheck_getNumPluginStringData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgDB::Options::getNumPluginStringData() const function, expected prototype:\nunsigned int osgDB::Options::getNumPluginStringData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::Options::getNumPluginStringData() const function, expected prototype:\nunsigned int osgDB::Options::getNumPluginStringData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::Options::getNumPluginStringData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::Options::getNumPluginStringData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getNumPluginStringData();
 		lua_pushnumber(L,lret);
@@ -1205,8 +1140,7 @@ public:
 	// void osgDB::Options::parsePluginStringData(const std::string & str, char separator1 = ' ', char separator2 = '=')
 	static int _bind_parsePluginStringData(lua_State *L) {
 		if (!_lg_typecheck_parsePluginStringData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::parsePluginStringData(const std::string & str, char separator1 = ' ', char separator2 = '=') function, expected prototype:\nvoid osgDB::Options::parsePluginStringData(const std::string & str, char separator1 = ' ', char separator2 = '=')\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::parsePluginStringData(const std::string & str, char separator1 = ' ', char separator2 = '=') function, expected prototype:\nvoid osgDB::Options::parsePluginStringData(const std::string & str, char separator1 = ' ', char separator2 = '=')\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1217,8 +1151,7 @@ public:
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::parsePluginStringData(const std::string &, char, char). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::parsePluginStringData(const std::string &, char, char). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->parsePluginStringData(str, separator1, separator2);
 
@@ -1228,16 +1161,14 @@ public:
 	// void osgDB::Options::setFindFileCallback(osgDB::FindFileCallback * cb)
 	static int _bind_setFindFileCallback(lua_State *L) {
 		if (!_lg_typecheck_setFindFileCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::setFindFileCallback(osgDB::FindFileCallback * cb) function, expected prototype:\nvoid osgDB::Options::setFindFileCallback(osgDB::FindFileCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::setFindFileCallback(osgDB::FindFileCallback * cb) function, expected prototype:\nvoid osgDB::Options::setFindFileCallback(osgDB::FindFileCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::FindFileCallback* cb=(Luna< osg::Referenced >::checkSubType< osgDB::FindFileCallback >(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::setFindFileCallback(osgDB::FindFileCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::setFindFileCallback(osgDB::FindFileCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFindFileCallback(cb);
 
@@ -1247,15 +1178,13 @@ public:
 	// osgDB::FindFileCallback * osgDB::Options::getFindFileCallback() const
 	static int _bind_getFindFileCallback(lua_State *L) {
 		if (!_lg_typecheck_getFindFileCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::FindFileCallback * osgDB::Options::getFindFileCallback() const function, expected prototype:\nosgDB::FindFileCallback * osgDB::Options::getFindFileCallback() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::FindFileCallback * osgDB::Options::getFindFileCallback() const function, expected prototype:\nosgDB::FindFileCallback * osgDB::Options::getFindFileCallback() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::FindFileCallback * osgDB::Options::getFindFileCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::FindFileCallback * osgDB::Options::getFindFileCallback() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::FindFileCallback * lret = self->getFindFileCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1268,16 +1197,14 @@ public:
 	// void osgDB::Options::setReadFileCallback(osgDB::ReadFileCallback * cb)
 	static int _bind_setReadFileCallback(lua_State *L) {
 		if (!_lg_typecheck_setReadFileCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::setReadFileCallback(osgDB::ReadFileCallback * cb) function, expected prototype:\nvoid osgDB::Options::setReadFileCallback(osgDB::ReadFileCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::setReadFileCallback(osgDB::ReadFileCallback * cb) function, expected prototype:\nvoid osgDB::Options::setReadFileCallback(osgDB::ReadFileCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ReadFileCallback* cb=(Luna< osg::Referenced >::checkSubType< osgDB::ReadFileCallback >(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::setReadFileCallback(osgDB::ReadFileCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::setReadFileCallback(osgDB::ReadFileCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setReadFileCallback(cb);
 
@@ -1287,15 +1214,13 @@ public:
 	// osgDB::ReadFileCallback * osgDB::Options::getReadFileCallback() const
 	static int _bind_getReadFileCallback(lua_State *L) {
 		if (!_lg_typecheck_getReadFileCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReadFileCallback * osgDB::Options::getReadFileCallback() const function, expected prototype:\nosgDB::ReadFileCallback * osgDB::Options::getReadFileCallback() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReadFileCallback * osgDB::Options::getReadFileCallback() const function, expected prototype:\nosgDB::ReadFileCallback * osgDB::Options::getReadFileCallback() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReadFileCallback * osgDB::Options::getReadFileCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::ReadFileCallback * osgDB::Options::getReadFileCallback() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::ReadFileCallback * lret = self->getReadFileCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1308,16 +1233,14 @@ public:
 	// void osgDB::Options::setWriteFileCallback(osgDB::WriteFileCallback * cb)
 	static int _bind_setWriteFileCallback(lua_State *L) {
 		if (!_lg_typecheck_setWriteFileCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::setWriteFileCallback(osgDB::WriteFileCallback * cb) function, expected prototype:\nvoid osgDB::Options::setWriteFileCallback(osgDB::WriteFileCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::setWriteFileCallback(osgDB::WriteFileCallback * cb) function, expected prototype:\nvoid osgDB::Options::setWriteFileCallback(osgDB::WriteFileCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::WriteFileCallback* cb=(Luna< osg::Referenced >::checkSubType< osgDB::WriteFileCallback >(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::setWriteFileCallback(osgDB::WriteFileCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::setWriteFileCallback(osgDB::WriteFileCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setWriteFileCallback(cb);
 
@@ -1327,15 +1250,13 @@ public:
 	// osgDB::WriteFileCallback * osgDB::Options::getWriteFileCallback() const
 	static int _bind_getWriteFileCallback(lua_State *L) {
 		if (!_lg_typecheck_getWriteFileCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::WriteFileCallback * osgDB::Options::getWriteFileCallback() const function, expected prototype:\nosgDB::WriteFileCallback * osgDB::Options::getWriteFileCallback() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::WriteFileCallback * osgDB::Options::getWriteFileCallback() const function, expected prototype:\nosgDB::WriteFileCallback * osgDB::Options::getWriteFileCallback() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::WriteFileCallback * osgDB::Options::getWriteFileCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::WriteFileCallback * osgDB::Options::getWriteFileCallback() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::WriteFileCallback * lret = self->getWriteFileCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1348,16 +1269,14 @@ public:
 	// void osgDB::Options::setFileLocationCallback(osgDB::FileLocationCallback * cb)
 	static int _bind_setFileLocationCallback(lua_State *L) {
 		if (!_lg_typecheck_setFileLocationCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::setFileLocationCallback(osgDB::FileLocationCallback * cb) function, expected prototype:\nvoid osgDB::Options::setFileLocationCallback(osgDB::FileLocationCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::setFileLocationCallback(osgDB::FileLocationCallback * cb) function, expected prototype:\nvoid osgDB::Options::setFileLocationCallback(osgDB::FileLocationCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::FileLocationCallback* cb=(Luna< osg::Referenced >::checkSubType< osgDB::FileLocationCallback >(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::setFileLocationCallback(osgDB::FileLocationCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::setFileLocationCallback(osgDB::FileLocationCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFileLocationCallback(cb);
 
@@ -1367,15 +1286,13 @@ public:
 	// osgDB::FileLocationCallback * osgDB::Options::getFileLocationCallback() const
 	static int _bind_getFileLocationCallback(lua_State *L) {
 		if (!_lg_typecheck_getFileLocationCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::FileLocationCallback * osgDB::Options::getFileLocationCallback() const function, expected prototype:\nosgDB::FileLocationCallback * osgDB::Options::getFileLocationCallback() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::FileLocationCallback * osgDB::Options::getFileLocationCallback() const function, expected prototype:\nosgDB::FileLocationCallback * osgDB::Options::getFileLocationCallback() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::FileLocationCallback * osgDB::Options::getFileLocationCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::FileLocationCallback * osgDB::Options::getFileLocationCallback() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::FileLocationCallback * lret = self->getFileLocationCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1388,16 +1305,14 @@ public:
 	// void osgDB::Options::setFileCache(osgDB::FileCache * fileCache)
 	static int _bind_setFileCache(lua_State *L) {
 		if (!_lg_typecheck_setFileCache(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::setFileCache(osgDB::FileCache * fileCache) function, expected prototype:\nvoid osgDB::Options::setFileCache(osgDB::FileCache * fileCache)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::setFileCache(osgDB::FileCache * fileCache) function, expected prototype:\nvoid osgDB::Options::setFileCache(osgDB::FileCache * fileCache)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::FileCache* fileCache=(Luna< osg::Referenced >::checkSubType< osgDB::FileCache >(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::setFileCache(osgDB::FileCache *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::setFileCache(osgDB::FileCache *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFileCache(fileCache);
 
@@ -1407,15 +1322,13 @@ public:
 	// osgDB::FileCache * osgDB::Options::getFileCache() const
 	static int _bind_getFileCache(lua_State *L) {
 		if (!_lg_typecheck_getFileCache(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::FileCache * osgDB::Options::getFileCache() const function, expected prototype:\nosgDB::FileCache * osgDB::Options::getFileCache() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::FileCache * osgDB::Options::getFileCache() const function, expected prototype:\nosgDB::FileCache * osgDB::Options::getFileCache() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::FileCache * osgDB::Options::getFileCache() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::FileCache * osgDB::Options::getFileCache() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::FileCache * lret = self->getFileCache();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1428,16 +1341,14 @@ public:
 	// void osgDB::Options::setTerrain(osg::observer_ptr< osg::Node > & terrain)
 	static int _bind_setTerrain(lua_State *L) {
 		if (!_lg_typecheck_setTerrain(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::setTerrain(osg::observer_ptr< osg::Node > & terrain) function, expected prototype:\nvoid osgDB::Options::setTerrain(osg::observer_ptr< osg::Node > & terrain)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::setTerrain(osg::observer_ptr< osg::Node > & terrain) function, expected prototype:\nvoid osgDB::Options::setTerrain(osg::observer_ptr< osg::Node > & terrain)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::observer_ptr< osg::Node > terrain = dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::setTerrain(osg::observer_ptr< osg::Node > &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::setTerrain(osg::observer_ptr< osg::Node > &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTerrain(terrain);
 
@@ -1447,15 +1358,13 @@ public:
 	// const osg::observer_ptr< osg::Node > & osgDB::Options::getTerrain() const
 	static int _bind_getTerrain(lua_State *L) {
 		if (!_lg_typecheck_getTerrain(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::observer_ptr< osg::Node > & osgDB::Options::getTerrain() const function, expected prototype:\nconst osg::observer_ptr< osg::Node > & osgDB::Options::getTerrain() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::observer_ptr< osg::Node > & osgDB::Options::getTerrain() const function, expected prototype:\nconst osg::observer_ptr< osg::Node > & osgDB::Options::getTerrain() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::observer_ptr< osg::Node > & osgDB::Options::getTerrain() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::observer_ptr< osg::Node > & osgDB::Options::getTerrain() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::observer_ptr< osg::Node > & lret = self->getTerrain();
 		Luna< osg::Node >::push(L,lret.get(),false);
@@ -1466,16 +1375,14 @@ public:
 	// void osgDB::Options::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::Options::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::Options::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Options::setThreadSafeRefUnref(threadSafe);
 
@@ -1485,16 +1392,14 @@ public:
 	// void osgDB::Options::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::base_setName(const std::string & name) function, expected prototype:\nvoid osgDB::Options::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::base_setName(const std::string & name) function, expected prototype:\nvoid osgDB::Options::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Options::setName(name);
 
@@ -1504,15 +1409,13 @@ public:
 	// void osgDB::Options::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::base_computeDataVariance() function, expected prototype:\nvoid osgDB::Options::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::base_computeDataVariance() function, expected prototype:\nvoid osgDB::Options::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Options::computeDataVariance();
 
@@ -1522,16 +1425,14 @@ public:
 	// void osgDB::Options::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgDB::Options::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgDB::Options::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Options::setUserData(obj);
 
@@ -1541,15 +1442,13 @@ public:
 	// osg::Referenced * osgDB::Options::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osgDB::Options::base_getUserData() function, expected prototype:\nosg::Referenced * osgDB::Options::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osgDB::Options::base_getUserData() function, expected prototype:\nosg::Referenced * osgDB::Options::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgDB::Options::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgDB::Options::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->Options::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1562,15 +1461,13 @@ public:
 	// const osg::Referenced * osgDB::Options::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgDB::Options::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgDB::Options::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgDB::Options::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgDB::Options::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgDB::Options::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgDB::Options::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->Options::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1592,8 +1489,7 @@ public:
 	// void osgDB::Options::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgDB::Options::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Options::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgDB::Options::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1602,8 +1498,7 @@ public:
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Options::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Options::releaseGLObjects(_arg1);
 
@@ -1613,15 +1508,13 @@ public:
 	// osg::Object * osgDB::Options::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Options::base_cloneType() const function, expected prototype:\nosg::Object * osgDB::Options::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Options::base_cloneType() const function, expected prototype:\nosg::Object * osgDB::Options::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Options::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Options::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->Options::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1634,8 +1527,7 @@ public:
 	// osg::Object * osgDB::Options::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Options::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgDB::Options::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::Options::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgDB::Options::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1646,8 +1538,7 @@ public:
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Options::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::Options::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->Options::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1660,16 +1551,14 @@ public:
 	// bool osgDB::Options::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::Options::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgDB::Options::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::Options::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgDB::Options::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::Options::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::Options::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Options::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1680,15 +1569,13 @@ public:
 	// const char * osgDB::Options::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgDB::Options::base_libraryName() const function, expected prototype:\nconst char * osgDB::Options::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgDB::Options::base_libraryName() const function, expected prototype:\nconst char * osgDB::Options::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::Options::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgDB::Options::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Options::libraryName();
 		lua_pushstring(L,lret);
@@ -1699,15 +1586,13 @@ public:
 	// const char * osgDB::Options::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgDB::Options::base_className() const function, expected prototype:\nconst char * osgDB::Options::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgDB::Options::base_className() const function, expected prototype:\nconst char * osgDB::Options::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::Options::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgDB::Options::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Options::className();
 		lua_pushstring(L,lret);

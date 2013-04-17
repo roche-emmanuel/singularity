@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::ShadowVolumeOccluder*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::ShadowVolumeOccluder*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ShadowVolumeOccluder* rhs =(Luna< osg::ShadowVolumeOccluder >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ShadowVolumeOccluder* self= (osg::ShadowVolumeOccluder*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::ShadowVolumeOccluder >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -247,8 +243,7 @@ public:
 	// osg::ShadowVolumeOccluder::ShadowVolumeOccluder(const osg::ShadowVolumeOccluder & svo)
 	static osg::ShadowVolumeOccluder* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ShadowVolumeOccluder::ShadowVolumeOccluder(const osg::ShadowVolumeOccluder & svo) function, expected prototype:\nosg::ShadowVolumeOccluder::ShadowVolumeOccluder(const osg::ShadowVolumeOccluder & svo)\nClass arguments details:\narg 1 ID = 60344650\n");
+			luaL_error(L, "luna typecheck failed in osg::ShadowVolumeOccluder::ShadowVolumeOccluder(const osg::ShadowVolumeOccluder & svo) function, expected prototype:\nosg::ShadowVolumeOccluder::ShadowVolumeOccluder(const osg::ShadowVolumeOccluder & svo)\nClass arguments details:\narg 1 ID = 60344650\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::ShadowVolumeOccluder* svo_ptr=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
@@ -263,8 +258,7 @@ public:
 	// osg::ShadowVolumeOccluder::ShadowVolumeOccluder()
 	static osg::ShadowVolumeOccluder* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ShadowVolumeOccluder::ShadowVolumeOccluder() function, expected prototype:\nosg::ShadowVolumeOccluder::ShadowVolumeOccluder()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ShadowVolumeOccluder::ShadowVolumeOccluder() function, expected prototype:\nosg::ShadowVolumeOccluder::ShadowVolumeOccluder()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -285,8 +279,7 @@ public:
 	// bool osg::ShadowVolumeOccluder::computeOccluder(const osg::NodePath & nodePath, const osg::ConvexPlanarOccluder & occluder, osg::CullStack & cullStack, bool createDrawables = false)
 	static int _bind_computeOccluder(lua_State *L) {
 		if (!_lg_typecheck_computeOccluder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ShadowVolumeOccluder::computeOccluder(const osg::NodePath & nodePath, const osg::ConvexPlanarOccluder & occluder, osg::CullStack & cullStack, bool createDrawables = false) function, expected prototype:\nbool osg::ShadowVolumeOccluder::computeOccluder(const osg::NodePath & nodePath, const osg::ConvexPlanarOccluder & occluder, osg::CullStack & cullStack, bool createDrawables = false)\nClass arguments details:\narg 1 ID = 52841328\narg 2 ID = 50169651\narg 3 ID = 31435107\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ShadowVolumeOccluder::computeOccluder(const osg::NodePath & nodePath, const osg::ConvexPlanarOccluder & occluder, osg::CullStack & cullStack, bool createDrawables = false) function, expected prototype:\nbool osg::ShadowVolumeOccluder::computeOccluder(const osg::NodePath & nodePath, const osg::ConvexPlanarOccluder & occluder, osg::CullStack & cullStack, bool createDrawables = false)\nClass arguments details:\narg 1 ID = 52841328\narg 2 ID = 50169651\narg 3 ID = 31435107\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -310,8 +303,7 @@ public:
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShadowVolumeOccluder::computeOccluder(const osg::NodePath &, const osg::ConvexPlanarOccluder &, osg::CullStack &, bool). Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ShadowVolumeOccluder::computeOccluder(const osg::NodePath &, const osg::ConvexPlanarOccluder &, osg::CullStack &, bool). Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->computeOccluder(nodePath, occluder, cullStack, createDrawables);
 		lua_pushboolean(L,lret?1:0);
@@ -322,15 +314,13 @@ public:
 	// void osg::ShadowVolumeOccluder::disableResultMasks()
 	static int _bind_disableResultMasks(lua_State *L) {
 		if (!_lg_typecheck_disableResultMasks(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShadowVolumeOccluder::disableResultMasks() function, expected prototype:\nvoid osg::ShadowVolumeOccluder::disableResultMasks()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShadowVolumeOccluder::disableResultMasks() function, expected prototype:\nvoid osg::ShadowVolumeOccluder::disableResultMasks()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShadowVolumeOccluder::disableResultMasks(). Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ShadowVolumeOccluder::disableResultMasks(). Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->disableResultMasks();
 
@@ -340,15 +330,13 @@ public:
 	// void osg::ShadowVolumeOccluder::pushCurrentMask()
 	static int _bind_pushCurrentMask(lua_State *L) {
 		if (!_lg_typecheck_pushCurrentMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShadowVolumeOccluder::pushCurrentMask() function, expected prototype:\nvoid osg::ShadowVolumeOccluder::pushCurrentMask()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShadowVolumeOccluder::pushCurrentMask() function, expected prototype:\nvoid osg::ShadowVolumeOccluder::pushCurrentMask()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShadowVolumeOccluder::pushCurrentMask(). Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ShadowVolumeOccluder::pushCurrentMask(). Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pushCurrentMask();
 
@@ -358,15 +346,13 @@ public:
 	// void osg::ShadowVolumeOccluder::popCurrentMask()
 	static int _bind_popCurrentMask(lua_State *L) {
 		if (!_lg_typecheck_popCurrentMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShadowVolumeOccluder::popCurrentMask() function, expected prototype:\nvoid osg::ShadowVolumeOccluder::popCurrentMask()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShadowVolumeOccluder::popCurrentMask() function, expected prototype:\nvoid osg::ShadowVolumeOccluder::popCurrentMask()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShadowVolumeOccluder::popCurrentMask(). Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ShadowVolumeOccluder::popCurrentMask(). Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->popCurrentMask();
 
@@ -376,8 +362,7 @@ public:
 	// bool osg::ShadowVolumeOccluder::matchProjectionMatrix(const osg::Matrixd & matrix) const
 	static int _bind_matchProjectionMatrix(lua_State *L) {
 		if (!_lg_typecheck_matchProjectionMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ShadowVolumeOccluder::matchProjectionMatrix(const osg::Matrixd & matrix) const function, expected prototype:\nbool osg::ShadowVolumeOccluder::matchProjectionMatrix(const osg::Matrixd & matrix) const\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ShadowVolumeOccluder::matchProjectionMatrix(const osg::Matrixd & matrix) const function, expected prototype:\nbool osg::ShadowVolumeOccluder::matchProjectionMatrix(const osg::Matrixd & matrix) const\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -388,8 +373,7 @@ public:
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShadowVolumeOccluder::matchProjectionMatrix(const osg::Matrixd &) const. Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ShadowVolumeOccluder::matchProjectionMatrix(const osg::Matrixd &) const. Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->matchProjectionMatrix(matrix);
 		lua_pushboolean(L,lret?1:0);
@@ -400,8 +384,7 @@ public:
 	// void osg::ShadowVolumeOccluder::setNodePath(osg::NodePath & nodePath)
 	static int _bind_setNodePath(lua_State *L) {
 		if (!_lg_typecheck_setNodePath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShadowVolumeOccluder::setNodePath(osg::NodePath & nodePath) function, expected prototype:\nvoid osg::ShadowVolumeOccluder::setNodePath(osg::NodePath & nodePath)\nClass arguments details:\narg 1 ID = 52841328\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShadowVolumeOccluder::setNodePath(osg::NodePath & nodePath) function, expected prototype:\nvoid osg::ShadowVolumeOccluder::setNodePath(osg::NodePath & nodePath)\nClass arguments details:\narg 1 ID = 52841328\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,2));
@@ -412,8 +395,7 @@ public:
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShadowVolumeOccluder::setNodePath(osg::NodePath &). Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ShadowVolumeOccluder::setNodePath(osg::NodePath &). Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setNodePath(nodePath);
 
@@ -423,15 +405,13 @@ public:
 	// osg::NodePath & osg::ShadowVolumeOccluder::getNodePath()
 	static int _bind_getNodePath_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getNodePath_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::NodePath & osg::ShadowVolumeOccluder::getNodePath() function, expected prototype:\nosg::NodePath & osg::ShadowVolumeOccluder::getNodePath()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::NodePath & osg::ShadowVolumeOccluder::getNodePath() function, expected prototype:\nosg::NodePath & osg::ShadowVolumeOccluder::getNodePath()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::NodePath & osg::ShadowVolumeOccluder::getNodePath(). Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::NodePath & osg::ShadowVolumeOccluder::getNodePath(). Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::NodePath* lret = &self->getNodePath();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -444,15 +424,13 @@ public:
 	// const osg::NodePath & osg::ShadowVolumeOccluder::getNodePath() const
 	static int _bind_getNodePath_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getNodePath_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::NodePath & osg::ShadowVolumeOccluder::getNodePath() const function, expected prototype:\nconst osg::NodePath & osg::ShadowVolumeOccluder::getNodePath() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::NodePath & osg::ShadowVolumeOccluder::getNodePath() const function, expected prototype:\nconst osg::NodePath & osg::ShadowVolumeOccluder::getNodePath() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::NodePath & osg::ShadowVolumeOccluder::getNodePath() const. Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::NodePath & osg::ShadowVolumeOccluder::getNodePath() const. Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::NodePath* lret = &self->getNodePath();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -474,15 +452,13 @@ public:
 	// float osg::ShadowVolumeOccluder::getVolume() const
 	static int _bind_getVolume(lua_State *L) {
 		if (!_lg_typecheck_getVolume(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::ShadowVolumeOccluder::getVolume() const function, expected prototype:\nfloat osg::ShadowVolumeOccluder::getVolume() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::ShadowVolumeOccluder::getVolume() const function, expected prototype:\nfloat osg::ShadowVolumeOccluder::getVolume() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::ShadowVolumeOccluder::getVolume() const. Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::ShadowVolumeOccluder::getVolume() const. Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getVolume();
 		lua_pushnumber(L,lret);
@@ -493,15 +469,13 @@ public:
 	// osg::Polytope & osg::ShadowVolumeOccluder::getOccluder()
 	static int _bind_getOccluder_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getOccluder_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Polytope & osg::ShadowVolumeOccluder::getOccluder() function, expected prototype:\nosg::Polytope & osg::ShadowVolumeOccluder::getOccluder()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Polytope & osg::ShadowVolumeOccluder::getOccluder() function, expected prototype:\nosg::Polytope & osg::ShadowVolumeOccluder::getOccluder()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Polytope & osg::ShadowVolumeOccluder::getOccluder(). Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Polytope & osg::ShadowVolumeOccluder::getOccluder(). Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Polytope* lret = &self->getOccluder();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -514,15 +488,13 @@ public:
 	// const osg::Polytope & osg::ShadowVolumeOccluder::getOccluder() const
 	static int _bind_getOccluder_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getOccluder_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Polytope & osg::ShadowVolumeOccluder::getOccluder() const function, expected prototype:\nconst osg::Polytope & osg::ShadowVolumeOccluder::getOccluder() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Polytope & osg::ShadowVolumeOccluder::getOccluder() const function, expected prototype:\nconst osg::Polytope & osg::ShadowVolumeOccluder::getOccluder() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Polytope & osg::ShadowVolumeOccluder::getOccluder() const. Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Polytope & osg::ShadowVolumeOccluder::getOccluder() const. Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Polytope* lret = &self->getOccluder();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -544,15 +516,13 @@ public:
 	// osg::ShadowVolumeOccluder::HoleList & osg::ShadowVolumeOccluder::getHoleList()
 	static int _bind_getHoleList_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getHoleList_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ShadowVolumeOccluder::HoleList & osg::ShadowVolumeOccluder::getHoleList() function, expected prototype:\nosg::ShadowVolumeOccluder::HoleList & osg::ShadowVolumeOccluder::getHoleList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ShadowVolumeOccluder::HoleList & osg::ShadowVolumeOccluder::getHoleList() function, expected prototype:\nosg::ShadowVolumeOccluder::HoleList & osg::ShadowVolumeOccluder::getHoleList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ShadowVolumeOccluder::HoleList & osg::ShadowVolumeOccluder::getHoleList(). Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ShadowVolumeOccluder::HoleList & osg::ShadowVolumeOccluder::getHoleList(). Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ShadowVolumeOccluder::HoleList* lret = &self->getHoleList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -565,15 +535,13 @@ public:
 	// const osg::ShadowVolumeOccluder::HoleList & osg::ShadowVolumeOccluder::getHoleList() const
 	static int _bind_getHoleList_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getHoleList_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::ShadowVolumeOccluder::HoleList & osg::ShadowVolumeOccluder::getHoleList() const function, expected prototype:\nconst osg::ShadowVolumeOccluder::HoleList & osg::ShadowVolumeOccluder::getHoleList() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::ShadowVolumeOccluder::HoleList & osg::ShadowVolumeOccluder::getHoleList() const function, expected prototype:\nconst osg::ShadowVolumeOccluder::HoleList & osg::ShadowVolumeOccluder::getHoleList() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ShadowVolumeOccluder::HoleList & osg::ShadowVolumeOccluder::getHoleList() const. Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::ShadowVolumeOccluder::HoleList & osg::ShadowVolumeOccluder::getHoleList() const. Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ShadowVolumeOccluder::HoleList* lret = &self->getHoleList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -595,8 +563,7 @@ public:
 	// bool osg::ShadowVolumeOccluder::contains(const std::vector< osg::Vec3f > & vertices)
 	static int _bind_contains_overload_1(lua_State *L) {
 		if (!_lg_typecheck_contains_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ShadowVolumeOccluder::contains(const std::vector< osg::Vec3f > & vertices) function, expected prototype:\nbool osg::ShadowVolumeOccluder::contains(const std::vector< osg::Vec3f > & vertices)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ShadowVolumeOccluder::contains(const std::vector< osg::Vec3f > & vertices) function, expected prototype:\nbool osg::ShadowVolumeOccluder::contains(const std::vector< osg::Vec3f > & vertices)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const std::vector< osg::Vec3f >* vertices_ptr=(Luna< std::vector< osg::Vec3f > >::check(L,2));
@@ -607,8 +574,7 @@ public:
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShadowVolumeOccluder::contains(const std::vector< osg::Vec3f > &). Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ShadowVolumeOccluder::contains(const std::vector< osg::Vec3f > &). Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->contains(vertices);
 		lua_pushboolean(L,lret?1:0);
@@ -619,8 +585,7 @@ public:
 	// bool osg::ShadowVolumeOccluder::contains(const osg::BoundingSphered & bound)
 	static int _bind_contains_overload_2(lua_State *L) {
 		if (!_lg_typecheck_contains_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ShadowVolumeOccluder::contains(const osg::BoundingSphered & bound) function, expected prototype:\nbool osg::ShadowVolumeOccluder::contains(const osg::BoundingSphered & bound)\nClass arguments details:\narg 1 ID = 54337300\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ShadowVolumeOccluder::contains(const osg::BoundingSphered & bound) function, expected prototype:\nbool osg::ShadowVolumeOccluder::contains(const osg::BoundingSphered & bound)\nClass arguments details:\narg 1 ID = 54337300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingSphered* bound_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
@@ -631,8 +596,7 @@ public:
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShadowVolumeOccluder::contains(const osg::BoundingSphered &). Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ShadowVolumeOccluder::contains(const osg::BoundingSphered &). Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->contains(bound);
 		lua_pushboolean(L,lret?1:0);
@@ -643,8 +607,7 @@ public:
 	// bool osg::ShadowVolumeOccluder::contains(const osg::BoundingBoxd & bound)
 	static int _bind_contains_overload_3(lua_State *L) {
 		if (!_lg_typecheck_contains_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ShadowVolumeOccluder::contains(const osg::BoundingBoxd & bound) function, expected prototype:\nbool osg::ShadowVolumeOccluder::contains(const osg::BoundingBoxd & bound)\nClass arguments details:\narg 1 ID = 82744897\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ShadowVolumeOccluder::contains(const osg::BoundingBoxd & bound) function, expected prototype:\nbool osg::ShadowVolumeOccluder::contains(const osg::BoundingBoxd & bound)\nClass arguments details:\narg 1 ID = 82744897\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingBoxd* bound_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
@@ -655,8 +618,7 @@ public:
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShadowVolumeOccluder::contains(const osg::BoundingBoxd &). Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ShadowVolumeOccluder::contains(const osg::BoundingBoxd &). Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->contains(bound);
 		lua_pushboolean(L,lret?1:0);
@@ -677,8 +639,7 @@ public:
 	// void osg::ShadowVolumeOccluder::transformProvidingInverse(const osg::Matrixd & matrix)
 	static int _bind_transformProvidingInverse(lua_State *L) {
 		if (!_lg_typecheck_transformProvidingInverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShadowVolumeOccluder::transformProvidingInverse(const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::ShadowVolumeOccluder::transformProvidingInverse(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShadowVolumeOccluder::transformProvidingInverse(const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::ShadowVolumeOccluder::transformProvidingInverse(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -689,8 +650,7 @@ public:
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShadowVolumeOccluder::transformProvidingInverse(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ShadowVolumeOccluder::transformProvidingInverse(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->transformProvidingInverse(matrix);
 
@@ -702,8 +662,7 @@ public:
 	// bool osg::ShadowVolumeOccluder::operator<(const osg::ShadowVolumeOccluder & svo) const
 	static int _bind___lt(lua_State *L) {
 		if (!_lg_typecheck___lt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ShadowVolumeOccluder::operator<(const osg::ShadowVolumeOccluder & svo) const function, expected prototype:\nbool osg::ShadowVolumeOccluder::operator<(const osg::ShadowVolumeOccluder & svo) const\nClass arguments details:\narg 1 ID = 60344650\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ShadowVolumeOccluder::operator<(const osg::ShadowVolumeOccluder & svo) const function, expected prototype:\nbool osg::ShadowVolumeOccluder::operator<(const osg::ShadowVolumeOccluder & svo) const\nClass arguments details:\narg 1 ID = 60344650\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::ShadowVolumeOccluder* svo_ptr=(Luna< osg::ShadowVolumeOccluder >::check(L,2));
@@ -714,8 +673,7 @@ public:
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShadowVolumeOccluder::operator<(const osg::ShadowVolumeOccluder &) const. Got : '%s'",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ShadowVolumeOccluder::operator<(const osg::ShadowVolumeOccluder &) const. Got : '%s'\n%s",typeid(Luna< osg::ShadowVolumeOccluder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator<(svo);
 		lua_pushboolean(L,lret?1:0);

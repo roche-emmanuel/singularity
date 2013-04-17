@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgViewer::DepthPartitionSettings* self= (osgViewer::DepthPartitionSettings*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -195,8 +192,7 @@ public:
 	// osgViewer::DepthPartitionSettings::DepthPartitionSettings(osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME)
 	static osgViewer::DepthPartitionSettings* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgViewer::DepthPartitionSettings::DepthPartitionSettings(osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME) function, expected prototype:\nosgViewer::DepthPartitionSettings::DepthPartitionSettings(osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgViewer::DepthPartitionSettings::DepthPartitionSettings(osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME) function, expected prototype:\nosgViewer::DepthPartitionSettings::DepthPartitionSettings(osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -209,8 +205,7 @@ public:
 	// osgViewer::DepthPartitionSettings::DepthPartitionSettings(lua_Table * data, osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME)
 	static osgViewer::DepthPartitionSettings* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgViewer::DepthPartitionSettings::DepthPartitionSettings(lua_Table * data, osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME) function, expected prototype:\nosgViewer::DepthPartitionSettings::DepthPartitionSettings(lua_Table * data, osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgViewer::DepthPartitionSettings::DepthPartitionSettings(lua_Table * data, osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME) function, expected prototype:\nosgViewer::DepthPartitionSettings::DepthPartitionSettings(lua_Table * data, osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -234,8 +229,7 @@ public:
 	// bool osgViewer::DepthPartitionSettings::getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar)
 	static int _bind_getDepthRange(lua_State *L) {
 		if (!_lg_typecheck_getDepthRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgViewer::DepthPartitionSettings::getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar) function, expected prototype:\nbool osgViewer::DepthPartitionSettings::getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgViewer::DepthPartitionSettings::getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar) function, expected prototype:\nbool osgViewer::DepthPartitionSettings::getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::View* view_ptr=(Luna< osg::Referenced >::checkSubType< osg::View >(L,2));
@@ -249,8 +243,7 @@ public:
 
 		osgViewer::DepthPartitionSettings* self=Luna< osg::Referenced >::checkSubType< osgViewer::DepthPartitionSettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::DepthPartitionSettings::getDepthRange(osg::View &, unsigned int, double &, double &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgViewer::DepthPartitionSettings::getDepthRange(osg::View &, unsigned int, double &, double &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getDepthRange(view, partition, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
@@ -263,15 +256,13 @@ public:
 	// osgViewer::DepthPartitionSettings::DepthMode osgViewer::DepthPartitionSettings::_mode()
 	static int _bind_getMode(lua_State *L) {
 		if (!_lg_typecheck_getMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgViewer::DepthPartitionSettings::DepthMode osgViewer::DepthPartitionSettings::_mode() function, expected prototype:\nosgViewer::DepthPartitionSettings::DepthMode osgViewer::DepthPartitionSettings::_mode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgViewer::DepthPartitionSettings::DepthMode osgViewer::DepthPartitionSettings::_mode() function, expected prototype:\nosgViewer::DepthPartitionSettings::DepthMode osgViewer::DepthPartitionSettings::_mode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgViewer::DepthPartitionSettings* self=Luna< osg::Referenced >::checkSubType< osgViewer::DepthPartitionSettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgViewer::DepthPartitionSettings::DepthMode osgViewer::DepthPartitionSettings::_mode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgViewer::DepthPartitionSettings::DepthMode osgViewer::DepthPartitionSettings::_mode(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgViewer::DepthPartitionSettings::DepthMode lret = self->_mode;
 		lua_pushnumber(L,lret);
@@ -282,15 +273,13 @@ public:
 	// double osgViewer::DepthPartitionSettings::_zNear()
 	static int _bind_getZNear(lua_State *L) {
 		if (!_lg_typecheck_getZNear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgViewer::DepthPartitionSettings::_zNear() function, expected prototype:\ndouble osgViewer::DepthPartitionSettings::_zNear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgViewer::DepthPartitionSettings::_zNear() function, expected prototype:\ndouble osgViewer::DepthPartitionSettings::_zNear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgViewer::DepthPartitionSettings* self=Luna< osg::Referenced >::checkSubType< osgViewer::DepthPartitionSettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgViewer::DepthPartitionSettings::_zNear(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgViewer::DepthPartitionSettings::_zNear(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->_zNear;
 		lua_pushnumber(L,lret);
@@ -301,15 +290,13 @@ public:
 	// double osgViewer::DepthPartitionSettings::_zMid()
 	static int _bind_getZMid(lua_State *L) {
 		if (!_lg_typecheck_getZMid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgViewer::DepthPartitionSettings::_zMid() function, expected prototype:\ndouble osgViewer::DepthPartitionSettings::_zMid()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgViewer::DepthPartitionSettings::_zMid() function, expected prototype:\ndouble osgViewer::DepthPartitionSettings::_zMid()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgViewer::DepthPartitionSettings* self=Luna< osg::Referenced >::checkSubType< osgViewer::DepthPartitionSettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgViewer::DepthPartitionSettings::_zMid(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgViewer::DepthPartitionSettings::_zMid(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->_zMid;
 		lua_pushnumber(L,lret);
@@ -320,15 +307,13 @@ public:
 	// double osgViewer::DepthPartitionSettings::_zFar()
 	static int _bind_getZFar(lua_State *L) {
 		if (!_lg_typecheck_getZFar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgViewer::DepthPartitionSettings::_zFar() function, expected prototype:\ndouble osgViewer::DepthPartitionSettings::_zFar()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgViewer::DepthPartitionSettings::_zFar() function, expected prototype:\ndouble osgViewer::DepthPartitionSettings::_zFar()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgViewer::DepthPartitionSettings* self=Luna< osg::Referenced >::checkSubType< osgViewer::DepthPartitionSettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgViewer::DepthPartitionSettings::_zFar(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgViewer::DepthPartitionSettings::_zFar(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->_zFar;
 		lua_pushnumber(L,lret);
@@ -339,16 +324,14 @@ public:
 	// void osgViewer::DepthPartitionSettings::_mode(osgViewer::DepthPartitionSettings::DepthMode value)
 	static int _bind_setMode(lua_State *L) {
 		if (!_lg_typecheck_setMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::DepthPartitionSettings::_mode(osgViewer::DepthPartitionSettings::DepthMode value) function, expected prototype:\nvoid osgViewer::DepthPartitionSettings::_mode(osgViewer::DepthPartitionSettings::DepthMode value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::DepthPartitionSettings::_mode(osgViewer::DepthPartitionSettings::DepthMode value) function, expected prototype:\nvoid osgViewer::DepthPartitionSettings::_mode(osgViewer::DepthPartitionSettings::DepthMode value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgViewer::DepthPartitionSettings::DepthMode value=(osgViewer::DepthPartitionSettings::DepthMode)lua_tointeger(L,2);
 
 		osgViewer::DepthPartitionSettings* self=Luna< osg::Referenced >::checkSubType< osgViewer::DepthPartitionSettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::DepthPartitionSettings::_mode(osgViewer::DepthPartitionSettings::DepthMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::DepthPartitionSettings::_mode(osgViewer::DepthPartitionSettings::DepthMode). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_mode = value;
 
@@ -358,16 +341,14 @@ public:
 	// void osgViewer::DepthPartitionSettings::_zNear(double value)
 	static int _bind_setZNear(lua_State *L) {
 		if (!_lg_typecheck_setZNear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::DepthPartitionSettings::_zNear(double value) function, expected prototype:\nvoid osgViewer::DepthPartitionSettings::_zNear(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::DepthPartitionSettings::_zNear(double value) function, expected prototype:\nvoid osgViewer::DepthPartitionSettings::_zNear(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osgViewer::DepthPartitionSettings* self=Luna< osg::Referenced >::checkSubType< osgViewer::DepthPartitionSettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::DepthPartitionSettings::_zNear(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::DepthPartitionSettings::_zNear(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_zNear = value;
 
@@ -377,16 +358,14 @@ public:
 	// void osgViewer::DepthPartitionSettings::_zMid(double value)
 	static int _bind_setZMid(lua_State *L) {
 		if (!_lg_typecheck_setZMid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::DepthPartitionSettings::_zMid(double value) function, expected prototype:\nvoid osgViewer::DepthPartitionSettings::_zMid(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::DepthPartitionSettings::_zMid(double value) function, expected prototype:\nvoid osgViewer::DepthPartitionSettings::_zMid(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osgViewer::DepthPartitionSettings* self=Luna< osg::Referenced >::checkSubType< osgViewer::DepthPartitionSettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::DepthPartitionSettings::_zMid(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::DepthPartitionSettings::_zMid(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_zMid = value;
 
@@ -396,16 +375,14 @@ public:
 	// void osgViewer::DepthPartitionSettings::_zFar(double value)
 	static int _bind_setZFar(lua_State *L) {
 		if (!_lg_typecheck_setZFar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::DepthPartitionSettings::_zFar(double value) function, expected prototype:\nvoid osgViewer::DepthPartitionSettings::_zFar(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::DepthPartitionSettings::_zFar(double value) function, expected prototype:\nvoid osgViewer::DepthPartitionSettings::_zFar(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osgViewer::DepthPartitionSettings* self=Luna< osg::Referenced >::checkSubType< osgViewer::DepthPartitionSettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::DepthPartitionSettings::_zFar(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::DepthPartitionSettings::_zFar(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_zFar = value;
 
@@ -415,16 +392,14 @@ public:
 	// void osgViewer::DepthPartitionSettings::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::DepthPartitionSettings::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgViewer::DepthPartitionSettings::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::DepthPartitionSettings::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgViewer::DepthPartitionSettings::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgViewer::DepthPartitionSettings* self=Luna< osg::Referenced >::checkSubType< osgViewer::DepthPartitionSettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::DepthPartitionSettings::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::DepthPartitionSettings::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DepthPartitionSettings::setThreadSafeRefUnref(threadSafe);
 
@@ -434,8 +409,7 @@ public:
 	// bool osgViewer::DepthPartitionSettings::base_getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar)
 	static int _bind_base_getDepthRange(lua_State *L) {
 		if (!_lg_typecheck_base_getDepthRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgViewer::DepthPartitionSettings::base_getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar) function, expected prototype:\nbool osgViewer::DepthPartitionSettings::base_getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgViewer::DepthPartitionSettings::base_getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar) function, expected prototype:\nbool osgViewer::DepthPartitionSettings::base_getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::View* view_ptr=(Luna< osg::Referenced >::checkSubType< osg::View >(L,2));
@@ -449,8 +423,7 @@ public:
 
 		osgViewer::DepthPartitionSettings* self=Luna< osg::Referenced >::checkSubType< osgViewer::DepthPartitionSettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::DepthPartitionSettings::base_getDepthRange(osg::View &, unsigned int, double &, double &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgViewer::DepthPartitionSettings::base_getDepthRange(osg::View &, unsigned int, double &, double &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DepthPartitionSettings::getDepthRange(view, partition, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);

@@ -102,15 +102,13 @@ public:
 	// void osgDB::Registry::public_destruct()
 	static int _bind_public_destruct(lua_State *L) {
 		if (!_lg_typecheck_public_destruct(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Registry::public_destruct() function, expected prototype:\nvoid osgDB::Registry::public_destruct()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::Registry::public_destruct() function, expected prototype:\nvoid osgDB::Registry::public_destruct()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgDB_Registry* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_Registry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Registry::public_destruct(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::Registry::public_destruct(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_destruct();
 
@@ -120,16 +118,14 @@ public:
 	// static std::string osgDB::Registry::public_trim(const std::string & str)
 	static int _bind_public_trim(lua_State *L) {
 		if (!_lg_typecheck_public_trim(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static std::string osgDB::Registry::public_trim(const std::string & str) function, expected prototype:\nstatic std::string osgDB::Registry::public_trim(const std::string & str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static std::string osgDB::Registry::public_trim(const std::string & str) function, expected prototype:\nstatic std::string osgDB::Registry::public_trim(const std::string & str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,1),lua_objlen(L,1));
 
 		wrapper_osgDB_Registry* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_Registry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static std::string osgDB::Registry::public_trim(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static std::string osgDB::Registry::public_trim(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->public_trim(str);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -140,8 +136,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -149,8 +144,7 @@ public:
 
 		wrapper_osgDB_Registry* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_Registry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -160,15 +154,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgDB_Registry* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_Registry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

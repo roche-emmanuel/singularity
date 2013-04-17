@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgParticle::DomainOperator::Domain*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgParticle::DomainOperator::Domain*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgParticle::DomainOperator::Domain* rhs =(Luna< osgParticle::DomainOperator::Domain >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgParticle::DomainOperator::Domain* self= (osgParticle::DomainOperator::Domain*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -234,8 +230,7 @@ public:
 	// osgParticle::DomainOperator::Domain::Domain(osgParticle::DomainOperator::Domain::Type t)
 	static osgParticle::DomainOperator::Domain* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::DomainOperator::Domain::Domain(osgParticle::DomainOperator::Domain::Type t) function, expected prototype:\nosgParticle::DomainOperator::Domain::Domain(osgParticle::DomainOperator::Domain::Type t)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::DomainOperator::Domain::Domain(osgParticle::DomainOperator::Domain::Type t) function, expected prototype:\nosgParticle::DomainOperator::Domain::Domain(osgParticle::DomainOperator::Domain::Type t)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgParticle::DomainOperator::Domain::Type t=(osgParticle::DomainOperator::Domain::Type)lua_tointeger(L,1);
@@ -248,15 +243,13 @@ public:
 	// osg::Plane osgParticle::DomainOperator::Domain::plane()
 	static int _bind_getPlane(lua_State *L) {
 		if (!_lg_typecheck_getPlane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Plane osgParticle::DomainOperator::Domain::plane() function, expected prototype:\nosg::Plane osgParticle::DomainOperator::Domain::plane()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Plane osgParticle::DomainOperator::Domain::plane() function, expected prototype:\nosg::Plane osgParticle::DomainOperator::Domain::plane()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Plane osgParticle::DomainOperator::Domain::plane(). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Plane osgParticle::DomainOperator::Domain::plane(). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Plane* lret = &self->plane;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -269,15 +262,13 @@ public:
 	// osg::Vec3f osgParticle::DomainOperator::Domain::v1()
 	static int _bind_getV1(lua_State *L) {
 		if (!_lg_typecheck_getV1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgParticle::DomainOperator::Domain::v1() function, expected prototype:\nosg::Vec3f osgParticle::DomainOperator::Domain::v1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgParticle::DomainOperator::Domain::v1() function, expected prototype:\nosg::Vec3f osgParticle::DomainOperator::Domain::v1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::DomainOperator::Domain::v1(). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::DomainOperator::Domain::v1(). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->v1;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -290,15 +281,13 @@ public:
 	// osg::Vec3f osgParticle::DomainOperator::Domain::v2()
 	static int _bind_getV2(lua_State *L) {
 		if (!_lg_typecheck_getV2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgParticle::DomainOperator::Domain::v2() function, expected prototype:\nosg::Vec3f osgParticle::DomainOperator::Domain::v2()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgParticle::DomainOperator::Domain::v2() function, expected prototype:\nosg::Vec3f osgParticle::DomainOperator::Domain::v2()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::DomainOperator::Domain::v2(). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::DomainOperator::Domain::v2(). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->v2;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -311,15 +300,13 @@ public:
 	// osg::Vec3f osgParticle::DomainOperator::Domain::v3()
 	static int _bind_getV3(lua_State *L) {
 		if (!_lg_typecheck_getV3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgParticle::DomainOperator::Domain::v3() function, expected prototype:\nosg::Vec3f osgParticle::DomainOperator::Domain::v3()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgParticle::DomainOperator::Domain::v3() function, expected prototype:\nosg::Vec3f osgParticle::DomainOperator::Domain::v3()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::DomainOperator::Domain::v3(). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::DomainOperator::Domain::v3(). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->v3;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -332,15 +319,13 @@ public:
 	// osg::Vec3f osgParticle::DomainOperator::Domain::s1()
 	static int _bind_getS1(lua_State *L) {
 		if (!_lg_typecheck_getS1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgParticle::DomainOperator::Domain::s1() function, expected prototype:\nosg::Vec3f osgParticle::DomainOperator::Domain::s1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgParticle::DomainOperator::Domain::s1() function, expected prototype:\nosg::Vec3f osgParticle::DomainOperator::Domain::s1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::DomainOperator::Domain::s1(). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::DomainOperator::Domain::s1(). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->s1;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -353,15 +338,13 @@ public:
 	// osg::Vec3f osgParticle::DomainOperator::Domain::s2()
 	static int _bind_getS2(lua_State *L) {
 		if (!_lg_typecheck_getS2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgParticle::DomainOperator::Domain::s2() function, expected prototype:\nosg::Vec3f osgParticle::DomainOperator::Domain::s2()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgParticle::DomainOperator::Domain::s2() function, expected prototype:\nosg::Vec3f osgParticle::DomainOperator::Domain::s2()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::DomainOperator::Domain::s2(). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::DomainOperator::Domain::s2(). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->s2;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -374,15 +357,13 @@ public:
 	// float osgParticle::DomainOperator::Domain::r1()
 	static int _bind_getR1(lua_State *L) {
 		if (!_lg_typecheck_getR1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgParticle::DomainOperator::Domain::r1() function, expected prototype:\nfloat osgParticle::DomainOperator::Domain::r1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgParticle::DomainOperator::Domain::r1() function, expected prototype:\nfloat osgParticle::DomainOperator::Domain::r1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::DomainOperator::Domain::r1(). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgParticle::DomainOperator::Domain::r1(). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->r1;
 		lua_pushnumber(L,lret);
@@ -393,15 +374,13 @@ public:
 	// float osgParticle::DomainOperator::Domain::r2()
 	static int _bind_getR2(lua_State *L) {
 		if (!_lg_typecheck_getR2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgParticle::DomainOperator::Domain::r2() function, expected prototype:\nfloat osgParticle::DomainOperator::Domain::r2()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgParticle::DomainOperator::Domain::r2() function, expected prototype:\nfloat osgParticle::DomainOperator::Domain::r2()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::DomainOperator::Domain::r2(). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgParticle::DomainOperator::Domain::r2(). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->r2;
 		lua_pushnumber(L,lret);
@@ -412,15 +391,13 @@ public:
 	// osgParticle::DomainOperator::Domain::Type osgParticle::DomainOperator::Domain::type()
 	static int _bind_getType(lua_State *L) {
 		if (!_lg_typecheck_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::DomainOperator::Domain::Type osgParticle::DomainOperator::Domain::type() function, expected prototype:\nosgParticle::DomainOperator::Domain::Type osgParticle::DomainOperator::Domain::type()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::DomainOperator::Domain::Type osgParticle::DomainOperator::Domain::type() function, expected prototype:\nosgParticle::DomainOperator::Domain::Type osgParticle::DomainOperator::Domain::type()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgParticle::DomainOperator::Domain::Type osgParticle::DomainOperator::Domain::type(). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgParticle::DomainOperator::Domain::Type osgParticle::DomainOperator::Domain::type(). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgParticle::DomainOperator::Domain::Type lret = self->type;
 		lua_pushnumber(L,lret);
@@ -431,8 +408,7 @@ public:
 	// void osgParticle::DomainOperator::Domain::plane(osg::Plane value)
 	static int _bind_setPlane(lua_State *L) {
 		if (!_lg_typecheck_setPlane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::plane(osg::Plane value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::plane(osg::Plane value)\nClass arguments details:\narg 1 ID = 86970521\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::plane(osg::Plane value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::plane(osg::Plane value)\nClass arguments details:\narg 1 ID = 86970521\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Plane* value_ptr=(Luna< osg::Plane >::check(L,2));
@@ -443,8 +419,7 @@ public:
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::plane(osg::Plane). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::plane(osg::Plane). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->plane = value;
 
@@ -454,8 +429,7 @@ public:
 	// void osgParticle::DomainOperator::Domain::v1(osg::Vec3f value)
 	static int _bind_setV1(lua_State *L) {
 		if (!_lg_typecheck_setV1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::v1(osg::Vec3f value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::v1(osg::Vec3f value)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::v1(osg::Vec3f value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::v1(osg::Vec3f value)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3f* value_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -466,8 +440,7 @@ public:
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::v1(osg::Vec3f). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::v1(osg::Vec3f). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->v1 = value;
 
@@ -477,8 +450,7 @@ public:
 	// void osgParticle::DomainOperator::Domain::v2(osg::Vec3f value)
 	static int _bind_setV2(lua_State *L) {
 		if (!_lg_typecheck_setV2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::v2(osg::Vec3f value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::v2(osg::Vec3f value)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::v2(osg::Vec3f value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::v2(osg::Vec3f value)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3f* value_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -489,8 +461,7 @@ public:
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::v2(osg::Vec3f). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::v2(osg::Vec3f). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->v2 = value;
 
@@ -500,8 +471,7 @@ public:
 	// void osgParticle::DomainOperator::Domain::v3(osg::Vec3f value)
 	static int _bind_setV3(lua_State *L) {
 		if (!_lg_typecheck_setV3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::v3(osg::Vec3f value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::v3(osg::Vec3f value)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::v3(osg::Vec3f value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::v3(osg::Vec3f value)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3f* value_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -512,8 +482,7 @@ public:
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::v3(osg::Vec3f). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::v3(osg::Vec3f). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->v3 = value;
 
@@ -523,8 +492,7 @@ public:
 	// void osgParticle::DomainOperator::Domain::s1(osg::Vec3f value)
 	static int _bind_setS1(lua_State *L) {
 		if (!_lg_typecheck_setS1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::s1(osg::Vec3f value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::s1(osg::Vec3f value)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::s1(osg::Vec3f value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::s1(osg::Vec3f value)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3f* value_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -535,8 +503,7 @@ public:
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::s1(osg::Vec3f). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::s1(osg::Vec3f). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->s1 = value;
 
@@ -546,8 +513,7 @@ public:
 	// void osgParticle::DomainOperator::Domain::s2(osg::Vec3f value)
 	static int _bind_setS2(lua_State *L) {
 		if (!_lg_typecheck_setS2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::s2(osg::Vec3f value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::s2(osg::Vec3f value)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::s2(osg::Vec3f value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::s2(osg::Vec3f value)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3f* value_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -558,8 +524,7 @@ public:
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::s2(osg::Vec3f). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::s2(osg::Vec3f). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->s2 = value;
 
@@ -569,16 +534,14 @@ public:
 	// void osgParticle::DomainOperator::Domain::r1(float value)
 	static int _bind_setR1(lua_State *L) {
 		if (!_lg_typecheck_setR1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::r1(float value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::r1(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::r1(float value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::r1(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::r1(float). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::r1(float). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->r1 = value;
 
@@ -588,16 +551,14 @@ public:
 	// void osgParticle::DomainOperator::Domain::r2(float value)
 	static int _bind_setR2(lua_State *L) {
 		if (!_lg_typecheck_setR2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::r2(float value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::r2(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::r2(float value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::r2(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::r2(float). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::r2(float). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->r2 = value;
 
@@ -607,16 +568,14 @@ public:
 	// void osgParticle::DomainOperator::Domain::type(osgParticle::DomainOperator::Domain::Type value)
 	static int _bind_setType(lua_State *L) {
 		if (!_lg_typecheck_setType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::type(osgParticle::DomainOperator::Domain::Type value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::type(osgParticle::DomainOperator::Domain::Type value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::Domain::type(osgParticle::DomainOperator::Domain::Type value) function, expected prototype:\nvoid osgParticle::DomainOperator::Domain::type(osgParticle::DomainOperator::Domain::Type value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgParticle::DomainOperator::Domain::Type value=(osgParticle::DomainOperator::Domain::Type)lua_tointeger(L,2);
 
 		osgParticle::DomainOperator::Domain* self=(Luna< osgParticle::DomainOperator::Domain >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::type(osgParticle::DomainOperator::Domain::Type). Got : '%s'",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::Domain::type(osgParticle::DomainOperator::Domain::Type). Got : '%s'\n%s",typeid(Luna< osgParticle::DomainOperator::Domain >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->type = value;
 

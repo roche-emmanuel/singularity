@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(OpenThreads::Thread*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(OpenThreads::Thread*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::Thread* rhs =(Luna< OpenThreads::Thread >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::Thread* self= (OpenThreads::Thread*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< OpenThreads::Thread >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -341,8 +336,7 @@ public:
 	// OpenThreads::Thread::Thread(lua_Table * data)
 	static OpenThreads::Thread* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in OpenThreads::Thread::Thread(lua_Table * data) function, expected prototype:\nOpenThreads::Thread::Thread(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in OpenThreads::Thread::Thread(lua_Table * data) function, expected prototype:\nOpenThreads::Thread::Thread(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -354,8 +348,7 @@ public:
 	// static int OpenThreads::Thread::SetConcurrency(int concurrencyLevel)
 	static int _bind_SetConcurrency(lua_State *L) {
 		if (!_lg_typecheck_SetConcurrency(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int OpenThreads::Thread::SetConcurrency(int concurrencyLevel) function, expected prototype:\nstatic int OpenThreads::Thread::SetConcurrency(int concurrencyLevel)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static int OpenThreads::Thread::SetConcurrency(int concurrencyLevel) function, expected prototype:\nstatic int OpenThreads::Thread::SetConcurrency(int concurrencyLevel)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int concurrencyLevel=(int)lua_tointeger(L,1);
@@ -369,8 +362,7 @@ public:
 	// static int OpenThreads::Thread::GetConcurrency()
 	static int _bind_GetConcurrency(lua_State *L) {
 		if (!_lg_typecheck_GetConcurrency(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int OpenThreads::Thread::GetConcurrency() function, expected prototype:\nstatic int OpenThreads::Thread::GetConcurrency()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static int OpenThreads::Thread::GetConcurrency() function, expected prototype:\nstatic int OpenThreads::Thread::GetConcurrency()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -383,8 +375,7 @@ public:
 	// static OpenThreads::Thread * OpenThreads::Thread::CurrentThread()
 	static int _bind_CurrentThread(lua_State *L) {
 		if (!_lg_typecheck_CurrentThread(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static OpenThreads::Thread * OpenThreads::Thread::CurrentThread() function, expected prototype:\nstatic OpenThreads::Thread * OpenThreads::Thread::CurrentThread()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static OpenThreads::Thread * OpenThreads::Thread::CurrentThread() function, expected prototype:\nstatic OpenThreads::Thread * OpenThreads::Thread::CurrentThread()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -399,8 +390,7 @@ public:
 	// static void OpenThreads::Thread::Init()
 	static int _bind_Init(lua_State *L) {
 		if (!_lg_typecheck_Init(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void OpenThreads::Thread::Init() function, expected prototype:\nstatic void OpenThreads::Thread::Init()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void OpenThreads::Thread::Init() function, expected prototype:\nstatic void OpenThreads::Thread::Init()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -412,8 +402,7 @@ public:
 	// static int OpenThreads::Thread::YieldCurrentThread()
 	static int _bind_YieldCurrentThread(lua_State *L) {
 		if (!_lg_typecheck_YieldCurrentThread(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int OpenThreads::Thread::YieldCurrentThread() function, expected prototype:\nstatic int OpenThreads::Thread::YieldCurrentThread()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static int OpenThreads::Thread::YieldCurrentThread() function, expected prototype:\nstatic int OpenThreads::Thread::YieldCurrentThread()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -426,8 +415,7 @@ public:
 	// static OpenThreads::Thread::ThreadPriority OpenThreads::Thread::GetMasterPriority()
 	static int _bind_GetMasterPriority(lua_State *L) {
 		if (!_lg_typecheck_GetMasterPriority(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static OpenThreads::Thread::ThreadPriority OpenThreads::Thread::GetMasterPriority() function, expected prototype:\nstatic OpenThreads::Thread::ThreadPriority OpenThreads::Thread::GetMasterPriority()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static OpenThreads::Thread::ThreadPriority OpenThreads::Thread::GetMasterPriority() function, expected prototype:\nstatic OpenThreads::Thread::ThreadPriority OpenThreads::Thread::GetMasterPriority()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -440,8 +428,7 @@ public:
 	// static int OpenThreads::Thread::microSleep(unsigned int microsec)
 	static int _bind_microSleep(lua_State *L) {
 		if (!_lg_typecheck_microSleep(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int OpenThreads::Thread::microSleep(unsigned int microsec) function, expected prototype:\nstatic int OpenThreads::Thread::microSleep(unsigned int microsec)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static int OpenThreads::Thread::microSleep(unsigned int microsec) function, expected prototype:\nstatic int OpenThreads::Thread::microSleep(unsigned int microsec)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int microsec=(unsigned int)lua_tointeger(L,1);
@@ -455,15 +442,13 @@ public:
 	// int OpenThreads::Thread::getThreadId()
 	static int _bind_getThreadId(lua_State *L) {
 		if (!_lg_typecheck_getThreadId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::getThreadId() function, expected prototype:\nint OpenThreads::Thread::getThreadId()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::getThreadId() function, expected prototype:\nint OpenThreads::Thread::getThreadId()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::getThreadId(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::getThreadId(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getThreadId();
 		lua_pushnumber(L,lret);
@@ -474,15 +459,13 @@ public:
 	// size_t OpenThreads::Thread::getProcessId()
 	static int _bind_getProcessId(lua_State *L) {
 		if (!_lg_typecheck_getProcessId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t OpenThreads::Thread::getProcessId() function, expected prototype:\nsize_t OpenThreads::Thread::getProcessId()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t OpenThreads::Thread::getProcessId() function, expected prototype:\nsize_t OpenThreads::Thread::getProcessId()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t OpenThreads::Thread::getProcessId(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t OpenThreads::Thread::getProcessId(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->getProcessId();
 		lua_pushnumber(L,lret);
@@ -493,15 +476,13 @@ public:
 	// int OpenThreads::Thread::start()
 	static int _bind_start(lua_State *L) {
 		if (!_lg_typecheck_start(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::start() function, expected prototype:\nint OpenThreads::Thread::start()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::start() function, expected prototype:\nint OpenThreads::Thread::start()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::start(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::start(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->start();
 		lua_pushnumber(L,lret);
@@ -512,15 +493,13 @@ public:
 	// int OpenThreads::Thread::startThread()
 	static int _bind_startThread(lua_State *L) {
 		if (!_lg_typecheck_startThread(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::startThread() function, expected prototype:\nint OpenThreads::Thread::startThread()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::startThread() function, expected prototype:\nint OpenThreads::Thread::startThread()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::startThread(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::startThread(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->startThread();
 		lua_pushnumber(L,lret);
@@ -531,15 +510,13 @@ public:
 	// int OpenThreads::Thread::testCancel()
 	static int _bind_testCancel(lua_State *L) {
 		if (!_lg_typecheck_testCancel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::testCancel() function, expected prototype:\nint OpenThreads::Thread::testCancel()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::testCancel() function, expected prototype:\nint OpenThreads::Thread::testCancel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::testCancel(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::testCancel(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->testCancel();
 		lua_pushnumber(L,lret);
@@ -550,15 +527,13 @@ public:
 	// int OpenThreads::Thread::cancel()
 	static int _bind_cancel(lua_State *L) {
 		if (!_lg_typecheck_cancel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::cancel() function, expected prototype:\nint OpenThreads::Thread::cancel()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::cancel() function, expected prototype:\nint OpenThreads::Thread::cancel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::cancel(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::cancel(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->cancel();
 		lua_pushnumber(L,lret);
@@ -569,16 +544,14 @@ public:
 	// int OpenThreads::Thread::setSchedulePriority(OpenThreads::Thread::ThreadPriority priority)
 	static int _bind_setSchedulePriority(lua_State *L) {
 		if (!_lg_typecheck_setSchedulePriority(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::setSchedulePriority(OpenThreads::Thread::ThreadPriority priority) function, expected prototype:\nint OpenThreads::Thread::setSchedulePriority(OpenThreads::Thread::ThreadPriority priority)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::setSchedulePriority(OpenThreads::Thread::ThreadPriority priority) function, expected prototype:\nint OpenThreads::Thread::setSchedulePriority(OpenThreads::Thread::ThreadPriority priority)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::Thread::ThreadPriority priority=(OpenThreads::Thread::ThreadPriority)lua_tointeger(L,2);
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::setSchedulePriority(OpenThreads::Thread::ThreadPriority). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::setSchedulePriority(OpenThreads::Thread::ThreadPriority). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->setSchedulePriority(priority);
 		lua_pushnumber(L,lret);
@@ -589,15 +562,13 @@ public:
 	// int OpenThreads::Thread::getSchedulePriority()
 	static int _bind_getSchedulePriority(lua_State *L) {
 		if (!_lg_typecheck_getSchedulePriority(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::getSchedulePriority() function, expected prototype:\nint OpenThreads::Thread::getSchedulePriority()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::getSchedulePriority() function, expected prototype:\nint OpenThreads::Thread::getSchedulePriority()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::getSchedulePriority(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::getSchedulePriority(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getSchedulePriority();
 		lua_pushnumber(L,lret);
@@ -608,16 +579,14 @@ public:
 	// int OpenThreads::Thread::setSchedulePolicy(OpenThreads::Thread::ThreadPolicy policy)
 	static int _bind_setSchedulePolicy(lua_State *L) {
 		if (!_lg_typecheck_setSchedulePolicy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::setSchedulePolicy(OpenThreads::Thread::ThreadPolicy policy) function, expected prototype:\nint OpenThreads::Thread::setSchedulePolicy(OpenThreads::Thread::ThreadPolicy policy)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::setSchedulePolicy(OpenThreads::Thread::ThreadPolicy policy) function, expected prototype:\nint OpenThreads::Thread::setSchedulePolicy(OpenThreads::Thread::ThreadPolicy policy)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::Thread::ThreadPolicy policy=(OpenThreads::Thread::ThreadPolicy)lua_tointeger(L,2);
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::setSchedulePolicy(OpenThreads::Thread::ThreadPolicy). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::setSchedulePolicy(OpenThreads::Thread::ThreadPolicy). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->setSchedulePolicy(policy);
 		lua_pushnumber(L,lret);
@@ -628,15 +597,13 @@ public:
 	// int OpenThreads::Thread::getSchedulePolicy()
 	static int _bind_getSchedulePolicy(lua_State *L) {
 		if (!_lg_typecheck_getSchedulePolicy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::getSchedulePolicy() function, expected prototype:\nint OpenThreads::Thread::getSchedulePolicy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::getSchedulePolicy() function, expected prototype:\nint OpenThreads::Thread::getSchedulePolicy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::getSchedulePolicy(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::getSchedulePolicy(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getSchedulePolicy();
 		lua_pushnumber(L,lret);
@@ -647,16 +614,14 @@ public:
 	// int OpenThreads::Thread::setStackSize(size_t size)
 	static int _bind_setStackSize(lua_State *L) {
 		if (!_lg_typecheck_setStackSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::setStackSize(size_t size) function, expected prototype:\nint OpenThreads::Thread::setStackSize(size_t size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::setStackSize(size_t size) function, expected prototype:\nint OpenThreads::Thread::setStackSize(size_t size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t size=(size_t)lua_tointeger(L,2);
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::setStackSize(size_t). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::setStackSize(size_t). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->setStackSize(size);
 		lua_pushnumber(L,lret);
@@ -667,15 +632,13 @@ public:
 	// size_t OpenThreads::Thread::getStackSize()
 	static int _bind_getStackSize(lua_State *L) {
 		if (!_lg_typecheck_getStackSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t OpenThreads::Thread::getStackSize() function, expected prototype:\nsize_t OpenThreads::Thread::getStackSize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t OpenThreads::Thread::getStackSize() function, expected prototype:\nsize_t OpenThreads::Thread::getStackSize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t OpenThreads::Thread::getStackSize(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t OpenThreads::Thread::getStackSize(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->getStackSize();
 		lua_pushnumber(L,lret);
@@ -686,15 +649,13 @@ public:
 	// void OpenThreads::Thread::printSchedulingInfo()
 	static int _bind_printSchedulingInfo(lua_State *L) {
 		if (!_lg_typecheck_printSchedulingInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void OpenThreads::Thread::printSchedulingInfo() function, expected prototype:\nvoid OpenThreads::Thread::printSchedulingInfo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void OpenThreads::Thread::printSchedulingInfo() function, expected prototype:\nvoid OpenThreads::Thread::printSchedulingInfo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void OpenThreads::Thread::printSchedulingInfo(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void OpenThreads::Thread::printSchedulingInfo(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->printSchedulingInfo();
 
@@ -704,15 +665,13 @@ public:
 	// int OpenThreads::Thread::detach()
 	static int _bind_detach(lua_State *L) {
 		if (!_lg_typecheck_detach(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::detach() function, expected prototype:\nint OpenThreads::Thread::detach()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::detach() function, expected prototype:\nint OpenThreads::Thread::detach()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::detach(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::detach(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->detach();
 		lua_pushnumber(L,lret);
@@ -723,15 +682,13 @@ public:
 	// int OpenThreads::Thread::join()
 	static int _bind_join(lua_State *L) {
 		if (!_lg_typecheck_join(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::join() function, expected prototype:\nint OpenThreads::Thread::join()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::join() function, expected prototype:\nint OpenThreads::Thread::join()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::join(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::join(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->join();
 		lua_pushnumber(L,lret);
@@ -742,15 +699,13 @@ public:
 	// int OpenThreads::Thread::setCancelModeDisable()
 	static int _bind_setCancelModeDisable(lua_State *L) {
 		if (!_lg_typecheck_setCancelModeDisable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::setCancelModeDisable() function, expected prototype:\nint OpenThreads::Thread::setCancelModeDisable()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::setCancelModeDisable() function, expected prototype:\nint OpenThreads::Thread::setCancelModeDisable()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::setCancelModeDisable(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::setCancelModeDisable(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->setCancelModeDisable();
 		lua_pushnumber(L,lret);
@@ -761,15 +716,13 @@ public:
 	// int OpenThreads::Thread::setCancelModeAsynchronous()
 	static int _bind_setCancelModeAsynchronous(lua_State *L) {
 		if (!_lg_typecheck_setCancelModeAsynchronous(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::setCancelModeAsynchronous() function, expected prototype:\nint OpenThreads::Thread::setCancelModeAsynchronous()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::setCancelModeAsynchronous() function, expected prototype:\nint OpenThreads::Thread::setCancelModeAsynchronous()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::setCancelModeAsynchronous(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::setCancelModeAsynchronous(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->setCancelModeAsynchronous();
 		lua_pushnumber(L,lret);
@@ -780,15 +733,13 @@ public:
 	// int OpenThreads::Thread::setCancelModeDeferred()
 	static int _bind_setCancelModeDeferred(lua_State *L) {
 		if (!_lg_typecheck_setCancelModeDeferred(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::setCancelModeDeferred() function, expected prototype:\nint OpenThreads::Thread::setCancelModeDeferred()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::setCancelModeDeferred() function, expected prototype:\nint OpenThreads::Thread::setCancelModeDeferred()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::setCancelModeDeferred(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::setCancelModeDeferred(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->setCancelModeDeferred();
 		lua_pushnumber(L,lret);
@@ -799,15 +750,13 @@ public:
 	// bool OpenThreads::Thread::isRunning()
 	static int _bind_isRunning(lua_State *L) {
 		if (!_lg_typecheck_isRunning(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool OpenThreads::Thread::isRunning() function, expected prototype:\nbool OpenThreads::Thread::isRunning()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool OpenThreads::Thread::isRunning() function, expected prototype:\nbool OpenThreads::Thread::isRunning()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool OpenThreads::Thread::isRunning(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool OpenThreads::Thread::isRunning(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isRunning();
 		lua_pushboolean(L,lret?1:0);
@@ -818,15 +767,13 @@ public:
 	// void OpenThreads::Thread::run()
 	static int _bind_run(lua_State *L) {
 		if (!_lg_typecheck_run(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void OpenThreads::Thread::run() function, expected prototype:\nvoid OpenThreads::Thread::run()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void OpenThreads::Thread::run() function, expected prototype:\nvoid OpenThreads::Thread::run()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void OpenThreads::Thread::run(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void OpenThreads::Thread::run(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->run();
 
@@ -836,15 +783,13 @@ public:
 	// void OpenThreads::Thread::cancelCleanup()
 	static int _bind_cancelCleanup(lua_State *L) {
 		if (!_lg_typecheck_cancelCleanup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void OpenThreads::Thread::cancelCleanup() function, expected prototype:\nvoid OpenThreads::Thread::cancelCleanup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void OpenThreads::Thread::cancelCleanup() function, expected prototype:\nvoid OpenThreads::Thread::cancelCleanup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void OpenThreads::Thread::cancelCleanup(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void OpenThreads::Thread::cancelCleanup(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->cancelCleanup();
 
@@ -854,15 +799,13 @@ public:
 	// void * OpenThreads::Thread::getImplementation()
 	static int _bind_getImplementation(lua_State *L) {
 		if (!_lg_typecheck_getImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * OpenThreads::Thread::getImplementation() function, expected prototype:\nvoid * OpenThreads::Thread::getImplementation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * OpenThreads::Thread::getImplementation() function, expected prototype:\nvoid * OpenThreads::Thread::getImplementation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * OpenThreads::Thread::getImplementation(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * OpenThreads::Thread::getImplementation(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->getImplementation();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -875,16 +818,14 @@ public:
 	// int OpenThreads::Thread::setProcessorAffinity(unsigned int cpunum)
 	static int _bind_setProcessorAffinity(lua_State *L) {
 		if (!_lg_typecheck_setProcessorAffinity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::setProcessorAffinity(unsigned int cpunum) function, expected prototype:\nint OpenThreads::Thread::setProcessorAffinity(unsigned int cpunum)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::setProcessorAffinity(unsigned int cpunum) function, expected prototype:\nint OpenThreads::Thread::setProcessorAffinity(unsigned int cpunum)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int cpunum=(unsigned int)lua_tointeger(L,2);
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::setProcessorAffinity(unsigned int). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::setProcessorAffinity(unsigned int). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->setProcessorAffinity(cpunum);
 		lua_pushnumber(L,lret);
@@ -895,15 +836,13 @@ public:
 	// int OpenThreads::Thread::base_cancel()
 	static int _bind_base_cancel(lua_State *L) {
 		if (!_lg_typecheck_base_cancel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::base_cancel() function, expected prototype:\nint OpenThreads::Thread::base_cancel()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Thread::base_cancel() function, expected prototype:\nint OpenThreads::Thread::base_cancel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::base_cancel(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Thread::base_cancel(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Thread::cancel();
 		lua_pushnumber(L,lret);
@@ -914,15 +853,13 @@ public:
 	// void OpenThreads::Thread::base_cancelCleanup()
 	static int _bind_base_cancelCleanup(lua_State *L) {
 		if (!_lg_typecheck_base_cancelCleanup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void OpenThreads::Thread::base_cancelCleanup() function, expected prototype:\nvoid OpenThreads::Thread::base_cancelCleanup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void OpenThreads::Thread::base_cancelCleanup() function, expected prototype:\nvoid OpenThreads::Thread::base_cancelCleanup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Thread* self=(Luna< OpenThreads::Thread >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void OpenThreads::Thread::base_cancelCleanup(). Got : '%s'",typeid(Luna< OpenThreads::Thread >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void OpenThreads::Thread::base_cancelCleanup(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Thread >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Thread::cancelCleanup();
 

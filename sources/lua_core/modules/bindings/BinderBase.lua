@@ -31,7 +31,6 @@ function BinderBase:handle(writer,func,name)
 		writer:writeSubLine("if (!_lg_typecheck_${1}(L)) {",name)
 		writer:pushIndent()
 			-- report error here:
-			writer:writeLine("luna_printStack(L);")
 			local args = {}
 			local params = func:getParameters()
 			for k,p in params:sequence() do
@@ -42,7 +41,7 @@ function BinderBase:handle(writer,func,name)
 				end
 			end
 			
-			writer:writeSubLine('luaL_error(L, "luna typecheck failed in ${1} function, expected prototype:\\n${1}\\nClass arguments details:\\n${2}");',func:getPrototype(true,true,true):gsub('\"','\\\"'),table.concat(args))
+			writer:writeSubLine('luaL_error(L, "luna typecheck failed in ${1} function, expected prototype:\\n${1}\\nClass arguments details:\\n${2}\\n%s",luna_dumpStack(L).c_str());',func:getPrototype(true,true,true):gsub('\"','\\\"'),table.concat(args))
 		writer:popIndent()
 		writer:writeLine("}")
 		writer:newLine()

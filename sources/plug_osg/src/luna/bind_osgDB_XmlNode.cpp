@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::XmlNode* self= (osgDB::XmlNode*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -199,8 +196,7 @@ public:
 	// osgDB::XmlNode::XmlNode()
 	static osgDB::XmlNode* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::XmlNode::XmlNode() function, expected prototype:\nosgDB::XmlNode::XmlNode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::XmlNode::XmlNode() function, expected prototype:\nosgDB::XmlNode::XmlNode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -210,8 +206,7 @@ public:
 	// osgDB::XmlNode::XmlNode(lua_Table * data)
 	static osgDB::XmlNode* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::XmlNode::XmlNode(lua_Table * data) function, expected prototype:\nosgDB::XmlNode::XmlNode(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::XmlNode::XmlNode(lua_Table * data) function, expected prototype:\nosgDB::XmlNode::XmlNode(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -232,15 +227,13 @@ public:
 	// std::string osgDB::XmlNode::getTrimmedContents() const
 	static int _bind_getTrimmedContents(lua_State *L) {
 		if (!_lg_typecheck_getTrimmedContents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string osgDB::XmlNode::getTrimmedContents() const function, expected prototype:\nstd::string osgDB::XmlNode::getTrimmedContents() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string osgDB::XmlNode::getTrimmedContents() const function, expected prototype:\nstd::string osgDB::XmlNode::getTrimmedContents() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgDB::XmlNode::getTrimmedContents() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string osgDB::XmlNode::getTrimmedContents() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->getTrimmedContents();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -251,8 +244,7 @@ public:
 	// bool osgDB::XmlNode::write(std::ostream & fout, const std::string & indent = "") const
 	static int _bind_write(lua_State *L) {
 		if (!_lg_typecheck_write(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::XmlNode::write(std::ostream & fout, const std::string & indent = \"\") const function, expected prototype:\nbool osgDB::XmlNode::write(std::ostream & fout, const std::string & indent = \"\") const\nClass arguments details:\narg 1 ID = 2993706\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::XmlNode::write(std::ostream & fout, const std::string & indent = \"\") const function, expected prototype:\nbool osgDB::XmlNode::write(std::ostream & fout, const std::string & indent = \"\") const\nClass arguments details:\narg 1 ID = 2993706\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -266,8 +258,7 @@ public:
 
 		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::XmlNode::write(std::ostream &, const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::XmlNode::write(std::ostream &, const std::string &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->write(fout, indent);
 		lua_pushboolean(L,lret?1:0);
@@ -278,15 +269,13 @@ public:
 	// osgDB::XmlNode::NodeType osgDB::XmlNode::type()
 	static int _bind_getType(lua_State *L) {
 		if (!_lg_typecheck_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::XmlNode::NodeType osgDB::XmlNode::type() function, expected prototype:\nosgDB::XmlNode::NodeType osgDB::XmlNode::type()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::XmlNode::NodeType osgDB::XmlNode::type() function, expected prototype:\nosgDB::XmlNode::NodeType osgDB::XmlNode::type()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::XmlNode::NodeType osgDB::XmlNode::type(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::XmlNode::NodeType osgDB::XmlNode::type(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::XmlNode::NodeType lret = self->type;
 		lua_pushnumber(L,lret);
@@ -297,15 +286,13 @@ public:
 	// std::string osgDB::XmlNode::name()
 	static int _bind_getName(lua_State *L) {
 		if (!_lg_typecheck_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string osgDB::XmlNode::name() function, expected prototype:\nstd::string osgDB::XmlNode::name()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string osgDB::XmlNode::name() function, expected prototype:\nstd::string osgDB::XmlNode::name()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgDB::XmlNode::name(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string osgDB::XmlNode::name(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->name;
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -316,15 +303,13 @@ public:
 	// std::string osgDB::XmlNode::contents()
 	static int _bind_getContents(lua_State *L) {
 		if (!_lg_typecheck_getContents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string osgDB::XmlNode::contents() function, expected prototype:\nstd::string osgDB::XmlNode::contents()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string osgDB::XmlNode::contents() function, expected prototype:\nstd::string osgDB::XmlNode::contents()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgDB::XmlNode::contents(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string osgDB::XmlNode::contents(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->contents;
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -335,15 +320,13 @@ public:
 	// osgDB::XmlNode::Properties osgDB::XmlNode::properties()
 	static int _bind_getProperties(lua_State *L) {
 		if (!_lg_typecheck_getProperties(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::XmlNode::Properties osgDB::XmlNode::properties() function, expected prototype:\nosgDB::XmlNode::Properties osgDB::XmlNode::properties()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::XmlNode::Properties osgDB::XmlNode::properties() function, expected prototype:\nosgDB::XmlNode::Properties osgDB::XmlNode::properties()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::XmlNode::Properties osgDB::XmlNode::properties(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::XmlNode::Properties osgDB::XmlNode::properties(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgDB::XmlNode::Properties* lret = &self->properties;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -356,15 +339,13 @@ public:
 	// osgDB::XmlNode::Children osgDB::XmlNode::children()
 	static int _bind_getChildren(lua_State *L) {
 		if (!_lg_typecheck_getChildren(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::XmlNode::Children osgDB::XmlNode::children() function, expected prototype:\nosgDB::XmlNode::Children osgDB::XmlNode::children()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::XmlNode::Children osgDB::XmlNode::children() function, expected prototype:\nosgDB::XmlNode::Children osgDB::XmlNode::children()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::XmlNode::Children osgDB::XmlNode::children(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::XmlNode::Children osgDB::XmlNode::children(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgDB::XmlNode::Children* lret = &self->children;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -377,16 +358,14 @@ public:
 	// void osgDB::XmlNode::type(osgDB::XmlNode::NodeType value)
 	static int _bind_setType(lua_State *L) {
 		if (!_lg_typecheck_setType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::type(osgDB::XmlNode::NodeType value) function, expected prototype:\nvoid osgDB::XmlNode::type(osgDB::XmlNode::NodeType value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::type(osgDB::XmlNode::NodeType value) function, expected prototype:\nvoid osgDB::XmlNode::type(osgDB::XmlNode::NodeType value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::XmlNode::NodeType value=(osgDB::XmlNode::NodeType)lua_tointeger(L,2);
 
 		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::type(osgDB::XmlNode::NodeType). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::type(osgDB::XmlNode::NodeType). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->type = value;
 
@@ -396,16 +375,14 @@ public:
 	// void osgDB::XmlNode::name(std::string value)
 	static int _bind_setName(lua_State *L) {
 		if (!_lg_typecheck_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::name(std::string value) function, expected prototype:\nvoid osgDB::XmlNode::name(std::string value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::name(std::string value) function, expected prototype:\nvoid osgDB::XmlNode::name(std::string value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::name(std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::name(std::string). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->name = value;
 
@@ -415,16 +392,14 @@ public:
 	// void osgDB::XmlNode::contents(std::string value)
 	static int _bind_setContents(lua_State *L) {
 		if (!_lg_typecheck_setContents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::contents(std::string value) function, expected prototype:\nvoid osgDB::XmlNode::contents(std::string value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::contents(std::string value) function, expected prototype:\nvoid osgDB::XmlNode::contents(std::string value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::contents(std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::contents(std::string). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->contents = value;
 
@@ -434,8 +409,7 @@ public:
 	// void osgDB::XmlNode::properties(osgDB::XmlNode::Properties value)
 	static int _bind_setProperties(lua_State *L) {
 		if (!_lg_typecheck_setProperties(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::properties(osgDB::XmlNode::Properties value) function, expected prototype:\nvoid osgDB::XmlNode::properties(osgDB::XmlNode::Properties value)\nClass arguments details:\narg 1 ID = 73311934\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::properties(osgDB::XmlNode::Properties value) function, expected prototype:\nvoid osgDB::XmlNode::properties(osgDB::XmlNode::Properties value)\nClass arguments details:\narg 1 ID = 73311934\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::XmlNode::Properties* value_ptr=(Luna< std::map< std::string, std::string > >::checkSubType< osgDB::XmlNode::Properties >(L,2));
@@ -446,8 +420,7 @@ public:
 
 		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::properties(osgDB::XmlNode::Properties). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::properties(osgDB::XmlNode::Properties). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->properties = value;
 
@@ -457,8 +430,7 @@ public:
 	// void osgDB::XmlNode::children(osgDB::XmlNode::Children value)
 	static int _bind_setChildren(lua_State *L) {
 		if (!_lg_typecheck_setChildren(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::children(osgDB::XmlNode::Children value) function, expected prototype:\nvoid osgDB::XmlNode::children(osgDB::XmlNode::Children value)\nClass arguments details:\narg 1 ID = 5928633\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::children(osgDB::XmlNode::Children value) function, expected prototype:\nvoid osgDB::XmlNode::children(osgDB::XmlNode::Children value)\nClass arguments details:\narg 1 ID = 5928633\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::XmlNode::Children* value_ptr=(Luna< std::vector< osg::ref_ptr< osgDB::XmlNode > > >::checkSubType< osgDB::XmlNode::Children >(L,2));
@@ -469,8 +441,7 @@ public:
 
 		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::children(osgDB::XmlNode::Children). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::children(osgDB::XmlNode::Children). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->children = value;
 
@@ -480,16 +451,14 @@ public:
 	// void osgDB::XmlNode::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::XmlNode::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::XmlNode::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->XmlNode::setThreadSafeRefUnref(threadSafe);
 

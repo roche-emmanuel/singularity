@@ -493,8 +493,7 @@ public:
 	// void osgUtil::CullVisitor::public_handle_cull_callbacks_and_traverse(osg::Node & node)
 	static int _bind_public_handle_cull_callbacks_and_traverse(lua_State *L) {
 		if (!_lg_typecheck_public_handle_cull_callbacks_and_traverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::CullVisitor::public_handle_cull_callbacks_and_traverse(osg::Node & node) function, expected prototype:\nvoid osgUtil::CullVisitor::public_handle_cull_callbacks_and_traverse(osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::CullVisitor::public_handle_cull_callbacks_and_traverse(osg::Node & node) function, expected prototype:\nvoid osgUtil::CullVisitor::public_handle_cull_callbacks_and_traverse(osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
@@ -505,8 +504,7 @@ public:
 
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::CullVisitor::public_handle_cull_callbacks_and_traverse(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::CullVisitor::public_handle_cull_callbacks_and_traverse(osg::Node &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_handle_cull_callbacks_and_traverse(node);
 
@@ -516,8 +514,7 @@ public:
 	// void osgUtil::CullVisitor::public_handle_cull_callbacks_and_accept(osg::Node & node, osg::Node * acceptNode)
 	static int _bind_public_handle_cull_callbacks_and_accept(lua_State *L) {
 		if (!_lg_typecheck_public_handle_cull_callbacks_and_accept(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::CullVisitor::public_handle_cull_callbacks_and_accept(osg::Node & node, osg::Node * acceptNode) function, expected prototype:\nvoid osgUtil::CullVisitor::public_handle_cull_callbacks_and_accept(osg::Node & node, osg::Node * acceptNode)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::CullVisitor::public_handle_cull_callbacks_and_accept(osg::Node & node, osg::Node * acceptNode) function, expected prototype:\nvoid osgUtil::CullVisitor::public_handle_cull_callbacks_and_accept(osg::Node & node, osg::Node * acceptNode)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
@@ -529,8 +526,7 @@ public:
 
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::CullVisitor::public_handle_cull_callbacks_and_accept(osg::Node &, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::CullVisitor::public_handle_cull_callbacks_and_accept(osg::Node &, osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_handle_cull_callbacks_and_accept(node, acceptNode);
 
@@ -540,8 +536,7 @@ public:
 	// osgUtil::RenderLeaf * osgUtil::CullVisitor::public_createOrReuseRenderLeaf(osg::Drawable * drawable, osg::RefMatrixd * projection, osg::RefMatrixd * matrix, float depth = 0.0f)
 	static int _bind_public_createOrReuseRenderLeaf(lua_State *L) {
 		if (!_lg_typecheck_public_createOrReuseRenderLeaf(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderLeaf * osgUtil::CullVisitor::public_createOrReuseRenderLeaf(osg::Drawable * drawable, osg::RefMatrixd * projection, osg::RefMatrixd * matrix, float depth = 0.0f) function, expected prototype:\nosgUtil::RenderLeaf * osgUtil::CullVisitor::public_createOrReuseRenderLeaf(osg::Drawable * drawable, osg::RefMatrixd * projection, osg::RefMatrixd * matrix, float depth = 0.0f)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderLeaf * osgUtil::CullVisitor::public_createOrReuseRenderLeaf(osg::Drawable * drawable, osg::RefMatrixd * projection, osg::RefMatrixd * matrix, float depth = 0.0f) function, expected prototype:\nosgUtil::RenderLeaf * osgUtil::CullVisitor::public_createOrReuseRenderLeaf(osg::Drawable * drawable, osg::RefMatrixd * projection, osg::RefMatrixd * matrix, float depth = 0.0f)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -553,8 +548,7 @@ public:
 
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::RenderLeaf * osgUtil::CullVisitor::public_createOrReuseRenderLeaf(osg::Drawable *, osg::RefMatrixd *, osg::RefMatrixd *, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::RenderLeaf * osgUtil::CullVisitor::public_createOrReuseRenderLeaf(osg::Drawable *, osg::RefMatrixd *, osg::RefMatrixd *, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::RenderLeaf * lret = self->public_createOrReuseRenderLeaf(drawable, projection, matrix, depth);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -567,8 +561,7 @@ public:
 	// osgUtil::CullVisitor & osgUtil::CullVisitor::public_op_assign(const osgUtil::CullVisitor & arg1)
 	static int _bind_public_op_assign(lua_State *L) {
 		if (!_lg_typecheck_public_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::CullVisitor & osgUtil::CullVisitor::public_op_assign(const osgUtil::CullVisitor & arg1) function, expected prototype:\nosgUtil::CullVisitor & osgUtil::CullVisitor::public_op_assign(const osgUtil::CullVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::CullVisitor & osgUtil::CullVisitor::public_op_assign(const osgUtil::CullVisitor & arg1) function, expected prototype:\nosgUtil::CullVisitor & osgUtil::CullVisitor::public_op_assign(const osgUtil::CullVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgUtil::CullVisitor* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::CullVisitor >(L,2));
@@ -579,8 +572,7 @@ public:
 
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::CullVisitor & osgUtil::CullVisitor::public_op_assign(const osgUtil::CullVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::CullVisitor & osgUtil::CullVisitor::public_op_assign(const osgUtil::CullVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::CullVisitor* lret = &self->public_op_assign(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -593,8 +585,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -602,8 +593,7 @@ public:
 
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -613,15 +603,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 
@@ -631,15 +619,13 @@ public:
 	// void osg::CullStack::public_computeFrustumVolume()
 	static int _bind_public_computeFrustumVolume(lua_State *L) {
 		if (!_lg_typecheck_public_computeFrustumVolume(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::public_computeFrustumVolume() function, expected prototype:\nvoid osg::CullStack::public_computeFrustumVolume()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::public_computeFrustumVolume() function, expected prototype:\nvoid osg::CullStack::public_computeFrustumVolume()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::CullSettings >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::public_computeFrustumVolume(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::public_computeFrustumVolume(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computeFrustumVolume();
 
@@ -649,8 +635,7 @@ public:
 	// osg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd & value)
 	static int _bind_public_createOrReuseMatrix(lua_State *L) {
 		if (!_lg_typecheck_public_createOrReuseMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd & value) function, expected prototype:\nosg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd & value)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in osg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd & value) function, expected prototype:\nosg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd & value)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* value_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -661,8 +646,7 @@ public:
 
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::CullSettings >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::RefMatrixd * lret = self->public_createOrReuseMatrix(value);
 		if(!lret) return 0; // Do not write NULL pointers.

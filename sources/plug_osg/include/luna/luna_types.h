@@ -1219,6 +1219,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::Drawable::UpdateCallback
+template<>
+class LunaTraits< osg::Drawable::UpdateCallback > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Drawable::UpdateCallback* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Drawable::UpdateCallback* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Drawable::UpdateCallback base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: osg::StateAttributeCallback
 template<>
 class LunaTraits< osg::StateAttributeCallback > {
@@ -1254,25 +1273,6 @@ public:
 	static void _bind_dtor(osg::Image::UpdateCallback* obj);
 	typedef osg::Referenced parent_t;
 	typedef osg::Image::UpdateCallback base_t;
-	static luna_ConverterType converters[];
-};
-
-// Class: osg::Drawable::UpdateCallback
-template<>
-class LunaTraits< osg::Drawable::UpdateCallback > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osg::Drawable::UpdateCallback* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::Drawable::UpdateCallback* obj);
-	typedef osg::Referenced parent_t;
-	typedef osg::Drawable::UpdateCallback base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -2888,25 +2888,6 @@ public:
 	static void _bind_dtor(osg::TemplateValueObject< osg::Matrixd >* obj);
 	typedef osg::TemplateValueObject< osg::Matrixd > parent_t;
 	typedef osg::TemplateValueObject< osg::Matrixd > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Class: std::vector< osg::Vec3d >
-template<>
-class LunaTraits< std::vector< osg::Vec3d > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::vector< osg::Vec3d >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::vector< osg::Vec3d >* obj);
-	typedef std::vector< osg::Vec3d > parent_t;
-	typedef std::vector< osg::Vec3d > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -9842,6 +9823,63 @@ public:
 	static void _bind_dtor(osg::Matrix3d* obj);
 	typedef osg::Matrix3d parent_t;
 	typedef osg::Matrix3d base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Vec2dVector
+template<>
+class LunaTraits< osg::Vec2dVector > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec2dVector* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec2dVector* obj);
+	typedef osg::Vec2dVector parent_t;
+	typedef osg::Vec2dVector base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Vec3dVector
+template<>
+class LunaTraits< osg::Vec3dVector > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec3dVector* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec3dVector* obj);
+	typedef osg::Vec3dVector parent_t;
+	typedef osg::Vec3dVector base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Vec4dVector
+template<>
+class LunaTraits< osg::Vec4dVector > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec4dVector* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec4dVector* obj);
+	typedef osg::Vec4dVector parent_t;
+	typedef osg::Vec4dVector base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -17901,6 +17939,27 @@ public:
 };
 
 template<>
+class LunaType< 60175922 > {
+public:
+	typedef osg::Vec2dVector type;
+	
+};
+
+template<>
+class LunaType< 72785881 > {
+public:
+	typedef osg::Vec3dVector type;
+	
+};
+
+template<>
+class LunaType< 85395871 > {
+public:
+	typedef osg::Vec4dVector type;
+	
+};
+
+template<>
 class LunaType< 54591957 > {
 public:
 	typedef osgDB::FilePathList type;
@@ -19493,13 +19552,6 @@ template<>
 class LunaType< 54000166 > {
 public:
 	typedef osg::TemplateValueObject< osg::Matrixd > type;
-	
-};
-
-template<>
-class LunaType< 30218166 > {
-public:
-	typedef std::vector< osg::Vec3d > type;
 	
 };
 

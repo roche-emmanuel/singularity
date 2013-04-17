@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ClusterCullingCallback* self= (osg::ClusterCullingCallback*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -386,8 +383,7 @@ public:
 	// osg::ClusterCullingCallback::ClusterCullingCallback()
 	static osg::ClusterCullingCallback* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback() function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback() function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -397,8 +393,7 @@ public:
 	// osg::ClusterCullingCallback::ClusterCullingCallback(const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop)
 	static osg::ClusterCullingCallback* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::ClusterCullingCallback* ccc_ptr=(Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1));
@@ -418,8 +413,7 @@ public:
 	// osg::ClusterCullingCallback::ClusterCullingCallback(const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation)
 	static osg::ClusterCullingCallback* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* controlPoint_ptr=(Luna< osg::Vec3f >::check(L,1));
@@ -440,8 +434,7 @@ public:
 	// osg::ClusterCullingCallback::ClusterCullingCallback(const osg::Drawable * drawable)
 	static osg::ClusterCullingCallback* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(const osg::Drawable * drawable) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(const osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(const osg::Drawable * drawable) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(const osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Drawable* drawable=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,1));
@@ -452,8 +445,7 @@ public:
 	// osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data)
 	static osg::ClusterCullingCallback* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -463,8 +455,7 @@ public:
 	// osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop)
 	static osg::ClusterCullingCallback* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::ClusterCullingCallback* ccc_ptr=(Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,2));
@@ -484,8 +475,7 @@ public:
 	// osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation)
 	static osg::ClusterCullingCallback* _bind_ctor_overload_7(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation)\nClass arguments details:\narg 2 ID = 92303204\narg 3 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation)\nClass arguments details:\narg 2 ID = 92303204\narg 3 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* controlPoint_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -506,8 +496,7 @@ public:
 	// osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Drawable * drawable)
 	static osg::ClusterCullingCallback* _bind_ctor_overload_8(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Drawable * drawable) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Drawable * drawable)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Drawable * drawable) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Drawable * drawable)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Drawable* drawable=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
@@ -535,15 +524,13 @@ public:
 	// osg::Object * osg::ClusterCullingCallback::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClusterCullingCallback::cloneType() const function, expected prototype:\nosg::Object * osg::ClusterCullingCallback::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClusterCullingCallback::cloneType() const function, expected prototype:\nosg::Object * osg::ClusterCullingCallback::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClusterCullingCallback::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClusterCullingCallback::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -556,8 +543,7 @@ public:
 	// osg::Object * osg::ClusterCullingCallback::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClusterCullingCallback::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ClusterCullingCallback::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClusterCullingCallback::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ClusterCullingCallback::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -568,8 +554,7 @@ public:
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClusterCullingCallback::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClusterCullingCallback::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -582,16 +567,14 @@ public:
 	// bool osg::ClusterCullingCallback::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ClusterCullingCallback::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::ClusterCullingCallback::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ClusterCullingCallback::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::ClusterCullingCallback::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClusterCullingCallback::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ClusterCullingCallback::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -602,15 +585,13 @@ public:
 	// const char * osg::ClusterCullingCallback::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::ClusterCullingCallback::libraryName() const function, expected prototype:\nconst char * osg::ClusterCullingCallback::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::ClusterCullingCallback::libraryName() const function, expected prototype:\nconst char * osg::ClusterCullingCallback::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClusterCullingCallback::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::ClusterCullingCallback::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -621,15 +602,13 @@ public:
 	// const char * osg::ClusterCullingCallback::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::ClusterCullingCallback::className() const function, expected prototype:\nconst char * osg::ClusterCullingCallback::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::ClusterCullingCallback::className() const function, expected prototype:\nconst char * osg::ClusterCullingCallback::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClusterCullingCallback::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::ClusterCullingCallback::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -640,16 +619,14 @@ public:
 	// void osg::ClusterCullingCallback::computeFrom(const osg::Drawable * drawable)
 	static int _bind_computeFrom(lua_State *L) {
 		if (!_lg_typecheck_computeFrom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::computeFrom(const osg::Drawable * drawable) function, expected prototype:\nvoid osg::ClusterCullingCallback::computeFrom(const osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::computeFrom(const osg::Drawable * drawable) function, expected prototype:\nvoid osg::ClusterCullingCallback::computeFrom(const osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Drawable* drawable=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::computeFrom(const osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::computeFrom(const osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->computeFrom(drawable);
 
@@ -659,8 +636,7 @@ public:
 	// void osg::ClusterCullingCallback::transform(const osg::Matrixd & matrix)
 	static int _bind_transform(lua_State *L) {
 		if (!_lg_typecheck_transform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::transform(const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::ClusterCullingCallback::transform(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::transform(const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::ClusterCullingCallback::transform(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -671,8 +647,7 @@ public:
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::transform(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::transform(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->transform(matrix);
 
@@ -682,8 +657,7 @@ public:
 	// void osg::ClusterCullingCallback::set(const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation, float radius)
 	static int _bind_set(lua_State *L) {
 		if (!_lg_typecheck_set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::set(const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation, float radius) function, expected prototype:\nvoid osg::ClusterCullingCallback::set(const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation, float radius)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::set(const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation, float radius) function, expected prototype:\nvoid osg::ClusterCullingCallback::set(const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation, float radius)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* controlPoint_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -701,8 +675,7 @@ public:
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::set(const osg::Vec3f &, const osg::Vec3f &, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::set(const osg::Vec3f &, const osg::Vec3f &, float, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(controlPoint, normal, deviation, radius);
 
@@ -712,8 +685,7 @@ public:
 	// void osg::ClusterCullingCallback::setControlPoint(const osg::Vec3f & controlPoint)
 	static int _bind_setControlPoint(lua_State *L) {
 		if (!_lg_typecheck_setControlPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::setControlPoint(const osg::Vec3f & controlPoint) function, expected prototype:\nvoid osg::ClusterCullingCallback::setControlPoint(const osg::Vec3f & controlPoint)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::setControlPoint(const osg::Vec3f & controlPoint) function, expected prototype:\nvoid osg::ClusterCullingCallback::setControlPoint(const osg::Vec3f & controlPoint)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* controlPoint_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -724,8 +696,7 @@ public:
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::setControlPoint(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::setControlPoint(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setControlPoint(controlPoint);
 
@@ -735,15 +706,13 @@ public:
 	// const osg::Vec3f & osg::ClusterCullingCallback::getControlPoint() const
 	static int _bind_getControlPoint(lua_State *L) {
 		if (!_lg_typecheck_getControlPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::ClusterCullingCallback::getControlPoint() const function, expected prototype:\nconst osg::Vec3f & osg::ClusterCullingCallback::getControlPoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::ClusterCullingCallback::getControlPoint() const function, expected prototype:\nconst osg::Vec3f & osg::ClusterCullingCallback::getControlPoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::ClusterCullingCallback::getControlPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::ClusterCullingCallback::getControlPoint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->getControlPoint();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -756,8 +725,7 @@ public:
 	// void osg::ClusterCullingCallback::setNormal(const osg::Vec3f & normal)
 	static int _bind_setNormal(lua_State *L) {
 		if (!_lg_typecheck_setNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::setNormal(const osg::Vec3f & normal) function, expected prototype:\nvoid osg::ClusterCullingCallback::setNormal(const osg::Vec3f & normal)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::setNormal(const osg::Vec3f & normal) function, expected prototype:\nvoid osg::ClusterCullingCallback::setNormal(const osg::Vec3f & normal)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* normal_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -768,8 +736,7 @@ public:
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::setNormal(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::setNormal(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setNormal(normal);
 
@@ -779,15 +746,13 @@ public:
 	// const osg::Vec3f & osg::ClusterCullingCallback::getNormal() const
 	static int _bind_getNormal(lua_State *L) {
 		if (!_lg_typecheck_getNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::ClusterCullingCallback::getNormal() const function, expected prototype:\nconst osg::Vec3f & osg::ClusterCullingCallback::getNormal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::ClusterCullingCallback::getNormal() const function, expected prototype:\nconst osg::Vec3f & osg::ClusterCullingCallback::getNormal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::ClusterCullingCallback::getNormal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::ClusterCullingCallback::getNormal() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->getNormal();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -800,16 +765,14 @@ public:
 	// void osg::ClusterCullingCallback::setRadius(float radius)
 	static int _bind_setRadius(lua_State *L) {
 		if (!_lg_typecheck_setRadius(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::setRadius(float radius) function, expected prototype:\nvoid osg::ClusterCullingCallback::setRadius(float radius)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::setRadius(float radius) function, expected prototype:\nvoid osg::ClusterCullingCallback::setRadius(float radius)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float radius=(float)lua_tonumber(L,2);
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::setRadius(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::setRadius(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRadius(radius);
 
@@ -819,15 +782,13 @@ public:
 	// float osg::ClusterCullingCallback::getRadius() const
 	static int _bind_getRadius(lua_State *L) {
 		if (!_lg_typecheck_getRadius(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::ClusterCullingCallback::getRadius() const function, expected prototype:\nfloat osg::ClusterCullingCallback::getRadius() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::ClusterCullingCallback::getRadius() const function, expected prototype:\nfloat osg::ClusterCullingCallback::getRadius() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::ClusterCullingCallback::getRadius() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::ClusterCullingCallback::getRadius() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getRadius();
 		lua_pushnumber(L,lret);
@@ -838,16 +799,14 @@ public:
 	// void osg::ClusterCullingCallback::setDeviation(float deviation)
 	static int _bind_setDeviation(lua_State *L) {
 		if (!_lg_typecheck_setDeviation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::setDeviation(float deviation) function, expected prototype:\nvoid osg::ClusterCullingCallback::setDeviation(float deviation)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::setDeviation(float deviation) function, expected prototype:\nvoid osg::ClusterCullingCallback::setDeviation(float deviation)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float deviation=(float)lua_tonumber(L,2);
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::setDeviation(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::setDeviation(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDeviation(deviation);
 
@@ -857,15 +816,13 @@ public:
 	// float osg::ClusterCullingCallback::getDeviation() const
 	static int _bind_getDeviation(lua_State *L) {
 		if (!_lg_typecheck_getDeviation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::ClusterCullingCallback::getDeviation() const function, expected prototype:\nfloat osg::ClusterCullingCallback::getDeviation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::ClusterCullingCallback::getDeviation() const function, expected prototype:\nfloat osg::ClusterCullingCallback::getDeviation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::ClusterCullingCallback::getDeviation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::ClusterCullingCallback::getDeviation() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getDeviation();
 		lua_pushnumber(L,lret);
@@ -876,8 +833,7 @@ public:
 	// bool osg::ClusterCullingCallback::cull(osg::NodeVisitor * arg1, osg::Drawable * arg2, osg::State * arg3) const
 	static int _bind_cull(lua_State *L) {
 		if (!_lg_typecheck_cull(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ClusterCullingCallback::cull(osg::NodeVisitor * arg1, osg::Drawable * arg2, osg::State * arg3) const function, expected prototype:\nbool osg::ClusterCullingCallback::cull(osg::NodeVisitor * arg1, osg::Drawable * arg2, osg::State * arg3) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ClusterCullingCallback::cull(osg::NodeVisitor * arg1, osg::Drawable * arg2, osg::State * arg3) const function, expected prototype:\nbool osg::ClusterCullingCallback::cull(osg::NodeVisitor * arg1, osg::Drawable * arg2, osg::State * arg3) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* _arg1=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -886,8 +842,7 @@ public:
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClusterCullingCallback::cull(osg::NodeVisitor *, osg::Drawable *, osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ClusterCullingCallback::cull(osg::NodeVisitor *, osg::Drawable *, osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->cull(_arg1, _arg2, _arg3);
 		lua_pushboolean(L,lret?1:0);
@@ -898,16 +853,14 @@ public:
 	// void osg::ClusterCullingCallback::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::ClusterCullingCallback::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::ClusterCullingCallback::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClusterCullingCallback::setThreadSafeRefUnref(threadSafe);
 
@@ -917,16 +870,14 @@ public:
 	// void osg::ClusterCullingCallback::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::base_setName(const std::string & name) function, expected prototype:\nvoid osg::ClusterCullingCallback::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::base_setName(const std::string & name) function, expected prototype:\nvoid osg::ClusterCullingCallback::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClusterCullingCallback::setName(name);
 
@@ -936,15 +887,13 @@ public:
 	// void osg::ClusterCullingCallback::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::base_computeDataVariance() function, expected prototype:\nvoid osg::ClusterCullingCallback::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::base_computeDataVariance() function, expected prototype:\nvoid osg::ClusterCullingCallback::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClusterCullingCallback::computeDataVariance();
 
@@ -954,16 +903,14 @@ public:
 	// void osg::ClusterCullingCallback::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::ClusterCullingCallback::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::ClusterCullingCallback::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClusterCullingCallback::setUserData(obj);
 
@@ -973,15 +920,13 @@ public:
 	// osg::Referenced * osg::ClusterCullingCallback::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::ClusterCullingCallback::base_getUserData() function, expected prototype:\nosg::Referenced * osg::ClusterCullingCallback::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::ClusterCullingCallback::base_getUserData() function, expected prototype:\nosg::Referenced * osg::ClusterCullingCallback::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ClusterCullingCallback::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ClusterCullingCallback::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->ClusterCullingCallback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -994,15 +939,13 @@ public:
 	// const osg::Referenced * osg::ClusterCullingCallback::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::ClusterCullingCallback::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::ClusterCullingCallback::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::ClusterCullingCallback::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::ClusterCullingCallback::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ClusterCullingCallback::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ClusterCullingCallback::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->ClusterCullingCallback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1024,8 +967,7 @@ public:
 	// void osg::ClusterCullingCallback::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::ClusterCullingCallback::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::ClusterCullingCallback::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1034,8 +976,7 @@ public:
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClusterCullingCallback::releaseGLObjects(_arg1);
 
@@ -1045,15 +986,13 @@ public:
 	// osg::Object * osg::ClusterCullingCallback::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClusterCullingCallback::base_cloneType() const function, expected prototype:\nosg::Object * osg::ClusterCullingCallback::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClusterCullingCallback::base_cloneType() const function, expected prototype:\nosg::Object * osg::ClusterCullingCallback::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClusterCullingCallback::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClusterCullingCallback::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->ClusterCullingCallback::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1066,8 +1005,7 @@ public:
 	// osg::Object * osg::ClusterCullingCallback::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClusterCullingCallback::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ClusterCullingCallback::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClusterCullingCallback::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ClusterCullingCallback::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1078,8 +1016,7 @@ public:
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClusterCullingCallback::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClusterCullingCallback::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->ClusterCullingCallback::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1092,16 +1029,14 @@ public:
 	// bool osg::ClusterCullingCallback::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ClusterCullingCallback::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::ClusterCullingCallback::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ClusterCullingCallback::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::ClusterCullingCallback::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClusterCullingCallback::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ClusterCullingCallback::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ClusterCullingCallback::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1112,15 +1047,13 @@ public:
 	// const char * osg::ClusterCullingCallback::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::ClusterCullingCallback::base_libraryName() const function, expected prototype:\nconst char * osg::ClusterCullingCallback::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::ClusterCullingCallback::base_libraryName() const function, expected prototype:\nconst char * osg::ClusterCullingCallback::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClusterCullingCallback::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::ClusterCullingCallback::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->ClusterCullingCallback::libraryName();
 		lua_pushstring(L,lret);
@@ -1131,15 +1064,13 @@ public:
 	// const char * osg::ClusterCullingCallback::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::ClusterCullingCallback::base_className() const function, expected prototype:\nconst char * osg::ClusterCullingCallback::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::ClusterCullingCallback::base_className() const function, expected prototype:\nconst char * osg::ClusterCullingCallback::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClusterCullingCallback::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::ClusterCullingCallback::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->ClusterCullingCallback::className();
 		lua_pushstring(L,lret);
@@ -1150,8 +1081,7 @@ public:
 	// bool osg::ClusterCullingCallback::base_cull(osg::NodeVisitor * arg1, osg::Drawable * arg2, osg::State * arg3) const
 	static int _bind_base_cull(lua_State *L) {
 		if (!_lg_typecheck_base_cull(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ClusterCullingCallback::base_cull(osg::NodeVisitor * arg1, osg::Drawable * arg2, osg::State * arg3) const function, expected prototype:\nbool osg::ClusterCullingCallback::base_cull(osg::NodeVisitor * arg1, osg::Drawable * arg2, osg::State * arg3) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ClusterCullingCallback::base_cull(osg::NodeVisitor * arg1, osg::Drawable * arg2, osg::State * arg3) const function, expected prototype:\nbool osg::ClusterCullingCallback::base_cull(osg::NodeVisitor * arg1, osg::Drawable * arg2, osg::State * arg3) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* _arg1=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1160,8 +1090,7 @@ public:
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClusterCullingCallback::base_cull(osg::NodeVisitor *, osg::Drawable *, osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ClusterCullingCallback::base_cull(osg::NodeVisitor *, osg::Drawable *, osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ClusterCullingCallback::cull(_arg1, _arg2, _arg3);
 		lua_pushboolean(L,lret?1:0);
@@ -1174,8 +1103,7 @@ public:
 	// void osg::ClusterCullingCallback::operator()(osg::Node * node, osg::NodeVisitor * nv)
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::operator()(osg::Node * node, osg::NodeVisitor * nv) function, expected prototype:\nvoid osg::ClusterCullingCallback::operator()(osg::Node * node, osg::NodeVisitor * nv)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClusterCullingCallback::operator()(osg::Node * node, osg::NodeVisitor * nv) function, expected prototype:\nvoid osg::ClusterCullingCallback::operator()(osg::Node * node, osg::NodeVisitor * nv)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
@@ -1183,8 +1111,7 @@ public:
 
 		osg::ClusterCullingCallback* self=Luna< osg::Referenced >::checkSubType< osg::ClusterCullingCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::operator()(osg::Node *, osg::NodeVisitor *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ClusterCullingCallback::operator()(osg::Node *, osg::NodeVisitor *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->operator()(node, nv);
 

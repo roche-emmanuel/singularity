@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::DynamicLibrary* self= (osgDB::DynamicLibrary*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -140,8 +137,7 @@ public:
 	// static osgDB::DynamicLibrary * osgDB::DynamicLibrary::loadLibrary(const std::string & libraryName)
 	static int _bind_loadLibrary(lua_State *L) {
 		if (!_lg_typecheck_loadLibrary(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osgDB::DynamicLibrary * osgDB::DynamicLibrary::loadLibrary(const std::string & libraryName) function, expected prototype:\nstatic osgDB::DynamicLibrary * osgDB::DynamicLibrary::loadLibrary(const std::string & libraryName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osgDB::DynamicLibrary * osgDB::DynamicLibrary::loadLibrary(const std::string & libraryName) function, expected prototype:\nstatic osgDB::DynamicLibrary * osgDB::DynamicLibrary::loadLibrary(const std::string & libraryName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string libraryName(lua_tostring(L,1),lua_objlen(L,1));
@@ -157,15 +153,13 @@ public:
 	// const std::string & osgDB::DynamicLibrary::getName() const
 	static int _bind_getName(lua_State *L) {
 		if (!_lg_typecheck_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osgDB::DynamicLibrary::getName() const function, expected prototype:\nconst std::string & osgDB::DynamicLibrary::getName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osgDB::DynamicLibrary::getName() const function, expected prototype:\nconst std::string & osgDB::DynamicLibrary::getName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DynamicLibrary* self=Luna< osg::Referenced >::checkSubType< osgDB::DynamicLibrary >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::DynamicLibrary::getName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::DynamicLibrary::getName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -176,15 +170,13 @@ public:
 	// const std::string & osgDB::DynamicLibrary::getFullName() const
 	static int _bind_getFullName(lua_State *L) {
 		if (!_lg_typecheck_getFullName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osgDB::DynamicLibrary::getFullName() const function, expected prototype:\nconst std::string & osgDB::DynamicLibrary::getFullName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osgDB::DynamicLibrary::getFullName() const function, expected prototype:\nconst std::string & osgDB::DynamicLibrary::getFullName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DynamicLibrary* self=Luna< osg::Referenced >::checkSubType< osgDB::DynamicLibrary >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::DynamicLibrary::getFullName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::DynamicLibrary::getFullName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getFullName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -195,15 +187,13 @@ public:
 	// void * osgDB::DynamicLibrary::getHandle() const
 	static int _bind_getHandle(lua_State *L) {
 		if (!_lg_typecheck_getHandle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * osgDB::DynamicLibrary::getHandle() const function, expected prototype:\nvoid * osgDB::DynamicLibrary::getHandle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * osgDB::DynamicLibrary::getHandle() const function, expected prototype:\nvoid * osgDB::DynamicLibrary::getHandle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DynamicLibrary* self=Luna< osg::Referenced >::checkSubType< osgDB::DynamicLibrary >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * osgDB::DynamicLibrary::getHandle() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * osgDB::DynamicLibrary::getHandle() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->getHandle();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -216,16 +206,14 @@ public:
 	// void * osgDB::DynamicLibrary::getProcAddress(const std::string & procName)
 	static int _bind_getProcAddress(lua_State *L) {
 		if (!_lg_typecheck_getProcAddress(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * osgDB::DynamicLibrary::getProcAddress(const std::string & procName) function, expected prototype:\nvoid * osgDB::DynamicLibrary::getProcAddress(const std::string & procName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * osgDB::DynamicLibrary::getProcAddress(const std::string & procName) function, expected prototype:\nvoid * osgDB::DynamicLibrary::getProcAddress(const std::string & procName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string procName(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::DynamicLibrary* self=Luna< osg::Referenced >::checkSubType< osgDB::DynamicLibrary >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * osgDB::DynamicLibrary::getProcAddress(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * osgDB::DynamicLibrary::getProcAddress(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->getProcAddress(procName);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -238,16 +226,14 @@ public:
 	// void osgDB::DynamicLibrary::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DynamicLibrary::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::DynamicLibrary::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DynamicLibrary::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::DynamicLibrary::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::DynamicLibrary* self=Luna< osg::Referenced >::checkSubType< osgDB::DynamicLibrary >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DynamicLibrary::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DynamicLibrary::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DynamicLibrary::setThreadSafeRefUnref(threadSafe);
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::HeightField* self= (osg::HeightField*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -461,8 +458,7 @@ public:
 	// osg::HeightField::HeightField()
 	static osg::HeightField* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::HeightField::HeightField() function, expected prototype:\nosg::HeightField::HeightField()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::HeightField::HeightField() function, expected prototype:\nosg::HeightField::HeightField()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -472,8 +468,7 @@ public:
 	// osg::HeightField::HeightField(const osg::HeightField & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::HeightField* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::HeightField::HeightField(const osg::HeightField & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::HeightField::HeightField(const osg::HeightField & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::HeightField::HeightField(const osg::HeightField & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::HeightField::HeightField(const osg::HeightField & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -495,8 +490,7 @@ public:
 	// osg::HeightField::HeightField(lua_Table * data)
 	static osg::HeightField* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::HeightField::HeightField(lua_Table * data) function, expected prototype:\nosg::HeightField::HeightField(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::HeightField::HeightField(lua_Table * data) function, expected prototype:\nosg::HeightField::HeightField(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -506,8 +500,7 @@ public:
 	// osg::HeightField::HeightField(lua_Table * data, const osg::HeightField & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::HeightField* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::HeightField::HeightField(lua_Table * data, const osg::HeightField & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::HeightField::HeightField(lua_Table * data, const osg::HeightField & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::HeightField::HeightField(lua_Table * data, const osg::HeightField & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::HeightField::HeightField(lua_Table * data, const osg::HeightField & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -542,15 +535,13 @@ public:
 	// osg::Object * osg::HeightField::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::HeightField::cloneType() const function, expected prototype:\nosg::Object * osg::HeightField::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::HeightField::cloneType() const function, expected prototype:\nosg::Object * osg::HeightField::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -563,8 +554,7 @@ public:
 	// osg::Object * osg::HeightField::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::HeightField::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::HeightField::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::HeightField::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::HeightField::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -575,8 +565,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -589,16 +578,14 @@ public:
 	// bool osg::HeightField::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::HeightField::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::HeightField::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::HeightField::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::HeightField::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::HeightField::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::HeightField::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -609,15 +596,13 @@ public:
 	// const char * osg::HeightField::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::HeightField::libraryName() const function, expected prototype:\nconst char * osg::HeightField::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::HeightField::libraryName() const function, expected prototype:\nconst char * osg::HeightField::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::HeightField::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::HeightField::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -628,15 +613,13 @@ public:
 	// const char * osg::HeightField::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::HeightField::className() const function, expected prototype:\nconst char * osg::HeightField::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::HeightField::className() const function, expected prototype:\nconst char * osg::HeightField::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::HeightField::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::HeightField::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -647,8 +630,7 @@ public:
 	// void osg::HeightField::accept(osg::ShapeVisitor & arg1)
 	static int _bind_accept_overload_1(lua_State *L) {
 		if (!_lg_typecheck_accept_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::accept(osg::ShapeVisitor & arg1) function, expected prototype:\nvoid osg::HeightField::accept(osg::ShapeVisitor & arg1)\nClass arguments details:\narg 1 ID = 36301858\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::accept(osg::ShapeVisitor & arg1) function, expected prototype:\nvoid osg::HeightField::accept(osg::ShapeVisitor & arg1)\nClass arguments details:\narg 1 ID = 36301858\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ShapeVisitor* _arg1_ptr=(Luna< osg::ShapeVisitor >::check(L,2));
@@ -659,8 +641,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::accept(osg::ShapeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->accept(_arg1);
 
@@ -670,8 +651,7 @@ public:
 	// void osg::HeightField::accept(osg::ConstShapeVisitor & arg1) const
 	static int _bind_accept_overload_2(lua_State *L) {
 		if (!_lg_typecheck_accept_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::accept(osg::ConstShapeVisitor & arg1) const function, expected prototype:\nvoid osg::HeightField::accept(osg::ConstShapeVisitor & arg1) const\nClass arguments details:\narg 1 ID = 45826538\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::accept(osg::ConstShapeVisitor & arg1) const function, expected prototype:\nvoid osg::HeightField::accept(osg::ConstShapeVisitor & arg1) const\nClass arguments details:\narg 1 ID = 45826538\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ConstShapeVisitor* _arg1_ptr=(Luna< osg::ConstShapeVisitor >::check(L,2));
@@ -682,8 +662,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::accept(osg::ConstShapeVisitor &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->accept(_arg1);
 
@@ -702,8 +681,7 @@ public:
 	// void osg::HeightField::allocate(unsigned int numColumns, unsigned int numRows)
 	static int _bind_allocate(lua_State *L) {
 		if (!_lg_typecheck_allocate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::allocate(unsigned int numColumns, unsigned int numRows) function, expected prototype:\nvoid osg::HeightField::allocate(unsigned int numColumns, unsigned int numRows)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::allocate(unsigned int numColumns, unsigned int numRows) function, expected prototype:\nvoid osg::HeightField::allocate(unsigned int numColumns, unsigned int numRows)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int numColumns=(unsigned int)lua_tointeger(L,2);
@@ -711,8 +689,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::allocate(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::allocate(unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->allocate(numColumns, numRows);
 
@@ -722,15 +699,13 @@ public:
 	// unsigned int osg::HeightField::getNumColumns() const
 	static int _bind_getNumColumns(lua_State *L) {
 		if (!_lg_typecheck_getNumColumns(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::HeightField::getNumColumns() const function, expected prototype:\nunsigned int osg::HeightField::getNumColumns() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::HeightField::getNumColumns() const function, expected prototype:\nunsigned int osg::HeightField::getNumColumns() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::HeightField::getNumColumns() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::HeightField::getNumColumns() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getNumColumns();
 		lua_pushnumber(L,lret);
@@ -741,15 +716,13 @@ public:
 	// unsigned int osg::HeightField::getNumRows() const
 	static int _bind_getNumRows(lua_State *L) {
 		if (!_lg_typecheck_getNumRows(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::HeightField::getNumRows() const function, expected prototype:\nunsigned int osg::HeightField::getNumRows() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::HeightField::getNumRows() const function, expected prototype:\nunsigned int osg::HeightField::getNumRows() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::HeightField::getNumRows() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::HeightField::getNumRows() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getNumRows();
 		lua_pushnumber(L,lret);
@@ -760,8 +733,7 @@ public:
 	// void osg::HeightField::setOrigin(const osg::Vec3f & origin)
 	static int _bind_setOrigin(lua_State *L) {
 		if (!_lg_typecheck_setOrigin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::setOrigin(const osg::Vec3f & origin) function, expected prototype:\nvoid osg::HeightField::setOrigin(const osg::Vec3f & origin)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::setOrigin(const osg::Vec3f & origin) function, expected prototype:\nvoid osg::HeightField::setOrigin(const osg::Vec3f & origin)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* origin_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -772,8 +744,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::setOrigin(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::setOrigin(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setOrigin(origin);
 
@@ -783,15 +754,13 @@ public:
 	// const osg::Vec3f & osg::HeightField::getOrigin() const
 	static int _bind_getOrigin(lua_State *L) {
 		if (!_lg_typecheck_getOrigin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::HeightField::getOrigin() const function, expected prototype:\nconst osg::Vec3f & osg::HeightField::getOrigin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osg::HeightField::getOrigin() const function, expected prototype:\nconst osg::Vec3f & osg::HeightField::getOrigin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::HeightField::getOrigin() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::HeightField::getOrigin() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->getOrigin();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -804,16 +773,14 @@ public:
 	// void osg::HeightField::setXInterval(float dx)
 	static int _bind_setXInterval(lua_State *L) {
 		if (!_lg_typecheck_setXInterval(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::setXInterval(float dx) function, expected prototype:\nvoid osg::HeightField::setXInterval(float dx)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::setXInterval(float dx) function, expected prototype:\nvoid osg::HeightField::setXInterval(float dx)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float dx=(float)lua_tonumber(L,2);
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::setXInterval(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::setXInterval(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setXInterval(dx);
 
@@ -823,15 +790,13 @@ public:
 	// float osg::HeightField::getXInterval() const
 	static int _bind_getXInterval(lua_State *L) {
 		if (!_lg_typecheck_getXInterval(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::HeightField::getXInterval() const function, expected prototype:\nfloat osg::HeightField::getXInterval() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::HeightField::getXInterval() const function, expected prototype:\nfloat osg::HeightField::getXInterval() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::HeightField::getXInterval() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::HeightField::getXInterval() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getXInterval();
 		lua_pushnumber(L,lret);
@@ -842,16 +807,14 @@ public:
 	// void osg::HeightField::setYInterval(float dy)
 	static int _bind_setYInterval(lua_State *L) {
 		if (!_lg_typecheck_setYInterval(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::setYInterval(float dy) function, expected prototype:\nvoid osg::HeightField::setYInterval(float dy)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::setYInterval(float dy) function, expected prototype:\nvoid osg::HeightField::setYInterval(float dy)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float dy=(float)lua_tonumber(L,2);
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::setYInterval(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::setYInterval(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setYInterval(dy);
 
@@ -861,15 +824,13 @@ public:
 	// float osg::HeightField::getYInterval() const
 	static int _bind_getYInterval(lua_State *L) {
 		if (!_lg_typecheck_getYInterval(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::HeightField::getYInterval() const function, expected prototype:\nfloat osg::HeightField::getYInterval() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::HeightField::getYInterval() const function, expected prototype:\nfloat osg::HeightField::getYInterval() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::HeightField::getYInterval() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::HeightField::getYInterval() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getYInterval();
 		lua_pushnumber(L,lret);
@@ -880,15 +841,13 @@ public:
 	// osg::FloatArray * osg::HeightField::getFloatArray()
 	static int _bind_getFloatArray_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getFloatArray_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FloatArray * osg::HeightField::getFloatArray() function, expected prototype:\nosg::FloatArray * osg::HeightField::getFloatArray()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::FloatArray * osg::HeightField::getFloatArray() function, expected prototype:\nosg::FloatArray * osg::HeightField::getFloatArray()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::FloatArray * osg::HeightField::getFloatArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::FloatArray * osg::HeightField::getFloatArray(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::FloatArray * lret = self->getFloatArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -901,15 +860,13 @@ public:
 	// const osg::FloatArray * osg::HeightField::getFloatArray() const
 	static int _bind_getFloatArray_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getFloatArray_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::FloatArray * osg::HeightField::getFloatArray() const function, expected prototype:\nconst osg::FloatArray * osg::HeightField::getFloatArray() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::FloatArray * osg::HeightField::getFloatArray() const function, expected prototype:\nconst osg::FloatArray * osg::HeightField::getFloatArray() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::FloatArray * osg::HeightField::getFloatArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::FloatArray * osg::HeightField::getFloatArray() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::FloatArray * lret = self->getFloatArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -931,15 +888,13 @@ public:
 	// osg::HeightField::HeightList & osg::HeightField::getHeightList()
 	static int _bind_getHeightList_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getHeightList_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::HeightField::HeightList & osg::HeightField::getHeightList() function, expected prototype:\nosg::HeightField::HeightList & osg::HeightField::getHeightList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::HeightField::HeightList & osg::HeightField::getHeightList() function, expected prototype:\nosg::HeightField::HeightList & osg::HeightField::getHeightList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::HeightField::HeightList & osg::HeightField::getHeightList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::HeightField::HeightList & osg::HeightField::getHeightList(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::HeightField::HeightList* lret = &self->getHeightList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -952,15 +907,13 @@ public:
 	// const osg::HeightField::HeightList & osg::HeightField::getHeightList() const
 	static int _bind_getHeightList_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getHeightList_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::HeightField::HeightList & osg::HeightField::getHeightList() const function, expected prototype:\nconst osg::HeightField::HeightList & osg::HeightField::getHeightList() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::HeightField::HeightList & osg::HeightField::getHeightList() const function, expected prototype:\nconst osg::HeightField::HeightList & osg::HeightField::getHeightList() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::HeightField::HeightList & osg::HeightField::getHeightList() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::HeightField::HeightList & osg::HeightField::getHeightList() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::HeightField::HeightList* lret = &self->getHeightList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -982,16 +935,14 @@ public:
 	// void osg::HeightField::setSkirtHeight(float skirtHeight)
 	static int _bind_setSkirtHeight(lua_State *L) {
 		if (!_lg_typecheck_setSkirtHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::setSkirtHeight(float skirtHeight) function, expected prototype:\nvoid osg::HeightField::setSkirtHeight(float skirtHeight)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::setSkirtHeight(float skirtHeight) function, expected prototype:\nvoid osg::HeightField::setSkirtHeight(float skirtHeight)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float skirtHeight=(float)lua_tonumber(L,2);
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::setSkirtHeight(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::setSkirtHeight(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSkirtHeight(skirtHeight);
 
@@ -1001,15 +952,13 @@ public:
 	// float osg::HeightField::getSkirtHeight() const
 	static int _bind_getSkirtHeight(lua_State *L) {
 		if (!_lg_typecheck_getSkirtHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::HeightField::getSkirtHeight() const function, expected prototype:\nfloat osg::HeightField::getSkirtHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::HeightField::getSkirtHeight() const function, expected prototype:\nfloat osg::HeightField::getSkirtHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::HeightField::getSkirtHeight() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::HeightField::getSkirtHeight() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getSkirtHeight();
 		lua_pushnumber(L,lret);
@@ -1020,16 +969,14 @@ public:
 	// void osg::HeightField::setBorderWidth(unsigned int borderWidth)
 	static int _bind_setBorderWidth(lua_State *L) {
 		if (!_lg_typecheck_setBorderWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::setBorderWidth(unsigned int borderWidth) function, expected prototype:\nvoid osg::HeightField::setBorderWidth(unsigned int borderWidth)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::setBorderWidth(unsigned int borderWidth) function, expected prototype:\nvoid osg::HeightField::setBorderWidth(unsigned int borderWidth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int borderWidth=(unsigned int)lua_tointeger(L,2);
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::setBorderWidth(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::setBorderWidth(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setBorderWidth(borderWidth);
 
@@ -1039,15 +986,13 @@ public:
 	// unsigned int osg::HeightField::getBorderWidth() const
 	static int _bind_getBorderWidth(lua_State *L) {
 		if (!_lg_typecheck_getBorderWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::HeightField::getBorderWidth() const function, expected prototype:\nunsigned int osg::HeightField::getBorderWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::HeightField::getBorderWidth() const function, expected prototype:\nunsigned int osg::HeightField::getBorderWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::HeightField::getBorderWidth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::HeightField::getBorderWidth() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getBorderWidth();
 		lua_pushnumber(L,lret);
@@ -1058,8 +1003,7 @@ public:
 	// void osg::HeightField::setRotation(const osg::Quat & quat)
 	static int _bind_setRotation(lua_State *L) {
 		if (!_lg_typecheck_setRotation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::setRotation(const osg::Quat & quat) function, expected prototype:\nvoid osg::HeightField::setRotation(const osg::Quat & quat)\nClass arguments details:\narg 1 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::setRotation(const osg::Quat & quat) function, expected prototype:\nvoid osg::HeightField::setRotation(const osg::Quat & quat)\nClass arguments details:\narg 1 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Quat* quat_ptr=(Luna< osg::Quat >::check(L,2));
@@ -1070,8 +1014,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::setRotation(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::setRotation(const osg::Quat &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRotation(quat);
 
@@ -1081,15 +1024,13 @@ public:
 	// const osg::Quat & osg::HeightField::getRotation() const
 	static int _bind_getRotation(lua_State *L) {
 		if (!_lg_typecheck_getRotation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Quat & osg::HeightField::getRotation() const function, expected prototype:\nconst osg::Quat & osg::HeightField::getRotation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Quat & osg::HeightField::getRotation() const function, expected prototype:\nconst osg::Quat & osg::HeightField::getRotation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Quat & osg::HeightField::getRotation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Quat & osg::HeightField::getRotation() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Quat* lret = &self->getRotation();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1102,15 +1043,13 @@ public:
 	// osg::Matrixd osg::HeightField::computeRotationMatrix() const
 	static int _bind_computeRotationMatrix(lua_State *L) {
 		if (!_lg_typecheck_computeRotationMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osg::HeightField::computeRotationMatrix() const function, expected prototype:\nosg::Matrixd osg::HeightField::computeRotationMatrix() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osg::HeightField::computeRotationMatrix() const function, expected prototype:\nosg::Matrixd osg::HeightField::computeRotationMatrix() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osg::HeightField::computeRotationMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osg::HeightField::computeRotationMatrix() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixd stack_lret = self->computeRotationMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1124,15 +1063,13 @@ public:
 	// bool osg::HeightField::zeroRotation() const
 	static int _bind_zeroRotation(lua_State *L) {
 		if (!_lg_typecheck_zeroRotation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::HeightField::zeroRotation() const function, expected prototype:\nbool osg::HeightField::zeroRotation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::HeightField::zeroRotation() const function, expected prototype:\nbool osg::HeightField::zeroRotation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::HeightField::zeroRotation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::HeightField::zeroRotation() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->zeroRotation();
 		lua_pushboolean(L,lret?1:0);
@@ -1143,8 +1080,7 @@ public:
 	// void osg::HeightField::setHeight(unsigned int c, unsigned int r, float value)
 	static int _bind_setHeight(lua_State *L) {
 		if (!_lg_typecheck_setHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::setHeight(unsigned int c, unsigned int r, float value) function, expected prototype:\nvoid osg::HeightField::setHeight(unsigned int c, unsigned int r, float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::setHeight(unsigned int c, unsigned int r, float value) function, expected prototype:\nvoid osg::HeightField::setHeight(unsigned int c, unsigned int r, float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int c=(unsigned int)lua_tointeger(L,2);
@@ -1153,8 +1089,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::setHeight(unsigned int, unsigned int, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::setHeight(unsigned int, unsigned int, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setHeight(c, r, value);
 
@@ -1164,8 +1099,7 @@ public:
 	// float & osg::HeightField::getHeight(unsigned int c, unsigned int r)
 	static int _bind_getHeight_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getHeight_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float & osg::HeightField::getHeight(unsigned int c, unsigned int r) function, expected prototype:\nfloat & osg::HeightField::getHeight(unsigned int c, unsigned int r)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float & osg::HeightField::getHeight(unsigned int c, unsigned int r) function, expected prototype:\nfloat & osg::HeightField::getHeight(unsigned int c, unsigned int r)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int c=(unsigned int)lua_tointeger(L,2);
@@ -1173,8 +1107,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float & osg::HeightField::getHeight(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float & osg::HeightField::getHeight(unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float & lret = self->getHeight(c, r);
 		lua_pushnumber(L,lret);
@@ -1185,8 +1118,7 @@ public:
 	// float osg::HeightField::getHeight(unsigned int c, unsigned int r) const
 	static int _bind_getHeight_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getHeight_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::HeightField::getHeight(unsigned int c, unsigned int r) const function, expected prototype:\nfloat osg::HeightField::getHeight(unsigned int c, unsigned int r) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::HeightField::getHeight(unsigned int c, unsigned int r) const function, expected prototype:\nfloat osg::HeightField::getHeight(unsigned int c, unsigned int r) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int c=(unsigned int)lua_tointeger(L,2);
@@ -1194,8 +1126,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::HeightField::getHeight(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::HeightField::getHeight(unsigned int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getHeight(c, r);
 		lua_pushnumber(L,lret);
@@ -1215,8 +1146,7 @@ public:
 	// osg::Vec3f osg::HeightField::getVertex(unsigned int c, unsigned int r) const
 	static int _bind_getVertex(lua_State *L) {
 		if (!_lg_typecheck_getVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osg::HeightField::getVertex(unsigned int c, unsigned int r) const function, expected prototype:\nosg::Vec3f osg::HeightField::getVertex(unsigned int c, unsigned int r) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osg::HeightField::getVertex(unsigned int c, unsigned int r) const function, expected prototype:\nosg::Vec3f osg::HeightField::getVertex(unsigned int c, unsigned int r) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int c=(unsigned int)lua_tointeger(L,2);
@@ -1224,8 +1154,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osg::HeightField::getVertex(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osg::HeightField::getVertex(unsigned int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->getVertex(c, r);
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -1239,8 +1168,7 @@ public:
 	// osg::Vec3f osg::HeightField::getNormal(unsigned int c, unsigned int r) const
 	static int _bind_getNormal(lua_State *L) {
 		if (!_lg_typecheck_getNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osg::HeightField::getNormal(unsigned int c, unsigned int r) const function, expected prototype:\nosg::Vec3f osg::HeightField::getNormal(unsigned int c, unsigned int r) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osg::HeightField::getNormal(unsigned int c, unsigned int r) const function, expected prototype:\nosg::Vec3f osg::HeightField::getNormal(unsigned int c, unsigned int r) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int c=(unsigned int)lua_tointeger(L,2);
@@ -1248,8 +1176,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osg::HeightField::getNormal(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osg::HeightField::getNormal(unsigned int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->getNormal(c, r);
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -1263,8 +1190,7 @@ public:
 	// osg::Vec2f osg::HeightField::getHeightDelta(unsigned int c, unsigned int r) const
 	static int _bind_getHeightDelta(lua_State *L) {
 		if (!_lg_typecheck_getHeightDelta(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec2f osg::HeightField::getHeightDelta(unsigned int c, unsigned int r) const function, expected prototype:\nosg::Vec2f osg::HeightField::getHeightDelta(unsigned int c, unsigned int r) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec2f osg::HeightField::getHeightDelta(unsigned int c, unsigned int r) const function, expected prototype:\nosg::Vec2f osg::HeightField::getHeightDelta(unsigned int c, unsigned int r) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int c=(unsigned int)lua_tointeger(L,2);
@@ -1272,8 +1198,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec2f osg::HeightField::getHeightDelta(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec2f osg::HeightField::getHeightDelta(unsigned int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec2f stack_lret = self->getHeightDelta(c, r);
 		osg::Vec2f* lret = new osg::Vec2f(stack_lret);
@@ -1287,16 +1212,14 @@ public:
 	// void osg::HeightField::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::HeightField::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::HeightField::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HeightField::setThreadSafeRefUnref(threadSafe);
 
@@ -1306,16 +1229,14 @@ public:
 	// void osg::HeightField::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::base_setName(const std::string & name) function, expected prototype:\nvoid osg::HeightField::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::base_setName(const std::string & name) function, expected prototype:\nvoid osg::HeightField::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HeightField::setName(name);
 
@@ -1325,15 +1246,13 @@ public:
 	// void osg::HeightField::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::base_computeDataVariance() function, expected prototype:\nvoid osg::HeightField::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::base_computeDataVariance() function, expected prototype:\nvoid osg::HeightField::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HeightField::computeDataVariance();
 
@@ -1343,16 +1262,14 @@ public:
 	// void osg::HeightField::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::HeightField::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::HeightField::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HeightField::setUserData(obj);
 
@@ -1362,15 +1279,13 @@ public:
 	// osg::Referenced * osg::HeightField::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::HeightField::base_getUserData() function, expected prototype:\nosg::Referenced * osg::HeightField::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::HeightField::base_getUserData() function, expected prototype:\nosg::Referenced * osg::HeightField::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::HeightField::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::HeightField::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->HeightField::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1383,15 +1298,13 @@ public:
 	// const osg::Referenced * osg::HeightField::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::HeightField::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::HeightField::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::HeightField::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::HeightField::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::HeightField::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::HeightField::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->HeightField::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1413,8 +1326,7 @@ public:
 	// void osg::HeightField::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::HeightField::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::HeightField::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1423,8 +1335,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HeightField::releaseGLObjects(_arg1);
 
@@ -1434,15 +1345,13 @@ public:
 	// osg::Object * osg::HeightField::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::HeightField::base_cloneType() const function, expected prototype:\nosg::Object * osg::HeightField::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::HeightField::base_cloneType() const function, expected prototype:\nosg::Object * osg::HeightField::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->HeightField::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1455,8 +1364,7 @@ public:
 	// osg::Object * osg::HeightField::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::HeightField::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::HeightField::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::HeightField::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::HeightField::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1467,8 +1375,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->HeightField::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1481,16 +1388,14 @@ public:
 	// bool osg::HeightField::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::HeightField::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::HeightField::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::HeightField::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::HeightField::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::HeightField::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::HeightField::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HeightField::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1501,15 +1406,13 @@ public:
 	// const char * osg::HeightField::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::HeightField::base_libraryName() const function, expected prototype:\nconst char * osg::HeightField::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::HeightField::base_libraryName() const function, expected prototype:\nconst char * osg::HeightField::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::HeightField::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::HeightField::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->HeightField::libraryName();
 		lua_pushstring(L,lret);
@@ -1520,15 +1423,13 @@ public:
 	// const char * osg::HeightField::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::HeightField::base_className() const function, expected prototype:\nconst char * osg::HeightField::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::HeightField::base_className() const function, expected prototype:\nconst char * osg::HeightField::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::HeightField::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::HeightField::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->HeightField::className();
 		lua_pushstring(L,lret);
@@ -1539,8 +1440,7 @@ public:
 	// void osg::HeightField::base_accept(osg::ShapeVisitor & arg1)
 	static int _bind_base_accept_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_accept_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::base_accept(osg::ShapeVisitor & arg1) function, expected prototype:\nvoid osg::HeightField::base_accept(osg::ShapeVisitor & arg1)\nClass arguments details:\narg 1 ID = 36301858\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::base_accept(osg::ShapeVisitor & arg1) function, expected prototype:\nvoid osg::HeightField::base_accept(osg::ShapeVisitor & arg1)\nClass arguments details:\narg 1 ID = 36301858\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ShapeVisitor* _arg1_ptr=(Luna< osg::ShapeVisitor >::check(L,2));
@@ -1551,8 +1451,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::base_accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::base_accept(osg::ShapeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HeightField::accept(_arg1);
 
@@ -1562,8 +1461,7 @@ public:
 	// void osg::HeightField::base_accept(osg::ConstShapeVisitor & arg1) const
 	static int _bind_base_accept_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_accept_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::base_accept(osg::ConstShapeVisitor & arg1) const function, expected prototype:\nvoid osg::HeightField::base_accept(osg::ConstShapeVisitor & arg1) const\nClass arguments details:\narg 1 ID = 45826538\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::base_accept(osg::ConstShapeVisitor & arg1) const function, expected prototype:\nvoid osg::HeightField::base_accept(osg::ConstShapeVisitor & arg1) const\nClass arguments details:\narg 1 ID = 45826538\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ConstShapeVisitor* _arg1_ptr=(Luna< osg::ConstShapeVisitor >::check(L,2));
@@ -1574,8 +1472,7 @@ public:
 
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::base_accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::HeightField::base_accept(osg::ConstShapeVisitor &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HeightField::accept(_arg1);
 

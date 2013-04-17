@@ -160,8 +160,7 @@ public:
 	// void osg::State::public_setUpVertexAttribAlias(osg::VertexAttribAlias & alias, unsigned int location, const std::string glName, const std::string osgName, const std::string & declaration)
 	static int _bind_public_setUpVertexAttribAlias(lua_State *L) {
 		if (!_lg_typecheck_public_setUpVertexAttribAlias(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::State::public_setUpVertexAttribAlias(osg::VertexAttribAlias & alias, unsigned int location, const std::string glName, const std::string osgName, const std::string & declaration) function, expected prototype:\nvoid osg::State::public_setUpVertexAttribAlias(osg::VertexAttribAlias & alias, unsigned int location, const std::string glName, const std::string osgName, const std::string & declaration)\nClass arguments details:\narg 1 ID = 48453816\n");
+			luaL_error(L, "luna typecheck failed in void osg::State::public_setUpVertexAttribAlias(osg::VertexAttribAlias & alias, unsigned int location, const std::string glName, const std::string osgName, const std::string & declaration) function, expected prototype:\nvoid osg::State::public_setUpVertexAttribAlias(osg::VertexAttribAlias & alias, unsigned int location, const std::string glName, const std::string osgName, const std::string & declaration)\nClass arguments details:\narg 1 ID = 48453816\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::VertexAttribAlias* alias_ptr=(Luna< osg::VertexAttribAlias >::check(L,2));
@@ -176,8 +175,7 @@ public:
 
 		wrapper_osg_State* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_State >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::State::public_setUpVertexAttribAlias(osg::VertexAttribAlias &, unsigned int, const std::string, const std::string, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::State::public_setUpVertexAttribAlias(osg::VertexAttribAlias &, unsigned int, const std::string, const std::string, const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setUpVertexAttribAlias(alias, location, glName, osgName, declaration);
 
@@ -187,15 +185,13 @@ public:
 	// void osg::State::public_loadModelViewMatrix()
 	static int _bind_public_loadModelViewMatrix(lua_State *L) {
 		if (!_lg_typecheck_public_loadModelViewMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::State::public_loadModelViewMatrix() function, expected prototype:\nvoid osg::State::public_loadModelViewMatrix()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::State::public_loadModelViewMatrix() function, expected prototype:\nvoid osg::State::public_loadModelViewMatrix()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_State* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_State >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::State::public_loadModelViewMatrix(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::State::public_loadModelViewMatrix(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_loadModelViewMatrix();
 
@@ -205,15 +201,13 @@ public:
 	// bool osg::State::public_computeSecondaryColorSupported() const
 	static int _bind_public_computeSecondaryColorSupported(lua_State *L) {
 		if (!_lg_typecheck_public_computeSecondaryColorSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::State::public_computeSecondaryColorSupported() const function, expected prototype:\nbool osg::State::public_computeSecondaryColorSupported() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::State::public_computeSecondaryColorSupported() const function, expected prototype:\nbool osg::State::public_computeSecondaryColorSupported() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_State* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_State >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::State::public_computeSecondaryColorSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::State::public_computeSecondaryColorSupported() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_computeSecondaryColorSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -224,15 +218,13 @@ public:
 	// bool osg::State::public_computeFogCoordSupported() const
 	static int _bind_public_computeFogCoordSupported(lua_State *L) {
 		if (!_lg_typecheck_public_computeFogCoordSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::State::public_computeFogCoordSupported() const function, expected prototype:\nbool osg::State::public_computeFogCoordSupported() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::State::public_computeFogCoordSupported() const function, expected prototype:\nbool osg::State::public_computeFogCoordSupported() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_State* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_State >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::State::public_computeFogCoordSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::State::public_computeFogCoordSupported() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_computeFogCoordSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -243,15 +235,13 @@ public:
 	// bool osg::State::public_computeVertexBufferObjectSupported() const
 	static int _bind_public_computeVertexBufferObjectSupported(lua_State *L) {
 		if (!_lg_typecheck_public_computeVertexBufferObjectSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::State::public_computeVertexBufferObjectSupported() const function, expected prototype:\nbool osg::State::public_computeVertexBufferObjectSupported() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::State::public_computeVertexBufferObjectSupported() const function, expected prototype:\nbool osg::State::public_computeVertexBufferObjectSupported() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_State* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_State >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::State::public_computeVertexBufferObjectSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::State::public_computeVertexBufferObjectSupported() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_computeVertexBufferObjectSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -262,8 +252,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -271,8 +260,7 @@ public:
 
 		wrapper_osg_State* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_State >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -282,15 +270,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_State* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_State >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

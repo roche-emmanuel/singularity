@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::SmoothingVisitor* self= (osgUtil::SmoothingVisitor*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -209,8 +206,7 @@ public:
 	// osgUtil::SmoothingVisitor::SmoothingVisitor()
 	static osgUtil::SmoothingVisitor* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::SmoothingVisitor::SmoothingVisitor() function, expected prototype:\nosgUtil::SmoothingVisitor::SmoothingVisitor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::SmoothingVisitor::SmoothingVisitor() function, expected prototype:\nosgUtil::SmoothingVisitor::SmoothingVisitor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -220,8 +216,7 @@ public:
 	// osgUtil::SmoothingVisitor::SmoothingVisitor(lua_Table * data)
 	static osgUtil::SmoothingVisitor* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::SmoothingVisitor::SmoothingVisitor(lua_Table * data) function, expected prototype:\nosgUtil::SmoothingVisitor::SmoothingVisitor(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::SmoothingVisitor::SmoothingVisitor(lua_Table * data) function, expected prototype:\nosgUtil::SmoothingVisitor::SmoothingVisitor(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -242,8 +237,7 @@ public:
 	// void osgUtil::SmoothingVisitor::apply(osg::Geode & geode)
 	static int _bind_apply(lua_State *L) {
 		if (!_lg_typecheck_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::SmoothingVisitor::apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::SmoothingVisitor::apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::SmoothingVisitor::apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::SmoothingVisitor::apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geode* geode_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geode >(L,2));
@@ -254,8 +248,7 @@ public:
 
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::apply(osg::Geode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(geode);
 
@@ -265,16 +258,14 @@ public:
 	// void osgUtil::SmoothingVisitor::setCreaseAngle(double angle)
 	static int _bind_setCreaseAngle(lua_State *L) {
 		if (!_lg_typecheck_setCreaseAngle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::SmoothingVisitor::setCreaseAngle(double angle) function, expected prototype:\nvoid osgUtil::SmoothingVisitor::setCreaseAngle(double angle)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::SmoothingVisitor::setCreaseAngle(double angle) function, expected prototype:\nvoid osgUtil::SmoothingVisitor::setCreaseAngle(double angle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double angle=(double)lua_tonumber(L,2);
 
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::setCreaseAngle(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::setCreaseAngle(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCreaseAngle(angle);
 
@@ -284,15 +275,13 @@ public:
 	// double osgUtil::SmoothingVisitor::getCreaseAngle() const
 	static int _bind_getCreaseAngle(lua_State *L) {
 		if (!_lg_typecheck_getCreaseAngle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgUtil::SmoothingVisitor::getCreaseAngle() const function, expected prototype:\ndouble osgUtil::SmoothingVisitor::getCreaseAngle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgUtil::SmoothingVisitor::getCreaseAngle() const function, expected prototype:\ndouble osgUtil::SmoothingVisitor::getCreaseAngle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgUtil::SmoothingVisitor::getCreaseAngle() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgUtil::SmoothingVisitor::getCreaseAngle() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getCreaseAngle();
 		lua_pushnumber(L,lret);
@@ -303,8 +292,7 @@ public:
 	// static void osgUtil::SmoothingVisitor::smooth(osg::Geometry & geoset, double creaseAngle = osg::PI)
 	static int _bind_smooth(lua_State *L) {
 		if (!_lg_typecheck_smooth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osgUtil::SmoothingVisitor::smooth(osg::Geometry & geoset, double creaseAngle = osg::PI) function, expected prototype:\nstatic void osgUtil::SmoothingVisitor::smooth(osg::Geometry & geoset, double creaseAngle = osg::PI)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in static void osgUtil::SmoothingVisitor::smooth(osg::Geometry & geoset, double creaseAngle = osg::PI) function, expected prototype:\nstatic void osgUtil::SmoothingVisitor::smooth(osg::Geometry & geoset, double creaseAngle = osg::PI)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -324,16 +312,14 @@ public:
 	// void osgUtil::SmoothingVisitor::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::SmoothingVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::SmoothingVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::SmoothingVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::SmoothingVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SmoothingVisitor::setThreadSafeRefUnref(threadSafe);
 
@@ -343,15 +329,13 @@ public:
 	// const char * osgUtil::SmoothingVisitor::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::SmoothingVisitor::base_libraryName() const function, expected prototype:\nconst char * osgUtil::SmoothingVisitor::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::SmoothingVisitor::base_libraryName() const function, expected prototype:\nconst char * osgUtil::SmoothingVisitor::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::SmoothingVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::SmoothingVisitor::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->SmoothingVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -362,15 +346,13 @@ public:
 	// const char * osgUtil::SmoothingVisitor::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::SmoothingVisitor::base_className() const function, expected prototype:\nconst char * osgUtil::SmoothingVisitor::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::SmoothingVisitor::base_className() const function, expected prototype:\nconst char * osgUtil::SmoothingVisitor::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::SmoothingVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::SmoothingVisitor::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->SmoothingVisitor::className();
 		lua_pushstring(L,lret);
@@ -381,15 +363,13 @@ public:
 	// void osgUtil::SmoothingVisitor::base_reset()
 	static int _bind_base_reset(lua_State *L) {
 		if (!_lg_typecheck_base_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::SmoothingVisitor::base_reset() function, expected prototype:\nvoid osgUtil::SmoothingVisitor::base_reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::SmoothingVisitor::base_reset() function, expected prototype:\nvoid osgUtil::SmoothingVisitor::base_reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::base_reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SmoothingVisitor::reset();
 
@@ -399,15 +379,13 @@ public:
 	// osg::Vec3f osgUtil::SmoothingVisitor::base_getEyePoint() const
 	static int _bind_base_getEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::SmoothingVisitor::base_getEyePoint() const function, expected prototype:\nosg::Vec3f osgUtil::SmoothingVisitor::base_getEyePoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::SmoothingVisitor::base_getEyePoint() const function, expected prototype:\nosg::Vec3f osgUtil::SmoothingVisitor::base_getEyePoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::SmoothingVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::SmoothingVisitor::base_getEyePoint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->SmoothingVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -421,15 +399,13 @@ public:
 	// osg::Vec3f osgUtil::SmoothingVisitor::base_getViewPoint() const
 	static int _bind_base_getViewPoint(lua_State *L) {
 		if (!_lg_typecheck_base_getViewPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::SmoothingVisitor::base_getViewPoint() const function, expected prototype:\nosg::Vec3f osgUtil::SmoothingVisitor::base_getViewPoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::SmoothingVisitor::base_getViewPoint() const function, expected prototype:\nosg::Vec3f osgUtil::SmoothingVisitor::base_getViewPoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::SmoothingVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::SmoothingVisitor::base_getViewPoint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->SmoothingVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -443,8 +419,7 @@ public:
 	// float osgUtil::SmoothingVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceToEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceToEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::SmoothingVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::SmoothingVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::SmoothingVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::SmoothingVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -456,8 +431,7 @@ public:
 
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::SmoothingVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::SmoothingVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->SmoothingVisitor::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -468,8 +442,7 @@ public:
 	// float osgUtil::SmoothingVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceFromEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceFromEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::SmoothingVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::SmoothingVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::SmoothingVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::SmoothingVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -481,8 +454,7 @@ public:
 
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::SmoothingVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::SmoothingVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->SmoothingVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -493,8 +465,7 @@ public:
 	// float osgUtil::SmoothingVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceToViewPoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceToViewPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::SmoothingVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::SmoothingVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::SmoothingVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::SmoothingVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -506,8 +477,7 @@ public:
 
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::SmoothingVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::SmoothingVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->SmoothingVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -518,8 +488,7 @@ public:
 	// void osgUtil::SmoothingVisitor::base_apply(osg::Geode & geode)
 	static int _bind_base_apply(lua_State *L) {
 		if (!_lg_typecheck_base_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::SmoothingVisitor::base_apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::SmoothingVisitor::base_apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::SmoothingVisitor::base_apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::SmoothingVisitor::base_apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geode* geode_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geode >(L,2));
@@ -530,8 +499,7 @@ public:
 
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::base_apply(osg::Geode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SmoothingVisitor::apply(geode);
 

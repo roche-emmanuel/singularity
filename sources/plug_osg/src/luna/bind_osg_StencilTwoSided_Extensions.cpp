@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StencilTwoSided::Extensions* self= (osg::StencilTwoSided::Extensions*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -212,8 +209,7 @@ public:
 	// osg::StencilTwoSided::Extensions::Extensions(unsigned int contextID)
 	static osg::StencilTwoSided::Extensions* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StencilTwoSided::Extensions::Extensions(unsigned int contextID) function, expected prototype:\nosg::StencilTwoSided::Extensions::Extensions(unsigned int contextID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StencilTwoSided::Extensions::Extensions(unsigned int contextID) function, expected prototype:\nosg::StencilTwoSided::Extensions::Extensions(unsigned int contextID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -224,8 +220,7 @@ public:
 	// osg::StencilTwoSided::Extensions::Extensions(lua_Table * data, unsigned int contextID)
 	static osg::StencilTwoSided::Extensions* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StencilTwoSided::Extensions::Extensions(lua_Table * data, unsigned int contextID) function, expected prototype:\nosg::StencilTwoSided::Extensions::Extensions(lua_Table * data, unsigned int contextID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StencilTwoSided::Extensions::Extensions(lua_Table * data, unsigned int contextID) function, expected prototype:\nosg::StencilTwoSided::Extensions::Extensions(lua_Table * data, unsigned int contextID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
@@ -247,16 +242,14 @@ public:
 	// void osg::StencilTwoSided::Extensions::setupGLExtensions(unsigned int contextID)
 	static int _bind_setupGLExtensions(lua_State *L) {
 		if (!_lg_typecheck_setupGLExtensions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::setupGLExtensions(unsigned int contextID) function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::setupGLExtensions(unsigned int contextID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::setupGLExtensions(unsigned int contextID) function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::setupGLExtensions(unsigned int contextID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setupGLExtensions(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setupGLExtensions(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setupGLExtensions(contextID);
 
@@ -266,16 +259,14 @@ public:
 	// void osg::StencilTwoSided::Extensions::setStencilTwoSidedSupported(bool flag)
 	static int _bind_setStencilTwoSidedSupported(lua_State *L) {
 		if (!_lg_typecheck_setStencilTwoSidedSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::setStencilTwoSidedSupported(bool flag) function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::setStencilTwoSidedSupported(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::setStencilTwoSidedSupported(bool flag) function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::setStencilTwoSidedSupported(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setStencilTwoSidedSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setStencilTwoSidedSupported(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setStencilTwoSidedSupported(flag);
 
@@ -285,15 +276,13 @@ public:
 	// bool osg::StencilTwoSided::Extensions::isStencilTwoSidedSupported() const
 	static int _bind_isStencilTwoSidedSupported(lua_State *L) {
 		if (!_lg_typecheck_isStencilTwoSidedSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::StencilTwoSided::Extensions::isStencilTwoSidedSupported() const function, expected prototype:\nbool osg::StencilTwoSided::Extensions::isStencilTwoSidedSupported() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::StencilTwoSided::Extensions::isStencilTwoSidedSupported() const function, expected prototype:\nbool osg::StencilTwoSided::Extensions::isStencilTwoSidedSupported() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::Extensions::isStencilTwoSidedSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::Extensions::isStencilTwoSidedSupported() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isStencilTwoSidedSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -304,16 +293,14 @@ public:
 	// void osg::StencilTwoSided::Extensions::setOpenGL20Supported(bool flag)
 	static int _bind_setOpenGL20Supported(lua_State *L) {
 		if (!_lg_typecheck_setOpenGL20Supported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::setOpenGL20Supported(bool flag) function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::setOpenGL20Supported(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::setOpenGL20Supported(bool flag) function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::setOpenGL20Supported(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setOpenGL20Supported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setOpenGL20Supported(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setOpenGL20Supported(flag);
 
@@ -323,15 +310,13 @@ public:
 	// bool osg::StencilTwoSided::Extensions::isOpenGL20Supported() const
 	static int _bind_isOpenGL20Supported(lua_State *L) {
 		if (!_lg_typecheck_isOpenGL20Supported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::StencilTwoSided::Extensions::isOpenGL20Supported() const function, expected prototype:\nbool osg::StencilTwoSided::Extensions::isOpenGL20Supported() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::StencilTwoSided::Extensions::isOpenGL20Supported() const function, expected prototype:\nbool osg::StencilTwoSided::Extensions::isOpenGL20Supported() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::Extensions::isOpenGL20Supported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::Extensions::isOpenGL20Supported() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isOpenGL20Supported();
 		lua_pushboolean(L,lret?1:0);
@@ -342,16 +327,14 @@ public:
 	// void osg::StencilTwoSided::Extensions::setSeparateStencilSupported(bool flag)
 	static int _bind_setSeparateStencilSupported(lua_State *L) {
 		if (!_lg_typecheck_setSeparateStencilSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::setSeparateStencilSupported(bool flag) function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::setSeparateStencilSupported(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::setSeparateStencilSupported(bool flag) function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::setSeparateStencilSupported(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setSeparateStencilSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setSeparateStencilSupported(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSeparateStencilSupported(flag);
 
@@ -361,15 +344,13 @@ public:
 	// bool osg::StencilTwoSided::Extensions::isSeparateStencilSupported() const
 	static int _bind_isSeparateStencilSupported(lua_State *L) {
 		if (!_lg_typecheck_isSeparateStencilSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::StencilTwoSided::Extensions::isSeparateStencilSupported() const function, expected prototype:\nbool osg::StencilTwoSided::Extensions::isSeparateStencilSupported() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::StencilTwoSided::Extensions::isSeparateStencilSupported() const function, expected prototype:\nbool osg::StencilTwoSided::Extensions::isSeparateStencilSupported() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::Extensions::isSeparateStencilSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::Extensions::isSeparateStencilSupported() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSeparateStencilSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -380,16 +361,14 @@ public:
 	// void osg::StencilTwoSided::Extensions::glActiveStencilFace(unsigned int face) const
 	static int _bind_glActiveStencilFace(lua_State *L) {
 		if (!_lg_typecheck_glActiveStencilFace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::glActiveStencilFace(unsigned int face) const function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::glActiveStencilFace(unsigned int face) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::glActiveStencilFace(unsigned int face) const function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::glActiveStencilFace(unsigned int face) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int face=(unsigned int)lua_tointeger(L,2);
 
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glActiveStencilFace(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glActiveStencilFace(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->glActiveStencilFace(face);
 
@@ -399,8 +378,7 @@ public:
 	// void osg::StencilTwoSided::Extensions::glStencilOpSeparate(unsigned int face, unsigned int sfail, unsigned int dpfail, unsigned int dppass) const
 	static int _bind_glStencilOpSeparate(lua_State *L) {
 		if (!_lg_typecheck_glStencilOpSeparate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::glStencilOpSeparate(unsigned int face, unsigned int sfail, unsigned int dpfail, unsigned int dppass) const function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::glStencilOpSeparate(unsigned int face, unsigned int sfail, unsigned int dpfail, unsigned int dppass) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::glStencilOpSeparate(unsigned int face, unsigned int sfail, unsigned int dpfail, unsigned int dppass) const function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::glStencilOpSeparate(unsigned int face, unsigned int sfail, unsigned int dpfail, unsigned int dppass) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int face=(unsigned int)lua_tointeger(L,2);
@@ -410,8 +388,7 @@ public:
 
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilOpSeparate(unsigned int, unsigned int, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilOpSeparate(unsigned int, unsigned int, unsigned int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->glStencilOpSeparate(face, sfail, dpfail, dppass);
 
@@ -421,8 +398,7 @@ public:
 	// void osg::StencilTwoSided::Extensions::glStencilMaskSeparate(unsigned int face, unsigned int mask) const
 	static int _bind_glStencilMaskSeparate(lua_State *L) {
 		if (!_lg_typecheck_glStencilMaskSeparate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::glStencilMaskSeparate(unsigned int face, unsigned int mask) const function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::glStencilMaskSeparate(unsigned int face, unsigned int mask) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::glStencilMaskSeparate(unsigned int face, unsigned int mask) const function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::glStencilMaskSeparate(unsigned int face, unsigned int mask) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int face=(unsigned int)lua_tointeger(L,2);
@@ -430,8 +406,7 @@ public:
 
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilMaskSeparate(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilMaskSeparate(unsigned int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->glStencilMaskSeparate(face, mask);
 
@@ -441,8 +416,7 @@ public:
 	// void osg::StencilTwoSided::Extensions::glStencilFuncSeparate(unsigned int face, unsigned int func, int ref, unsigned int mask) const
 	static int _bind_glStencilFuncSeparate(lua_State *L) {
 		if (!_lg_typecheck_glStencilFuncSeparate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::glStencilFuncSeparate(unsigned int face, unsigned int func, int ref, unsigned int mask) const function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::glStencilFuncSeparate(unsigned int face, unsigned int func, int ref, unsigned int mask) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::glStencilFuncSeparate(unsigned int face, unsigned int func, int ref, unsigned int mask) const function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::glStencilFuncSeparate(unsigned int face, unsigned int func, int ref, unsigned int mask) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int face=(unsigned int)lua_tointeger(L,2);
@@ -452,8 +426,7 @@ public:
 
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilFuncSeparate(unsigned int, unsigned int, int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilFuncSeparate(unsigned int, unsigned int, int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->glStencilFuncSeparate(face, func, ref, mask);
 
@@ -463,8 +436,7 @@ public:
 	// void osg::StencilTwoSided::Extensions::glStencilFuncSeparateATI(unsigned int frontfunc, unsigned int backfunc, int ref, unsigned int mask) const
 	static int _bind_glStencilFuncSeparateATI(lua_State *L) {
 		if (!_lg_typecheck_glStencilFuncSeparateATI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::glStencilFuncSeparateATI(unsigned int frontfunc, unsigned int backfunc, int ref, unsigned int mask) const function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::glStencilFuncSeparateATI(unsigned int frontfunc, unsigned int backfunc, int ref, unsigned int mask) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::glStencilFuncSeparateATI(unsigned int frontfunc, unsigned int backfunc, int ref, unsigned int mask) const function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::glStencilFuncSeparateATI(unsigned int frontfunc, unsigned int backfunc, int ref, unsigned int mask) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int frontfunc=(unsigned int)lua_tointeger(L,2);
@@ -474,8 +446,7 @@ public:
 
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilFuncSeparateATI(unsigned int, unsigned int, int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilFuncSeparateATI(unsigned int, unsigned int, int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->glStencilFuncSeparateATI(frontfunc, backfunc, ref, mask);
 
@@ -485,16 +456,14 @@ public:
 	// void osg::StencilTwoSided::Extensions::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::StencilTwoSided::Extensions::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::StencilTwoSided::Extensions::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Extensions::setThreadSafeRefUnref(threadSafe);
 

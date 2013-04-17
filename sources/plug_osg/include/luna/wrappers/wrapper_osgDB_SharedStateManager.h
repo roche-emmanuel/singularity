@@ -261,16 +261,14 @@ public:
 	// bool osgDB::SharedStateManager::public_shareTexture(osg::Object::DataVariance variance)
 	static int _bind_public_shareTexture(lua_State *L) {
 		if (!_lg_typecheck_public_shareTexture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::SharedStateManager::public_shareTexture(osg::Object::DataVariance variance) function, expected prototype:\nbool osgDB::SharedStateManager::public_shareTexture(osg::Object::DataVariance variance)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::SharedStateManager::public_shareTexture(osg::Object::DataVariance variance) function, expected prototype:\nbool osgDB::SharedStateManager::public_shareTexture(osg::Object::DataVariance variance)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Object::DataVariance variance=(osg::Object::DataVariance)lua_tointeger(L,2);
 
 		wrapper_osgDB_SharedStateManager* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_SharedStateManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::SharedStateManager::public_shareTexture(osg::Object::DataVariance). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::SharedStateManager::public_shareTexture(osg::Object::DataVariance). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_shareTexture(variance);
 		lua_pushboolean(L,lret?1:0);
@@ -281,16 +279,14 @@ public:
 	// bool osgDB::SharedStateManager::public_shareStateSet(osg::Object::DataVariance variance)
 	static int _bind_public_shareStateSet(lua_State *L) {
 		if (!_lg_typecheck_public_shareStateSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::SharedStateManager::public_shareStateSet(osg::Object::DataVariance variance) function, expected prototype:\nbool osgDB::SharedStateManager::public_shareStateSet(osg::Object::DataVariance variance)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::SharedStateManager::public_shareStateSet(osg::Object::DataVariance variance) function, expected prototype:\nbool osgDB::SharedStateManager::public_shareStateSet(osg::Object::DataVariance variance)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Object::DataVariance variance=(osg::Object::DataVariance)lua_tointeger(L,2);
 
 		wrapper_osgDB_SharedStateManager* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_SharedStateManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::SharedStateManager::public_shareStateSet(osg::Object::DataVariance). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::SharedStateManager::public_shareStateSet(osg::Object::DataVariance). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_shareStateSet(variance);
 		lua_pushboolean(L,lret?1:0);
@@ -301,8 +297,7 @@ public:
 	// void osgDB::SharedStateManager::public_process(osg::StateSet * ss, osg::Object * parent)
 	static int _bind_public_process(lua_State *L) {
 		if (!_lg_typecheck_public_process(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::SharedStateManager::public_process(osg::StateSet * ss, osg::Object * parent) function, expected prototype:\nvoid osgDB::SharedStateManager::public_process(osg::StateSet * ss, osg::Object * parent)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::SharedStateManager::public_process(osg::StateSet * ss, osg::Object * parent) function, expected prototype:\nvoid osgDB::SharedStateManager::public_process(osg::StateSet * ss, osg::Object * parent)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateSet* ss=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
@@ -310,8 +305,7 @@ public:
 
 		wrapper_osgDB_SharedStateManager* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_SharedStateManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::public_process(osg::StateSet *, osg::Object *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::public_process(osg::StateSet *, osg::Object *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_process(ss, parent);
 
@@ -321,16 +315,14 @@ public:
 	// osg::StateAttribute * osgDB::SharedStateManager::public_find(osg::StateAttribute * sa)
 	static int _bind_public_find(lua_State *L) {
 		if (!_lg_typecheck_public_find(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute * osgDB::SharedStateManager::public_find(osg::StateAttribute * sa) function, expected prototype:\nosg::StateAttribute * osgDB::SharedStateManager::public_find(osg::StateAttribute * sa)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute * osgDB::SharedStateManager::public_find(osg::StateAttribute * sa) function, expected prototype:\nosg::StateAttribute * osgDB::SharedStateManager::public_find(osg::StateAttribute * sa)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateAttribute* sa=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
 
 		wrapper_osgDB_SharedStateManager* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_SharedStateManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute * osgDB::SharedStateManager::public_find(osg::StateAttribute *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute * osgDB::SharedStateManager::public_find(osg::StateAttribute *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute * lret = self->public_find(sa);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -343,8 +335,7 @@ public:
 	// void osgDB::SharedStateManager::public_setStateSet(osg::StateSet * ss, osg::Object * object)
 	static int _bind_public_setStateSet(lua_State *L) {
 		if (!_lg_typecheck_public_setStateSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::SharedStateManager::public_setStateSet(osg::StateSet * ss, osg::Object * object) function, expected prototype:\nvoid osgDB::SharedStateManager::public_setStateSet(osg::StateSet * ss, osg::Object * object)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::SharedStateManager::public_setStateSet(osg::StateSet * ss, osg::Object * object) function, expected prototype:\nvoid osgDB::SharedStateManager::public_setStateSet(osg::StateSet * ss, osg::Object * object)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateSet* ss=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
@@ -352,8 +343,7 @@ public:
 
 		wrapper_osgDB_SharedStateManager* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_SharedStateManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::public_setStateSet(osg::StateSet *, osg::Object *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::public_setStateSet(osg::StateSet *, osg::Object *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setStateSet(ss, object);
 
@@ -363,16 +353,14 @@ public:
 	// void osgDB::SharedStateManager::public_shareTextures(osg::StateSet * ss)
 	static int _bind_public_shareTextures(lua_State *L) {
 		if (!_lg_typecheck_public_shareTextures(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::SharedStateManager::public_shareTextures(osg::StateSet * ss) function, expected prototype:\nvoid osgDB::SharedStateManager::public_shareTextures(osg::StateSet * ss)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::SharedStateManager::public_shareTextures(osg::StateSet * ss) function, expected prototype:\nvoid osgDB::SharedStateManager::public_shareTextures(osg::StateSet * ss)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateSet* ss=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 
 		wrapper_osgDB_SharedStateManager* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_SharedStateManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::public_shareTextures(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::public_shareTextures(osg::StateSet *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_shareTextures(ss);
 
@@ -382,8 +370,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -391,8 +378,7 @@ public:
 
 		wrapper_osgDB_SharedStateManager* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_SharedStateManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -402,15 +388,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgDB_SharedStateManager* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_SharedStateManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

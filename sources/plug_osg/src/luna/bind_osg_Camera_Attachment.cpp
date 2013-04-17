@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Camera::Attachment*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Camera::Attachment*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Camera::Attachment* rhs =(Luna< osg::Camera::Attachment >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Camera::Attachment* self= (osg::Camera::Attachment*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Camera::Attachment >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -238,8 +234,7 @@ public:
 	// osg::Camera::Attachment::Attachment()
 	static osg::Camera::Attachment* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Camera::Attachment::Attachment() function, expected prototype:\nosg::Camera::Attachment::Attachment()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Camera::Attachment::Attachment() function, expected prototype:\nosg::Camera::Attachment::Attachment()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -251,15 +246,13 @@ public:
 	// int osg::Camera::Attachment::width() const
 	static int _bind_width(lua_State *L) {
 		if (!_lg_typecheck_width(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Camera::Attachment::width() const function, expected prototype:\nint osg::Camera::Attachment::width() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::Camera::Attachment::width() const function, expected prototype:\nint osg::Camera::Attachment::width() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Camera::Attachment::width() const. Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Camera::Attachment::width() const. Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->width();
 		lua_pushnumber(L,lret);
@@ -270,15 +263,13 @@ public:
 	// int osg::Camera::Attachment::height() const
 	static int _bind_height(lua_State *L) {
 		if (!_lg_typecheck_height(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Camera::Attachment::height() const function, expected prototype:\nint osg::Camera::Attachment::height() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::Camera::Attachment::height() const function, expected prototype:\nint osg::Camera::Attachment::height() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Camera::Attachment::height() const. Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Camera::Attachment::height() const. Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->height();
 		lua_pushnumber(L,lret);
@@ -289,15 +280,13 @@ public:
 	// int osg::Camera::Attachment::depth() const
 	static int _bind_depth(lua_State *L) {
 		if (!_lg_typecheck_depth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Camera::Attachment::depth() const function, expected prototype:\nint osg::Camera::Attachment::depth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::Camera::Attachment::depth() const function, expected prototype:\nint osg::Camera::Attachment::depth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Camera::Attachment::depth() const. Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Camera::Attachment::depth() const. Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->depth();
 		lua_pushnumber(L,lret);
@@ -308,15 +297,13 @@ public:
 	// unsigned int osg::Camera::Attachment::_internalFormat()
 	static int _bind_getInternalFormat(lua_State *L) {
 		if (!_lg_typecheck_getInternalFormat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Camera::Attachment::_internalFormat() function, expected prototype:\nunsigned int osg::Camera::Attachment::_internalFormat()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Camera::Attachment::_internalFormat() function, expected prototype:\nunsigned int osg::Camera::Attachment::_internalFormat()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::Attachment::_internalFormat(). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::Attachment::_internalFormat(). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_internalFormat;
 		lua_pushnumber(L,lret);
@@ -327,15 +314,13 @@ public:
 	// osg::ref_ptr< osg::Image > osg::Camera::Attachment::_image()
 	static int _bind_getImage(lua_State *L) {
 		if (!_lg_typecheck_getImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Image > osg::Camera::Attachment::_image() function, expected prototype:\nosg::ref_ptr< osg::Image > osg::Camera::Attachment::_image()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Image > osg::Camera::Attachment::_image() function, expected prototype:\nosg::ref_ptr< osg::Image > osg::Camera::Attachment::_image()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Image > osg::Camera::Attachment::_image(). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Image > osg::Camera::Attachment::_image(). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::ref_ptr< osg::Image > lret = self->_image;
 		Luna< osg::Image >::push(L,lret.get(),false);
@@ -346,15 +331,13 @@ public:
 	// osg::ref_ptr< osg::Texture > osg::Camera::Attachment::_texture()
 	static int _bind_getTexture(lua_State *L) {
 		if (!_lg_typecheck_getTexture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Texture > osg::Camera::Attachment::_texture() function, expected prototype:\nosg::ref_ptr< osg::Texture > osg::Camera::Attachment::_texture()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Texture > osg::Camera::Attachment::_texture() function, expected prototype:\nosg::ref_ptr< osg::Texture > osg::Camera::Attachment::_texture()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Texture > osg::Camera::Attachment::_texture(). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Texture > osg::Camera::Attachment::_texture(). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::ref_ptr< osg::Texture > lret = self->_texture;
 		Luna< osg::Texture >::push(L,lret.get(),false);
@@ -365,15 +348,13 @@ public:
 	// unsigned int osg::Camera::Attachment::_level()
 	static int _bind_getLevel(lua_State *L) {
 		if (!_lg_typecheck_getLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Camera::Attachment::_level() function, expected prototype:\nunsigned int osg::Camera::Attachment::_level()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Camera::Attachment::_level() function, expected prototype:\nunsigned int osg::Camera::Attachment::_level()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::Attachment::_level(). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::Attachment::_level(). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_level;
 		lua_pushnumber(L,lret);
@@ -384,15 +365,13 @@ public:
 	// unsigned int osg::Camera::Attachment::_face()
 	static int _bind_getFace(lua_State *L) {
 		if (!_lg_typecheck_getFace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Camera::Attachment::_face() function, expected prototype:\nunsigned int osg::Camera::Attachment::_face()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Camera::Attachment::_face() function, expected prototype:\nunsigned int osg::Camera::Attachment::_face()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::Attachment::_face(). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::Attachment::_face(). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_face;
 		lua_pushnumber(L,lret);
@@ -403,15 +382,13 @@ public:
 	// bool osg::Camera::Attachment::_mipMapGeneration()
 	static int _bind_getMipMapGeneration(lua_State *L) {
 		if (!_lg_typecheck_getMipMapGeneration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Camera::Attachment::_mipMapGeneration() function, expected prototype:\nbool osg::Camera::Attachment::_mipMapGeneration()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Camera::Attachment::_mipMapGeneration() function, expected prototype:\nbool osg::Camera::Attachment::_mipMapGeneration()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::Attachment::_mipMapGeneration(). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Camera::Attachment::_mipMapGeneration(). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->_mipMapGeneration;
 		lua_pushboolean(L,lret?1:0);
@@ -422,15 +399,13 @@ public:
 	// unsigned int osg::Camera::Attachment::_multisampleSamples()
 	static int _bind_getMultisampleSamples(lua_State *L) {
 		if (!_lg_typecheck_getMultisampleSamples(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Camera::Attachment::_multisampleSamples() function, expected prototype:\nunsigned int osg::Camera::Attachment::_multisampleSamples()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Camera::Attachment::_multisampleSamples() function, expected prototype:\nunsigned int osg::Camera::Attachment::_multisampleSamples()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::Attachment::_multisampleSamples(). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::Attachment::_multisampleSamples(). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_multisampleSamples;
 		lua_pushnumber(L,lret);
@@ -441,15 +416,13 @@ public:
 	// unsigned int osg::Camera::Attachment::_multisampleColorSamples()
 	static int _bind_getMultisampleColorSamples(lua_State *L) {
 		if (!_lg_typecheck_getMultisampleColorSamples(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Camera::Attachment::_multisampleColorSamples() function, expected prototype:\nunsigned int osg::Camera::Attachment::_multisampleColorSamples()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Camera::Attachment::_multisampleColorSamples() function, expected prototype:\nunsigned int osg::Camera::Attachment::_multisampleColorSamples()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::Attachment::_multisampleColorSamples(). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::Attachment::_multisampleColorSamples(). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_multisampleColorSamples;
 		lua_pushnumber(L,lret);
@@ -460,16 +433,14 @@ public:
 	// void osg::Camera::Attachment::_internalFormat(unsigned int value)
 	static int _bind_setInternalFormat(lua_State *L) {
 		if (!_lg_typecheck_setInternalFormat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_internalFormat(unsigned int value) function, expected prototype:\nvoid osg::Camera::Attachment::_internalFormat(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_internalFormat(unsigned int value) function, expected prototype:\nvoid osg::Camera::Attachment::_internalFormat(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_internalFormat(unsigned int). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_internalFormat(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_internalFormat = value;
 
@@ -479,16 +450,14 @@ public:
 	// void osg::Camera::Attachment::_image(osg::ref_ptr< osg::Image > value)
 	static int _bind_setImage(lua_State *L) {
 		if (!_lg_typecheck_setImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_image(osg::ref_ptr< osg::Image > value) function, expected prototype:\nvoid osg::Camera::Attachment::_image(osg::ref_ptr< osg::Image > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_image(osg::ref_ptr< osg::Image > value) function, expected prototype:\nvoid osg::Camera::Attachment::_image(osg::ref_ptr< osg::Image > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ref_ptr< osg::Image > value = dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2));
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_image(osg::ref_ptr< osg::Image >). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_image(osg::ref_ptr< osg::Image >). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_image = value;
 
@@ -498,16 +467,14 @@ public:
 	// void osg::Camera::Attachment::_texture(osg::ref_ptr< osg::Texture > value)
 	static int _bind_setTexture(lua_State *L) {
 		if (!_lg_typecheck_setTexture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_texture(osg::ref_ptr< osg::Texture > value) function, expected prototype:\nvoid osg::Camera::Attachment::_texture(osg::ref_ptr< osg::Texture > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_texture(osg::ref_ptr< osg::Texture > value) function, expected prototype:\nvoid osg::Camera::Attachment::_texture(osg::ref_ptr< osg::Texture > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ref_ptr< osg::Texture > value = dynamic_cast< osg::Texture* >(Luna< osg::Referenced >::check(L,2));
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_texture(osg::ref_ptr< osg::Texture >). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_texture(osg::ref_ptr< osg::Texture >). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_texture = value;
 
@@ -517,16 +484,14 @@ public:
 	// void osg::Camera::Attachment::_level(unsigned int value)
 	static int _bind_setLevel(lua_State *L) {
 		if (!_lg_typecheck_setLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_level(unsigned int value) function, expected prototype:\nvoid osg::Camera::Attachment::_level(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_level(unsigned int value) function, expected prototype:\nvoid osg::Camera::Attachment::_level(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_level(unsigned int). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_level(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_level = value;
 
@@ -536,16 +501,14 @@ public:
 	// void osg::Camera::Attachment::_face(unsigned int value)
 	static int _bind_setFace(lua_State *L) {
 		if (!_lg_typecheck_setFace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_face(unsigned int value) function, expected prototype:\nvoid osg::Camera::Attachment::_face(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_face(unsigned int value) function, expected prototype:\nvoid osg::Camera::Attachment::_face(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_face(unsigned int). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_face(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_face = value;
 
@@ -555,16 +518,14 @@ public:
 	// void osg::Camera::Attachment::_mipMapGeneration(bool value)
 	static int _bind_setMipMapGeneration(lua_State *L) {
 		if (!_lg_typecheck_setMipMapGeneration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_mipMapGeneration(bool value) function, expected prototype:\nvoid osg::Camera::Attachment::_mipMapGeneration(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_mipMapGeneration(bool value) function, expected prototype:\nvoid osg::Camera::Attachment::_mipMapGeneration(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_mipMapGeneration(bool). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_mipMapGeneration(bool). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_mipMapGeneration = value;
 
@@ -574,16 +535,14 @@ public:
 	// void osg::Camera::Attachment::_multisampleSamples(unsigned int value)
 	static int _bind_setMultisampleSamples(lua_State *L) {
 		if (!_lg_typecheck_setMultisampleSamples(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_multisampleSamples(unsigned int value) function, expected prototype:\nvoid osg::Camera::Attachment::_multisampleSamples(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_multisampleSamples(unsigned int value) function, expected prototype:\nvoid osg::Camera::Attachment::_multisampleSamples(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_multisampleSamples(unsigned int). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_multisampleSamples(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_multisampleSamples = value;
 
@@ -593,16 +552,14 @@ public:
 	// void osg::Camera::Attachment::_multisampleColorSamples(unsigned int value)
 	static int _bind_setMultisampleColorSamples(lua_State *L) {
 		if (!_lg_typecheck_setMultisampleColorSamples(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_multisampleColorSamples(unsigned int value) function, expected prototype:\nvoid osg::Camera::Attachment::_multisampleColorSamples(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_multisampleColorSamples(unsigned int value) function, expected prototype:\nvoid osg::Camera::Attachment::_multisampleColorSamples(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_multisampleColorSamples(unsigned int). Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Camera::Attachment::_multisampleColorSamples(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_multisampleColorSamples = value;
 

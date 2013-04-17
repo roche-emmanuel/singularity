@@ -30,6 +30,11 @@ function TypeCheckerBase:handle(writer,func,name, completeCheck)
 		num = num - 1; -- do not count the lua_state as argument. 
 	end
 	
+	if name=="__unm" then
+		-- unary negation metamethod will duplicate the aself argument !
+		num = num + 1
+	end
+	
 	if(defaultOffset) then
 		writer:writeLine("int luatop = lua_gettop(L);")
 		writer:writeSubLine("if( luatop<${1} || luatop>${2} ) return false;",defaultOffset+offset,num+offset);

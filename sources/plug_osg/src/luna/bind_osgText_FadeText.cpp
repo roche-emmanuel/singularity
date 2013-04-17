@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::FadeText* self= (osgText::FadeText*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -361,8 +358,7 @@ public:
 	// osgText::FadeText::FadeText()
 	static osgText::FadeText* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::FadeText::FadeText() function, expected prototype:\nosgText::FadeText::FadeText()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::FadeText::FadeText() function, expected prototype:\nosgText::FadeText::FadeText()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -372,8 +368,7 @@ public:
 	// osgText::FadeText::FadeText(const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgText::FadeText* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::FadeText::FadeText(const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgText::FadeText::FadeText(const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgText::FadeText::FadeText(const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgText::FadeText::FadeText(const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -395,8 +390,7 @@ public:
 	// osgText::FadeText::FadeText(lua_Table * data)
 	static osgText::FadeText* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::FadeText::FadeText(lua_Table * data) function, expected prototype:\nosgText::FadeText::FadeText(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::FadeText::FadeText(lua_Table * data) function, expected prototype:\nosgText::FadeText::FadeText(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -406,8 +400,7 @@ public:
 	// osgText::FadeText::FadeText(lua_Table * data, const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgText::FadeText* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::FadeText::FadeText(lua_Table * data, const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgText::FadeText::FadeText(lua_Table * data, const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgText::FadeText::FadeText(lua_Table * data, const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgText::FadeText::FadeText(lua_Table * data, const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -442,15 +435,13 @@ public:
 	// osg::Object * osgText::FadeText::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgText::FadeText::cloneType() const function, expected prototype:\nosg::Object * osgText::FadeText::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgText::FadeText::cloneType() const function, expected prototype:\nosg::Object * osgText::FadeText::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgText::FadeText::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgText::FadeText::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -463,8 +454,7 @@ public:
 	// osg::Object * osgText::FadeText::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgText::FadeText::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgText::FadeText::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgText::FadeText::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgText::FadeText::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -475,8 +465,7 @@ public:
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgText::FadeText::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgText::FadeText::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -489,16 +478,14 @@ public:
 	// bool osgText::FadeText::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgText::FadeText::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgText::FadeText::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgText::FadeText::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgText::FadeText::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::FadeText::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgText::FadeText::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -509,15 +496,13 @@ public:
 	// const char * osgText::FadeText::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgText::FadeText::libraryName() const function, expected prototype:\nconst char * osgText::FadeText::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgText::FadeText::libraryName() const function, expected prototype:\nconst char * osgText::FadeText::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::FadeText::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgText::FadeText::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -528,15 +513,13 @@ public:
 	// const char * osgText::FadeText::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgText::FadeText::className() const function, expected prototype:\nconst char * osgText::FadeText::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgText::FadeText::className() const function, expected prototype:\nconst char * osgText::FadeText::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::FadeText::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgText::FadeText::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -547,16 +530,14 @@ public:
 	// void osgText::FadeText::setFadeSpeed(float fadeSpeed)
 	static int _bind_setFadeSpeed(lua_State *L) {
 		if (!_lg_typecheck_setFadeSpeed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::setFadeSpeed(float fadeSpeed) function, expected prototype:\nvoid osgText::FadeText::setFadeSpeed(float fadeSpeed)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::setFadeSpeed(float fadeSpeed) function, expected prototype:\nvoid osgText::FadeText::setFadeSpeed(float fadeSpeed)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float fadeSpeed=(float)lua_tonumber(L,2);
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::setFadeSpeed(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::setFadeSpeed(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFadeSpeed(fadeSpeed);
 
@@ -566,15 +547,13 @@ public:
 	// float osgText::FadeText::getFadeSpeed() const
 	static int _bind_getFadeSpeed(lua_State *L) {
 		if (!_lg_typecheck_getFadeSpeed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgText::FadeText::getFadeSpeed() const function, expected prototype:\nfloat osgText::FadeText::getFadeSpeed() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgText::FadeText::getFadeSpeed() const function, expected prototype:\nfloat osgText::FadeText::getFadeSpeed() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::FadeText::getFadeSpeed() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgText::FadeText::getFadeSpeed() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getFadeSpeed();
 		lua_pushnumber(L,lret);
@@ -585,8 +564,7 @@ public:
 	// void osgText::FadeText::drawImplementation(osg::RenderInfo & renderInfo) const
 	static int _bind_drawImplementation(lua_State *L) {
 		if (!_lg_typecheck_drawImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::drawImplementation(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid osgText::FadeText::drawImplementation(osg::RenderInfo & renderInfo) const\nClass arguments details:\narg 1 ID = 2286263\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::drawImplementation(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid osgText::FadeText::drawImplementation(osg::RenderInfo & renderInfo) const\nClass arguments details:\narg 1 ID = 2286263\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
@@ -597,8 +575,7 @@ public:
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::drawImplementation(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::drawImplementation(osg::RenderInfo &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawImplementation(renderInfo);
 
@@ -608,16 +585,14 @@ public:
 	// void osgText::FadeText::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setName(const std::string & name) function, expected prototype:\nvoid osgText::FadeText::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setName(const std::string & name) function, expected prototype:\nvoid osgText::FadeText::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FadeText::setName(name);
 
@@ -627,16 +602,14 @@ public:
 	// void osgText::FadeText::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgText::FadeText::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgText::FadeText::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FadeText::setUserData(obj);
 
@@ -646,15 +619,13 @@ public:
 	// osg::Referenced * osgText::FadeText::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osgText::FadeText::base_getUserData() function, expected prototype:\nosg::Referenced * osgText::FadeText::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osgText::FadeText::base_getUserData() function, expected prototype:\nosg::Referenced * osgText::FadeText::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgText::FadeText::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgText::FadeText::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->FadeText::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -667,15 +638,13 @@ public:
 	// const osg::Referenced * osgText::FadeText::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgText::FadeText::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgText::FadeText::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgText::FadeText::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgText::FadeText::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgText::FadeText::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgText::FadeText::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->FadeText::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -697,15 +666,13 @@ public:
 	// osg::Geometry * osgText::FadeText::base_asGeometry()
 	static int _bind_base_asGeometry_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asGeometry_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geometry * osgText::FadeText::base_asGeometry() function, expected prototype:\nosg::Geometry * osgText::FadeText::base_asGeometry()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Geometry * osgText::FadeText::base_asGeometry() function, expected prototype:\nosg::Geometry * osgText::FadeText::base_asGeometry()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgText::FadeText::base_asGeometry(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgText::FadeText::base_asGeometry(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Geometry * lret = self->FadeText::asGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -718,15 +685,13 @@ public:
 	// const osg::Geometry * osgText::FadeText::base_asGeometry() const
 	static int _bind_base_asGeometry_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asGeometry_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Geometry * osgText::FadeText::base_asGeometry() const function, expected prototype:\nconst osg::Geometry * osgText::FadeText::base_asGeometry() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Geometry * osgText::FadeText::base_asGeometry() const function, expected prototype:\nconst osg::Geometry * osgText::FadeText::base_asGeometry() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geometry * osgText::FadeText::base_asGeometry() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Geometry * osgText::FadeText::base_asGeometry() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Geometry * lret = self->FadeText::asGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -748,15 +713,13 @@ public:
 	// void osgText::FadeText::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_computeDataVariance() function, expected prototype:\nvoid osgText::FadeText::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_computeDataVariance() function, expected prototype:\nvoid osgText::FadeText::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FadeText::computeDataVariance();
 
@@ -766,16 +729,14 @@ public:
 	// void osgText::FadeText::base_setUseVertexBufferObjects(bool flag)
 	static int _bind_base_setUseVertexBufferObjects(lua_State *L) {
 		if (!_lg_typecheck_base_setUseVertexBufferObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setUseVertexBufferObjects(bool flag) function, expected prototype:\nvoid osgText::FadeText::base_setUseVertexBufferObjects(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setUseVertexBufferObjects(bool flag) function, expected prototype:\nvoid osgText::FadeText::base_setUseVertexBufferObjects(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setUseVertexBufferObjects(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setUseVertexBufferObjects(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FadeText::setUseVertexBufferObjects(flag);
 
@@ -785,15 +746,13 @@ public:
 	// void osgText::FadeText::base_dirtyDisplayList()
 	static int _bind_base_dirtyDisplayList(lua_State *L) {
 		if (!_lg_typecheck_base_dirtyDisplayList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_dirtyDisplayList() function, expected prototype:\nvoid osgText::FadeText::base_dirtyDisplayList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_dirtyDisplayList() function, expected prototype:\nvoid osgText::FadeText::base_dirtyDisplayList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_dirtyDisplayList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_dirtyDisplayList(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FadeText::dirtyDisplayList();
 
@@ -803,15 +762,13 @@ public:
 	// unsigned int osgText::FadeText::base_getGLObjectSizeHint() const
 	static int _bind_base_getGLObjectSizeHint(lua_State *L) {
 		if (!_lg_typecheck_base_getGLObjectSizeHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgText::FadeText::base_getGLObjectSizeHint() const function, expected prototype:\nunsigned int osgText::FadeText::base_getGLObjectSizeHint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgText::FadeText::base_getGLObjectSizeHint() const function, expected prototype:\nunsigned int osgText::FadeText::base_getGLObjectSizeHint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgText::FadeText::base_getGLObjectSizeHint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgText::FadeText::base_getGLObjectSizeHint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->FadeText::getGLObjectSizeHint();
 		lua_pushnumber(L,lret);
@@ -822,8 +779,7 @@ public:
 	// void osgText::FadeText::base_compileGLObjects(osg::RenderInfo & renderInfo) const
 	static int _bind_base_compileGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_compileGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_compileGLObjects(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid osgText::FadeText::base_compileGLObjects(osg::RenderInfo & renderInfo) const\nClass arguments details:\narg 1 ID = 2286263\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_compileGLObjects(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid osgText::FadeText::base_compileGLObjects(osg::RenderInfo & renderInfo) const\nClass arguments details:\narg 1 ID = 2286263\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
@@ -834,8 +790,7 @@ public:
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_compileGLObjects(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_compileGLObjects(osg::RenderInfo &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FadeText::compileGLObjects(renderInfo);
 
@@ -845,16 +800,14 @@ public:
 	// void osgText::FadeText::base_setUpdateCallback(osg::Drawable::UpdateCallback * ac)
 	static int _bind_base_setUpdateCallback(lua_State *L) {
 		if (!_lg_typecheck_base_setUpdateCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setUpdateCallback(osg::Drawable::UpdateCallback * ac) function, expected prototype:\nvoid osgText::FadeText::base_setUpdateCallback(osg::Drawable::UpdateCallback * ac)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setUpdateCallback(osg::Drawable::UpdateCallback * ac) function, expected prototype:\nvoid osgText::FadeText::base_setUpdateCallback(osg::Drawable::UpdateCallback * ac)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Drawable::UpdateCallback* ac=(Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,2));
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setUpdateCallback(osg::Drawable::UpdateCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setUpdateCallback(osg::Drawable::UpdateCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FadeText::setUpdateCallback(ac);
 
@@ -864,16 +817,14 @@ public:
 	// void osgText::FadeText::base_setEventCallback(osg::Drawable::EventCallback * ac)
 	static int _bind_base_setEventCallback(lua_State *L) {
 		if (!_lg_typecheck_base_setEventCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setEventCallback(osg::Drawable::EventCallback * ac) function, expected prototype:\nvoid osgText::FadeText::base_setEventCallback(osg::Drawable::EventCallback * ac)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setEventCallback(osg::Drawable::EventCallback * ac) function, expected prototype:\nvoid osgText::FadeText::base_setEventCallback(osg::Drawable::EventCallback * ac)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Drawable::EventCallback* ac=(Luna< osg::Referenced >::checkSubType< osg::Drawable::EventCallback >(L,2));
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setEventCallback(osg::Drawable::EventCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setEventCallback(osg::Drawable::EventCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FadeText::setEventCallback(ac);
 
@@ -883,16 +834,14 @@ public:
 	// void osgText::FadeText::base_setCullCallback(osg::Drawable::CullCallback * cc)
 	static int _bind_base_setCullCallback(lua_State *L) {
 		if (!_lg_typecheck_base_setCullCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setCullCallback(osg::Drawable::CullCallback * cc) function, expected prototype:\nvoid osgText::FadeText::base_setCullCallback(osg::Drawable::CullCallback * cc)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setCullCallback(osg::Drawable::CullCallback * cc) function, expected prototype:\nvoid osgText::FadeText::base_setCullCallback(osg::Drawable::CullCallback * cc)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Drawable::CullCallback* cc=(Luna< osg::Referenced >::checkSubType< osg::Drawable::CullCallback >(L,2));
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setCullCallback(osg::Drawable::CullCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setCullCallback(osg::Drawable::CullCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FadeText::setCullCallback(cc);
 
@@ -902,16 +851,14 @@ public:
 	// void osgText::FadeText::base_setDrawCallback(osg::Drawable::DrawCallback * dc)
 	static int _bind_base_setDrawCallback(lua_State *L) {
 		if (!_lg_typecheck_base_setDrawCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setDrawCallback(osg::Drawable::DrawCallback * dc) function, expected prototype:\nvoid osgText::FadeText::base_setDrawCallback(osg::Drawable::DrawCallback * dc)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setDrawCallback(osg::Drawable::DrawCallback * dc) function, expected prototype:\nvoid osgText::FadeText::base_setDrawCallback(osg::Drawable::DrawCallback * dc)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Drawable::DrawCallback* dc=(Luna< osg::Referenced >::checkSubType< osg::Drawable::DrawCallback >(L,2));
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setDrawCallback(osg::Drawable::DrawCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setDrawCallback(osg::Drawable::DrawCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FadeText::setDrawCallback(dc);
 
@@ -921,15 +868,13 @@ public:
 	// osg::BoundingBoxd osgText::FadeText::base_computeBound() const
 	static int _bind_base_computeBound(lua_State *L) {
 		if (!_lg_typecheck_base_computeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingBoxd osgText::FadeText::base_computeBound() const function, expected prototype:\nosg::BoundingBoxd osgText::FadeText::base_computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingBoxd osgText::FadeText::base_computeBound() const function, expected prototype:\nosg::BoundingBoxd osgText::FadeText::base_computeBound() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osgText::FadeText::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osgText::FadeText::base_computeBound() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::BoundingBoxd stack_lret = self->FadeText::computeBound();
 		osg::BoundingBoxd* lret = new osg::BoundingBoxd(stack_lret);
@@ -943,8 +888,7 @@ public:
 	// void osgText::FadeText::base_setFont(osgText::Font * font = 0)
 	static int _bind_base_setFont_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_setFont_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setFont(osgText::Font * font = 0) function, expected prototype:\nvoid osgText::FadeText::base_setFont(osgText::Font * font = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setFont(osgText::Font * font = 0) function, expected prototype:\nvoid osgText::FadeText::base_setFont(osgText::Font * font = 0)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -953,8 +897,7 @@ public:
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setFont(osgText::Font *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setFont(osgText::Font *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FadeText::setFont(font);
 
@@ -964,16 +907,14 @@ public:
 	// void osgText::FadeText::base_setFont(const std::string & fontfile)
 	static int _bind_base_setFont_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_setFont_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setFont(const std::string & fontfile) function, expected prototype:\nvoid osgText::FadeText::base_setFont(const std::string & fontfile)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setFont(const std::string & fontfile) function, expected prototype:\nvoid osgText::FadeText::base_setFont(const std::string & fontfile)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fontfile(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setFont(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setFont(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FadeText::setFont(fontfile);
 
@@ -992,16 +933,14 @@ public:
 	// void osgText::FadeText::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::FadeText::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::FadeText::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FadeText::setThreadSafeRefUnref(threadSafe);
 
@@ -1011,8 +950,7 @@ public:
 	// void osgText::FadeText::base_releaseGLObjects(osg::State * state = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osgText::FadeText::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osgText::FadeText::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1021,8 +959,7 @@ public:
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FadeText::releaseGLObjects(state);
 
@@ -1032,15 +969,13 @@ public:
 	// osg::Object * osgText::FadeText::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgText::FadeText::base_cloneType() const function, expected prototype:\nosg::Object * osgText::FadeText::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgText::FadeText::base_cloneType() const function, expected prototype:\nosg::Object * osgText::FadeText::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgText::FadeText::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgText::FadeText::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->FadeText::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1053,8 +988,7 @@ public:
 	// osg::Object * osgText::FadeText::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgText::FadeText::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgText::FadeText::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgText::FadeText::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgText::FadeText::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1065,8 +999,7 @@ public:
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgText::FadeText::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgText::FadeText::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->FadeText::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1079,16 +1012,14 @@ public:
 	// bool osgText::FadeText::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgText::FadeText::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgText::FadeText::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgText::FadeText::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgText::FadeText::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::FadeText::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgText::FadeText::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->FadeText::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1099,15 +1030,13 @@ public:
 	// const char * osgText::FadeText::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgText::FadeText::base_libraryName() const function, expected prototype:\nconst char * osgText::FadeText::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgText::FadeText::base_libraryName() const function, expected prototype:\nconst char * osgText::FadeText::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::FadeText::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgText::FadeText::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->FadeText::libraryName();
 		lua_pushstring(L,lret);
@@ -1118,15 +1047,13 @@ public:
 	// const char * osgText::FadeText::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgText::FadeText::base_className() const function, expected prototype:\nconst char * osgText::FadeText::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgText::FadeText::base_className() const function, expected prototype:\nconst char * osgText::FadeText::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::FadeText::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgText::FadeText::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->FadeText::className();
 		lua_pushstring(L,lret);
@@ -1137,8 +1064,7 @@ public:
 	// void osgText::FadeText::base_drawImplementation(osg::RenderInfo & renderInfo) const
 	static int _bind_base_drawImplementation(lua_State *L) {
 		if (!_lg_typecheck_base_drawImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_drawImplementation(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid osgText::FadeText::base_drawImplementation(osg::RenderInfo & renderInfo) const\nClass arguments details:\narg 1 ID = 2286263\n");
+			luaL_error(L, "luna typecheck failed in void osgText::FadeText::base_drawImplementation(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid osgText::FadeText::base_drawImplementation(osg::RenderInfo & renderInfo) const\nClass arguments details:\narg 1 ID = 2286263\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
@@ -1149,8 +1075,7 @@ public:
 
 		osgText::FadeText* self=Luna< osg::Referenced >::checkSubType< osgText::FadeText >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_drawImplementation(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::FadeText::base_drawImplementation(osg::RenderInfo &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FadeText::drawImplementation(renderInfo);
 

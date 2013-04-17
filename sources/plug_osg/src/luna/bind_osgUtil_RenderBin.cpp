@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::RenderBin* self= (osgUtil::RenderBin*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -615,8 +612,7 @@ public:
 	// osgUtil::RenderBin::RenderBin()
 	static osgUtil::RenderBin* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderBin() function, expected prototype:\nosgUtil::RenderBin::RenderBin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderBin() function, expected prototype:\nosgUtil::RenderBin::RenderBin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -626,8 +622,7 @@ public:
 	// osgUtil::RenderBin::RenderBin(osgUtil::RenderBin::SortMode mode)
 	static osgUtil::RenderBin* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderBin(osgUtil::RenderBin::SortMode mode) function, expected prototype:\nosgUtil::RenderBin::RenderBin(osgUtil::RenderBin::SortMode mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderBin(osgUtil::RenderBin::SortMode mode) function, expected prototype:\nosgUtil::RenderBin::RenderBin(osgUtil::RenderBin::SortMode mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::RenderBin::SortMode mode=(osgUtil::RenderBin::SortMode)lua_tointeger(L,1);
@@ -638,8 +633,7 @@ public:
 	// osgUtil::RenderBin::RenderBin(const osgUtil::RenderBin & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgUtil::RenderBin* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderBin(const osgUtil::RenderBin & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgUtil::RenderBin::RenderBin(const osgUtil::RenderBin & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderBin(const osgUtil::RenderBin & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgUtil::RenderBin::RenderBin(const osgUtil::RenderBin & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -661,8 +655,7 @@ public:
 	// osgUtil::RenderBin::RenderBin(lua_Table * data)
 	static osgUtil::RenderBin* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderBin(lua_Table * data) function, expected prototype:\nosgUtil::RenderBin::RenderBin(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderBin(lua_Table * data) function, expected prototype:\nosgUtil::RenderBin::RenderBin(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -672,8 +665,7 @@ public:
 	// osgUtil::RenderBin::RenderBin(lua_Table * data, osgUtil::RenderBin::SortMode mode)
 	static osgUtil::RenderBin* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderBin(lua_Table * data, osgUtil::RenderBin::SortMode mode) function, expected prototype:\nosgUtil::RenderBin::RenderBin(lua_Table * data, osgUtil::RenderBin::SortMode mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderBin(lua_Table * data, osgUtil::RenderBin::SortMode mode) function, expected prototype:\nosgUtil::RenderBin::RenderBin(lua_Table * data, osgUtil::RenderBin::SortMode mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::RenderBin::SortMode mode=(osgUtil::RenderBin::SortMode)lua_tointeger(L,2);
@@ -684,8 +676,7 @@ public:
 	// osgUtil::RenderBin::RenderBin(lua_Table * data, const osgUtil::RenderBin & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgUtil::RenderBin* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderBin(lua_Table * data, const osgUtil::RenderBin & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgUtil::RenderBin::RenderBin(lua_Table * data, const osgUtil::RenderBin & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderBin(lua_Table * data, const osgUtil::RenderBin & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgUtil::RenderBin::RenderBin(lua_Table * data, const osgUtil::RenderBin & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -722,8 +713,7 @@ public:
 	// static osgUtil::RenderBin * osgUtil::RenderBin::createRenderBin(const std::string & binName)
 	static int _bind_createRenderBin(lua_State *L) {
 		if (!_lg_typecheck_createRenderBin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osgUtil::RenderBin * osgUtil::RenderBin::createRenderBin(const std::string & binName) function, expected prototype:\nstatic osgUtil::RenderBin * osgUtil::RenderBin::createRenderBin(const std::string & binName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osgUtil::RenderBin * osgUtil::RenderBin::createRenderBin(const std::string & binName) function, expected prototype:\nstatic osgUtil::RenderBin * osgUtil::RenderBin::createRenderBin(const std::string & binName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string binName(lua_tostring(L,1),lua_objlen(L,1));
@@ -739,8 +729,7 @@ public:
 	// static osgUtil::RenderBin * osgUtil::RenderBin::getRenderBinPrototype(const std::string & binName)
 	static int _bind_getRenderBinPrototype(lua_State *L) {
 		if (!_lg_typecheck_getRenderBinPrototype(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osgUtil::RenderBin * osgUtil::RenderBin::getRenderBinPrototype(const std::string & binName) function, expected prototype:\nstatic osgUtil::RenderBin * osgUtil::RenderBin::getRenderBinPrototype(const std::string & binName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osgUtil::RenderBin * osgUtil::RenderBin::getRenderBinPrototype(const std::string & binName) function, expected prototype:\nstatic osgUtil::RenderBin * osgUtil::RenderBin::getRenderBinPrototype(const std::string & binName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string binName(lua_tostring(L,1),lua_objlen(L,1));
@@ -756,8 +745,7 @@ public:
 	// static void osgUtil::RenderBin::addRenderBinPrototype(const std::string & binName, osgUtil::RenderBin * proto)
 	static int _bind_addRenderBinPrototype(lua_State *L) {
 		if (!_lg_typecheck_addRenderBinPrototype(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osgUtil::RenderBin::addRenderBinPrototype(const std::string & binName, osgUtil::RenderBin * proto) function, expected prototype:\nstatic void osgUtil::RenderBin::addRenderBinPrototype(const std::string & binName, osgUtil::RenderBin * proto)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in static void osgUtil::RenderBin::addRenderBinPrototype(const std::string & binName, osgUtil::RenderBin * proto) function, expected prototype:\nstatic void osgUtil::RenderBin::addRenderBinPrototype(const std::string & binName, osgUtil::RenderBin * proto)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string binName(lua_tostring(L,1),lua_objlen(L,1));
@@ -771,8 +759,7 @@ public:
 	// static void osgUtil::RenderBin::removeRenderBinPrototype(osgUtil::RenderBin * proto)
 	static int _bind_removeRenderBinPrototype(lua_State *L) {
 		if (!_lg_typecheck_removeRenderBinPrototype(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osgUtil::RenderBin::removeRenderBinPrototype(osgUtil::RenderBin * proto) function, expected prototype:\nstatic void osgUtil::RenderBin::removeRenderBinPrototype(osgUtil::RenderBin * proto)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in static void osgUtil::RenderBin::removeRenderBinPrototype(osgUtil::RenderBin * proto) function, expected prototype:\nstatic void osgUtil::RenderBin::removeRenderBinPrototype(osgUtil::RenderBin * proto)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::RenderBin* proto=(Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1));
@@ -785,8 +772,7 @@ public:
 	// static void osgUtil::RenderBin::setDefaultRenderBinSortMode(osgUtil::RenderBin::SortMode mode)
 	static int _bind_setDefaultRenderBinSortMode(lua_State *L) {
 		if (!_lg_typecheck_setDefaultRenderBinSortMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osgUtil::RenderBin::setDefaultRenderBinSortMode(osgUtil::RenderBin::SortMode mode) function, expected prototype:\nstatic void osgUtil::RenderBin::setDefaultRenderBinSortMode(osgUtil::RenderBin::SortMode mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osgUtil::RenderBin::setDefaultRenderBinSortMode(osgUtil::RenderBin::SortMode mode) function, expected prototype:\nstatic void osgUtil::RenderBin::setDefaultRenderBinSortMode(osgUtil::RenderBin::SortMode mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::RenderBin::SortMode mode=(osgUtil::RenderBin::SortMode)lua_tointeger(L,1);
@@ -799,8 +785,7 @@ public:
 	// static osgUtil::RenderBin::SortMode osgUtil::RenderBin::getDefaultRenderBinSortMode()
 	static int _bind_getDefaultRenderBinSortMode(lua_State *L) {
 		if (!_lg_typecheck_getDefaultRenderBinSortMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osgUtil::RenderBin::SortMode osgUtil::RenderBin::getDefaultRenderBinSortMode() function, expected prototype:\nstatic osgUtil::RenderBin::SortMode osgUtil::RenderBin::getDefaultRenderBinSortMode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osgUtil::RenderBin::SortMode osgUtil::RenderBin::getDefaultRenderBinSortMode() function, expected prototype:\nstatic osgUtil::RenderBin::SortMode osgUtil::RenderBin::getDefaultRenderBinSortMode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -813,15 +798,13 @@ public:
 	// osg::Object * osgUtil::RenderBin::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::RenderBin::cloneType() const function, expected prototype:\nosg::Object * osgUtil::RenderBin::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::RenderBin::cloneType() const function, expected prototype:\nosg::Object * osgUtil::RenderBin::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::RenderBin::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::RenderBin::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -834,8 +817,7 @@ public:
 	// osg::Object * osgUtil::RenderBin::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::RenderBin::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgUtil::RenderBin::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::RenderBin::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgUtil::RenderBin::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -846,8 +828,7 @@ public:
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::RenderBin::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::RenderBin::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -860,16 +841,14 @@ public:
 	// bool osgUtil::RenderBin::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::RenderBin::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgUtil::RenderBin::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::RenderBin::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgUtil::RenderBin::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::RenderBin::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::RenderBin::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -880,15 +859,13 @@ public:
 	// const char * osgUtil::RenderBin::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::RenderBin::libraryName() const function, expected prototype:\nconst char * osgUtil::RenderBin::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::RenderBin::libraryName() const function, expected prototype:\nconst char * osgUtil::RenderBin::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::RenderBin::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::RenderBin::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -899,15 +876,13 @@ public:
 	// const char * osgUtil::RenderBin::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::RenderBin::className() const function, expected prototype:\nconst char * osgUtil::RenderBin::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::RenderBin::className() const function, expected prototype:\nconst char * osgUtil::RenderBin::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::RenderBin::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::RenderBin::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -918,15 +893,13 @@ public:
 	// void osgUtil::RenderBin::reset()
 	static int _bind_reset(lua_State *L) {
 		if (!_lg_typecheck_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::reset() function, expected prototype:\nvoid osgUtil::RenderBin::reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::reset() function, expected prototype:\nvoid osgUtil::RenderBin::reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reset();
 
@@ -936,16 +909,14 @@ public:
 	// void osgUtil::RenderBin::setStateSet(osg::StateSet * stateset)
 	static int _bind_setStateSet(lua_State *L) {
 		if (!_lg_typecheck_setStateSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::setStateSet(osg::StateSet * stateset) function, expected prototype:\nvoid osgUtil::RenderBin::setStateSet(osg::StateSet * stateset)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::setStateSet(osg::StateSet * stateset) function, expected prototype:\nvoid osgUtil::RenderBin::setStateSet(osg::StateSet * stateset)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateSet* stateset=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::setStateSet(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::setStateSet(osg::StateSet *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setStateSet(stateset);
 
@@ -955,15 +926,13 @@ public:
 	// osg::StateSet * osgUtil::RenderBin::getStateSet()
 	static int _bind_getStateSet_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getStateSet_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateSet * osgUtil::RenderBin::getStateSet() function, expected prototype:\nosg::StateSet * osgUtil::RenderBin::getStateSet()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateSet * osgUtil::RenderBin::getStateSet() function, expected prototype:\nosg::StateSet * osgUtil::RenderBin::getStateSet()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osgUtil::RenderBin::getStateSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateSet * osgUtil::RenderBin::getStateSet(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateSet * lret = self->getStateSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -976,15 +945,13 @@ public:
 	// const osg::StateSet * osgUtil::RenderBin::getStateSet() const
 	static int _bind_getStateSet_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getStateSet_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::StateSet * osgUtil::RenderBin::getStateSet() const function, expected prototype:\nconst osg::StateSet * osgUtil::RenderBin::getStateSet() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::StateSet * osgUtil::RenderBin::getStateSet() const function, expected prototype:\nconst osg::StateSet * osgUtil::RenderBin::getStateSet() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet * osgUtil::RenderBin::getStateSet() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::StateSet * osgUtil::RenderBin::getStateSet() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::StateSet * lret = self->getStateSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1006,15 +973,13 @@ public:
 	// osgUtil::RenderBin * osgUtil::RenderBin::getParent()
 	static int _bind_getParent_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getParent_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin * osgUtil::RenderBin::getParent() function, expected prototype:\nosgUtil::RenderBin * osgUtil::RenderBin::getParent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin * osgUtil::RenderBin::getParent() function, expected prototype:\nosgUtil::RenderBin * osgUtil::RenderBin::getParent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::RenderBin * osgUtil::RenderBin::getParent(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::RenderBin * osgUtil::RenderBin::getParent(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::RenderBin * lret = self->getParent();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1027,15 +992,13 @@ public:
 	// const osgUtil::RenderBin * osgUtil::RenderBin::getParent() const
 	static int _bind_getParent_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getParent_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgUtil::RenderBin * osgUtil::RenderBin::getParent() const function, expected prototype:\nconst osgUtil::RenderBin * osgUtil::RenderBin::getParent() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgUtil::RenderBin * osgUtil::RenderBin::getParent() const function, expected prototype:\nconst osgUtil::RenderBin * osgUtil::RenderBin::getParent() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgUtil::RenderBin * osgUtil::RenderBin::getParent() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgUtil::RenderBin * osgUtil::RenderBin::getParent() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::RenderBin * lret = self->getParent();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1057,15 +1020,13 @@ public:
 	// osgUtil::RenderStage * osgUtil::RenderBin::getStage()
 	static int _bind_getStage_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getStage_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderStage * osgUtil::RenderBin::getStage() function, expected prototype:\nosgUtil::RenderStage * osgUtil::RenderBin::getStage()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderStage * osgUtil::RenderBin::getStage() function, expected prototype:\nosgUtil::RenderStage * osgUtil::RenderBin::getStage()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::RenderStage * osgUtil::RenderBin::getStage(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::RenderStage * osgUtil::RenderBin::getStage(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::RenderStage * lret = self->getStage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1078,15 +1039,13 @@ public:
 	// const osgUtil::RenderStage * osgUtil::RenderBin::getStage() const
 	static int _bind_getStage_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getStage_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgUtil::RenderStage * osgUtil::RenderBin::getStage() const function, expected prototype:\nconst osgUtil::RenderStage * osgUtil::RenderBin::getStage() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgUtil::RenderStage * osgUtil::RenderBin::getStage() const function, expected prototype:\nconst osgUtil::RenderStage * osgUtil::RenderBin::getStage() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgUtil::RenderStage * osgUtil::RenderBin::getStage() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgUtil::RenderStage * osgUtil::RenderBin::getStage() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::RenderStage * lret = self->getStage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1108,15 +1067,13 @@ public:
 	// int osgUtil::RenderBin::getBinNum() const
 	static int _bind_getBinNum(lua_State *L) {
 		if (!_lg_typecheck_getBinNum(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgUtil::RenderBin::getBinNum() const function, expected prototype:\nint osgUtil::RenderBin::getBinNum() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgUtil::RenderBin::getBinNum() const function, expected prototype:\nint osgUtil::RenderBin::getBinNum() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::RenderBin::getBinNum() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgUtil::RenderBin::getBinNum() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getBinNum();
 		lua_pushnumber(L,lret);
@@ -1127,15 +1084,13 @@ public:
 	// osgUtil::RenderBin::StateGraphList & osgUtil::RenderBin::getStateGraphList()
 	static int _bind_getStateGraphList_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getStateGraphList_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::StateGraphList & osgUtil::RenderBin::getStateGraphList() function, expected prototype:\nosgUtil::RenderBin::StateGraphList & osgUtil::RenderBin::getStateGraphList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::StateGraphList & osgUtil::RenderBin::getStateGraphList() function, expected prototype:\nosgUtil::RenderBin::StateGraphList & osgUtil::RenderBin::getStateGraphList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::RenderBin::StateGraphList & osgUtil::RenderBin::getStateGraphList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::RenderBin::StateGraphList & osgUtil::RenderBin::getStateGraphList(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::RenderBin::StateGraphList* lret = &self->getStateGraphList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1148,15 +1103,13 @@ public:
 	// const osgUtil::RenderBin::StateGraphList & osgUtil::RenderBin::getStateGraphList() const
 	static int _bind_getStateGraphList_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getStateGraphList_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgUtil::RenderBin::StateGraphList & osgUtil::RenderBin::getStateGraphList() const function, expected prototype:\nconst osgUtil::RenderBin::StateGraphList & osgUtil::RenderBin::getStateGraphList() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgUtil::RenderBin::StateGraphList & osgUtil::RenderBin::getStateGraphList() const function, expected prototype:\nconst osgUtil::RenderBin::StateGraphList & osgUtil::RenderBin::getStateGraphList() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgUtil::RenderBin::StateGraphList & osgUtil::RenderBin::getStateGraphList() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgUtil::RenderBin::StateGraphList & osgUtil::RenderBin::getStateGraphList() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::RenderBin::StateGraphList* lret = &self->getStateGraphList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1178,15 +1131,13 @@ public:
 	// osgUtil::RenderBin::RenderBinList & osgUtil::RenderBin::getRenderBinList()
 	static int _bind_getRenderBinList_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getRenderBinList_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderBinList & osgUtil::RenderBin::getRenderBinList() function, expected prototype:\nosgUtil::RenderBin::RenderBinList & osgUtil::RenderBin::getRenderBinList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderBinList & osgUtil::RenderBin::getRenderBinList() function, expected prototype:\nosgUtil::RenderBin::RenderBinList & osgUtil::RenderBin::getRenderBinList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::RenderBin::RenderBinList & osgUtil::RenderBin::getRenderBinList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::RenderBin::RenderBinList & osgUtil::RenderBin::getRenderBinList(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::RenderBin::RenderBinList* lret = &self->getRenderBinList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1199,15 +1150,13 @@ public:
 	// const osgUtil::RenderBin::RenderBinList & osgUtil::RenderBin::getRenderBinList() const
 	static int _bind_getRenderBinList_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getRenderBinList_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgUtil::RenderBin::RenderBinList & osgUtil::RenderBin::getRenderBinList() const function, expected prototype:\nconst osgUtil::RenderBin::RenderBinList & osgUtil::RenderBin::getRenderBinList() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgUtil::RenderBin::RenderBinList & osgUtil::RenderBin::getRenderBinList() const function, expected prototype:\nconst osgUtil::RenderBin::RenderBinList & osgUtil::RenderBin::getRenderBinList() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgUtil::RenderBin::RenderBinList & osgUtil::RenderBin::getRenderBinList() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgUtil::RenderBin::RenderBinList & osgUtil::RenderBin::getRenderBinList() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::RenderBin::RenderBinList* lret = &self->getRenderBinList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1229,15 +1178,13 @@ public:
 	// osgUtil::RenderBin::RenderLeafList & osgUtil::RenderBin::getRenderLeafList()
 	static int _bind_getRenderLeafList_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getRenderLeafList_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderLeafList & osgUtil::RenderBin::getRenderLeafList() function, expected prototype:\nosgUtil::RenderBin::RenderLeafList & osgUtil::RenderBin::getRenderLeafList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::RenderLeafList & osgUtil::RenderBin::getRenderLeafList() function, expected prototype:\nosgUtil::RenderBin::RenderLeafList & osgUtil::RenderBin::getRenderLeafList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::RenderBin::RenderLeafList & osgUtil::RenderBin::getRenderLeafList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::RenderBin::RenderLeafList & osgUtil::RenderBin::getRenderLeafList(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::RenderBin::RenderLeafList* lret = &self->getRenderLeafList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1250,15 +1197,13 @@ public:
 	// const osgUtil::RenderBin::RenderLeafList & osgUtil::RenderBin::getRenderLeafList() const
 	static int _bind_getRenderLeafList_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getRenderLeafList_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgUtil::RenderBin::RenderLeafList & osgUtil::RenderBin::getRenderLeafList() const function, expected prototype:\nconst osgUtil::RenderBin::RenderLeafList & osgUtil::RenderBin::getRenderLeafList() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgUtil::RenderBin::RenderLeafList & osgUtil::RenderBin::getRenderLeafList() const function, expected prototype:\nconst osgUtil::RenderBin::RenderLeafList & osgUtil::RenderBin::getRenderLeafList() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgUtil::RenderBin::RenderLeafList & osgUtil::RenderBin::getRenderLeafList() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgUtil::RenderBin::RenderLeafList & osgUtil::RenderBin::getRenderLeafList() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::RenderBin::RenderLeafList* lret = &self->getRenderLeafList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1280,8 +1225,7 @@ public:
 	// osgUtil::RenderBin * osgUtil::RenderBin::find_or_insert(int binNum, const std::string & binName)
 	static int _bind_find_or_insert(lua_State *L) {
 		if (!_lg_typecheck_find_or_insert(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin * osgUtil::RenderBin::find_or_insert(int binNum, const std::string & binName) function, expected prototype:\nosgUtil::RenderBin * osgUtil::RenderBin::find_or_insert(int binNum, const std::string & binName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin * osgUtil::RenderBin::find_or_insert(int binNum, const std::string & binName) function, expected prototype:\nosgUtil::RenderBin * osgUtil::RenderBin::find_or_insert(int binNum, const std::string & binName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int binNum=(int)lua_tointeger(L,2);
@@ -1289,8 +1233,7 @@ public:
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::RenderBin * osgUtil::RenderBin::find_or_insert(int, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::RenderBin * osgUtil::RenderBin::find_or_insert(int, const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::RenderBin * lret = self->find_or_insert(binNum, binName);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1303,16 +1246,14 @@ public:
 	// void osgUtil::RenderBin::addStateGraph(osgUtil::StateGraph * rg)
 	static int _bind_addStateGraph(lua_State *L) {
 		if (!_lg_typecheck_addStateGraph(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::addStateGraph(osgUtil::StateGraph * rg) function, expected prototype:\nvoid osgUtil::RenderBin::addStateGraph(osgUtil::StateGraph * rg)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::addStateGraph(osgUtil::StateGraph * rg) function, expected prototype:\nvoid osgUtil::RenderBin::addStateGraph(osgUtil::StateGraph * rg)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::StateGraph* rg=(Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,2));
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::addStateGraph(osgUtil::StateGraph *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::addStateGraph(osgUtil::StateGraph *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addStateGraph(rg);
 
@@ -1322,15 +1263,13 @@ public:
 	// void osgUtil::RenderBin::sort()
 	static int _bind_sort(lua_State *L) {
 		if (!_lg_typecheck_sort(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::sort() function, expected prototype:\nvoid osgUtil::RenderBin::sort()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::sort() function, expected prototype:\nvoid osgUtil::RenderBin::sort()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::sort(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::sort(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->sort();
 
@@ -1340,15 +1279,13 @@ public:
 	// void osgUtil::RenderBin::sortImplementation()
 	static int _bind_sortImplementation(lua_State *L) {
 		if (!_lg_typecheck_sortImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::sortImplementation() function, expected prototype:\nvoid osgUtil::RenderBin::sortImplementation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::sortImplementation() function, expected prototype:\nvoid osgUtil::RenderBin::sortImplementation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::sortImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::sortImplementation(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->sortImplementation();
 
@@ -1358,16 +1295,14 @@ public:
 	// void osgUtil::RenderBin::setSortMode(osgUtil::RenderBin::SortMode mode)
 	static int _bind_setSortMode(lua_State *L) {
 		if (!_lg_typecheck_setSortMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::setSortMode(osgUtil::RenderBin::SortMode mode) function, expected prototype:\nvoid osgUtil::RenderBin::setSortMode(osgUtil::RenderBin::SortMode mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::setSortMode(osgUtil::RenderBin::SortMode mode) function, expected prototype:\nvoid osgUtil::RenderBin::setSortMode(osgUtil::RenderBin::SortMode mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::RenderBin::SortMode mode=(osgUtil::RenderBin::SortMode)lua_tointeger(L,2);
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::setSortMode(osgUtil::RenderBin::SortMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::setSortMode(osgUtil::RenderBin::SortMode). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSortMode(mode);
 
@@ -1377,15 +1312,13 @@ public:
 	// osgUtil::RenderBin::SortMode osgUtil::RenderBin::getSortMode() const
 	static int _bind_getSortMode(lua_State *L) {
 		if (!_lg_typecheck_getSortMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::SortMode osgUtil::RenderBin::getSortMode() const function, expected prototype:\nosgUtil::RenderBin::SortMode osgUtil::RenderBin::getSortMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::SortMode osgUtil::RenderBin::getSortMode() const function, expected prototype:\nosgUtil::RenderBin::SortMode osgUtil::RenderBin::getSortMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::RenderBin::SortMode osgUtil::RenderBin::getSortMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::RenderBin::SortMode osgUtil::RenderBin::getSortMode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::RenderBin::SortMode lret = self->getSortMode();
 		lua_pushnumber(L,lret);
@@ -1396,15 +1329,13 @@ public:
 	// void osgUtil::RenderBin::sortByState()
 	static int _bind_sortByState(lua_State *L) {
 		if (!_lg_typecheck_sortByState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::sortByState() function, expected prototype:\nvoid osgUtil::RenderBin::sortByState()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::sortByState() function, expected prototype:\nvoid osgUtil::RenderBin::sortByState()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::sortByState(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::sortByState(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->sortByState();
 
@@ -1414,15 +1345,13 @@ public:
 	// void osgUtil::RenderBin::sortByStateThenFrontToBack()
 	static int _bind_sortByStateThenFrontToBack(lua_State *L) {
 		if (!_lg_typecheck_sortByStateThenFrontToBack(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::sortByStateThenFrontToBack() function, expected prototype:\nvoid osgUtil::RenderBin::sortByStateThenFrontToBack()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::sortByStateThenFrontToBack() function, expected prototype:\nvoid osgUtil::RenderBin::sortByStateThenFrontToBack()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::sortByStateThenFrontToBack(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::sortByStateThenFrontToBack(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->sortByStateThenFrontToBack();
 
@@ -1432,15 +1361,13 @@ public:
 	// void osgUtil::RenderBin::sortFrontToBack()
 	static int _bind_sortFrontToBack(lua_State *L) {
 		if (!_lg_typecheck_sortFrontToBack(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::sortFrontToBack() function, expected prototype:\nvoid osgUtil::RenderBin::sortFrontToBack()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::sortFrontToBack() function, expected prototype:\nvoid osgUtil::RenderBin::sortFrontToBack()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::sortFrontToBack(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::sortFrontToBack(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->sortFrontToBack();
 
@@ -1450,15 +1377,13 @@ public:
 	// void osgUtil::RenderBin::sortBackToFront()
 	static int _bind_sortBackToFront(lua_State *L) {
 		if (!_lg_typecheck_sortBackToFront(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::sortBackToFront() function, expected prototype:\nvoid osgUtil::RenderBin::sortBackToFront()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::sortBackToFront() function, expected prototype:\nvoid osgUtil::RenderBin::sortBackToFront()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::sortBackToFront(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::sortBackToFront(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->sortBackToFront();
 
@@ -1468,15 +1393,13 @@ public:
 	// void osgUtil::RenderBin::sortTraversalOrder()
 	static int _bind_sortTraversalOrder(lua_State *L) {
 		if (!_lg_typecheck_sortTraversalOrder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::sortTraversalOrder() function, expected prototype:\nvoid osgUtil::RenderBin::sortTraversalOrder()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::sortTraversalOrder() function, expected prototype:\nvoid osgUtil::RenderBin::sortTraversalOrder()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::sortTraversalOrder(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::sortTraversalOrder(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->sortTraversalOrder();
 
@@ -1486,16 +1409,14 @@ public:
 	// void osgUtil::RenderBin::setSortCallback(osgUtil::RenderBin::SortCallback * sortCallback)
 	static int _bind_setSortCallback(lua_State *L) {
 		if (!_lg_typecheck_setSortCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::setSortCallback(osgUtil::RenderBin::SortCallback * sortCallback) function, expected prototype:\nvoid osgUtil::RenderBin::setSortCallback(osgUtil::RenderBin::SortCallback * sortCallback)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::setSortCallback(osgUtil::RenderBin::SortCallback * sortCallback) function, expected prototype:\nvoid osgUtil::RenderBin::setSortCallback(osgUtil::RenderBin::SortCallback * sortCallback)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::RenderBin::SortCallback* sortCallback=(Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin::SortCallback >(L,2));
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::setSortCallback(osgUtil::RenderBin::SortCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::setSortCallback(osgUtil::RenderBin::SortCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSortCallback(sortCallback);
 
@@ -1505,15 +1426,13 @@ public:
 	// osgUtil::RenderBin::SortCallback * osgUtil::RenderBin::getSortCallback()
 	static int _bind_getSortCallback_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getSortCallback_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::SortCallback * osgUtil::RenderBin::getSortCallback() function, expected prototype:\nosgUtil::RenderBin::SortCallback * osgUtil::RenderBin::getSortCallback()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::SortCallback * osgUtil::RenderBin::getSortCallback() function, expected prototype:\nosgUtil::RenderBin::SortCallback * osgUtil::RenderBin::getSortCallback()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::RenderBin::SortCallback * osgUtil::RenderBin::getSortCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::RenderBin::SortCallback * osgUtil::RenderBin::getSortCallback(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::RenderBin::SortCallback * lret = self->getSortCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1526,15 +1445,13 @@ public:
 	// const osgUtil::RenderBin::SortCallback * osgUtil::RenderBin::getSortCallback() const
 	static int _bind_getSortCallback_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getSortCallback_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgUtil::RenderBin::SortCallback * osgUtil::RenderBin::getSortCallback() const function, expected prototype:\nconst osgUtil::RenderBin::SortCallback * osgUtil::RenderBin::getSortCallback() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgUtil::RenderBin::SortCallback * osgUtil::RenderBin::getSortCallback() const function, expected prototype:\nconst osgUtil::RenderBin::SortCallback * osgUtil::RenderBin::getSortCallback() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgUtil::RenderBin::SortCallback * osgUtil::RenderBin::getSortCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgUtil::RenderBin::SortCallback * osgUtil::RenderBin::getSortCallback() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::RenderBin::SortCallback * lret = self->getSortCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1556,8 +1473,7 @@ public:
 	// void osgUtil::RenderBin::draw(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
 	static int _bind_draw(lua_State *L) {
 		if (!_lg_typecheck_draw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::draw(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous) function, expected prototype:\nvoid osgUtil::RenderBin::draw(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)\nClass arguments details:\narg 1 ID = 2286263\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::draw(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous) function, expected prototype:\nvoid osgUtil::RenderBin::draw(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)\nClass arguments details:\narg 1 ID = 2286263\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
@@ -1569,8 +1485,7 @@ public:
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::draw(osg::RenderInfo &, osgUtil::RenderLeaf *&). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::draw(osg::RenderInfo &, osgUtil::RenderLeaf *&). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->draw(renderInfo, previous);
 
@@ -1580,8 +1495,7 @@ public:
 	// void osgUtil::RenderBin::drawImplementation(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
 	static int _bind_drawImplementation(lua_State *L) {
 		if (!_lg_typecheck_drawImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::drawImplementation(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous) function, expected prototype:\nvoid osgUtil::RenderBin::drawImplementation(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)\nClass arguments details:\narg 1 ID = 2286263\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::drawImplementation(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous) function, expected prototype:\nvoid osgUtil::RenderBin::drawImplementation(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)\nClass arguments details:\narg 1 ID = 2286263\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
@@ -1593,8 +1507,7 @@ public:
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::drawImplementation(osg::RenderInfo &, osgUtil::RenderLeaf *&). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::drawImplementation(osg::RenderInfo &, osgUtil::RenderLeaf *&). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawImplementation(renderInfo, previous);
 
@@ -1604,16 +1517,14 @@ public:
 	// void osgUtil::RenderBin::setDrawCallback(osgUtil::RenderBin::DrawCallback * drawCallback)
 	static int _bind_setDrawCallback(lua_State *L) {
 		if (!_lg_typecheck_setDrawCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::setDrawCallback(osgUtil::RenderBin::DrawCallback * drawCallback) function, expected prototype:\nvoid osgUtil::RenderBin::setDrawCallback(osgUtil::RenderBin::DrawCallback * drawCallback)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::setDrawCallback(osgUtil::RenderBin::DrawCallback * drawCallback) function, expected prototype:\nvoid osgUtil::RenderBin::setDrawCallback(osgUtil::RenderBin::DrawCallback * drawCallback)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::RenderBin::DrawCallback* drawCallback=(Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin::DrawCallback >(L,2));
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::setDrawCallback(osgUtil::RenderBin::DrawCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::setDrawCallback(osgUtil::RenderBin::DrawCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDrawCallback(drawCallback);
 
@@ -1623,15 +1534,13 @@ public:
 	// osgUtil::RenderBin::DrawCallback * osgUtil::RenderBin::getDrawCallback()
 	static int _bind_getDrawCallback_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getDrawCallback_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::DrawCallback * osgUtil::RenderBin::getDrawCallback() function, expected prototype:\nosgUtil::RenderBin::DrawCallback * osgUtil::RenderBin::getDrawCallback()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::DrawCallback * osgUtil::RenderBin::getDrawCallback() function, expected prototype:\nosgUtil::RenderBin::DrawCallback * osgUtil::RenderBin::getDrawCallback()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::RenderBin::DrawCallback * osgUtil::RenderBin::getDrawCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::RenderBin::DrawCallback * osgUtil::RenderBin::getDrawCallback(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::RenderBin::DrawCallback * lret = self->getDrawCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1644,15 +1553,13 @@ public:
 	// const osgUtil::RenderBin::DrawCallback * osgUtil::RenderBin::getDrawCallback() const
 	static int _bind_getDrawCallback_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getDrawCallback_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgUtil::RenderBin::DrawCallback * osgUtil::RenderBin::getDrawCallback() const function, expected prototype:\nconst osgUtil::RenderBin::DrawCallback * osgUtil::RenderBin::getDrawCallback() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgUtil::RenderBin::DrawCallback * osgUtil::RenderBin::getDrawCallback() const function, expected prototype:\nconst osgUtil::RenderBin::DrawCallback * osgUtil::RenderBin::getDrawCallback() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgUtil::RenderBin::DrawCallback * osgUtil::RenderBin::getDrawCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgUtil::RenderBin::DrawCallback * osgUtil::RenderBin::getDrawCallback() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::RenderBin::DrawCallback * lret = self->getDrawCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1674,8 +1581,7 @@ public:
 	// bool osgUtil::RenderBin::getStats(osgUtil::Statistics & primStats) const
 	static int _bind_getStats(lua_State *L) {
 		if (!_lg_typecheck_getStats(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::RenderBin::getStats(osgUtil::Statistics & primStats) const function, expected prototype:\nbool osgUtil::RenderBin::getStats(osgUtil::Statistics & primStats) const\nClass arguments details:\narg 1 ID = 95996950\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::RenderBin::getStats(osgUtil::Statistics & primStats) const function, expected prototype:\nbool osgUtil::RenderBin::getStats(osgUtil::Statistics & primStats) const\nClass arguments details:\narg 1 ID = 95996950\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Statistics* primStats_ptr=(Luna< osgUtil::Statistics >::check(L,2));
@@ -1686,8 +1592,7 @@ public:
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::RenderBin::getStats(osgUtil::Statistics &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::RenderBin::getStats(osgUtil::Statistics &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getStats(primStats);
 		lua_pushboolean(L,lret?1:0);
@@ -1698,15 +1603,13 @@ public:
 	// unsigned int osgUtil::RenderBin::computeNumberOfDynamicRenderLeaves() const
 	static int _bind_computeNumberOfDynamicRenderLeaves(lua_State *L) {
 		if (!_lg_typecheck_computeNumberOfDynamicRenderLeaves(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::RenderBin::computeNumberOfDynamicRenderLeaves() const function, expected prototype:\nunsigned int osgUtil::RenderBin::computeNumberOfDynamicRenderLeaves() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::RenderBin::computeNumberOfDynamicRenderLeaves() const function, expected prototype:\nunsigned int osgUtil::RenderBin::computeNumberOfDynamicRenderLeaves() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::RenderBin::computeNumberOfDynamicRenderLeaves() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::RenderBin::computeNumberOfDynamicRenderLeaves() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->computeNumberOfDynamicRenderLeaves();
 		lua_pushnumber(L,lret);
@@ -1717,15 +1620,13 @@ public:
 	// void osgUtil::RenderBin::copyLeavesFromStateGraphListToRenderLeafList()
 	static int _bind_copyLeavesFromStateGraphListToRenderLeafList(lua_State *L) {
 		if (!_lg_typecheck_copyLeavesFromStateGraphListToRenderLeafList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::copyLeavesFromStateGraphListToRenderLeafList() function, expected prototype:\nvoid osgUtil::RenderBin::copyLeavesFromStateGraphListToRenderLeafList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::copyLeavesFromStateGraphListToRenderLeafList() function, expected prototype:\nvoid osgUtil::RenderBin::copyLeavesFromStateGraphListToRenderLeafList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::copyLeavesFromStateGraphListToRenderLeafList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::copyLeavesFromStateGraphListToRenderLeafList(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->copyLeavesFromStateGraphListToRenderLeafList();
 
@@ -1735,8 +1636,7 @@ public:
 	// void osgUtil::RenderBin::releaseGLObjects(osg::State * state = 0) const
 	static int _bind_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osgUtil::RenderBin::releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osgUtil::RenderBin::releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1745,8 +1645,7 @@ public:
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->releaseGLObjects(state);
 
@@ -1756,16 +1655,14 @@ public:
 	// void osgUtil::RenderBin::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::RenderBin::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::RenderBin::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderBin::setThreadSafeRefUnref(threadSafe);
 
@@ -1775,16 +1672,14 @@ public:
 	// void osgUtil::RenderBin::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_setName(const std::string & name) function, expected prototype:\nvoid osgUtil::RenderBin::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_setName(const std::string & name) function, expected prototype:\nvoid osgUtil::RenderBin::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderBin::setName(name);
 
@@ -1794,15 +1689,13 @@ public:
 	// void osgUtil::RenderBin::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_computeDataVariance() function, expected prototype:\nvoid osgUtil::RenderBin::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_computeDataVariance() function, expected prototype:\nvoid osgUtil::RenderBin::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderBin::computeDataVariance();
 
@@ -1812,16 +1705,14 @@ public:
 	// void osgUtil::RenderBin::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgUtil::RenderBin::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgUtil::RenderBin::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderBin::setUserData(obj);
 
@@ -1831,15 +1722,13 @@ public:
 	// osg::Referenced * osgUtil::RenderBin::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osgUtil::RenderBin::base_getUserData() function, expected prototype:\nosg::Referenced * osgUtil::RenderBin::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osgUtil::RenderBin::base_getUserData() function, expected prototype:\nosg::Referenced * osgUtil::RenderBin::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgUtil::RenderBin::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgUtil::RenderBin::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->RenderBin::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1852,15 +1741,13 @@ public:
 	// const osg::Referenced * osgUtil::RenderBin::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgUtil::RenderBin::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgUtil::RenderBin::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgUtil::RenderBin::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgUtil::RenderBin::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgUtil::RenderBin::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgUtil::RenderBin::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->RenderBin::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1882,15 +1769,13 @@ public:
 	// osg::Object * osgUtil::RenderBin::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::RenderBin::base_cloneType() const function, expected prototype:\nosg::Object * osgUtil::RenderBin::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::RenderBin::base_cloneType() const function, expected prototype:\nosg::Object * osgUtil::RenderBin::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::RenderBin::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::RenderBin::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->RenderBin::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1903,8 +1788,7 @@ public:
 	// osg::Object * osgUtil::RenderBin::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::RenderBin::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgUtil::RenderBin::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::RenderBin::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgUtil::RenderBin::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1915,8 +1799,7 @@ public:
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::RenderBin::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::RenderBin::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->RenderBin::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1929,16 +1812,14 @@ public:
 	// bool osgUtil::RenderBin::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::RenderBin::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgUtil::RenderBin::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::RenderBin::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgUtil::RenderBin::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::RenderBin::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::RenderBin::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RenderBin::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1949,15 +1830,13 @@ public:
 	// const char * osgUtil::RenderBin::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::RenderBin::base_libraryName() const function, expected prototype:\nconst char * osgUtil::RenderBin::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::RenderBin::base_libraryName() const function, expected prototype:\nconst char * osgUtil::RenderBin::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::RenderBin::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::RenderBin::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->RenderBin::libraryName();
 		lua_pushstring(L,lret);
@@ -1968,15 +1847,13 @@ public:
 	// const char * osgUtil::RenderBin::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::RenderBin::base_className() const function, expected prototype:\nconst char * osgUtil::RenderBin::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::RenderBin::base_className() const function, expected prototype:\nconst char * osgUtil::RenderBin::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::RenderBin::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::RenderBin::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->RenderBin::className();
 		lua_pushstring(L,lret);
@@ -1987,15 +1864,13 @@ public:
 	// void osgUtil::RenderBin::base_reset()
 	static int _bind_base_reset(lua_State *L) {
 		if (!_lg_typecheck_base_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_reset() function, expected prototype:\nvoid osgUtil::RenderBin::base_reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_reset() function, expected prototype:\nvoid osgUtil::RenderBin::base_reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderBin::reset();
 
@@ -2005,15 +1880,13 @@ public:
 	// void osgUtil::RenderBin::base_sort()
 	static int _bind_base_sort(lua_State *L) {
 		if (!_lg_typecheck_base_sort(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_sort() function, expected prototype:\nvoid osgUtil::RenderBin::base_sort()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_sort() function, expected prototype:\nvoid osgUtil::RenderBin::base_sort()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_sort(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_sort(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderBin::sort();
 
@@ -2023,15 +1896,13 @@ public:
 	// void osgUtil::RenderBin::base_sortImplementation()
 	static int _bind_base_sortImplementation(lua_State *L) {
 		if (!_lg_typecheck_base_sortImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_sortImplementation() function, expected prototype:\nvoid osgUtil::RenderBin::base_sortImplementation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_sortImplementation() function, expected prototype:\nvoid osgUtil::RenderBin::base_sortImplementation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_sortImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_sortImplementation(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderBin::sortImplementation();
 
@@ -2041,15 +1912,13 @@ public:
 	// void osgUtil::RenderBin::base_sortByState()
 	static int _bind_base_sortByState(lua_State *L) {
 		if (!_lg_typecheck_base_sortByState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_sortByState() function, expected prototype:\nvoid osgUtil::RenderBin::base_sortByState()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_sortByState() function, expected prototype:\nvoid osgUtil::RenderBin::base_sortByState()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_sortByState(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_sortByState(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderBin::sortByState();
 
@@ -2059,15 +1928,13 @@ public:
 	// void osgUtil::RenderBin::base_sortByStateThenFrontToBack()
 	static int _bind_base_sortByStateThenFrontToBack(lua_State *L) {
 		if (!_lg_typecheck_base_sortByStateThenFrontToBack(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_sortByStateThenFrontToBack() function, expected prototype:\nvoid osgUtil::RenderBin::base_sortByStateThenFrontToBack()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_sortByStateThenFrontToBack() function, expected prototype:\nvoid osgUtil::RenderBin::base_sortByStateThenFrontToBack()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_sortByStateThenFrontToBack(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_sortByStateThenFrontToBack(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderBin::sortByStateThenFrontToBack();
 
@@ -2077,15 +1944,13 @@ public:
 	// void osgUtil::RenderBin::base_sortFrontToBack()
 	static int _bind_base_sortFrontToBack(lua_State *L) {
 		if (!_lg_typecheck_base_sortFrontToBack(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_sortFrontToBack() function, expected prototype:\nvoid osgUtil::RenderBin::base_sortFrontToBack()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_sortFrontToBack() function, expected prototype:\nvoid osgUtil::RenderBin::base_sortFrontToBack()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_sortFrontToBack(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_sortFrontToBack(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderBin::sortFrontToBack();
 
@@ -2095,15 +1960,13 @@ public:
 	// void osgUtil::RenderBin::base_sortBackToFront()
 	static int _bind_base_sortBackToFront(lua_State *L) {
 		if (!_lg_typecheck_base_sortBackToFront(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_sortBackToFront() function, expected prototype:\nvoid osgUtil::RenderBin::base_sortBackToFront()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_sortBackToFront() function, expected prototype:\nvoid osgUtil::RenderBin::base_sortBackToFront()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_sortBackToFront(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_sortBackToFront(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderBin::sortBackToFront();
 
@@ -2113,15 +1976,13 @@ public:
 	// void osgUtil::RenderBin::base_sortTraversalOrder()
 	static int _bind_base_sortTraversalOrder(lua_State *L) {
 		if (!_lg_typecheck_base_sortTraversalOrder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_sortTraversalOrder() function, expected prototype:\nvoid osgUtil::RenderBin::base_sortTraversalOrder()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_sortTraversalOrder() function, expected prototype:\nvoid osgUtil::RenderBin::base_sortTraversalOrder()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_sortTraversalOrder(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_sortTraversalOrder(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderBin::sortTraversalOrder();
 
@@ -2131,8 +1992,7 @@ public:
 	// void osgUtil::RenderBin::base_draw(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
 	static int _bind_base_draw(lua_State *L) {
 		if (!_lg_typecheck_base_draw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_draw(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous) function, expected prototype:\nvoid osgUtil::RenderBin::base_draw(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)\nClass arguments details:\narg 1 ID = 2286263\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_draw(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous) function, expected prototype:\nvoid osgUtil::RenderBin::base_draw(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)\nClass arguments details:\narg 1 ID = 2286263\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
@@ -2144,8 +2004,7 @@ public:
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_draw(osg::RenderInfo &, osgUtil::RenderLeaf *&). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_draw(osg::RenderInfo &, osgUtil::RenderLeaf *&). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderBin::draw(renderInfo, previous);
 
@@ -2155,8 +2014,7 @@ public:
 	// void osgUtil::RenderBin::base_drawImplementation(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
 	static int _bind_base_drawImplementation(lua_State *L) {
 		if (!_lg_typecheck_base_drawImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_drawImplementation(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous) function, expected prototype:\nvoid osgUtil::RenderBin::base_drawImplementation(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)\nClass arguments details:\narg 1 ID = 2286263\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_drawImplementation(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous) function, expected prototype:\nvoid osgUtil::RenderBin::base_drawImplementation(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)\nClass arguments details:\narg 1 ID = 2286263\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
@@ -2168,8 +2026,7 @@ public:
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_drawImplementation(osg::RenderInfo &, osgUtil::RenderLeaf *&). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_drawImplementation(osg::RenderInfo &, osgUtil::RenderLeaf *&). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderBin::drawImplementation(renderInfo, previous);
 
@@ -2179,15 +2036,13 @@ public:
 	// unsigned int osgUtil::RenderBin::base_computeNumberOfDynamicRenderLeaves() const
 	static int _bind_base_computeNumberOfDynamicRenderLeaves(lua_State *L) {
 		if (!_lg_typecheck_base_computeNumberOfDynamicRenderLeaves(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::RenderBin::base_computeNumberOfDynamicRenderLeaves() const function, expected prototype:\nunsigned int osgUtil::RenderBin::base_computeNumberOfDynamicRenderLeaves() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::RenderBin::base_computeNumberOfDynamicRenderLeaves() const function, expected prototype:\nunsigned int osgUtil::RenderBin::base_computeNumberOfDynamicRenderLeaves() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::RenderBin::base_computeNumberOfDynamicRenderLeaves() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::RenderBin::base_computeNumberOfDynamicRenderLeaves() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->RenderBin::computeNumberOfDynamicRenderLeaves();
 		lua_pushnumber(L,lret);
@@ -2198,8 +2053,7 @@ public:
 	// void osgUtil::RenderBin::base_releaseGLObjects(osg::State * state = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osgUtil::RenderBin::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osgUtil::RenderBin::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2208,8 +2062,7 @@ public:
 
 		osgUtil::RenderBin* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderBin::releaseGLObjects(state);
 

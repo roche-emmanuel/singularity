@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::CopyOp*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::CopyOp*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::CopyOp* rhs =(Luna< osg::CopyOp >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::CopyOp* self= (osg::CopyOp*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::CopyOp >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -278,8 +273,7 @@ public:
 	// osg::CopyOp::CopyOp(unsigned int flags = osg::CopyOp::SHALLOW_COPY)
 	static osg::CopyOp* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CopyOp::CopyOp(unsigned int flags = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::CopyOp::CopyOp(unsigned int flags = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::CopyOp::CopyOp(unsigned int flags = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::CopyOp::CopyOp(unsigned int flags = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -292,8 +286,7 @@ public:
 	// osg::CopyOp::CopyOp(lua_Table * data, unsigned int flags = osg::CopyOp::SHALLOW_COPY)
 	static osg::CopyOp* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CopyOp::CopyOp(lua_Table * data, unsigned int flags = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::CopyOp::CopyOp(lua_Table * data, unsigned int flags = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::CopyOp::CopyOp(lua_Table * data, unsigned int flags = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::CopyOp::CopyOp(lua_Table * data, unsigned int flags = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -317,16 +310,14 @@ public:
 	// void osg::CopyOp::setCopyFlags(unsigned int flags)
 	static int _bind_setCopyFlags(lua_State *L) {
 		if (!_lg_typecheck_setCopyFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CopyOp::setCopyFlags(unsigned int flags) function, expected prototype:\nvoid osg::CopyOp::setCopyFlags(unsigned int flags)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CopyOp::setCopyFlags(unsigned int flags) function, expected prototype:\nvoid osg::CopyOp::setCopyFlags(unsigned int flags)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int flags=(unsigned int)lua_tointeger(L,2);
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CopyOp::setCopyFlags(unsigned int). Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CopyOp::setCopyFlags(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCopyFlags(flags);
 
@@ -336,15 +327,13 @@ public:
 	// unsigned int osg::CopyOp::getCopyFlags() const
 	static int _bind_getCopyFlags(lua_State *L) {
 		if (!_lg_typecheck_getCopyFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::CopyOp::getCopyFlags() const function, expected prototype:\nunsigned int osg::CopyOp::getCopyFlags() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::CopyOp::getCopyFlags() const function, expected prototype:\nunsigned int osg::CopyOp::getCopyFlags() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::CopyOp::getCopyFlags() const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::CopyOp::getCopyFlags() const. Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getCopyFlags();
 		lua_pushnumber(L,lret);
@@ -357,16 +346,14 @@ public:
 	// osg::Referenced * osg::CopyOp::operator()(const osg::Referenced * ref) const
 	static int _bind_op_call_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::CopyOp::operator()(const osg::Referenced * ref) const function, expected prototype:\nosg::Referenced * osg::CopyOp::operator()(const osg::Referenced * ref) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::CopyOp::operator()(const osg::Referenced * ref) const function, expected prototype:\nosg::Referenced * osg::CopyOp::operator()(const osg::Referenced * ref) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Referenced* ref=(Luna< osg::Referenced >::check(L,2));
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::CopyOp::operator()(const osg::Referenced *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::CopyOp::operator()(const osg::Referenced *) const. Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->operator()(ref);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -379,16 +366,14 @@ public:
 	// osg::Object * osg::CopyOp::operator()(const osg::Object * obj) const
 	static int _bind_op_call_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::CopyOp::operator()(const osg::Object * obj) const function, expected prototype:\nosg::Object * osg::CopyOp::operator()(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::CopyOp::operator()(const osg::Object * obj) const function, expected prototype:\nosg::Object * osg::CopyOp::operator()(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::CopyOp::operator()(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::CopyOp::operator()(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->operator()(obj);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -401,16 +386,14 @@ public:
 	// osg::Node * osg::CopyOp::operator()(const osg::Node * node) const
 	static int _bind_op_call_overload_3(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Node * osg::CopyOp::operator()(const osg::Node * node) const function, expected prototype:\nosg::Node * osg::CopyOp::operator()(const osg::Node * node) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Node * osg::CopyOp::operator()(const osg::Node * node) const function, expected prototype:\nosg::Node * osg::CopyOp::operator()(const osg::Node * node) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osg::CopyOp::operator()(const osg::Node *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Node * osg::CopyOp::operator()(const osg::Node *) const. Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Node * lret = self->operator()(node);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -423,16 +406,14 @@ public:
 	// osg::Drawable * osg::CopyOp::operator()(const osg::Drawable * drawable) const
 	static int _bind_op_call_overload_4(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Drawable * osg::CopyOp::operator()(const osg::Drawable * drawable) const function, expected prototype:\nosg::Drawable * osg::CopyOp::operator()(const osg::Drawable * drawable) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Drawable * osg::CopyOp::operator()(const osg::Drawable * drawable) const function, expected prototype:\nosg::Drawable * osg::CopyOp::operator()(const osg::Drawable * drawable) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Drawable* drawable=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Drawable * osg::CopyOp::operator()(const osg::Drawable *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Drawable * osg::CopyOp::operator()(const osg::Drawable *) const. Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Drawable * lret = self->operator()(drawable);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -445,16 +426,14 @@ public:
 	// osg::StateSet * osg::CopyOp::operator()(const osg::StateSet * stateset) const
 	static int _bind_op_call_overload_5(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateSet * osg::CopyOp::operator()(const osg::StateSet * stateset) const function, expected prototype:\nosg::StateSet * osg::CopyOp::operator()(const osg::StateSet * stateset) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::StateSet * osg::CopyOp::operator()(const osg::StateSet * stateset) const function, expected prototype:\nosg::StateSet * osg::CopyOp::operator()(const osg::StateSet * stateset) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateSet* stateset=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osg::CopyOp::operator()(const osg::StateSet *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateSet * osg::CopyOp::operator()(const osg::StateSet *) const. Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateSet * lret = self->operator()(stateset);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -467,16 +446,14 @@ public:
 	// osg::StateAttribute * osg::CopyOp::operator()(const osg::StateAttribute * attr) const
 	static int _bind_op_call_overload_6(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute * osg::CopyOp::operator()(const osg::StateAttribute * attr) const function, expected prototype:\nosg::StateAttribute * osg::CopyOp::operator()(const osg::StateAttribute * attr) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute * osg::CopyOp::operator()(const osg::StateAttribute * attr) const function, expected prototype:\nosg::StateAttribute * osg::CopyOp::operator()(const osg::StateAttribute * attr) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* attr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute * osg::CopyOp::operator()(const osg::StateAttribute *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute * osg::CopyOp::operator()(const osg::StateAttribute *) const. Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute * lret = self->operator()(attr);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -489,16 +466,14 @@ public:
 	// osg::Texture * osg::CopyOp::operator()(const osg::Texture * text) const
 	static int _bind_op_call_overload_7(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture * osg::CopyOp::operator()(const osg::Texture * text) const function, expected prototype:\nosg::Texture * osg::CopyOp::operator()(const osg::Texture * text) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture * osg::CopyOp::operator()(const osg::Texture * text) const function, expected prototype:\nosg::Texture * osg::CopyOp::operator()(const osg::Texture * text) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Texture* text=(Luna< osg::Referenced >::checkSubType< osg::Texture >(L,2));
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::CopyOp::operator()(const osg::Texture *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::CopyOp::operator()(const osg::Texture *) const. Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture * lret = self->operator()(text);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -511,16 +486,14 @@ public:
 	// osg::Image * osg::CopyOp::operator()(const osg::Image * image) const
 	static int _bind_op_call_overload_8(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * osg::CopyOp::operator()(const osg::Image * image) const function, expected prototype:\nosg::Image * osg::CopyOp::operator()(const osg::Image * image) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * osg::CopyOp::operator()(const osg::Image * image) const function, expected prototype:\nosg::Image * osg::CopyOp::operator()(const osg::Image * image) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2));
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osg::CopyOp::operator()(const osg::Image *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Image * osg::CopyOp::operator()(const osg::Image *) const. Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Image * lret = self->operator()(image);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -533,16 +506,14 @@ public:
 	// osg::Array * osg::CopyOp::operator()(const osg::Array * array) const
 	static int _bind_op_call_overload_9(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_9(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Array * osg::CopyOp::operator()(const osg::Array * array) const function, expected prototype:\nosg::Array * osg::CopyOp::operator()(const osg::Array * array) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Array * osg::CopyOp::operator()(const osg::Array * array) const function, expected prototype:\nosg::Array * osg::CopyOp::operator()(const osg::Array * array) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Array * osg::CopyOp::operator()(const osg::Array *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Array * osg::CopyOp::operator()(const osg::Array *) const. Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Array * lret = self->operator()(array);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -555,16 +526,14 @@ public:
 	// osg::PrimitiveSet * osg::CopyOp::operator()(const osg::PrimitiveSet * primitives) const
 	static int _bind_op_call_overload_10(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_10(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::PrimitiveSet * osg::CopyOp::operator()(const osg::PrimitiveSet * primitives) const function, expected prototype:\nosg::PrimitiveSet * osg::CopyOp::operator()(const osg::PrimitiveSet * primitives) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::PrimitiveSet * osg::CopyOp::operator()(const osg::PrimitiveSet * primitives) const function, expected prototype:\nosg::PrimitiveSet * osg::CopyOp::operator()(const osg::PrimitiveSet * primitives) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::PrimitiveSet* primitives=(Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,2));
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::PrimitiveSet * osg::CopyOp::operator()(const osg::PrimitiveSet *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::PrimitiveSet * osg::CopyOp::operator()(const osg::PrimitiveSet *) const. Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::PrimitiveSet * lret = self->operator()(primitives);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -577,16 +546,14 @@ public:
 	// osg::Shape * osg::CopyOp::operator()(const osg::Shape * shape) const
 	static int _bind_op_call_overload_11(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_11(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shape * osg::CopyOp::operator()(const osg::Shape * shape) const function, expected prototype:\nosg::Shape * osg::CopyOp::operator()(const osg::Shape * shape) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Shape * osg::CopyOp::operator()(const osg::Shape * shape) const function, expected prototype:\nosg::Shape * osg::CopyOp::operator()(const osg::Shape * shape) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Shape* shape=(Luna< osg::Referenced >::checkSubType< osg::Shape >(L,2));
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Shape * osg::CopyOp::operator()(const osg::Shape *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Shape * osg::CopyOp::operator()(const osg::Shape *) const. Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Shape * lret = self->operator()(shape);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -599,16 +566,14 @@ public:
 	// osg::Uniform * osg::CopyOp::operator()(const osg::Uniform * shape) const
 	static int _bind_op_call_overload_12(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_12(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Uniform * osg::CopyOp::operator()(const osg::Uniform * shape) const function, expected prototype:\nosg::Uniform * osg::CopyOp::operator()(const osg::Uniform * shape) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Uniform * osg::CopyOp::operator()(const osg::Uniform * shape) const function, expected prototype:\nosg::Uniform * osg::CopyOp::operator()(const osg::Uniform * shape) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Uniform* shape=(Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,2));
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Uniform * osg::CopyOp::operator()(const osg::Uniform *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Uniform * osg::CopyOp::operator()(const osg::Uniform *) const. Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Uniform * lret = self->operator()(shape);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -621,16 +586,14 @@ public:
 	// osg::NodeCallback * osg::CopyOp::operator()(const osg::NodeCallback * nodecallback) const
 	static int _bind_op_call_overload_13(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_13(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::NodeCallback * osg::CopyOp::operator()(const osg::NodeCallback * nodecallback) const function, expected prototype:\nosg::NodeCallback * osg::CopyOp::operator()(const osg::NodeCallback * nodecallback) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::NodeCallback * osg::CopyOp::operator()(const osg::NodeCallback * nodecallback) const function, expected prototype:\nosg::NodeCallback * osg::CopyOp::operator()(const osg::NodeCallback * nodecallback) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::NodeCallback* nodecallback=(Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,2));
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::NodeCallback * osg::CopyOp::operator()(const osg::NodeCallback *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::NodeCallback * osg::CopyOp::operator()(const osg::NodeCallback *) const. Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::NodeCallback * lret = self->operator()(nodecallback);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -643,16 +606,14 @@ public:
 	// osg::StateAttributeCallback * osg::CopyOp::operator()(const osg::StateAttributeCallback * stateattributecallback) const
 	static int _bind_op_call_overload_14(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_14(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttributeCallback * osg::CopyOp::operator()(const osg::StateAttributeCallback * stateattributecallback) const function, expected prototype:\nosg::StateAttributeCallback * osg::CopyOp::operator()(const osg::StateAttributeCallback * stateattributecallback) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttributeCallback * osg::CopyOp::operator()(const osg::StateAttributeCallback * stateattributecallback) const function, expected prototype:\nosg::StateAttributeCallback * osg::CopyOp::operator()(const osg::StateAttributeCallback * stateattributecallback) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttributeCallback* stateattributecallback=(Luna< osg::Referenced >::checkSubType< osg::StateAttributeCallback >(L,2));
 
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttributeCallback * osg::CopyOp::operator()(const osg::StateAttributeCallback *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttributeCallback * osg::CopyOp::operator()(const osg::StateAttributeCallback *) const. Got : '%s'\n%s",typeid(Luna< osg::CopyOp >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttributeCallback * lret = self->operator()(stateattributecallback);
 		if(!lret) return 0; // Do not write NULL pointers.

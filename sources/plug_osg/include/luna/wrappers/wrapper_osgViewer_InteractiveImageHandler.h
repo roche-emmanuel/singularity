@@ -327,8 +327,7 @@ public:
 	// bool osgViewer::InteractiveImageHandler::public_mousePosition(osgViewer::View * view, osg::NodeVisitor * nv, const osgGA::GUIEventAdapter & ea, int & x, int & y) const
 	static int _bind_public_mousePosition(lua_State *L) {
 		if (!_lg_typecheck_public_mousePosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgViewer::InteractiveImageHandler::public_mousePosition(osgViewer::View * view, osg::NodeVisitor * nv, const osgGA::GUIEventAdapter & ea, int & x, int & y) const function, expected prototype:\nbool osgViewer::InteractiveImageHandler::public_mousePosition(osgViewer::View * view, osg::NodeVisitor * nv, const osgGA::GUIEventAdapter & ea, int & x, int & y) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgViewer::InteractiveImageHandler::public_mousePosition(osgViewer::View * view, osg::NodeVisitor * nv, const osgGA::GUIEventAdapter & ea, int & x, int & y) const function, expected prototype:\nbool osgViewer::InteractiveImageHandler::public_mousePosition(osgViewer::View * view, osg::NodeVisitor * nv, const osgGA::GUIEventAdapter & ea, int & x, int & y) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgViewer::View* view=(Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,2));
@@ -343,8 +342,7 @@ public:
 
 		wrapper_osgViewer_InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_InteractiveImageHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::public_mousePosition(osgViewer::View *, osg::NodeVisitor *, const osgGA::GUIEventAdapter &, int &, int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::public_mousePosition(osgViewer::View *, osg::NodeVisitor *, const osgGA::GUIEventAdapter &, int &, int &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_mousePosition(view, nv, ea, x, y);
 		lua_pushboolean(L,lret?1:0);
@@ -357,8 +355,7 @@ public:
 	// bool osgViewer::InteractiveImageHandler::public_computeIntersections(osgViewer::View * view, float x, float y, const osg::NodePath & nodePath, osgUtil::LineSegmentIntersector::Intersections & intersections, unsigned int traversalMask = 0xffffffff) const
 	static int _bind_public_computeIntersections(lua_State *L) {
 		if (!_lg_typecheck_public_computeIntersections(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgViewer::InteractiveImageHandler::public_computeIntersections(osgViewer::View * view, float x, float y, const osg::NodePath & nodePath, osgUtil::LineSegmentIntersector::Intersections & intersections, unsigned int traversalMask = 0xffffffff) const function, expected prototype:\nbool osgViewer::InteractiveImageHandler::public_computeIntersections(osgViewer::View * view, float x, float y, const osg::NodePath & nodePath, osgUtil::LineSegmentIntersector::Intersections & intersections, unsigned int traversalMask = 0xffffffff) const\nClass arguments details:\narg 1 ID = 50169651\narg 4 ID = 52841328\narg 5 ID = 19574398\n");
+			luaL_error(L, "luna typecheck failed in bool osgViewer::InteractiveImageHandler::public_computeIntersections(osgViewer::View * view, float x, float y, const osg::NodePath & nodePath, osgUtil::LineSegmentIntersector::Intersections & intersections, unsigned int traversalMask = 0xffffffff) const function, expected prototype:\nbool osgViewer::InteractiveImageHandler::public_computeIntersections(osgViewer::View * view, float x, float y, const osg::NodePath & nodePath, osgUtil::LineSegmentIntersector::Intersections & intersections, unsigned int traversalMask = 0xffffffff) const\nClass arguments details:\narg 1 ID = 50169651\narg 4 ID = 52841328\narg 5 ID = 19574398\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -380,8 +377,7 @@ public:
 
 		wrapper_osgViewer_InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_InteractiveImageHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::public_computeIntersections(osgViewer::View *, float, float, const osg::NodePath &, osgUtil::LineSegmentIntersector::Intersections &, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::public_computeIntersections(osgViewer::View *, float, float, const osg::NodePath &, osgUtil::LineSegmentIntersector::Intersections &, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_computeIntersections(view, x, y, nodePath, intersections, traversalMask);
 		lua_pushboolean(L,lret?1:0);
@@ -392,8 +388,7 @@ public:
 	// void osgViewer::InteractiveImageHandler::public_resize(int width, int height)
 	static int _bind_public_resize(lua_State *L) {
 		if (!_lg_typecheck_public_resize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::InteractiveImageHandler::public_resize(int width, int height) function, expected prototype:\nvoid osgViewer::InteractiveImageHandler::public_resize(int width, int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::InteractiveImageHandler::public_resize(int width, int height) function, expected prototype:\nvoid osgViewer::InteractiveImageHandler::public_resize(int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int width=(int)lua_tointeger(L,2);
@@ -401,8 +396,7 @@ public:
 
 		wrapper_osgViewer_InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_InteractiveImageHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::public_resize(int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::public_resize(int, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_resize(width, height);
 
@@ -412,8 +406,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -421,8 +414,7 @@ public:
 
 		wrapper_osgViewer_InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_InteractiveImageHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -432,15 +424,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgViewer_InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_InteractiveImageHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

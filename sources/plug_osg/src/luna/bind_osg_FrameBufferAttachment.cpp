@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::FrameBufferAttachment*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::FrameBufferAttachment*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::FrameBufferAttachment* rhs =(Luna< osg::FrameBufferAttachment >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::FrameBufferAttachment* self= (osg::FrameBufferAttachment*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::FrameBufferAttachment >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -297,8 +293,7 @@ public:
 	// osg::FrameBufferAttachment::FrameBufferAttachment()
 	static osg::FrameBufferAttachment* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment() function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment() function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -308,8 +303,7 @@ public:
 	// osg::FrameBufferAttachment::FrameBufferAttachment(const osg::FrameBufferAttachment & copy)
 	static osg::FrameBufferAttachment* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(const osg::FrameBufferAttachment & copy) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(const osg::FrameBufferAttachment & copy)\nClass arguments details:\narg 1 ID = 90669884\n");
+			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(const osg::FrameBufferAttachment & copy) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(const osg::FrameBufferAttachment & copy)\nClass arguments details:\narg 1 ID = 90669884\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::FrameBufferAttachment* copy_ptr=(Luna< osg::FrameBufferAttachment >::check(L,1));
@@ -324,8 +318,7 @@ public:
 	// osg::FrameBufferAttachment::FrameBufferAttachment(osg::RenderBuffer * target)
 	static osg::FrameBufferAttachment* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::RenderBuffer * target) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::RenderBuffer * target)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::RenderBuffer * target) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::RenderBuffer * target)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RenderBuffer* target=(Luna< osg::Referenced >::checkSubType< osg::RenderBuffer >(L,1));
@@ -336,8 +329,7 @@ public:
 	// osg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture1D * target, unsigned int level = 0)
 	static osg::FrameBufferAttachment* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture1D * target, unsigned int level = 0) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture1D * target, unsigned int level = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture1D * target, unsigned int level = 0) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture1D * target, unsigned int level = 0)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -351,8 +343,7 @@ public:
 	// osg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture2D * target, unsigned int level = 0)
 	static osg::FrameBufferAttachment* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture2D * target, unsigned int level = 0) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture2D * target, unsigned int level = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture2D * target, unsigned int level = 0) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture2D * target, unsigned int level = 0)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -366,8 +357,7 @@ public:
 	// osg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture2DMultisample * target, unsigned int level = 0)
 	static osg::FrameBufferAttachment* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture2DMultisample * target, unsigned int level = 0) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture2DMultisample * target, unsigned int level = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture2DMultisample * target, unsigned int level = 0) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture2DMultisample * target, unsigned int level = 0)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -381,8 +371,7 @@ public:
 	// osg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture3D * target, unsigned int zoffset, unsigned int level = 0)
 	static osg::FrameBufferAttachment* _bind_ctor_overload_7(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture3D * target, unsigned int zoffset, unsigned int level = 0) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture3D * target, unsigned int zoffset, unsigned int level = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture3D * target, unsigned int zoffset, unsigned int level = 0) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture3D * target, unsigned int zoffset, unsigned int level = 0)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -397,8 +386,7 @@ public:
 	// osg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture2DArray * target, unsigned int layer, unsigned int level = 0)
 	static osg::FrameBufferAttachment* _bind_ctor_overload_8(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture2DArray * target, unsigned int layer, unsigned int level = 0) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture2DArray * target, unsigned int layer, unsigned int level = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture2DArray * target, unsigned int layer, unsigned int level = 0) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::Texture2DArray * target, unsigned int layer, unsigned int level = 0)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -413,8 +401,7 @@ public:
 	// osg::FrameBufferAttachment::FrameBufferAttachment(osg::TextureCubeMap * target, unsigned int face, unsigned int level = 0)
 	static osg::FrameBufferAttachment* _bind_ctor_overload_9(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_9(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::TextureCubeMap * target, unsigned int face, unsigned int level = 0) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::TextureCubeMap * target, unsigned int face, unsigned int level = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::TextureCubeMap * target, unsigned int face, unsigned int level = 0) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::TextureCubeMap * target, unsigned int face, unsigned int level = 0)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -429,8 +416,7 @@ public:
 	// osg::FrameBufferAttachment::FrameBufferAttachment(osg::TextureRectangle * target)
 	static osg::FrameBufferAttachment* _bind_ctor_overload_10(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_10(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::TextureRectangle * target) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::TextureRectangle * target)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::TextureRectangle * target) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::TextureRectangle * target)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::TextureRectangle* target=(Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1));
@@ -441,8 +427,7 @@ public:
 	// osg::FrameBufferAttachment::FrameBufferAttachment(osg::Camera::Attachment & attachment)
 	static osg::FrameBufferAttachment* _bind_ctor_overload_11(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_11(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::Camera::Attachment & attachment) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::Camera::Attachment & attachment)\nClass arguments details:\narg 1 ID = 65796671\n");
+			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::Camera::Attachment & attachment) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::Camera::Attachment & attachment)\nClass arguments details:\narg 1 ID = 65796671\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Camera::Attachment* attachment_ptr=(Luna< osg::Camera::Attachment >::check(L,1));
@@ -477,15 +462,13 @@ public:
 	// bool osg::FrameBufferAttachment::isMultisample() const
 	static int _bind_isMultisample(lua_State *L) {
 		if (!_lg_typecheck_isMultisample(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::FrameBufferAttachment::isMultisample() const function, expected prototype:\nbool osg::FrameBufferAttachment::isMultisample() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::FrameBufferAttachment::isMultisample() const function, expected prototype:\nbool osg::FrameBufferAttachment::isMultisample() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FrameBufferAttachment::isMultisample() const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::FrameBufferAttachment::isMultisample() const. Got : '%s'\n%s",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isMultisample();
 		lua_pushboolean(L,lret?1:0);
@@ -496,8 +479,7 @@ public:
 	// void osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap(osg::State & state, const osg::FBOExtensions * ext) const
 	static int _bind_createRequiredTexturesAndApplyGenerateMipMap(lua_State *L) {
 		if (!_lg_typecheck_createRequiredTexturesAndApplyGenerateMipMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap(osg::State & state, const osg::FBOExtensions * ext) const function, expected prototype:\nvoid osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap(osg::State & state, const osg::FBOExtensions * ext) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap(osg::State & state, const osg::FBOExtensions * ext) const function, expected prototype:\nvoid osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap(osg::State & state, const osg::FBOExtensions * ext) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -509,8 +491,7 @@ public:
 
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap(osg::State &, const osg::FBOExtensions *) const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap(osg::State &, const osg::FBOExtensions *) const. Got : '%s'\n%s",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->createRequiredTexturesAndApplyGenerateMipMap(state, ext);
 
@@ -520,8 +501,7 @@ public:
 	// void osg::FrameBufferAttachment::attach(osg::State & state, unsigned int target, unsigned int attachment_point, const osg::FBOExtensions * ext) const
 	static int _bind_attach(lua_State *L) {
 		if (!_lg_typecheck_attach(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FrameBufferAttachment::attach(osg::State & state, unsigned int target, unsigned int attachment_point, const osg::FBOExtensions * ext) const function, expected prototype:\nvoid osg::FrameBufferAttachment::attach(osg::State & state, unsigned int target, unsigned int attachment_point, const osg::FBOExtensions * ext) const\nClass arguments details:\narg 1 ID = 50169651\narg 4 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::FrameBufferAttachment::attach(osg::State & state, unsigned int target, unsigned int attachment_point, const osg::FBOExtensions * ext) const function, expected prototype:\nvoid osg::FrameBufferAttachment::attach(osg::State & state, unsigned int target, unsigned int attachment_point, const osg::FBOExtensions * ext) const\nClass arguments details:\narg 1 ID = 50169651\narg 4 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -535,8 +515,7 @@ public:
 
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FrameBufferAttachment::attach(osg::State &, unsigned int, unsigned int, const osg::FBOExtensions *) const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FrameBufferAttachment::attach(osg::State &, unsigned int, unsigned int, const osg::FBOExtensions *) const. Got : '%s'\n%s",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->attach(state, target, attachment_point, ext);
 
@@ -546,8 +525,7 @@ public:
 	// int osg::FrameBufferAttachment::compare(const osg::FrameBufferAttachment & fa) const
 	static int _bind_compare(lua_State *L) {
 		if (!_lg_typecheck_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::FrameBufferAttachment::compare(const osg::FrameBufferAttachment & fa) const function, expected prototype:\nint osg::FrameBufferAttachment::compare(const osg::FrameBufferAttachment & fa) const\nClass arguments details:\narg 1 ID = 90669884\n");
+			luaL_error(L, "luna typecheck failed in int osg::FrameBufferAttachment::compare(const osg::FrameBufferAttachment & fa) const function, expected prototype:\nint osg::FrameBufferAttachment::compare(const osg::FrameBufferAttachment & fa) const\nClass arguments details:\narg 1 ID = 90669884\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::FrameBufferAttachment* fa_ptr=(Luna< osg::FrameBufferAttachment >::check(L,2));
@@ -558,8 +536,7 @@ public:
 
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::FrameBufferAttachment::compare(const osg::FrameBufferAttachment &) const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::FrameBufferAttachment::compare(const osg::FrameBufferAttachment &) const. Got : '%s'\n%s",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->compare(fa);
 		lua_pushnumber(L,lret);
@@ -570,15 +547,13 @@ public:
 	// osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer()
 	static int _bind_getRenderBuffer_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getRenderBuffer_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer() function, expected prototype:\nosg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer() function, expected prototype:\nosg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer(). Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer(). Got : '%s'\n%s",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::RenderBuffer * lret = self->getRenderBuffer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -591,15 +566,13 @@ public:
 	// const osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer() const
 	static int _bind_getRenderBuffer_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getRenderBuffer_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer() const function, expected prototype:\nconst osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer() const function, expected prototype:\nconst osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer() const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer() const. Got : '%s'\n%s",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::RenderBuffer * lret = self->getRenderBuffer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -621,15 +594,13 @@ public:
 	// osg::Texture * osg::FrameBufferAttachment::getTexture()
 	static int _bind_getTexture_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getTexture_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture * osg::FrameBufferAttachment::getTexture() function, expected prototype:\nosg::Texture * osg::FrameBufferAttachment::getTexture()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture * osg::FrameBufferAttachment::getTexture() function, expected prototype:\nosg::Texture * osg::FrameBufferAttachment::getTexture()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::FrameBufferAttachment::getTexture(). Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::FrameBufferAttachment::getTexture(). Got : '%s'\n%s",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture * lret = self->getTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -642,15 +613,13 @@ public:
 	// const osg::Texture * osg::FrameBufferAttachment::getTexture() const
 	static int _bind_getTexture_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getTexture_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::FrameBufferAttachment::getTexture() const function, expected prototype:\nconst osg::Texture * osg::FrameBufferAttachment::getTexture() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::FrameBufferAttachment::getTexture() const function, expected prototype:\nconst osg::Texture * osg::FrameBufferAttachment::getTexture() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::FrameBufferAttachment::getTexture() const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::FrameBufferAttachment::getTexture() const. Got : '%s'\n%s",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Texture * lret = self->getTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -672,15 +641,13 @@ public:
 	// unsigned int osg::FrameBufferAttachment::getCubeMapFace() const
 	static int _bind_getCubeMapFace(lua_State *L) {
 		if (!_lg_typecheck_getCubeMapFace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::FrameBufferAttachment::getCubeMapFace() const function, expected prototype:\nunsigned int osg::FrameBufferAttachment::getCubeMapFace() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::FrameBufferAttachment::getCubeMapFace() const function, expected prototype:\nunsigned int osg::FrameBufferAttachment::getCubeMapFace() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getCubeMapFace() const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getCubeMapFace() const. Got : '%s'\n%s",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getCubeMapFace();
 		lua_pushnumber(L,lret);
@@ -691,15 +658,13 @@ public:
 	// unsigned int osg::FrameBufferAttachment::getTextureLevel() const
 	static int _bind_getTextureLevel(lua_State *L) {
 		if (!_lg_typecheck_getTextureLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::FrameBufferAttachment::getTextureLevel() const function, expected prototype:\nunsigned int osg::FrameBufferAttachment::getTextureLevel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::FrameBufferAttachment::getTextureLevel() const function, expected prototype:\nunsigned int osg::FrameBufferAttachment::getTextureLevel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getTextureLevel() const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getTextureLevel() const. Got : '%s'\n%s",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getTextureLevel();
 		lua_pushnumber(L,lret);
@@ -710,15 +675,13 @@ public:
 	// unsigned int osg::FrameBufferAttachment::getTexture3DZOffset() const
 	static int _bind_getTexture3DZOffset(lua_State *L) {
 		if (!_lg_typecheck_getTexture3DZOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::FrameBufferAttachment::getTexture3DZOffset() const function, expected prototype:\nunsigned int osg::FrameBufferAttachment::getTexture3DZOffset() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::FrameBufferAttachment::getTexture3DZOffset() const function, expected prototype:\nunsigned int osg::FrameBufferAttachment::getTexture3DZOffset() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getTexture3DZOffset() const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getTexture3DZOffset() const. Got : '%s'\n%s",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getTexture3DZOffset();
 		lua_pushnumber(L,lret);
@@ -729,15 +692,13 @@ public:
 	// unsigned int osg::FrameBufferAttachment::getTextureArrayLayer() const
 	static int _bind_getTextureArrayLayer(lua_State *L) {
 		if (!_lg_typecheck_getTextureArrayLayer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::FrameBufferAttachment::getTextureArrayLayer() const function, expected prototype:\nunsigned int osg::FrameBufferAttachment::getTextureArrayLayer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::FrameBufferAttachment::getTextureArrayLayer() const function, expected prototype:\nunsigned int osg::FrameBufferAttachment::getTextureArrayLayer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getTextureArrayLayer() const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getTextureArrayLayer() const. Got : '%s'\n%s",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getTextureArrayLayer();
 		lua_pushnumber(L,lret);
@@ -750,8 +711,7 @@ public:
 	// osg::FrameBufferAttachment & osg::FrameBufferAttachment::operator=(const osg::FrameBufferAttachment & copy)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment & osg::FrameBufferAttachment::operator=(const osg::FrameBufferAttachment & copy) function, expected prototype:\nosg::FrameBufferAttachment & osg::FrameBufferAttachment::operator=(const osg::FrameBufferAttachment & copy)\nClass arguments details:\narg 1 ID = 90669884\n");
+			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment & osg::FrameBufferAttachment::operator=(const osg::FrameBufferAttachment & copy) function, expected prototype:\nosg::FrameBufferAttachment & osg::FrameBufferAttachment::operator=(const osg::FrameBufferAttachment & copy)\nClass arguments details:\narg 1 ID = 90669884\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::FrameBufferAttachment* copy_ptr=(Luna< osg::FrameBufferAttachment >::check(L,2));
@@ -762,8 +722,7 @@ public:
 
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::FrameBufferAttachment & osg::FrameBufferAttachment::operator=(const osg::FrameBufferAttachment &). Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::FrameBufferAttachment & osg::FrameBufferAttachment::operator=(const osg::FrameBufferAttachment &). Got : '%s'\n%s",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::FrameBufferAttachment* lret = &self->operator=(copy);
 		if(!lret) return 0; // Do not write NULL pointers.

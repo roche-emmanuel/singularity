@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::Font::FontImplementation* self= (osgText::Font::FontImplementation*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -193,8 +190,7 @@ public:
 	// osgText::Font::FontImplementation::FontImplementation(lua_Table * data)
 	static osgText::Font::FontImplementation* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::Font::FontImplementation::FontImplementation(lua_Table * data) function, expected prototype:\nosgText::Font::FontImplementation::FontImplementation(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::Font::FontImplementation::FontImplementation(lua_Table * data) function, expected prototype:\nosgText::Font::FontImplementation::FontImplementation(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -206,15 +202,13 @@ public:
 	// std::string osgText::Font::FontImplementation::getFileName() const
 	static int _bind_getFileName(lua_State *L) {
 		if (!_lg_typecheck_getFileName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string osgText::Font::FontImplementation::getFileName() const function, expected prototype:\nstd::string osgText::Font::FontImplementation::getFileName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string osgText::Font::FontImplementation::getFileName() const function, expected prototype:\nstd::string osgText::Font::FontImplementation::getFileName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgText::Font::FontImplementation::getFileName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string osgText::Font::FontImplementation::getFileName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->getFileName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -225,15 +219,13 @@ public:
 	// bool osgText::Font::FontImplementation::supportsMultipleFontResolutions() const
 	static int _bind_supportsMultipleFontResolutions(lua_State *L) {
 		if (!_lg_typecheck_supportsMultipleFontResolutions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgText::Font::FontImplementation::supportsMultipleFontResolutions() const function, expected prototype:\nbool osgText::Font::FontImplementation::supportsMultipleFontResolutions() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgText::Font::FontImplementation::supportsMultipleFontResolutions() const function, expected prototype:\nbool osgText::Font::FontImplementation::supportsMultipleFontResolutions() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::Font::FontImplementation::supportsMultipleFontResolutions() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgText::Font::FontImplementation::supportsMultipleFontResolutions() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->supportsMultipleFontResolutions();
 		lua_pushboolean(L,lret?1:0);
@@ -244,8 +236,7 @@ public:
 	// osgText::Glyph * osgText::Font::FontImplementation::getGlyph(const osgText::FontResolution & fontRes, unsigned int charcode)
 	static int _bind_getGlyph(lua_State *L) {
 		if (!_lg_typecheck_getGlyph(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::Glyph * osgText::Font::FontImplementation::getGlyph(const osgText::FontResolution & fontRes, unsigned int charcode) function, expected prototype:\nosgText::Glyph * osgText::Font::FontImplementation::getGlyph(const osgText::FontResolution & fontRes, unsigned int charcode)\nClass arguments details:\narg 1 ID = 17799265\n");
+			luaL_error(L, "luna typecheck failed in osgText::Glyph * osgText::Font::FontImplementation::getGlyph(const osgText::FontResolution & fontRes, unsigned int charcode) function, expected prototype:\nosgText::Glyph * osgText::Font::FontImplementation::getGlyph(const osgText::FontResolution & fontRes, unsigned int charcode)\nClass arguments details:\narg 1 ID = 17799265\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgText::FontResolution* fontRes_ptr=(Luna< std::pair< unsigned int, unsigned int > >::checkSubType< osgText::FontResolution >(L,2));
@@ -257,8 +248,7 @@ public:
 
 		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Glyph * osgText::Font::FontImplementation::getGlyph(const osgText::FontResolution &, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::Glyph * osgText::Font::FontImplementation::getGlyph(const osgText::FontResolution &, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgText::Glyph * lret = self->getGlyph(fontRes, charcode);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -271,16 +261,14 @@ public:
 	// osgText::Glyph3D * osgText::Font::FontImplementation::getGlyph3D(unsigned int charcode)
 	static int _bind_getGlyph3D(lua_State *L) {
 		if (!_lg_typecheck_getGlyph3D(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::Glyph3D * osgText::Font::FontImplementation::getGlyph3D(unsigned int charcode) function, expected prototype:\nosgText::Glyph3D * osgText::Font::FontImplementation::getGlyph3D(unsigned int charcode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::Glyph3D * osgText::Font::FontImplementation::getGlyph3D(unsigned int charcode) function, expected prototype:\nosgText::Glyph3D * osgText::Font::FontImplementation::getGlyph3D(unsigned int charcode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int charcode=(unsigned int)lua_tointeger(L,2);
 
 		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Glyph3D * osgText::Font::FontImplementation::getGlyph3D(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::Glyph3D * osgText::Font::FontImplementation::getGlyph3D(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgText::Glyph3D * lret = self->getGlyph3D(charcode);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -293,8 +281,7 @@ public:
 	// osg::Vec2f osgText::Font::FontImplementation::getKerning(unsigned int leftcharcode, unsigned int rightcharcode, osgText::KerningType kerningType)
 	static int _bind_getKerning(lua_State *L) {
 		if (!_lg_typecheck_getKerning(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec2f osgText::Font::FontImplementation::getKerning(unsigned int leftcharcode, unsigned int rightcharcode, osgText::KerningType kerningType) function, expected prototype:\nosg::Vec2f osgText::Font::FontImplementation::getKerning(unsigned int leftcharcode, unsigned int rightcharcode, osgText::KerningType kerningType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec2f osgText::Font::FontImplementation::getKerning(unsigned int leftcharcode, unsigned int rightcharcode, osgText::KerningType kerningType) function, expected prototype:\nosg::Vec2f osgText::Font::FontImplementation::getKerning(unsigned int leftcharcode, unsigned int rightcharcode, osgText::KerningType kerningType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int leftcharcode=(unsigned int)lua_tointeger(L,2);
@@ -303,8 +290,7 @@ public:
 
 		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec2f osgText::Font::FontImplementation::getKerning(unsigned int, unsigned int, osgText::KerningType). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec2f osgText::Font::FontImplementation::getKerning(unsigned int, unsigned int, osgText::KerningType). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec2f stack_lret = self->getKerning(leftcharcode, rightcharcode, kerningType);
 		osg::Vec2f* lret = new osg::Vec2f(stack_lret);
@@ -318,15 +304,13 @@ public:
 	// bool osgText::Font::FontImplementation::hasVertical() const
 	static int _bind_hasVertical(lua_State *L) {
 		if (!_lg_typecheck_hasVertical(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgText::Font::FontImplementation::hasVertical() const function, expected prototype:\nbool osgText::Font::FontImplementation::hasVertical() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgText::Font::FontImplementation::hasVertical() const function, expected prototype:\nbool osgText::Font::FontImplementation::hasVertical() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::Font::FontImplementation::hasVertical() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgText::Font::FontImplementation::hasVertical() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->hasVertical();
 		lua_pushboolean(L,lret?1:0);
@@ -337,8 +321,7 @@ public:
 	// void osgText::Font::FontImplementation::addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph)
 	static int _bind_addGlyph(lua_State *L) {
 		if (!_lg_typecheck_addGlyph(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Font::FontImplementation::addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph) function, expected prototype:\nvoid osgText::Font::FontImplementation::addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph)\nClass arguments details:\narg 1 ID = 17799265\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Font::FontImplementation::addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph) function, expected prototype:\nvoid osgText::Font::FontImplementation::addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph)\nClass arguments details:\narg 1 ID = 17799265\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgText::FontResolution* fontRes_ptr=(Luna< std::pair< unsigned int, unsigned int > >::checkSubType< osgText::FontResolution >(L,2));
@@ -351,8 +334,7 @@ public:
 
 		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Font::FontImplementation::addGlyph(const osgText::FontResolution &, unsigned int, osgText::Glyph *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Font::FontImplementation::addGlyph(const osgText::FontResolution &, unsigned int, osgText::Glyph *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addGlyph(fontRes, charcode, glyph);
 
@@ -362,8 +344,7 @@ public:
 	// bool osgText::Font::FontImplementation::getVerticalSize(float & ascender, float & descender) const
 	static int _bind_getVerticalSize(lua_State *L) {
 		if (!_lg_typecheck_getVerticalSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgText::Font::FontImplementation::getVerticalSize(float & ascender, float & descender) const function, expected prototype:\nbool osgText::Font::FontImplementation::getVerticalSize(float & ascender, float & descender) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgText::Font::FontImplementation::getVerticalSize(float & ascender, float & descender) const function, expected prototype:\nbool osgText::Font::FontImplementation::getVerticalSize(float & ascender, float & descender) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float ascender=(float)lua_tonumber(L,2);
@@ -371,8 +352,7 @@ public:
 
 		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::Font::FontImplementation::getVerticalSize(float &, float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgText::Font::FontImplementation::getVerticalSize(float &, float &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getVerticalSize(ascender, descender);
 		lua_pushboolean(L,lret?1:0);
@@ -385,15 +365,13 @@ public:
 	// osgText::Font * osgText::Font::FontImplementation::_facade()
 	static int _bind_getFacade(lua_State *L) {
 		if (!_lg_typecheck_getFacade(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::Font * osgText::Font::FontImplementation::_facade() function, expected prototype:\nosgText::Font * osgText::Font::FontImplementation::_facade()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::Font * osgText::Font::FontImplementation::_facade() function, expected prototype:\nosgText::Font * osgText::Font::FontImplementation::_facade()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Font * osgText::Font::FontImplementation::_facade(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::Font * osgText::Font::FontImplementation::_facade(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgText::Font * lret = self->_facade;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -406,16 +384,14 @@ public:
 	// void osgText::Font::FontImplementation::_facade(osgText::Font * value)
 	static int _bind_setFacade(lua_State *L) {
 		if (!_lg_typecheck_setFacade(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Font::FontImplementation::_facade(osgText::Font * value) function, expected prototype:\nvoid osgText::Font::FontImplementation::_facade(osgText::Font * value)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Font::FontImplementation::_facade(osgText::Font * value) function, expected prototype:\nvoid osgText::Font::FontImplementation::_facade(osgText::Font * value)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::Font* value=(Luna< osg::Referenced >::checkSubType< osgText::Font >(L,2));
 
 		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Font::FontImplementation::_facade(osgText::Font *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Font::FontImplementation::_facade(osgText::Font *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_facade = value;
 
@@ -425,16 +401,14 @@ public:
 	// void osgText::Font::FontImplementation::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Font::FontImplementation::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::Font::FontImplementation::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Font::FontImplementation::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::Font::FontImplementation::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Font::FontImplementation::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Font::FontImplementation::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FontImplementation::setThreadSafeRefUnref(threadSafe);
 
@@ -444,8 +418,7 @@ public:
 	// bool osgText::Font::FontImplementation::base_getVerticalSize(float & ascender, float & descender) const
 	static int _bind_base_getVerticalSize(lua_State *L) {
 		if (!_lg_typecheck_base_getVerticalSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgText::Font::FontImplementation::base_getVerticalSize(float & ascender, float & descender) const function, expected prototype:\nbool osgText::Font::FontImplementation::base_getVerticalSize(float & ascender, float & descender) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgText::Font::FontImplementation::base_getVerticalSize(float & ascender, float & descender) const function, expected prototype:\nbool osgText::Font::FontImplementation::base_getVerticalSize(float & ascender, float & descender) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float ascender=(float)lua_tonumber(L,2);
@@ -453,8 +426,7 @@ public:
 
 		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::Font::FontImplementation::base_getVerticalSize(float &, float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgText::Font::FontImplementation::base_getVerticalSize(float &, float &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->FontImplementation::getVerticalSize(ascender, descender);
 		lua_pushboolean(L,lret?1:0);

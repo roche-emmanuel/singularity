@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::KdTree::KdNode*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::KdTree::KdNode*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::KdTree::KdNode* rhs =(Luna< osg::KdTree::KdNode >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::KdTree::KdNode* self= (osg::KdTree::KdNode*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::KdTree::KdNode >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -163,8 +159,7 @@ public:
 	// osg::KdTree::KdNode::KdNode()
 	static osg::KdTree::KdNode* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::KdTree::KdNode::KdNode() function, expected prototype:\nosg::KdTree::KdNode::KdNode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::KdTree::KdNode::KdNode() function, expected prototype:\nosg::KdTree::KdNode::KdNode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -174,8 +169,7 @@ public:
 	// osg::KdTree::KdNode::KdNode(int f, int s)
 	static osg::KdTree::KdNode* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::KdTree::KdNode::KdNode(int f, int s) function, expected prototype:\nosg::KdTree::KdNode::KdNode(int f, int s)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::KdTree::KdNode::KdNode(int f, int s) function, expected prototype:\nosg::KdTree::KdNode::KdNode(int f, int s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int f=(int)lua_tointeger(L,1);
@@ -198,15 +192,13 @@ public:
 	// osg::BoundingBoxd osg::KdTree::KdNode::bb()
 	static int _bind_getBb(lua_State *L) {
 		if (!_lg_typecheck_getBb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingBoxd osg::KdTree::KdNode::bb() function, expected prototype:\nosg::BoundingBoxd osg::KdTree::KdNode::bb()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingBoxd osg::KdTree::KdNode::bb() function, expected prototype:\nosg::BoundingBoxd osg::KdTree::KdNode::bb()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::KdTree::KdNode* self=(Luna< osg::KdTree::KdNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osg::KdTree::KdNode::bb(). Got : '%s'",typeid(Luna< osg::KdTree::KdNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osg::KdTree::KdNode::bb(). Got : '%s'\n%s",typeid(Luna< osg::KdTree::KdNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::BoundingBoxd* lret = &self->bb;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -219,15 +211,13 @@ public:
 	// int osg::KdTree::KdNode::first()
 	static int _bind_getFirst(lua_State *L) {
 		if (!_lg_typecheck_getFirst(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::KdTree::KdNode::first() function, expected prototype:\nint osg::KdTree::KdNode::first()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::KdTree::KdNode::first() function, expected prototype:\nint osg::KdTree::KdNode::first()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::KdTree::KdNode* self=(Luna< osg::KdTree::KdNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::KdTree::KdNode::first(). Got : '%s'",typeid(Luna< osg::KdTree::KdNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::KdTree::KdNode::first(). Got : '%s'\n%s",typeid(Luna< osg::KdTree::KdNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->first;
 		lua_pushnumber(L,lret);
@@ -238,15 +228,13 @@ public:
 	// int osg::KdTree::KdNode::second()
 	static int _bind_getSecond(lua_State *L) {
 		if (!_lg_typecheck_getSecond(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::KdTree::KdNode::second() function, expected prototype:\nint osg::KdTree::KdNode::second()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::KdTree::KdNode::second() function, expected prototype:\nint osg::KdTree::KdNode::second()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::KdTree::KdNode* self=(Luna< osg::KdTree::KdNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::KdTree::KdNode::second(). Got : '%s'",typeid(Luna< osg::KdTree::KdNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::KdTree::KdNode::second(). Got : '%s'\n%s",typeid(Luna< osg::KdTree::KdNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->second;
 		lua_pushnumber(L,lret);
@@ -257,8 +245,7 @@ public:
 	// void osg::KdTree::KdNode::bb(osg::BoundingBoxd value)
 	static int _bind_setBb(lua_State *L) {
 		if (!_lg_typecheck_setBb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::KdTree::KdNode::bb(osg::BoundingBoxd value) function, expected prototype:\nvoid osg::KdTree::KdNode::bb(osg::BoundingBoxd value)\nClass arguments details:\narg 1 ID = 82744897\n");
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::KdNode::bb(osg::BoundingBoxd value) function, expected prototype:\nvoid osg::KdTree::KdNode::bb(osg::BoundingBoxd value)\nClass arguments details:\narg 1 ID = 82744897\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::BoundingBoxd* value_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
@@ -269,8 +256,7 @@ public:
 
 		osg::KdTree::KdNode* self=(Luna< osg::KdTree::KdNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTree::KdNode::bb(osg::BoundingBoxd). Got : '%s'",typeid(Luna< osg::KdTree::KdNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::KdTree::KdNode::bb(osg::BoundingBoxd). Got : '%s'\n%s",typeid(Luna< osg::KdTree::KdNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->bb = value;
 
@@ -280,16 +266,14 @@ public:
 	// void osg::KdTree::KdNode::first(int value)
 	static int _bind_setFirst(lua_State *L) {
 		if (!_lg_typecheck_setFirst(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::KdTree::KdNode::first(int value) function, expected prototype:\nvoid osg::KdTree::KdNode::first(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::KdNode::first(int value) function, expected prototype:\nvoid osg::KdTree::KdNode::first(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::KdTree::KdNode* self=(Luna< osg::KdTree::KdNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTree::KdNode::first(int). Got : '%s'",typeid(Luna< osg::KdTree::KdNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::KdTree::KdNode::first(int). Got : '%s'\n%s",typeid(Luna< osg::KdTree::KdNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->first = value;
 
@@ -299,16 +283,14 @@ public:
 	// void osg::KdTree::KdNode::second(int value)
 	static int _bind_setSecond(lua_State *L) {
 		if (!_lg_typecheck_setSecond(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::KdTree::KdNode::second(int value) function, expected prototype:\nvoid osg::KdTree::KdNode::second(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::KdNode::second(int value) function, expected prototype:\nvoid osg::KdTree::KdNode::second(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::KdTree::KdNode* self=(Luna< osg::KdTree::KdNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTree::KdNode::second(int). Got : '%s'",typeid(Luna< osg::KdTree::KdNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::KdTree::KdNode::second(int). Got : '%s'\n%s",typeid(Luna< osg::KdTree::KdNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->second = value;
 

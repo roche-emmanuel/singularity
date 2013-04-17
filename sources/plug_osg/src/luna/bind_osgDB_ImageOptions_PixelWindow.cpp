@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ImageOptions::PixelWindow*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ImageOptions::PixelWindow*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ImageOptions::PixelWindow* rhs =(Luna< osgDB::ImageOptions::PixelWindow >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ImageOptions::PixelWindow* self= (osgDB::ImageOptions::PixelWindow*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -178,8 +174,7 @@ public:
 	// osgDB::ImageOptions::PixelWindow::PixelWindow()
 	static osgDB::ImageOptions::PixelWindow* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::PixelWindow::PixelWindow() function, expected prototype:\nosgDB::ImageOptions::PixelWindow::PixelWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::PixelWindow::PixelWindow() function, expected prototype:\nosgDB::ImageOptions::PixelWindow::PixelWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -191,8 +186,7 @@ public:
 	// void osgDB::ImageOptions::PixelWindow::set(unsigned int x, unsigned int y, unsigned int w, unsigned int h)
 	static int _bind_set(lua_State *L) {
 		if (!_lg_typecheck_set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::PixelWindow::set(unsigned int x, unsigned int y, unsigned int w, unsigned int h) function, expected prototype:\nvoid osgDB::ImageOptions::PixelWindow::set(unsigned int x, unsigned int y, unsigned int w, unsigned int h)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::PixelWindow::set(unsigned int x, unsigned int y, unsigned int w, unsigned int h) function, expected prototype:\nvoid osgDB::ImageOptions::PixelWindow::set(unsigned int x, unsigned int y, unsigned int w, unsigned int h)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int x=(unsigned int)lua_tointeger(L,2);
@@ -202,8 +196,7 @@ public:
 
 		osgDB::ImageOptions::PixelWindow* self=(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::PixelWindow::set(unsigned int, unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::PixelWindow::set(unsigned int, unsigned int, unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(x, y, w, h);
 
@@ -213,15 +206,13 @@ public:
 	// unsigned int osgDB::ImageOptions::PixelWindow::windowX()
 	static int _bind_getWindowX(lua_State *L) {
 		if (!_lg_typecheck_getWindowX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ImageOptions::PixelWindow::windowX() function, expected prototype:\nunsigned int osgDB::ImageOptions::PixelWindow::windowX()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ImageOptions::PixelWindow::windowX() function, expected prototype:\nunsigned int osgDB::ImageOptions::PixelWindow::windowX()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ImageOptions::PixelWindow* self=(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::ImageOptions::PixelWindow::windowX(). Got : '%s'",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::ImageOptions::PixelWindow::windowX(). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->windowX;
 		lua_pushnumber(L,lret);
@@ -232,15 +223,13 @@ public:
 	// unsigned int osgDB::ImageOptions::PixelWindow::windowY()
 	static int _bind_getWindowY(lua_State *L) {
 		if (!_lg_typecheck_getWindowY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ImageOptions::PixelWindow::windowY() function, expected prototype:\nunsigned int osgDB::ImageOptions::PixelWindow::windowY()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ImageOptions::PixelWindow::windowY() function, expected prototype:\nunsigned int osgDB::ImageOptions::PixelWindow::windowY()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ImageOptions::PixelWindow* self=(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::ImageOptions::PixelWindow::windowY(). Got : '%s'",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::ImageOptions::PixelWindow::windowY(). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->windowY;
 		lua_pushnumber(L,lret);
@@ -251,15 +240,13 @@ public:
 	// unsigned int osgDB::ImageOptions::PixelWindow::windowWidth()
 	static int _bind_getWindowWidth(lua_State *L) {
 		if (!_lg_typecheck_getWindowWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ImageOptions::PixelWindow::windowWidth() function, expected prototype:\nunsigned int osgDB::ImageOptions::PixelWindow::windowWidth()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ImageOptions::PixelWindow::windowWidth() function, expected prototype:\nunsigned int osgDB::ImageOptions::PixelWindow::windowWidth()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ImageOptions::PixelWindow* self=(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::ImageOptions::PixelWindow::windowWidth(). Got : '%s'",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::ImageOptions::PixelWindow::windowWidth(). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->windowWidth;
 		lua_pushnumber(L,lret);
@@ -270,15 +257,13 @@ public:
 	// unsigned int osgDB::ImageOptions::PixelWindow::windowHeight()
 	static int _bind_getWindowHeight(lua_State *L) {
 		if (!_lg_typecheck_getWindowHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ImageOptions::PixelWindow::windowHeight() function, expected prototype:\nunsigned int osgDB::ImageOptions::PixelWindow::windowHeight()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ImageOptions::PixelWindow::windowHeight() function, expected prototype:\nunsigned int osgDB::ImageOptions::PixelWindow::windowHeight()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ImageOptions::PixelWindow* self=(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::ImageOptions::PixelWindow::windowHeight(). Got : '%s'",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::ImageOptions::PixelWindow::windowHeight(). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->windowHeight;
 		lua_pushnumber(L,lret);
@@ -289,16 +274,14 @@ public:
 	// void osgDB::ImageOptions::PixelWindow::windowX(unsigned int value)
 	static int _bind_setWindowX(lua_State *L) {
 		if (!_lg_typecheck_setWindowX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::PixelWindow::windowX(unsigned int value) function, expected prototype:\nvoid osgDB::ImageOptions::PixelWindow::windowX(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::PixelWindow::windowX(unsigned int value) function, expected prototype:\nvoid osgDB::ImageOptions::PixelWindow::windowX(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osgDB::ImageOptions::PixelWindow* self=(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::PixelWindow::windowX(unsigned int). Got : '%s'",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::PixelWindow::windowX(unsigned int). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->windowX = value;
 
@@ -308,16 +291,14 @@ public:
 	// void osgDB::ImageOptions::PixelWindow::windowY(unsigned int value)
 	static int _bind_setWindowY(lua_State *L) {
 		if (!_lg_typecheck_setWindowY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::PixelWindow::windowY(unsigned int value) function, expected prototype:\nvoid osgDB::ImageOptions::PixelWindow::windowY(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::PixelWindow::windowY(unsigned int value) function, expected prototype:\nvoid osgDB::ImageOptions::PixelWindow::windowY(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osgDB::ImageOptions::PixelWindow* self=(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::PixelWindow::windowY(unsigned int). Got : '%s'",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::PixelWindow::windowY(unsigned int). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->windowY = value;
 
@@ -327,16 +308,14 @@ public:
 	// void osgDB::ImageOptions::PixelWindow::windowWidth(unsigned int value)
 	static int _bind_setWindowWidth(lua_State *L) {
 		if (!_lg_typecheck_setWindowWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::PixelWindow::windowWidth(unsigned int value) function, expected prototype:\nvoid osgDB::ImageOptions::PixelWindow::windowWidth(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::PixelWindow::windowWidth(unsigned int value) function, expected prototype:\nvoid osgDB::ImageOptions::PixelWindow::windowWidth(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osgDB::ImageOptions::PixelWindow* self=(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::PixelWindow::windowWidth(unsigned int). Got : '%s'",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::PixelWindow::windowWidth(unsigned int). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->windowWidth = value;
 
@@ -346,16 +325,14 @@ public:
 	// void osgDB::ImageOptions::PixelWindow::windowHeight(unsigned int value)
 	static int _bind_setWindowHeight(lua_State *L) {
 		if (!_lg_typecheck_setWindowHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::PixelWindow::windowHeight(unsigned int value) function, expected prototype:\nvoid osgDB::ImageOptions::PixelWindow::windowHeight(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::PixelWindow::windowHeight(unsigned int value) function, expected prototype:\nvoid osgDB::ImageOptions::PixelWindow::windowHeight(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osgDB::ImageOptions::PixelWindow* self=(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::PixelWindow::windowHeight(unsigned int). Got : '%s'",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::PixelWindow::windowHeight(unsigned int). Got : '%s'\n%s",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->windowHeight = value;
 

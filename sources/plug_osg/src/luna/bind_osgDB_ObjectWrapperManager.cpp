@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ObjectWrapperManager* self= (osgDB::ObjectWrapperManager*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -190,16 +187,14 @@ public:
 	// void osgDB::ObjectWrapperManager::addWrapper(osgDB::ObjectWrapper * wrapper)
 	static int _bind_addWrapper(lua_State *L) {
 		if (!_lg_typecheck_addWrapper(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ObjectWrapperManager::addWrapper(osgDB::ObjectWrapper * wrapper) function, expected prototype:\nvoid osgDB::ObjectWrapperManager::addWrapper(osgDB::ObjectWrapper * wrapper)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectWrapperManager::addWrapper(osgDB::ObjectWrapper * wrapper) function, expected prototype:\nvoid osgDB::ObjectWrapperManager::addWrapper(osgDB::ObjectWrapper * wrapper)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ObjectWrapper* wrapper=(Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,2));
 
 		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapperManager::addWrapper(osgDB::ObjectWrapper *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapperManager::addWrapper(osgDB::ObjectWrapper *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addWrapper(wrapper);
 
@@ -209,16 +204,14 @@ public:
 	// void osgDB::ObjectWrapperManager::removeWrapper(osgDB::ObjectWrapper * wrapper)
 	static int _bind_removeWrapper(lua_State *L) {
 		if (!_lg_typecheck_removeWrapper(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ObjectWrapperManager::removeWrapper(osgDB::ObjectWrapper * wrapper) function, expected prototype:\nvoid osgDB::ObjectWrapperManager::removeWrapper(osgDB::ObjectWrapper * wrapper)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectWrapperManager::removeWrapper(osgDB::ObjectWrapper * wrapper) function, expected prototype:\nvoid osgDB::ObjectWrapperManager::removeWrapper(osgDB::ObjectWrapper * wrapper)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ObjectWrapper* wrapper=(Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,2));
 
 		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapperManager::removeWrapper(osgDB::ObjectWrapper *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapperManager::removeWrapper(osgDB::ObjectWrapper *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removeWrapper(wrapper);
 
@@ -228,16 +221,14 @@ public:
 	// osgDB::ObjectWrapper * osgDB::ObjectWrapperManager::findWrapper(const std::string & name)
 	static int _bind_findWrapper(lua_State *L) {
 		if (!_lg_typecheck_findWrapper(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ObjectWrapper * osgDB::ObjectWrapperManager::findWrapper(const std::string & name) function, expected prototype:\nosgDB::ObjectWrapper * osgDB::ObjectWrapperManager::findWrapper(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectWrapper * osgDB::ObjectWrapperManager::findWrapper(const std::string & name) function, expected prototype:\nosgDB::ObjectWrapper * osgDB::ObjectWrapperManager::findWrapper(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ObjectWrapper * osgDB::ObjectWrapperManager::findWrapper(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::ObjectWrapper * osgDB::ObjectWrapperManager::findWrapper(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::ObjectWrapper * lret = self->findWrapper(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -250,15 +241,13 @@ public:
 	// osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap()
 	static int _bind_getWrapperMap_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getWrapperMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap() function, expected prototype:\nosgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap() function, expected prototype:\nosgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgDB::ObjectWrapperManager::WrapperMap* lret = &self->getWrapperMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -271,15 +260,13 @@ public:
 	// const osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap() const
 	static int _bind_getWrapperMap_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getWrapperMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap() const function, expected prototype:\nconst osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap() const function, expected prototype:\nconst osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgDB::ObjectWrapperManager::WrapperMap* lret = &self->getWrapperMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -301,16 +288,14 @@ public:
 	// void osgDB::ObjectWrapperManager::addCompressor(osgDB::BaseCompressor * compressor)
 	static int _bind_addCompressor(lua_State *L) {
 		if (!_lg_typecheck_addCompressor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ObjectWrapperManager::addCompressor(osgDB::BaseCompressor * compressor) function, expected prototype:\nvoid osgDB::ObjectWrapperManager::addCompressor(osgDB::BaseCompressor * compressor)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectWrapperManager::addCompressor(osgDB::BaseCompressor * compressor) function, expected prototype:\nvoid osgDB::ObjectWrapperManager::addCompressor(osgDB::BaseCompressor * compressor)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::BaseCompressor* compressor=(Luna< osg::Referenced >::checkSubType< osgDB::BaseCompressor >(L,2));
 
 		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapperManager::addCompressor(osgDB::BaseCompressor *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapperManager::addCompressor(osgDB::BaseCompressor *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addCompressor(compressor);
 
@@ -320,16 +305,14 @@ public:
 	// void osgDB::ObjectWrapperManager::removeCompressor(osgDB::BaseCompressor * compressor)
 	static int _bind_removeCompressor(lua_State *L) {
 		if (!_lg_typecheck_removeCompressor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ObjectWrapperManager::removeCompressor(osgDB::BaseCompressor * compressor) function, expected prototype:\nvoid osgDB::ObjectWrapperManager::removeCompressor(osgDB::BaseCompressor * compressor)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectWrapperManager::removeCompressor(osgDB::BaseCompressor * compressor) function, expected prototype:\nvoid osgDB::ObjectWrapperManager::removeCompressor(osgDB::BaseCompressor * compressor)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::BaseCompressor* compressor=(Luna< osg::Referenced >::checkSubType< osgDB::BaseCompressor >(L,2));
 
 		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapperManager::removeCompressor(osgDB::BaseCompressor *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapperManager::removeCompressor(osgDB::BaseCompressor *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removeCompressor(compressor);
 
@@ -339,16 +322,14 @@ public:
 	// osgDB::BaseCompressor * osgDB::ObjectWrapperManager::findCompressor(const std::string & name)
 	static int _bind_findCompressor(lua_State *L) {
 		if (!_lg_typecheck_findCompressor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::BaseCompressor * osgDB::ObjectWrapperManager::findCompressor(const std::string & name) function, expected prototype:\nosgDB::BaseCompressor * osgDB::ObjectWrapperManager::findCompressor(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::BaseCompressor * osgDB::ObjectWrapperManager::findCompressor(const std::string & name) function, expected prototype:\nosgDB::BaseCompressor * osgDB::ObjectWrapperManager::findCompressor(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::BaseCompressor * osgDB::ObjectWrapperManager::findCompressor(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::BaseCompressor * osgDB::ObjectWrapperManager::findCompressor(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::BaseCompressor * lret = self->findCompressor(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -361,15 +342,13 @@ public:
 	// osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap()
 	static int _bind_getCompressorMap_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getCompressorMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap() function, expected prototype:\nosgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap() function, expected prototype:\nosgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgDB::ObjectWrapperManager::CompressorMap* lret = &self->getCompressorMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -382,15 +361,13 @@ public:
 	// const osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap() const
 	static int _bind_getCompressorMap_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getCompressorMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap() const function, expected prototype:\nconst osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap() const function, expected prototype:\nconst osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgDB::ObjectWrapperManager::CompressorMap* lret = &self->getCompressorMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -412,8 +389,7 @@ public:
 	// int osgDB::ObjectWrapperManager::getValue(const std::string & group, const std::string & str)
 	static int _bind_getValue(lua_State *L) {
 		if (!_lg_typecheck_getValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgDB::ObjectWrapperManager::getValue(const std::string & group, const std::string & str) function, expected prototype:\nint osgDB::ObjectWrapperManager::getValue(const std::string & group, const std::string & str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgDB::ObjectWrapperManager::getValue(const std::string & group, const std::string & str) function, expected prototype:\nint osgDB::ObjectWrapperManager::getValue(const std::string & group, const std::string & str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string group(lua_tostring(L,2),lua_objlen(L,2));
@@ -421,8 +397,7 @@ public:
 
 		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgDB::ObjectWrapperManager::getValue(const std::string &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgDB::ObjectWrapperManager::getValue(const std::string &, const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getValue(group, str);
 		lua_pushnumber(L,lret);
@@ -433,8 +408,7 @@ public:
 	// const std::string & osgDB::ObjectWrapperManager::getString(const std::string & group, int value)
 	static int _bind_getString(lua_State *L) {
 		if (!_lg_typecheck_getString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osgDB::ObjectWrapperManager::getString(const std::string & group, int value) function, expected prototype:\nconst std::string & osgDB::ObjectWrapperManager::getString(const std::string & group, int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osgDB::ObjectWrapperManager::getString(const std::string & group, int value) function, expected prototype:\nconst std::string & osgDB::ObjectWrapperManager::getString(const std::string & group, int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string group(lua_tostring(L,2),lua_objlen(L,2));
@@ -442,8 +416,7 @@ public:
 
 		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::ObjectWrapperManager::getString(const std::string &, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::ObjectWrapperManager::getString(const std::string &, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getString(group, value);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -454,16 +427,14 @@ public:
 	// void osgDB::ObjectWrapperManager::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ObjectWrapperManager::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::ObjectWrapperManager::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectWrapperManager::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::ObjectWrapperManager::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapperManager::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapperManager::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ObjectWrapperManager::setThreadSafeRefUnref(threadSafe);
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::EventQueue* self= (osgGA::EventQueue*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -600,8 +597,7 @@ public:
 	// osgGA::EventQueue::EventQueue(osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS)
 	static osgGA::EventQueue* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::EventQueue::EventQueue(osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS) function, expected prototype:\nosgGA::EventQueue::EventQueue(osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::EventQueue::EventQueue(osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS) function, expected prototype:\nosgGA::EventQueue::EventQueue(osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -614,8 +610,7 @@ public:
 	// osgGA::EventQueue::EventQueue(lua_Table * data, osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS)
 	static osgGA::EventQueue* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::EventQueue::EventQueue(lua_Table * data, osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS) function, expected prototype:\nosgGA::EventQueue::EventQueue(lua_Table * data, osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::EventQueue::EventQueue(lua_Table * data, osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS) function, expected prototype:\nosgGA::EventQueue::EventQueue(lua_Table * data, osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -639,8 +634,7 @@ public:
 	// void osgGA::EventQueue::setEvents(osgGA::EventQueue::Events & events)
 	static int _bind_setEvents(lua_State *L) {
 		if (!_lg_typecheck_setEvents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setEvents(osgGA::EventQueue::Events & events) function, expected prototype:\nvoid osgGA::EventQueue::setEvents(osgGA::EventQueue::Events & events)\nClass arguments details:\narg 1 ID = 42735238\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setEvents(osgGA::EventQueue::Events & events) function, expected prototype:\nvoid osgGA::EventQueue::setEvents(osgGA::EventQueue::Events & events)\nClass arguments details:\narg 1 ID = 42735238\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::EventQueue::Events* events_ptr=(Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::checkSubType< osgGA::EventQueue::Events >(L,2));
@@ -651,8 +645,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setEvents(osgGA::EventQueue::Events &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setEvents(osgGA::EventQueue::Events &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setEvents(events);
 
@@ -662,8 +655,7 @@ public:
 	// bool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events & events)
 	static int _bind_takeEvents_overload_1(lua_State *L) {
 		if (!_lg_typecheck_takeEvents_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events & events) function, expected prototype:\nbool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events & events)\nClass arguments details:\narg 1 ID = 42735238\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events & events) function, expected prototype:\nbool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events & events)\nClass arguments details:\narg 1 ID = 42735238\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::EventQueue::Events* events_ptr=(Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::checkSubType< osgGA::EventQueue::Events >(L,2));
@@ -674,8 +666,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->takeEvents(events);
 		lua_pushboolean(L,lret?1:0);
@@ -686,8 +677,7 @@ public:
 	// bool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events & events, double cutOffTime)
 	static int _bind_takeEvents_overload_2(lua_State *L) {
 		if (!_lg_typecheck_takeEvents_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events & events, double cutOffTime) function, expected prototype:\nbool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events & events, double cutOffTime)\nClass arguments details:\narg 1 ID = 42735238\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events & events, double cutOffTime) function, expected prototype:\nbool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events & events, double cutOffTime)\nClass arguments details:\narg 1 ID = 42735238\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::EventQueue::Events* events_ptr=(Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::checkSubType< osgGA::EventQueue::Events >(L,2));
@@ -699,8 +689,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events &, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events &, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->takeEvents(events, cutOffTime);
 		lua_pushboolean(L,lret?1:0);
@@ -720,8 +709,7 @@ public:
 	// bool osgGA::EventQueue::copyEvents(osgGA::EventQueue::Events & events) const
 	static int _bind_copyEvents(lua_State *L) {
 		if (!_lg_typecheck_copyEvents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::EventQueue::copyEvents(osgGA::EventQueue::Events & events) const function, expected prototype:\nbool osgGA::EventQueue::copyEvents(osgGA::EventQueue::Events & events) const\nClass arguments details:\narg 1 ID = 42735238\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::EventQueue::copyEvents(osgGA::EventQueue::Events & events) const function, expected prototype:\nbool osgGA::EventQueue::copyEvents(osgGA::EventQueue::Events & events) const\nClass arguments details:\narg 1 ID = 42735238\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::EventQueue::Events* events_ptr=(Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::checkSubType< osgGA::EventQueue::Events >(L,2));
@@ -732,8 +720,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::EventQueue::copyEvents(osgGA::EventQueue::Events &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::EventQueue::copyEvents(osgGA::EventQueue::Events &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->copyEvents(events);
 		lua_pushboolean(L,lret?1:0);
@@ -744,8 +731,7 @@ public:
 	// void osgGA::EventQueue::appendEvents(osgGA::EventQueue::Events & events)
 	static int _bind_appendEvents(lua_State *L) {
 		if (!_lg_typecheck_appendEvents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::appendEvents(osgGA::EventQueue::Events & events) function, expected prototype:\nvoid osgGA::EventQueue::appendEvents(osgGA::EventQueue::Events & events)\nClass arguments details:\narg 1 ID = 42735238\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::appendEvents(osgGA::EventQueue::Events & events) function, expected prototype:\nvoid osgGA::EventQueue::appendEvents(osgGA::EventQueue::Events & events)\nClass arguments details:\narg 1 ID = 42735238\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::EventQueue::Events* events_ptr=(Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::checkSubType< osgGA::EventQueue::Events >(L,2));
@@ -756,8 +742,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::appendEvents(osgGA::EventQueue::Events &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::appendEvents(osgGA::EventQueue::Events &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->appendEvents(events);
 
@@ -767,16 +752,14 @@ public:
 	// void osgGA::EventQueue::addEvent(osgGA::GUIEventAdapter * event)
 	static int _bind_addEvent(lua_State *L) {
 		if (!_lg_typecheck_addEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::addEvent(osgGA::GUIEventAdapter * event) function, expected prototype:\nvoid osgGA::EventQueue::addEvent(osgGA::GUIEventAdapter * event)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::addEvent(osgGA::GUIEventAdapter * event) function, expected prototype:\nvoid osgGA::EventQueue::addEvent(osgGA::GUIEventAdapter * event)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::GUIEventAdapter* event=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::addEvent(osgGA::GUIEventAdapter *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::addEvent(osgGA::GUIEventAdapter *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addEvent(event);
 
@@ -786,16 +769,14 @@ public:
 	// void osgGA::EventQueue::setUseFixedMouseInputRange(bool useFixedMouseInputRange)
 	static int _bind_setUseFixedMouseInputRange(lua_State *L) {
 		if (!_lg_typecheck_setUseFixedMouseInputRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setUseFixedMouseInputRange(bool useFixedMouseInputRange) function, expected prototype:\nvoid osgGA::EventQueue::setUseFixedMouseInputRange(bool useFixedMouseInputRange)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setUseFixedMouseInputRange(bool useFixedMouseInputRange) function, expected prototype:\nvoid osgGA::EventQueue::setUseFixedMouseInputRange(bool useFixedMouseInputRange)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useFixedMouseInputRange=(bool)(lua_toboolean(L,2)==1);
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setUseFixedMouseInputRange(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setUseFixedMouseInputRange(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setUseFixedMouseInputRange(useFixedMouseInputRange);
 
@@ -805,15 +786,13 @@ public:
 	// bool osgGA::EventQueue::getUseFixedMouseInputRange()
 	static int _bind_getUseFixedMouseInputRange(lua_State *L) {
 		if (!_lg_typecheck_getUseFixedMouseInputRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::EventQueue::getUseFixedMouseInputRange() function, expected prototype:\nbool osgGA::EventQueue::getUseFixedMouseInputRange()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::EventQueue::getUseFixedMouseInputRange() function, expected prototype:\nbool osgGA::EventQueue::getUseFixedMouseInputRange()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::EventQueue::getUseFixedMouseInputRange(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::EventQueue::getUseFixedMouseInputRange(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getUseFixedMouseInputRange();
 		lua_pushboolean(L,lret?1:0);
@@ -824,16 +803,14 @@ public:
 	// void osgGA::EventQueue::setGraphicsContext(osg::GraphicsContext * context)
 	static int _bind_setGraphicsContext(lua_State *L) {
 		if (!_lg_typecheck_setGraphicsContext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setGraphicsContext(osg::GraphicsContext * context) function, expected prototype:\nvoid osgGA::EventQueue::setGraphicsContext(osg::GraphicsContext * context)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setGraphicsContext(osg::GraphicsContext * context) function, expected prototype:\nvoid osgGA::EventQueue::setGraphicsContext(osg::GraphicsContext * context)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::GraphicsContext* context=(Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,2));
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setGraphicsContext(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setGraphicsContext(osg::GraphicsContext *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setGraphicsContext(context);
 
@@ -843,8 +820,7 @@ public:
 	// void osgGA::EventQueue::setMouseInputRange(float xMin, float yMin, float xMax, float yMax)
 	static int _bind_setMouseInputRange(lua_State *L) {
 		if (!_lg_typecheck_setMouseInputRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setMouseInputRange(float xMin, float yMin, float xMax, float yMax) function, expected prototype:\nvoid osgGA::EventQueue::setMouseInputRange(float xMin, float yMin, float xMax, float yMax)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setMouseInputRange(float xMin, float yMin, float xMax, float yMax) function, expected prototype:\nvoid osgGA::EventQueue::setMouseInputRange(float xMin, float yMin, float xMax, float yMax)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float xMin=(float)lua_tonumber(L,2);
@@ -854,8 +830,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setMouseInputRange(float, float, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setMouseInputRange(float, float, float, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMouseInputRange(xMin, yMin, xMax, yMax);
 
@@ -865,8 +840,7 @@ public:
 	// void osgGA::EventQueue::windowResize(int x, int y, int width, int height)
 	static int _bind_windowResize_overload_1(lua_State *L) {
 		if (!_lg_typecheck_windowResize_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::windowResize(int x, int y, int width, int height) function, expected prototype:\nvoid osgGA::EventQueue::windowResize(int x, int y, int width, int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::windowResize(int x, int y, int width, int height) function, expected prototype:\nvoid osgGA::EventQueue::windowResize(int x, int y, int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -876,8 +850,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::windowResize(int, int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::windowResize(int, int, int, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->windowResize(x, y, width, height);
 
@@ -887,8 +860,7 @@ public:
 	// void osgGA::EventQueue::windowResize(int x, int y, int width, int height, double time)
 	static int _bind_windowResize_overload_2(lua_State *L) {
 		if (!_lg_typecheck_windowResize_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::windowResize(int x, int y, int width, int height, double time) function, expected prototype:\nvoid osgGA::EventQueue::windowResize(int x, int y, int width, int height, double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::windowResize(int x, int y, int width, int height, double time) function, expected prototype:\nvoid osgGA::EventQueue::windowResize(int x, int y, int width, int height, double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -899,8 +871,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::windowResize(int, int, int, int, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::windowResize(int, int, int, int, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->windowResize(x, y, width, height, time);
 
@@ -919,16 +890,14 @@ public:
 	// void osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion sm)
 	static int _bind_mouseScroll_overload_1(lua_State *L) {
 		if (!_lg_typecheck_mouseScroll_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion sm) function, expected prototype:\nvoid osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion sm)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion sm) function, expected prototype:\nvoid osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion sm)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::GUIEventAdapter::ScrollingMotion sm=(osgGA::GUIEventAdapter::ScrollingMotion)lua_tointeger(L,2);
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mouseScroll(sm);
 
@@ -938,8 +907,7 @@ public:
 	// void osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion sm, double time)
 	static int _bind_mouseScroll_overload_2(lua_State *L) {
 		if (!_lg_typecheck_mouseScroll_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion sm, double time) function, expected prototype:\nvoid osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion sm, double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion sm, double time) function, expected prototype:\nvoid osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion sm, double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::GUIEventAdapter::ScrollingMotion sm=(osgGA::GUIEventAdapter::ScrollingMotion)lua_tointeger(L,2);
@@ -947,8 +915,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mouseScroll(sm, time);
 
@@ -967,8 +934,7 @@ public:
 	// void osgGA::EventQueue::mouseScroll2D(float x, float y)
 	static int _bind_mouseScroll2D_overload_1(lua_State *L) {
 		if (!_lg_typecheck_mouseScroll2D_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseScroll2D(float x, float y) function, expected prototype:\nvoid osgGA::EventQueue::mouseScroll2D(float x, float y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseScroll2D(float x, float y) function, expected prototype:\nvoid osgGA::EventQueue::mouseScroll2D(float x, float y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -976,8 +942,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseScroll2D(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseScroll2D(float, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mouseScroll2D(x, y);
 
@@ -987,8 +952,7 @@ public:
 	// void osgGA::EventQueue::mouseScroll2D(float x, float y, double time)
 	static int _bind_mouseScroll2D_overload_2(lua_State *L) {
 		if (!_lg_typecheck_mouseScroll2D_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseScroll2D(float x, float y, double time) function, expected prototype:\nvoid osgGA::EventQueue::mouseScroll2D(float x, float y, double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseScroll2D(float x, float y, double time) function, expected prototype:\nvoid osgGA::EventQueue::mouseScroll2D(float x, float y, double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -997,8 +961,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseScroll2D(float, float, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseScroll2D(float, float, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mouseScroll2D(x, y, time);
 
@@ -1017,16 +980,14 @@ public:
 	// void osgGA::EventQueue::penPressure(float pressure)
 	static int _bind_penPressure_overload_1(lua_State *L) {
 		if (!_lg_typecheck_penPressure_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::penPressure(float pressure) function, expected prototype:\nvoid osgGA::EventQueue::penPressure(float pressure)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::penPressure(float pressure) function, expected prototype:\nvoid osgGA::EventQueue::penPressure(float pressure)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float pressure=(float)lua_tonumber(L,2);
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penPressure(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penPressure(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->penPressure(pressure);
 
@@ -1036,8 +997,7 @@ public:
 	// void osgGA::EventQueue::penPressure(float pressure, double time)
 	static int _bind_penPressure_overload_2(lua_State *L) {
 		if (!_lg_typecheck_penPressure_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::penPressure(float pressure, double time) function, expected prototype:\nvoid osgGA::EventQueue::penPressure(float pressure, double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::penPressure(float pressure, double time) function, expected prototype:\nvoid osgGA::EventQueue::penPressure(float pressure, double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float pressure=(float)lua_tonumber(L,2);
@@ -1045,8 +1005,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penPressure(float, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penPressure(float, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->penPressure(pressure, time);
 
@@ -1065,8 +1024,7 @@ public:
 	// void osgGA::EventQueue::penOrientation(float tiltX, float tiltY, float rotation)
 	static int _bind_penOrientation_overload_1(lua_State *L) {
 		if (!_lg_typecheck_penOrientation_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::penOrientation(float tiltX, float tiltY, float rotation) function, expected prototype:\nvoid osgGA::EventQueue::penOrientation(float tiltX, float tiltY, float rotation)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::penOrientation(float tiltX, float tiltY, float rotation) function, expected prototype:\nvoid osgGA::EventQueue::penOrientation(float tiltX, float tiltY, float rotation)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float tiltX=(float)lua_tonumber(L,2);
@@ -1075,8 +1033,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penOrientation(float, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penOrientation(float, float, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->penOrientation(tiltX, tiltY, rotation);
 
@@ -1086,8 +1043,7 @@ public:
 	// void osgGA::EventQueue::penOrientation(float tiltX, float tiltY, float rotation, double time)
 	static int _bind_penOrientation_overload_2(lua_State *L) {
 		if (!_lg_typecheck_penOrientation_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::penOrientation(float tiltX, float tiltY, float rotation, double time) function, expected prototype:\nvoid osgGA::EventQueue::penOrientation(float tiltX, float tiltY, float rotation, double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::penOrientation(float tiltX, float tiltY, float rotation, double time) function, expected prototype:\nvoid osgGA::EventQueue::penOrientation(float tiltX, float tiltY, float rotation, double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float tiltX=(float)lua_tonumber(L,2);
@@ -1097,8 +1053,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penOrientation(float, float, float, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penOrientation(float, float, float, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->penOrientation(tiltX, tiltY, rotation, time);
 
@@ -1117,8 +1072,7 @@ public:
 	// void osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType pt, bool isEntering)
 	static int _bind_penProximity_overload_1(lua_State *L) {
 		if (!_lg_typecheck_penProximity_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType pt, bool isEntering) function, expected prototype:\nvoid osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType pt, bool isEntering)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType pt, bool isEntering) function, expected prototype:\nvoid osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType pt, bool isEntering)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::GUIEventAdapter::TabletPointerType pt=(osgGA::GUIEventAdapter::TabletPointerType)lua_tointeger(L,2);
@@ -1126,8 +1080,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->penProximity(pt, isEntering);
 
@@ -1137,8 +1090,7 @@ public:
 	// void osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType pt, bool isEntering, double time)
 	static int _bind_penProximity_overload_2(lua_State *L) {
 		if (!_lg_typecheck_penProximity_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType pt, bool isEntering, double time) function, expected prototype:\nvoid osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType pt, bool isEntering, double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType pt, bool isEntering, double time) function, expected prototype:\nvoid osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType pt, bool isEntering, double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::GUIEventAdapter::TabletPointerType pt=(osgGA::GUIEventAdapter::TabletPointerType)lua_tointeger(L,2);
@@ -1147,8 +1099,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType, bool, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType, bool, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->penProximity(pt, isEntering, time);
 
@@ -1167,8 +1118,7 @@ public:
 	// void osgGA::EventQueue::mouseWarped(float x, float y)
 	static int _bind_mouseWarped(lua_State *L) {
 		if (!_lg_typecheck_mouseWarped(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseWarped(float x, float y) function, expected prototype:\nvoid osgGA::EventQueue::mouseWarped(float x, float y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseWarped(float x, float y) function, expected prototype:\nvoid osgGA::EventQueue::mouseWarped(float x, float y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -1176,8 +1126,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseWarped(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseWarped(float, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mouseWarped(x, y);
 
@@ -1187,8 +1136,7 @@ public:
 	// void osgGA::EventQueue::mouseMotion(float x, float y)
 	static int _bind_mouseMotion_overload_1(lua_State *L) {
 		if (!_lg_typecheck_mouseMotion_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseMotion(float x, float y) function, expected prototype:\nvoid osgGA::EventQueue::mouseMotion(float x, float y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseMotion(float x, float y) function, expected prototype:\nvoid osgGA::EventQueue::mouseMotion(float x, float y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -1196,8 +1144,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseMotion(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseMotion(float, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mouseMotion(x, y);
 
@@ -1207,8 +1154,7 @@ public:
 	// void osgGA::EventQueue::mouseMotion(float x, float y, double time)
 	static int _bind_mouseMotion_overload_2(lua_State *L) {
 		if (!_lg_typecheck_mouseMotion_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseMotion(float x, float y, double time) function, expected prototype:\nvoid osgGA::EventQueue::mouseMotion(float x, float y, double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseMotion(float x, float y, double time) function, expected prototype:\nvoid osgGA::EventQueue::mouseMotion(float x, float y, double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -1217,8 +1163,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseMotion(float, float, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseMotion(float, float, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mouseMotion(x, y, time);
 
@@ -1237,8 +1182,7 @@ public:
 	// void osgGA::EventQueue::mouseButtonPress(float x, float y, unsigned int button)
 	static int _bind_mouseButtonPress_overload_1(lua_State *L) {
 		if (!_lg_typecheck_mouseButtonPress_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseButtonPress(float x, float y, unsigned int button) function, expected prototype:\nvoid osgGA::EventQueue::mouseButtonPress(float x, float y, unsigned int button)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseButtonPress(float x, float y, unsigned int button) function, expected prototype:\nvoid osgGA::EventQueue::mouseButtonPress(float x, float y, unsigned int button)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -1247,8 +1191,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseButtonPress(float, float, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseButtonPress(float, float, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mouseButtonPress(x, y, button);
 
@@ -1258,8 +1201,7 @@ public:
 	// void osgGA::EventQueue::mouseButtonPress(float x, float y, unsigned int button, double time)
 	static int _bind_mouseButtonPress_overload_2(lua_State *L) {
 		if (!_lg_typecheck_mouseButtonPress_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseButtonPress(float x, float y, unsigned int button, double time) function, expected prototype:\nvoid osgGA::EventQueue::mouseButtonPress(float x, float y, unsigned int button, double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseButtonPress(float x, float y, unsigned int button, double time) function, expected prototype:\nvoid osgGA::EventQueue::mouseButtonPress(float x, float y, unsigned int button, double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -1269,8 +1211,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseButtonPress(float, float, unsigned int, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseButtonPress(float, float, unsigned int, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mouseButtonPress(x, y, button, time);
 
@@ -1289,8 +1230,7 @@ public:
 	// void osgGA::EventQueue::mouseDoubleButtonPress(float x, float y, unsigned int button)
 	static int _bind_mouseDoubleButtonPress_overload_1(lua_State *L) {
 		if (!_lg_typecheck_mouseDoubleButtonPress_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseDoubleButtonPress(float x, float y, unsigned int button) function, expected prototype:\nvoid osgGA::EventQueue::mouseDoubleButtonPress(float x, float y, unsigned int button)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseDoubleButtonPress(float x, float y, unsigned int button) function, expected prototype:\nvoid osgGA::EventQueue::mouseDoubleButtonPress(float x, float y, unsigned int button)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -1299,8 +1239,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseDoubleButtonPress(float, float, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseDoubleButtonPress(float, float, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mouseDoubleButtonPress(x, y, button);
 
@@ -1310,8 +1249,7 @@ public:
 	// void osgGA::EventQueue::mouseDoubleButtonPress(float x, float y, unsigned int button, double time)
 	static int _bind_mouseDoubleButtonPress_overload_2(lua_State *L) {
 		if (!_lg_typecheck_mouseDoubleButtonPress_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseDoubleButtonPress(float x, float y, unsigned int button, double time) function, expected prototype:\nvoid osgGA::EventQueue::mouseDoubleButtonPress(float x, float y, unsigned int button, double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseDoubleButtonPress(float x, float y, unsigned int button, double time) function, expected prototype:\nvoid osgGA::EventQueue::mouseDoubleButtonPress(float x, float y, unsigned int button, double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -1321,8 +1259,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseDoubleButtonPress(float, float, unsigned int, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseDoubleButtonPress(float, float, unsigned int, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mouseDoubleButtonPress(x, y, button, time);
 
@@ -1341,8 +1278,7 @@ public:
 	// void osgGA::EventQueue::mouseButtonRelease(float x, float y, unsigned int button)
 	static int _bind_mouseButtonRelease_overload_1(lua_State *L) {
 		if (!_lg_typecheck_mouseButtonRelease_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseButtonRelease(float x, float y, unsigned int button) function, expected prototype:\nvoid osgGA::EventQueue::mouseButtonRelease(float x, float y, unsigned int button)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseButtonRelease(float x, float y, unsigned int button) function, expected prototype:\nvoid osgGA::EventQueue::mouseButtonRelease(float x, float y, unsigned int button)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -1351,8 +1287,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseButtonRelease(float, float, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseButtonRelease(float, float, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mouseButtonRelease(x, y, button);
 
@@ -1362,8 +1297,7 @@ public:
 	// void osgGA::EventQueue::mouseButtonRelease(float x, float y, unsigned int button, double time)
 	static int _bind_mouseButtonRelease_overload_2(lua_State *L) {
 		if (!_lg_typecheck_mouseButtonRelease_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseButtonRelease(float x, float y, unsigned int button, double time) function, expected prototype:\nvoid osgGA::EventQueue::mouseButtonRelease(float x, float y, unsigned int button, double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::mouseButtonRelease(float x, float y, unsigned int button, double time) function, expected prototype:\nvoid osgGA::EventQueue::mouseButtonRelease(float x, float y, unsigned int button, double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -1373,8 +1307,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseButtonRelease(float, float, unsigned int, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseButtonRelease(float, float, unsigned int, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mouseButtonRelease(x, y, button, time);
 
@@ -1393,8 +1326,7 @@ public:
 	// void osgGA::EventQueue::keyPress(int key, int unmodifiedKey = 0)
 	static int _bind_keyPress_overload_1(lua_State *L) {
 		if (!_lg_typecheck_keyPress_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::keyPress(int key, int unmodifiedKey = 0) function, expected prototype:\nvoid osgGA::EventQueue::keyPress(int key, int unmodifiedKey = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::keyPress(int key, int unmodifiedKey = 0) function, expected prototype:\nvoid osgGA::EventQueue::keyPress(int key, int unmodifiedKey = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1404,8 +1336,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::keyPress(int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::keyPress(int, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->keyPress(key, unmodifiedKey);
 
@@ -1415,8 +1346,7 @@ public:
 	// void osgGA::EventQueue::keyPress(int key, double time, int unmodifiedKey = 0)
 	static int _bind_keyPress_overload_2(lua_State *L) {
 		if (!_lg_typecheck_keyPress_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::keyPress(int key, double time, int unmodifiedKey = 0) function, expected prototype:\nvoid osgGA::EventQueue::keyPress(int key, double time, int unmodifiedKey = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::keyPress(int key, double time, int unmodifiedKey = 0) function, expected prototype:\nvoid osgGA::EventQueue::keyPress(int key, double time, int unmodifiedKey = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1427,8 +1357,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::keyPress(int, double, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::keyPress(int, double, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->keyPress(key, time, unmodifiedKey);
 
@@ -1447,8 +1376,7 @@ public:
 	// void osgGA::EventQueue::keyRelease(int key, int unmodifiedKey = 0)
 	static int _bind_keyRelease_overload_1(lua_State *L) {
 		if (!_lg_typecheck_keyRelease_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::keyRelease(int key, int unmodifiedKey = 0) function, expected prototype:\nvoid osgGA::EventQueue::keyRelease(int key, int unmodifiedKey = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::keyRelease(int key, int unmodifiedKey = 0) function, expected prototype:\nvoid osgGA::EventQueue::keyRelease(int key, int unmodifiedKey = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1458,8 +1386,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::keyRelease(int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::keyRelease(int, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->keyRelease(key, unmodifiedKey);
 
@@ -1469,8 +1396,7 @@ public:
 	// void osgGA::EventQueue::keyRelease(int key, double time, int unmodifiedKey = 0)
 	static int _bind_keyRelease_overload_2(lua_State *L) {
 		if (!_lg_typecheck_keyRelease_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::keyRelease(int key, double time, int unmodifiedKey = 0) function, expected prototype:\nvoid osgGA::EventQueue::keyRelease(int key, double time, int unmodifiedKey = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::keyRelease(int key, double time, int unmodifiedKey = 0) function, expected prototype:\nvoid osgGA::EventQueue::keyRelease(int key, double time, int unmodifiedKey = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1481,8 +1407,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::keyRelease(int, double, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::keyRelease(int, double, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->keyRelease(key, time, unmodifiedKey);
 
@@ -1501,8 +1426,7 @@ public:
 	// osgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, double time)
 	static int _bind_touchBegan_overload_1(lua_State *L) {
 		if (!_lg_typecheck_touchBegan_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, double time) function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, double time) function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int id=(unsigned int)lua_tointeger(L,2);
@@ -1513,8 +1437,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgGA::GUIEventAdapter * lret = self->touchBegan(id, phase, x, y, time);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1527,8 +1450,7 @@ public:
 	// osgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y)
 	static int _bind_touchBegan_overload_2(lua_State *L) {
 		if (!_lg_typecheck_touchBegan_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y) function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y) function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int id=(unsigned int)lua_tointeger(L,2);
@@ -1538,8 +1460,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgGA::GUIEventAdapter * lret = self->touchBegan(id, phase, x, y);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1561,8 +1482,7 @@ public:
 	// osgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, double time)
 	static int _bind_touchMoved_overload_1(lua_State *L) {
 		if (!_lg_typecheck_touchMoved_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, double time) function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, double time) function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int id=(unsigned int)lua_tointeger(L,2);
@@ -1573,8 +1493,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgGA::GUIEventAdapter * lret = self->touchMoved(id, phase, x, y, time);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1587,8 +1506,7 @@ public:
 	// osgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y)
 	static int _bind_touchMoved_overload_2(lua_State *L) {
 		if (!_lg_typecheck_touchMoved_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y) function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y) function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int id=(unsigned int)lua_tointeger(L,2);
@@ -1598,8 +1516,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgGA::GUIEventAdapter * lret = self->touchMoved(id, phase, x, y);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1621,8 +1538,7 @@ public:
 	// osgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, unsigned int tap_count, double time)
 	static int _bind_touchEnded_overload_1(lua_State *L) {
 		if (!_lg_typecheck_touchEnded_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, unsigned int tap_count, double time) function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, unsigned int tap_count, double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, unsigned int tap_count, double time) function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, unsigned int tap_count, double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int id=(unsigned int)lua_tointeger(L,2);
@@ -1634,8 +1550,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float, unsigned int, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float, unsigned int, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgGA::GUIEventAdapter * lret = self->touchEnded(id, phase, x, y, tap_count, time);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1648,8 +1563,7 @@ public:
 	// osgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, unsigned int tap_count)
 	static int _bind_touchEnded_overload_2(lua_State *L) {
 		if (!_lg_typecheck_touchEnded_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, unsigned int tap_count) function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, unsigned int tap_count)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, unsigned int tap_count) function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, unsigned int tap_count)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int id=(unsigned int)lua_tointeger(L,2);
@@ -1660,8 +1574,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgGA::GUIEventAdapter * lret = self->touchEnded(id, phase, x, y, tap_count);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1683,15 +1596,13 @@ public:
 	// void osgGA::EventQueue::closeWindow()
 	static int _bind_closeWindow_overload_1(lua_State *L) {
 		if (!_lg_typecheck_closeWindow_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::closeWindow() function, expected prototype:\nvoid osgGA::EventQueue::closeWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::closeWindow() function, expected prototype:\nvoid osgGA::EventQueue::closeWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::closeWindow(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::closeWindow(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->closeWindow();
 
@@ -1701,16 +1612,14 @@ public:
 	// void osgGA::EventQueue::closeWindow(double time)
 	static int _bind_closeWindow_overload_2(lua_State *L) {
 		if (!_lg_typecheck_closeWindow_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::closeWindow(double time) function, expected prototype:\nvoid osgGA::EventQueue::closeWindow(double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::closeWindow(double time) function, expected prototype:\nvoid osgGA::EventQueue::closeWindow(double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double time=(double)lua_tonumber(L,2);
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::closeWindow(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::closeWindow(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->closeWindow(time);
 
@@ -1729,15 +1638,13 @@ public:
 	// void osgGA::EventQueue::quitApplication()
 	static int _bind_quitApplication_overload_1(lua_State *L) {
 		if (!_lg_typecheck_quitApplication_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::quitApplication() function, expected prototype:\nvoid osgGA::EventQueue::quitApplication()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::quitApplication() function, expected prototype:\nvoid osgGA::EventQueue::quitApplication()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::quitApplication(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::quitApplication(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->quitApplication();
 
@@ -1747,16 +1654,14 @@ public:
 	// void osgGA::EventQueue::quitApplication(double time)
 	static int _bind_quitApplication_overload_2(lua_State *L) {
 		if (!_lg_typecheck_quitApplication_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::quitApplication(double time) function, expected prototype:\nvoid osgGA::EventQueue::quitApplication(double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::quitApplication(double time) function, expected prototype:\nvoid osgGA::EventQueue::quitApplication(double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double time=(double)lua_tonumber(L,2);
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::quitApplication(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::quitApplication(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->quitApplication(time);
 
@@ -1775,16 +1680,14 @@ public:
 	// void osgGA::EventQueue::frame(double time)
 	static int _bind_frame(lua_State *L) {
 		if (!_lg_typecheck_frame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::frame(double time) function, expected prototype:\nvoid osgGA::EventQueue::frame(double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::frame(double time) function, expected prototype:\nvoid osgGA::EventQueue::frame(double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double time=(double)lua_tonumber(L,2);
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::frame(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::frame(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->frame(time);
 
@@ -1794,8 +1697,7 @@ public:
 	// void osgGA::EventQueue::setStartTick(__int64 tick)
 	static int _bind_setStartTick(lua_State *L) {
 		if (!_lg_typecheck_setStartTick(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setStartTick(__int64 tick) function, expected prototype:\nvoid osgGA::EventQueue::setStartTick(__int64 tick)\nClass arguments details:\narg 1 ID = 32973728\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setStartTick(__int64 tick) function, expected prototype:\nvoid osgGA::EventQueue::setStartTick(__int64 tick)\nClass arguments details:\narg 1 ID = 32973728\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		__int64* tick_ptr=(Luna< __int64 >::check(L,2));
@@ -1806,8 +1708,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setStartTick(__int64). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setStartTick(__int64). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setStartTick(tick);
 
@@ -1817,15 +1718,13 @@ public:
 	// __int64 osgGA::EventQueue::getStartTick() const
 	static int _bind_getStartTick(lua_State *L) {
 		if (!_lg_typecheck_getStartTick(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __int64 osgGA::EventQueue::getStartTick() const function, expected prototype:\n__int64 osgGA::EventQueue::getStartTick() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in __int64 osgGA::EventQueue::getStartTick() const function, expected prototype:\n__int64 osgGA::EventQueue::getStartTick() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call __int64 osgGA::EventQueue::getStartTick() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call __int64 osgGA::EventQueue::getStartTick() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		__int64 stack_lret = self->getStartTick();
 		__int64* lret = new __int64(stack_lret);
@@ -1839,15 +1738,13 @@ public:
 	// double osgGA::EventQueue::getTime() const
 	static int _bind_getTime(lua_State *L) {
 		if (!_lg_typecheck_getTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgGA::EventQueue::getTime() const function, expected prototype:\ndouble osgGA::EventQueue::getTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgGA::EventQueue::getTime() const function, expected prototype:\ndouble osgGA::EventQueue::getTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgGA::EventQueue::getTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgGA::EventQueue::getTime() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getTime();
 		lua_pushnumber(L,lret);
@@ -1858,15 +1755,13 @@ public:
 	// void osgGA::EventQueue::clear()
 	static int _bind_clear(lua_State *L) {
 		if (!_lg_typecheck_clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::clear() function, expected prototype:\nvoid osgGA::EventQueue::clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::clear() function, expected prototype:\nvoid osgGA::EventQueue::clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::clear(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::clear(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->clear();
 
@@ -1876,15 +1771,13 @@ public:
 	// osgGA::GUIEventAdapter * osgGA::EventQueue::createEvent()
 	static int _bind_createEvent(lua_State *L) {
 		if (!_lg_typecheck_createEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::createEvent() function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::createEvent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::createEvent() function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::createEvent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::createEvent(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::createEvent(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgGA::GUIEventAdapter * lret = self->createEvent();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1897,16 +1790,14 @@ public:
 	// void osgGA::EventQueue::setCurrentEventState(osgGA::GUIEventAdapter * ea)
 	static int _bind_setCurrentEventState(lua_State *L) {
 		if (!_lg_typecheck_setCurrentEventState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setCurrentEventState(osgGA::GUIEventAdapter * ea) function, expected prototype:\nvoid osgGA::EventQueue::setCurrentEventState(osgGA::GUIEventAdapter * ea)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setCurrentEventState(osgGA::GUIEventAdapter * ea) function, expected prototype:\nvoid osgGA::EventQueue::setCurrentEventState(osgGA::GUIEventAdapter * ea)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::GUIEventAdapter* ea=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setCurrentEventState(osgGA::GUIEventAdapter *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setCurrentEventState(osgGA::GUIEventAdapter *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCurrentEventState(ea);
 
@@ -1916,15 +1807,13 @@ public:
 	// osgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState()
 	static int _bind_getCurrentEventState_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getCurrentEventState_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState() function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState() function, expected prototype:\nosgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgGA::GUIEventAdapter * lret = self->getCurrentEventState();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1937,15 +1826,13 @@ public:
 	// const osgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState() const
 	static int _bind_getCurrentEventState_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getCurrentEventState_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState() const function, expected prototype:\nconst osgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState() const function, expected prototype:\nconst osgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgGA::GUIEventAdapter * lret = self->getCurrentEventState();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1967,16 +1854,14 @@ public:
 	// void osgGA::EventQueue::userEvent(osg::Referenced * userEventData)
 	static int _bind_userEvent_overload_1(lua_State *L) {
 		if (!_lg_typecheck_userEvent_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::userEvent(osg::Referenced * userEventData) function, expected prototype:\nvoid osgGA::EventQueue::userEvent(osg::Referenced * userEventData)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::userEvent(osg::Referenced * userEventData) function, expected prototype:\nvoid osgGA::EventQueue::userEvent(osg::Referenced * userEventData)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* userEventData=(Luna< osg::Referenced >::check(L,2));
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::userEvent(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::userEvent(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->userEvent(userEventData);
 
@@ -1986,8 +1871,7 @@ public:
 	// void osgGA::EventQueue::userEvent(osg::Referenced * userEventData, double time)
 	static int _bind_userEvent_overload_2(lua_State *L) {
 		if (!_lg_typecheck_userEvent_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::userEvent(osg::Referenced * userEventData, double time) function, expected prototype:\nvoid osgGA::EventQueue::userEvent(osg::Referenced * userEventData, double time)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::userEvent(osg::Referenced * userEventData, double time) function, expected prototype:\nvoid osgGA::EventQueue::userEvent(osg::Referenced * userEventData, double time)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* userEventData=(Luna< osg::Referenced >::check(L,2));
@@ -1995,8 +1879,7 @@ public:
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::userEvent(osg::Referenced *, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::userEvent(osg::Referenced *, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->userEvent(userEventData, time);
 
@@ -2015,16 +1898,14 @@ public:
 	// void osgGA::EventQueue::setFirstTouchEmulatesMouse(bool b)
 	static int _bind_setFirstTouchEmulatesMouse(lua_State *L) {
 		if (!_lg_typecheck_setFirstTouchEmulatesMouse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setFirstTouchEmulatesMouse(bool b) function, expected prototype:\nvoid osgGA::EventQueue::setFirstTouchEmulatesMouse(bool b)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setFirstTouchEmulatesMouse(bool b) function, expected prototype:\nvoid osgGA::EventQueue::setFirstTouchEmulatesMouse(bool b)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool b=(bool)(lua_toboolean(L,2)==1);
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setFirstTouchEmulatesMouse(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setFirstTouchEmulatesMouse(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFirstTouchEmulatesMouse(b);
 
@@ -2034,15 +1915,13 @@ public:
 	// bool osgGA::EventQueue::getFirstTouchEmulatesMouse() const
 	static int _bind_getFirstTouchEmulatesMouse(lua_State *L) {
 		if (!_lg_typecheck_getFirstTouchEmulatesMouse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::EventQueue::getFirstTouchEmulatesMouse() const function, expected prototype:\nbool osgGA::EventQueue::getFirstTouchEmulatesMouse() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::EventQueue::getFirstTouchEmulatesMouse() const function, expected prototype:\nbool osgGA::EventQueue::getFirstTouchEmulatesMouse() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::EventQueue::getFirstTouchEmulatesMouse() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::EventQueue::getFirstTouchEmulatesMouse() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getFirstTouchEmulatesMouse();
 		lua_pushboolean(L,lret?1:0);
@@ -2053,16 +1932,14 @@ public:
 	// void osgGA::EventQueue::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgGA::EventQueue::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgGA::EventQueue::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EventQueue::setThreadSafeRefUnref(threadSafe);
 

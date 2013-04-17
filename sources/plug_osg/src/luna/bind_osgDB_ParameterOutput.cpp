@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ParameterOutput*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ParameterOutput*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ParameterOutput* rhs =(Luna< osgDB::ParameterOutput >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ParameterOutput* self= (osgDB::ParameterOutput*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgDB::ParameterOutput >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -145,8 +141,7 @@ public:
 	// osgDB::ParameterOutput::ParameterOutput(osgDB::Output & fw)
 	static osgDB::ParameterOutput* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ParameterOutput::ParameterOutput(osgDB::Output & fw) function, expected prototype:\nosgDB::ParameterOutput::ParameterOutput(osgDB::Output & fw)\nClass arguments details:\narg 1 ID = 78216342\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ParameterOutput::ParameterOutput(osgDB::Output & fw) function, expected prototype:\nosgDB::ParameterOutput::ParameterOutput(osgDB::Output & fw)\nClass arguments details:\narg 1 ID = 78216342\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::Output* fw_ptr=(Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1));
@@ -161,8 +156,7 @@ public:
 	// osgDB::ParameterOutput::ParameterOutput(osgDB::Output & fw, int numItemsPerLine)
 	static osgDB::ParameterOutput* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ParameterOutput::ParameterOutput(osgDB::Output & fw, int numItemsPerLine) function, expected prototype:\nosgDB::ParameterOutput::ParameterOutput(osgDB::Output & fw, int numItemsPerLine)\nClass arguments details:\narg 1 ID = 78216342\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ParameterOutput::ParameterOutput(osgDB::Output & fw, int numItemsPerLine) function, expected prototype:\nosgDB::ParameterOutput::ParameterOutput(osgDB::Output & fw, int numItemsPerLine)\nClass arguments details:\narg 1 ID = 78216342\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::Output* fw_ptr=(Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1));
@@ -189,15 +183,13 @@ public:
 	// void osgDB::ParameterOutput::begin()
 	static int _bind_begin(lua_State *L) {
 		if (!_lg_typecheck_begin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ParameterOutput::begin() function, expected prototype:\nvoid osgDB::ParameterOutput::begin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ParameterOutput::begin() function, expected prototype:\nvoid osgDB::ParameterOutput::begin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ParameterOutput* self=(Luna< osgDB::ParameterOutput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ParameterOutput::begin(). Got : '%s'",typeid(Luna< osgDB::ParameterOutput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ParameterOutput::begin(). Got : '%s'\n%s",typeid(Luna< osgDB::ParameterOutput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->begin();
 
@@ -207,15 +199,13 @@ public:
 	// void osgDB::ParameterOutput::newLine()
 	static int _bind_newLine(lua_State *L) {
 		if (!_lg_typecheck_newLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ParameterOutput::newLine() function, expected prototype:\nvoid osgDB::ParameterOutput::newLine()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ParameterOutput::newLine() function, expected prototype:\nvoid osgDB::ParameterOutput::newLine()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ParameterOutput* self=(Luna< osgDB::ParameterOutput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ParameterOutput::newLine(). Got : '%s'",typeid(Luna< osgDB::ParameterOutput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ParameterOutput::newLine(). Got : '%s'\n%s",typeid(Luna< osgDB::ParameterOutput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->newLine();
 
@@ -225,15 +215,13 @@ public:
 	// void osgDB::ParameterOutput::end()
 	static int _bind_end(lua_State *L) {
 		if (!_lg_typecheck_end(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ParameterOutput::end() function, expected prototype:\nvoid osgDB::ParameterOutput::end()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ParameterOutput::end() function, expected prototype:\nvoid osgDB::ParameterOutput::end()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ParameterOutput* self=(Luna< osgDB::ParameterOutput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ParameterOutput::end(). Got : '%s'",typeid(Luna< osgDB::ParameterOutput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ParameterOutput::end(). Got : '%s'\n%s",typeid(Luna< osgDB::ParameterOutput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->end();
 

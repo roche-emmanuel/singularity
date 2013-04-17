@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::OcclusionQueryNode* self= (osg::OcclusionQueryNode*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -539,8 +536,7 @@ public:
 	// osg::OcclusionQueryNode::OcclusionQueryNode()
 	static osg::OcclusionQueryNode* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::OcclusionQueryNode::OcclusionQueryNode() function, expected prototype:\nosg::OcclusionQueryNode::OcclusionQueryNode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::OcclusionQueryNode::OcclusionQueryNode() function, expected prototype:\nosg::OcclusionQueryNode::OcclusionQueryNode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -550,8 +546,7 @@ public:
 	// osg::OcclusionQueryNode::OcclusionQueryNode(const osg::OcclusionQueryNode & oqn, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::OcclusionQueryNode* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::OcclusionQueryNode::OcclusionQueryNode(const osg::OcclusionQueryNode & oqn, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::OcclusionQueryNode::OcclusionQueryNode(const osg::OcclusionQueryNode & oqn, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::OcclusionQueryNode::OcclusionQueryNode(const osg::OcclusionQueryNode & oqn, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::OcclusionQueryNode::OcclusionQueryNode(const osg::OcclusionQueryNode & oqn, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -573,8 +568,7 @@ public:
 	// osg::OcclusionQueryNode::OcclusionQueryNode(lua_Table * data)
 	static osg::OcclusionQueryNode* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::OcclusionQueryNode::OcclusionQueryNode(lua_Table * data) function, expected prototype:\nosg::OcclusionQueryNode::OcclusionQueryNode(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::OcclusionQueryNode::OcclusionQueryNode(lua_Table * data) function, expected prototype:\nosg::OcclusionQueryNode::OcclusionQueryNode(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -584,8 +578,7 @@ public:
 	// osg::OcclusionQueryNode::OcclusionQueryNode(lua_Table * data, const osg::OcclusionQueryNode & oqn, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::OcclusionQueryNode* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::OcclusionQueryNode::OcclusionQueryNode(lua_Table * data, const osg::OcclusionQueryNode & oqn, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::OcclusionQueryNode::OcclusionQueryNode(lua_Table * data, const osg::OcclusionQueryNode & oqn, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::OcclusionQueryNode::OcclusionQueryNode(lua_Table * data, const osg::OcclusionQueryNode & oqn, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::OcclusionQueryNode::OcclusionQueryNode(lua_Table * data, const osg::OcclusionQueryNode & oqn, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -620,15 +613,13 @@ public:
 	// osg::Object * osg::OcclusionQueryNode::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::OcclusionQueryNode::cloneType() const function, expected prototype:\nosg::Object * osg::OcclusionQueryNode::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::OcclusionQueryNode::cloneType() const function, expected prototype:\nosg::Object * osg::OcclusionQueryNode::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::OcclusionQueryNode::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::OcclusionQueryNode::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -641,8 +632,7 @@ public:
 	// osg::Object * osg::OcclusionQueryNode::clone(const osg::CopyOp & copyop) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::OcclusionQueryNode::clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::OcclusionQueryNode::clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::OcclusionQueryNode::clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::OcclusionQueryNode::clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -653,8 +643,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::OcclusionQueryNode::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::OcclusionQueryNode::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -667,16 +656,14 @@ public:
 	// bool osg::OcclusionQueryNode::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::OcclusionQueryNode::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::OcclusionQueryNode::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -687,15 +674,13 @@ public:
 	// const char * osg::OcclusionQueryNode::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::OcclusionQueryNode::className() const function, expected prototype:\nconst char * osg::OcclusionQueryNode::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::OcclusionQueryNode::className() const function, expected prototype:\nconst char * osg::OcclusionQueryNode::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::OcclusionQueryNode::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::OcclusionQueryNode::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -706,15 +691,13 @@ public:
 	// const char * osg::OcclusionQueryNode::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::OcclusionQueryNode::libraryName() const function, expected prototype:\nconst char * osg::OcclusionQueryNode::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::OcclusionQueryNode::libraryName() const function, expected prototype:\nconst char * osg::OcclusionQueryNode::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::OcclusionQueryNode::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::OcclusionQueryNode::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -725,8 +708,7 @@ public:
 	// void osg::OcclusionQueryNode::accept(osg::NodeVisitor & nv)
 	static int _bind_accept(lua_State *L) {
 		if (!_lg_typecheck_accept(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::OcclusionQueryNode::accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::OcclusionQueryNode::accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -737,8 +719,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::accept(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->accept(nv);
 
@@ -748,15 +729,13 @@ public:
 	// osg::BoundingSphered osg::OcclusionQueryNode::computeBound() const
 	static int _bind_computeBound(lua_State *L) {
 		if (!_lg_typecheck_computeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::OcclusionQueryNode::computeBound() const function, expected prototype:\nosg::BoundingSphered osg::OcclusionQueryNode::computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::OcclusionQueryNode::computeBound() const function, expected prototype:\nosg::BoundingSphered osg::OcclusionQueryNode::computeBound() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::OcclusionQueryNode::computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::OcclusionQueryNode::computeBound() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::BoundingSphered stack_lret = self->computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -770,8 +749,7 @@ public:
 	// void osg::OcclusionQueryNode::releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::OcclusionQueryNode::releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::OcclusionQueryNode::releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -780,8 +758,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->releaseGLObjects(_arg1);
 
@@ -791,8 +768,7 @@ public:
 	// void osg::OcclusionQueryNode::setQueriesEnabled(bool enable = true)
 	static int _bind_setQueriesEnabled(lua_State *L) {
 		if (!_lg_typecheck_setQueriesEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::setQueriesEnabled(bool enable = true) function, expected prototype:\nvoid osg::OcclusionQueryNode::setQueriesEnabled(bool enable = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::setQueriesEnabled(bool enable = true) function, expected prototype:\nvoid osg::OcclusionQueryNode::setQueriesEnabled(bool enable = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -801,8 +777,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::setQueriesEnabled(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::setQueriesEnabled(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setQueriesEnabled(enable);
 
@@ -812,15 +787,13 @@ public:
 	// bool osg::OcclusionQueryNode::getQueriesEnabled() const
 	static int _bind_getQueriesEnabled(lua_State *L) {
 		if (!_lg_typecheck_getQueriesEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::getQueriesEnabled() const function, expected prototype:\nbool osg::OcclusionQueryNode::getQueriesEnabled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::getQueriesEnabled() const function, expected prototype:\nbool osg::OcclusionQueryNode::getQueriesEnabled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::getQueriesEnabled() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::getQueriesEnabled() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getQueriesEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -831,16 +804,14 @@ public:
 	// void osg::OcclusionQueryNode::setVisibilityThreshold(unsigned int pixels)
 	static int _bind_setVisibilityThreshold(lua_State *L) {
 		if (!_lg_typecheck_setVisibilityThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::setVisibilityThreshold(unsigned int pixels) function, expected prototype:\nvoid osg::OcclusionQueryNode::setVisibilityThreshold(unsigned int pixels)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::setVisibilityThreshold(unsigned int pixels) function, expected prototype:\nvoid osg::OcclusionQueryNode::setVisibilityThreshold(unsigned int pixels)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int pixels=(unsigned int)lua_tointeger(L,2);
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::setVisibilityThreshold(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::setVisibilityThreshold(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setVisibilityThreshold(pixels);
 
@@ -850,15 +821,13 @@ public:
 	// unsigned int osg::OcclusionQueryNode::getVisibilityThreshold() const
 	static int _bind_getVisibilityThreshold(lua_State *L) {
 		if (!_lg_typecheck_getVisibilityThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::OcclusionQueryNode::getVisibilityThreshold() const function, expected prototype:\nunsigned int osg::OcclusionQueryNode::getVisibilityThreshold() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::OcclusionQueryNode::getVisibilityThreshold() const function, expected prototype:\nunsigned int osg::OcclusionQueryNode::getVisibilityThreshold() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::OcclusionQueryNode::getVisibilityThreshold() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::OcclusionQueryNode::getVisibilityThreshold() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getVisibilityThreshold();
 		lua_pushnumber(L,lret);
@@ -869,16 +838,14 @@ public:
 	// void osg::OcclusionQueryNode::setQueryFrameCount(unsigned int frames)
 	static int _bind_setQueryFrameCount(lua_State *L) {
 		if (!_lg_typecheck_setQueryFrameCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::setQueryFrameCount(unsigned int frames) function, expected prototype:\nvoid osg::OcclusionQueryNode::setQueryFrameCount(unsigned int frames)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::setQueryFrameCount(unsigned int frames) function, expected prototype:\nvoid osg::OcclusionQueryNode::setQueryFrameCount(unsigned int frames)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int frames=(unsigned int)lua_tointeger(L,2);
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::setQueryFrameCount(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::setQueryFrameCount(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setQueryFrameCount(frames);
 
@@ -888,15 +855,13 @@ public:
 	// unsigned int osg::OcclusionQueryNode::getQueryFrameCount() const
 	static int _bind_getQueryFrameCount(lua_State *L) {
 		if (!_lg_typecheck_getQueryFrameCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::OcclusionQueryNode::getQueryFrameCount() const function, expected prototype:\nunsigned int osg::OcclusionQueryNode::getQueryFrameCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::OcclusionQueryNode::getQueryFrameCount() const function, expected prototype:\nunsigned int osg::OcclusionQueryNode::getQueryFrameCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::OcclusionQueryNode::getQueryFrameCount() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::OcclusionQueryNode::getQueryFrameCount() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getQueryFrameCount();
 		lua_pushnumber(L,lret);
@@ -907,16 +872,14 @@ public:
 	// void osg::OcclusionQueryNode::setDebugDisplay(bool enable)
 	static int _bind_setDebugDisplay(lua_State *L) {
 		if (!_lg_typecheck_setDebugDisplay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::setDebugDisplay(bool enable) function, expected prototype:\nvoid osg::OcclusionQueryNode::setDebugDisplay(bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::setDebugDisplay(bool enable) function, expected prototype:\nvoid osg::OcclusionQueryNode::setDebugDisplay(bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enable=(bool)(lua_toboolean(L,2)==1);
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::setDebugDisplay(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::setDebugDisplay(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDebugDisplay(enable);
 
@@ -926,15 +889,13 @@ public:
 	// bool osg::OcclusionQueryNode::getDebugDisplay() const
 	static int _bind_getDebugDisplay(lua_State *L) {
 		if (!_lg_typecheck_getDebugDisplay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::getDebugDisplay() const function, expected prototype:\nbool osg::OcclusionQueryNode::getDebugDisplay() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::getDebugDisplay() const function, expected prototype:\nbool osg::OcclusionQueryNode::getDebugDisplay() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::getDebugDisplay() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::getDebugDisplay() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getDebugDisplay();
 		lua_pushboolean(L,lret?1:0);
@@ -945,16 +906,14 @@ public:
 	// void osg::OcclusionQueryNode::setQueryStateSet(osg::StateSet * ss)
 	static int _bind_setQueryStateSet(lua_State *L) {
 		if (!_lg_typecheck_setQueryStateSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::setQueryStateSet(osg::StateSet * ss) function, expected prototype:\nvoid osg::OcclusionQueryNode::setQueryStateSet(osg::StateSet * ss)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::setQueryStateSet(osg::StateSet * ss) function, expected prototype:\nvoid osg::OcclusionQueryNode::setQueryStateSet(osg::StateSet * ss)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateSet* ss=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::setQueryStateSet(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::setQueryStateSet(osg::StateSet *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setQueryStateSet(ss);
 
@@ -964,15 +923,13 @@ public:
 	// osg::StateSet * osg::OcclusionQueryNode::getQueryStateSet()
 	static int _bind_getQueryStateSet_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getQueryStateSet_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateSet * osg::OcclusionQueryNode::getQueryStateSet() function, expected prototype:\nosg::StateSet * osg::OcclusionQueryNode::getQueryStateSet()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateSet * osg::OcclusionQueryNode::getQueryStateSet() function, expected prototype:\nosg::StateSet * osg::OcclusionQueryNode::getQueryStateSet()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osg::OcclusionQueryNode::getQueryStateSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateSet * osg::OcclusionQueryNode::getQueryStateSet(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateSet * lret = self->getQueryStateSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -985,15 +942,13 @@ public:
 	// const osg::StateSet * osg::OcclusionQueryNode::getQueryStateSet() const
 	static int _bind_getQueryStateSet_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getQueryStateSet_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::StateSet * osg::OcclusionQueryNode::getQueryStateSet() const function, expected prototype:\nconst osg::StateSet * osg::OcclusionQueryNode::getQueryStateSet() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::StateSet * osg::OcclusionQueryNode::getQueryStateSet() const function, expected prototype:\nconst osg::StateSet * osg::OcclusionQueryNode::getQueryStateSet() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet * osg::OcclusionQueryNode::getQueryStateSet() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::StateSet * osg::OcclusionQueryNode::getQueryStateSet() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::StateSet * lret = self->getQueryStateSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1015,16 +970,14 @@ public:
 	// void osg::OcclusionQueryNode::setDebugStateSet(osg::StateSet * ss)
 	static int _bind_setDebugStateSet(lua_State *L) {
 		if (!_lg_typecheck_setDebugStateSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::setDebugStateSet(osg::StateSet * ss) function, expected prototype:\nvoid osg::OcclusionQueryNode::setDebugStateSet(osg::StateSet * ss)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::setDebugStateSet(osg::StateSet * ss) function, expected prototype:\nvoid osg::OcclusionQueryNode::setDebugStateSet(osg::StateSet * ss)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateSet* ss=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::setDebugStateSet(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::setDebugStateSet(osg::StateSet *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDebugStateSet(ss);
 
@@ -1034,15 +987,13 @@ public:
 	// osg::StateSet * osg::OcclusionQueryNode::getDebugStateSet()
 	static int _bind_getDebugStateSet_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getDebugStateSet_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateSet * osg::OcclusionQueryNode::getDebugStateSet() function, expected prototype:\nosg::StateSet * osg::OcclusionQueryNode::getDebugStateSet()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateSet * osg::OcclusionQueryNode::getDebugStateSet() function, expected prototype:\nosg::StateSet * osg::OcclusionQueryNode::getDebugStateSet()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osg::OcclusionQueryNode::getDebugStateSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateSet * osg::OcclusionQueryNode::getDebugStateSet(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateSet * lret = self->getDebugStateSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1055,15 +1006,13 @@ public:
 	// const osg::StateSet * osg::OcclusionQueryNode::getDebugStateSet() const
 	static int _bind_getDebugStateSet_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getDebugStateSet_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::StateSet * osg::OcclusionQueryNode::getDebugStateSet() const function, expected prototype:\nconst osg::StateSet * osg::OcclusionQueryNode::getDebugStateSet() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::StateSet * osg::OcclusionQueryNode::getDebugStateSet() const function, expected prototype:\nconst osg::StateSet * osg::OcclusionQueryNode::getDebugStateSet() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet * osg::OcclusionQueryNode::getDebugStateSet() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::StateSet * osg::OcclusionQueryNode::getDebugStateSet() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::StateSet * lret = self->getDebugStateSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1085,15 +1034,13 @@ public:
 	// bool osg::OcclusionQueryNode::getPassed() const
 	static int _bind_getPassed_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getPassed_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::getPassed() const function, expected prototype:\nbool osg::OcclusionQueryNode::getPassed() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::getPassed() const function, expected prototype:\nbool osg::OcclusionQueryNode::getPassed() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::getPassed() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::getPassed() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getPassed();
 		lua_pushboolean(L,lret?1:0);
@@ -1104,8 +1051,7 @@ public:
 	// bool osg::OcclusionQueryNode::getPassed(const osg::Camera * camera, osg::NodeVisitor & nv)
 	static int _bind_getPassed_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getPassed_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::getPassed(const osg::Camera * camera, osg::NodeVisitor & nv) function, expected prototype:\nbool osg::OcclusionQueryNode::getPassed(const osg::Camera * camera, osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::getPassed(const osg::Camera * camera, osg::NodeVisitor & nv) function, expected prototype:\nbool osg::OcclusionQueryNode::getPassed(const osg::Camera * camera, osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Camera* camera=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
@@ -1117,8 +1063,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::getPassed(const osg::Camera *, osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::getPassed(const osg::Camera *, osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getPassed(camera, nv);
 		lua_pushboolean(L,lret?1:0);
@@ -1138,8 +1083,7 @@ public:
 	// void osg::OcclusionQueryNode::traverseQuery(const osg::Camera * camera, osg::NodeVisitor & nv)
 	static int _bind_traverseQuery(lua_State *L) {
 		if (!_lg_typecheck_traverseQuery(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::traverseQuery(const osg::Camera * camera, osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::OcclusionQueryNode::traverseQuery(const osg::Camera * camera, osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::traverseQuery(const osg::Camera * camera, osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::OcclusionQueryNode::traverseQuery(const osg::Camera * camera, osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Camera* camera=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
@@ -1151,8 +1095,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::traverseQuery(const osg::Camera *, osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::traverseQuery(const osg::Camera *, osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->traverseQuery(camera, nv);
 
@@ -1162,8 +1105,7 @@ public:
 	// void osg::OcclusionQueryNode::traverseDebug(osg::NodeVisitor & nv)
 	static int _bind_traverseDebug(lua_State *L) {
 		if (!_lg_typecheck_traverseDebug(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::traverseDebug(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::OcclusionQueryNode::traverseDebug(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::traverseDebug(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::OcclusionQueryNode::traverseDebug(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1174,8 +1116,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::traverseDebug(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::traverseDebug(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->traverseDebug(nv);
 
@@ -1185,8 +1126,7 @@ public:
 	// static void osg::OcclusionQueryNode::flushDeletedQueryObjects(unsigned int contextID, double currentTime, double & availableTime)
 	static int _bind_flushDeletedQueryObjects(lua_State *L) {
 		if (!_lg_typecheck_flushDeletedQueryObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osg::OcclusionQueryNode::flushDeletedQueryObjects(unsigned int contextID, double currentTime, double & availableTime) function, expected prototype:\nstatic void osg::OcclusionQueryNode::flushDeletedQueryObjects(unsigned int contextID, double currentTime, double & availableTime)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osg::OcclusionQueryNode::flushDeletedQueryObjects(unsigned int contextID, double currentTime, double & availableTime) function, expected prototype:\nstatic void osg::OcclusionQueryNode::flushDeletedQueryObjects(unsigned int contextID, double currentTime, double & availableTime)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1202,8 +1142,7 @@ public:
 	// static void osg::OcclusionQueryNode::discardDeletedQueryObjects(unsigned int contextID)
 	static int _bind_discardDeletedQueryObjects(lua_State *L) {
 		if (!_lg_typecheck_discardDeletedQueryObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osg::OcclusionQueryNode::discardDeletedQueryObjects(unsigned int contextID) function, expected prototype:\nstatic void osg::OcclusionQueryNode::discardDeletedQueryObjects(unsigned int contextID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osg::OcclusionQueryNode::discardDeletedQueryObjects(unsigned int contextID) function, expected prototype:\nstatic void osg::OcclusionQueryNode::discardDeletedQueryObjects(unsigned int contextID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1216,16 +1155,14 @@ public:
 	// void osg::OcclusionQueryNode::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_setName(const std::string & name) function, expected prototype:\nvoid osg::OcclusionQueryNode::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_setName(const std::string & name) function, expected prototype:\nvoid osg::OcclusionQueryNode::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OcclusionQueryNode::setName(name);
 
@@ -1235,15 +1172,13 @@ public:
 	// void osg::OcclusionQueryNode::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_computeDataVariance() function, expected prototype:\nvoid osg::OcclusionQueryNode::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_computeDataVariance() function, expected prototype:\nvoid osg::OcclusionQueryNode::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OcclusionQueryNode::computeDataVariance();
 
@@ -1253,16 +1188,14 @@ public:
 	// void osg::OcclusionQueryNode::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::OcclusionQueryNode::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::OcclusionQueryNode::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OcclusionQueryNode::setUserData(obj);
 
@@ -1272,15 +1205,13 @@ public:
 	// osg::Referenced * osg::OcclusionQueryNode::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::OcclusionQueryNode::base_getUserData() function, expected prototype:\nosg::Referenced * osg::OcclusionQueryNode::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::OcclusionQueryNode::base_getUserData() function, expected prototype:\nosg::Referenced * osg::OcclusionQueryNode::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::OcclusionQueryNode::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::OcclusionQueryNode::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->OcclusionQueryNode::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1293,15 +1224,13 @@ public:
 	// const osg::Referenced * osg::OcclusionQueryNode::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::OcclusionQueryNode::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::OcclusionQueryNode::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::OcclusionQueryNode::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::OcclusionQueryNode::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::OcclusionQueryNode::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::OcclusionQueryNode::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->OcclusionQueryNode::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1323,15 +1252,13 @@ public:
 	// osg::Transform * osg::OcclusionQueryNode::base_asTransform()
 	static int _bind_base_asTransform_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asTransform_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Transform * osg::OcclusionQueryNode::base_asTransform() function, expected prototype:\nosg::Transform * osg::OcclusionQueryNode::base_asTransform()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Transform * osg::OcclusionQueryNode::base_asTransform() function, expected prototype:\nosg::Transform * osg::OcclusionQueryNode::base_asTransform()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * osg::OcclusionQueryNode::base_asTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Transform * osg::OcclusionQueryNode::base_asTransform(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Transform * lret = self->OcclusionQueryNode::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1344,15 +1271,13 @@ public:
 	// const osg::Transform * osg::OcclusionQueryNode::base_asTransform() const
 	static int _bind_base_asTransform_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asTransform_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Transform * osg::OcclusionQueryNode::base_asTransform() const function, expected prototype:\nconst osg::Transform * osg::OcclusionQueryNode::base_asTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Transform * osg::OcclusionQueryNode::base_asTransform() const function, expected prototype:\nconst osg::Transform * osg::OcclusionQueryNode::base_asTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * osg::OcclusionQueryNode::base_asTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Transform * osg::OcclusionQueryNode::base_asTransform() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Transform * lret = self->OcclusionQueryNode::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1374,15 +1299,13 @@ public:
 	// osg::Camera * osg::OcclusionQueryNode::base_asCamera()
 	static int _bind_base_asCamera_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asCamera_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Camera * osg::OcclusionQueryNode::base_asCamera() function, expected prototype:\nosg::Camera * osg::OcclusionQueryNode::base_asCamera()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Camera * osg::OcclusionQueryNode::base_asCamera() function, expected prototype:\nosg::Camera * osg::OcclusionQueryNode::base_asCamera()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera * osg::OcclusionQueryNode::base_asCamera(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Camera * osg::OcclusionQueryNode::base_asCamera(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Camera * lret = self->OcclusionQueryNode::asCamera();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1395,15 +1318,13 @@ public:
 	// const osg::Camera * osg::OcclusionQueryNode::base_asCamera() const
 	static int _bind_base_asCamera_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asCamera_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Camera * osg::OcclusionQueryNode::base_asCamera() const function, expected prototype:\nconst osg::Camera * osg::OcclusionQueryNode::base_asCamera() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Camera * osg::OcclusionQueryNode::base_asCamera() const function, expected prototype:\nconst osg::Camera * osg::OcclusionQueryNode::base_asCamera() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Camera * osg::OcclusionQueryNode::base_asCamera() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Camera * osg::OcclusionQueryNode::base_asCamera() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Camera * lret = self->OcclusionQueryNode::asCamera();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1425,15 +1346,13 @@ public:
 	// osg::Switch * osg::OcclusionQueryNode::base_asSwitch()
 	static int _bind_base_asSwitch_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asSwitch_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Switch * osg::OcclusionQueryNode::base_asSwitch() function, expected prototype:\nosg::Switch * osg::OcclusionQueryNode::base_asSwitch()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Switch * osg::OcclusionQueryNode::base_asSwitch() function, expected prototype:\nosg::Switch * osg::OcclusionQueryNode::base_asSwitch()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osg::OcclusionQueryNode::base_asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Switch * osg::OcclusionQueryNode::base_asSwitch(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Switch * lret = self->OcclusionQueryNode::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1446,15 +1365,13 @@ public:
 	// const osg::Switch * osg::OcclusionQueryNode::base_asSwitch() const
 	static int _bind_base_asSwitch_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asSwitch_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Switch * osg::OcclusionQueryNode::base_asSwitch() const function, expected prototype:\nconst osg::Switch * osg::OcclusionQueryNode::base_asSwitch() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Switch * osg::OcclusionQueryNode::base_asSwitch() const function, expected prototype:\nconst osg::Switch * osg::OcclusionQueryNode::base_asSwitch() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osg::OcclusionQueryNode::base_asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Switch * osg::OcclusionQueryNode::base_asSwitch() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Switch * lret = self->OcclusionQueryNode::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1476,15 +1393,13 @@ public:
 	// osg::Geode * osg::OcclusionQueryNode::base_asGeode()
 	static int _bind_base_asGeode_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asGeode_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geode * osg::OcclusionQueryNode::base_asGeode() function, expected prototype:\nosg::Geode * osg::OcclusionQueryNode::base_asGeode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Geode * osg::OcclusionQueryNode::base_asGeode() function, expected prototype:\nosg::Geode * osg::OcclusionQueryNode::base_asGeode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osg::OcclusionQueryNode::base_asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Geode * osg::OcclusionQueryNode::base_asGeode(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Geode * lret = self->OcclusionQueryNode::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1497,15 +1412,13 @@ public:
 	// const osg::Geode * osg::OcclusionQueryNode::base_asGeode() const
 	static int _bind_base_asGeode_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asGeode_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Geode * osg::OcclusionQueryNode::base_asGeode() const function, expected prototype:\nconst osg::Geode * osg::OcclusionQueryNode::base_asGeode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Geode * osg::OcclusionQueryNode::base_asGeode() const function, expected prototype:\nconst osg::Geode * osg::OcclusionQueryNode::base_asGeode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osg::OcclusionQueryNode::base_asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Geode * osg::OcclusionQueryNode::base_asGeode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Geode * lret = self->OcclusionQueryNode::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1527,8 +1440,7 @@ public:
 	// void osg::OcclusionQueryNode::base_ascend(osg::NodeVisitor & nv)
 	static int _bind_base_ascend(lua_State *L) {
 		if (!_lg_typecheck_base_ascend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_ascend(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::OcclusionQueryNode::base_ascend(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_ascend(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::OcclusionQueryNode::base_ascend(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1539,8 +1451,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_ascend(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_ascend(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OcclusionQueryNode::ascend(nv);
 
@@ -1550,15 +1461,13 @@ public:
 	// osg::Group * osg::OcclusionQueryNode::base_asGroup()
 	static int _bind_base_asGroup_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asGroup_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Group * osg::OcclusionQueryNode::base_asGroup() function, expected prototype:\nosg::Group * osg::OcclusionQueryNode::base_asGroup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Group * osg::OcclusionQueryNode::base_asGroup() function, expected prototype:\nosg::Group * osg::OcclusionQueryNode::base_asGroup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Group * osg::OcclusionQueryNode::base_asGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Group * osg::OcclusionQueryNode::base_asGroup(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Group * lret = self->OcclusionQueryNode::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1571,15 +1480,13 @@ public:
 	// const osg::Group * osg::OcclusionQueryNode::base_asGroup() const
 	static int _bind_base_asGroup_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asGroup_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Group * osg::OcclusionQueryNode::base_asGroup() const function, expected prototype:\nconst osg::Group * osg::OcclusionQueryNode::base_asGroup() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Group * osg::OcclusionQueryNode::base_asGroup() const function, expected prototype:\nconst osg::Group * osg::OcclusionQueryNode::base_asGroup() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Group * osg::OcclusionQueryNode::base_asGroup() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Group * osg::OcclusionQueryNode::base_asGroup() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Group * lret = self->OcclusionQueryNode::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1601,8 +1508,7 @@ public:
 	// void osg::OcclusionQueryNode::base_traverse(osg::NodeVisitor & arg1)
 	static int _bind_base_traverse(lua_State *L) {
 		if (!_lg_typecheck_base_traverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_traverse(osg::NodeVisitor & arg1) function, expected prototype:\nvoid osg::OcclusionQueryNode::base_traverse(osg::NodeVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_traverse(osg::NodeVisitor & arg1) function, expected prototype:\nvoid osg::OcclusionQueryNode::base_traverse(osg::NodeVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1613,8 +1519,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_traverse(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OcclusionQueryNode::traverse(_arg1);
 
@@ -1624,16 +1529,14 @@ public:
 	// bool osg::OcclusionQueryNode::base_addChild(osg::Node * child)
 	static int _bind_base_addChild(lua_State *L) {
 		if (!_lg_typecheck_base_addChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::base_addChild(osg::Node * child) function, expected prototype:\nbool osg::OcclusionQueryNode::base_addChild(osg::Node * child)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::base_addChild(osg::Node * child) function, expected prototype:\nbool osg::OcclusionQueryNode::base_addChild(osg::Node * child)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* child=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::base_addChild(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::base_addChild(osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->OcclusionQueryNode::addChild(child);
 		lua_pushboolean(L,lret?1:0);
@@ -1644,8 +1547,7 @@ public:
 	// bool osg::OcclusionQueryNode::base_insertChild(unsigned int index, osg::Node * child)
 	static int _bind_base_insertChild(lua_State *L) {
 		if (!_lg_typecheck_base_insertChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::base_insertChild(unsigned int index, osg::Node * child) function, expected prototype:\nbool osg::OcclusionQueryNode::base_insertChild(unsigned int index, osg::Node * child)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::base_insertChild(unsigned int index, osg::Node * child) function, expected prototype:\nbool osg::OcclusionQueryNode::base_insertChild(unsigned int index, osg::Node * child)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
@@ -1653,8 +1555,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::base_insertChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::base_insertChild(unsigned int, osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->OcclusionQueryNode::insertChild(index, child);
 		lua_pushboolean(L,lret?1:0);
@@ -1665,8 +1566,7 @@ public:
 	// bool osg::OcclusionQueryNode::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove)
 	static int _bind_base_removeChildren(lua_State *L) {
 		if (!_lg_typecheck_base_removeChildren(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove) function, expected prototype:\nbool osg::OcclusionQueryNode::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove) function, expected prototype:\nbool osg::OcclusionQueryNode::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int pos=(unsigned int)lua_tointeger(L,2);
@@ -1674,8 +1574,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::base_removeChildren(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::base_removeChildren(unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->OcclusionQueryNode::removeChildren(pos, numChildrenToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -1686,8 +1585,7 @@ public:
 	// bool osg::OcclusionQueryNode::base_replaceChild(osg::Node * origChild, osg::Node * newChild)
 	static int _bind_base_replaceChild(lua_State *L) {
 		if (!_lg_typecheck_base_replaceChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::base_replaceChild(osg::Node * origChild, osg::Node * newChild) function, expected prototype:\nbool osg::OcclusionQueryNode::base_replaceChild(osg::Node * origChild, osg::Node * newChild)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::base_replaceChild(osg::Node * origChild, osg::Node * newChild) function, expected prototype:\nbool osg::OcclusionQueryNode::base_replaceChild(osg::Node * origChild, osg::Node * newChild)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* origChild=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
@@ -1695,8 +1593,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::base_replaceChild(osg::Node *, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::base_replaceChild(osg::Node *, osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->OcclusionQueryNode::replaceChild(origChild, newChild);
 		lua_pushboolean(L,lret?1:0);
@@ -1707,8 +1604,7 @@ public:
 	// bool osg::OcclusionQueryNode::base_setChild(unsigned int i, osg::Node * node)
 	static int _bind_base_setChild(lua_State *L) {
 		if (!_lg_typecheck_base_setChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::base_setChild(unsigned int i, osg::Node * node) function, expected prototype:\nbool osg::OcclusionQueryNode::base_setChild(unsigned int i, osg::Node * node)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::base_setChild(unsigned int i, osg::Node * node) function, expected prototype:\nbool osg::OcclusionQueryNode::base_setChild(unsigned int i, osg::Node * node)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
@@ -1716,8 +1612,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::base_setChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::base_setChild(unsigned int, osg::Node *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->OcclusionQueryNode::setChild(i, node);
 		lua_pushboolean(L,lret?1:0);
@@ -1728,16 +1623,14 @@ public:
 	// void osg::OcclusionQueryNode::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::OcclusionQueryNode::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::OcclusionQueryNode::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OcclusionQueryNode::setThreadSafeRefUnref(threadSafe);
 
@@ -1747,15 +1640,13 @@ public:
 	// osg::Object * osg::OcclusionQueryNode::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::OcclusionQueryNode::base_cloneType() const function, expected prototype:\nosg::Object * osg::OcclusionQueryNode::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::OcclusionQueryNode::base_cloneType() const function, expected prototype:\nosg::Object * osg::OcclusionQueryNode::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::OcclusionQueryNode::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::OcclusionQueryNode::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->OcclusionQueryNode::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1768,8 +1659,7 @@ public:
 	// osg::Object * osg::OcclusionQueryNode::base_clone(const osg::CopyOp & copyop) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::OcclusionQueryNode::base_clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::OcclusionQueryNode::base_clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::OcclusionQueryNode::base_clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::OcclusionQueryNode::base_clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1780,8 +1670,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::OcclusionQueryNode::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::OcclusionQueryNode::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->OcclusionQueryNode::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1794,16 +1683,14 @@ public:
 	// bool osg::OcclusionQueryNode::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::OcclusionQueryNode::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::OcclusionQueryNode::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->OcclusionQueryNode::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1814,15 +1701,13 @@ public:
 	// const char * osg::OcclusionQueryNode::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::OcclusionQueryNode::base_className() const function, expected prototype:\nconst char * osg::OcclusionQueryNode::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::OcclusionQueryNode::base_className() const function, expected prototype:\nconst char * osg::OcclusionQueryNode::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::OcclusionQueryNode::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::OcclusionQueryNode::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->OcclusionQueryNode::className();
 		lua_pushstring(L,lret);
@@ -1833,15 +1718,13 @@ public:
 	// const char * osg::OcclusionQueryNode::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::OcclusionQueryNode::base_libraryName() const function, expected prototype:\nconst char * osg::OcclusionQueryNode::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::OcclusionQueryNode::base_libraryName() const function, expected prototype:\nconst char * osg::OcclusionQueryNode::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::OcclusionQueryNode::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::OcclusionQueryNode::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->OcclusionQueryNode::libraryName();
 		lua_pushstring(L,lret);
@@ -1852,8 +1735,7 @@ public:
 	// void osg::OcclusionQueryNode::base_accept(osg::NodeVisitor & nv)
 	static int _bind_base_accept(lua_State *L) {
 		if (!_lg_typecheck_base_accept(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::OcclusionQueryNode::base_accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::OcclusionQueryNode::base_accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1864,8 +1746,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_accept(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OcclusionQueryNode::accept(nv);
 
@@ -1875,15 +1756,13 @@ public:
 	// osg::BoundingSphered osg::OcclusionQueryNode::base_computeBound() const
 	static int _bind_base_computeBound(lua_State *L) {
 		if (!_lg_typecheck_base_computeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::OcclusionQueryNode::base_computeBound() const function, expected prototype:\nosg::BoundingSphered osg::OcclusionQueryNode::base_computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::OcclusionQueryNode::base_computeBound() const function, expected prototype:\nosg::BoundingSphered osg::OcclusionQueryNode::base_computeBound() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::OcclusionQueryNode::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::OcclusionQueryNode::base_computeBound() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::BoundingSphered stack_lret = self->OcclusionQueryNode::computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -1897,8 +1776,7 @@ public:
 	// void osg::OcclusionQueryNode::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::OcclusionQueryNode::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OcclusionQueryNode::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::OcclusionQueryNode::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1907,8 +1785,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OcclusionQueryNode::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OcclusionQueryNode::releaseGLObjects(_arg1);
 
@@ -1918,8 +1795,7 @@ public:
 	// bool osg::OcclusionQueryNode::base_getPassed(const osg::Camera * camera, osg::NodeVisitor & nv)
 	static int _bind_base_getPassed(lua_State *L) {
 		if (!_lg_typecheck_base_getPassed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::base_getPassed(const osg::Camera * camera, osg::NodeVisitor & nv) function, expected prototype:\nbool osg::OcclusionQueryNode::base_getPassed(const osg::Camera * camera, osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::OcclusionQueryNode::base_getPassed(const osg::Camera * camera, osg::NodeVisitor & nv) function, expected prototype:\nbool osg::OcclusionQueryNode::base_getPassed(const osg::Camera * camera, osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Camera* camera=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
@@ -1931,8 +1807,7 @@ public:
 
 		osg::OcclusionQueryNode* self=Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::base_getPassed(const osg::Camera *, osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::OcclusionQueryNode::base_getPassed(const osg::Camera *, osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->OcclusionQueryNode::getPassed(camera, nv);
 		lua_pushboolean(L,lret?1:0);

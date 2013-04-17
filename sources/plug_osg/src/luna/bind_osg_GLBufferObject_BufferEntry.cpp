@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::GLBufferObject::BufferEntry*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::GLBufferObject::BufferEntry*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::GLBufferObject::BufferEntry* rhs =(Luna< osg::GLBufferObject::BufferEntry >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::GLBufferObject::BufferEntry* self= (osg::GLBufferObject::BufferEntry*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::GLBufferObject::BufferEntry >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -183,8 +179,7 @@ public:
 	// osg::GLBufferObject::BufferEntry::BufferEntry()
 	static osg::GLBufferObject::BufferEntry* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::GLBufferObject::BufferEntry::BufferEntry() function, expected prototype:\nosg::GLBufferObject::BufferEntry::BufferEntry()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::GLBufferObject::BufferEntry::BufferEntry() function, expected prototype:\nosg::GLBufferObject::BufferEntry::BufferEntry()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -194,8 +189,7 @@ public:
 	// osg::GLBufferObject::BufferEntry::BufferEntry(const osg::GLBufferObject::BufferEntry & rhs)
 	static osg::GLBufferObject::BufferEntry* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::GLBufferObject::BufferEntry::BufferEntry(const osg::GLBufferObject::BufferEntry & rhs) function, expected prototype:\nosg::GLBufferObject::BufferEntry::BufferEntry(const osg::GLBufferObject::BufferEntry & rhs)\nClass arguments details:\narg 1 ID = 69650430\n");
+			luaL_error(L, "luna typecheck failed in osg::GLBufferObject::BufferEntry::BufferEntry(const osg::GLBufferObject::BufferEntry & rhs) function, expected prototype:\nosg::GLBufferObject::BufferEntry::BufferEntry(const osg::GLBufferObject::BufferEntry & rhs)\nClass arguments details:\narg 1 ID = 69650430\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::GLBufferObject::BufferEntry* rhs_ptr=(Luna< osg::GLBufferObject::BufferEntry >::check(L,1));
@@ -221,15 +215,13 @@ public:
 	// unsigned int osg::GLBufferObject::BufferEntry::modifiedCount()
 	static int _bind_getModifiedCount(lua_State *L) {
 		if (!_lg_typecheck_getModifiedCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::GLBufferObject::BufferEntry::modifiedCount() function, expected prototype:\nunsigned int osg::GLBufferObject::BufferEntry::modifiedCount()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::GLBufferObject::BufferEntry::modifiedCount() function, expected prototype:\nunsigned int osg::GLBufferObject::BufferEntry::modifiedCount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::GLBufferObject::BufferEntry* self=(Luna< osg::GLBufferObject::BufferEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::GLBufferObject::BufferEntry::modifiedCount(). Got : '%s'",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::GLBufferObject::BufferEntry::modifiedCount(). Got : '%s'\n%s",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->modifiedCount;
 		lua_pushnumber(L,lret);
@@ -240,15 +232,13 @@ public:
 	// unsigned int osg::GLBufferObject::BufferEntry::dataSize()
 	static int _bind_getDataSize(lua_State *L) {
 		if (!_lg_typecheck_getDataSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::GLBufferObject::BufferEntry::dataSize() function, expected prototype:\nunsigned int osg::GLBufferObject::BufferEntry::dataSize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::GLBufferObject::BufferEntry::dataSize() function, expected prototype:\nunsigned int osg::GLBufferObject::BufferEntry::dataSize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::GLBufferObject::BufferEntry* self=(Luna< osg::GLBufferObject::BufferEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::GLBufferObject::BufferEntry::dataSize(). Got : '%s'",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::GLBufferObject::BufferEntry::dataSize(). Got : '%s'\n%s",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->dataSize;
 		lua_pushnumber(L,lret);
@@ -259,15 +249,13 @@ public:
 	// unsigned int osg::GLBufferObject::BufferEntry::offset()
 	static int _bind_getOffset(lua_State *L) {
 		if (!_lg_typecheck_getOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::GLBufferObject::BufferEntry::offset() function, expected prototype:\nunsigned int osg::GLBufferObject::BufferEntry::offset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::GLBufferObject::BufferEntry::offset() function, expected prototype:\nunsigned int osg::GLBufferObject::BufferEntry::offset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::GLBufferObject::BufferEntry* self=(Luna< osg::GLBufferObject::BufferEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::GLBufferObject::BufferEntry::offset(). Got : '%s'",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::GLBufferObject::BufferEntry::offset(). Got : '%s'\n%s",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->offset;
 		lua_pushnumber(L,lret);
@@ -278,15 +266,13 @@ public:
 	// osg::BufferData * osg::GLBufferObject::BufferEntry::dataSource()
 	static int _bind_getDataSource(lua_State *L) {
 		if (!_lg_typecheck_getDataSource(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BufferData * osg::GLBufferObject::BufferEntry::dataSource() function, expected prototype:\nosg::BufferData * osg::GLBufferObject::BufferEntry::dataSource()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BufferData * osg::GLBufferObject::BufferEntry::dataSource() function, expected prototype:\nosg::BufferData * osg::GLBufferObject::BufferEntry::dataSource()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::GLBufferObject::BufferEntry* self=(Luna< osg::GLBufferObject::BufferEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BufferData * osg::GLBufferObject::BufferEntry::dataSource(). Got : '%s'",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BufferData * osg::GLBufferObject::BufferEntry::dataSource(). Got : '%s'\n%s",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::BufferData * lret = self->dataSource;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -299,16 +285,14 @@ public:
 	// void osg::GLBufferObject::BufferEntry::modifiedCount(unsigned int value)
 	static int _bind_setModifiedCount(lua_State *L) {
 		if (!_lg_typecheck_setModifiedCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::GLBufferObject::BufferEntry::modifiedCount(unsigned int value) function, expected prototype:\nvoid osg::GLBufferObject::BufferEntry::modifiedCount(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::GLBufferObject::BufferEntry::modifiedCount(unsigned int value) function, expected prototype:\nvoid osg::GLBufferObject::BufferEntry::modifiedCount(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::GLBufferObject::BufferEntry* self=(Luna< osg::GLBufferObject::BufferEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::BufferEntry::modifiedCount(unsigned int). Got : '%s'",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::BufferEntry::modifiedCount(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->modifiedCount = value;
 
@@ -318,16 +302,14 @@ public:
 	// void osg::GLBufferObject::BufferEntry::dataSize(unsigned int value)
 	static int _bind_setDataSize(lua_State *L) {
 		if (!_lg_typecheck_setDataSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::GLBufferObject::BufferEntry::dataSize(unsigned int value) function, expected prototype:\nvoid osg::GLBufferObject::BufferEntry::dataSize(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::GLBufferObject::BufferEntry::dataSize(unsigned int value) function, expected prototype:\nvoid osg::GLBufferObject::BufferEntry::dataSize(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::GLBufferObject::BufferEntry* self=(Luna< osg::GLBufferObject::BufferEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::BufferEntry::dataSize(unsigned int). Got : '%s'",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::BufferEntry::dataSize(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->dataSize = value;
 
@@ -337,16 +319,14 @@ public:
 	// void osg::GLBufferObject::BufferEntry::offset(unsigned int value)
 	static int _bind_setOffset(lua_State *L) {
 		if (!_lg_typecheck_setOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::GLBufferObject::BufferEntry::offset(unsigned int value) function, expected prototype:\nvoid osg::GLBufferObject::BufferEntry::offset(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::GLBufferObject::BufferEntry::offset(unsigned int value) function, expected prototype:\nvoid osg::GLBufferObject::BufferEntry::offset(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::GLBufferObject::BufferEntry* self=(Luna< osg::GLBufferObject::BufferEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::BufferEntry::offset(unsigned int). Got : '%s'",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::BufferEntry::offset(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->offset = value;
 
@@ -356,16 +336,14 @@ public:
 	// void osg::GLBufferObject::BufferEntry::dataSource(osg::BufferData * value)
 	static int _bind_setDataSource(lua_State *L) {
 		if (!_lg_typecheck_setDataSource(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::GLBufferObject::BufferEntry::dataSource(osg::BufferData * value) function, expected prototype:\nvoid osg::GLBufferObject::BufferEntry::dataSource(osg::BufferData * value)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::GLBufferObject::BufferEntry::dataSource(osg::BufferData * value) function, expected prototype:\nvoid osg::GLBufferObject::BufferEntry::dataSource(osg::BufferData * value)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::BufferData* value=(Luna< osg::Referenced >::checkSubType< osg::BufferData >(L,2));
 
 		osg::GLBufferObject::BufferEntry* self=(Luna< osg::GLBufferObject::BufferEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::BufferEntry::dataSource(osg::BufferData *). Got : '%s'",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::BufferEntry::dataSource(osg::BufferData *). Got : '%s'\n%s",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->dataSource = value;
 
@@ -377,8 +355,7 @@ public:
 	// osg::GLBufferObject::BufferEntry & osg::GLBufferObject::BufferEntry::operator=(const osg::GLBufferObject::BufferEntry & rhs)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::GLBufferObject::BufferEntry & osg::GLBufferObject::BufferEntry::operator=(const osg::GLBufferObject::BufferEntry & rhs) function, expected prototype:\nosg::GLBufferObject::BufferEntry & osg::GLBufferObject::BufferEntry::operator=(const osg::GLBufferObject::BufferEntry & rhs)\nClass arguments details:\narg 1 ID = 69650430\n");
+			luaL_error(L, "luna typecheck failed in osg::GLBufferObject::BufferEntry & osg::GLBufferObject::BufferEntry::operator=(const osg::GLBufferObject::BufferEntry & rhs) function, expected prototype:\nosg::GLBufferObject::BufferEntry & osg::GLBufferObject::BufferEntry::operator=(const osg::GLBufferObject::BufferEntry & rhs)\nClass arguments details:\narg 1 ID = 69650430\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::GLBufferObject::BufferEntry* rhs_ptr=(Luna< osg::GLBufferObject::BufferEntry >::check(L,2));
@@ -389,8 +366,7 @@ public:
 
 		osg::GLBufferObject::BufferEntry* self=(Luna< osg::GLBufferObject::BufferEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::GLBufferObject::BufferEntry & osg::GLBufferObject::BufferEntry::operator=(const osg::GLBufferObject::BufferEntry &). Got : '%s'",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::GLBufferObject::BufferEntry & osg::GLBufferObject::BufferEntry::operator=(const osg::GLBufferObject::BufferEntry &). Got : '%s'\n%s",typeid(Luna< osg::GLBufferObject::BufferEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::GLBufferObject::BufferEntry* lret = &self->operator=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.

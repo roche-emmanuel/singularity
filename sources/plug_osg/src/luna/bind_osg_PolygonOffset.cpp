@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::PolygonOffset* self= (osg::PolygonOffset*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -419,8 +416,7 @@ public:
 	// osg::PolygonOffset::PolygonOffset()
 	static osg::PolygonOffset* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::PolygonOffset::PolygonOffset() function, expected prototype:\nosg::PolygonOffset::PolygonOffset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::PolygonOffset::PolygonOffset() function, expected prototype:\nosg::PolygonOffset::PolygonOffset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -430,8 +426,7 @@ public:
 	// osg::PolygonOffset::PolygonOffset(float factor, float units)
 	static osg::PolygonOffset* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::PolygonOffset::PolygonOffset(float factor, float units) function, expected prototype:\nosg::PolygonOffset::PolygonOffset(float factor, float units)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::PolygonOffset::PolygonOffset(float factor, float units) function, expected prototype:\nosg::PolygonOffset::PolygonOffset(float factor, float units)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float factor=(float)lua_tonumber(L,1);
@@ -443,8 +438,7 @@ public:
 	// osg::PolygonOffset::PolygonOffset(const osg::PolygonOffset & po, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::PolygonOffset* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::PolygonOffset::PolygonOffset(const osg::PolygonOffset & po, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::PolygonOffset::PolygonOffset(const osg::PolygonOffset & po, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::PolygonOffset::PolygonOffset(const osg::PolygonOffset & po, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::PolygonOffset::PolygonOffset(const osg::PolygonOffset & po, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -466,8 +460,7 @@ public:
 	// osg::PolygonOffset::PolygonOffset(lua_Table * data)
 	static osg::PolygonOffset* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::PolygonOffset::PolygonOffset(lua_Table * data) function, expected prototype:\nosg::PolygonOffset::PolygonOffset(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::PolygonOffset::PolygonOffset(lua_Table * data) function, expected prototype:\nosg::PolygonOffset::PolygonOffset(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -477,8 +470,7 @@ public:
 	// osg::PolygonOffset::PolygonOffset(lua_Table * data, float factor, float units)
 	static osg::PolygonOffset* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::PolygonOffset::PolygonOffset(lua_Table * data, float factor, float units) function, expected prototype:\nosg::PolygonOffset::PolygonOffset(lua_Table * data, float factor, float units)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::PolygonOffset::PolygonOffset(lua_Table * data, float factor, float units) function, expected prototype:\nosg::PolygonOffset::PolygonOffset(lua_Table * data, float factor, float units)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float factor=(float)lua_tonumber(L,2);
@@ -490,8 +482,7 @@ public:
 	// osg::PolygonOffset::PolygonOffset(lua_Table * data, const osg::PolygonOffset & po, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::PolygonOffset* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::PolygonOffset::PolygonOffset(lua_Table * data, const osg::PolygonOffset & po, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::PolygonOffset::PolygonOffset(lua_Table * data, const osg::PolygonOffset & po, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::PolygonOffset::PolygonOffset(lua_Table * data, const osg::PolygonOffset & po, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::PolygonOffset::PolygonOffset(lua_Table * data, const osg::PolygonOffset & po, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -528,15 +519,13 @@ public:
 	// osg::Object * osg::PolygonOffset::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::PolygonOffset::cloneType() const function, expected prototype:\nosg::Object * osg::PolygonOffset::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::PolygonOffset::cloneType() const function, expected prototype:\nosg::Object * osg::PolygonOffset::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonOffset::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonOffset::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -549,8 +538,7 @@ public:
 	// osg::Object * osg::PolygonOffset::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::PolygonOffset::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::PolygonOffset::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::PolygonOffset::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::PolygonOffset::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -561,8 +549,7 @@ public:
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonOffset::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonOffset::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -575,16 +562,14 @@ public:
 	// bool osg::PolygonOffset::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::PolygonOffset::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::PolygonOffset::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::PolygonOffset::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::PolygonOffset::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PolygonOffset::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::PolygonOffset::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -595,15 +580,13 @@ public:
 	// const char * osg::PolygonOffset::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::PolygonOffset::libraryName() const function, expected prototype:\nconst char * osg::PolygonOffset::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::PolygonOffset::libraryName() const function, expected prototype:\nconst char * osg::PolygonOffset::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PolygonOffset::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::PolygonOffset::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -614,15 +597,13 @@ public:
 	// const char * osg::PolygonOffset::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::PolygonOffset::className() const function, expected prototype:\nconst char * osg::PolygonOffset::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::PolygonOffset::className() const function, expected prototype:\nconst char * osg::PolygonOffset::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PolygonOffset::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::PolygonOffset::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -633,15 +614,13 @@ public:
 	// osg::StateAttribute::Type osg::PolygonOffset::getType() const
 	static int _bind_getType(lua_State *L) {
 		if (!_lg_typecheck_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::PolygonOffset::getType() const function, expected prototype:\nosg::StateAttribute::Type osg::PolygonOffset::getType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::PolygonOffset::getType() const function, expected prototype:\nosg::StateAttribute::Type osg::PolygonOffset::getType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::PolygonOffset::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::PolygonOffset::getType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -652,8 +631,7 @@ public:
 	// int osg::PolygonOffset::compare(const osg::StateAttribute & sa) const
 	static int _bind_compare(lua_State *L) {
 		if (!_lg_typecheck_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PolygonOffset::compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::PolygonOffset::compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osg::PolygonOffset::compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::PolygonOffset::compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* sa_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
@@ -664,8 +642,7 @@ public:
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PolygonOffset::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PolygonOffset::compare(const osg::StateAttribute &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -676,8 +653,7 @@ public:
 	// bool osg::PolygonOffset::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
 	static int _bind_getModeUsage(lua_State *L) {
 		if (!_lg_typecheck_getModeUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::PolygonOffset::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::PolygonOffset::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n");
+			luaL_error(L, "luna typecheck failed in bool osg::PolygonOffset::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::PolygonOffset::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateAttribute::ModeUsage* _arg1_ptr=(Luna< osg::StateAttribute::ModeUsage >::check(L,2));
@@ -688,8 +664,7 @@ public:
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PolygonOffset::getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::PolygonOffset::getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -700,16 +675,14 @@ public:
 	// void osg::PolygonOffset::setFactor(float factor)
 	static int _bind_setFactor(lua_State *L) {
 		if (!_lg_typecheck_setFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::setFactor(float factor) function, expected prototype:\nvoid osg::PolygonOffset::setFactor(float factor)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::setFactor(float factor) function, expected prototype:\nvoid osg::PolygonOffset::setFactor(float factor)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float factor=(float)lua_tonumber(L,2);
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::setFactor(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::setFactor(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFactor(factor);
 
@@ -719,15 +692,13 @@ public:
 	// float osg::PolygonOffset::getFactor() const
 	static int _bind_getFactor(lua_State *L) {
 		if (!_lg_typecheck_getFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::PolygonOffset::getFactor() const function, expected prototype:\nfloat osg::PolygonOffset::getFactor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::PolygonOffset::getFactor() const function, expected prototype:\nfloat osg::PolygonOffset::getFactor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::PolygonOffset::getFactor() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::PolygonOffset::getFactor() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getFactor();
 		lua_pushnumber(L,lret);
@@ -738,16 +709,14 @@ public:
 	// void osg::PolygonOffset::setUnits(float units)
 	static int _bind_setUnits(lua_State *L) {
 		if (!_lg_typecheck_setUnits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::setUnits(float units) function, expected prototype:\nvoid osg::PolygonOffset::setUnits(float units)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::setUnits(float units) function, expected prototype:\nvoid osg::PolygonOffset::setUnits(float units)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float units=(float)lua_tonumber(L,2);
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::setUnits(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::setUnits(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setUnits(units);
 
@@ -757,15 +726,13 @@ public:
 	// float osg::PolygonOffset::getUnits() const
 	static int _bind_getUnits(lua_State *L) {
 		if (!_lg_typecheck_getUnits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::PolygonOffset::getUnits() const function, expected prototype:\nfloat osg::PolygonOffset::getUnits() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::PolygonOffset::getUnits() const function, expected prototype:\nfloat osg::PolygonOffset::getUnits() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::PolygonOffset::getUnits() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::PolygonOffset::getUnits() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getUnits();
 		lua_pushnumber(L,lret);
@@ -776,8 +743,7 @@ public:
 	// void osg::PolygonOffset::apply(osg::State & arg1) const
 	static int _bind_apply(lua_State *L) {
 		if (!_lg_typecheck_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::apply(osg::State & arg1) const function, expected prototype:\nvoid osg::PolygonOffset::apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::apply(osg::State & arg1) const function, expected prototype:\nvoid osg::PolygonOffset::apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -788,8 +754,7 @@ public:
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::apply(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -799,8 +764,7 @@ public:
 	// static void osg::PolygonOffset::setFactorMultiplier(float multiplier)
 	static int _bind_setFactorMultiplier(lua_State *L) {
 		if (!_lg_typecheck_setFactorMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osg::PolygonOffset::setFactorMultiplier(float multiplier) function, expected prototype:\nstatic void osg::PolygonOffset::setFactorMultiplier(float multiplier)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osg::PolygonOffset::setFactorMultiplier(float multiplier) function, expected prototype:\nstatic void osg::PolygonOffset::setFactorMultiplier(float multiplier)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float multiplier=(float)lua_tonumber(L,1);
@@ -813,8 +777,7 @@ public:
 	// static float osg::PolygonOffset::getFactorMultiplier()
 	static int _bind_getFactorMultiplier(lua_State *L) {
 		if (!_lg_typecheck_getFactorMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static float osg::PolygonOffset::getFactorMultiplier() function, expected prototype:\nstatic float osg::PolygonOffset::getFactorMultiplier()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static float osg::PolygonOffset::getFactorMultiplier() function, expected prototype:\nstatic float osg::PolygonOffset::getFactorMultiplier()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -827,8 +790,7 @@ public:
 	// static void osg::PolygonOffset::setUnitsMultiplier(float multiplier)
 	static int _bind_setUnitsMultiplier(lua_State *L) {
 		if (!_lg_typecheck_setUnitsMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osg::PolygonOffset::setUnitsMultiplier(float multiplier) function, expected prototype:\nstatic void osg::PolygonOffset::setUnitsMultiplier(float multiplier)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osg::PolygonOffset::setUnitsMultiplier(float multiplier) function, expected prototype:\nstatic void osg::PolygonOffset::setUnitsMultiplier(float multiplier)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float multiplier=(float)lua_tonumber(L,1);
@@ -841,8 +803,7 @@ public:
 	// static float osg::PolygonOffset::getUnitsMultiplier()
 	static int _bind_getUnitsMultiplier(lua_State *L) {
 		if (!_lg_typecheck_getUnitsMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static float osg::PolygonOffset::getUnitsMultiplier() function, expected prototype:\nstatic float osg::PolygonOffset::getUnitsMultiplier()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static float osg::PolygonOffset::getUnitsMultiplier() function, expected prototype:\nstatic float osg::PolygonOffset::getUnitsMultiplier()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -855,8 +816,7 @@ public:
 	// static bool osg::PolygonOffset::areFactorAndUnitsMultipliersSet()
 	static int _bind_areFactorAndUnitsMultipliersSet(lua_State *L) {
 		if (!_lg_typecheck_areFactorAndUnitsMultipliersSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool osg::PolygonOffset::areFactorAndUnitsMultipliersSet() function, expected prototype:\nstatic bool osg::PolygonOffset::areFactorAndUnitsMultipliersSet()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool osg::PolygonOffset::areFactorAndUnitsMultipliersSet() function, expected prototype:\nstatic bool osg::PolygonOffset::areFactorAndUnitsMultipliersSet()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -869,8 +829,7 @@ public:
 	// static void osg::PolygonOffset::setFactorAndUnitsMultipliersUsingBestGuessForDriver()
 	static int _bind_setFactorAndUnitsMultipliersUsingBestGuessForDriver(lua_State *L) {
 		if (!_lg_typecheck_setFactorAndUnitsMultipliersUsingBestGuessForDriver(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osg::PolygonOffset::setFactorAndUnitsMultipliersUsingBestGuessForDriver() function, expected prototype:\nstatic void osg::PolygonOffset::setFactorAndUnitsMultipliersUsingBestGuessForDriver()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osg::PolygonOffset::setFactorAndUnitsMultipliersUsingBestGuessForDriver() function, expected prototype:\nstatic void osg::PolygonOffset::setFactorAndUnitsMultipliersUsingBestGuessForDriver()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -882,16 +841,14 @@ public:
 	// void osg::PolygonOffset::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::PolygonOffset::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::PolygonOffset::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PolygonOffset::setThreadSafeRefUnref(threadSafe);
 
@@ -901,16 +858,14 @@ public:
 	// void osg::PolygonOffset::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::base_setName(const std::string & name) function, expected prototype:\nvoid osg::PolygonOffset::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::base_setName(const std::string & name) function, expected prototype:\nvoid osg::PolygonOffset::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PolygonOffset::setName(name);
 
@@ -920,15 +875,13 @@ public:
 	// void osg::PolygonOffset::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::base_computeDataVariance() function, expected prototype:\nvoid osg::PolygonOffset::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::base_computeDataVariance() function, expected prototype:\nvoid osg::PolygonOffset::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PolygonOffset::computeDataVariance();
 
@@ -938,16 +891,14 @@ public:
 	// void osg::PolygonOffset::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::PolygonOffset::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::PolygonOffset::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PolygonOffset::setUserData(obj);
 
@@ -957,15 +908,13 @@ public:
 	// osg::Referenced * osg::PolygonOffset::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::PolygonOffset::base_getUserData() function, expected prototype:\nosg::Referenced * osg::PolygonOffset::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::PolygonOffset::base_getUserData() function, expected prototype:\nosg::Referenced * osg::PolygonOffset::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PolygonOffset::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PolygonOffset::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->PolygonOffset::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -978,15 +927,13 @@ public:
 	// const osg::Referenced * osg::PolygonOffset::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::PolygonOffset::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::PolygonOffset::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::PolygonOffset::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::PolygonOffset::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PolygonOffset::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PolygonOffset::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->PolygonOffset::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1008,15 +955,13 @@ public:
 	// osg::Texture * osg::PolygonOffset::base_asTexture()
 	static int _bind_base_asTexture_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asTexture_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture * osg::PolygonOffset::base_asTexture() function, expected prototype:\nosg::Texture * osg::PolygonOffset::base_asTexture()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture * osg::PolygonOffset::base_asTexture() function, expected prototype:\nosg::Texture * osg::PolygonOffset::base_asTexture()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::PolygonOffset::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::PolygonOffset::base_asTexture(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture * lret = self->PolygonOffset::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1029,15 +974,13 @@ public:
 	// const osg::Texture * osg::PolygonOffset::base_asTexture() const
 	static int _bind_base_asTexture_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asTexture_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::PolygonOffset::base_asTexture() const function, expected prototype:\nconst osg::Texture * osg::PolygonOffset::base_asTexture() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::PolygonOffset::base_asTexture() const function, expected prototype:\nconst osg::Texture * osg::PolygonOffset::base_asTexture() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::PolygonOffset::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::PolygonOffset::base_asTexture() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Texture * lret = self->PolygonOffset::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1059,15 +1002,13 @@ public:
 	// unsigned int osg::PolygonOffset::base_getMember() const
 	static int _bind_base_getMember(lua_State *L) {
 		if (!_lg_typecheck_base_getMember(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::PolygonOffset::base_getMember() const function, expected prototype:\nunsigned int osg::PolygonOffset::base_getMember() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::PolygonOffset::base_getMember() const function, expected prototype:\nunsigned int osg::PolygonOffset::base_getMember() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PolygonOffset::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::PolygonOffset::base_getMember() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->PolygonOffset::getMember();
 		lua_pushnumber(L,lret);
@@ -1078,15 +1019,13 @@ public:
 	// bool osg::PolygonOffset::base_isTextureAttribute() const
 	static int _bind_base_isTextureAttribute(lua_State *L) {
 		if (!_lg_typecheck_base_isTextureAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::PolygonOffset::base_isTextureAttribute() const function, expected prototype:\nbool osg::PolygonOffset::base_isTextureAttribute() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::PolygonOffset::base_isTextureAttribute() const function, expected prototype:\nbool osg::PolygonOffset::base_isTextureAttribute() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PolygonOffset::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::PolygonOffset::base_isTextureAttribute() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PolygonOffset::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -1097,8 +1036,7 @@ public:
 	// bool osg::PolygonOffset::base_checkValidityOfAssociatedModes(osg::State & arg1) const
 	static int _bind_base_checkValidityOfAssociatedModes(lua_State *L) {
 		if (!_lg_typecheck_base_checkValidityOfAssociatedModes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::PolygonOffset::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osg::PolygonOffset::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::PolygonOffset::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osg::PolygonOffset::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1109,8 +1047,7 @@ public:
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PolygonOffset::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::PolygonOffset::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PolygonOffset::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1121,8 +1058,7 @@ public:
 	// void osg::PolygonOffset::base_compileGLObjects(osg::State & arg1) const
 	static int _bind_base_compileGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_compileGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::base_compileGLObjects(osg::State & arg1) const function, expected prototype:\nvoid osg::PolygonOffset::base_compileGLObjects(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::base_compileGLObjects(osg::State & arg1) const function, expected prototype:\nvoid osg::PolygonOffset::base_compileGLObjects(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1133,8 +1069,7 @@ public:
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::base_compileGLObjects(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PolygonOffset::compileGLObjects(_arg1);
 
@@ -1144,8 +1079,7 @@ public:
 	// void osg::PolygonOffset::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::PolygonOffset::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::PolygonOffset::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1154,8 +1088,7 @@ public:
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PolygonOffset::releaseGLObjects(_arg1);
 
@@ -1165,15 +1098,13 @@ public:
 	// osg::Object * osg::PolygonOffset::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::PolygonOffset::base_cloneType() const function, expected prototype:\nosg::Object * osg::PolygonOffset::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::PolygonOffset::base_cloneType() const function, expected prototype:\nosg::Object * osg::PolygonOffset::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonOffset::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonOffset::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->PolygonOffset::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1186,8 +1117,7 @@ public:
 	// osg::Object * osg::PolygonOffset::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::PolygonOffset::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::PolygonOffset::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::PolygonOffset::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::PolygonOffset::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1198,8 +1128,7 @@ public:
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonOffset::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonOffset::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->PolygonOffset::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1212,16 +1141,14 @@ public:
 	// bool osg::PolygonOffset::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::PolygonOffset::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::PolygonOffset::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::PolygonOffset::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::PolygonOffset::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PolygonOffset::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::PolygonOffset::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PolygonOffset::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1232,15 +1159,13 @@ public:
 	// const char * osg::PolygonOffset::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::PolygonOffset::base_libraryName() const function, expected prototype:\nconst char * osg::PolygonOffset::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::PolygonOffset::base_libraryName() const function, expected prototype:\nconst char * osg::PolygonOffset::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PolygonOffset::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::PolygonOffset::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->PolygonOffset::libraryName();
 		lua_pushstring(L,lret);
@@ -1251,15 +1176,13 @@ public:
 	// const char * osg::PolygonOffset::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::PolygonOffset::base_className() const function, expected prototype:\nconst char * osg::PolygonOffset::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::PolygonOffset::base_className() const function, expected prototype:\nconst char * osg::PolygonOffset::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PolygonOffset::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::PolygonOffset::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->PolygonOffset::className();
 		lua_pushstring(L,lret);
@@ -1270,15 +1193,13 @@ public:
 	// osg::StateAttribute::Type osg::PolygonOffset::base_getType() const
 	static int _bind_base_getType(lua_State *L) {
 		if (!_lg_typecheck_base_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::PolygonOffset::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osg::PolygonOffset::base_getType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::PolygonOffset::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osg::PolygonOffset::base_getType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::PolygonOffset::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::PolygonOffset::base_getType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute::Type lret = self->PolygonOffset::getType();
 		lua_pushnumber(L,lret);
@@ -1289,8 +1210,7 @@ public:
 	// int osg::PolygonOffset::base_compare(const osg::StateAttribute & sa) const
 	static int _bind_base_compare(lua_State *L) {
 		if (!_lg_typecheck_base_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::PolygonOffset::base_compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::PolygonOffset::base_compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osg::PolygonOffset::base_compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::PolygonOffset::base_compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* sa_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
@@ -1301,8 +1221,7 @@ public:
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PolygonOffset::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::PolygonOffset::base_compare(const osg::StateAttribute &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->PolygonOffset::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1313,8 +1232,7 @@ public:
 	// bool osg::PolygonOffset::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
 	static int _bind_base_getModeUsage(lua_State *L) {
 		if (!_lg_typecheck_base_getModeUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::PolygonOffset::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::PolygonOffset::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n");
+			luaL_error(L, "luna typecheck failed in bool osg::PolygonOffset::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::PolygonOffset::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateAttribute::ModeUsage* _arg1_ptr=(Luna< osg::StateAttribute::ModeUsage >::check(L,2));
@@ -1325,8 +1243,7 @@ public:
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PolygonOffset::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::PolygonOffset::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PolygonOffset::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1337,8 +1254,7 @@ public:
 	// void osg::PolygonOffset::base_apply(osg::State & arg1) const
 	static int _bind_base_apply(lua_State *L) {
 		if (!_lg_typecheck_base_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::base_apply(osg::State & arg1) const function, expected prototype:\nvoid osg::PolygonOffset::base_apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::PolygonOffset::base_apply(osg::State & arg1) const function, expected prototype:\nvoid osg::PolygonOffset::base_apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1349,8 +1265,7 @@ public:
 
 		osg::PolygonOffset* self=Luna< osg::Referenced >::checkSubType< osg::PolygonOffset >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::PolygonOffset::base_apply(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PolygonOffset::apply(_arg1);
 

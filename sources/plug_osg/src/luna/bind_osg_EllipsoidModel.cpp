@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::EllipsoidModel* self= (osg::EllipsoidModel*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -346,8 +343,7 @@ public:
 	// osg::EllipsoidModel::EllipsoidModel(double radiusEquator = osg::WGS_84_RADIUS_EQUATOR, double radiusPolar = osg::WGS_84_RADIUS_POLAR)
 	static osg::EllipsoidModel* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::EllipsoidModel::EllipsoidModel(double radiusEquator = osg::WGS_84_RADIUS_EQUATOR, double radiusPolar = osg::WGS_84_RADIUS_POLAR) function, expected prototype:\nosg::EllipsoidModel::EllipsoidModel(double radiusEquator = osg::WGS_84_RADIUS_EQUATOR, double radiusPolar = osg::WGS_84_RADIUS_POLAR)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::EllipsoidModel::EllipsoidModel(double radiusEquator = osg::WGS_84_RADIUS_EQUATOR, double radiusPolar = osg::WGS_84_RADIUS_POLAR) function, expected prototype:\nosg::EllipsoidModel::EllipsoidModel(double radiusEquator = osg::WGS_84_RADIUS_EQUATOR, double radiusPolar = osg::WGS_84_RADIUS_POLAR)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -361,8 +357,7 @@ public:
 	// osg::EllipsoidModel::EllipsoidModel(const osg::EllipsoidModel & et, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::EllipsoidModel* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::EllipsoidModel::EllipsoidModel(const osg::EllipsoidModel & et, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::EllipsoidModel::EllipsoidModel(const osg::EllipsoidModel & et, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::EllipsoidModel::EllipsoidModel(const osg::EllipsoidModel & et, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::EllipsoidModel::EllipsoidModel(const osg::EllipsoidModel & et, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -384,8 +379,7 @@ public:
 	// osg::EllipsoidModel::EllipsoidModel(lua_Table * data, double radiusEquator = osg::WGS_84_RADIUS_EQUATOR, double radiusPolar = osg::WGS_84_RADIUS_POLAR)
 	static osg::EllipsoidModel* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::EllipsoidModel::EllipsoidModel(lua_Table * data, double radiusEquator = osg::WGS_84_RADIUS_EQUATOR, double radiusPolar = osg::WGS_84_RADIUS_POLAR) function, expected prototype:\nosg::EllipsoidModel::EllipsoidModel(lua_Table * data, double radiusEquator = osg::WGS_84_RADIUS_EQUATOR, double radiusPolar = osg::WGS_84_RADIUS_POLAR)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::EllipsoidModel::EllipsoidModel(lua_Table * data, double radiusEquator = osg::WGS_84_RADIUS_EQUATOR, double radiusPolar = osg::WGS_84_RADIUS_POLAR) function, expected prototype:\nosg::EllipsoidModel::EllipsoidModel(lua_Table * data, double radiusEquator = osg::WGS_84_RADIUS_EQUATOR, double radiusPolar = osg::WGS_84_RADIUS_POLAR)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -399,8 +393,7 @@ public:
 	// osg::EllipsoidModel::EllipsoidModel(lua_Table * data, const osg::EllipsoidModel & et, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::EllipsoidModel* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::EllipsoidModel::EllipsoidModel(lua_Table * data, const osg::EllipsoidModel & et, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::EllipsoidModel::EllipsoidModel(lua_Table * data, const osg::EllipsoidModel & et, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::EllipsoidModel::EllipsoidModel(lua_Table * data, const osg::EllipsoidModel & et, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::EllipsoidModel::EllipsoidModel(lua_Table * data, const osg::EllipsoidModel & et, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -435,15 +428,13 @@ public:
 	// osg::Object * osg::EllipsoidModel::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::EllipsoidModel::cloneType() const function, expected prototype:\nosg::Object * osg::EllipsoidModel::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::EllipsoidModel::cloneType() const function, expected prototype:\nosg::Object * osg::EllipsoidModel::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::EllipsoidModel::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::EllipsoidModel::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -456,8 +447,7 @@ public:
 	// osg::Object * osg::EllipsoidModel::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::EllipsoidModel::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::EllipsoidModel::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::EllipsoidModel::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::EllipsoidModel::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -468,8 +458,7 @@ public:
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::EllipsoidModel::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::EllipsoidModel::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -482,16 +471,14 @@ public:
 	// bool osg::EllipsoidModel::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::EllipsoidModel::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::EllipsoidModel::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::EllipsoidModel::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::EllipsoidModel::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::EllipsoidModel::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::EllipsoidModel::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -502,15 +489,13 @@ public:
 	// const char * osg::EllipsoidModel::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::EllipsoidModel::libraryName() const function, expected prototype:\nconst char * osg::EllipsoidModel::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::EllipsoidModel::libraryName() const function, expected prototype:\nconst char * osg::EllipsoidModel::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::EllipsoidModel::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::EllipsoidModel::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -521,15 +506,13 @@ public:
 	// const char * osg::EllipsoidModel::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::EllipsoidModel::className() const function, expected prototype:\nconst char * osg::EllipsoidModel::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::EllipsoidModel::className() const function, expected prototype:\nconst char * osg::EllipsoidModel::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::EllipsoidModel::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::EllipsoidModel::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -540,16 +523,14 @@ public:
 	// void osg::EllipsoidModel::setRadiusEquator(double radius)
 	static int _bind_setRadiusEquator(lua_State *L) {
 		if (!_lg_typecheck_setRadiusEquator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::setRadiusEquator(double radius) function, expected prototype:\nvoid osg::EllipsoidModel::setRadiusEquator(double radius)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::setRadiusEquator(double radius) function, expected prototype:\nvoid osg::EllipsoidModel::setRadiusEquator(double radius)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double radius=(double)lua_tonumber(L,2);
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::setRadiusEquator(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::setRadiusEquator(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRadiusEquator(radius);
 
@@ -559,15 +540,13 @@ public:
 	// double osg::EllipsoidModel::getRadiusEquator() const
 	static int _bind_getRadiusEquator(lua_State *L) {
 		if (!_lg_typecheck_getRadiusEquator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::EllipsoidModel::getRadiusEquator() const function, expected prototype:\ndouble osg::EllipsoidModel::getRadiusEquator() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::EllipsoidModel::getRadiusEquator() const function, expected prototype:\ndouble osg::EllipsoidModel::getRadiusEquator() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::EllipsoidModel::getRadiusEquator() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::EllipsoidModel::getRadiusEquator() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getRadiusEquator();
 		lua_pushnumber(L,lret);
@@ -578,16 +557,14 @@ public:
 	// void osg::EllipsoidModel::setRadiusPolar(double radius)
 	static int _bind_setRadiusPolar(lua_State *L) {
 		if (!_lg_typecheck_setRadiusPolar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::setRadiusPolar(double radius) function, expected prototype:\nvoid osg::EllipsoidModel::setRadiusPolar(double radius)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::setRadiusPolar(double radius) function, expected prototype:\nvoid osg::EllipsoidModel::setRadiusPolar(double radius)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double radius=(double)lua_tonumber(L,2);
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::setRadiusPolar(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::setRadiusPolar(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRadiusPolar(radius);
 
@@ -597,15 +574,13 @@ public:
 	// double osg::EllipsoidModel::getRadiusPolar() const
 	static int _bind_getRadiusPolar(lua_State *L) {
 		if (!_lg_typecheck_getRadiusPolar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::EllipsoidModel::getRadiusPolar() const function, expected prototype:\ndouble osg::EllipsoidModel::getRadiusPolar() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::EllipsoidModel::getRadiusPolar() const function, expected prototype:\ndouble osg::EllipsoidModel::getRadiusPolar() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::EllipsoidModel::getRadiusPolar() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::EllipsoidModel::getRadiusPolar() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getRadiusPolar();
 		lua_pushnumber(L,lret);
@@ -616,8 +591,7 @@ public:
 	// void osg::EllipsoidModel::convertLatLongHeightToXYZ(double latitude, double longitude, double height, double & X, double & Y, double & Z) const
 	static int _bind_convertLatLongHeightToXYZ(lua_State *L) {
 		if (!_lg_typecheck_convertLatLongHeightToXYZ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::convertLatLongHeightToXYZ(double latitude, double longitude, double height, double & X, double & Y, double & Z) const function, expected prototype:\nvoid osg::EllipsoidModel::convertLatLongHeightToXYZ(double latitude, double longitude, double height, double & X, double & Y, double & Z) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::convertLatLongHeightToXYZ(double latitude, double longitude, double height, double & X, double & Y, double & Z) const function, expected prototype:\nvoid osg::EllipsoidModel::convertLatLongHeightToXYZ(double latitude, double longitude, double height, double & X, double & Y, double & Z) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double latitude=(double)lua_tonumber(L,2);
@@ -629,8 +603,7 @@ public:
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::convertLatLongHeightToXYZ(double, double, double, double &, double &, double &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::convertLatLongHeightToXYZ(double, double, double, double &, double &, double &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->convertLatLongHeightToXYZ(latitude, longitude, height, X, Y, Z);
 
@@ -643,8 +616,7 @@ public:
 	// void osg::EllipsoidModel::convertXYZToLatLongHeight(double X, double Y, double Z, double & latitude, double & longitude, double & height) const
 	static int _bind_convertXYZToLatLongHeight(lua_State *L) {
 		if (!_lg_typecheck_convertXYZToLatLongHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::convertXYZToLatLongHeight(double X, double Y, double Z, double & latitude, double & longitude, double & height) const function, expected prototype:\nvoid osg::EllipsoidModel::convertXYZToLatLongHeight(double X, double Y, double Z, double & latitude, double & longitude, double & height) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::convertXYZToLatLongHeight(double X, double Y, double Z, double & latitude, double & longitude, double & height) const function, expected prototype:\nvoid osg::EllipsoidModel::convertXYZToLatLongHeight(double X, double Y, double Z, double & latitude, double & longitude, double & height) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double X=(double)lua_tonumber(L,2);
@@ -656,8 +628,7 @@ public:
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::convertXYZToLatLongHeight(double, double, double, double &, double &, double &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::convertXYZToLatLongHeight(double, double, double, double &, double &, double &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->convertXYZToLatLongHeight(X, Y, Z, latitude, longitude, height);
 
@@ -670,8 +641,7 @@ public:
 	// void osg::EllipsoidModel::computeLocalToWorldTransformFromLatLongHeight(double latitude, double longitude, double height, osg::Matrixd & localToWorld) const
 	static int _bind_computeLocalToWorldTransformFromLatLongHeight(lua_State *L) {
 		if (!_lg_typecheck_computeLocalToWorldTransformFromLatLongHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::computeLocalToWorldTransformFromLatLongHeight(double latitude, double longitude, double height, osg::Matrixd & localToWorld) const function, expected prototype:\nvoid osg::EllipsoidModel::computeLocalToWorldTransformFromLatLongHeight(double latitude, double longitude, double height, osg::Matrixd & localToWorld) const\nClass arguments details:\narg 4 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::computeLocalToWorldTransformFromLatLongHeight(double latitude, double longitude, double height, osg::Matrixd & localToWorld) const function, expected prototype:\nvoid osg::EllipsoidModel::computeLocalToWorldTransformFromLatLongHeight(double latitude, double longitude, double height, osg::Matrixd & localToWorld) const\nClass arguments details:\narg 4 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double latitude=(double)lua_tonumber(L,2);
@@ -685,8 +655,7 @@ public:
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::computeLocalToWorldTransformFromLatLongHeight(double, double, double, osg::Matrixd &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::computeLocalToWorldTransformFromLatLongHeight(double, double, double, osg::Matrixd &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->computeLocalToWorldTransformFromLatLongHeight(latitude, longitude, height, localToWorld);
 
@@ -696,8 +665,7 @@ public:
 	// void osg::EllipsoidModel::computeLocalToWorldTransformFromXYZ(double X, double Y, double Z, osg::Matrixd & localToWorld) const
 	static int _bind_computeLocalToWorldTransformFromXYZ(lua_State *L) {
 		if (!_lg_typecheck_computeLocalToWorldTransformFromXYZ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::computeLocalToWorldTransformFromXYZ(double X, double Y, double Z, osg::Matrixd & localToWorld) const function, expected prototype:\nvoid osg::EllipsoidModel::computeLocalToWorldTransformFromXYZ(double X, double Y, double Z, osg::Matrixd & localToWorld) const\nClass arguments details:\narg 4 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::computeLocalToWorldTransformFromXYZ(double X, double Y, double Z, osg::Matrixd & localToWorld) const function, expected prototype:\nvoid osg::EllipsoidModel::computeLocalToWorldTransformFromXYZ(double X, double Y, double Z, osg::Matrixd & localToWorld) const\nClass arguments details:\narg 4 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double X=(double)lua_tonumber(L,2);
@@ -711,8 +679,7 @@ public:
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::computeLocalToWorldTransformFromXYZ(double, double, double, osg::Matrixd &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::computeLocalToWorldTransformFromXYZ(double, double, double, osg::Matrixd &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->computeLocalToWorldTransformFromXYZ(X, Y, Z, localToWorld);
 
@@ -722,8 +689,7 @@ public:
 	// void osg::EllipsoidModel::computeCoordinateFrame(double latitude, double longitude, osg::Matrixd & localToWorld) const
 	static int _bind_computeCoordinateFrame(lua_State *L) {
 		if (!_lg_typecheck_computeCoordinateFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::computeCoordinateFrame(double latitude, double longitude, osg::Matrixd & localToWorld) const function, expected prototype:\nvoid osg::EllipsoidModel::computeCoordinateFrame(double latitude, double longitude, osg::Matrixd & localToWorld) const\nClass arguments details:\narg 3 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::computeCoordinateFrame(double latitude, double longitude, osg::Matrixd & localToWorld) const function, expected prototype:\nvoid osg::EllipsoidModel::computeCoordinateFrame(double latitude, double longitude, osg::Matrixd & localToWorld) const\nClass arguments details:\narg 3 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double latitude=(double)lua_tonumber(L,2);
@@ -736,8 +702,7 @@ public:
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::computeCoordinateFrame(double, double, osg::Matrixd &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::computeCoordinateFrame(double, double, osg::Matrixd &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->computeCoordinateFrame(latitude, longitude, localToWorld);
 
@@ -747,8 +712,7 @@ public:
 	// osg::Vec3d osg::EllipsoidModel::computeLocalUpVector(double X, double Y, double Z) const
 	static int _bind_computeLocalUpVector(lua_State *L) {
 		if (!_lg_typecheck_computeLocalUpVector(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::EllipsoidModel::computeLocalUpVector(double X, double Y, double Z) const function, expected prototype:\nosg::Vec3d osg::EllipsoidModel::computeLocalUpVector(double X, double Y, double Z) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::EllipsoidModel::computeLocalUpVector(double X, double Y, double Z) const function, expected prototype:\nosg::Vec3d osg::EllipsoidModel::computeLocalUpVector(double X, double Y, double Z) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double X=(double)lua_tonumber(L,2);
@@ -757,8 +721,7 @@ public:
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d osg::EllipsoidModel::computeLocalUpVector(double, double, double) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3d osg::EllipsoidModel::computeLocalUpVector(double, double, double) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3d stack_lret = self->computeLocalUpVector(X, Y, Z);
 		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
@@ -772,15 +735,13 @@ public:
 	// bool osg::EllipsoidModel::isWGS84() const
 	static int _bind_isWGS84(lua_State *L) {
 		if (!_lg_typecheck_isWGS84(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::EllipsoidModel::isWGS84() const function, expected prototype:\nbool osg::EllipsoidModel::isWGS84() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::EllipsoidModel::isWGS84() const function, expected prototype:\nbool osg::EllipsoidModel::isWGS84() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::EllipsoidModel::isWGS84() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::EllipsoidModel::isWGS84() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isWGS84();
 		lua_pushboolean(L,lret?1:0);
@@ -791,16 +752,14 @@ public:
 	// void osg::EllipsoidModel::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::EllipsoidModel::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::EllipsoidModel::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EllipsoidModel::setThreadSafeRefUnref(threadSafe);
 
@@ -810,16 +769,14 @@ public:
 	// void osg::EllipsoidModel::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::base_setName(const std::string & name) function, expected prototype:\nvoid osg::EllipsoidModel::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::base_setName(const std::string & name) function, expected prototype:\nvoid osg::EllipsoidModel::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EllipsoidModel::setName(name);
 
@@ -829,15 +786,13 @@ public:
 	// void osg::EllipsoidModel::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::base_computeDataVariance() function, expected prototype:\nvoid osg::EllipsoidModel::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::base_computeDataVariance() function, expected prototype:\nvoid osg::EllipsoidModel::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EllipsoidModel::computeDataVariance();
 
@@ -847,16 +802,14 @@ public:
 	// void osg::EllipsoidModel::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::EllipsoidModel::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::EllipsoidModel::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EllipsoidModel::setUserData(obj);
 
@@ -866,15 +819,13 @@ public:
 	// osg::Referenced * osg::EllipsoidModel::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::EllipsoidModel::base_getUserData() function, expected prototype:\nosg::Referenced * osg::EllipsoidModel::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::EllipsoidModel::base_getUserData() function, expected prototype:\nosg::Referenced * osg::EllipsoidModel::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::EllipsoidModel::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::EllipsoidModel::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->EllipsoidModel::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -887,15 +838,13 @@ public:
 	// const osg::Referenced * osg::EllipsoidModel::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::EllipsoidModel::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::EllipsoidModel::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::EllipsoidModel::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::EllipsoidModel::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::EllipsoidModel::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::EllipsoidModel::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->EllipsoidModel::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -917,8 +866,7 @@ public:
 	// void osg::EllipsoidModel::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::EllipsoidModel::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::EllipsoidModel::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::EllipsoidModel::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -927,8 +875,7 @@ public:
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EllipsoidModel::releaseGLObjects(_arg1);
 
@@ -938,15 +885,13 @@ public:
 	// osg::Object * osg::EllipsoidModel::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::EllipsoidModel::base_cloneType() const function, expected prototype:\nosg::Object * osg::EllipsoidModel::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::EllipsoidModel::base_cloneType() const function, expected prototype:\nosg::Object * osg::EllipsoidModel::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::EllipsoidModel::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::EllipsoidModel::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->EllipsoidModel::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -959,8 +904,7 @@ public:
 	// osg::Object * osg::EllipsoidModel::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::EllipsoidModel::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::EllipsoidModel::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::EllipsoidModel::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::EllipsoidModel::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -971,8 +915,7 @@ public:
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::EllipsoidModel::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::EllipsoidModel::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->EllipsoidModel::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -985,16 +928,14 @@ public:
 	// bool osg::EllipsoidModel::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::EllipsoidModel::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::EllipsoidModel::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::EllipsoidModel::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::EllipsoidModel::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::EllipsoidModel::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::EllipsoidModel::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->EllipsoidModel::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1005,15 +946,13 @@ public:
 	// const char * osg::EllipsoidModel::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::EllipsoidModel::base_libraryName() const function, expected prototype:\nconst char * osg::EllipsoidModel::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::EllipsoidModel::base_libraryName() const function, expected prototype:\nconst char * osg::EllipsoidModel::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::EllipsoidModel::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::EllipsoidModel::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->EllipsoidModel::libraryName();
 		lua_pushstring(L,lret);
@@ -1024,15 +963,13 @@ public:
 	// const char * osg::EllipsoidModel::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::EllipsoidModel::base_className() const function, expected prototype:\nconst char * osg::EllipsoidModel::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::EllipsoidModel::base_className() const function, expected prototype:\nconst char * osg::EllipsoidModel::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< osg::EllipsoidModel >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::EllipsoidModel::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::EllipsoidModel::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->EllipsoidModel::className();
 		lua_pushstring(L,lret);

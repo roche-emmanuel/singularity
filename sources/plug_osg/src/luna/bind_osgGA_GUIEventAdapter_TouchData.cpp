@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::GUIEventAdapter::TouchData* self= (osgGA::GUIEventAdapter::TouchData*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -257,8 +254,7 @@ public:
 	// osgGA::GUIEventAdapter::TouchData::TouchData()
 	static osgGA::GUIEventAdapter::TouchData* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter::TouchData::TouchData() function, expected prototype:\nosgGA::GUIEventAdapter::TouchData::TouchData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter::TouchData::TouchData() function, expected prototype:\nosgGA::GUIEventAdapter::TouchData::TouchData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -268,8 +264,7 @@ public:
 	// osgGA::GUIEventAdapter::TouchData::TouchData(const osgGA::GUIEventAdapter::TouchData & td, const osg::CopyOp & copyop)
 	static osgGA::GUIEventAdapter::TouchData* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter::TouchData::TouchData(const osgGA::GUIEventAdapter::TouchData & td, const osg::CopyOp & copyop) function, expected prototype:\nosgGA::GUIEventAdapter::TouchData::TouchData(const osgGA::GUIEventAdapter::TouchData & td, const osg::CopyOp & copyop)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter::TouchData::TouchData(const osgGA::GUIEventAdapter::TouchData & td, const osg::CopyOp & copyop) function, expected prototype:\nosgGA::GUIEventAdapter::TouchData::TouchData(const osgGA::GUIEventAdapter::TouchData & td, const osg::CopyOp & copyop)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter::TouchData* td_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1));
@@ -289,8 +284,7 @@ public:
 	// osgGA::GUIEventAdapter::TouchData::TouchData(lua_Table * data)
 	static osgGA::GUIEventAdapter::TouchData* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter::TouchData::TouchData(lua_Table * data) function, expected prototype:\nosgGA::GUIEventAdapter::TouchData::TouchData(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter::TouchData::TouchData(lua_Table * data) function, expected prototype:\nosgGA::GUIEventAdapter::TouchData::TouchData(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -300,8 +294,7 @@ public:
 	// osgGA::GUIEventAdapter::TouchData::TouchData(lua_Table * data, const osgGA::GUIEventAdapter::TouchData & td, const osg::CopyOp & copyop)
 	static osgGA::GUIEventAdapter::TouchData* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter::TouchData::TouchData(lua_Table * data, const osgGA::GUIEventAdapter::TouchData & td, const osg::CopyOp & copyop) function, expected prototype:\nosgGA::GUIEventAdapter::TouchData::TouchData(lua_Table * data, const osgGA::GUIEventAdapter::TouchData & td, const osg::CopyOp & copyop)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter::TouchData::TouchData(lua_Table * data, const osgGA::GUIEventAdapter::TouchData & td, const osg::CopyOp & copyop) function, expected prototype:\nosgGA::GUIEventAdapter::TouchData::TouchData(lua_Table * data, const osgGA::GUIEventAdapter::TouchData & td, const osg::CopyOp & copyop)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter::TouchData* td_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,2));
@@ -334,15 +327,13 @@ public:
 	// osg::Object * osgGA::GUIEventAdapter::TouchData::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::GUIEventAdapter::TouchData::cloneType() const function, expected prototype:\nosg::Object * osgGA::GUIEventAdapter::TouchData::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::GUIEventAdapter::TouchData::cloneType() const function, expected prototype:\nosg::Object * osgGA::GUIEventAdapter::TouchData::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::GUIEventAdapter::TouchData::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::GUIEventAdapter::TouchData::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -355,8 +346,7 @@ public:
 	// osg::Object * osgGA::GUIEventAdapter::TouchData::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::GUIEventAdapter::TouchData::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::GUIEventAdapter::TouchData::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::GUIEventAdapter::TouchData::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::GUIEventAdapter::TouchData::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -367,8 +357,7 @@ public:
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::GUIEventAdapter::TouchData::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::GUIEventAdapter::TouchData::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -381,16 +370,14 @@ public:
 	// bool osgGA::GUIEventAdapter::TouchData::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::GUIEventAdapter::TouchData::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgGA::GUIEventAdapter::TouchData::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::GUIEventAdapter::TouchData::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgGA::GUIEventAdapter::TouchData::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::GUIEventAdapter::TouchData::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::GUIEventAdapter::TouchData::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -401,15 +388,13 @@ public:
 	// const char * osgGA::GUIEventAdapter::TouchData::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgGA::GUIEventAdapter::TouchData::libraryName() const function, expected prototype:\nconst char * osgGA::GUIEventAdapter::TouchData::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgGA::GUIEventAdapter::TouchData::libraryName() const function, expected prototype:\nconst char * osgGA::GUIEventAdapter::TouchData::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::GUIEventAdapter::TouchData::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgGA::GUIEventAdapter::TouchData::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -420,15 +405,13 @@ public:
 	// const char * osgGA::GUIEventAdapter::TouchData::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgGA::GUIEventAdapter::TouchData::className() const function, expected prototype:\nconst char * osgGA::GUIEventAdapter::TouchData::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgGA::GUIEventAdapter::TouchData::className() const function, expected prototype:\nconst char * osgGA::GUIEventAdapter::TouchData::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::GUIEventAdapter::TouchData::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgGA::GUIEventAdapter::TouchData::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -439,15 +422,13 @@ public:
 	// unsigned int osgGA::GUIEventAdapter::TouchData::getNumTouchPoints() const
 	static int _bind_getNumTouchPoints(lua_State *L) {
 		if (!_lg_typecheck_getNumTouchPoints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgGA::GUIEventAdapter::TouchData::getNumTouchPoints() const function, expected prototype:\nunsigned int osgGA::GUIEventAdapter::TouchData::getNumTouchPoints() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgGA::GUIEventAdapter::TouchData::getNumTouchPoints() const function, expected prototype:\nunsigned int osgGA::GUIEventAdapter::TouchData::getNumTouchPoints() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgGA::GUIEventAdapter::TouchData::getNumTouchPoints() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgGA::GUIEventAdapter::TouchData::getNumTouchPoints() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getNumTouchPoints();
 		lua_pushnumber(L,lret);
@@ -458,16 +439,14 @@ public:
 	// const osgGA::GUIEventAdapter::TouchData::TouchPoint osgGA::GUIEventAdapter::TouchData::get(unsigned int i) const
 	static int _bind_get(lua_State *L) {
 		if (!_lg_typecheck_get(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgGA::GUIEventAdapter::TouchData::TouchPoint osgGA::GUIEventAdapter::TouchData::get(unsigned int i) const function, expected prototype:\nconst osgGA::GUIEventAdapter::TouchData::TouchPoint osgGA::GUIEventAdapter::TouchData::get(unsigned int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgGA::GUIEventAdapter::TouchData::TouchPoint osgGA::GUIEventAdapter::TouchData::get(unsigned int i) const function, expected prototype:\nconst osgGA::GUIEventAdapter::TouchData::TouchPoint osgGA::GUIEventAdapter::TouchData::get(unsigned int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgGA::GUIEventAdapter::TouchData::TouchPoint osgGA::GUIEventAdapter::TouchData::get(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgGA::GUIEventAdapter::TouchData::TouchPoint osgGA::GUIEventAdapter::TouchData::get(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgGA::GUIEventAdapter::TouchData::TouchPoint stack_lret = self->get(i);
 		const osgGA::GUIEventAdapter::TouchData::TouchPoint* lret = new const osgGA::GUIEventAdapter::TouchData::TouchPoint(stack_lret);
@@ -481,16 +460,14 @@ public:
 	// void osgGA::GUIEventAdapter::TouchData::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::TouchData::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgGA::GUIEventAdapter::TouchData::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::TouchData::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgGA::GUIEventAdapter::TouchData::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::TouchData::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::TouchData::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TouchData::setThreadSafeRefUnref(threadSafe);
 
@@ -500,16 +477,14 @@ public:
 	// void osgGA::GUIEventAdapter::TouchData::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::TouchData::base_setName(const std::string & name) function, expected prototype:\nvoid osgGA::GUIEventAdapter::TouchData::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::TouchData::base_setName(const std::string & name) function, expected prototype:\nvoid osgGA::GUIEventAdapter::TouchData::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::TouchData::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::TouchData::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TouchData::setName(name);
 
@@ -519,15 +494,13 @@ public:
 	// void osgGA::GUIEventAdapter::TouchData::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::TouchData::base_computeDataVariance() function, expected prototype:\nvoid osgGA::GUIEventAdapter::TouchData::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::TouchData::base_computeDataVariance() function, expected prototype:\nvoid osgGA::GUIEventAdapter::TouchData::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::TouchData::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::TouchData::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TouchData::computeDataVariance();
 
@@ -537,16 +510,14 @@ public:
 	// void osgGA::GUIEventAdapter::TouchData::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::TouchData::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgGA::GUIEventAdapter::TouchData::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::TouchData::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgGA::GUIEventAdapter::TouchData::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::TouchData::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::TouchData::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TouchData::setUserData(obj);
 
@@ -556,15 +527,13 @@ public:
 	// osg::Referenced * osgGA::GUIEventAdapter::TouchData::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osgGA::GUIEventAdapter::TouchData::base_getUserData() function, expected prototype:\nosg::Referenced * osgGA::GUIEventAdapter::TouchData::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osgGA::GUIEventAdapter::TouchData::base_getUserData() function, expected prototype:\nosg::Referenced * osgGA::GUIEventAdapter::TouchData::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::GUIEventAdapter::TouchData::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::GUIEventAdapter::TouchData::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->TouchData::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -577,15 +546,13 @@ public:
 	// const osg::Referenced * osgGA::GUIEventAdapter::TouchData::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgGA::GUIEventAdapter::TouchData::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgGA::GUIEventAdapter::TouchData::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgGA::GUIEventAdapter::TouchData::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgGA::GUIEventAdapter::TouchData::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::GUIEventAdapter::TouchData::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::GUIEventAdapter::TouchData::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->TouchData::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -607,8 +574,7 @@ public:
 	// void osgGA::GUIEventAdapter::TouchData::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::TouchData::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgGA::GUIEventAdapter::TouchData::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::TouchData::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgGA::GUIEventAdapter::TouchData::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -617,8 +583,7 @@ public:
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::TouchData::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::TouchData::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TouchData::releaseGLObjects(_arg1);
 
@@ -628,15 +593,13 @@ public:
 	// osg::Object * osgGA::GUIEventAdapter::TouchData::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::GUIEventAdapter::TouchData::base_cloneType() const function, expected prototype:\nosg::Object * osgGA::GUIEventAdapter::TouchData::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::GUIEventAdapter::TouchData::base_cloneType() const function, expected prototype:\nosg::Object * osgGA::GUIEventAdapter::TouchData::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::GUIEventAdapter::TouchData::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::GUIEventAdapter::TouchData::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->TouchData::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -649,8 +612,7 @@ public:
 	// osg::Object * osgGA::GUIEventAdapter::TouchData::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::GUIEventAdapter::TouchData::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::GUIEventAdapter::TouchData::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::GUIEventAdapter::TouchData::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::GUIEventAdapter::TouchData::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -661,8 +623,7 @@ public:
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::GUIEventAdapter::TouchData::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::GUIEventAdapter::TouchData::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->TouchData::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -675,16 +636,14 @@ public:
 	// bool osgGA::GUIEventAdapter::TouchData::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::GUIEventAdapter::TouchData::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgGA::GUIEventAdapter::TouchData::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::GUIEventAdapter::TouchData::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgGA::GUIEventAdapter::TouchData::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::GUIEventAdapter::TouchData::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgGA::GUIEventAdapter::TouchData::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->TouchData::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -695,15 +654,13 @@ public:
 	// const char * osgGA::GUIEventAdapter::TouchData::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgGA::GUIEventAdapter::TouchData::base_libraryName() const function, expected prototype:\nconst char * osgGA::GUIEventAdapter::TouchData::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgGA::GUIEventAdapter::TouchData::base_libraryName() const function, expected prototype:\nconst char * osgGA::GUIEventAdapter::TouchData::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::GUIEventAdapter::TouchData::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgGA::GUIEventAdapter::TouchData::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->TouchData::libraryName();
 		lua_pushstring(L,lret);
@@ -714,15 +671,13 @@ public:
 	// const char * osgGA::GUIEventAdapter::TouchData::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgGA::GUIEventAdapter::TouchData::base_className() const function, expected prototype:\nconst char * osgGA::GUIEventAdapter::TouchData::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgGA::GUIEventAdapter::TouchData::base_className() const function, expected prototype:\nconst char * osgGA::GUIEventAdapter::TouchData::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::GUIEventAdapter::TouchData::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgGA::GUIEventAdapter::TouchData::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->TouchData::className();
 		lua_pushstring(L,lret);

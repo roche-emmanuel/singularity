@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::LineSegment* self= (osg::LineSegment*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -304,8 +301,7 @@ public:
 	// osg::LineSegment::LineSegment()
 	static osg::LineSegment* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::LineSegment::LineSegment() function, expected prototype:\nosg::LineSegment::LineSegment()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::LineSegment::LineSegment() function, expected prototype:\nosg::LineSegment::LineSegment()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -315,8 +311,7 @@ public:
 	// osg::LineSegment::LineSegment(const osg::LineSegment & seg)
 	static osg::LineSegment* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::LineSegment::LineSegment(const osg::LineSegment & seg) function, expected prototype:\nosg::LineSegment::LineSegment(const osg::LineSegment & seg)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::LineSegment::LineSegment(const osg::LineSegment & seg) function, expected prototype:\nosg::LineSegment::LineSegment(const osg::LineSegment & seg)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::LineSegment* seg_ptr=(Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1));
@@ -331,8 +326,7 @@ public:
 	// osg::LineSegment::LineSegment(const osg::Vec3d & s, const osg::Vec3d & e)
 	static osg::LineSegment* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::LineSegment::LineSegment(const osg::Vec3d & s, const osg::Vec3d & e) function, expected prototype:\nosg::LineSegment::LineSegment(const osg::Vec3d & s, const osg::Vec3d & e)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in osg::LineSegment::LineSegment(const osg::Vec3d & s, const osg::Vec3d & e) function, expected prototype:\nosg::LineSegment::LineSegment(const osg::Vec3d & s, const osg::Vec3d & e)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* s_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -352,8 +346,7 @@ public:
 	// osg::LineSegment::LineSegment(lua_Table * data)
 	static osg::LineSegment* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::LineSegment::LineSegment(lua_Table * data) function, expected prototype:\nosg::LineSegment::LineSegment(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::LineSegment::LineSegment(lua_Table * data) function, expected prototype:\nosg::LineSegment::LineSegment(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -363,8 +356,7 @@ public:
 	// osg::LineSegment::LineSegment(lua_Table * data, const osg::LineSegment & seg)
 	static osg::LineSegment* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::LineSegment::LineSegment(lua_Table * data, const osg::LineSegment & seg) function, expected prototype:\nosg::LineSegment::LineSegment(lua_Table * data, const osg::LineSegment & seg)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::LineSegment::LineSegment(lua_Table * data, const osg::LineSegment & seg) function, expected prototype:\nosg::LineSegment::LineSegment(lua_Table * data, const osg::LineSegment & seg)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::LineSegment* seg_ptr=(Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,2));
@@ -379,8 +371,7 @@ public:
 	// osg::LineSegment::LineSegment(lua_Table * data, const osg::Vec3d & s, const osg::Vec3d & e)
 	static osg::LineSegment* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::LineSegment::LineSegment(lua_Table * data, const osg::Vec3d & s, const osg::Vec3d & e) function, expected prototype:\nosg::LineSegment::LineSegment(lua_Table * data, const osg::Vec3d & s, const osg::Vec3d & e)\nClass arguments details:\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in osg::LineSegment::LineSegment(lua_Table * data, const osg::Vec3d & s, const osg::Vec3d & e) function, expected prototype:\nosg::LineSegment::LineSegment(lua_Table * data, const osg::Vec3d & s, const osg::Vec3d & e)\nClass arguments details:\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* s_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -415,8 +406,7 @@ public:
 	// void osg::LineSegment::set(const osg::Vec3d & s, const osg::Vec3d & e)
 	static int _bind_set(lua_State *L) {
 		if (!_lg_typecheck_set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::LineSegment::set(const osg::Vec3d & s, const osg::Vec3d & e) function, expected prototype:\nvoid osg::LineSegment::set(const osg::Vec3d & s, const osg::Vec3d & e)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::LineSegment::set(const osg::Vec3d & s, const osg::Vec3d & e) function, expected prototype:\nvoid osg::LineSegment::set(const osg::Vec3d & s, const osg::Vec3d & e)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* s_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -432,8 +422,7 @@ public:
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::LineSegment::set(const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::LineSegment::set(const osg::Vec3d &, const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(s, e);
 
@@ -443,15 +432,13 @@ public:
 	// osg::Vec3d & osg::LineSegment::start()
 	static int _bind_start_overload_1(lua_State *L) {
 		if (!_lg_typecheck_start_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3d & osg::LineSegment::start() function, expected prototype:\nosg::Vec3d & osg::LineSegment::start()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3d & osg::LineSegment::start() function, expected prototype:\nosg::Vec3d & osg::LineSegment::start()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d & osg::LineSegment::start(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3d & osg::LineSegment::start(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3d* lret = &self->start();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -464,15 +451,13 @@ public:
 	// const osg::Vec3d & osg::LineSegment::start() const
 	static int _bind_start_overload_2(lua_State *L) {
 		if (!_lg_typecheck_start_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::LineSegment::start() const function, expected prototype:\nconst osg::Vec3d & osg::LineSegment::start() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::LineSegment::start() const function, expected prototype:\nconst osg::Vec3d & osg::LineSegment::start() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::LineSegment::start() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::LineSegment::start() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3d* lret = &self->start();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -494,15 +479,13 @@ public:
 	// osg::Vec3d & osg::LineSegment::end()
 	static int _bind_end_overload_1(lua_State *L) {
 		if (!_lg_typecheck_end_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3d & osg::LineSegment::end() function, expected prototype:\nosg::Vec3d & osg::LineSegment::end()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3d & osg::LineSegment::end() function, expected prototype:\nosg::Vec3d & osg::LineSegment::end()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d & osg::LineSegment::end(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3d & osg::LineSegment::end(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3d* lret = &self->end();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -515,15 +498,13 @@ public:
 	// const osg::Vec3d & osg::LineSegment::end() const
 	static int _bind_end_overload_2(lua_State *L) {
 		if (!_lg_typecheck_end_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::LineSegment::end() const function, expected prototype:\nconst osg::Vec3d & osg::LineSegment::end() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::LineSegment::end() const function, expected prototype:\nconst osg::Vec3d & osg::LineSegment::end() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::LineSegment::end() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::LineSegment::end() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3d* lret = &self->end();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -545,15 +526,13 @@ public:
 	// bool osg::LineSegment::valid() const
 	static int _bind_valid(lua_State *L) {
 		if (!_lg_typecheck_valid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::valid() const function, expected prototype:\nbool osg::LineSegment::valid() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::valid() const function, expected prototype:\nbool osg::LineSegment::valid() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::LineSegment::valid() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::LineSegment::valid() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->valid();
 		lua_pushboolean(L,lret?1:0);
@@ -564,8 +543,7 @@ public:
 	// bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb) const
 	static int _bind_intersect_overload_1(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n");
+			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
@@ -576,8 +554,7 @@ public:
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingBoxd &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingBoxd &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->intersect(bb);
 		lua_pushboolean(L,lret?1:0);
@@ -588,8 +565,7 @@ public:
 	// bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, float & r1, float & r2) const
 	static int _bind_intersect_overload_2(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, float & r1, float & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, float & r1, float & r2) const\nClass arguments details:\narg 1 ID = 82744897\n");
+			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, float & r1, float & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, float & r1, float & r2) const\nClass arguments details:\narg 1 ID = 82744897\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
@@ -602,8 +578,7 @@ public:
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingBoxd &, float &, float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingBoxd &, float &, float &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->intersect(bb, r1, r2);
 		lua_pushboolean(L,lret?1:0);
@@ -616,8 +591,7 @@ public:
 	// bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, double & r1, double & r2) const
 	static int _bind_intersect_overload_3(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, double & r1, double & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, double & r1, double & r2) const\nClass arguments details:\narg 1 ID = 82744897\n");
+			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, double & r1, double & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, double & r1, double & r2) const\nClass arguments details:\narg 1 ID = 82744897\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
@@ -630,8 +604,7 @@ public:
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingBoxd &, double &, double &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingBoxd &, double &, double &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->intersect(bb, r1, r2);
 		lua_pushboolean(L,lret?1:0);
@@ -644,8 +617,7 @@ public:
 	// bool osg::LineSegment::intersect(const osg::BoundingSphered & bs) const
 	static int _bind_intersect_overload_4(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingSphered & bs) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingSphered & bs) const\nClass arguments details:\narg 1 ID = 54337300\n");
+			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingSphered & bs) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingSphered & bs) const\nClass arguments details:\narg 1 ID = 54337300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
@@ -656,8 +628,7 @@ public:
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingSphered &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingSphered &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->intersect(bs);
 		lua_pushboolean(L,lret?1:0);
@@ -668,8 +639,7 @@ public:
 	// bool osg::LineSegment::intersect(const osg::BoundingSphered & bs, float & r1, float & r2) const
 	static int _bind_intersect_overload_5(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingSphered & bs, float & r1, float & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingSphered & bs, float & r1, float & r2) const\nClass arguments details:\narg 1 ID = 54337300\n");
+			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingSphered & bs, float & r1, float & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingSphered & bs, float & r1, float & r2) const\nClass arguments details:\narg 1 ID = 54337300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
@@ -682,8 +652,7 @@ public:
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingSphered &, float &, float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingSphered &, float &, float &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->intersect(bs, r1, r2);
 		lua_pushboolean(L,lret?1:0);
@@ -696,8 +665,7 @@ public:
 	// bool osg::LineSegment::intersect(const osg::BoundingSphered & bs, double & r1, double & r2) const
 	static int _bind_intersect_overload_6(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingSphered & bs, double & r1, double & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingSphered & bs, double & r1, double & r2) const\nClass arguments details:\narg 1 ID = 54337300\n");
+			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingSphered & bs, double & r1, double & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingSphered & bs, double & r1, double & r2) const\nClass arguments details:\narg 1 ID = 54337300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
@@ -710,8 +678,7 @@ public:
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingSphered &, double &, double &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingSphered &, double &, double &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->intersect(bs, r1, r2);
 		lua_pushboolean(L,lret?1:0);
@@ -724,8 +691,7 @@ public:
 	// bool osg::LineSegment::intersect(const osg::Vec3f & v1, const osg::Vec3f & v2, const osg::Vec3f & v3, float & r)
 	static int _bind_intersect_overload_7(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::Vec3f & v1, const osg::Vec3f & v2, const osg::Vec3f & v3, float & r) function, expected prototype:\nbool osg::LineSegment::intersect(const osg::Vec3f & v1, const osg::Vec3f & v2, const osg::Vec3f & v3, float & r)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\narg 3 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::Vec3f & v1, const osg::Vec3f & v2, const osg::Vec3f & v3, float & r) function, expected prototype:\nbool osg::LineSegment::intersect(const osg::Vec3f & v1, const osg::Vec3f & v2, const osg::Vec3f & v3, float & r)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\narg 3 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -747,8 +713,7 @@ public:
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::Vec3f &, const osg::Vec3f &, const osg::Vec3f &, float &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::Vec3f &, const osg::Vec3f &, const osg::Vec3f &, float &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->intersect(v1, v2, v3, r);
 		lua_pushboolean(L,lret?1:0);
@@ -760,8 +725,7 @@ public:
 	// bool osg::LineSegment::intersect(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3, double & r)
 	static int _bind_intersect_overload_8(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3, double & r) function, expected prototype:\nbool osg::LineSegment::intersect(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3, double & r)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3, double & r) function, expected prototype:\nbool osg::LineSegment::intersect(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3, double & r)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* v1_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -783,8 +747,7 @@ public:
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, double &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, double &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->intersect(v1, v2, v3, r);
 		lua_pushboolean(L,lret?1:0);
@@ -811,8 +774,7 @@ public:
 	// void osg::LineSegment::mult(const osg::LineSegment & seg, const osg::Matrixd & m)
 	static int _bind_mult_overload_1(lua_State *L) {
 		if (!_lg_typecheck_mult_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::LineSegment::mult(const osg::LineSegment & seg, const osg::Matrixd & m) function, expected prototype:\nvoid osg::LineSegment::mult(const osg::LineSegment & seg, const osg::Matrixd & m)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::LineSegment::mult(const osg::LineSegment & seg, const osg::Matrixd & m) function, expected prototype:\nvoid osg::LineSegment::mult(const osg::LineSegment & seg, const osg::Matrixd & m)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::LineSegment* seg_ptr=(Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,2));
@@ -828,8 +790,7 @@ public:
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::LineSegment::mult(const osg::LineSegment &, const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::LineSegment::mult(const osg::LineSegment &, const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mult(seg, m);
 
@@ -839,8 +800,7 @@ public:
 	// void osg::LineSegment::mult(const osg::Matrixd & m, const osg::LineSegment & seg)
 	static int _bind_mult_overload_2(lua_State *L) {
 		if (!_lg_typecheck_mult_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::LineSegment::mult(const osg::Matrixd & m, const osg::LineSegment & seg) function, expected prototype:\nvoid osg::LineSegment::mult(const osg::Matrixd & m, const osg::LineSegment & seg)\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::LineSegment::mult(const osg::Matrixd & m, const osg::LineSegment & seg) function, expected prototype:\nvoid osg::LineSegment::mult(const osg::Matrixd & m, const osg::LineSegment & seg)\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* m_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -856,8 +816,7 @@ public:
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::LineSegment::mult(const osg::Matrixd &, const osg::LineSegment &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::LineSegment::mult(const osg::Matrixd &, const osg::LineSegment &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mult(m, seg);
 
@@ -876,16 +835,14 @@ public:
 	// void osg::LineSegment::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::LineSegment::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::LineSegment::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::LineSegment::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::LineSegment::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::LineSegment::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::LineSegment::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineSegment::setThreadSafeRefUnref(threadSafe);
 
@@ -897,8 +854,7 @@ public:
 	// osg::LineSegment & osg::LineSegment::operator=(const osg::LineSegment & seg)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::LineSegment & osg::LineSegment::operator=(const osg::LineSegment & seg) function, expected prototype:\nosg::LineSegment & osg::LineSegment::operator=(const osg::LineSegment & seg)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::LineSegment & osg::LineSegment::operator=(const osg::LineSegment & seg) function, expected prototype:\nosg::LineSegment & osg::LineSegment::operator=(const osg::LineSegment & seg)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::LineSegment* seg_ptr=(Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,2));
@@ -909,8 +865,7 @@ public:
 
 		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::LineSegment & osg::LineSegment::operator=(const osg::LineSegment &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::LineSegment & osg::LineSegment::operator=(const osg::LineSegment &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::LineSegment* lret = &self->operator=(seg);
 		if(!lret) return 0; // Do not write NULL pointers.

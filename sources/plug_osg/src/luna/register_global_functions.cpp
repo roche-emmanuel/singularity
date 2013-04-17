@@ -186,8 +186,7 @@ inline static bool _lg_typecheck_osgViewerGetLibraryName(lua_State *L) {
 // void glLoadMatrix(const float * mat)
 static int _bind_glLoadMatrix_overload_1(lua_State *L) {
 	if (!_lg_typecheck_glLoadMatrix_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glLoadMatrix(const float * mat) function, expected prototype:\nvoid glLoadMatrix(const float * mat)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glLoadMatrix(const float * mat) function, expected prototype:\nvoid glLoadMatrix(const float * mat)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const float* mat=(const float*)Luna< void >::check(L,1);
@@ -200,8 +199,7 @@ static int _bind_glLoadMatrix_overload_1(lua_State *L) {
 // void glLoadMatrix(const double * mat)
 static int _bind_glLoadMatrix_overload_2(lua_State *L) {
 	if (!_lg_typecheck_glLoadMatrix_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glLoadMatrix(const double * mat) function, expected prototype:\nvoid glLoadMatrix(const double * mat)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glLoadMatrix(const double * mat) function, expected prototype:\nvoid glLoadMatrix(const double * mat)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const double* mat=(const double*)Luna< void >::check(L,1);
@@ -223,8 +221,7 @@ static int _bind_glLoadMatrix(lua_State *L) {
 // void glMultMatrix(const float * mat)
 static int _bind_glMultMatrix_overload_1(lua_State *L) {
 	if (!_lg_typecheck_glMultMatrix_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMultMatrix(const float * mat) function, expected prototype:\nvoid glMultMatrix(const float * mat)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMultMatrix(const float * mat) function, expected prototype:\nvoid glMultMatrix(const float * mat)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const float* mat=(const float*)Luna< void >::check(L,1);
@@ -237,8 +234,7 @@ static int _bind_glMultMatrix_overload_1(lua_State *L) {
 // void glMultMatrix(const double * mat)
 static int _bind_glMultMatrix_overload_2(lua_State *L) {
 	if (!_lg_typecheck_glMultMatrix_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMultMatrix(const double * mat) function, expected prototype:\nvoid glMultMatrix(const double * mat)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMultMatrix(const double * mat) function, expected prototype:\nvoid glMultMatrix(const double * mat)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const double* mat=(const double*)Luna< void >::check(L,1);
@@ -260,8 +256,7 @@ static int _bind_glMultMatrix(lua_State *L) {
 // const char * OpenThreadsGetVersion()
 static int _bind_OpenThreadsGetVersion(lua_State *L) {
 	if (!_lg_typecheck_OpenThreadsGetVersion(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * OpenThreadsGetVersion() function, expected prototype:\nconst char * OpenThreadsGetVersion()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * OpenThreadsGetVersion() function, expected prototype:\nconst char * OpenThreadsGetVersion()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -274,8 +269,7 @@ static int _bind_OpenThreadsGetVersion(lua_State *L) {
 // const char * OpenThreadsGetSOVersion()
 static int _bind_OpenThreadsGetSOVersion(lua_State *L) {
 	if (!_lg_typecheck_OpenThreadsGetSOVersion(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * OpenThreadsGetSOVersion() function, expected prototype:\nconst char * OpenThreadsGetSOVersion()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * OpenThreadsGetSOVersion() function, expected prototype:\nconst char * OpenThreadsGetSOVersion()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -288,8 +282,7 @@ static int _bind_OpenThreadsGetSOVersion(lua_State *L) {
 // const char * OpenThreadsGetLibraryName()
 static int _bind_OpenThreadsGetLibraryName(lua_State *L) {
 	if (!_lg_typecheck_OpenThreadsGetLibraryName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * OpenThreadsGetLibraryName() function, expected prototype:\nconst char * OpenThreadsGetLibraryName()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * OpenThreadsGetLibraryName() function, expected prototype:\nconst char * OpenThreadsGetLibraryName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -302,8 +295,7 @@ static int _bind_OpenThreadsGetLibraryName(lua_State *L) {
 // const char * osgGetVersion()
 static int _bind_osgGetVersion(lua_State *L) {
 	if (!_lg_typecheck_osgGetVersion(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * osgGetVersion() function, expected prototype:\nconst char * osgGetVersion()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * osgGetVersion() function, expected prototype:\nconst char * osgGetVersion()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -316,8 +308,7 @@ static int _bind_osgGetVersion(lua_State *L) {
 // const char * osgGetSOVersion()
 static int _bind_osgGetSOVersion(lua_State *L) {
 	if (!_lg_typecheck_osgGetSOVersion(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * osgGetSOVersion() function, expected prototype:\nconst char * osgGetSOVersion()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * osgGetSOVersion() function, expected prototype:\nconst char * osgGetSOVersion()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -330,8 +321,7 @@ static int _bind_osgGetSOVersion(lua_State *L) {
 // const char * osgGetLibraryName()
 static int _bind_osgGetLibraryName(lua_State *L) {
 	if (!_lg_typecheck_osgGetLibraryName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * osgGetLibraryName() function, expected prototype:\nconst char * osgGetLibraryName()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * osgGetLibraryName() function, expected prototype:\nconst char * osgGetLibraryName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -344,8 +334,7 @@ static int _bind_osgGetLibraryName(lua_State *L) {
 // const char * osgDBGetVersion()
 static int _bind_osgDBGetVersion(lua_State *L) {
 	if (!_lg_typecheck_osgDBGetVersion(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * osgDBGetVersion() function, expected prototype:\nconst char * osgDBGetVersion()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * osgDBGetVersion() function, expected prototype:\nconst char * osgDBGetVersion()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -358,8 +347,7 @@ static int _bind_osgDBGetVersion(lua_State *L) {
 // const char * osgDBGetLibraryName()
 static int _bind_osgDBGetLibraryName(lua_State *L) {
 	if (!_lg_typecheck_osgDBGetLibraryName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * osgDBGetLibraryName() function, expected prototype:\nconst char * osgDBGetLibraryName()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * osgDBGetLibraryName() function, expected prototype:\nconst char * osgDBGetLibraryName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -372,8 +360,7 @@ static int _bind_osgDBGetLibraryName(lua_State *L) {
 // const char * osgGAGetVersion()
 static int _bind_osgGAGetVersion(lua_State *L) {
 	if (!_lg_typecheck_osgGAGetVersion(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * osgGAGetVersion() function, expected prototype:\nconst char * osgGAGetVersion()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * osgGAGetVersion() function, expected prototype:\nconst char * osgGAGetVersion()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -386,8 +373,7 @@ static int _bind_osgGAGetVersion(lua_State *L) {
 // const char * osgGAGetLibraryName()
 static int _bind_osgGAGetLibraryName(lua_State *L) {
 	if (!_lg_typecheck_osgGAGetLibraryName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * osgGAGetLibraryName() function, expected prototype:\nconst char * osgGAGetLibraryName()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * osgGAGetLibraryName() function, expected prototype:\nconst char * osgGAGetLibraryName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -400,8 +386,7 @@ static int _bind_osgGAGetLibraryName(lua_State *L) {
 // const char * osgParticleGetVersion()
 static int _bind_osgParticleGetVersion(lua_State *L) {
 	if (!_lg_typecheck_osgParticleGetVersion(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * osgParticleGetVersion() function, expected prototype:\nconst char * osgParticleGetVersion()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * osgParticleGetVersion() function, expected prototype:\nconst char * osgParticleGetVersion()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -414,8 +399,7 @@ static int _bind_osgParticleGetVersion(lua_State *L) {
 // const char * osgParticleGetLibraryName()
 static int _bind_osgParticleGetLibraryName(lua_State *L) {
 	if (!_lg_typecheck_osgParticleGetLibraryName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * osgParticleGetLibraryName() function, expected prototype:\nconst char * osgParticleGetLibraryName()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * osgParticleGetLibraryName() function, expected prototype:\nconst char * osgParticleGetLibraryName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -428,8 +412,7 @@ static int _bind_osgParticleGetLibraryName(lua_State *L) {
 // const char * osgTextGetVersion()
 static int _bind_osgTextGetVersion(lua_State *L) {
 	if (!_lg_typecheck_osgTextGetVersion(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * osgTextGetVersion() function, expected prototype:\nconst char * osgTextGetVersion()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * osgTextGetVersion() function, expected prototype:\nconst char * osgTextGetVersion()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -442,8 +425,7 @@ static int _bind_osgTextGetVersion(lua_State *L) {
 // const char * osgTextGetLibraryName()
 static int _bind_osgTextGetLibraryName(lua_State *L) {
 	if (!_lg_typecheck_osgTextGetLibraryName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * osgTextGetLibraryName() function, expected prototype:\nconst char * osgTextGetLibraryName()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * osgTextGetLibraryName() function, expected prototype:\nconst char * osgTextGetLibraryName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -456,8 +438,7 @@ static int _bind_osgTextGetLibraryName(lua_State *L) {
 // const char * osgUtilGetVersion()
 static int _bind_osgUtilGetVersion(lua_State *L) {
 	if (!_lg_typecheck_osgUtilGetVersion(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * osgUtilGetVersion() function, expected prototype:\nconst char * osgUtilGetVersion()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * osgUtilGetVersion() function, expected prototype:\nconst char * osgUtilGetVersion()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -470,8 +451,7 @@ static int _bind_osgUtilGetVersion(lua_State *L) {
 // const char * osgUtilGetLibraryName()
 static int _bind_osgUtilGetLibraryName(lua_State *L) {
 	if (!_lg_typecheck_osgUtilGetLibraryName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * osgUtilGetLibraryName() function, expected prototype:\nconst char * osgUtilGetLibraryName()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * osgUtilGetLibraryName() function, expected prototype:\nconst char * osgUtilGetLibraryName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -484,8 +464,7 @@ static int _bind_osgUtilGetLibraryName(lua_State *L) {
 // const char * osgViewerGetVersion()
 static int _bind_osgViewerGetVersion(lua_State *L) {
 	if (!_lg_typecheck_osgViewerGetVersion(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * osgViewerGetVersion() function, expected prototype:\nconst char * osgViewerGetVersion()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * osgViewerGetVersion() function, expected prototype:\nconst char * osgViewerGetVersion()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -498,8 +477,7 @@ static int _bind_osgViewerGetVersion(lua_State *L) {
 // const char * osgViewerGetLibraryName()
 static int _bind_osgViewerGetLibraryName(lua_State *L) {
 	if (!_lg_typecheck_osgViewerGetLibraryName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * osgViewerGetLibraryName() function, expected prototype:\nconst char * osgViewerGetLibraryName()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * osgViewerGetLibraryName() function, expected prototype:\nconst char * osgViewerGetLibraryName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -529,8 +507,7 @@ inline static bool _lg_typecheck_SetProcessorAffinityOfCurrentThread(lua_State *
 // int OpenThreads::GetNumberOfProcessors()
 static int _bind_GetNumberOfProcessors(lua_State *L) {
 	if (!_lg_typecheck_GetNumberOfProcessors(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int OpenThreads::GetNumberOfProcessors() function, expected prototype:\nint OpenThreads::GetNumberOfProcessors()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int OpenThreads::GetNumberOfProcessors() function, expected prototype:\nint OpenThreads::GetNumberOfProcessors()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -543,8 +520,7 @@ static int _bind_GetNumberOfProcessors(lua_State *L) {
 // int OpenThreads::SetProcessorAffinityOfCurrentThread(unsigned int cpunum)
 static int _bind_SetProcessorAffinityOfCurrentThread(lua_State *L) {
 	if (!_lg_typecheck_SetProcessorAffinityOfCurrentThread(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int OpenThreads::SetProcessorAffinityOfCurrentThread(unsigned int cpunum) function, expected prototype:\nint OpenThreads::SetProcessorAffinityOfCurrentThread(unsigned int cpunum)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int OpenThreads::SetProcessorAffinityOfCurrentThread(unsigned int cpunum) function, expected prototype:\nint OpenThreads::SetProcessorAffinityOfCurrentThread(unsigned int cpunum)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int cpunum=(unsigned int)lua_tointeger(L,1);
@@ -1409,8 +1385,7 @@ inline static bool _lg_typecheck_componentDivide_overload_9(lua_State *L) {
 // osg::Endian osg::getCpuByteOrder()
 static int _bind_getCpuByteOrder(lua_State *L) {
 	if (!_lg_typecheck_getCpuByteOrder(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Endian osg::getCpuByteOrder() function, expected prototype:\nosg::Endian osg::getCpuByteOrder()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::Endian osg::getCpuByteOrder() function, expected prototype:\nosg::Endian osg::getCpuByteOrder()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1423,8 +1398,7 @@ static int _bind_getCpuByteOrder(lua_State *L) {
 // void osg::swapBytes(char * in, unsigned int size)
 static int _bind_swapBytes(lua_State *L) {
 	if (!_lg_typecheck_swapBytes(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::swapBytes(char * in, unsigned int size) function, expected prototype:\nvoid osg::swapBytes(char * in, unsigned int size)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void osg::swapBytes(char * in, unsigned int size) function, expected prototype:\nvoid osg::swapBytes(char * in, unsigned int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	char* in=(char*)Luna< void >::check(L,1);
@@ -1438,8 +1412,7 @@ static int _bind_swapBytes(lua_State *L) {
 // void osg::swapBytes2(char * in)
 static int _bind_swapBytes2(lua_State *L) {
 	if (!_lg_typecheck_swapBytes2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::swapBytes2(char * in) function, expected prototype:\nvoid osg::swapBytes2(char * in)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void osg::swapBytes2(char * in) function, expected prototype:\nvoid osg::swapBytes2(char * in)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	char* in=(char*)Luna< void >::check(L,1);
@@ -1452,8 +1425,7 @@ static int _bind_swapBytes2(lua_State *L) {
 // void osg::swapBytes4(char * in)
 static int _bind_swapBytes4(lua_State *L) {
 	if (!_lg_typecheck_swapBytes4(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::swapBytes4(char * in) function, expected prototype:\nvoid osg::swapBytes4(char * in)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void osg::swapBytes4(char * in) function, expected prototype:\nvoid osg::swapBytes4(char * in)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	char* in=(char*)Luna< void >::check(L,1);
@@ -1466,8 +1438,7 @@ static int _bind_swapBytes4(lua_State *L) {
 // void osg::swapBytes8(char * in)
 static int _bind_swapBytes8(lua_State *L) {
 	if (!_lg_typecheck_swapBytes8(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::swapBytes8(char * in) function, expected prototype:\nvoid osg::swapBytes8(char * in)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void osg::swapBytes8(char * in) function, expected prototype:\nvoid osg::swapBytes8(char * in)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	char* in=(char*)Luna< void >::check(L,1);
@@ -1480,8 +1451,7 @@ static int _bind_swapBytes8(lua_State *L) {
 // void osg::swapBytes16(char * in)
 static int _bind_swapBytes16(lua_State *L) {
 	if (!_lg_typecheck_swapBytes16(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::swapBytes16(char * in) function, expected prototype:\nvoid osg::swapBytes16(char * in)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void osg::swapBytes16(char * in) function, expected prototype:\nvoid osg::swapBytes16(char * in)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	char* in=(char*)Luna< void >::check(L,1);
@@ -1494,8 +1464,7 @@ static int _bind_swapBytes16(lua_State *L) {
 // osg::Geometry * osg::createTexturedQuadGeometry(const osg::Vec3f & corner, const osg::Vec3f & widthVec, const osg::Vec3f & heightVec, float l, float b, float r, float t)
 static int _bind_createTexturedQuadGeometry_overload_1(lua_State *L) {
 	if (!_lg_typecheck_createTexturedQuadGeometry_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Geometry * osg::createTexturedQuadGeometry(const osg::Vec3f & corner, const osg::Vec3f & widthVec, const osg::Vec3f & heightVec, float l, float b, float r, float t) function, expected prototype:\nosg::Geometry * osg::createTexturedQuadGeometry(const osg::Vec3f & corner, const osg::Vec3f & widthVec, const osg::Vec3f & heightVec, float l, float b, float r, float t)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\narg 3 ID = 92303204\n");
+		luaL_error(L, "luna typecheck failed in osg::Geometry * osg::createTexturedQuadGeometry(const osg::Vec3f & corner, const osg::Vec3f & widthVec, const osg::Vec3f & heightVec, float l, float b, float r, float t) function, expected prototype:\nosg::Geometry * osg::createTexturedQuadGeometry(const osg::Vec3f & corner, const osg::Vec3f & widthVec, const osg::Vec3f & heightVec, float l, float b, float r, float t)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\narg 3 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec3f* corner_ptr=(Luna< osg::Vec3f >::check(L,1));
@@ -1529,8 +1498,7 @@ static int _bind_createTexturedQuadGeometry_overload_1(lua_State *L) {
 // osg::Geometry * osg::createTexturedQuadGeometry(const osg::Vec3f & corner, const osg::Vec3f & widthVec, const osg::Vec3f & heightVec, float s = 1.0f, float t = 1.0f)
 static int _bind_createTexturedQuadGeometry_overload_2(lua_State *L) {
 	if (!_lg_typecheck_createTexturedQuadGeometry_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Geometry * osg::createTexturedQuadGeometry(const osg::Vec3f & corner, const osg::Vec3f & widthVec, const osg::Vec3f & heightVec, float s = 1.0f, float t = 1.0f) function, expected prototype:\nosg::Geometry * osg::createTexturedQuadGeometry(const osg::Vec3f & corner, const osg::Vec3f & widthVec, const osg::Vec3f & heightVec, float s = 1.0f, float t = 1.0f)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\narg 3 ID = 92303204\n");
+		luaL_error(L, "luna typecheck failed in osg::Geometry * osg::createTexturedQuadGeometry(const osg::Vec3f & corner, const osg::Vec3f & widthVec, const osg::Vec3f & heightVec, float s = 1.0f, float t = 1.0f) function, expected prototype:\nosg::Geometry * osg::createTexturedQuadGeometry(const osg::Vec3f & corner, const osg::Vec3f & widthVec, const osg::Vec3f & heightVec, float s = 1.0f, float t = 1.0f)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\narg 3 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -1573,8 +1541,7 @@ static int _bind_createTexturedQuadGeometry(lua_State *L) {
 // float osg::getGLVersionNumber()
 static int _bind_getGLVersionNumber(lua_State *L) {
 	if (!_lg_typecheck_getGLVersionNumber(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float osg::getGLVersionNumber() function, expected prototype:\nfloat osg::getGLVersionNumber()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float osg::getGLVersionNumber() function, expected prototype:\nfloat osg::getGLVersionNumber()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1587,8 +1554,7 @@ static int _bind_getGLVersionNumber(lua_State *L) {
 // bool osg::isExtensionInExtensionString(const char * extension, const char * extensionString)
 static int _bind_isExtensionInExtensionString(lua_State *L) {
 	if (!_lg_typecheck_isExtensionInExtensionString(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osg::isExtensionInExtensionString(const char * extension, const char * extensionString) function, expected prototype:\nbool osg::isExtensionInExtensionString(const char * extension, const char * extensionString)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osg::isExtensionInExtensionString(const char * extension, const char * extensionString) function, expected prototype:\nbool osg::isExtensionInExtensionString(const char * extension, const char * extensionString)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * extension=(const char *)lua_tostring(L,1);
@@ -1603,8 +1569,7 @@ static int _bind_isExtensionInExtensionString(lua_State *L) {
 // bool osg::isGLExtensionSupported(unsigned int contextID, const char * extension)
 static int _bind_isGLExtensionSupported(lua_State *L) {
 	if (!_lg_typecheck_isGLExtensionSupported(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osg::isGLExtensionSupported(unsigned int contextID, const char * extension) function, expected prototype:\nbool osg::isGLExtensionSupported(unsigned int contextID, const char * extension)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osg::isGLExtensionSupported(unsigned int contextID, const char * extension) function, expected prototype:\nbool osg::isGLExtensionSupported(unsigned int contextID, const char * extension)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1619,8 +1584,7 @@ static int _bind_isGLExtensionSupported(lua_State *L) {
 // bool osg::isGLExtensionOrVersionSupported(unsigned int contextID, const char * extension, float requiredGlVersion)
 static int _bind_isGLExtensionOrVersionSupported(lua_State *L) {
 	if (!_lg_typecheck_isGLExtensionOrVersionSupported(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osg::isGLExtensionOrVersionSupported(unsigned int contextID, const char * extension, float requiredGlVersion) function, expected prototype:\nbool osg::isGLExtensionOrVersionSupported(unsigned int contextID, const char * extension, float requiredGlVersion)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osg::isGLExtensionOrVersionSupported(unsigned int contextID, const char * extension, float requiredGlVersion) function, expected prototype:\nbool osg::isGLExtensionOrVersionSupported(unsigned int contextID, const char * extension, float requiredGlVersion)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1636,8 +1600,7 @@ static int _bind_isGLExtensionOrVersionSupported(lua_State *L) {
 // void * osg::getGLExtensionFuncPtr(const char * funcName)
 static int _bind_getGLExtensionFuncPtr_overload_1(lua_State *L) {
 	if (!_lg_typecheck_getGLExtensionFuncPtr_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void * osg::getGLExtensionFuncPtr(const char * funcName) function, expected prototype:\nvoid * osg::getGLExtensionFuncPtr(const char * funcName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void * osg::getGLExtensionFuncPtr(const char * funcName) function, expected prototype:\nvoid * osg::getGLExtensionFuncPtr(const char * funcName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * funcName=(const char *)lua_tostring(L,1);
@@ -1653,8 +1616,7 @@ static int _bind_getGLExtensionFuncPtr_overload_1(lua_State *L) {
 // void * osg::getGLExtensionFuncPtr(const char * funcName, const char * fallbackFuncName)
 static int _bind_getGLExtensionFuncPtr_overload_2(lua_State *L) {
 	if (!_lg_typecheck_getGLExtensionFuncPtr_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void * osg::getGLExtensionFuncPtr(const char * funcName, const char * fallbackFuncName) function, expected prototype:\nvoid * osg::getGLExtensionFuncPtr(const char * funcName, const char * fallbackFuncName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void * osg::getGLExtensionFuncPtr(const char * funcName, const char * fallbackFuncName) function, expected prototype:\nvoid * osg::getGLExtensionFuncPtr(const char * funcName, const char * fallbackFuncName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * funcName=(const char *)lua_tostring(L,1);
@@ -1671,8 +1633,7 @@ static int _bind_getGLExtensionFuncPtr_overload_2(lua_State *L) {
 // void * osg::getGLExtensionFuncPtr(const char * funcName1, const char * funcName2, const char * funcName3)
 static int _bind_getGLExtensionFuncPtr_overload_3(lua_State *L) {
 	if (!_lg_typecheck_getGLExtensionFuncPtr_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void * osg::getGLExtensionFuncPtr(const char * funcName1, const char * funcName2, const char * funcName3) function, expected prototype:\nvoid * osg::getGLExtensionFuncPtr(const char * funcName1, const char * funcName2, const char * funcName3)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void * osg::getGLExtensionFuncPtr(const char * funcName1, const char * funcName2, const char * funcName3) function, expected prototype:\nvoid * osg::getGLExtensionFuncPtr(const char * funcName1, const char * funcName2, const char * funcName3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * funcName1=(const char *)lua_tostring(L,1);
@@ -1700,8 +1661,7 @@ static int _bind_getGLExtensionFuncPtr(lua_State *L) {
 // void osg::setGLExtensionDisableString(const std::string & disableString)
 static int _bind_setGLExtensionDisableString(lua_State *L) {
 	if (!_lg_typecheck_setGLExtensionDisableString(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::setGLExtensionDisableString(const std::string & disableString) function, expected prototype:\nvoid osg::setGLExtensionDisableString(const std::string & disableString)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void osg::setGLExtensionDisableString(const std::string & disableString) function, expected prototype:\nvoid osg::setGLExtensionDisableString(const std::string & disableString)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string disableString(lua_tostring(L,1),lua_objlen(L,1));
@@ -1714,8 +1674,7 @@ static int _bind_setGLExtensionDisableString(lua_State *L) {
 // std::string & osg::getGLExtensionDisableString()
 static int _bind_getGLExtensionDisableString(lua_State *L) {
 	if (!_lg_typecheck_getGLExtensionDisableString(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string & osg::getGLExtensionDisableString() function, expected prototype:\nstd::string & osg::getGLExtensionDisableString()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string & osg::getGLExtensionDisableString() function, expected prototype:\nstd::string & osg::getGLExtensionDisableString()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1728,8 +1687,7 @@ static int _bind_getGLExtensionDisableString(lua_State *L) {
 // void osg::flushDeletedGLObjects(unsigned int contextID, double currentTime, double & availableTime)
 static int _bind_flushDeletedGLObjects(lua_State *L) {
 	if (!_lg_typecheck_flushDeletedGLObjects(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::flushDeletedGLObjects(unsigned int contextID, double currentTime, double & availableTime) function, expected prototype:\nvoid osg::flushDeletedGLObjects(unsigned int contextID, double currentTime, double & availableTime)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void osg::flushDeletedGLObjects(unsigned int contextID, double currentTime, double & availableTime) function, expected prototype:\nvoid osg::flushDeletedGLObjects(unsigned int contextID, double currentTime, double & availableTime)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1745,8 +1703,7 @@ static int _bind_flushDeletedGLObjects(lua_State *L) {
 // void osg::flushAllDeletedGLObjects(unsigned int contextID)
 static int _bind_flushAllDeletedGLObjects(lua_State *L) {
 	if (!_lg_typecheck_flushAllDeletedGLObjects(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::flushAllDeletedGLObjects(unsigned int contextID) function, expected prototype:\nvoid osg::flushAllDeletedGLObjects(unsigned int contextID)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void osg::flushAllDeletedGLObjects(unsigned int contextID) function, expected prototype:\nvoid osg::flushAllDeletedGLObjects(unsigned int contextID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1759,8 +1716,7 @@ static int _bind_flushAllDeletedGLObjects(lua_State *L) {
 // void osg::deleteAllGLObjects(unsigned int contextID)
 static int _bind_deleteAllGLObjects(lua_State *L) {
 	if (!_lg_typecheck_deleteAllGLObjects(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::deleteAllGLObjects(unsigned int contextID) function, expected prototype:\nvoid osg::deleteAllGLObjects(unsigned int contextID)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void osg::deleteAllGLObjects(unsigned int contextID) function, expected prototype:\nvoid osg::deleteAllGLObjects(unsigned int contextID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1773,8 +1729,7 @@ static int _bind_deleteAllGLObjects(lua_State *L) {
 // void osg::discardAllGLObjects(unsigned int contextID)
 static int _bind_discardAllGLObjects(lua_State *L) {
 	if (!_lg_typecheck_discardAllGLObjects(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::discardAllGLObjects(unsigned int contextID) function, expected prototype:\nvoid osg::discardAllGLObjects(unsigned int contextID)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void osg::discardAllGLObjects(unsigned int contextID) function, expected prototype:\nvoid osg::discardAllGLObjects(unsigned int contextID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1787,8 +1742,7 @@ static int _bind_discardAllGLObjects(lua_State *L) {
 // const unsigned char * osg::gluErrorString(unsigned int error)
 static int _bind_gluErrorString(lua_State *L) {
 	if (!_lg_typecheck_gluErrorString(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const unsigned char * osg::gluErrorString(unsigned int error) function, expected prototype:\nconst unsigned char * osg::gluErrorString(unsigned int error)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const unsigned char * osg::gluErrorString(unsigned int error) function, expected prototype:\nconst unsigned char * osg::gluErrorString(unsigned int error)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int error=(unsigned int)lua_tointeger(L,1);
@@ -1802,8 +1756,7 @@ static int _bind_gluErrorString(lua_State *L) {
 // int osg::gluScaleImage(osg::PixelStorageModes * psm, unsigned int format, int wIn, int hIn, unsigned int typeIn, const void * dataIn, int wOut, int hOut, unsigned int typeOut, void * dataOut)
 static int _bind_gluScaleImage_overload_1(lua_State *L) {
 	if (!_lg_typecheck_gluScaleImage_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int osg::gluScaleImage(osg::PixelStorageModes * psm, unsigned int format, int wIn, int hIn, unsigned int typeIn, const void * dataIn, int wOut, int hOut, unsigned int typeOut, void * dataOut) function, expected prototype:\nint osg::gluScaleImage(osg::PixelStorageModes * psm, unsigned int format, int wIn, int hIn, unsigned int typeIn, const void * dataIn, int wOut, int hOut, unsigned int typeOut, void * dataOut)\nClass arguments details:\narg 1 ID = 58853759\n");
+		luaL_error(L, "luna typecheck failed in int osg::gluScaleImage(osg::PixelStorageModes * psm, unsigned int format, int wIn, int hIn, unsigned int typeIn, const void * dataIn, int wOut, int hOut, unsigned int typeOut, void * dataOut) function, expected prototype:\nint osg::gluScaleImage(osg::PixelStorageModes * psm, unsigned int format, int wIn, int hIn, unsigned int typeIn, const void * dataIn, int wOut, int hOut, unsigned int typeOut, void * dataOut)\nClass arguments details:\narg 1 ID = 58853759\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osg::PixelStorageModes* psm=(Luna< osg::PixelStorageModes >::check(L,1));
@@ -1826,8 +1779,7 @@ static int _bind_gluScaleImage_overload_1(lua_State *L) {
 // int osg::gluScaleImage(unsigned int format, int wIn, int hIn, unsigned int typeIn, const void * dataIn, int wOut, int hOut, unsigned int typeOut, void * dataOut)
 static int _bind_gluScaleImage_overload_2(lua_State *L) {
 	if (!_lg_typecheck_gluScaleImage_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int osg::gluScaleImage(unsigned int format, int wIn, int hIn, unsigned int typeIn, const void * dataIn, int wOut, int hOut, unsigned int typeOut, void * dataOut) function, expected prototype:\nint osg::gluScaleImage(unsigned int format, int wIn, int hIn, unsigned int typeIn, const void * dataIn, int wOut, int hOut, unsigned int typeOut, void * dataOut)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int osg::gluScaleImage(unsigned int format, int wIn, int hIn, unsigned int typeIn, const void * dataIn, int wOut, int hOut, unsigned int typeOut, void * dataOut) function, expected prototype:\nint osg::gluScaleImage(unsigned int format, int wIn, int hIn, unsigned int typeIn, const void * dataIn, int wOut, int hOut, unsigned int typeOut, void * dataOut)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int format=(unsigned int)lua_tointeger(L,1);
@@ -1858,8 +1810,7 @@ static int _bind_gluScaleImage(lua_State *L) {
 // int osg::gluBuild1DMipmapLevels(unsigned int target, int internalFormat, int width, unsigned int format, unsigned int type, int level, int base, int max, const void * data)
 static int _bind_gluBuild1DMipmapLevels(lua_State *L) {
 	if (!_lg_typecheck_gluBuild1DMipmapLevels(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int osg::gluBuild1DMipmapLevels(unsigned int target, int internalFormat, int width, unsigned int format, unsigned int type, int level, int base, int max, const void * data) function, expected prototype:\nint osg::gluBuild1DMipmapLevels(unsigned int target, int internalFormat, int width, unsigned int format, unsigned int type, int level, int base, int max, const void * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int osg::gluBuild1DMipmapLevels(unsigned int target, int internalFormat, int width, unsigned int format, unsigned int type, int level, int base, int max, const void * data) function, expected prototype:\nint osg::gluBuild1DMipmapLevels(unsigned int target, int internalFormat, int width, unsigned int format, unsigned int type, int level, int base, int max, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -1881,8 +1832,7 @@ static int _bind_gluBuild1DMipmapLevels(lua_State *L) {
 // int osg::gluBuild1DMipmaps(unsigned int target, int internalFormat, int width, unsigned int format, unsigned int type, const void * data)
 static int _bind_gluBuild1DMipmaps(lua_State *L) {
 	if (!_lg_typecheck_gluBuild1DMipmaps(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int osg::gluBuild1DMipmaps(unsigned int target, int internalFormat, int width, unsigned int format, unsigned int type, const void * data) function, expected prototype:\nint osg::gluBuild1DMipmaps(unsigned int target, int internalFormat, int width, unsigned int format, unsigned int type, const void * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int osg::gluBuild1DMipmaps(unsigned int target, int internalFormat, int width, unsigned int format, unsigned int type, const void * data) function, expected prototype:\nint osg::gluBuild1DMipmaps(unsigned int target, int internalFormat, int width, unsigned int format, unsigned int type, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -1901,8 +1851,7 @@ static int _bind_gluBuild1DMipmaps(lua_State *L) {
 // int osg::gluBuild2DMipmapLevels(unsigned int target, int internalFormat, int width, int height, unsigned int format, unsigned int type, int level, int base, int max, const void * data)
 static int _bind_gluBuild2DMipmapLevels(lua_State *L) {
 	if (!_lg_typecheck_gluBuild2DMipmapLevels(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int osg::gluBuild2DMipmapLevels(unsigned int target, int internalFormat, int width, int height, unsigned int format, unsigned int type, int level, int base, int max, const void * data) function, expected prototype:\nint osg::gluBuild2DMipmapLevels(unsigned int target, int internalFormat, int width, int height, unsigned int format, unsigned int type, int level, int base, int max, const void * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int osg::gluBuild2DMipmapLevels(unsigned int target, int internalFormat, int width, int height, unsigned int format, unsigned int type, int level, int base, int max, const void * data) function, expected prototype:\nint osg::gluBuild2DMipmapLevels(unsigned int target, int internalFormat, int width, int height, unsigned int format, unsigned int type, int level, int base, int max, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -1925,8 +1874,7 @@ static int _bind_gluBuild2DMipmapLevels(lua_State *L) {
 // int osg::gluBuild2DMipmaps(unsigned int target, int internalFormat, int width, int height, unsigned int format, unsigned int type, const void * data)
 static int _bind_gluBuild2DMipmaps(lua_State *L) {
 	if (!_lg_typecheck_gluBuild2DMipmaps(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int osg::gluBuild2DMipmaps(unsigned int target, int internalFormat, int width, int height, unsigned int format, unsigned int type, const void * data) function, expected prototype:\nint osg::gluBuild2DMipmaps(unsigned int target, int internalFormat, int width, int height, unsigned int format, unsigned int type, const void * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int osg::gluBuild2DMipmaps(unsigned int target, int internalFormat, int width, int height, unsigned int format, unsigned int type, const void * data) function, expected prototype:\nint osg::gluBuild2DMipmaps(unsigned int target, int internalFormat, int width, int height, unsigned int format, unsigned int type, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -1946,8 +1894,7 @@ static int _bind_gluBuild2DMipmaps(lua_State *L) {
 // GLUtesselator * osg::gluNewTess()
 static int _bind_gluNewTess(lua_State *L) {
 	if (!_lg_typecheck_gluNewTess(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in GLUtesselator * osg::gluNewTess() function, expected prototype:\nGLUtesselator * osg::gluNewTess()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in GLUtesselator * osg::gluNewTess() function, expected prototype:\nGLUtesselator * osg::gluNewTess()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1962,8 +1909,7 @@ static int _bind_gluNewTess(lua_State *L) {
 // void osg::gluDeleteTess(GLUtesselator * tess)
 static int _bind_gluDeleteTess(lua_State *L) {
 	if (!_lg_typecheck_gluDeleteTess(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::gluDeleteTess(GLUtesselator * tess) function, expected prototype:\nvoid osg::gluDeleteTess(GLUtesselator * tess)\nClass arguments details:\narg 1 ID = 37525689\n");
+		luaL_error(L, "luna typecheck failed in void osg::gluDeleteTess(GLUtesselator * tess) function, expected prototype:\nvoid osg::gluDeleteTess(GLUtesselator * tess)\nClass arguments details:\narg 1 ID = 37525689\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
@@ -1976,8 +1922,7 @@ static int _bind_gluDeleteTess(lua_State *L) {
 // void osg::gluTessBeginContour(GLUtesselator * tess)
 static int _bind_gluTessBeginContour(lua_State *L) {
 	if (!_lg_typecheck_gluTessBeginContour(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::gluTessBeginContour(GLUtesselator * tess) function, expected prototype:\nvoid osg::gluTessBeginContour(GLUtesselator * tess)\nClass arguments details:\narg 1 ID = 37525689\n");
+		luaL_error(L, "luna typecheck failed in void osg::gluTessBeginContour(GLUtesselator * tess) function, expected prototype:\nvoid osg::gluTessBeginContour(GLUtesselator * tess)\nClass arguments details:\narg 1 ID = 37525689\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
@@ -1990,8 +1935,7 @@ static int _bind_gluTessBeginContour(lua_State *L) {
 // void osg::gluTessEndContour(GLUtesselator * tess)
 static int _bind_gluTessEndContour(lua_State *L) {
 	if (!_lg_typecheck_gluTessEndContour(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::gluTessEndContour(GLUtesselator * tess) function, expected prototype:\nvoid osg::gluTessEndContour(GLUtesselator * tess)\nClass arguments details:\narg 1 ID = 37525689\n");
+		luaL_error(L, "luna typecheck failed in void osg::gluTessEndContour(GLUtesselator * tess) function, expected prototype:\nvoid osg::gluTessEndContour(GLUtesselator * tess)\nClass arguments details:\narg 1 ID = 37525689\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
@@ -2004,8 +1948,7 @@ static int _bind_gluTessEndContour(lua_State *L) {
 // void osg::gluTessNormal(GLUtesselator * tess, double valueX, double valueY, double valueZ)
 static int _bind_gluTessNormal(lua_State *L) {
 	if (!_lg_typecheck_gluTessNormal(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::gluTessNormal(GLUtesselator * tess, double valueX, double valueY, double valueZ) function, expected prototype:\nvoid osg::gluTessNormal(GLUtesselator * tess, double valueX, double valueY, double valueZ)\nClass arguments details:\narg 1 ID = 37525689\n");
+		luaL_error(L, "luna typecheck failed in void osg::gluTessNormal(GLUtesselator * tess, double valueX, double valueY, double valueZ) function, expected prototype:\nvoid osg::gluTessNormal(GLUtesselator * tess, double valueX, double valueY, double valueZ)\nClass arguments details:\narg 1 ID = 37525689\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
@@ -2021,8 +1964,7 @@ static int _bind_gluTessNormal(lua_State *L) {
 // void osg::gluTessProperty(GLUtesselator * tess, unsigned int which, double data)
 static int _bind_gluTessProperty(lua_State *L) {
 	if (!_lg_typecheck_gluTessProperty(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::gluTessProperty(GLUtesselator * tess, unsigned int which, double data) function, expected prototype:\nvoid osg::gluTessProperty(GLUtesselator * tess, unsigned int which, double data)\nClass arguments details:\narg 1 ID = 37525689\n");
+		luaL_error(L, "luna typecheck failed in void osg::gluTessProperty(GLUtesselator * tess, unsigned int which, double data) function, expected prototype:\nvoid osg::gluTessProperty(GLUtesselator * tess, unsigned int which, double data)\nClass arguments details:\narg 1 ID = 37525689\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
@@ -2037,8 +1979,7 @@ static int _bind_gluTessProperty(lua_State *L) {
 // void osg::gluTessVertex(GLUtesselator * tess, double * location, void * data)
 static int _bind_gluTessVertex(lua_State *L) {
 	if (!_lg_typecheck_gluTessVertex(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::gluTessVertex(GLUtesselator * tess, double * location, void * data) function, expected prototype:\nvoid osg::gluTessVertex(GLUtesselator * tess, double * location, void * data)\nClass arguments details:\narg 1 ID = 37525689\n");
+		luaL_error(L, "luna typecheck failed in void osg::gluTessVertex(GLUtesselator * tess, double * location, void * data) function, expected prototype:\nvoid osg::gluTessVertex(GLUtesselator * tess, double * location, void * data)\nClass arguments details:\narg 1 ID = 37525689\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
@@ -2053,8 +1994,7 @@ static int _bind_gluTessVertex(lua_State *L) {
 // void osg::gluTessBeginPolygon(GLUtesselator * tess, void * data)
 static int _bind_gluTessBeginPolygon(lua_State *L) {
 	if (!_lg_typecheck_gluTessBeginPolygon(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::gluTessBeginPolygon(GLUtesselator * tess, void * data) function, expected prototype:\nvoid osg::gluTessBeginPolygon(GLUtesselator * tess, void * data)\nClass arguments details:\narg 1 ID = 37525689\n");
+		luaL_error(L, "luna typecheck failed in void osg::gluTessBeginPolygon(GLUtesselator * tess, void * data) function, expected prototype:\nvoid osg::gluTessBeginPolygon(GLUtesselator * tess, void * data)\nClass arguments details:\narg 1 ID = 37525689\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
@@ -2068,8 +2008,7 @@ static int _bind_gluTessBeginPolygon(lua_State *L) {
 // void osg::gluTessEndPolygon(GLUtesselator * tess)
 static int _bind_gluTessEndPolygon(lua_State *L) {
 	if (!_lg_typecheck_gluTessEndPolygon(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::gluTessEndPolygon(GLUtesselator * tess) function, expected prototype:\nvoid osg::gluTessEndPolygon(GLUtesselator * tess)\nClass arguments details:\narg 1 ID = 37525689\n");
+		luaL_error(L, "luna typecheck failed in void osg::gluTessEndPolygon(GLUtesselator * tess) function, expected prototype:\nvoid osg::gluTessEndPolygon(GLUtesselator * tess)\nClass arguments details:\narg 1 ID = 37525689\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
@@ -2082,8 +2021,7 @@ static int _bind_gluTessEndPolygon(lua_State *L) {
 // void osg::gluGetTessProperty(GLUtesselator * tess, unsigned int which, double * value)
 static int _bind_gluGetTessProperty(lua_State *L) {
 	if (!_lg_typecheck_gluGetTessProperty(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::gluGetTessProperty(GLUtesselator * tess, unsigned int which, double * value) function, expected prototype:\nvoid osg::gluGetTessProperty(GLUtesselator * tess, unsigned int which, double * value)\nClass arguments details:\narg 1 ID = 37525689\n");
+		luaL_error(L, "luna typecheck failed in void osg::gluGetTessProperty(GLUtesselator * tess, unsigned int which, double * value) function, expected prototype:\nvoid osg::gluGetTessProperty(GLUtesselator * tess, unsigned int which, double * value)\nClass arguments details:\narg 1 ID = 37525689\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
@@ -2098,8 +2036,7 @@ static int _bind_gluGetTessProperty(lua_State *L) {
 // osg::Geode * osg::createGeodeForImage(osg::Image * image)
 static int _bind_createGeodeForImage_overload_1(lua_State *L) {
 	if (!_lg_typecheck_createGeodeForImage_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Geode * osg::createGeodeForImage(osg::Image * image) function, expected prototype:\nosg::Geode * osg::createGeodeForImage(osg::Image * image)\nClass arguments details:\narg 1 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::Geode * osg::createGeodeForImage(osg::Image * image) function, expected prototype:\nosg::Geode * osg::createGeodeForImage(osg::Image * image)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
@@ -2115,8 +2052,7 @@ static int _bind_createGeodeForImage_overload_1(lua_State *L) {
 // osg::Geode * osg::createGeodeForImage(osg::Image * image, float s, float t)
 static int _bind_createGeodeForImage_overload_2(lua_State *L) {
 	if (!_lg_typecheck_createGeodeForImage_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Geode * osg::createGeodeForImage(osg::Image * image, float s, float t) function, expected prototype:\nosg::Geode * osg::createGeodeForImage(osg::Image * image, float s, float t)\nClass arguments details:\narg 1 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::Geode * osg::createGeodeForImage(osg::Image * image, float s, float t) function, expected prototype:\nosg::Geode * osg::createGeodeForImage(osg::Image * image, float s, float t)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
@@ -2143,8 +2079,7 @@ static int _bind_createGeodeForImage(lua_State *L) {
 // bool osg::computeMinMax(const osg::Image * image, osg::Vec4f & min, osg::Vec4f & max)
 static int _bind_computeMinMax(lua_State *L) {
 	if (!_lg_typecheck_computeMinMax(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osg::computeMinMax(const osg::Image * image, osg::Vec4f & min, osg::Vec4f & max) function, expected prototype:\nbool osg::computeMinMax(const osg::Image * image, osg::Vec4f & min, osg::Vec4f & max)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\narg 3 ID = 92303235\n");
+		luaL_error(L, "luna typecheck failed in bool osg::computeMinMax(const osg::Image * image, osg::Vec4f & min, osg::Vec4f & max) function, expected prototype:\nbool osg::computeMinMax(const osg::Image * image, osg::Vec4f & min, osg::Vec4f & max)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\narg 3 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
@@ -2168,8 +2103,7 @@ static int _bind_computeMinMax(lua_State *L) {
 // bool osg::offsetAndScaleImage(osg::Image * image, const osg::Vec4f & offset, const osg::Vec4f & scale)
 static int _bind_offsetAndScaleImage(lua_State *L) {
 	if (!_lg_typecheck_offsetAndScaleImage(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osg::offsetAndScaleImage(osg::Image * image, const osg::Vec4f & offset, const osg::Vec4f & scale) function, expected prototype:\nbool osg::offsetAndScaleImage(osg::Image * image, const osg::Vec4f & offset, const osg::Vec4f & scale)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\narg 3 ID = 92303235\n");
+		luaL_error(L, "luna typecheck failed in bool osg::offsetAndScaleImage(osg::Image * image, const osg::Vec4f & offset, const osg::Vec4f & scale) function, expected prototype:\nbool osg::offsetAndScaleImage(osg::Image * image, const osg::Vec4f & offset, const osg::Vec4f & scale)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\narg 3 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
@@ -2193,8 +2127,7 @@ static int _bind_offsetAndScaleImage(lua_State *L) {
 // bool osg::copyImage(const osg::Image * srcImage, int src_s, int src_t, int src_r, int width, int height, int depth, osg::Image * destImage, int dest_s, int dest_t, int dest_r, bool doRescale = false)
 static int _bind_copyImage(lua_State *L) {
 	if (!_lg_typecheck_copyImage(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osg::copyImage(const osg::Image * srcImage, int src_s, int src_t, int src_r, int width, int height, int depth, osg::Image * destImage, int dest_s, int dest_t, int dest_r, bool doRescale = false) function, expected prototype:\nbool osg::copyImage(const osg::Image * srcImage, int src_s, int src_t, int src_r, int width, int height, int depth, osg::Image * destImage, int dest_s, int dest_t, int dest_r, bool doRescale = false)\nClass arguments details:\narg 1 ID = 50169651\narg 8 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in bool osg::copyImage(const osg::Image * srcImage, int src_s, int src_t, int src_r, int width, int height, int depth, osg::Image * destImage, int dest_s, int dest_t, int dest_r, bool doRescale = false) function, expected prototype:\nbool osg::copyImage(const osg::Image * srcImage, int src_s, int src_t, int src_r, int width, int height, int depth, osg::Image * destImage, int dest_s, int dest_t, int dest_r, bool doRescale = false)\nClass arguments details:\narg 1 ID = 50169651\narg 8 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2221,8 +2154,7 @@ static int _bind_copyImage(lua_State *L) {
 // bool osg::clearImageToColor(osg::Image * image, const osg::Vec4f & colour)
 static int _bind_clearImageToColor(lua_State *L) {
 	if (!_lg_typecheck_clearImageToColor(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osg::clearImageToColor(osg::Image * image, const osg::Vec4f & colour) function, expected prototype:\nbool osg::clearImageToColor(osg::Image * image, const osg::Vec4f & colour)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n");
+		luaL_error(L, "luna typecheck failed in bool osg::clearImageToColor(osg::Image * image, const osg::Vec4f & colour) function, expected prototype:\nbool osg::clearImageToColor(osg::Image * image, const osg::Vec4f & colour)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
@@ -2241,8 +2173,7 @@ static int _bind_clearImageToColor(lua_State *L) {
 // unsigned int osg::maximimNumOfComponents(const osg::ImageList & imageList)
 static int _bind_maximimNumOfComponents(lua_State *L) {
 	if (!_lg_typecheck_maximimNumOfComponents(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int osg::maximimNumOfComponents(const osg::ImageList & imageList) function, expected prototype:\nunsigned int osg::maximimNumOfComponents(const osg::ImageList & imageList)\nClass arguments details:\narg 1 ID = 71630045\n");
+		luaL_error(L, "luna typecheck failed in unsigned int osg::maximimNumOfComponents(const osg::ImageList & imageList) function, expected prototype:\nunsigned int osg::maximimNumOfComponents(const osg::ImageList & imageList)\nClass arguments details:\narg 1 ID = 71630045\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::ImageList* imageList_ptr=(Luna< std::vector< osg::ref_ptr< osg::Image > > >::checkSubType< osg::ImageList >(L,1));
@@ -2260,8 +2191,7 @@ static int _bind_maximimNumOfComponents(lua_State *L) {
 // osg::Image * osg::createImage3D(const osg::ImageList & imageList, unsigned int desiredPixelFormat, int s_maximumImageSize = 1024, int t_maximumImageSize = 1024, int r_maximumImageSize = 1024, bool resizeToPowerOfTwo = false)
 static int _bind_createImage3D(lua_State *L) {
 	if (!_lg_typecheck_createImage3D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Image * osg::createImage3D(const osg::ImageList & imageList, unsigned int desiredPixelFormat, int s_maximumImageSize = 1024, int t_maximumImageSize = 1024, int r_maximumImageSize = 1024, bool resizeToPowerOfTwo = false) function, expected prototype:\nosg::Image * osg::createImage3D(const osg::ImageList & imageList, unsigned int desiredPixelFormat, int s_maximumImageSize = 1024, int t_maximumImageSize = 1024, int r_maximumImageSize = 1024, bool resizeToPowerOfTwo = false)\nClass arguments details:\narg 1 ID = 71630045\n");
+		luaL_error(L, "luna typecheck failed in osg::Image * osg::createImage3D(const osg::ImageList & imageList, unsigned int desiredPixelFormat, int s_maximumImageSize = 1024, int t_maximumImageSize = 1024, int r_maximumImageSize = 1024, bool resizeToPowerOfTwo = false) function, expected prototype:\nosg::Image * osg::createImage3D(const osg::ImageList & imageList, unsigned int desiredPixelFormat, int s_maximumImageSize = 1024, int t_maximumImageSize = 1024, int r_maximumImageSize = 1024, bool resizeToPowerOfTwo = false)\nClass arguments details:\narg 1 ID = 71630045\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2288,8 +2218,7 @@ static int _bind_createImage3D(lua_State *L) {
 // osg::Image * osg::createImage3DWithAlpha(const osg::ImageList & imageList, int s_maximumImageSize = 1024, int t_maximumImageSize = 1024, int r_maximumImageSize = 1024, bool resizeToPowerOfTwo = false)
 static int _bind_createImage3DWithAlpha(lua_State *L) {
 	if (!_lg_typecheck_createImage3DWithAlpha(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Image * osg::createImage3DWithAlpha(const osg::ImageList & imageList, int s_maximumImageSize = 1024, int t_maximumImageSize = 1024, int r_maximumImageSize = 1024, bool resizeToPowerOfTwo = false) function, expected prototype:\nosg::Image * osg::createImage3DWithAlpha(const osg::ImageList & imageList, int s_maximumImageSize = 1024, int t_maximumImageSize = 1024, int r_maximumImageSize = 1024, bool resizeToPowerOfTwo = false)\nClass arguments details:\narg 1 ID = 71630045\n");
+		luaL_error(L, "luna typecheck failed in osg::Image * osg::createImage3DWithAlpha(const osg::ImageList & imageList, int s_maximumImageSize = 1024, int t_maximumImageSize = 1024, int r_maximumImageSize = 1024, bool resizeToPowerOfTwo = false) function, expected prototype:\nosg::Image * osg::createImage3DWithAlpha(const osg::ImageList & imageList, int s_maximumImageSize = 1024, int t_maximumImageSize = 1024, int r_maximumImageSize = 1024, bool resizeToPowerOfTwo = false)\nClass arguments details:\narg 1 ID = 71630045\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2315,8 +2244,7 @@ static int _bind_createImage3DWithAlpha(lua_State *L) {
 // osg::Image * osg::createSpotLightImage(const osg::Vec4f & centerColour, const osg::Vec4f & backgroudColour, unsigned int size, float power)
 static int _bind_createSpotLightImage(lua_State *L) {
 	if (!_lg_typecheck_createSpotLightImage(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Image * osg::createSpotLightImage(const osg::Vec4f & centerColour, const osg::Vec4f & backgroudColour, unsigned int size, float power) function, expected prototype:\nosg::Image * osg::createSpotLightImage(const osg::Vec4f & centerColour, const osg::Vec4f & backgroudColour, unsigned int size, float power)\nClass arguments details:\narg 1 ID = 92303235\narg 2 ID = 92303235\n");
+		luaL_error(L, "luna typecheck failed in osg::Image * osg::createSpotLightImage(const osg::Vec4f & centerColour, const osg::Vec4f & backgroudColour, unsigned int size, float power) function, expected prototype:\nosg::Image * osg::createSpotLightImage(const osg::Vec4f & centerColour, const osg::Vec4f & backgroudColour, unsigned int size, float power)\nClass arguments details:\narg 1 ID = 92303235\narg 2 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec4f* centerColour_ptr=(Luna< osg::Vec4f >::check(L,1));
@@ -2343,8 +2271,7 @@ static int _bind_createSpotLightImage(lua_State *L) {
 // osg::Image * osg::colorSpaceConversion(osg::ColorSpaceOperation op, osg::Image * image, const osg::Vec4f & colour)
 static int _bind_colorSpaceConversion(lua_State *L) {
 	if (!_lg_typecheck_colorSpaceConversion(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Image * osg::colorSpaceConversion(osg::ColorSpaceOperation op, osg::Image * image, const osg::Vec4f & colour) function, expected prototype:\nosg::Image * osg::colorSpaceConversion(osg::ColorSpaceOperation op, osg::Image * image, const osg::Vec4f & colour)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 92303235\n");
+		luaL_error(L, "luna typecheck failed in osg::Image * osg::colorSpaceConversion(osg::ColorSpaceOperation op, osg::Image * image, const osg::Vec4f & colour) function, expected prototype:\nosg::Image * osg::colorSpaceConversion(osg::ColorSpaceOperation op, osg::Image * image, const osg::Vec4f & colour)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osg::ColorSpaceOperation op=(osg::ColorSpaceOperation)lua_tointeger(L,1);
@@ -2366,8 +2293,7 @@ static int _bind_colorSpaceConversion(lua_State *L) {
 // bool osg::equivalent(float lhs, float rhs, float epsilon = 1e-6)
 static int _bind_equivalent_overload_1(lua_State *L) {
 	if (!_lg_typecheck_equivalent_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osg::equivalent(float lhs, float rhs, float epsilon = 1e-6) function, expected prototype:\nbool osg::equivalent(float lhs, float rhs, float epsilon = 1e-6)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osg::equivalent(float lhs, float rhs, float epsilon = 1e-6) function, expected prototype:\nbool osg::equivalent(float lhs, float rhs, float epsilon = 1e-6)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2385,8 +2311,7 @@ static int _bind_equivalent_overload_1(lua_State *L) {
 // bool osg::equivalent(double lhs, double rhs, double epsilon = 1e-6)
 static int _bind_equivalent_overload_2(lua_State *L) {
 	if (!_lg_typecheck_equivalent_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osg::equivalent(double lhs, double rhs, double epsilon = 1e-6) function, expected prototype:\nbool osg::equivalent(double lhs, double rhs, double epsilon = 1e-6)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osg::equivalent(double lhs, double rhs, double epsilon = 1e-6) function, expected prototype:\nbool osg::equivalent(double lhs, double rhs, double epsilon = 1e-6)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2413,8 +2338,7 @@ static int _bind_equivalent(lua_State *L) {
 // float osg::inDegrees(float angle)
 static int _bind_inDegrees_overload_1(lua_State *L) {
 	if (!_lg_typecheck_inDegrees_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float osg::inDegrees(float angle) function, expected prototype:\nfloat osg::inDegrees(float angle)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float osg::inDegrees(float angle) function, expected prototype:\nfloat osg::inDegrees(float angle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float angle=(float)lua_tonumber(L,1);
@@ -2428,8 +2352,7 @@ static int _bind_inDegrees_overload_1(lua_State *L) {
 // double osg::inDegrees(double angle)
 static int _bind_inDegrees_overload_2(lua_State *L) {
 	if (!_lg_typecheck_inDegrees_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in double osg::inDegrees(double angle) function, expected prototype:\ndouble osg::inDegrees(double angle)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in double osg::inDegrees(double angle) function, expected prototype:\ndouble osg::inDegrees(double angle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	double angle=(double)lua_tonumber(L,1);
@@ -2452,8 +2375,7 @@ static int _bind_inDegrees(lua_State *L) {
 // float osg::DegreesToRadians(float angle)
 static int _bind_DegreesToRadians_overload_1(lua_State *L) {
 	if (!_lg_typecheck_DegreesToRadians_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float osg::DegreesToRadians(float angle) function, expected prototype:\nfloat osg::DegreesToRadians(float angle)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float osg::DegreesToRadians(float angle) function, expected prototype:\nfloat osg::DegreesToRadians(float angle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float angle=(float)lua_tonumber(L,1);
@@ -2467,8 +2389,7 @@ static int _bind_DegreesToRadians_overload_1(lua_State *L) {
 // double osg::DegreesToRadians(double angle)
 static int _bind_DegreesToRadians_overload_2(lua_State *L) {
 	if (!_lg_typecheck_DegreesToRadians_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in double osg::DegreesToRadians(double angle) function, expected prototype:\ndouble osg::DegreesToRadians(double angle)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in double osg::DegreesToRadians(double angle) function, expected prototype:\ndouble osg::DegreesToRadians(double angle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	double angle=(double)lua_tonumber(L,1);
@@ -2491,8 +2412,7 @@ static int _bind_DegreesToRadians(lua_State *L) {
 // float osg::RadiansToDegrees(float angle)
 static int _bind_RadiansToDegrees_overload_1(lua_State *L) {
 	if (!_lg_typecheck_RadiansToDegrees_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float osg::RadiansToDegrees(float angle) function, expected prototype:\nfloat osg::RadiansToDegrees(float angle)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float osg::RadiansToDegrees(float angle) function, expected prototype:\nfloat osg::RadiansToDegrees(float angle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float angle=(float)lua_tonumber(L,1);
@@ -2506,8 +2426,7 @@ static int _bind_RadiansToDegrees_overload_1(lua_State *L) {
 // double osg::RadiansToDegrees(double angle)
 static int _bind_RadiansToDegrees_overload_2(lua_State *L) {
 	if (!_lg_typecheck_RadiansToDegrees_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in double osg::RadiansToDegrees(double angle) function, expected prototype:\ndouble osg::RadiansToDegrees(double angle)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in double osg::RadiansToDegrees(double angle) function, expected prototype:\ndouble osg::RadiansToDegrees(double angle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	double angle=(double)lua_tonumber(L,1);
@@ -2530,8 +2449,7 @@ static int _bind_RadiansToDegrees(lua_State *L) {
 // float osg::round(float v)
 static int _bind_round_overload_1(lua_State *L) {
 	if (!_lg_typecheck_round_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float osg::round(float v) function, expected prototype:\nfloat osg::round(float v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float osg::round(float v) function, expected prototype:\nfloat osg::round(float v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float v=(float)lua_tonumber(L,1);
@@ -2545,8 +2463,7 @@ static int _bind_round_overload_1(lua_State *L) {
 // double osg::round(double v)
 static int _bind_round_overload_2(lua_State *L) {
 	if (!_lg_typecheck_round_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in double osg::round(double v) function, expected prototype:\ndouble osg::round(double v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in double osg::round(double v) function, expected prototype:\ndouble osg::round(double v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	double v=(double)lua_tonumber(L,1);
@@ -2569,8 +2486,7 @@ static int _bind_round(lua_State *L) {
 // bool osg::isNaN(double v)
 static int _bind_isNaN(lua_State *L) {
 	if (!_lg_typecheck_isNaN(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osg::isNaN(double v) function, expected prototype:\nbool osg::isNaN(double v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osg::isNaN(double v) function, expected prototype:\nbool osg::isNaN(double v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	double v=(double)lua_tonumber(L,1);
@@ -2584,8 +2500,7 @@ static int _bind_isNaN(lua_State *L) {
 // double osg::asciiToDouble(const char * str)
 static int _bind_asciiToDouble(lua_State *L) {
 	if (!_lg_typecheck_asciiToDouble(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in double osg::asciiToDouble(const char * str) function, expected prototype:\ndouble osg::asciiToDouble(const char * str)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in double osg::asciiToDouble(const char * str) function, expected prototype:\ndouble osg::asciiToDouble(const char * str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * str=(const char *)lua_tostring(L,1);
@@ -2599,8 +2514,7 @@ static int _bind_asciiToDouble(lua_State *L) {
 // float osg::asciiToFloat(const char * str)
 static int _bind_asciiToFloat(lua_State *L) {
 	if (!_lg_typecheck_asciiToFloat(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float osg::asciiToFloat(const char * str) function, expected prototype:\nfloat osg::asciiToFloat(const char * str)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float osg::asciiToFloat(const char * str) function, expected prototype:\nfloat osg::asciiToFloat(const char * str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * str=(const char *)lua_tostring(L,1);
@@ -2614,8 +2528,7 @@ static int _bind_asciiToFloat(lua_State *L) {
 // double osg::findAsciiToDouble(const char * str)
 static int _bind_findAsciiToDouble(lua_State *L) {
 	if (!_lg_typecheck_findAsciiToDouble(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in double osg::findAsciiToDouble(const char * str) function, expected prototype:\ndouble osg::findAsciiToDouble(const char * str)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in double osg::findAsciiToDouble(const char * str) function, expected prototype:\ndouble osg::findAsciiToDouble(const char * str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * str=(const char *)lua_tostring(L,1);
@@ -2629,8 +2542,7 @@ static int _bind_findAsciiToDouble(lua_State *L) {
 // float osg::findAsciiToFloat(const char * str)
 static int _bind_findAsciiToFloat(lua_State *L) {
 	if (!_lg_typecheck_findAsciiToFloat(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float osg::findAsciiToFloat(const char * str) function, expected prototype:\nfloat osg::findAsciiToFloat(const char * str)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float osg::findAsciiToFloat(const char * str) function, expected prototype:\nfloat osg::findAsciiToFloat(const char * str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * str=(const char *)lua_tostring(L,1);
@@ -2644,8 +2556,7 @@ static int _bind_findAsciiToFloat(lua_State *L) {
 // void osg::setNotifyLevel(osg::NotifySeverity severity)
 static int _bind_setNotifyLevel(lua_State *L) {
 	if (!_lg_typecheck_setNotifyLevel(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::setNotifyLevel(osg::NotifySeverity severity) function, expected prototype:\nvoid osg::setNotifyLevel(osg::NotifySeverity severity)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void osg::setNotifyLevel(osg::NotifySeverity severity) function, expected prototype:\nvoid osg::setNotifyLevel(osg::NotifySeverity severity)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osg::NotifySeverity severity=(osg::NotifySeverity)lua_tointeger(L,1);
@@ -2658,8 +2569,7 @@ static int _bind_setNotifyLevel(lua_State *L) {
 // osg::NotifySeverity osg::getNotifyLevel()
 static int _bind_getNotifyLevel(lua_State *L) {
 	if (!_lg_typecheck_getNotifyLevel(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::NotifySeverity osg::getNotifyLevel() function, expected prototype:\nosg::NotifySeverity osg::getNotifyLevel()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::NotifySeverity osg::getNotifyLevel() function, expected prototype:\nosg::NotifySeverity osg::getNotifyLevel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2672,8 +2582,7 @@ static int _bind_getNotifyLevel(lua_State *L) {
 // bool osg::initNotifyLevel()
 static int _bind_initNotifyLevel(lua_State *L) {
 	if (!_lg_typecheck_initNotifyLevel(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osg::initNotifyLevel() function, expected prototype:\nbool osg::initNotifyLevel()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osg::initNotifyLevel() function, expected prototype:\nbool osg::initNotifyLevel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2686,8 +2595,7 @@ static int _bind_initNotifyLevel(lua_State *L) {
 // bool osg::isNotifyEnabled(osg::NotifySeverity severity)
 static int _bind_isNotifyEnabled(lua_State *L) {
 	if (!_lg_typecheck_isNotifyEnabled(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osg::isNotifyEnabled(osg::NotifySeverity severity) function, expected prototype:\nbool osg::isNotifyEnabled(osg::NotifySeverity severity)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osg::isNotifyEnabled(osg::NotifySeverity severity) function, expected prototype:\nbool osg::isNotifyEnabled(osg::NotifySeverity severity)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osg::NotifySeverity severity=(osg::NotifySeverity)lua_tointeger(L,1);
@@ -2701,8 +2609,7 @@ static int _bind_isNotifyEnabled(lua_State *L) {
 // std::ostream & osg::notify(const osg::NotifySeverity severity)
 static int _bind_notify_overload_1(lua_State *L) {
 	if (!_lg_typecheck_notify_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::ostream & osg::notify(const osg::NotifySeverity severity) function, expected prototype:\nstd::ostream & osg::notify(const osg::NotifySeverity severity)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::ostream & osg::notify(const osg::NotifySeverity severity) function, expected prototype:\nstd::ostream & osg::notify(const osg::NotifySeverity severity)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::NotifySeverity severity=(const osg::NotifySeverity)lua_tointeger(L,1);
@@ -2718,8 +2625,7 @@ static int _bind_notify_overload_1(lua_State *L) {
 // std::ostream & osg::notify()
 static int _bind_notify_overload_2(lua_State *L) {
 	if (!_lg_typecheck_notify_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::ostream & osg::notify() function, expected prototype:\nstd::ostream & osg::notify()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::ostream & osg::notify() function, expected prototype:\nstd::ostream & osg::notify()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2743,8 +2649,7 @@ static int _bind_notify(lua_State *L) {
 // void osg::setNotifyHandler(osg::NotifyHandler * handler)
 static int _bind_setNotifyHandler(lua_State *L) {
 	if (!_lg_typecheck_setNotifyHandler(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::setNotifyHandler(osg::NotifyHandler * handler) function, expected prototype:\nvoid osg::setNotifyHandler(osg::NotifyHandler * handler)\nClass arguments details:\narg 1 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in void osg::setNotifyHandler(osg::NotifyHandler * handler) function, expected prototype:\nvoid osg::setNotifyHandler(osg::NotifyHandler * handler)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osg::NotifyHandler* handler=(Luna< osg::Referenced >::checkSubType< osg::NotifyHandler >(L,1));
@@ -2757,8 +2662,7 @@ static int _bind_setNotifyHandler(lua_State *L) {
 // osg::NotifyHandler * osg::getNotifyHandler()
 static int _bind_getNotifyHandler(lua_State *L) {
 	if (!_lg_typecheck_getNotifyHandler(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::NotifyHandler * osg::getNotifyHandler() function, expected prototype:\nosg::NotifyHandler * osg::getNotifyHandler()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::NotifyHandler * osg::getNotifyHandler() function, expected prototype:\nosg::NotifyHandler * osg::getNotifyHandler()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2773,8 +2677,7 @@ static int _bind_getNotifyHandler(lua_State *L) {
 // bool osg::isTextureMode(unsigned int mode)
 static int _bind_isTextureMode(lua_State *L) {
 	if (!_lg_typecheck_isTextureMode(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osg::isTextureMode(unsigned int mode) function, expected prototype:\nbool osg::isTextureMode(unsigned int mode)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osg::isTextureMode(unsigned int mode) function, expected prototype:\nbool osg::isTextureMode(unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -2788,8 +2691,7 @@ static int _bind_isTextureMode(lua_State *L) {
 // osg::Matrixd osg::computeLocalToWorld(const osg::NodePath & nodePath, bool ignoreCameras = true)
 static int _bind_computeLocalToWorld(lua_State *L) {
 	if (!_lg_typecheck_computeLocalToWorld(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Matrixd osg::computeLocalToWorld(const osg::NodePath & nodePath, bool ignoreCameras = true) function, expected prototype:\nosg::Matrixd osg::computeLocalToWorld(const osg::NodePath & nodePath, bool ignoreCameras = true)\nClass arguments details:\narg 1 ID = 52841328\n");
+		luaL_error(L, "luna typecheck failed in osg::Matrixd osg::computeLocalToWorld(const osg::NodePath & nodePath, bool ignoreCameras = true) function, expected prototype:\nosg::Matrixd osg::computeLocalToWorld(const osg::NodePath & nodePath, bool ignoreCameras = true)\nClass arguments details:\narg 1 ID = 52841328\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2813,8 +2715,7 @@ static int _bind_computeLocalToWorld(lua_State *L) {
 // osg::Matrixd osg::computeWorldToLocal(const osg::NodePath & nodePath, bool ignoreCameras = true)
 static int _bind_computeWorldToLocal(lua_State *L) {
 	if (!_lg_typecheck_computeWorldToLocal(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Matrixd osg::computeWorldToLocal(const osg::NodePath & nodePath, bool ignoreCameras = true) function, expected prototype:\nosg::Matrixd osg::computeWorldToLocal(const osg::NodePath & nodePath, bool ignoreCameras = true)\nClass arguments details:\narg 1 ID = 52841328\n");
+		luaL_error(L, "luna typecheck failed in osg::Matrixd osg::computeWorldToLocal(const osg::NodePath & nodePath, bool ignoreCameras = true) function, expected prototype:\nosg::Matrixd osg::computeWorldToLocal(const osg::NodePath & nodePath, bool ignoreCameras = true)\nClass arguments details:\narg 1 ID = 52841328\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2838,8 +2739,7 @@ static int _bind_computeWorldToLocal(lua_State *L) {
 // osg::Matrixd osg::computeLocalToEye(const osg::Matrixd & modelview, const osg::NodePath & nodePath, bool ignoreCameras = true)
 static int _bind_computeLocalToEye(lua_State *L) {
 	if (!_lg_typecheck_computeLocalToEye(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Matrixd osg::computeLocalToEye(const osg::Matrixd & modelview, const osg::NodePath & nodePath, bool ignoreCameras = true) function, expected prototype:\nosg::Matrixd osg::computeLocalToEye(const osg::Matrixd & modelview, const osg::NodePath & nodePath, bool ignoreCameras = true)\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 52841328\n");
+		luaL_error(L, "luna typecheck failed in osg::Matrixd osg::computeLocalToEye(const osg::Matrixd & modelview, const osg::NodePath & nodePath, bool ignoreCameras = true) function, expected prototype:\nosg::Matrixd osg::computeLocalToEye(const osg::Matrixd & modelview, const osg::NodePath & nodePath, bool ignoreCameras = true)\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 52841328\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2868,8 +2768,7 @@ static int _bind_computeLocalToEye(lua_State *L) {
 // osg::Matrixd osg::computeEyeToLocal(const osg::Matrixd & modelview, const osg::NodePath & nodePath, bool ignoreCameras = true)
 static int _bind_computeEyeToLocal(lua_State *L) {
 	if (!_lg_typecheck_computeEyeToLocal(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Matrixd osg::computeEyeToLocal(const osg::Matrixd & modelview, const osg::NodePath & nodePath, bool ignoreCameras = true) function, expected prototype:\nosg::Matrixd osg::computeEyeToLocal(const osg::Matrixd & modelview, const osg::NodePath & nodePath, bool ignoreCameras = true)\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 52841328\n");
+		luaL_error(L, "luna typecheck failed in osg::Matrixd osg::computeEyeToLocal(const osg::Matrixd & modelview, const osg::NodePath & nodePath, bool ignoreCameras = true) function, expected prototype:\nosg::Matrixd osg::computeEyeToLocal(const osg::Matrixd & modelview, const osg::NodePath & nodePath, bool ignoreCameras = true)\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 52841328\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2898,8 +2797,7 @@ static int _bind_computeEyeToLocal(lua_State *L) {
 // osg::Vec2d osg::componentMultiply(const osg::Vec2d & lhs, const osg::Vec2d & rhs)
 static int _bind_componentMultiply_overload_1(lua_State *L) {
 	if (!_lg_typecheck_componentMultiply_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec2d osg::componentMultiply(const osg::Vec2d & lhs, const osg::Vec2d & rhs) function, expected prototype:\nosg::Vec2d osg::componentMultiply(const osg::Vec2d & lhs, const osg::Vec2d & rhs)\nClass arguments details:\narg 1 ID = 92303171\narg 2 ID = 92303171\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec2d osg::componentMultiply(const osg::Vec2d & lhs, const osg::Vec2d & rhs) function, expected prototype:\nosg::Vec2d osg::componentMultiply(const osg::Vec2d & lhs, const osg::Vec2d & rhs)\nClass arguments details:\narg 1 ID = 92303171\narg 2 ID = 92303171\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec2d* lhs_ptr=(Luna< osg::Vec2d >::check(L,1));
@@ -2925,8 +2823,7 @@ static int _bind_componentMultiply_overload_1(lua_State *L) {
 // osg::Vec2f osg::componentMultiply(const osg::Vec2f & lhs, const osg::Vec2f & rhs)
 static int _bind_componentMultiply_overload_2(lua_State *L) {
 	if (!_lg_typecheck_componentMultiply_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec2f osg::componentMultiply(const osg::Vec2f & lhs, const osg::Vec2f & rhs) function, expected prototype:\nosg::Vec2f osg::componentMultiply(const osg::Vec2f & lhs, const osg::Vec2f & rhs)\nClass arguments details:\narg 1 ID = 92303173\narg 2 ID = 92303173\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec2f osg::componentMultiply(const osg::Vec2f & lhs, const osg::Vec2f & rhs) function, expected prototype:\nosg::Vec2f osg::componentMultiply(const osg::Vec2f & lhs, const osg::Vec2f & rhs)\nClass arguments details:\narg 1 ID = 92303173\narg 2 ID = 92303173\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec2f* lhs_ptr=(Luna< osg::Vec2f >::check(L,1));
@@ -2952,8 +2849,7 @@ static int _bind_componentMultiply_overload_2(lua_State *L) {
 // osg::Vec2s osg::componentMultiply(const osg::Vec2s & lhs, const osg::Vec2s & rhs)
 static int _bind_componentMultiply_overload_3(lua_State *L) {
 	if (!_lg_typecheck_componentMultiply_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec2s osg::componentMultiply(const osg::Vec2s & lhs, const osg::Vec2s & rhs) function, expected prototype:\nosg::Vec2s osg::componentMultiply(const osg::Vec2s & lhs, const osg::Vec2s & rhs)\nClass arguments details:\narg 1 ID = 92303186\narg 2 ID = 92303186\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec2s osg::componentMultiply(const osg::Vec2s & lhs, const osg::Vec2s & rhs) function, expected prototype:\nosg::Vec2s osg::componentMultiply(const osg::Vec2s & lhs, const osg::Vec2s & rhs)\nClass arguments details:\narg 1 ID = 92303186\narg 2 ID = 92303186\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec2s* lhs_ptr=(Luna< osg::Vec2s >::check(L,1));
@@ -2979,8 +2875,7 @@ static int _bind_componentMultiply_overload_3(lua_State *L) {
 // osg::Vec3d osg::componentMultiply(const osg::Vec3d & lhs, const osg::Vec3d & rhs)
 static int _bind_componentMultiply_overload_4(lua_State *L) {
 	if (!_lg_typecheck_componentMultiply_overload_4(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec3d osg::componentMultiply(const osg::Vec3d & lhs, const osg::Vec3d & rhs) function, expected prototype:\nosg::Vec3d osg::componentMultiply(const osg::Vec3d & lhs, const osg::Vec3d & rhs)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec3d osg::componentMultiply(const osg::Vec3d & lhs, const osg::Vec3d & rhs) function, expected prototype:\nosg::Vec3d osg::componentMultiply(const osg::Vec3d & lhs, const osg::Vec3d & rhs)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec3d* lhs_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -3006,8 +2901,7 @@ static int _bind_componentMultiply_overload_4(lua_State *L) {
 // osg::Vec3f osg::componentMultiply(const osg::Vec3f & lhs, const osg::Vec3f & rhs)
 static int _bind_componentMultiply_overload_5(lua_State *L) {
 	if (!_lg_typecheck_componentMultiply_overload_5(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec3f osg::componentMultiply(const osg::Vec3f & lhs, const osg::Vec3f & rhs) function, expected prototype:\nosg::Vec3f osg::componentMultiply(const osg::Vec3f & lhs, const osg::Vec3f & rhs)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec3f osg::componentMultiply(const osg::Vec3f & lhs, const osg::Vec3f & rhs) function, expected prototype:\nosg::Vec3f osg::componentMultiply(const osg::Vec3f & lhs, const osg::Vec3f & rhs)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec3f* lhs_ptr=(Luna< osg::Vec3f >::check(L,1));
@@ -3033,8 +2927,7 @@ static int _bind_componentMultiply_overload_5(lua_State *L) {
 // osg::Vec3s osg::componentMultiply(const osg::Vec3s & lhs, const osg::Vec3s & rhs)
 static int _bind_componentMultiply_overload_6(lua_State *L) {
 	if (!_lg_typecheck_componentMultiply_overload_6(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec3s osg::componentMultiply(const osg::Vec3s & lhs, const osg::Vec3s & rhs) function, expected prototype:\nosg::Vec3s osg::componentMultiply(const osg::Vec3s & lhs, const osg::Vec3s & rhs)\nClass arguments details:\narg 1 ID = 92303217\narg 2 ID = 92303217\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec3s osg::componentMultiply(const osg::Vec3s & lhs, const osg::Vec3s & rhs) function, expected prototype:\nosg::Vec3s osg::componentMultiply(const osg::Vec3s & lhs, const osg::Vec3s & rhs)\nClass arguments details:\narg 1 ID = 92303217\narg 2 ID = 92303217\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec3s* lhs_ptr=(Luna< osg::Vec3s >::check(L,1));
@@ -3060,8 +2953,7 @@ static int _bind_componentMultiply_overload_6(lua_State *L) {
 // osg::Vec4d osg::componentMultiply(const osg::Vec4d & lhs, const osg::Vec4d & rhs)
 static int _bind_componentMultiply_overload_7(lua_State *L) {
 	if (!_lg_typecheck_componentMultiply_overload_7(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec4d osg::componentMultiply(const osg::Vec4d & lhs, const osg::Vec4d & rhs) function, expected prototype:\nosg::Vec4d osg::componentMultiply(const osg::Vec4d & lhs, const osg::Vec4d & rhs)\nClass arguments details:\narg 1 ID = 92303233\narg 2 ID = 92303233\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec4d osg::componentMultiply(const osg::Vec4d & lhs, const osg::Vec4d & rhs) function, expected prototype:\nosg::Vec4d osg::componentMultiply(const osg::Vec4d & lhs, const osg::Vec4d & rhs)\nClass arguments details:\narg 1 ID = 92303233\narg 2 ID = 92303233\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec4d* lhs_ptr=(Luna< osg::Vec4d >::check(L,1));
@@ -3087,8 +2979,7 @@ static int _bind_componentMultiply_overload_7(lua_State *L) {
 // osg::Vec4f osg::componentMultiply(const osg::Vec4f & lhs, const osg::Vec4f & rhs)
 static int _bind_componentMultiply_overload_8(lua_State *L) {
 	if (!_lg_typecheck_componentMultiply_overload_8(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec4f osg::componentMultiply(const osg::Vec4f & lhs, const osg::Vec4f & rhs) function, expected prototype:\nosg::Vec4f osg::componentMultiply(const osg::Vec4f & lhs, const osg::Vec4f & rhs)\nClass arguments details:\narg 1 ID = 92303235\narg 2 ID = 92303235\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec4f osg::componentMultiply(const osg::Vec4f & lhs, const osg::Vec4f & rhs) function, expected prototype:\nosg::Vec4f osg::componentMultiply(const osg::Vec4f & lhs, const osg::Vec4f & rhs)\nClass arguments details:\narg 1 ID = 92303235\narg 2 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec4f* lhs_ptr=(Luna< osg::Vec4f >::check(L,1));
@@ -3114,8 +3005,7 @@ static int _bind_componentMultiply_overload_8(lua_State *L) {
 // osg::Vec4s osg::componentMultiply(const osg::Vec4s & lhs, const osg::Vec4s & rhs)
 static int _bind_componentMultiply_overload_9(lua_State *L) {
 	if (!_lg_typecheck_componentMultiply_overload_9(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec4s osg::componentMultiply(const osg::Vec4s & lhs, const osg::Vec4s & rhs) function, expected prototype:\nosg::Vec4s osg::componentMultiply(const osg::Vec4s & lhs, const osg::Vec4s & rhs)\nClass arguments details:\narg 1 ID = 92303248\narg 2 ID = 92303248\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec4s osg::componentMultiply(const osg::Vec4s & lhs, const osg::Vec4s & rhs) function, expected prototype:\nosg::Vec4s osg::componentMultiply(const osg::Vec4s & lhs, const osg::Vec4s & rhs)\nClass arguments details:\narg 1 ID = 92303248\narg 2 ID = 92303248\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec4s* lhs_ptr=(Luna< osg::Vec4s >::check(L,1));
@@ -3157,8 +3047,7 @@ static int _bind_componentMultiply(lua_State *L) {
 // osg::Vec2d osg::componentDivide(const osg::Vec2d & lhs, const osg::Vec2d & rhs)
 static int _bind_componentDivide_overload_1(lua_State *L) {
 	if (!_lg_typecheck_componentDivide_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec2d osg::componentDivide(const osg::Vec2d & lhs, const osg::Vec2d & rhs) function, expected prototype:\nosg::Vec2d osg::componentDivide(const osg::Vec2d & lhs, const osg::Vec2d & rhs)\nClass arguments details:\narg 1 ID = 92303171\narg 2 ID = 92303171\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec2d osg::componentDivide(const osg::Vec2d & lhs, const osg::Vec2d & rhs) function, expected prototype:\nosg::Vec2d osg::componentDivide(const osg::Vec2d & lhs, const osg::Vec2d & rhs)\nClass arguments details:\narg 1 ID = 92303171\narg 2 ID = 92303171\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec2d* lhs_ptr=(Luna< osg::Vec2d >::check(L,1));
@@ -3184,8 +3073,7 @@ static int _bind_componentDivide_overload_1(lua_State *L) {
 // osg::Vec2f osg::componentDivide(const osg::Vec2f & lhs, const osg::Vec2f & rhs)
 static int _bind_componentDivide_overload_2(lua_State *L) {
 	if (!_lg_typecheck_componentDivide_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec2f osg::componentDivide(const osg::Vec2f & lhs, const osg::Vec2f & rhs) function, expected prototype:\nosg::Vec2f osg::componentDivide(const osg::Vec2f & lhs, const osg::Vec2f & rhs)\nClass arguments details:\narg 1 ID = 92303173\narg 2 ID = 92303173\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec2f osg::componentDivide(const osg::Vec2f & lhs, const osg::Vec2f & rhs) function, expected prototype:\nosg::Vec2f osg::componentDivide(const osg::Vec2f & lhs, const osg::Vec2f & rhs)\nClass arguments details:\narg 1 ID = 92303173\narg 2 ID = 92303173\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec2f* lhs_ptr=(Luna< osg::Vec2f >::check(L,1));
@@ -3211,8 +3099,7 @@ static int _bind_componentDivide_overload_2(lua_State *L) {
 // osg::Vec2s osg::componentDivide(const osg::Vec2s & lhs, const osg::Vec2s & rhs)
 static int _bind_componentDivide_overload_3(lua_State *L) {
 	if (!_lg_typecheck_componentDivide_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec2s osg::componentDivide(const osg::Vec2s & lhs, const osg::Vec2s & rhs) function, expected prototype:\nosg::Vec2s osg::componentDivide(const osg::Vec2s & lhs, const osg::Vec2s & rhs)\nClass arguments details:\narg 1 ID = 92303186\narg 2 ID = 92303186\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec2s osg::componentDivide(const osg::Vec2s & lhs, const osg::Vec2s & rhs) function, expected prototype:\nosg::Vec2s osg::componentDivide(const osg::Vec2s & lhs, const osg::Vec2s & rhs)\nClass arguments details:\narg 1 ID = 92303186\narg 2 ID = 92303186\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec2s* lhs_ptr=(Luna< osg::Vec2s >::check(L,1));
@@ -3238,8 +3125,7 @@ static int _bind_componentDivide_overload_3(lua_State *L) {
 // osg::Vec3d osg::componentDivide(const osg::Vec3d & lhs, const osg::Vec3d & rhs)
 static int _bind_componentDivide_overload_4(lua_State *L) {
 	if (!_lg_typecheck_componentDivide_overload_4(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec3d osg::componentDivide(const osg::Vec3d & lhs, const osg::Vec3d & rhs) function, expected prototype:\nosg::Vec3d osg::componentDivide(const osg::Vec3d & lhs, const osg::Vec3d & rhs)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec3d osg::componentDivide(const osg::Vec3d & lhs, const osg::Vec3d & rhs) function, expected prototype:\nosg::Vec3d osg::componentDivide(const osg::Vec3d & lhs, const osg::Vec3d & rhs)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec3d* lhs_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -3265,8 +3151,7 @@ static int _bind_componentDivide_overload_4(lua_State *L) {
 // osg::Vec3f osg::componentDivide(const osg::Vec3f & lhs, const osg::Vec3f & rhs)
 static int _bind_componentDivide_overload_5(lua_State *L) {
 	if (!_lg_typecheck_componentDivide_overload_5(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec3f osg::componentDivide(const osg::Vec3f & lhs, const osg::Vec3f & rhs) function, expected prototype:\nosg::Vec3f osg::componentDivide(const osg::Vec3f & lhs, const osg::Vec3f & rhs)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec3f osg::componentDivide(const osg::Vec3f & lhs, const osg::Vec3f & rhs) function, expected prototype:\nosg::Vec3f osg::componentDivide(const osg::Vec3f & lhs, const osg::Vec3f & rhs)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec3f* lhs_ptr=(Luna< osg::Vec3f >::check(L,1));
@@ -3292,8 +3177,7 @@ static int _bind_componentDivide_overload_5(lua_State *L) {
 // osg::Vec3s osg::componentDivide(const osg::Vec3s & lhs, const osg::Vec3s & rhs)
 static int _bind_componentDivide_overload_6(lua_State *L) {
 	if (!_lg_typecheck_componentDivide_overload_6(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec3s osg::componentDivide(const osg::Vec3s & lhs, const osg::Vec3s & rhs) function, expected prototype:\nosg::Vec3s osg::componentDivide(const osg::Vec3s & lhs, const osg::Vec3s & rhs)\nClass arguments details:\narg 1 ID = 92303217\narg 2 ID = 92303217\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec3s osg::componentDivide(const osg::Vec3s & lhs, const osg::Vec3s & rhs) function, expected prototype:\nosg::Vec3s osg::componentDivide(const osg::Vec3s & lhs, const osg::Vec3s & rhs)\nClass arguments details:\narg 1 ID = 92303217\narg 2 ID = 92303217\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec3s* lhs_ptr=(Luna< osg::Vec3s >::check(L,1));
@@ -3319,8 +3203,7 @@ static int _bind_componentDivide_overload_6(lua_State *L) {
 // osg::Vec4d osg::componentDivide(const osg::Vec4d & lhs, const osg::Vec4d & rhs)
 static int _bind_componentDivide_overload_7(lua_State *L) {
 	if (!_lg_typecheck_componentDivide_overload_7(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec4d osg::componentDivide(const osg::Vec4d & lhs, const osg::Vec4d & rhs) function, expected prototype:\nosg::Vec4d osg::componentDivide(const osg::Vec4d & lhs, const osg::Vec4d & rhs)\nClass arguments details:\narg 1 ID = 92303233\narg 2 ID = 92303233\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec4d osg::componentDivide(const osg::Vec4d & lhs, const osg::Vec4d & rhs) function, expected prototype:\nosg::Vec4d osg::componentDivide(const osg::Vec4d & lhs, const osg::Vec4d & rhs)\nClass arguments details:\narg 1 ID = 92303233\narg 2 ID = 92303233\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec4d* lhs_ptr=(Luna< osg::Vec4d >::check(L,1));
@@ -3346,8 +3229,7 @@ static int _bind_componentDivide_overload_7(lua_State *L) {
 // osg::Vec4f osg::componentDivide(const osg::Vec4f & lhs, const osg::Vec4f & rhs)
 static int _bind_componentDivide_overload_8(lua_State *L) {
 	if (!_lg_typecheck_componentDivide_overload_8(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec4f osg::componentDivide(const osg::Vec4f & lhs, const osg::Vec4f & rhs) function, expected prototype:\nosg::Vec4f osg::componentDivide(const osg::Vec4f & lhs, const osg::Vec4f & rhs)\nClass arguments details:\narg 1 ID = 92303235\narg 2 ID = 92303235\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec4f osg::componentDivide(const osg::Vec4f & lhs, const osg::Vec4f & rhs) function, expected prototype:\nosg::Vec4f osg::componentDivide(const osg::Vec4f & lhs, const osg::Vec4f & rhs)\nClass arguments details:\narg 1 ID = 92303235\narg 2 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec4f* lhs_ptr=(Luna< osg::Vec4f >::check(L,1));
@@ -3373,8 +3255,7 @@ static int _bind_componentDivide_overload_8(lua_State *L) {
 // osg::Vec4s osg::componentDivide(const osg::Vec4s & lhs, const osg::Vec4s & rhs)
 static int _bind_componentDivide_overload_9(lua_State *L) {
 	if (!_lg_typecheck_componentDivide_overload_9(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Vec4s osg::componentDivide(const osg::Vec4s & lhs, const osg::Vec4s & rhs) function, expected prototype:\nosg::Vec4s osg::componentDivide(const osg::Vec4s & lhs, const osg::Vec4s & rhs)\nClass arguments details:\narg 1 ID = 92303248\narg 2 ID = 92303248\n");
+		luaL_error(L, "luna typecheck failed in osg::Vec4s osg::componentDivide(const osg::Vec4s & lhs, const osg::Vec4s & rhs) function, expected prototype:\nosg::Vec4s osg::componentDivide(const osg::Vec4s & lhs, const osg::Vec4s & rhs)\nClass arguments details:\narg 1 ID = 92303248\narg 2 ID = 92303248\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Vec4s* lhs_ptr=(Luna< osg::Vec4s >::check(L,1));
@@ -4193,8 +4074,7 @@ inline static bool _lg_typecheck_trimEnclosingSpaces(lua_State *L) {
 // osgDB::Archive * osgDB::openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint = 4096)
 static int _bind_openArchive_overload_1(lua_State *L) {
 	if (!_lg_typecheck_openArchive_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgDB::Archive * osgDB::openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint = 4096) function, expected prototype:\nosgDB::Archive * osgDB::openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint = 4096)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osgDB::Archive * osgDB::openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint = 4096) function, expected prototype:\nosgDB::Archive * osgDB::openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint = 4096)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -4214,8 +4094,7 @@ static int _bind_openArchive_overload_1(lua_State *L) {
 // osgDB::Archive * osgDB::openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint, osgDB::Options * options)
 static int _bind_openArchive_overload_2(lua_State *L) {
 	if (!_lg_typecheck_openArchive_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgDB::Archive * osgDB::openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint, osgDB::Options * options) function, expected prototype:\nosgDB::Archive * osgDB::openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint, osgDB::Options * options)\nClass arguments details:\narg 4 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osgDB::Archive * osgDB::openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint, osgDB::Options * options) function, expected prototype:\nosgDB::Archive * osgDB::openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint, osgDB::Options * options)\nClass arguments details:\narg 4 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -4243,8 +4122,7 @@ static int _bind_openArchive(lua_State *L) {
 // std::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * source, unsigned int sourceLength)
 static int _bind_convertStringFromCurrentCodePageToUTF8_overload_1(lua_State *L) {
 	if (!_lg_typecheck_convertStringFromCurrentCodePageToUTF8_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * source, unsigned int sourceLength) function, expected prototype:\nstd::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * source, unsigned int sourceLength)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * source, unsigned int sourceLength) function, expected prototype:\nstd::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * source, unsigned int sourceLength)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * source=(const char *)lua_tostring(L,1);
@@ -4259,8 +4137,7 @@ static int _bind_convertStringFromCurrentCodePageToUTF8_overload_1(lua_State *L)
 // std::string osgDB::convertStringFromCurrentCodePageToUTF8(const std::string & s)
 static int _bind_convertStringFromCurrentCodePageToUTF8_overload_2(lua_State *L) {
 	if (!_lg_typecheck_convertStringFromCurrentCodePageToUTF8_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromCurrentCodePageToUTF8(const std::string & s) function, expected prototype:\nstd::string osgDB::convertStringFromCurrentCodePageToUTF8(const std::string & s)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromCurrentCodePageToUTF8(const std::string & s) function, expected prototype:\nstd::string osgDB::convertStringFromCurrentCodePageToUTF8(const std::string & s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string s(lua_tostring(L,1),lua_objlen(L,1));
@@ -4274,8 +4151,7 @@ static int _bind_convertStringFromCurrentCodePageToUTF8_overload_2(lua_State *L)
 // std::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * s)
 static int _bind_convertStringFromCurrentCodePageToUTF8_overload_3(lua_State *L) {
 	if (!_lg_typecheck_convertStringFromCurrentCodePageToUTF8_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * s) function, expected prototype:\nstd::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * s)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * s) function, expected prototype:\nstd::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * s=(const char *)lua_tostring(L,1);
@@ -4299,8 +4175,7 @@ static int _bind_convertStringFromCurrentCodePageToUTF8(lua_State *L) {
 // std::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * source, unsigned int sourceLength)
 static int _bind_convertStringFromUTF8toCurrentCodePage_overload_1(lua_State *L) {
 	if (!_lg_typecheck_convertStringFromUTF8toCurrentCodePage_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * source, unsigned int sourceLength) function, expected prototype:\nstd::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * source, unsigned int sourceLength)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * source, unsigned int sourceLength) function, expected prototype:\nstd::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * source, unsigned int sourceLength)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * source=(const char *)lua_tostring(L,1);
@@ -4315,8 +4190,7 @@ static int _bind_convertStringFromUTF8toCurrentCodePage_overload_1(lua_State *L)
 // std::string osgDB::convertStringFromUTF8toCurrentCodePage(const std::string & s)
 static int _bind_convertStringFromUTF8toCurrentCodePage_overload_2(lua_State *L) {
 	if (!_lg_typecheck_convertStringFromUTF8toCurrentCodePage_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromUTF8toCurrentCodePage(const std::string & s) function, expected prototype:\nstd::string osgDB::convertStringFromUTF8toCurrentCodePage(const std::string & s)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromUTF8toCurrentCodePage(const std::string & s) function, expected prototype:\nstd::string osgDB::convertStringFromUTF8toCurrentCodePage(const std::string & s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string s(lua_tostring(L,1),lua_objlen(L,1));
@@ -4330,8 +4204,7 @@ static int _bind_convertStringFromUTF8toCurrentCodePage_overload_2(lua_State *L)
 // std::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * s)
 static int _bind_convertStringFromUTF8toCurrentCodePage_overload_3(lua_State *L) {
 	if (!_lg_typecheck_convertStringFromUTF8toCurrentCodePage_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * s) function, expected prototype:\nstd::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * s)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * s) function, expected prototype:\nstd::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * s=(const char *)lua_tostring(L,1);
@@ -4355,8 +4228,7 @@ static int _bind_convertStringFromUTF8toCurrentCodePage(lua_State *L) {
 // std::string osgDB::getFilePath(const std::string & filename)
 static int _bind_getFilePath(lua_State *L) {
 	if (!_lg_typecheck_getFilePath(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::getFilePath(const std::string & filename) function, expected prototype:\nstd::string osgDB::getFilePath(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::getFilePath(const std::string & filename) function, expected prototype:\nstd::string osgDB::getFilePath(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -4370,8 +4242,7 @@ static int _bind_getFilePath(lua_State *L) {
 // std::string osgDB::getFileExtension(const std::string & filename)
 static int _bind_getFileExtension(lua_State *L) {
 	if (!_lg_typecheck_getFileExtension(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::getFileExtension(const std::string & filename) function, expected prototype:\nstd::string osgDB::getFileExtension(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::getFileExtension(const std::string & filename) function, expected prototype:\nstd::string osgDB::getFileExtension(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -4385,8 +4256,7 @@ static int _bind_getFileExtension(lua_State *L) {
 // std::string osgDB::getFileExtensionIncludingDot(const std::string & filename)
 static int _bind_getFileExtensionIncludingDot(lua_State *L) {
 	if (!_lg_typecheck_getFileExtensionIncludingDot(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::getFileExtensionIncludingDot(const std::string & filename) function, expected prototype:\nstd::string osgDB::getFileExtensionIncludingDot(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::getFileExtensionIncludingDot(const std::string & filename) function, expected prototype:\nstd::string osgDB::getFileExtensionIncludingDot(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -4400,8 +4270,7 @@ static int _bind_getFileExtensionIncludingDot(lua_State *L) {
 // std::string osgDB::getLowerCaseFileExtension(const std::string & filename)
 static int _bind_getLowerCaseFileExtension(lua_State *L) {
 	if (!_lg_typecheck_getLowerCaseFileExtension(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::getLowerCaseFileExtension(const std::string & filename) function, expected prototype:\nstd::string osgDB::getLowerCaseFileExtension(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::getLowerCaseFileExtension(const std::string & filename) function, expected prototype:\nstd::string osgDB::getLowerCaseFileExtension(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -4415,8 +4284,7 @@ static int _bind_getLowerCaseFileExtension(lua_State *L) {
 // std::string osgDB::getSimpleFileName(const std::string & fileName)
 static int _bind_getSimpleFileName(lua_State *L) {
 	if (!_lg_typecheck_getSimpleFileName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::getSimpleFileName(const std::string & fileName) function, expected prototype:\nstd::string osgDB::getSimpleFileName(const std::string & fileName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::getSimpleFileName(const std::string & fileName) function, expected prototype:\nstd::string osgDB::getSimpleFileName(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
@@ -4430,8 +4298,7 @@ static int _bind_getSimpleFileName(lua_State *L) {
 // std::string osgDB::getNameLessExtension(const std::string & fileName)
 static int _bind_getNameLessExtension(lua_State *L) {
 	if (!_lg_typecheck_getNameLessExtension(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::getNameLessExtension(const std::string & fileName) function, expected prototype:\nstd::string osgDB::getNameLessExtension(const std::string & fileName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::getNameLessExtension(const std::string & fileName) function, expected prototype:\nstd::string osgDB::getNameLessExtension(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
@@ -4445,8 +4312,7 @@ static int _bind_getNameLessExtension(lua_State *L) {
 // std::string osgDB::getStrippedName(const std::string & fileName)
 static int _bind_getStrippedName(lua_State *L) {
 	if (!_lg_typecheck_getStrippedName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::getStrippedName(const std::string & fileName) function, expected prototype:\nstd::string osgDB::getStrippedName(const std::string & fileName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::getStrippedName(const std::string & fileName) function, expected prototype:\nstd::string osgDB::getStrippedName(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
@@ -4460,8 +4326,7 @@ static int _bind_getStrippedName(lua_State *L) {
 // std::string osgDB::getPathRelative(const std::string & from, const std::string & to)
 static int _bind_getPathRelative(lua_State *L) {
 	if (!_lg_typecheck_getPathRelative(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::getPathRelative(const std::string & from, const std::string & to) function, expected prototype:\nstd::string osgDB::getPathRelative(const std::string & from, const std::string & to)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::getPathRelative(const std::string & from, const std::string & to) function, expected prototype:\nstd::string osgDB::getPathRelative(const std::string & from, const std::string & to)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string from(lua_tostring(L,1),lua_objlen(L,1));
@@ -4476,8 +4341,7 @@ static int _bind_getPathRelative(lua_State *L) {
 // std::string osgDB::getPathRoot(const std::string & path)
 static int _bind_getPathRoot(lua_State *L) {
 	if (!_lg_typecheck_getPathRoot(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::getPathRoot(const std::string & path) function, expected prototype:\nstd::string osgDB::getPathRoot(const std::string & path)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::getPathRoot(const std::string & path) function, expected prototype:\nstd::string osgDB::getPathRoot(const std::string & path)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string path(lua_tostring(L,1),lua_objlen(L,1));
@@ -4491,8 +4355,7 @@ static int _bind_getPathRoot(lua_State *L) {
 // bool osgDB::isAbsolutePath(const std::string & path)
 static int _bind_isAbsolutePath(lua_State *L) {
 	if (!_lg_typecheck_isAbsolutePath(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::isAbsolutePath(const std::string & path) function, expected prototype:\nbool osgDB::isAbsolutePath(const std::string & path)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::isAbsolutePath(const std::string & path) function, expected prototype:\nbool osgDB::isAbsolutePath(const std::string & path)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string path(lua_tostring(L,1),lua_objlen(L,1));
@@ -4506,8 +4369,7 @@ static int _bind_isAbsolutePath(lua_State *L) {
 // std::string osgDB::convertFileNameToWindowsStyle(const std::string & fileName)
 static int _bind_convertFileNameToWindowsStyle(lua_State *L) {
 	if (!_lg_typecheck_convertFileNameToWindowsStyle(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::convertFileNameToWindowsStyle(const std::string & fileName) function, expected prototype:\nstd::string osgDB::convertFileNameToWindowsStyle(const std::string & fileName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::convertFileNameToWindowsStyle(const std::string & fileName) function, expected prototype:\nstd::string osgDB::convertFileNameToWindowsStyle(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
@@ -4521,8 +4383,7 @@ static int _bind_convertFileNameToWindowsStyle(lua_State *L) {
 // std::string osgDB::convertFileNameToUnixStyle(const std::string & fileName)
 static int _bind_convertFileNameToUnixStyle(lua_State *L) {
 	if (!_lg_typecheck_convertFileNameToUnixStyle(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::convertFileNameToUnixStyle(const std::string & fileName) function, expected prototype:\nstd::string osgDB::convertFileNameToUnixStyle(const std::string & fileName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::convertFileNameToUnixStyle(const std::string & fileName) function, expected prototype:\nstd::string osgDB::convertFileNameToUnixStyle(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
@@ -4536,8 +4397,7 @@ static int _bind_convertFileNameToUnixStyle(lua_State *L) {
 // std::string osgDB::convertToLowerCase(const std::string & fileName)
 static int _bind_convertToLowerCase(lua_State *L) {
 	if (!_lg_typecheck_convertToLowerCase(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::convertToLowerCase(const std::string & fileName) function, expected prototype:\nstd::string osgDB::convertToLowerCase(const std::string & fileName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::convertToLowerCase(const std::string & fileName) function, expected prototype:\nstd::string osgDB::convertToLowerCase(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
@@ -4551,8 +4411,7 @@ static int _bind_convertToLowerCase(lua_State *L) {
 // char osgDB::getNativePathSeparator()
 static int _bind_getNativePathSeparator(lua_State *L) {
 	if (!_lg_typecheck_getNativePathSeparator(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in char osgDB::getNativePathSeparator() function, expected prototype:\nchar osgDB::getNativePathSeparator()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in char osgDB::getNativePathSeparator() function, expected prototype:\nchar osgDB::getNativePathSeparator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -4565,8 +4424,7 @@ static int _bind_getNativePathSeparator(lua_State *L) {
 // bool osgDB::isFileNameNativeStyle(const std::string & fileName)
 static int _bind_isFileNameNativeStyle(lua_State *L) {
 	if (!_lg_typecheck_isFileNameNativeStyle(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::isFileNameNativeStyle(const std::string & fileName) function, expected prototype:\nbool osgDB::isFileNameNativeStyle(const std::string & fileName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::isFileNameNativeStyle(const std::string & fileName) function, expected prototype:\nbool osgDB::isFileNameNativeStyle(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
@@ -4580,8 +4438,7 @@ static int _bind_isFileNameNativeStyle(lua_State *L) {
 // std::string osgDB::convertFileNameToNativeStyle(const std::string & fileName)
 static int _bind_convertFileNameToNativeStyle(lua_State *L) {
 	if (!_lg_typecheck_convertFileNameToNativeStyle(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::convertFileNameToNativeStyle(const std::string & fileName) function, expected prototype:\nstd::string osgDB::convertFileNameToNativeStyle(const std::string & fileName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::convertFileNameToNativeStyle(const std::string & fileName) function, expected prototype:\nstd::string osgDB::convertFileNameToNativeStyle(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
@@ -4595,8 +4452,7 @@ static int _bind_convertFileNameToNativeStyle(lua_State *L) {
 // bool osgDB::equalCaseInsensitive(const std::string & lhs, const std::string & rhs)
 static int _bind_equalCaseInsensitive_overload_1(lua_State *L) {
 	if (!_lg_typecheck_equalCaseInsensitive_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::equalCaseInsensitive(const std::string & lhs, const std::string & rhs) function, expected prototype:\nbool osgDB::equalCaseInsensitive(const std::string & lhs, const std::string & rhs)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::equalCaseInsensitive(const std::string & lhs, const std::string & rhs) function, expected prototype:\nbool osgDB::equalCaseInsensitive(const std::string & lhs, const std::string & rhs)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string lhs(lua_tostring(L,1),lua_objlen(L,1));
@@ -4611,8 +4467,7 @@ static int _bind_equalCaseInsensitive_overload_1(lua_State *L) {
 // bool osgDB::equalCaseInsensitive(const std::string & lhs, const char * rhs)
 static int _bind_equalCaseInsensitive_overload_2(lua_State *L) {
 	if (!_lg_typecheck_equalCaseInsensitive_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::equalCaseInsensitive(const std::string & lhs, const char * rhs) function, expected prototype:\nbool osgDB::equalCaseInsensitive(const std::string & lhs, const char * rhs)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::equalCaseInsensitive(const std::string & lhs, const char * rhs) function, expected prototype:\nbool osgDB::equalCaseInsensitive(const std::string & lhs, const char * rhs)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string lhs(lua_tostring(L,1),lua_objlen(L,1));
@@ -4636,8 +4491,7 @@ static int _bind_equalCaseInsensitive(lua_State *L) {
 // bool osgDB::containsServerAddress(const std::string & filename)
 static int _bind_containsServerAddress(lua_State *L) {
 	if (!_lg_typecheck_containsServerAddress(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::containsServerAddress(const std::string & filename) function, expected prototype:\nbool osgDB::containsServerAddress(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::containsServerAddress(const std::string & filename) function, expected prototype:\nbool osgDB::containsServerAddress(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -4651,8 +4505,7 @@ static int _bind_containsServerAddress(lua_State *L) {
 // std::string osgDB::getServerProtocol(const std::string & filename)
 static int _bind_getServerProtocol(lua_State *L) {
 	if (!_lg_typecheck_getServerProtocol(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::getServerProtocol(const std::string & filename) function, expected prototype:\nstd::string osgDB::getServerProtocol(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::getServerProtocol(const std::string & filename) function, expected prototype:\nstd::string osgDB::getServerProtocol(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -4666,8 +4519,7 @@ static int _bind_getServerProtocol(lua_State *L) {
 // std::string osgDB::getServerAddress(const std::string & filename)
 static int _bind_getServerAddress(lua_State *L) {
 	if (!_lg_typecheck_getServerAddress(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::getServerAddress(const std::string & filename) function, expected prototype:\nstd::string osgDB::getServerAddress(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::getServerAddress(const std::string & filename) function, expected prototype:\nstd::string osgDB::getServerAddress(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -4681,8 +4533,7 @@ static int _bind_getServerAddress(lua_State *L) {
 // std::string osgDB::getServerFileName(const std::string & filename)
 static int _bind_getServerFileName(lua_State *L) {
 	if (!_lg_typecheck_getServerFileName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::getServerFileName(const std::string & filename) function, expected prototype:\nstd::string osgDB::getServerFileName(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::getServerFileName(const std::string & filename) function, expected prototype:\nstd::string osgDB::getServerFileName(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -4696,8 +4547,7 @@ static int _bind_getServerFileName(lua_State *L) {
 // std::string osgDB::concatPaths(const std::string & left, const std::string & right)
 static int _bind_concatPaths(lua_State *L) {
 	if (!_lg_typecheck_concatPaths(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::concatPaths(const std::string & left, const std::string & right) function, expected prototype:\nstd::string osgDB::concatPaths(const std::string & left, const std::string & right)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::concatPaths(const std::string & left, const std::string & right) function, expected prototype:\nstd::string osgDB::concatPaths(const std::string & left, const std::string & right)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string left(lua_tostring(L,1),lua_objlen(L,1));
@@ -4712,8 +4562,7 @@ static int _bind_concatPaths(lua_State *L) {
 // std::string osgDB::getRealPath(const std::string & path)
 static int _bind_getRealPath(lua_State *L) {
 	if (!_lg_typecheck_getRealPath(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::getRealPath(const std::string & path) function, expected prototype:\nstd::string osgDB::getRealPath(const std::string & path)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::getRealPath(const std::string & path) function, expected prototype:\nstd::string osgDB::getRealPath(const std::string & path)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string path(lua_tostring(L,1),lua_objlen(L,1));
@@ -4727,8 +4576,7 @@ static int _bind_getRealPath(lua_State *L) {
 // bool osgDB::makeDirectory(const std::string & directoryPath)
 static int _bind_makeDirectory(lua_State *L) {
 	if (!_lg_typecheck_makeDirectory(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::makeDirectory(const std::string & directoryPath) function, expected prototype:\nbool osgDB::makeDirectory(const std::string & directoryPath)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::makeDirectory(const std::string & directoryPath) function, expected prototype:\nbool osgDB::makeDirectory(const std::string & directoryPath)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string directoryPath(lua_tostring(L,1),lua_objlen(L,1));
@@ -4742,8 +4590,7 @@ static int _bind_makeDirectory(lua_State *L) {
 // bool osgDB::makeDirectoryForFile(const std::string & filePath)
 static int _bind_makeDirectoryForFile(lua_State *L) {
 	if (!_lg_typecheck_makeDirectoryForFile(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::makeDirectoryForFile(const std::string & filePath) function, expected prototype:\nbool osgDB::makeDirectoryForFile(const std::string & filePath)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::makeDirectoryForFile(const std::string & filePath) function, expected prototype:\nbool osgDB::makeDirectoryForFile(const std::string & filePath)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filePath(lua_tostring(L,1),lua_objlen(L,1));
@@ -4757,8 +4604,7 @@ static int _bind_makeDirectoryForFile(lua_State *L) {
 // std::string osgDB::getCurrentWorkingDirectory()
 static int _bind_getCurrentWorkingDirectory(lua_State *L) {
 	if (!_lg_typecheck_getCurrentWorkingDirectory(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::getCurrentWorkingDirectory() function, expected prototype:\nstd::string osgDB::getCurrentWorkingDirectory()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::getCurrentWorkingDirectory() function, expected prototype:\nstd::string osgDB::getCurrentWorkingDirectory()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -4771,8 +4617,7 @@ static int _bind_getCurrentWorkingDirectory(lua_State *L) {
 // bool osgDB::setCurrentWorkingDirectory(const std::string & newCurrentWorkingDirectory)
 static int _bind_setCurrentWorkingDirectory(lua_State *L) {
 	if (!_lg_typecheck_setCurrentWorkingDirectory(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::setCurrentWorkingDirectory(const std::string & newCurrentWorkingDirectory) function, expected prototype:\nbool osgDB::setCurrentWorkingDirectory(const std::string & newCurrentWorkingDirectory)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::setCurrentWorkingDirectory(const std::string & newCurrentWorkingDirectory) function, expected prototype:\nbool osgDB::setCurrentWorkingDirectory(const std::string & newCurrentWorkingDirectory)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string newCurrentWorkingDirectory(lua_tostring(L,1),lua_objlen(L,1));
@@ -4786,8 +4631,7 @@ static int _bind_setCurrentWorkingDirectory(lua_State *L) {
 // bool osgDB::fileExists(const std::string & filename)
 static int _bind_fileExists(lua_State *L) {
 	if (!_lg_typecheck_fileExists(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::fileExists(const std::string & filename) function, expected prototype:\nbool osgDB::fileExists(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::fileExists(const std::string & filename) function, expected prototype:\nbool osgDB::fileExists(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -4801,8 +4645,7 @@ static int _bind_fileExists(lua_State *L) {
 // osgDB::FileType osgDB::fileType(const std::string & filename)
 static int _bind_fileType(lua_State *L) {
 	if (!_lg_typecheck_fileType(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgDB::FileType osgDB::fileType(const std::string & filename) function, expected prototype:\nosgDB::FileType osgDB::fileType(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osgDB::FileType osgDB::fileType(const std::string & filename) function, expected prototype:\nosgDB::FileType osgDB::fileType(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -4816,8 +4659,7 @@ static int _bind_fileType(lua_State *L) {
 // std::string osgDB::findFileInPath(const std::string & filename, const osgDB::FilePathList & filePath, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE)
 static int _bind_findFileInPath(lua_State *L) {
 	if (!_lg_typecheck_findFileInPath(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::findFileInPath(const std::string & filename, const osgDB::FilePathList & filePath, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE) function, expected prototype:\nstd::string osgDB::findFileInPath(const std::string & filename, const osgDB::FilePathList & filePath, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE)\nClass arguments details:\narg 2 ID = 54591957\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::findFileInPath(const std::string & filename, const osgDB::FilePathList & filePath, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE) function, expected prototype:\nstd::string osgDB::findFileInPath(const std::string & filename, const osgDB::FilePathList & filePath, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE)\nClass arguments details:\narg 2 ID = 54591957\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -4839,8 +4681,7 @@ static int _bind_findFileInPath(lua_State *L) {
 // std::string osgDB::findFileInDirectory(const std::string & fileName, const std::string & dirName, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE)
 static int _bind_findFileInDirectory(lua_State *L) {
 	if (!_lg_typecheck_findFileInDirectory(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::findFileInDirectory(const std::string & fileName, const std::string & dirName, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE) function, expected prototype:\nstd::string osgDB::findFileInDirectory(const std::string & fileName, const std::string & dirName, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::findFileInDirectory(const std::string & fileName, const std::string & dirName, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE) function, expected prototype:\nstd::string osgDB::findFileInDirectory(const std::string & fileName, const std::string & dirName, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -4858,8 +4699,7 @@ static int _bind_findFileInDirectory(lua_State *L) {
 // osgDB::DirectoryContents osgDB::getDirectoryContents(const std::string & dirName)
 static int _bind_getDirectoryContents(lua_State *L) {
 	if (!_lg_typecheck_getDirectoryContents(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgDB::DirectoryContents osgDB::getDirectoryContents(const std::string & dirName) function, expected prototype:\nosgDB::DirectoryContents osgDB::getDirectoryContents(const std::string & dirName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osgDB::DirectoryContents osgDB::getDirectoryContents(const std::string & dirName) function, expected prototype:\nosgDB::DirectoryContents osgDB::getDirectoryContents(const std::string & dirName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string dirName(lua_tostring(L,1),lua_objlen(L,1));
@@ -4876,8 +4716,7 @@ static int _bind_getDirectoryContents(lua_State *L) {
 // osgDB::DirectoryContents osgDB::getSortedDirectoryContents(const std::string & dirName)
 static int _bind_getSortedDirectoryContents(lua_State *L) {
 	if (!_lg_typecheck_getSortedDirectoryContents(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgDB::DirectoryContents osgDB::getSortedDirectoryContents(const std::string & dirName) function, expected prototype:\nosgDB::DirectoryContents osgDB::getSortedDirectoryContents(const std::string & dirName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osgDB::DirectoryContents osgDB::getSortedDirectoryContents(const std::string & dirName) function, expected prototype:\nosgDB::DirectoryContents osgDB::getSortedDirectoryContents(const std::string & dirName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string dirName(lua_tostring(L,1),lua_objlen(L,1));
@@ -4894,8 +4733,7 @@ static int _bind_getSortedDirectoryContents(lua_State *L) {
 // osgDB::DirectoryContents osgDB::expandWildcardsInFilename(const std::string & filename)
 static int _bind_expandWildcardsInFilename(lua_State *L) {
 	if (!_lg_typecheck_expandWildcardsInFilename(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgDB::DirectoryContents osgDB::expandWildcardsInFilename(const std::string & filename) function, expected prototype:\nosgDB::DirectoryContents osgDB::expandWildcardsInFilename(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osgDB::DirectoryContents osgDB::expandWildcardsInFilename(const std::string & filename) function, expected prototype:\nosgDB::DirectoryContents osgDB::expandWildcardsInFilename(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -4912,8 +4750,7 @@ static int _bind_expandWildcardsInFilename(lua_State *L) {
 // osgDB::FileOpResult::Value osgDB::copyFile(const std::string & source, const std::string & destination)
 static int _bind_copyFile(lua_State *L) {
 	if (!_lg_typecheck_copyFile(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgDB::FileOpResult::Value osgDB::copyFile(const std::string & source, const std::string & destination) function, expected prototype:\nosgDB::FileOpResult::Value osgDB::copyFile(const std::string & source, const std::string & destination)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osgDB::FileOpResult::Value osgDB::copyFile(const std::string & source, const std::string & destination) function, expected prototype:\nosgDB::FileOpResult::Value osgDB::copyFile(const std::string & source, const std::string & destination)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string source(lua_tostring(L,1),lua_objlen(L,1));
@@ -4928,8 +4765,7 @@ static int _bind_copyFile(lua_State *L) {
 // void osgDB::setDataFilePathList(const osgDB::FilePathList & filepath)
 static int _bind_setDataFilePathList_overload_1(lua_State *L) {
 	if (!_lg_typecheck_setDataFilePathList_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osgDB::setDataFilePathList(const osgDB::FilePathList & filepath) function, expected prototype:\nvoid osgDB::setDataFilePathList(const osgDB::FilePathList & filepath)\nClass arguments details:\narg 1 ID = 54591957\n");
+		luaL_error(L, "luna typecheck failed in void osgDB::setDataFilePathList(const osgDB::FilePathList & filepath) function, expected prototype:\nvoid osgDB::setDataFilePathList(const osgDB::FilePathList & filepath)\nClass arguments details:\narg 1 ID = 54591957\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osgDB::FilePathList* filepath_ptr=(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,1));
@@ -4946,8 +4782,7 @@ static int _bind_setDataFilePathList_overload_1(lua_State *L) {
 // void osgDB::setDataFilePathList(const std::string & paths)
 static int _bind_setDataFilePathList_overload_2(lua_State *L) {
 	if (!_lg_typecheck_setDataFilePathList_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osgDB::setDataFilePathList(const std::string & paths) function, expected prototype:\nvoid osgDB::setDataFilePathList(const std::string & paths)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void osgDB::setDataFilePathList(const std::string & paths) function, expected prototype:\nvoid osgDB::setDataFilePathList(const std::string & paths)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string paths(lua_tostring(L,1),lua_objlen(L,1));
@@ -4969,8 +4804,7 @@ static int _bind_setDataFilePathList(lua_State *L) {
 // osgDB::FilePathList & osgDB::getDataFilePathList()
 static int _bind_getDataFilePathList(lua_State *L) {
 	if (!_lg_typecheck_getDataFilePathList(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgDB::FilePathList & osgDB::getDataFilePathList() function, expected prototype:\nosgDB::FilePathList & osgDB::getDataFilePathList()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osgDB::FilePathList & osgDB::getDataFilePathList() function, expected prototype:\nosgDB::FilePathList & osgDB::getDataFilePathList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -4985,8 +4819,7 @@ static int _bind_getDataFilePathList(lua_State *L) {
 // std::string osgDB::findDataFile(const std::string & filename, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE)
 static int _bind_findDataFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_findDataFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::findDataFile(const std::string & filename, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE) function, expected prototype:\nstd::string osgDB::findDataFile(const std::string & filename, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::findDataFile(const std::string & filename, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE) function, expected prototype:\nstd::string osgDB::findDataFile(const std::string & filename, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -5003,8 +4836,7 @@ static int _bind_findDataFile_overload_1(lua_State *L) {
 // std::string osgDB::findDataFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE)
 static int _bind_findDataFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_findDataFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::findDataFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE) function, expected prototype:\nstd::string osgDB::findDataFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::findDataFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE) function, expected prototype:\nstd::string osgDB::findDataFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -5031,8 +4863,7 @@ static int _bind_findDataFile(lua_State *L) {
 // void osgDB::setLibraryFilePathList(const osgDB::FilePathList & filepaths)
 static int _bind_setLibraryFilePathList_overload_1(lua_State *L) {
 	if (!_lg_typecheck_setLibraryFilePathList_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osgDB::setLibraryFilePathList(const osgDB::FilePathList & filepaths) function, expected prototype:\nvoid osgDB::setLibraryFilePathList(const osgDB::FilePathList & filepaths)\nClass arguments details:\narg 1 ID = 54591957\n");
+		luaL_error(L, "luna typecheck failed in void osgDB::setLibraryFilePathList(const osgDB::FilePathList & filepaths) function, expected prototype:\nvoid osgDB::setLibraryFilePathList(const osgDB::FilePathList & filepaths)\nClass arguments details:\narg 1 ID = 54591957\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osgDB::FilePathList* filepaths_ptr=(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,1));
@@ -5049,8 +4880,7 @@ static int _bind_setLibraryFilePathList_overload_1(lua_State *L) {
 // void osgDB::setLibraryFilePathList(const std::string & paths)
 static int _bind_setLibraryFilePathList_overload_2(lua_State *L) {
 	if (!_lg_typecheck_setLibraryFilePathList_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osgDB::setLibraryFilePathList(const std::string & paths) function, expected prototype:\nvoid osgDB::setLibraryFilePathList(const std::string & paths)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void osgDB::setLibraryFilePathList(const std::string & paths) function, expected prototype:\nvoid osgDB::setLibraryFilePathList(const std::string & paths)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string paths(lua_tostring(L,1),lua_objlen(L,1));
@@ -5072,8 +4902,7 @@ static int _bind_setLibraryFilePathList(lua_State *L) {
 // osgDB::FilePathList & osgDB::getLibraryFilePathList()
 static int _bind_getLibraryFilePathList(lua_State *L) {
 	if (!_lg_typecheck_getLibraryFilePathList(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgDB::FilePathList & osgDB::getLibraryFilePathList() function, expected prototype:\nosgDB::FilePathList & osgDB::getLibraryFilePathList()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osgDB::FilePathList & osgDB::getLibraryFilePathList() function, expected prototype:\nosgDB::FilePathList & osgDB::getLibraryFilePathList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -5088,8 +4917,7 @@ static int _bind_getLibraryFilePathList(lua_State *L) {
 // std::string osgDB::findLibraryFile(const std::string & filename, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE)
 static int _bind_findLibraryFile(lua_State *L) {
 	if (!_lg_typecheck_findLibraryFile(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::findLibraryFile(const std::string & filename, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE) function, expected prototype:\nstd::string osgDB::findLibraryFile(const std::string & filename, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::findLibraryFile(const std::string & filename, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE) function, expected prototype:\nstd::string osgDB::findLibraryFile(const std::string & filename, osgDB::CaseSensitivity caseSensitivity = osgDB::CASE_SENSITIVE)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -5106,8 +4934,7 @@ static int _bind_findLibraryFile(lua_State *L) {
 // void osgDB::convertStringPathIntoFilePathList(const std::string & paths, osgDB::FilePathList & filepath)
 static int _bind_convertStringPathIntoFilePathList(lua_State *L) {
 	if (!_lg_typecheck_convertStringPathIntoFilePathList(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osgDB::convertStringPathIntoFilePathList(const std::string & paths, osgDB::FilePathList & filepath) function, expected prototype:\nvoid osgDB::convertStringPathIntoFilePathList(const std::string & paths, osgDB::FilePathList & filepath)\nClass arguments details:\narg 2 ID = 54591957\n");
+		luaL_error(L, "luna typecheck failed in void osgDB::convertStringPathIntoFilePathList(const std::string & paths, osgDB::FilePathList & filepath) function, expected prototype:\nvoid osgDB::convertStringPathIntoFilePathList(const std::string & paths, osgDB::FilePathList & filepath)\nClass arguments details:\narg 2 ID = 54591957\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string paths(lua_tostring(L,1),lua_objlen(L,1));
@@ -5125,8 +4952,7 @@ static int _bind_convertStringPathIntoFilePathList(lua_State *L) {
 // bool osgDB::containsCurrentWorkingDirectoryReference(const osgDB::FilePathList & paths)
 static int _bind_containsCurrentWorkingDirectoryReference(lua_State *L) {
 	if (!_lg_typecheck_containsCurrentWorkingDirectoryReference(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::containsCurrentWorkingDirectoryReference(const osgDB::FilePathList & paths) function, expected prototype:\nbool osgDB::containsCurrentWorkingDirectoryReference(const osgDB::FilePathList & paths)\nClass arguments details:\narg 1 ID = 54591957\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::containsCurrentWorkingDirectoryReference(const osgDB::FilePathList & paths) function, expected prototype:\nbool osgDB::containsCurrentWorkingDirectoryReference(const osgDB::FilePathList & paths)\nClass arguments details:\narg 1 ID = 54591957\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osgDB::FilePathList* paths_ptr=(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,1));
@@ -5144,8 +4970,7 @@ static int _bind_containsCurrentWorkingDirectoryReference(lua_State *L) {
 // void osgDB::appendPlatformSpecificLibraryFilePaths(osgDB::FilePathList & filepath)
 static int _bind_appendPlatformSpecificLibraryFilePaths(lua_State *L) {
 	if (!_lg_typecheck_appendPlatformSpecificLibraryFilePaths(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osgDB::appendPlatformSpecificLibraryFilePaths(osgDB::FilePathList & filepath) function, expected prototype:\nvoid osgDB::appendPlatformSpecificLibraryFilePaths(osgDB::FilePathList & filepath)\nClass arguments details:\narg 1 ID = 54591957\n");
+		luaL_error(L, "luna typecheck failed in void osgDB::appendPlatformSpecificLibraryFilePaths(osgDB::FilePathList & filepath) function, expected prototype:\nvoid osgDB::appendPlatformSpecificLibraryFilePaths(osgDB::FilePathList & filepath)\nClass arguments details:\narg 1 ID = 54591957\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osgDB::FilePathList* filepath_ptr=(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,1));
@@ -5162,8 +4987,7 @@ static int _bind_appendPlatformSpecificLibraryFilePaths(lua_State *L) {
 // void osgDB::appendPlatformSpecificResourceFilePaths(osgDB::FilePathList & filepath)
 static int _bind_appendPlatformSpecificResourceFilePaths(lua_State *L) {
 	if (!_lg_typecheck_appendPlatformSpecificResourceFilePaths(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osgDB::appendPlatformSpecificResourceFilePaths(osgDB::FilePathList & filepath) function, expected prototype:\nvoid osgDB::appendPlatformSpecificResourceFilePaths(osgDB::FilePathList & filepath)\nClass arguments details:\narg 1 ID = 54591957\n");
+		luaL_error(L, "luna typecheck failed in void osgDB::appendPlatformSpecificResourceFilePaths(osgDB::FilePathList & filepath) function, expected prototype:\nvoid osgDB::appendPlatformSpecificResourceFilePaths(osgDB::FilePathList & filepath)\nClass arguments details:\narg 1 ID = 54591957\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osgDB::FilePathList* filepath_ptr=(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,1));
@@ -5180,8 +5004,7 @@ static int _bind_appendPlatformSpecificResourceFilePaths(lua_State *L) {
 // void osgDB::split(const std::string & src, osgDB::StringList & list, char separator = ' ')
 static int _bind_split(lua_State *L) {
 	if (!_lg_typecheck_split(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osgDB::split(const std::string & src, osgDB::StringList & list, char separator = ' ') function, expected prototype:\nvoid osgDB::split(const std::string & src, osgDB::StringList & list, char separator = ' ')\nClass arguments details:\narg 2 ID = 26072480\n");
+		luaL_error(L, "luna typecheck failed in void osgDB::split(const std::string & src, osgDB::StringList & list, char separator = ' ') function, expected prototype:\nvoid osgDB::split(const std::string & src, osgDB::StringList & list, char separator = ' ')\nClass arguments details:\narg 2 ID = 26072480\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -5202,8 +5025,7 @@ static int _bind_split(lua_State *L) {
 // osgDB::FileNameList osgDB::listAllAvailablePlugins()
 static int _bind_listAllAvailablePlugins(lua_State *L) {
 	if (!_lg_typecheck_listAllAvailablePlugins(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgDB::FileNameList osgDB::listAllAvailablePlugins() function, expected prototype:\nosgDB::FileNameList osgDB::listAllAvailablePlugins()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osgDB::FileNameList osgDB::listAllAvailablePlugins() function, expected prototype:\nosgDB::FileNameList osgDB::listAllAvailablePlugins()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -5219,8 +5041,7 @@ static int _bind_listAllAvailablePlugins(lua_State *L) {
 // bool osgDB::queryPlugin(const std::string & fileName, osgDB::ReaderWriterInfoList & infoList)
 static int _bind_queryPlugin(lua_State *L) {
 	if (!_lg_typecheck_queryPlugin(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::queryPlugin(const std::string & fileName, osgDB::ReaderWriterInfoList & infoList) function, expected prototype:\nbool osgDB::queryPlugin(const std::string & fileName, osgDB::ReaderWriterInfoList & infoList)\nClass arguments details:\narg 2 ID = 75164642\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::queryPlugin(const std::string & fileName, osgDB::ReaderWriterInfoList & infoList) function, expected prototype:\nbool osgDB::queryPlugin(const std::string & fileName, osgDB::ReaderWriterInfoList & infoList)\nClass arguments details:\narg 2 ID = 75164642\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
@@ -5239,8 +5060,7 @@ static int _bind_queryPlugin(lua_State *L) {
 // bool osgDB::outputPluginDetails(std::ostream & out, const std::string & fileName)
 static int _bind_outputPluginDetails(lua_State *L) {
 	if (!_lg_typecheck_outputPluginDetails(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::outputPluginDetails(std::ostream & out, const std::string & fileName) function, expected prototype:\nbool osgDB::outputPluginDetails(std::ostream & out, const std::string & fileName)\nClass arguments details:\narg 1 ID = 2993706\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::outputPluginDetails(std::ostream & out, const std::string & fileName) function, expected prototype:\nbool osgDB::outputPluginDetails(std::ostream & out, const std::string & fileName)\nClass arguments details:\narg 1 ID = 2993706\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::ostream* out_ptr=(Luna< std::ostream >::check(L,1));
@@ -5259,8 +5079,7 @@ static int _bind_outputPluginDetails(lua_State *L) {
 // osg::Object * osgDB::readObjectFile(const std::string & filename, const osgDB::Options * options)
 static int _bind_readObjectFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_readObjectFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Object * osgDB::readObjectFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::Object * osgDB::readObjectFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::Object * osgDB::readObjectFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::Object * osgDB::readObjectFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5277,8 +5096,7 @@ static int _bind_readObjectFile_overload_1(lua_State *L) {
 // osg::Object * osgDB::readObjectFile(const std::string & filename)
 static int _bind_readObjectFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_readObjectFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Object * osgDB::readObjectFile(const std::string & filename) function, expected prototype:\nosg::Object * osgDB::readObjectFile(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::Object * osgDB::readObjectFile(const std::string & filename) function, expected prototype:\nosg::Object * osgDB::readObjectFile(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5303,8 +5121,7 @@ static int _bind_readObjectFile(lua_State *L) {
 // osg::Image * osgDB::readImageFile(const std::string & filename, const osgDB::Options * options)
 static int _bind_readImageFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_readImageFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Image * osgDB::readImageFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::Image * osgDB::readImageFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::Image * osgDB::readImageFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::Image * osgDB::readImageFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5321,8 +5138,7 @@ static int _bind_readImageFile_overload_1(lua_State *L) {
 // osg::Image * osgDB::readImageFile(const std::string & filename)
 static int _bind_readImageFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_readImageFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Image * osgDB::readImageFile(const std::string & filename) function, expected prototype:\nosg::Image * osgDB::readImageFile(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::Image * osgDB::readImageFile(const std::string & filename) function, expected prototype:\nosg::Image * osgDB::readImageFile(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5347,8 +5163,7 @@ static int _bind_readImageFile(lua_State *L) {
 // osg::HeightField * osgDB::readHeightFieldFile(const std::string & filename, const osgDB::Options * options)
 static int _bind_readHeightFieldFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_readHeightFieldFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::HeightField * osgDB::readHeightFieldFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::HeightField * osgDB::readHeightFieldFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::HeightField * osgDB::readHeightFieldFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::HeightField * osgDB::readHeightFieldFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5365,8 +5180,7 @@ static int _bind_readHeightFieldFile_overload_1(lua_State *L) {
 // osg::HeightField * osgDB::readHeightFieldFile(const std::string & filename)
 static int _bind_readHeightFieldFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_readHeightFieldFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::HeightField * osgDB::readHeightFieldFile(const std::string & filename) function, expected prototype:\nosg::HeightField * osgDB::readHeightFieldFile(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::HeightField * osgDB::readHeightFieldFile(const std::string & filename) function, expected prototype:\nosg::HeightField * osgDB::readHeightFieldFile(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5391,8 +5205,7 @@ static int _bind_readHeightFieldFile(lua_State *L) {
 // osg::Node * osgDB::readNodeFile(const std::string & filename, const osgDB::Options * options)
 static int _bind_readNodeFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_readNodeFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Node * osgDB::readNodeFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::Node * osgDB::readNodeFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::Node * osgDB::readNodeFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::Node * osgDB::readNodeFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5409,8 +5222,7 @@ static int _bind_readNodeFile_overload_1(lua_State *L) {
 // osg::Node * osgDB::readNodeFile(const std::string & filename)
 static int _bind_readNodeFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_readNodeFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Node * osgDB::readNodeFile(const std::string & filename) function, expected prototype:\nosg::Node * osgDB::readNodeFile(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::Node * osgDB::readNodeFile(const std::string & filename) function, expected prototype:\nosg::Node * osgDB::readNodeFile(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5435,8 +5247,7 @@ static int _bind_readNodeFile(lua_State *L) {
 // osg::Shader * osgDB::readShaderFile(const std::string & filename, const osgDB::Options * options)
 static int _bind_readShaderFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_readShaderFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::readShaderFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::Shader * osgDB::readShaderFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::readShaderFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::Shader * osgDB::readShaderFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5453,8 +5264,7 @@ static int _bind_readShaderFile_overload_1(lua_State *L) {
 // osg::Shader * osgDB::readShaderFile(const std::string & filename)
 static int _bind_readShaderFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_readShaderFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::readShaderFile(const std::string & filename) function, expected prototype:\nosg::Shader * osgDB::readShaderFile(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::readShaderFile(const std::string & filename) function, expected prototype:\nosg::Shader * osgDB::readShaderFile(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5470,8 +5280,7 @@ static int _bind_readShaderFile_overload_2(lua_State *L) {
 // osg::Shader * osgDB::readShaderFile(osg::Shader::Type type, const std::string & filename, const osgDB::Options * options)
 static int _bind_readShaderFile_overload_3(lua_State *L) {
 	if (!_lg_typecheck_readShaderFile_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::readShaderFile(osg::Shader::Type type, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::Shader * osgDB::readShaderFile(osg::Shader::Type type, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 3 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::readShaderFile(osg::Shader::Type type, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::Shader * osgDB::readShaderFile(osg::Shader::Type type, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osg::Shader::Type type=(osg::Shader::Type)lua_tointeger(L,1);
@@ -5489,8 +5298,7 @@ static int _bind_readShaderFile_overload_3(lua_State *L) {
 // osg::Shader * osgDB::readShaderFile(osg::Shader::Type type, const std::string & filename)
 static int _bind_readShaderFile_overload_4(lua_State *L) {
 	if (!_lg_typecheck_readShaderFile_overload_4(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::readShaderFile(osg::Shader::Type type, const std::string & filename) function, expected prototype:\nosg::Shader * osgDB::readShaderFile(osg::Shader::Type type, const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::Shader * osgDB::readShaderFile(osg::Shader::Type type, const std::string & filename) function, expected prototype:\nosg::Shader * osgDB::readShaderFile(osg::Shader::Type type, const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osg::Shader::Type type=(osg::Shader::Type)lua_tointeger(L,1);
@@ -5518,8 +5326,7 @@ static int _bind_readShaderFile(lua_State *L) {
 // osg::ref_ptr< osg::Object > osgDB::readRefObjectFile(const std::string & filename, const osgDB::Options * options)
 static int _bind_readRefObjectFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_readRefObjectFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Object > osgDB::readRefObjectFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::ref_ptr< osg::Object > osgDB::readRefObjectFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Object > osgDB::readRefObjectFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::ref_ptr< osg::Object > osgDB::readRefObjectFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5534,8 +5341,7 @@ static int _bind_readRefObjectFile_overload_1(lua_State *L) {
 // osg::ref_ptr< osg::Object > osgDB::readRefObjectFile(const std::string & filename)
 static int _bind_readRefObjectFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_readRefObjectFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Object > osgDB::readRefObjectFile(const std::string & filename) function, expected prototype:\nosg::ref_ptr< osg::Object > osgDB::readRefObjectFile(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Object > osgDB::readRefObjectFile(const std::string & filename) function, expected prototype:\nosg::ref_ptr< osg::Object > osgDB::readRefObjectFile(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5558,8 +5364,7 @@ static int _bind_readRefObjectFile(lua_State *L) {
 // osg::ref_ptr< osg::Image > osgDB::readRefImageFile(const std::string & filename, const osgDB::Options * options)
 static int _bind_readRefImageFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_readRefImageFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Image > osgDB::readRefImageFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::ref_ptr< osg::Image > osgDB::readRefImageFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Image > osgDB::readRefImageFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::ref_ptr< osg::Image > osgDB::readRefImageFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5574,8 +5379,7 @@ static int _bind_readRefImageFile_overload_1(lua_State *L) {
 // osg::ref_ptr< osg::Image > osgDB::readRefImageFile(const std::string & filename)
 static int _bind_readRefImageFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_readRefImageFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Image > osgDB::readRefImageFile(const std::string & filename) function, expected prototype:\nosg::ref_ptr< osg::Image > osgDB::readRefImageFile(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Image > osgDB::readRefImageFile(const std::string & filename) function, expected prototype:\nosg::ref_ptr< osg::Image > osgDB::readRefImageFile(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5598,8 +5402,7 @@ static int _bind_readRefImageFile(lua_State *L) {
 // osg::ref_ptr< osg::HeightField > osgDB::readRefHeightFieldFile(const std::string & filename, const osgDB::Options * options)
 static int _bind_readRefHeightFieldFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_readRefHeightFieldFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::HeightField > osgDB::readRefHeightFieldFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::ref_ptr< osg::HeightField > osgDB::readRefHeightFieldFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::HeightField > osgDB::readRefHeightFieldFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::ref_ptr< osg::HeightField > osgDB::readRefHeightFieldFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5614,8 +5417,7 @@ static int _bind_readRefHeightFieldFile_overload_1(lua_State *L) {
 // osg::ref_ptr< osg::HeightField > osgDB::readRefHeightFieldFile(const std::string & filename)
 static int _bind_readRefHeightFieldFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_readRefHeightFieldFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::HeightField > osgDB::readRefHeightFieldFile(const std::string & filename) function, expected prototype:\nosg::ref_ptr< osg::HeightField > osgDB::readRefHeightFieldFile(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::HeightField > osgDB::readRefHeightFieldFile(const std::string & filename) function, expected prototype:\nosg::ref_ptr< osg::HeightField > osgDB::readRefHeightFieldFile(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5638,8 +5440,7 @@ static int _bind_readRefHeightFieldFile(lua_State *L) {
 // osg::ref_ptr< osg::Node > osgDB::readRefNodeFile(const std::string & filename, const osgDB::Options * options)
 static int _bind_readRefNodeFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_readRefNodeFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Node > osgDB::readRefNodeFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::ref_ptr< osg::Node > osgDB::readRefNodeFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Node > osgDB::readRefNodeFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::ref_ptr< osg::Node > osgDB::readRefNodeFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5654,8 +5455,7 @@ static int _bind_readRefNodeFile_overload_1(lua_State *L) {
 // osg::ref_ptr< osg::Node > osgDB::readRefNodeFile(const std::string & filename)
 static int _bind_readRefNodeFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_readRefNodeFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Node > osgDB::readRefNodeFile(const std::string & filename) function, expected prototype:\nosg::ref_ptr< osg::Node > osgDB::readRefNodeFile(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Node > osgDB::readRefNodeFile(const std::string & filename) function, expected prototype:\nosg::ref_ptr< osg::Node > osgDB::readRefNodeFile(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5678,8 +5478,7 @@ static int _bind_readRefNodeFile(lua_State *L) {
 // osg::ref_ptr< osg::Shader > osgDB::readRefShaderFile(const std::string & filename, const osgDB::Options * options)
 static int _bind_readRefShaderFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_readRefShaderFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Shader > osgDB::readRefShaderFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::ref_ptr< osg::Shader > osgDB::readRefShaderFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Shader > osgDB::readRefShaderFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosg::ref_ptr< osg::Shader > osgDB::readRefShaderFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5694,8 +5493,7 @@ static int _bind_readRefShaderFile_overload_1(lua_State *L) {
 // osg::ref_ptr< osg::Shader > osgDB::readRefShaderFile(const std::string & filename)
 static int _bind_readRefShaderFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_readRefShaderFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Shader > osgDB::readRefShaderFile(const std::string & filename) function, expected prototype:\nosg::ref_ptr< osg::Shader > osgDB::readRefShaderFile(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Shader > osgDB::readRefShaderFile(const std::string & filename) function, expected prototype:\nosg::ref_ptr< osg::Shader > osgDB::readRefShaderFile(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -5718,8 +5516,7 @@ static int _bind_readRefShaderFile(lua_State *L) {
 // void osgDB::readCommandLine(osg::ArgumentParser & parser)
 static int _bind_readCommandLine(lua_State *L) {
 	if (!_lg_typecheck_readCommandLine(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osgDB::readCommandLine(osg::ArgumentParser & parser) function, expected prototype:\nvoid osgDB::readCommandLine(osg::ArgumentParser & parser)\nClass arguments details:\narg 1 ID = 99527028\n");
+		luaL_error(L, "luna typecheck failed in void osgDB::readCommandLine(osg::ArgumentParser & parser) function, expected prototype:\nvoid osgDB::readCommandLine(osg::ArgumentParser & parser)\nClass arguments details:\narg 1 ID = 99527028\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osg::ArgumentParser* parser_ptr=(Luna< osg::ArgumentParser >::check(L,1));
@@ -5736,8 +5533,7 @@ static int _bind_readCommandLine(lua_State *L) {
 // bool osgDB::writeObjectFile(const osg::Object & object, const std::string & filename, const osgDB::Options * options)
 static int _bind_writeObjectFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_writeObjectFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::writeObjectFile(const osg::Object & object, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nbool osgDB::writeObjectFile(const osg::Object & object, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::writeObjectFile(const osg::Object & object, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nbool osgDB::writeObjectFile(const osg::Object & object, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Object* object_ptr=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,1));
@@ -5757,8 +5553,7 @@ static int _bind_writeObjectFile_overload_1(lua_State *L) {
 // bool osgDB::writeObjectFile(const osg::Object & object, const std::string & filename)
 static int _bind_writeObjectFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_writeObjectFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::writeObjectFile(const osg::Object & object, const std::string & filename) function, expected prototype:\nbool osgDB::writeObjectFile(const osg::Object & object, const std::string & filename)\nClass arguments details:\narg 1 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::writeObjectFile(const osg::Object & object, const std::string & filename) function, expected prototype:\nbool osgDB::writeObjectFile(const osg::Object & object, const std::string & filename)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Object* object_ptr=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,1));
@@ -5786,8 +5581,7 @@ static int _bind_writeObjectFile(lua_State *L) {
 // bool osgDB::writeImageFile(const osg::Image & image, const std::string & filename, const osgDB::Options * options)
 static int _bind_writeImageFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_writeImageFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::writeImageFile(const osg::Image & image, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nbool osgDB::writeImageFile(const osg::Image & image, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::writeImageFile(const osg::Image & image, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nbool osgDB::writeImageFile(const osg::Image & image, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Image* image_ptr=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
@@ -5807,8 +5601,7 @@ static int _bind_writeImageFile_overload_1(lua_State *L) {
 // bool osgDB::writeImageFile(const osg::Image & image, const std::string & filename)
 static int _bind_writeImageFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_writeImageFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::writeImageFile(const osg::Image & image, const std::string & filename) function, expected prototype:\nbool osgDB::writeImageFile(const osg::Image & image, const std::string & filename)\nClass arguments details:\narg 1 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::writeImageFile(const osg::Image & image, const std::string & filename) function, expected prototype:\nbool osgDB::writeImageFile(const osg::Image & image, const std::string & filename)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Image* image_ptr=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
@@ -5836,8 +5629,7 @@ static int _bind_writeImageFile(lua_State *L) {
 // bool osgDB::writeHeightFieldFile(const osg::HeightField & hf, const std::string & filename, const osgDB::Options * options)
 static int _bind_writeHeightFieldFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_writeHeightFieldFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::writeHeightFieldFile(const osg::HeightField & hf, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nbool osgDB::writeHeightFieldFile(const osg::HeightField & hf, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::writeHeightFieldFile(const osg::HeightField & hf, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nbool osgDB::writeHeightFieldFile(const osg::HeightField & hf, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::HeightField* hf_ptr=(Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1));
@@ -5857,8 +5649,7 @@ static int _bind_writeHeightFieldFile_overload_1(lua_State *L) {
 // bool osgDB::writeHeightFieldFile(const osg::HeightField & hf, const std::string & filename)
 static int _bind_writeHeightFieldFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_writeHeightFieldFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::writeHeightFieldFile(const osg::HeightField & hf, const std::string & filename) function, expected prototype:\nbool osgDB::writeHeightFieldFile(const osg::HeightField & hf, const std::string & filename)\nClass arguments details:\narg 1 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::writeHeightFieldFile(const osg::HeightField & hf, const std::string & filename) function, expected prototype:\nbool osgDB::writeHeightFieldFile(const osg::HeightField & hf, const std::string & filename)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::HeightField* hf_ptr=(Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1));
@@ -5886,8 +5677,7 @@ static int _bind_writeHeightFieldFile(lua_State *L) {
 // bool osgDB::writeNodeFile(const osg::Node & node, const std::string & filename, const osgDB::Options * options)
 static int _bind_writeNodeFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_writeNodeFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::writeNodeFile(const osg::Node & node, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nbool osgDB::writeNodeFile(const osg::Node & node, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::writeNodeFile(const osg::Node & node, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nbool osgDB::writeNodeFile(const osg::Node & node, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,1));
@@ -5907,8 +5697,7 @@ static int _bind_writeNodeFile_overload_1(lua_State *L) {
 // bool osgDB::writeNodeFile(const osg::Node & node, const std::string & filename)
 static int _bind_writeNodeFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_writeNodeFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::writeNodeFile(const osg::Node & node, const std::string & filename) function, expected prototype:\nbool osgDB::writeNodeFile(const osg::Node & node, const std::string & filename)\nClass arguments details:\narg 1 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::writeNodeFile(const osg::Node & node, const std::string & filename) function, expected prototype:\nbool osgDB::writeNodeFile(const osg::Node & node, const std::string & filename)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,1));
@@ -5936,8 +5725,7 @@ static int _bind_writeNodeFile(lua_State *L) {
 // bool osgDB::writeShaderFile(const osg::Shader & shader, const std::string & filename, const osgDB::Options * options)
 static int _bind_writeShaderFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_writeShaderFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::writeShaderFile(const osg::Shader & shader, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nbool osgDB::writeShaderFile(const osg::Shader & shader, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::writeShaderFile(const osg::Shader & shader, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nbool osgDB::writeShaderFile(const osg::Shader & shader, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Shader* shader_ptr=(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1));
@@ -5957,8 +5745,7 @@ static int _bind_writeShaderFile_overload_1(lua_State *L) {
 // bool osgDB::writeShaderFile(const osg::Shader & shader, const std::string & filename)
 static int _bind_writeShaderFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_writeShaderFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osgDB::writeShaderFile(const osg::Shader & shader, const std::string & filename) function, expected prototype:\nbool osgDB::writeShaderFile(const osg::Shader & shader, const std::string & filename)\nClass arguments details:\narg 1 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in bool osgDB::writeShaderFile(const osg::Shader & shader, const std::string & filename) function, expected prototype:\nbool osgDB::writeShaderFile(const osg::Shader & shader, const std::string & filename)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const osg::Shader* shader_ptr=(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1));
@@ -5986,8 +5773,7 @@ static int _bind_writeShaderFile(lua_State *L) {
 // osgDB::XmlNode * osgDB::readXmlFile(const std::string & filename, const osgDB::Options * options)
 static int _bind_readXmlFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_readXmlFile_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgDB::XmlNode * osgDB::readXmlFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosgDB::XmlNode * osgDB::readXmlFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osgDB::XmlNode * osgDB::readXmlFile(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosgDB::XmlNode * osgDB::readXmlFile(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -6004,8 +5790,7 @@ static int _bind_readXmlFile_overload_1(lua_State *L) {
 // osgDB::XmlNode * osgDB::readXmlFile(const std::string & filename)
 static int _bind_readXmlFile_overload_2(lua_State *L) {
 	if (!_lg_typecheck_readXmlFile_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgDB::XmlNode * osgDB::readXmlFile(const std::string & filename) function, expected prototype:\nosgDB::XmlNode * osgDB::readXmlFile(const std::string & filename)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osgDB::XmlNode * osgDB::readXmlFile(const std::string & filename) function, expected prototype:\nosgDB::XmlNode * osgDB::readXmlFile(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -6030,8 +5815,7 @@ static int _bind_readXmlFile(lua_State *L) {
 // osgDB::XmlNode * osgDB::readXmlStream(std::istream & fin)
 static int _bind_readXmlStream(lua_State *L) {
 	if (!_lg_typecheck_readXmlStream(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgDB::XmlNode * osgDB::readXmlStream(std::istream & fin) function, expected prototype:\nosgDB::XmlNode * osgDB::readXmlStream(std::istream & fin)\nClass arguments details:\narg 1 ID = 77972206\n");
+		luaL_error(L, "luna typecheck failed in osgDB::XmlNode * osgDB::readXmlStream(std::istream & fin) function, expected prototype:\nosgDB::XmlNode * osgDB::readXmlStream(std::istream & fin)\nClass arguments details:\narg 1 ID = 77972206\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::istream* fin_ptr=(Luna< std::istream >::check(L,1));
@@ -6051,8 +5835,7 @@ static int _bind_readXmlStream(lua_State *L) {
 // std::string osgDB::trimEnclosingSpaces(const std::string & str)
 static int _bind_trimEnclosingSpaces(lua_State *L) {
 	if (!_lg_typecheck_trimEnclosingSpaces(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::trimEnclosingSpaces(const std::string & str) function, expected prototype:\nstd::string osgDB::trimEnclosingSpaces(const std::string & str)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::trimEnclosingSpaces(const std::string & str) function, expected prototype:\nstd::string osgDB::trimEnclosingSpaces(const std::string & str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string str(lua_tostring(L,1),lua_objlen(L,1));
@@ -6160,8 +5943,7 @@ inline static bool _lg_typecheck_findFont3DFile(lua_State *L) {
 // osgText::Font * osgText::readFontFile(const std::string & filename, const osgDB::Options * userOptions = 0)
 static int _bind_readFontFile(lua_State *L) {
 	if (!_lg_typecheck_readFontFile(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgText::Font * osgText::readFontFile(const std::string & filename, const osgDB::Options * userOptions = 0) function, expected prototype:\nosgText::Font * osgText::readFontFile(const std::string & filename, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osgText::Font * osgText::readFontFile(const std::string & filename, const osgDB::Options * userOptions = 0) function, expected prototype:\nosgText::Font * osgText::readFontFile(const std::string & filename, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -6180,8 +5962,7 @@ static int _bind_readFontFile(lua_State *L) {
 // osgText::Font * osgText::readFontStream(std::istream & stream, const osgDB::Options * userOptions = 0)
 static int _bind_readFontStream(lua_State *L) {
 	if (!_lg_typecheck_readFontStream(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgText::Font * osgText::readFontStream(std::istream & stream, const osgDB::Options * userOptions = 0) function, expected prototype:\nosgText::Font * osgText::readFontStream(std::istream & stream, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 1 ID = 77972206\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osgText::Font * osgText::readFontStream(std::istream & stream, const osgDB::Options * userOptions = 0) function, expected prototype:\nosgText::Font * osgText::readFontStream(std::istream & stream, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 1 ID = 77972206\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -6204,8 +5985,7 @@ static int _bind_readFontStream(lua_State *L) {
 // osg::ref_ptr< osgText::Font > osgText::readRefFontFile(const std::string & filename, const osgDB::Options * userOptions = 0)
 static int _bind_readRefFontFile(lua_State *L) {
 	if (!_lg_typecheck_readRefFontFile(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgText::Font > osgText::readRefFontFile(const std::string & filename, const osgDB::Options * userOptions = 0) function, expected prototype:\nosg::ref_ptr< osgText::Font > osgText::readRefFontFile(const std::string & filename, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgText::Font > osgText::readRefFontFile(const std::string & filename, const osgDB::Options * userOptions = 0) function, expected prototype:\nosg::ref_ptr< osgText::Font > osgText::readRefFontFile(const std::string & filename, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -6222,8 +6002,7 @@ static int _bind_readRefFontFile(lua_State *L) {
 // osg::ref_ptr< osgText::Font > osgText::readRefFontStream(std::istream & stream, const osgDB::Options * userOptions = 0)
 static int _bind_readRefFontStream(lua_State *L) {
 	if (!_lg_typecheck_readRefFontStream(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgText::Font > osgText::readRefFontStream(std::istream & stream, const osgDB::Options * userOptions = 0) function, expected prototype:\nosg::ref_ptr< osgText::Font > osgText::readRefFontStream(std::istream & stream, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 1 ID = 77972206\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgText::Font > osgText::readRefFontStream(std::istream & stream, const osgDB::Options * userOptions = 0) function, expected prototype:\nosg::ref_ptr< osgText::Font > osgText::readRefFontStream(std::istream & stream, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 1 ID = 77972206\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -6244,8 +6023,7 @@ static int _bind_readRefFontStream(lua_State *L) {
 // std::string osgText::findFontFile(const std::string & str)
 static int _bind_findFontFile(lua_State *L) {
 	if (!_lg_typecheck_findFontFile(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgText::findFontFile(const std::string & str) function, expected prototype:\nstd::string osgText::findFontFile(const std::string & str)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgText::findFontFile(const std::string & str) function, expected prototype:\nstd::string osgText::findFontFile(const std::string & str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string str(lua_tostring(L,1),lua_objlen(L,1));
@@ -6259,8 +6037,7 @@ static int _bind_findFontFile(lua_State *L) {
 // osgText::Font * osgText::readFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0)
 static int _bind_readFont3DFile(lua_State *L) {
 	if (!_lg_typecheck_readFont3DFile(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgText::Font * osgText::readFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0) function, expected prototype:\nosgText::Font * osgText::readFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osgText::Font * osgText::readFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0) function, expected prototype:\nosgText::Font * osgText::readFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -6279,8 +6056,7 @@ static int _bind_readFont3DFile(lua_State *L) {
 // osgText::Font * osgText::readFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0)
 static int _bind_readFont3DStream(lua_State *L) {
 	if (!_lg_typecheck_readFont3DStream(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osgText::Font * osgText::readFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0) function, expected prototype:\nosgText::Font * osgText::readFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 1 ID = 77972206\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osgText::Font * osgText::readFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0) function, expected prototype:\nosgText::Font * osgText::readFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 1 ID = 77972206\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -6303,8 +6079,7 @@ static int _bind_readFont3DStream(lua_State *L) {
 // osg::ref_ptr< osgText::Font > osgText::readRefFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0)
 static int _bind_readRefFont3DFile(lua_State *L) {
 	if (!_lg_typecheck_readRefFont3DFile(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgText::Font > osgText::readRefFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0) function, expected prototype:\nosg::ref_ptr< osgText::Font > osgText::readRefFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgText::Font > osgText::readRefFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0) function, expected prototype:\nosg::ref_ptr< osgText::Font > osgText::readRefFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -6321,8 +6096,7 @@ static int _bind_readRefFont3DFile(lua_State *L) {
 // osg::ref_ptr< osgText::Font > osgText::readRefFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0)
 static int _bind_readRefFont3DStream(lua_State *L) {
 	if (!_lg_typecheck_readRefFont3DStream(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgText::Font > osgText::readRefFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0) function, expected prototype:\nosg::ref_ptr< osgText::Font > osgText::readRefFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 1 ID = 77972206\narg 2 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgText::Font > osgText::readRefFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0) function, expected prototype:\nosg::ref_ptr< osgText::Font > osgText::readRefFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 1 ID = 77972206\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -6343,8 +6117,7 @@ static int _bind_readRefFont3DStream(lua_State *L) {
 // std::string osgText::findFont3DFile(const std::string & str)
 static int _bind_findFont3DFile(lua_State *L) {
 	if (!_lg_typecheck_findFont3DFile(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgText::findFont3DFile(const std::string & str) function, expected prototype:\nstd::string osgText::findFont3DFile(const std::string & str)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgText::findFont3DFile(const std::string & str) function, expected prototype:\nstd::string osgText::findFont3DFile(const std::string & str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string str(lua_tostring(L,1),lua_objlen(L,1));
@@ -6376,8 +6149,7 @@ inline static bool _lg_typecheck_create3DNoiseTexture(lua_State *L) {
 // osg::Image * osgUtil::create3DNoiseImage(int texSize)
 static int _bind_create3DNoiseImage(lua_State *L) {
 	if (!_lg_typecheck_create3DNoiseImage(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Image * osgUtil::create3DNoiseImage(int texSize) function, expected prototype:\nosg::Image * osgUtil::create3DNoiseImage(int texSize)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::Image * osgUtil::create3DNoiseImage(int texSize) function, expected prototype:\nosg::Image * osgUtil::create3DNoiseImage(int texSize)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int texSize=(int)lua_tointeger(L,1);
@@ -6393,8 +6165,7 @@ static int _bind_create3DNoiseImage(lua_State *L) {
 // osg::Texture3D * osgUtil::create3DNoiseTexture(int texSize)
 static int _bind_create3DNoiseTexture(lua_State *L) {
 	if (!_lg_typecheck_create3DNoiseTexture(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in osg::Texture3D * osgUtil::create3DNoiseTexture(int texSize) function, expected prototype:\nosg::Texture3D * osgUtil::create3DNoiseTexture(int texSize)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osg::Texture3D * osgUtil::create3DNoiseTexture(int texSize) function, expected prototype:\nosg::Texture3D * osgUtil::create3DNoiseTexture(int texSize)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int texSize=(int)lua_tointeger(L,1);

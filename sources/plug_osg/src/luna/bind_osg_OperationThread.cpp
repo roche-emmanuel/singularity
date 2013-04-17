@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::OperationThread* self= (osg::OperationThread*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -246,8 +243,7 @@ public:
 	// osg::OperationThread::OperationThread()
 	static osg::OperationThread* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::OperationThread::OperationThread() function, expected prototype:\nosg::OperationThread::OperationThread()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::OperationThread::OperationThread() function, expected prototype:\nosg::OperationThread::OperationThread()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -257,8 +253,7 @@ public:
 	// osg::OperationThread::OperationThread(lua_Table * data)
 	static osg::OperationThread* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::OperationThread::OperationThread(lua_Table * data) function, expected prototype:\nosg::OperationThread::OperationThread(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::OperationThread::OperationThread(lua_Table * data) function, expected prototype:\nosg::OperationThread::OperationThread(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -279,16 +274,14 @@ public:
 	// void osg::OperationThread::setParent(osg::Object * parent)
 	static int _bind_setParent(lua_State *L) {
 		if (!_lg_typecheck_setParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OperationThread::setParent(osg::Object * parent) function, expected prototype:\nvoid osg::OperationThread::setParent(osg::Object * parent)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OperationThread::setParent(osg::Object * parent) function, expected prototype:\nvoid osg::OperationThread::setParent(osg::Object * parent)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Object* parent=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OperationThread::setParent(osg::Object *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OperationThread::setParent(osg::Object *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setParent(parent);
 
@@ -298,15 +291,13 @@ public:
 	// osg::Object * osg::OperationThread::getParent()
 	static int _bind_getParent_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getParent_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::OperationThread::getParent() function, expected prototype:\nosg::Object * osg::OperationThread::getParent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::OperationThread::getParent() function, expected prototype:\nosg::Object * osg::OperationThread::getParent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::OperationThread::getParent(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::OperationThread::getParent(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->getParent();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -319,15 +310,13 @@ public:
 	// const osg::Object * osg::OperationThread::getParent() const
 	static int _bind_getParent_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getParent_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Object * osg::OperationThread::getParent() const function, expected prototype:\nconst osg::Object * osg::OperationThread::getParent() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Object * osg::OperationThread::getParent() const function, expected prototype:\nconst osg::Object * osg::OperationThread::getParent() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Object * osg::OperationThread::getParent() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Object * osg::OperationThread::getParent() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Object * lret = self->getParent();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -349,16 +338,14 @@ public:
 	// void osg::OperationThread::setOperationQueue(osg::OperationQueue * opq)
 	static int _bind_setOperationQueue(lua_State *L) {
 		if (!_lg_typecheck_setOperationQueue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OperationThread::setOperationQueue(osg::OperationQueue * opq) function, expected prototype:\nvoid osg::OperationThread::setOperationQueue(osg::OperationQueue * opq)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OperationThread::setOperationQueue(osg::OperationQueue * opq) function, expected prototype:\nvoid osg::OperationThread::setOperationQueue(osg::OperationQueue * opq)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::OperationQueue* opq=(Luna< osg::Referenced >::checkSubType< osg::OperationQueue >(L,2));
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OperationThread::setOperationQueue(osg::OperationQueue *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OperationThread::setOperationQueue(osg::OperationQueue *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setOperationQueue(opq);
 
@@ -368,15 +355,13 @@ public:
 	// osg::OperationQueue * osg::OperationThread::getOperationQueue()
 	static int _bind_getOperationQueue_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getOperationQueue_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::OperationQueue * osg::OperationThread::getOperationQueue() function, expected prototype:\nosg::OperationQueue * osg::OperationThread::getOperationQueue()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::OperationQueue * osg::OperationThread::getOperationQueue() function, expected prototype:\nosg::OperationQueue * osg::OperationThread::getOperationQueue()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::OperationQueue * osg::OperationThread::getOperationQueue(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::OperationQueue * osg::OperationThread::getOperationQueue(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::OperationQueue * lret = self->getOperationQueue();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -389,15 +374,13 @@ public:
 	// const osg::OperationQueue * osg::OperationThread::getOperationQueue() const
 	static int _bind_getOperationQueue_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getOperationQueue_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::OperationQueue * osg::OperationThread::getOperationQueue() const function, expected prototype:\nconst osg::OperationQueue * osg::OperationThread::getOperationQueue() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::OperationQueue * osg::OperationThread::getOperationQueue() const function, expected prototype:\nconst osg::OperationQueue * osg::OperationThread::getOperationQueue() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::OperationQueue * osg::OperationThread::getOperationQueue() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::OperationQueue * osg::OperationThread::getOperationQueue() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::OperationQueue * lret = self->getOperationQueue();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -419,16 +402,14 @@ public:
 	// void osg::OperationThread::add(osg::Operation * operation)
 	static int _bind_add(lua_State *L) {
 		if (!_lg_typecheck_add(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OperationThread::add(osg::Operation * operation) function, expected prototype:\nvoid osg::OperationThread::add(osg::Operation * operation)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OperationThread::add(osg::Operation * operation) function, expected prototype:\nvoid osg::OperationThread::add(osg::Operation * operation)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Operation* operation=(Luna< osg::Referenced >::checkSubType< osg::Operation >(L,2));
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OperationThread::add(osg::Operation *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OperationThread::add(osg::Operation *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->add(operation);
 
@@ -438,16 +419,14 @@ public:
 	// void osg::OperationThread::remove(osg::Operation * operation)
 	static int _bind_remove_overload_1(lua_State *L) {
 		if (!_lg_typecheck_remove_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OperationThread::remove(osg::Operation * operation) function, expected prototype:\nvoid osg::OperationThread::remove(osg::Operation * operation)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::OperationThread::remove(osg::Operation * operation) function, expected prototype:\nvoid osg::OperationThread::remove(osg::Operation * operation)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Operation* operation=(Luna< osg::Referenced >::checkSubType< osg::Operation >(L,2));
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OperationThread::remove(osg::Operation *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OperationThread::remove(osg::Operation *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->remove(operation);
 
@@ -457,16 +436,14 @@ public:
 	// void osg::OperationThread::remove(const std::string & name)
 	static int _bind_remove_overload_2(lua_State *L) {
 		if (!_lg_typecheck_remove_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OperationThread::remove(const std::string & name) function, expected prototype:\nvoid osg::OperationThread::remove(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::OperationThread::remove(const std::string & name) function, expected prototype:\nvoid osg::OperationThread::remove(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OperationThread::remove(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OperationThread::remove(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->remove(name);
 
@@ -485,15 +462,13 @@ public:
 	// void osg::OperationThread::removeAllOperations()
 	static int _bind_removeAllOperations(lua_State *L) {
 		if (!_lg_typecheck_removeAllOperations(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OperationThread::removeAllOperations() function, expected prototype:\nvoid osg::OperationThread::removeAllOperations()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::OperationThread::removeAllOperations() function, expected prototype:\nvoid osg::OperationThread::removeAllOperations()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OperationThread::removeAllOperations(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OperationThread::removeAllOperations(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removeAllOperations();
 
@@ -503,15 +478,13 @@ public:
 	// osg::ref_ptr< osg::Operation > osg::OperationThread::getCurrentOperation()
 	static int _bind_getCurrentOperation(lua_State *L) {
 		if (!_lg_typecheck_getCurrentOperation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Operation > osg::OperationThread::getCurrentOperation() function, expected prototype:\nosg::ref_ptr< osg::Operation > osg::OperationThread::getCurrentOperation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Operation > osg::OperationThread::getCurrentOperation() function, expected prototype:\nosg::ref_ptr< osg::Operation > osg::OperationThread::getCurrentOperation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Operation > osg::OperationThread::getCurrentOperation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Operation > osg::OperationThread::getCurrentOperation(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::ref_ptr< osg::Operation > lret = self->getCurrentOperation();
 		Luna< osg::Operation >::push(L,lret.get(),false);
@@ -522,15 +495,13 @@ public:
 	// void osg::OperationThread::run()
 	static int _bind_run(lua_State *L) {
 		if (!_lg_typecheck_run(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OperationThread::run() function, expected prototype:\nvoid osg::OperationThread::run()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::OperationThread::run() function, expected prototype:\nvoid osg::OperationThread::run()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OperationThread::run(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OperationThread::run(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->run();
 
@@ -540,16 +511,14 @@ public:
 	// void osg::OperationThread::setDone(bool done)
 	static int _bind_setDone(lua_State *L) {
 		if (!_lg_typecheck_setDone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OperationThread::setDone(bool done) function, expected prototype:\nvoid osg::OperationThread::setDone(bool done)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::OperationThread::setDone(bool done) function, expected prototype:\nvoid osg::OperationThread::setDone(bool done)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool done=(bool)(lua_toboolean(L,2)==1);
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OperationThread::setDone(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OperationThread::setDone(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDone(done);
 
@@ -559,15 +528,13 @@ public:
 	// bool osg::OperationThread::getDone() const
 	static int _bind_getDone(lua_State *L) {
 		if (!_lg_typecheck_getDone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::OperationThread::getDone() const function, expected prototype:\nbool osg::OperationThread::getDone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::OperationThread::getDone() const function, expected prototype:\nbool osg::OperationThread::getDone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::OperationThread::getDone() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::OperationThread::getDone() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getDone();
 		lua_pushboolean(L,lret?1:0);
@@ -578,15 +545,13 @@ public:
 	// int osg::OperationThread::cancel()
 	static int _bind_cancel(lua_State *L) {
 		if (!_lg_typecheck_cancel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::OperationThread::cancel() function, expected prototype:\nint osg::OperationThread::cancel()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::OperationThread::cancel() function, expected prototype:\nint osg::OperationThread::cancel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::OperationThread::cancel(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::OperationThread::cancel(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->cancel();
 		lua_pushnumber(L,lret);
@@ -597,16 +562,14 @@ public:
 	// void osg::OperationThread::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OperationThread::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::OperationThread::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::OperationThread::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::OperationThread::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OperationThread::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OperationThread::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OperationThread::setThreadSafeRefUnref(threadSafe);
 
@@ -616,15 +579,13 @@ public:
 	// void osg::OperationThread::base_cancelCleanup()
 	static int _bind_base_cancelCleanup(lua_State *L) {
 		if (!_lg_typecheck_base_cancelCleanup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OperationThread::base_cancelCleanup() function, expected prototype:\nvoid osg::OperationThread::base_cancelCleanup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::OperationThread::base_cancelCleanup() function, expected prototype:\nvoid osg::OperationThread::base_cancelCleanup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OperationThread::base_cancelCleanup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OperationThread::base_cancelCleanup(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OperationThread::cancelCleanup();
 
@@ -634,15 +595,13 @@ public:
 	// void osg::OperationThread::base_run()
 	static int _bind_base_run(lua_State *L) {
 		if (!_lg_typecheck_base_run(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::OperationThread::base_run() function, expected prototype:\nvoid osg::OperationThread::base_run()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::OperationThread::base_run() function, expected prototype:\nvoid osg::OperationThread::base_run()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::OperationThread::base_run(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::OperationThread::base_run(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OperationThread::run();
 
@@ -652,15 +611,13 @@ public:
 	// int osg::OperationThread::base_cancel()
 	static int _bind_base_cancel(lua_State *L) {
 		if (!_lg_typecheck_base_cancel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::OperationThread::base_cancel() function, expected prototype:\nint osg::OperationThread::base_cancel()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::OperationThread::base_cancel() function, expected prototype:\nint osg::OperationThread::base_cancel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::OperationThread* self=Luna< osg::Referenced >::checkSubType< osg::OperationThread >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::OperationThread::base_cancel(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::OperationThread::base_cancel(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->OperationThread::cancel();
 		lua_pushnumber(L,lret);
@@ -679,8 +636,7 @@ public:
 
 	static int _bind_baseCast_OpenThreads_Thread(lua_State *L) {
 		if (!_lg_typecheck_baseCast_OpenThreads_Thread(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in baseCast_OpenThreads_Thread function, expected prototype:\nbaseCast()");
+			luaL_error(L, "luna typecheck failed in baseCast_OpenThreads_Thread function, expected prototype:\nbaseCast(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));

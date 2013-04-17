@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::GraphicsCostEstimator* self= (osg::GraphicsCostEstimator*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -196,8 +193,7 @@ public:
 	// osg::GraphicsCostEstimator::GraphicsCostEstimator()
 	static osg::GraphicsCostEstimator* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::GraphicsCostEstimator::GraphicsCostEstimator() function, expected prototype:\nosg::GraphicsCostEstimator::GraphicsCostEstimator()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::GraphicsCostEstimator::GraphicsCostEstimator() function, expected prototype:\nosg::GraphicsCostEstimator::GraphicsCostEstimator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -207,8 +203,7 @@ public:
 	// osg::GraphicsCostEstimator::GraphicsCostEstimator(lua_Table * data)
 	static osg::GraphicsCostEstimator* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::GraphicsCostEstimator::GraphicsCostEstimator(lua_Table * data) function, expected prototype:\nosg::GraphicsCostEstimator::GraphicsCostEstimator(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::GraphicsCostEstimator::GraphicsCostEstimator(lua_Table * data) function, expected prototype:\nosg::GraphicsCostEstimator::GraphicsCostEstimator(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -229,15 +224,13 @@ public:
 	// void osg::GraphicsCostEstimator::setDefaults()
 	static int _bind_setDefaults(lua_State *L) {
 		if (!_lg_typecheck_setDefaults(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::GraphicsCostEstimator::setDefaults() function, expected prototype:\nvoid osg::GraphicsCostEstimator::setDefaults()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::GraphicsCostEstimator::setDefaults() function, expected prototype:\nvoid osg::GraphicsCostEstimator::setDefaults()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsCostEstimator::setDefaults(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::GraphicsCostEstimator::setDefaults(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDefaults();
 
@@ -247,8 +240,7 @@ public:
 	// void osg::GraphicsCostEstimator::calibrate(osg::RenderInfo & renderInfo)
 	static int _bind_calibrate(lua_State *L) {
 		if (!_lg_typecheck_calibrate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::GraphicsCostEstimator::calibrate(osg::RenderInfo & renderInfo) function, expected prototype:\nvoid osg::GraphicsCostEstimator::calibrate(osg::RenderInfo & renderInfo)\nClass arguments details:\narg 1 ID = 2286263\n");
+			luaL_error(L, "luna typecheck failed in void osg::GraphicsCostEstimator::calibrate(osg::RenderInfo & renderInfo) function, expected prototype:\nvoid osg::GraphicsCostEstimator::calibrate(osg::RenderInfo & renderInfo)\nClass arguments details:\narg 1 ID = 2286263\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
@@ -259,8 +251,7 @@ public:
 
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsCostEstimator::calibrate(osg::RenderInfo &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::GraphicsCostEstimator::calibrate(osg::RenderInfo &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->calibrate(renderInfo);
 
@@ -270,16 +261,14 @@ public:
 	// osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Geometry * geometry) const
 	static int _bind_estimateCompileCost_overload_1(lua_State *L) {
 		if (!_lg_typecheck_estimateCompileCost_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Geometry * geometry) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Geometry * geometry) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Geometry * geometry) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Geometry * geometry) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Geometry* geometry=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
 
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Geometry *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Geometry *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::CostPair stack_lret = self->estimateCompileCost(geometry);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -293,16 +282,14 @@ public:
 	// osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Texture * texture) const
 	static int _bind_estimateCompileCost_overload_2(lua_State *L) {
 		if (!_lg_typecheck_estimateCompileCost_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Texture * texture) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Texture * texture) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Texture * texture) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Texture * texture) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Texture* texture=(Luna< osg::Referenced >::checkSubType< osg::Texture >(L,2));
 
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Texture *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Texture *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::CostPair stack_lret = self->estimateCompileCost(texture);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -316,16 +303,14 @@ public:
 	// osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Program * program) const
 	static int _bind_estimateCompileCost_overload_3(lua_State *L) {
 		if (!_lg_typecheck_estimateCompileCost_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Program * program) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Program * program) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Program * program) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Program * program) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Program* program=(Luna< osg::Referenced >::checkSubType< osg::Program >(L,2));
 
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Program *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Program *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::CostPair stack_lret = self->estimateCompileCost(program);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -339,16 +324,14 @@ public:
 	// osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Node * node) const
 	static int _bind_estimateCompileCost_overload_4(lua_State *L) {
 		if (!_lg_typecheck_estimateCompileCost_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Node * node) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Node * node) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Node * node) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Node * node) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Node *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Node *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::CostPair stack_lret = self->estimateCompileCost(node);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -373,16 +356,14 @@ public:
 	// osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Geometry * geometry) const
 	static int _bind_estimateDrawCost_overload_1(lua_State *L) {
 		if (!_lg_typecheck_estimateDrawCost_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Geometry * geometry) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Geometry * geometry) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Geometry * geometry) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Geometry * geometry) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Geometry* geometry=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
 
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Geometry *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Geometry *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::CostPair stack_lret = self->estimateDrawCost(geometry);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -396,16 +377,14 @@ public:
 	// osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Texture * texture) const
 	static int _bind_estimateDrawCost_overload_2(lua_State *L) {
 		if (!_lg_typecheck_estimateDrawCost_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Texture * texture) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Texture * texture) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Texture * texture) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Texture * texture) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Texture* texture=(Luna< osg::Referenced >::checkSubType< osg::Texture >(L,2));
 
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Texture *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Texture *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::CostPair stack_lret = self->estimateDrawCost(texture);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -419,16 +398,14 @@ public:
 	// osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Program * program) const
 	static int _bind_estimateDrawCost_overload_3(lua_State *L) {
 		if (!_lg_typecheck_estimateDrawCost_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Program * program) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Program * program) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Program * program) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Program * program) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Program* program=(Luna< osg::Referenced >::checkSubType< osg::Program >(L,2));
 
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Program *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Program *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::CostPair stack_lret = self->estimateDrawCost(program);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -442,16 +419,14 @@ public:
 	// osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Node * node) const
 	static int _bind_estimateDrawCost_overload_4(lua_State *L) {
 		if (!_lg_typecheck_estimateDrawCost_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Node * node) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Node * node) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Node * node) const function, expected prototype:\nosg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Node * node) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Node *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Node *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::CostPair stack_lret = self->estimateDrawCost(node);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -476,16 +451,14 @@ public:
 	// void osg::GraphicsCostEstimator::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::GraphicsCostEstimator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::GraphicsCostEstimator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::GraphicsCostEstimator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::GraphicsCostEstimator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsCostEstimator::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::GraphicsCostEstimator::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GraphicsCostEstimator::setThreadSafeRefUnref(threadSafe);
 

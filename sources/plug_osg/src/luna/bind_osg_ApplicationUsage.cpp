@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ApplicationUsage* self= (osg::ApplicationUsage*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -309,8 +306,7 @@ public:
 	// osg::ApplicationUsage::ApplicationUsage()
 	static osg::ApplicationUsage* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ApplicationUsage::ApplicationUsage() function, expected prototype:\nosg::ApplicationUsage::ApplicationUsage()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ApplicationUsage::ApplicationUsage() function, expected prototype:\nosg::ApplicationUsage::ApplicationUsage()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -320,8 +316,7 @@ public:
 	// osg::ApplicationUsage::ApplicationUsage(const std::string & commandLineUsage)
 	static osg::ApplicationUsage* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ApplicationUsage::ApplicationUsage(const std::string & commandLineUsage) function, expected prototype:\nosg::ApplicationUsage::ApplicationUsage(const std::string & commandLineUsage)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ApplicationUsage::ApplicationUsage(const std::string & commandLineUsage) function, expected prototype:\nosg::ApplicationUsage::ApplicationUsage(const std::string & commandLineUsage)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string commandLineUsage(lua_tostring(L,1),lua_objlen(L,1));
@@ -332,8 +327,7 @@ public:
 	// osg::ApplicationUsage::ApplicationUsage(lua_Table * data)
 	static osg::ApplicationUsage* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ApplicationUsage::ApplicationUsage(lua_Table * data) function, expected prototype:\nosg::ApplicationUsage::ApplicationUsage(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ApplicationUsage::ApplicationUsage(lua_Table * data) function, expected prototype:\nosg::ApplicationUsage::ApplicationUsage(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -343,8 +337,7 @@ public:
 	// osg::ApplicationUsage::ApplicationUsage(lua_Table * data, const std::string & commandLineUsage)
 	static osg::ApplicationUsage* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ApplicationUsage::ApplicationUsage(lua_Table * data, const std::string & commandLineUsage) function, expected prototype:\nosg::ApplicationUsage::ApplicationUsage(lua_Table * data, const std::string & commandLineUsage)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ApplicationUsage::ApplicationUsage(lua_Table * data, const std::string & commandLineUsage) function, expected prototype:\nosg::ApplicationUsage::ApplicationUsage(lua_Table * data, const std::string & commandLineUsage)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string commandLineUsage(lua_tostring(L,2),lua_objlen(L,2));
@@ -368,8 +361,7 @@ public:
 	// static osg::ApplicationUsage * osg::ApplicationUsage::instance()
 	static int _bind_instance(lua_State *L) {
 		if (!_lg_typecheck_instance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::ApplicationUsage * osg::ApplicationUsage::instance() function, expected prototype:\nstatic osg::ApplicationUsage * osg::ApplicationUsage::instance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::ApplicationUsage * osg::ApplicationUsage::instance() function, expected prototype:\nstatic osg::ApplicationUsage * osg::ApplicationUsage::instance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -384,16 +376,14 @@ public:
 	// void osg::ApplicationUsage::setApplicationName(const std::string & name)
 	static int _bind_setApplicationName(lua_State *L) {
 		if (!_lg_typecheck_setApplicationName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::setApplicationName(const std::string & name) function, expected prototype:\nvoid osg::ApplicationUsage::setApplicationName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::setApplicationName(const std::string & name) function, expected prototype:\nvoid osg::ApplicationUsage::setApplicationName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setApplicationName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setApplicationName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setApplicationName(name);
 
@@ -403,15 +393,13 @@ public:
 	// const std::string & osg::ApplicationUsage::getApplicationName() const
 	static int _bind_getApplicationName(lua_State *L) {
 		if (!_lg_typecheck_getApplicationName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osg::ApplicationUsage::getApplicationName() const function, expected prototype:\nconst std::string & osg::ApplicationUsage::getApplicationName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osg::ApplicationUsage::getApplicationName() const function, expected prototype:\nconst std::string & osg::ApplicationUsage::getApplicationName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::ApplicationUsage::getApplicationName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osg::ApplicationUsage::getApplicationName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getApplicationName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -422,16 +410,14 @@ public:
 	// void osg::ApplicationUsage::setDescription(const std::string & desc)
 	static int _bind_setDescription(lua_State *L) {
 		if (!_lg_typecheck_setDescription(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::setDescription(const std::string & desc) function, expected prototype:\nvoid osg::ApplicationUsage::setDescription(const std::string & desc)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::setDescription(const std::string & desc) function, expected prototype:\nvoid osg::ApplicationUsage::setDescription(const std::string & desc)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string desc(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setDescription(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setDescription(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDescription(desc);
 
@@ -441,15 +427,13 @@ public:
 	// const std::string & osg::ApplicationUsage::getDescription() const
 	static int _bind_getDescription(lua_State *L) {
 		if (!_lg_typecheck_getDescription(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osg::ApplicationUsage::getDescription() const function, expected prototype:\nconst std::string & osg::ApplicationUsage::getDescription() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osg::ApplicationUsage::getDescription() const function, expected prototype:\nconst std::string & osg::ApplicationUsage::getDescription() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::ApplicationUsage::getDescription() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osg::ApplicationUsage::getDescription() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getDescription();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -460,8 +444,7 @@ public:
 	// void osg::ApplicationUsage::addUsageExplanation(osg::ApplicationUsage::Type type, const std::string & option, const std::string & explanation)
 	static int _bind_addUsageExplanation(lua_State *L) {
 		if (!_lg_typecheck_addUsageExplanation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::addUsageExplanation(osg::ApplicationUsage::Type type, const std::string & option, const std::string & explanation) function, expected prototype:\nvoid osg::ApplicationUsage::addUsageExplanation(osg::ApplicationUsage::Type type, const std::string & option, const std::string & explanation)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::addUsageExplanation(osg::ApplicationUsage::Type type, const std::string & option, const std::string & explanation) function, expected prototype:\nvoid osg::ApplicationUsage::addUsageExplanation(osg::ApplicationUsage::Type type, const std::string & option, const std::string & explanation)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ApplicationUsage::Type type=(osg::ApplicationUsage::Type)lua_tointeger(L,2);
@@ -470,8 +453,7 @@ public:
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addUsageExplanation(osg::ApplicationUsage::Type, const std::string &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addUsageExplanation(osg::ApplicationUsage::Type, const std::string &, const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addUsageExplanation(type, option, explanation);
 
@@ -481,16 +463,14 @@ public:
 	// void osg::ApplicationUsage::setCommandLineUsage(const std::string & explanation)
 	static int _bind_setCommandLineUsage(lua_State *L) {
 		if (!_lg_typecheck_setCommandLineUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::setCommandLineUsage(const std::string & explanation) function, expected prototype:\nvoid osg::ApplicationUsage::setCommandLineUsage(const std::string & explanation)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::setCommandLineUsage(const std::string & explanation) function, expected prototype:\nvoid osg::ApplicationUsage::setCommandLineUsage(const std::string & explanation)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string explanation(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setCommandLineUsage(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setCommandLineUsage(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCommandLineUsage(explanation);
 
@@ -500,15 +480,13 @@ public:
 	// const std::string & osg::ApplicationUsage::getCommandLineUsage() const
 	static int _bind_getCommandLineUsage(lua_State *L) {
 		if (!_lg_typecheck_getCommandLineUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osg::ApplicationUsage::getCommandLineUsage() const function, expected prototype:\nconst std::string & osg::ApplicationUsage::getCommandLineUsage() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osg::ApplicationUsage::getCommandLineUsage() const function, expected prototype:\nconst std::string & osg::ApplicationUsage::getCommandLineUsage() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::ApplicationUsage::getCommandLineUsage() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osg::ApplicationUsage::getCommandLineUsage() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getCommandLineUsage();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -519,8 +497,7 @@ public:
 	// void osg::ApplicationUsage::addCommandLineOption(const std::string & option, const std::string & explanation, const std::string & defaultValue = "")
 	static int _bind_addCommandLineOption(lua_State *L) {
 		if (!_lg_typecheck_addCommandLineOption(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::addCommandLineOption(const std::string & option, const std::string & explanation, const std::string & defaultValue = \"\") function, expected prototype:\nvoid osg::ApplicationUsage::addCommandLineOption(const std::string & option, const std::string & explanation, const std::string & defaultValue = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::addCommandLineOption(const std::string & option, const std::string & explanation, const std::string & defaultValue = \"\") function, expected prototype:\nvoid osg::ApplicationUsage::addCommandLineOption(const std::string & option, const std::string & explanation, const std::string & defaultValue = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -531,8 +508,7 @@ public:
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addCommandLineOption(const std::string &, const std::string &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addCommandLineOption(const std::string &, const std::string &, const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addCommandLineOption(option, explanation, defaultValue);
 
@@ -542,15 +518,13 @@ public:
 	// const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptions() const
 	static int _bind_getCommandLineOptions(lua_State *L) {
 		if (!_lg_typecheck_getCommandLineOptions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptions() const function, expected prototype:\nconst osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptions() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptions() const function, expected prototype:\nconst osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptions() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptions() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptions() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ApplicationUsage::UsageMap* lret = &self->getCommandLineOptions();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -563,15 +537,13 @@ public:
 	// const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptionsDefaults() const
 	static int _bind_getCommandLineOptionsDefaults(lua_State *L) {
 		if (!_lg_typecheck_getCommandLineOptionsDefaults(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptionsDefaults() const function, expected prototype:\nconst osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptionsDefaults() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptionsDefaults() const function, expected prototype:\nconst osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptionsDefaults() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptionsDefaults() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptionsDefaults() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ApplicationUsage::UsageMap* lret = &self->getCommandLineOptionsDefaults();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -584,8 +556,7 @@ public:
 	// void osg::ApplicationUsage::addEnvironmentalVariable(const std::string & option, const std::string & explanation, const std::string & defaultValue = "")
 	static int _bind_addEnvironmentalVariable(lua_State *L) {
 		if (!_lg_typecheck_addEnvironmentalVariable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::addEnvironmentalVariable(const std::string & option, const std::string & explanation, const std::string & defaultValue = \"\") function, expected prototype:\nvoid osg::ApplicationUsage::addEnvironmentalVariable(const std::string & option, const std::string & explanation, const std::string & defaultValue = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::addEnvironmentalVariable(const std::string & option, const std::string & explanation, const std::string & defaultValue = \"\") function, expected prototype:\nvoid osg::ApplicationUsage::addEnvironmentalVariable(const std::string & option, const std::string & explanation, const std::string & defaultValue = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -596,8 +567,7 @@ public:
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addEnvironmentalVariable(const std::string &, const std::string &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addEnvironmentalVariable(const std::string &, const std::string &, const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addEnvironmentalVariable(option, explanation, defaultValue);
 
@@ -607,15 +577,13 @@ public:
 	// const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariables() const
 	static int _bind_getEnvironmentalVariables(lua_State *L) {
 		if (!_lg_typecheck_getEnvironmentalVariables(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariables() const function, expected prototype:\nconst osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariables() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariables() const function, expected prototype:\nconst osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariables() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariables() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariables() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ApplicationUsage::UsageMap* lret = &self->getEnvironmentalVariables();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -628,15 +596,13 @@ public:
 	// const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariablesDefaults() const
 	static int _bind_getEnvironmentalVariablesDefaults(lua_State *L) {
 		if (!_lg_typecheck_getEnvironmentalVariablesDefaults(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariablesDefaults() const function, expected prototype:\nconst osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariablesDefaults() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariablesDefaults() const function, expected prototype:\nconst osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariablesDefaults() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariablesDefaults() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariablesDefaults() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ApplicationUsage::UsageMap* lret = &self->getEnvironmentalVariablesDefaults();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -649,8 +615,7 @@ public:
 	// void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & prefix, int key, const std::string & explanation)
 	static int _bind_addKeyboardMouseBinding_overload_1(lua_State *L) {
 		if (!_lg_typecheck_addKeyboardMouseBinding_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & prefix, int key, const std::string & explanation) function, expected prototype:\nvoid osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & prefix, int key, const std::string & explanation)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & prefix, int key, const std::string & explanation) function, expected prototype:\nvoid osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & prefix, int key, const std::string & explanation)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string prefix(lua_tostring(L,2),lua_objlen(L,2));
@@ -659,8 +624,7 @@ public:
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string &, int, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string &, int, const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addKeyboardMouseBinding(prefix, key, explanation);
 
@@ -670,8 +634,7 @@ public:
 	// void osg::ApplicationUsage::addKeyboardMouseBinding(int key, const std::string & explanation)
 	static int _bind_addKeyboardMouseBinding_overload_2(lua_State *L) {
 		if (!_lg_typecheck_addKeyboardMouseBinding_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::addKeyboardMouseBinding(int key, const std::string & explanation) function, expected prototype:\nvoid osg::ApplicationUsage::addKeyboardMouseBinding(int key, const std::string & explanation)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::addKeyboardMouseBinding(int key, const std::string & explanation) function, expected prototype:\nvoid osg::ApplicationUsage::addKeyboardMouseBinding(int key, const std::string & explanation)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int key=(int)lua_tointeger(L,2);
@@ -679,8 +642,7 @@ public:
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addKeyboardMouseBinding(int, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addKeyboardMouseBinding(int, const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addKeyboardMouseBinding(key, explanation);
 
@@ -690,8 +652,7 @@ public:
 	// void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & option, const std::string & explanation)
 	static int _bind_addKeyboardMouseBinding_overload_3(lua_State *L) {
 		if (!_lg_typecheck_addKeyboardMouseBinding_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & option, const std::string & explanation) function, expected prototype:\nvoid osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & option, const std::string & explanation)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & option, const std::string & explanation) function, expected prototype:\nvoid osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & option, const std::string & explanation)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string option(lua_tostring(L,2),lua_objlen(L,2));
@@ -699,8 +660,7 @@ public:
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string &, const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addKeyboardMouseBinding(option, explanation);
 
@@ -720,15 +680,13 @@ public:
 	// const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getKeyboardMouseBindings() const
 	static int _bind_getKeyboardMouseBindings(lua_State *L) {
 		if (!_lg_typecheck_getKeyboardMouseBindings(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getKeyboardMouseBindings() const function, expected prototype:\nconst osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getKeyboardMouseBindings() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getKeyboardMouseBindings() const function, expected prototype:\nconst osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getKeyboardMouseBindings() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getKeyboardMouseBindings() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getKeyboardMouseBindings() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ApplicationUsage::UsageMap* lret = &self->getKeyboardMouseBindings();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -741,8 +699,7 @@ public:
 	// void osg::ApplicationUsage::getFormattedString(std::string & str, const osg::ApplicationUsage::UsageMap & um, unsigned int widthOfOutput = 80, bool showDefaults = false, const osg::ApplicationUsage::UsageMap & ud = osg::ApplicationUsage::UsageMap ())
 	static int _bind_getFormattedString(lua_State *L) {
 		if (!_lg_typecheck_getFormattedString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::getFormattedString(std::string & str, const osg::ApplicationUsage::UsageMap & um, unsigned int widthOfOutput = 80, bool showDefaults = false, const osg::ApplicationUsage::UsageMap & ud = osg::ApplicationUsage::UsageMap ()) function, expected prototype:\nvoid osg::ApplicationUsage::getFormattedString(std::string & str, const osg::ApplicationUsage::UsageMap & um, unsigned int widthOfOutput = 80, bool showDefaults = false, const osg::ApplicationUsage::UsageMap & ud = osg::ApplicationUsage::UsageMap ())\nClass arguments details:\narg 2 ID = 31149124\narg 5 ID = 31149124\n");
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::getFormattedString(std::string & str, const osg::ApplicationUsage::UsageMap & um, unsigned int widthOfOutput = 80, bool showDefaults = false, const osg::ApplicationUsage::UsageMap & ud = osg::ApplicationUsage::UsageMap ()) function, expected prototype:\nvoid osg::ApplicationUsage::getFormattedString(std::string & str, const osg::ApplicationUsage::UsageMap & um, unsigned int widthOfOutput = 80, bool showDefaults = false, const osg::ApplicationUsage::UsageMap & ud = osg::ApplicationUsage::UsageMap ())\nClass arguments details:\narg 2 ID = 31149124\narg 5 ID = 31149124\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -763,8 +720,7 @@ public:
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::getFormattedString(std::string &, const osg::ApplicationUsage::UsageMap &, unsigned int, bool, const osg::ApplicationUsage::UsageMap &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::getFormattedString(std::string &, const osg::ApplicationUsage::UsageMap &, unsigned int, bool, const osg::ApplicationUsage::UsageMap &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getFormattedString(str, um, widthOfOutput, showDefaults, ud);
 
@@ -775,8 +731,7 @@ public:
 	// void osg::ApplicationUsage::write(std::ostream & output, const osg::ApplicationUsage::UsageMap & um, unsigned int widthOfOutput = 80, bool showDefaults = false, const osg::ApplicationUsage::UsageMap & ud = osg::ApplicationUsage::UsageMap ())
 	static int _bind_write_overload_1(lua_State *L) {
 		if (!_lg_typecheck_write_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::write(std::ostream & output, const osg::ApplicationUsage::UsageMap & um, unsigned int widthOfOutput = 80, bool showDefaults = false, const osg::ApplicationUsage::UsageMap & ud = osg::ApplicationUsage::UsageMap ()) function, expected prototype:\nvoid osg::ApplicationUsage::write(std::ostream & output, const osg::ApplicationUsage::UsageMap & um, unsigned int widthOfOutput = 80, bool showDefaults = false, const osg::ApplicationUsage::UsageMap & ud = osg::ApplicationUsage::UsageMap ())\nClass arguments details:\narg 1 ID = 2993706\narg 2 ID = 31149124\narg 5 ID = 31149124\n");
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::write(std::ostream & output, const osg::ApplicationUsage::UsageMap & um, unsigned int widthOfOutput = 80, bool showDefaults = false, const osg::ApplicationUsage::UsageMap & ud = osg::ApplicationUsage::UsageMap ()) function, expected prototype:\nvoid osg::ApplicationUsage::write(std::ostream & output, const osg::ApplicationUsage::UsageMap & um, unsigned int widthOfOutput = 80, bool showDefaults = false, const osg::ApplicationUsage::UsageMap & ud = osg::ApplicationUsage::UsageMap ())\nClass arguments details:\narg 1 ID = 2993706\narg 2 ID = 31149124\narg 5 ID = 31149124\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -801,8 +756,7 @@ public:
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::write(std::ostream &, const osg::ApplicationUsage::UsageMap &, unsigned int, bool, const osg::ApplicationUsage::UsageMap &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::write(std::ostream &, const osg::ApplicationUsage::UsageMap &, unsigned int, bool, const osg::ApplicationUsage::UsageMap &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->write(output, um, widthOfOutput, showDefaults, ud);
 
@@ -812,8 +766,7 @@ public:
 	// void osg::ApplicationUsage::write(std::ostream & output, unsigned int type = osg::ApplicationUsage::COMMAND_LINE_OPTION, unsigned int widthOfOutput = 80, bool showDefaults = false)
 	static int _bind_write_overload_2(lua_State *L) {
 		if (!_lg_typecheck_write_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::write(std::ostream & output, unsigned int type = osg::ApplicationUsage::COMMAND_LINE_OPTION, unsigned int widthOfOutput = 80, bool showDefaults = false) function, expected prototype:\nvoid osg::ApplicationUsage::write(std::ostream & output, unsigned int type = osg::ApplicationUsage::COMMAND_LINE_OPTION, unsigned int widthOfOutput = 80, bool showDefaults = false)\nClass arguments details:\narg 1 ID = 2993706\n");
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::write(std::ostream & output, unsigned int type = osg::ApplicationUsage::COMMAND_LINE_OPTION, unsigned int widthOfOutput = 80, bool showDefaults = false) function, expected prototype:\nvoid osg::ApplicationUsage::write(std::ostream & output, unsigned int type = osg::ApplicationUsage::COMMAND_LINE_OPTION, unsigned int widthOfOutput = 80, bool showDefaults = false)\nClass arguments details:\narg 1 ID = 2993706\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -829,8 +782,7 @@ public:
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::write(std::ostream &, unsigned int, unsigned int, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::write(std::ostream &, unsigned int, unsigned int, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->write(output, type, widthOfOutput, showDefaults);
 
@@ -849,8 +801,7 @@ public:
 	// void osg::ApplicationUsage::writeEnvironmentSettings(std::ostream & output)
 	static int _bind_writeEnvironmentSettings(lua_State *L) {
 		if (!_lg_typecheck_writeEnvironmentSettings(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::writeEnvironmentSettings(std::ostream & output) function, expected prototype:\nvoid osg::ApplicationUsage::writeEnvironmentSettings(std::ostream & output)\nClass arguments details:\narg 1 ID = 2993706\n");
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::writeEnvironmentSettings(std::ostream & output) function, expected prototype:\nvoid osg::ApplicationUsage::writeEnvironmentSettings(std::ostream & output)\nClass arguments details:\narg 1 ID = 2993706\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::ostream* output_ptr=(Luna< std::ostream >::check(L,2));
@@ -861,8 +812,7 @@ public:
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::writeEnvironmentSettings(std::ostream &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::writeEnvironmentSettings(std::ostream &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->writeEnvironmentSettings(output);
 
@@ -872,16 +822,14 @@ public:
 	// void osg::ApplicationUsage::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::ApplicationUsage::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::ApplicationUsage::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ApplicationUsage::setThreadSafeRefUnref(threadSafe);
 

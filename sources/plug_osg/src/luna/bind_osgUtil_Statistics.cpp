@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::Statistics*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::Statistics*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Statistics* rhs =(Luna< osgUtil::Statistics >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Statistics* self= (osgUtil::Statistics*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgUtil::Statistics >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -735,8 +730,7 @@ public:
 	// osgUtil::Statistics::Statistics()
 	static osgUtil::Statistics* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::Statistics() function, expected prototype:\nosgUtil::Statistics::Statistics()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::Statistics() function, expected prototype:\nosgUtil::Statistics::Statistics()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -746,8 +740,7 @@ public:
 	// osgUtil::Statistics::Statistics(lua_Table * data)
 	static osgUtil::Statistics* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::Statistics(lua_Table * data) function, expected prototype:\nosgUtil::Statistics::Statistics(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::Statistics(lua_Table * data) function, expected prototype:\nosgUtil::Statistics::Statistics(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -768,15 +761,13 @@ public:
 	// void osgUtil::Statistics::reset()
 	static int _bind_reset(lua_State *L) {
 		if (!_lg_typecheck_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::reset() function, expected prototype:\nvoid osgUtil::Statistics::reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::reset() function, expected prototype:\nvoid osgUtil::Statistics::reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::reset(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::reset(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reset();
 
@@ -786,16 +777,14 @@ public:
 	// void osgUtil::Statistics::setType(osgUtil::Statistics::StatsType t)
 	static int _bind_setType(lua_State *L) {
 		if (!_lg_typecheck_setType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setType(osgUtil::Statistics::StatsType t) function, expected prototype:\nvoid osgUtil::Statistics::setType(osgUtil::Statistics::StatsType t)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setType(osgUtil::Statistics::StatsType t) function, expected prototype:\nvoid osgUtil::Statistics::setType(osgUtil::Statistics::StatsType t)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Statistics::StatsType t=(osgUtil::Statistics::StatsType)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setType(osgUtil::Statistics::StatsType). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setType(osgUtil::Statistics::StatsType). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setType(t);
 
@@ -805,8 +794,7 @@ public:
 	// void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec3f * vertices)
 	static int _bind_setVertexArray_overload_1(lua_State *L) {
 		if (!_lg_typecheck_setVertexArray_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec3f * vertices) function, expected prototype:\nvoid osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec3f * vertices)\nClass arguments details:\narg 2 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec3f * vertices) function, expected prototype:\nvoid osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec3f * vertices)\nClass arguments details:\narg 2 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int count=(unsigned int)lua_tointeger(L,2);
@@ -814,8 +802,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec3f *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec3f *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setVertexArray(count, vertices);
 
@@ -825,8 +812,7 @@ public:
 	// void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec2f * vertices)
 	static int _bind_setVertexArray_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setVertexArray_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec2f * vertices) function, expected prototype:\nvoid osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec2f * vertices)\nClass arguments details:\narg 2 ID = 92303173\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec2f * vertices) function, expected prototype:\nvoid osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec2f * vertices)\nClass arguments details:\narg 2 ID = 92303173\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int count=(unsigned int)lua_tointeger(L,2);
@@ -834,8 +820,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec2f *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec2f *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setVertexArray(count, vertices);
 
@@ -845,8 +830,7 @@ public:
 	// void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec4f * vertices)
 	static int _bind_setVertexArray_overload_3(lua_State *L) {
 		if (!_lg_typecheck_setVertexArray_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec4f * vertices) function, expected prototype:\nvoid osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec4f * vertices)\nClass arguments details:\narg 2 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec4f * vertices) function, expected prototype:\nvoid osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec4f * vertices)\nClass arguments details:\narg 2 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int count=(unsigned int)lua_tointeger(L,2);
@@ -854,8 +838,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec4f *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec4f *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setVertexArray(count, vertices);
 
@@ -865,8 +848,7 @@ public:
 	// void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec3d * vertices)
 	static int _bind_setVertexArray_overload_4(lua_State *L) {
 		if (!_lg_typecheck_setVertexArray_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec3d * vertices) function, expected prototype:\nvoid osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec3d * vertices)\nClass arguments details:\narg 2 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec3d * vertices) function, expected prototype:\nvoid osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec3d * vertices)\nClass arguments details:\narg 2 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int count=(unsigned int)lua_tointeger(L,2);
@@ -874,8 +856,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec3d *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec3d *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setVertexArray(count, vertices);
 
@@ -885,8 +866,7 @@ public:
 	// void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec2d * vertices)
 	static int _bind_setVertexArray_overload_5(lua_State *L) {
 		if (!_lg_typecheck_setVertexArray_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec2d * vertices) function, expected prototype:\nvoid osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec2d * vertices)\nClass arguments details:\narg 2 ID = 92303171\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec2d * vertices) function, expected prototype:\nvoid osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec2d * vertices)\nClass arguments details:\narg 2 ID = 92303171\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int count=(unsigned int)lua_tointeger(L,2);
@@ -894,8 +874,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec2d *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec2d *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setVertexArray(count, vertices);
 
@@ -905,8 +884,7 @@ public:
 	// void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec4d * vertices)
 	static int _bind_setVertexArray_overload_6(lua_State *L) {
 		if (!_lg_typecheck_setVertexArray_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec4d * vertices) function, expected prototype:\nvoid osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec4d * vertices)\nClass arguments details:\narg 2 ID = 92303233\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec4d * vertices) function, expected prototype:\nvoid osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec4d * vertices)\nClass arguments details:\narg 2 ID = 92303233\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int count=(unsigned int)lua_tointeger(L,2);
@@ -914,8 +892,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec4d *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec4d *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setVertexArray(count, vertices);
 
@@ -938,8 +915,7 @@ public:
 	// void osgUtil::Statistics::drawArrays(unsigned int mode, int first, int count)
 	static int _bind_drawArrays(lua_State *L) {
 		if (!_lg_typecheck_drawArrays(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::drawArrays(unsigned int mode, int first, int count) function, expected prototype:\nvoid osgUtil::Statistics::drawArrays(unsigned int mode, int first, int count)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::drawArrays(unsigned int mode, int first, int count) function, expected prototype:\nvoid osgUtil::Statistics::drawArrays(unsigned int mode, int first, int count)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
@@ -948,8 +924,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawArrays(unsigned int, int, int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawArrays(unsigned int, int, int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawArrays(mode, first, count);
 
@@ -959,8 +934,7 @@ public:
 	// void osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned char * indices)
 	static int _bind_drawElements_overload_1(lua_State *L) {
 		if (!_lg_typecheck_drawElements_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned char * indices) function, expected prototype:\nvoid osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned char * indices)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned char * indices) function, expected prototype:\nvoid osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned char * indices)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
@@ -969,8 +943,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawElements(unsigned int, int, const unsigned char *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawElements(unsigned int, int, const unsigned char *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawElements(mode, count, &indices);
 
@@ -980,8 +953,7 @@ public:
 	// void osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned short * indices)
 	static int _bind_drawElements_overload_2(lua_State *L) {
 		if (!_lg_typecheck_drawElements_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned short * indices) function, expected prototype:\nvoid osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned short * indices)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned short * indices) function, expected prototype:\nvoid osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned short * indices)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
@@ -990,8 +962,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawElements(unsigned int, int, const unsigned short *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawElements(unsigned int, int, const unsigned short *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawElements(mode, count, indices);
 
@@ -1001,8 +972,7 @@ public:
 	// void osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned int * indices)
 	static int _bind_drawElements_overload_3(lua_State *L) {
 		if (!_lg_typecheck_drawElements_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned int * indices) function, expected prototype:\nvoid osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned int * indices)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned int * indices) function, expected prototype:\nvoid osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned int * indices)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
@@ -1011,8 +981,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawElements(unsigned int, int, const unsigned int *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawElements(unsigned int, int, const unsigned int *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawElements(mode, count, indices);
 
@@ -1032,16 +1001,14 @@ public:
 	// void osgUtil::Statistics::begin(unsigned int mode)
 	static int _bind_begin(lua_State *L) {
 		if (!_lg_typecheck_begin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::begin(unsigned int mode) function, expected prototype:\nvoid osgUtil::Statistics::begin(unsigned int mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::begin(unsigned int mode) function, expected prototype:\nvoid osgUtil::Statistics::begin(unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::begin(unsigned int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::begin(unsigned int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->begin(mode);
 
@@ -1051,15 +1018,13 @@ public:
 	// void osgUtil::Statistics::vertex()
 	static int _bind_vertex_overload_1(lua_State *L) {
 		if (!_lg_typecheck_vertex_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::vertex() function, expected prototype:\nvoid osgUtil::Statistics::vertex()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::vertex() function, expected prototype:\nvoid osgUtil::Statistics::vertex()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->vertex();
 
@@ -1069,8 +1034,7 @@ public:
 	// void osgUtil::Statistics::vertex(float x, float y, float z)
 	static int _bind_vertex_overload_2(lua_State *L) {
 		if (!_lg_typecheck_vertex_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::vertex(float x, float y, float z) function, expected prototype:\nvoid osgUtil::Statistics::vertex(float x, float y, float z)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::vertex(float x, float y, float z) function, expected prototype:\nvoid osgUtil::Statistics::vertex(float x, float y, float z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -1079,8 +1043,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(float, float, float). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(float, float, float). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->vertex(x, y, z);
 
@@ -1090,8 +1053,7 @@ public:
 	// void osgUtil::Statistics::vertex(const osg::Vec3f & vert)
 	static int _bind_vertex_overload_3(lua_State *L) {
 		if (!_lg_typecheck_vertex_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::vertex(const osg::Vec3f & vert) function, expected prototype:\nvoid osgUtil::Statistics::vertex(const osg::Vec3f & vert)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::vertex(const osg::Vec3f & vert) function, expected prototype:\nvoid osgUtil::Statistics::vertex(const osg::Vec3f & vert)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* vert_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -1102,8 +1064,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(const osg::Vec3f &). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->vertex(vert);
 
@@ -1113,8 +1074,7 @@ public:
 	// void osgUtil::Statistics::vertex(const osg::Vec2f & vert)
 	static int _bind_vertex_overload_4(lua_State *L) {
 		if (!_lg_typecheck_vertex_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::vertex(const osg::Vec2f & vert) function, expected prototype:\nvoid osgUtil::Statistics::vertex(const osg::Vec2f & vert)\nClass arguments details:\narg 1 ID = 92303173\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::vertex(const osg::Vec2f & vert) function, expected prototype:\nvoid osgUtil::Statistics::vertex(const osg::Vec2f & vert)\nClass arguments details:\narg 1 ID = 92303173\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec2f* vert_ptr=(Luna< osg::Vec2f >::check(L,2));
@@ -1125,8 +1085,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(const osg::Vec2f &). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(const osg::Vec2f &). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->vertex(vert);
 
@@ -1136,8 +1095,7 @@ public:
 	// void osgUtil::Statistics::vertex(const osg::Vec4f & vert)
 	static int _bind_vertex_overload_5(lua_State *L) {
 		if (!_lg_typecheck_vertex_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::vertex(const osg::Vec4f & vert) function, expected prototype:\nvoid osgUtil::Statistics::vertex(const osg::Vec4f & vert)\nClass arguments details:\narg 1 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::vertex(const osg::Vec4f & vert) function, expected prototype:\nvoid osgUtil::Statistics::vertex(const osg::Vec4f & vert)\nClass arguments details:\narg 1 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4f* vert_ptr=(Luna< osg::Vec4f >::check(L,2));
@@ -1148,8 +1106,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(const osg::Vec4f &). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(const osg::Vec4f &). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->vertex(vert);
 
@@ -1159,8 +1116,7 @@ public:
 	// void osgUtil::Statistics::vertex(float x, float y)
 	static int _bind_vertex_overload_6(lua_State *L) {
 		if (!_lg_typecheck_vertex_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::vertex(float x, float y) function, expected prototype:\nvoid osgUtil::Statistics::vertex(float x, float y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::vertex(float x, float y) function, expected prototype:\nvoid osgUtil::Statistics::vertex(float x, float y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -1168,8 +1124,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(float, float). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(float, float). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->vertex(x, y);
 
@@ -1179,8 +1134,7 @@ public:
 	// void osgUtil::Statistics::vertex(float x, float y, float z, float w)
 	static int _bind_vertex_overload_7(lua_State *L) {
 		if (!_lg_typecheck_vertex_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::vertex(float x, float y, float z, float w) function, expected prototype:\nvoid osgUtil::Statistics::vertex(float x, float y, float z, float w)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::vertex(float x, float y, float z, float w) function, expected prototype:\nvoid osgUtil::Statistics::vertex(float x, float y, float z, float w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -1190,8 +1144,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(float, float, float, float). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(float, float, float, float). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->vertex(x, y, z, w);
 
@@ -1215,15 +1168,13 @@ public:
 	// void osgUtil::Statistics::end()
 	static int _bind_end(lua_State *L) {
 		if (!_lg_typecheck_end(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::end() function, expected prototype:\nvoid osgUtil::Statistics::end()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::end() function, expected prototype:\nvoid osgUtil::Statistics::end()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::end(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::end(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->end();
 
@@ -1233,15 +1184,13 @@ public:
 	// void osgUtil::Statistics::addDrawable()
 	static int _bind_addDrawable(lua_State *L) {
 		if (!_lg_typecheck_addDrawable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addDrawable() function, expected prototype:\nvoid osgUtil::Statistics::addDrawable()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addDrawable() function, expected prototype:\nvoid osgUtil::Statistics::addDrawable()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addDrawable(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addDrawable(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addDrawable();
 
@@ -1251,15 +1200,13 @@ public:
 	// void osgUtil::Statistics::addFastDrawable()
 	static int _bind_addFastDrawable(lua_State *L) {
 		if (!_lg_typecheck_addFastDrawable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addFastDrawable() function, expected prototype:\nvoid osgUtil::Statistics::addFastDrawable()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addFastDrawable() function, expected prototype:\nvoid osgUtil::Statistics::addFastDrawable()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addFastDrawable(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addFastDrawable(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addFastDrawable();
 
@@ -1269,15 +1216,13 @@ public:
 	// void osgUtil::Statistics::addMatrix()
 	static int _bind_addMatrix(lua_State *L) {
 		if (!_lg_typecheck_addMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addMatrix() function, expected prototype:\nvoid osgUtil::Statistics::addMatrix()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addMatrix() function, expected prototype:\nvoid osgUtil::Statistics::addMatrix()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addMatrix(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addMatrix(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addMatrix();
 
@@ -1287,16 +1232,14 @@ public:
 	// void osgUtil::Statistics::addLight(int np)
 	static int _bind_addLight(lua_State *L) {
 		if (!_lg_typecheck_addLight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addLight(int np) function, expected prototype:\nvoid osgUtil::Statistics::addLight(int np)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addLight(int np) function, expected prototype:\nvoid osgUtil::Statistics::addLight(int np)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int np=(int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addLight(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addLight(int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addLight(np);
 
@@ -1306,16 +1249,14 @@ public:
 	// void osgUtil::Statistics::addImpostor(int np)
 	static int _bind_addImpostor(lua_State *L) {
 		if (!_lg_typecheck_addImpostor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addImpostor(int np) function, expected prototype:\nvoid osgUtil::Statistics::addImpostor(int np)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addImpostor(int np) function, expected prototype:\nvoid osgUtil::Statistics::addImpostor(int np)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int np=(int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addImpostor(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addImpostor(int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addImpostor(np);
 
@@ -1325,15 +1266,13 @@ public:
 	// int osgUtil::Statistics::getBins()
 	static int _bind_getBins(lua_State *L) {
 		if (!_lg_typecheck_getBins(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::getBins() function, expected prototype:\nint osgUtil::Statistics::getBins()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::getBins() function, expected prototype:\nint osgUtil::Statistics::getBins()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::getBins(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::getBins(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getBins();
 		lua_pushnumber(L,lret);
@@ -1344,16 +1283,14 @@ public:
 	// void osgUtil::Statistics::setDepth(int d)
 	static int _bind_setDepth(lua_State *L) {
 		if (!_lg_typecheck_setDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setDepth(int d) function, expected prototype:\nvoid osgUtil::Statistics::setDepth(int d)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setDepth(int d) function, expected prototype:\nvoid osgUtil::Statistics::setDepth(int d)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int d=(int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setDepth(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setDepth(int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDepth(d);
 
@@ -1363,16 +1300,14 @@ public:
 	// void osgUtil::Statistics::addBins(int np)
 	static int _bind_addBins(lua_State *L) {
 		if (!_lg_typecheck_addBins(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addBins(int np) function, expected prototype:\nvoid osgUtil::Statistics::addBins(int np)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addBins(int np) function, expected prototype:\nvoid osgUtil::Statistics::addBins(int np)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int np=(int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addBins(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addBins(int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addBins(np);
 
@@ -1382,16 +1317,14 @@ public:
 	// void osgUtil::Statistics::setBinNo(int n)
 	static int _bind_setBinNo(lua_State *L) {
 		if (!_lg_typecheck_setBinNo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setBinNo(int n) function, expected prototype:\nvoid osgUtil::Statistics::setBinNo(int n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setBinNo(int n) function, expected prototype:\nvoid osgUtil::Statistics::setBinNo(int n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int n=(int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setBinNo(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setBinNo(int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setBinNo(n);
 
@@ -1401,16 +1334,14 @@ public:
 	// void osgUtil::Statistics::addStateGraphs(int n)
 	static int _bind_addStateGraphs(lua_State *L) {
 		if (!_lg_typecheck_addStateGraphs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addStateGraphs(int n) function, expected prototype:\nvoid osgUtil::Statistics::addStateGraphs(int n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addStateGraphs(int n) function, expected prototype:\nvoid osgUtil::Statistics::addStateGraphs(int n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int n=(int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addStateGraphs(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addStateGraphs(int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addStateGraphs(n);
 
@@ -1420,16 +1351,14 @@ public:
 	// void osgUtil::Statistics::addOrderedLeaves(int n)
 	static int _bind_addOrderedLeaves(lua_State *L) {
 		if (!_lg_typecheck_addOrderedLeaves(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addOrderedLeaves(int n) function, expected prototype:\nvoid osgUtil::Statistics::addOrderedLeaves(int n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::addOrderedLeaves(int n) function, expected prototype:\nvoid osgUtil::Statistics::addOrderedLeaves(int n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int n=(int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addOrderedLeaves(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addOrderedLeaves(int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addOrderedLeaves(n);
 
@@ -1439,8 +1368,7 @@ public:
 	// void osgUtil::Statistics::add(const osgUtil::Statistics & stats)
 	static int _bind_add(lua_State *L) {
 		if (!_lg_typecheck_add(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::add(const osgUtil::Statistics & stats) function, expected prototype:\nvoid osgUtil::Statistics::add(const osgUtil::Statistics & stats)\nClass arguments details:\narg 1 ID = 95996950\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::add(const osgUtil::Statistics & stats) function, expected prototype:\nvoid osgUtil::Statistics::add(const osgUtil::Statistics & stats)\nClass arguments details:\narg 1 ID = 95996950\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgUtil::Statistics* stats_ptr=(Luna< osgUtil::Statistics >::check(L,2));
@@ -1451,8 +1379,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::add(const osgUtil::Statistics &). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::add(const osgUtil::Statistics &). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->add(stats);
 
@@ -1462,15 +1389,13 @@ public:
 	// osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap()
 	static int _bind_getPrimitiveCountMap_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getPrimitiveCountMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() function, expected prototype:\nosgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() function, expected prototype:\nosgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::Statistics::PrimitiveCountMap* lret = &self->getPrimitiveCountMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1483,15 +1408,13 @@ public:
 	// const osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() const
 	static int _bind_getPrimitiveCountMap_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getPrimitiveCountMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() const function, expected prototype:\nconst osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() const function, expected prototype:\nconst osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() const. Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() const. Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::Statistics::PrimitiveCountMap* lret = &self->getPrimitiveCountMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1513,15 +1436,13 @@ public:
 	// osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap()
 	static int _bind_getPrimitiveValueMap_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getPrimitiveValueMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() function, expected prototype:\nosgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() function, expected prototype:\nosgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::Statistics::PrimitiveValueMap* lret = &self->getPrimitiveValueMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1534,15 +1455,13 @@ public:
 	// const osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() const
 	static int _bind_getPrimitiveValueMap_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getPrimitiveValueMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() const function, expected prototype:\nconst osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() const function, expected prototype:\nconst osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() const. Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() const. Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::Statistics::PrimitiveValueMap* lret = &self->getPrimitiveValueMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1564,15 +1483,13 @@ public:
 	// int osgUtil::Statistics::numDrawables()
 	static int _bind_getNumDrawables(lua_State *L) {
 		if (!_lg_typecheck_getNumDrawables(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::numDrawables() function, expected prototype:\nint osgUtil::Statistics::numDrawables()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::numDrawables() function, expected prototype:\nint osgUtil::Statistics::numDrawables()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::numDrawables(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::numDrawables(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->numDrawables;
 		lua_pushnumber(L,lret);
@@ -1583,15 +1500,13 @@ public:
 	// int osgUtil::Statistics::nummat()
 	static int _bind_getNummat(lua_State *L) {
 		if (!_lg_typecheck_getNummat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::nummat() function, expected prototype:\nint osgUtil::Statistics::nummat()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::nummat() function, expected prototype:\nint osgUtil::Statistics::nummat()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::nummat(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::nummat(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->nummat;
 		lua_pushnumber(L,lret);
@@ -1602,15 +1517,13 @@ public:
 	// int osgUtil::Statistics::nbins()
 	static int _bind_getNbins(lua_State *L) {
 		if (!_lg_typecheck_getNbins(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::nbins() function, expected prototype:\nint osgUtil::Statistics::nbins()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::nbins() function, expected prototype:\nint osgUtil::Statistics::nbins()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::nbins(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::nbins(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->nbins;
 		lua_pushnumber(L,lret);
@@ -1621,15 +1534,13 @@ public:
 	// int osgUtil::Statistics::numStateGraphs()
 	static int _bind_getNumStateGraphs(lua_State *L) {
 		if (!_lg_typecheck_getNumStateGraphs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::numStateGraphs() function, expected prototype:\nint osgUtil::Statistics::numStateGraphs()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::numStateGraphs() function, expected prototype:\nint osgUtil::Statistics::numStateGraphs()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::numStateGraphs(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::numStateGraphs(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->numStateGraphs;
 		lua_pushnumber(L,lret);
@@ -1640,15 +1551,13 @@ public:
 	// int osgUtil::Statistics::numFastDrawables()
 	static int _bind_getNumFastDrawables(lua_State *L) {
 		if (!_lg_typecheck_getNumFastDrawables(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::numFastDrawables() function, expected prototype:\nint osgUtil::Statistics::numFastDrawables()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::numFastDrawables() function, expected prototype:\nint osgUtil::Statistics::numFastDrawables()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::numFastDrawables(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::numFastDrawables(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->numFastDrawables;
 		lua_pushnumber(L,lret);
@@ -1659,15 +1568,13 @@ public:
 	// int osgUtil::Statistics::nlights()
 	static int _bind_getNlights(lua_State *L) {
 		if (!_lg_typecheck_getNlights(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::nlights() function, expected prototype:\nint osgUtil::Statistics::nlights()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::nlights() function, expected prototype:\nint osgUtil::Statistics::nlights()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::nlights(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::nlights(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->nlights;
 		lua_pushnumber(L,lret);
@@ -1678,15 +1585,13 @@ public:
 	// int osgUtil::Statistics::depth()
 	static int _bind_getDepth(lua_State *L) {
 		if (!_lg_typecheck_getDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::depth() function, expected prototype:\nint osgUtil::Statistics::depth()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::depth() function, expected prototype:\nint osgUtil::Statistics::depth()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::depth(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::depth(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->depth;
 		lua_pushnumber(L,lret);
@@ -1697,15 +1602,13 @@ public:
 	// int osgUtil::Statistics::_binNo()
 	static int _bind_getBinNo(lua_State *L) {
 		if (!_lg_typecheck_getBinNo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::_binNo() function, expected prototype:\nint osgUtil::Statistics::_binNo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::_binNo() function, expected prototype:\nint osgUtil::Statistics::_binNo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::_binNo(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::_binNo(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->_binNo;
 		lua_pushnumber(L,lret);
@@ -1716,15 +1619,13 @@ public:
 	// osgUtil::Statistics::StatsType osgUtil::Statistics::stattype()
 	static int _bind_getStattype(lua_State *L) {
 		if (!_lg_typecheck_getStattype(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::StatsType osgUtil::Statistics::stattype() function, expected prototype:\nosgUtil::Statistics::StatsType osgUtil::Statistics::stattype()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::StatsType osgUtil::Statistics::stattype() function, expected prototype:\nosgUtil::Statistics::StatsType osgUtil::Statistics::stattype()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Statistics::StatsType osgUtil::Statistics::stattype(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::Statistics::StatsType osgUtil::Statistics::stattype(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::Statistics::StatsType lret = self->stattype;
 		lua_pushnumber(L,lret);
@@ -1735,15 +1636,13 @@ public:
 	// int osgUtil::Statistics::nimpostor()
 	static int _bind_getNimpostor(lua_State *L) {
 		if (!_lg_typecheck_getNimpostor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::nimpostor() function, expected prototype:\nint osgUtil::Statistics::nimpostor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::nimpostor() function, expected prototype:\nint osgUtil::Statistics::nimpostor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::nimpostor(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::nimpostor(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->nimpostor;
 		lua_pushnumber(L,lret);
@@ -1754,15 +1653,13 @@ public:
 	// int osgUtil::Statistics::numOrderedLeaves()
 	static int _bind_getNumOrderedLeaves(lua_State *L) {
 		if (!_lg_typecheck_getNumOrderedLeaves(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::numOrderedLeaves() function, expected prototype:\nint osgUtil::Statistics::numOrderedLeaves()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::numOrderedLeaves() function, expected prototype:\nint osgUtil::Statistics::numOrderedLeaves()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::numOrderedLeaves(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::numOrderedLeaves(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->numOrderedLeaves;
 		lua_pushnumber(L,lret);
@@ -1773,15 +1670,13 @@ public:
 	// unsigned int osgUtil::Statistics::_vertexCount()
 	static int _bind_getVertexCount(lua_State *L) {
 		if (!_lg_typecheck_getVertexCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::Statistics::_vertexCount() function, expected prototype:\nunsigned int osgUtil::Statistics::_vertexCount()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::Statistics::_vertexCount() function, expected prototype:\nunsigned int osgUtil::Statistics::_vertexCount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::Statistics::_vertexCount(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::Statistics::_vertexCount(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_vertexCount;
 		lua_pushnumber(L,lret);
@@ -1792,15 +1687,13 @@ public:
 	// osgUtil::Statistics::PrimitiveValueMap osgUtil::Statistics::_primitiveCount()
 	static int _bind_getPrimitiveCount(lua_State *L) {
 		if (!_lg_typecheck_getPrimitiveCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::PrimitiveValueMap osgUtil::Statistics::_primitiveCount() function, expected prototype:\nosgUtil::Statistics::PrimitiveValueMap osgUtil::Statistics::_primitiveCount()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::PrimitiveValueMap osgUtil::Statistics::_primitiveCount() function, expected prototype:\nosgUtil::Statistics::PrimitiveValueMap osgUtil::Statistics::_primitiveCount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Statistics::PrimitiveValueMap osgUtil::Statistics::_primitiveCount(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::Statistics::PrimitiveValueMap osgUtil::Statistics::_primitiveCount(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::Statistics::PrimitiveValueMap* lret = &self->_primitiveCount;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1813,16 +1706,14 @@ public:
 	// void osgUtil::Statistics::numDrawables(int value)
 	static int _bind_setNumDrawables(lua_State *L) {
 		if (!_lg_typecheck_setNumDrawables(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::numDrawables(int value) function, expected prototype:\nvoid osgUtil::Statistics::numDrawables(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::numDrawables(int value) function, expected prototype:\nvoid osgUtil::Statistics::numDrawables(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::numDrawables(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::numDrawables(int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->numDrawables = value;
 
@@ -1832,16 +1723,14 @@ public:
 	// void osgUtil::Statistics::nummat(int value)
 	static int _bind_setNummat(lua_State *L) {
 		if (!_lg_typecheck_setNummat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::nummat(int value) function, expected prototype:\nvoid osgUtil::Statistics::nummat(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::nummat(int value) function, expected prototype:\nvoid osgUtil::Statistics::nummat(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::nummat(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::nummat(int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->nummat = value;
 
@@ -1851,16 +1740,14 @@ public:
 	// void osgUtil::Statistics::nbins(int value)
 	static int _bind_setNbins(lua_State *L) {
 		if (!_lg_typecheck_setNbins(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::nbins(int value) function, expected prototype:\nvoid osgUtil::Statistics::nbins(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::nbins(int value) function, expected prototype:\nvoid osgUtil::Statistics::nbins(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::nbins(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::nbins(int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->nbins = value;
 
@@ -1870,16 +1757,14 @@ public:
 	// void osgUtil::Statistics::numStateGraphs(int value)
 	static int _bind_setNumStateGraphs(lua_State *L) {
 		if (!_lg_typecheck_setNumStateGraphs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::numStateGraphs(int value) function, expected prototype:\nvoid osgUtil::Statistics::numStateGraphs(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::numStateGraphs(int value) function, expected prototype:\nvoid osgUtil::Statistics::numStateGraphs(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::numStateGraphs(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::numStateGraphs(int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->numStateGraphs = value;
 
@@ -1889,16 +1774,14 @@ public:
 	// void osgUtil::Statistics::numFastDrawables(int value)
 	static int _bind_setNumFastDrawables(lua_State *L) {
 		if (!_lg_typecheck_setNumFastDrawables(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::numFastDrawables(int value) function, expected prototype:\nvoid osgUtil::Statistics::numFastDrawables(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::numFastDrawables(int value) function, expected prototype:\nvoid osgUtil::Statistics::numFastDrawables(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::numFastDrawables(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::numFastDrawables(int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->numFastDrawables = value;
 
@@ -1908,16 +1791,14 @@ public:
 	// void osgUtil::Statistics::nlights(int value)
 	static int _bind_setNlights(lua_State *L) {
 		if (!_lg_typecheck_setNlights(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::nlights(int value) function, expected prototype:\nvoid osgUtil::Statistics::nlights(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::nlights(int value) function, expected prototype:\nvoid osgUtil::Statistics::nlights(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::nlights(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::nlights(int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->nlights = value;
 
@@ -1927,16 +1808,14 @@ public:
 	// void osgUtil::Statistics::stattype(osgUtil::Statistics::StatsType value)
 	static int _bind_setStattype(lua_State *L) {
 		if (!_lg_typecheck_setStattype(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::stattype(osgUtil::Statistics::StatsType value) function, expected prototype:\nvoid osgUtil::Statistics::stattype(osgUtil::Statistics::StatsType value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::stattype(osgUtil::Statistics::StatsType value) function, expected prototype:\nvoid osgUtil::Statistics::stattype(osgUtil::Statistics::StatsType value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Statistics::StatsType value=(osgUtil::Statistics::StatsType)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::stattype(osgUtil::Statistics::StatsType). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::stattype(osgUtil::Statistics::StatsType). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->stattype = value;
 
@@ -1946,16 +1825,14 @@ public:
 	// void osgUtil::Statistics::nimpostor(int value)
 	static int _bind_setNimpostor(lua_State *L) {
 		if (!_lg_typecheck_setNimpostor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::nimpostor(int value) function, expected prototype:\nvoid osgUtil::Statistics::nimpostor(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::nimpostor(int value) function, expected prototype:\nvoid osgUtil::Statistics::nimpostor(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::nimpostor(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::nimpostor(int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->nimpostor = value;
 
@@ -1965,16 +1842,14 @@ public:
 	// void osgUtil::Statistics::numOrderedLeaves(int value)
 	static int _bind_setNumOrderedLeaves(lua_State *L) {
 		if (!_lg_typecheck_setNumOrderedLeaves(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::numOrderedLeaves(int value) function, expected prototype:\nvoid osgUtil::Statistics::numOrderedLeaves(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::numOrderedLeaves(int value) function, expected prototype:\nvoid osgUtil::Statistics::numOrderedLeaves(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::numOrderedLeaves(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::numOrderedLeaves(int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->numOrderedLeaves = value;
 
@@ -1984,16 +1859,14 @@ public:
 	// void osgUtil::Statistics::_vertexCount(unsigned int value)
 	static int _bind_setVertexCount(lua_State *L) {
 		if (!_lg_typecheck_setVertexCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::_vertexCount(unsigned int value) function, expected prototype:\nvoid osgUtil::Statistics::_vertexCount(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::_vertexCount(unsigned int value) function, expected prototype:\nvoid osgUtil::Statistics::_vertexCount(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::_vertexCount(unsigned int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::_vertexCount(unsigned int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_vertexCount = value;
 
@@ -2003,8 +1876,7 @@ public:
 	// void osgUtil::Statistics::_primitiveCount(osgUtil::Statistics::PrimitiveValueMap value)
 	static int _bind_setPrimitiveCount(lua_State *L) {
 		if (!_lg_typecheck_setPrimitiveCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::_primitiveCount(osgUtil::Statistics::PrimitiveValueMap value) function, expected prototype:\nvoid osgUtil::Statistics::_primitiveCount(osgUtil::Statistics::PrimitiveValueMap value)\nClass arguments details:\narg 1 ID = 74391787\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::_primitiveCount(osgUtil::Statistics::PrimitiveValueMap value) function, expected prototype:\nvoid osgUtil::Statistics::_primitiveCount(osgUtil::Statistics::PrimitiveValueMap value)\nClass arguments details:\narg 1 ID = 74391787\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Statistics::PrimitiveValueMap* value_ptr=(Luna< std::map< unsigned int, osgUtil::Statistics::PrimitivePair > >::checkSubType< osgUtil::Statistics::PrimitiveValueMap >(L,2));
@@ -2015,8 +1887,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::_primitiveCount(osgUtil::Statistics::PrimitiveValueMap). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::_primitiveCount(osgUtil::Statistics::PrimitiveValueMap). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_primitiveCount = value;
 
@@ -2026,8 +1897,7 @@ public:
 	// void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3f * vertices)
 	static int _bind_base_setVertexArray_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_setVertexArray_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3f * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3f * vertices)\nClass arguments details:\narg 2 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3f * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3f * vertices)\nClass arguments details:\narg 2 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int count=(unsigned int)lua_tointeger(L,2);
@@ -2035,8 +1905,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec3f *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec3f *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::setVertexArray(count, vertices);
 
@@ -2046,8 +1915,7 @@ public:
 	// void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2f * vertices)
 	static int _bind_base_setVertexArray_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_setVertexArray_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2f * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2f * vertices)\nClass arguments details:\narg 2 ID = 92303173\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2f * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2f * vertices)\nClass arguments details:\narg 2 ID = 92303173\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int count=(unsigned int)lua_tointeger(L,2);
@@ -2055,8 +1923,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec2f *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec2f *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::setVertexArray(count, vertices);
 
@@ -2066,8 +1933,7 @@ public:
 	// void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4f * vertices)
 	static int _bind_base_setVertexArray_overload_3(lua_State *L) {
 		if (!_lg_typecheck_base_setVertexArray_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4f * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4f * vertices)\nClass arguments details:\narg 2 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4f * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4f * vertices)\nClass arguments details:\narg 2 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int count=(unsigned int)lua_tointeger(L,2);
@@ -2075,8 +1941,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec4f *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec4f *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::setVertexArray(count, vertices);
 
@@ -2086,8 +1951,7 @@ public:
 	// void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3d * vertices)
 	static int _bind_base_setVertexArray_overload_4(lua_State *L) {
 		if (!_lg_typecheck_base_setVertexArray_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3d * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3d * vertices)\nClass arguments details:\narg 2 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3d * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3d * vertices)\nClass arguments details:\narg 2 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int count=(unsigned int)lua_tointeger(L,2);
@@ -2095,8 +1959,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec3d *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec3d *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::setVertexArray(count, vertices);
 
@@ -2106,8 +1969,7 @@ public:
 	// void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2d * vertices)
 	static int _bind_base_setVertexArray_overload_5(lua_State *L) {
 		if (!_lg_typecheck_base_setVertexArray_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2d * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2d * vertices)\nClass arguments details:\narg 2 ID = 92303171\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2d * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2d * vertices)\nClass arguments details:\narg 2 ID = 92303171\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int count=(unsigned int)lua_tointeger(L,2);
@@ -2115,8 +1977,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec2d *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec2d *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::setVertexArray(count, vertices);
 
@@ -2126,8 +1987,7 @@ public:
 	// void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4d * vertices)
 	static int _bind_base_setVertexArray_overload_6(lua_State *L) {
 		if (!_lg_typecheck_base_setVertexArray_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4d * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4d * vertices)\nClass arguments details:\narg 2 ID = 92303233\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4d * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4d * vertices)\nClass arguments details:\narg 2 ID = 92303233\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int count=(unsigned int)lua_tointeger(L,2);
@@ -2135,8 +1995,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec4d *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec4d *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::setVertexArray(count, vertices);
 
@@ -2159,8 +2018,7 @@ public:
 	// void osgUtil::Statistics::base_drawArrays(unsigned int mode, int first, int count)
 	static int _bind_base_drawArrays(lua_State *L) {
 		if (!_lg_typecheck_base_drawArrays(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_drawArrays(unsigned int mode, int first, int count) function, expected prototype:\nvoid osgUtil::Statistics::base_drawArrays(unsigned int mode, int first, int count)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_drawArrays(unsigned int mode, int first, int count) function, expected prototype:\nvoid osgUtil::Statistics::base_drawArrays(unsigned int mode, int first, int count)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
@@ -2169,8 +2027,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawArrays(unsigned int, int, int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawArrays(unsigned int, int, int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::drawArrays(mode, first, count);
 
@@ -2180,8 +2037,7 @@ public:
 	// void osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned char * indices)
 	static int _bind_base_drawElements_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_drawElements_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned char * indices) function, expected prototype:\nvoid osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned char * indices)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned char * indices) function, expected prototype:\nvoid osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned char * indices)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
@@ -2190,8 +2046,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned char *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned char *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::drawElements(mode, count, &indices);
 
@@ -2201,8 +2056,7 @@ public:
 	// void osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned short * indices)
 	static int _bind_base_drawElements_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_drawElements_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned short * indices) function, expected prototype:\nvoid osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned short * indices)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned short * indices) function, expected prototype:\nvoid osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned short * indices)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
@@ -2211,8 +2065,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned short *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned short *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::drawElements(mode, count, indices);
 
@@ -2222,8 +2075,7 @@ public:
 	// void osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned int * indices)
 	static int _bind_base_drawElements_overload_3(lua_State *L) {
 		if (!_lg_typecheck_base_drawElements_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned int * indices) function, expected prototype:\nvoid osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned int * indices)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned int * indices) function, expected prototype:\nvoid osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned int * indices)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
@@ -2232,8 +2084,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned int *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned int *). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::drawElements(mode, count, indices);
 
@@ -2253,16 +2104,14 @@ public:
 	// void osgUtil::Statistics::base_begin(unsigned int mode)
 	static int _bind_base_begin(lua_State *L) {
 		if (!_lg_typecheck_base_begin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_begin(unsigned int mode) function, expected prototype:\nvoid osgUtil::Statistics::base_begin(unsigned int mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_begin(unsigned int mode) function, expected prototype:\nvoid osgUtil::Statistics::base_begin(unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_begin(unsigned int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_begin(unsigned int). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::begin(mode);
 
@@ -2272,8 +2121,7 @@ public:
 	// void osgUtil::Statistics::base_vertex(float x, float y, float z)
 	static int _bind_base_vertex_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_vertex_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(float x, float y, float z) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(float x, float y, float z)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(float x, float y, float z) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(float x, float y, float z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -2282,8 +2130,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(float, float, float). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(float, float, float). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::vertex(x, y, z);
 
@@ -2293,8 +2140,7 @@ public:
 	// void osgUtil::Statistics::base_vertex(const osg::Vec3f & vert)
 	static int _bind_base_vertex_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_vertex_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(const osg::Vec3f & vert) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(const osg::Vec3f & vert)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(const osg::Vec3f & vert) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(const osg::Vec3f & vert)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* vert_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -2305,8 +2151,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(const osg::Vec3f &). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::vertex(vert);
 
@@ -2316,8 +2161,7 @@ public:
 	// void osgUtil::Statistics::base_vertex(const osg::Vec2f & vert)
 	static int _bind_base_vertex_overload_3(lua_State *L) {
 		if (!_lg_typecheck_base_vertex_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(const osg::Vec2f & vert) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(const osg::Vec2f & vert)\nClass arguments details:\narg 1 ID = 92303173\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(const osg::Vec2f & vert) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(const osg::Vec2f & vert)\nClass arguments details:\narg 1 ID = 92303173\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec2f* vert_ptr=(Luna< osg::Vec2f >::check(L,2));
@@ -2328,8 +2172,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(const osg::Vec2f &). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(const osg::Vec2f &). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::vertex(vert);
 
@@ -2339,8 +2182,7 @@ public:
 	// void osgUtil::Statistics::base_vertex(const osg::Vec4f & vert)
 	static int _bind_base_vertex_overload_4(lua_State *L) {
 		if (!_lg_typecheck_base_vertex_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(const osg::Vec4f & vert) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(const osg::Vec4f & vert)\nClass arguments details:\narg 1 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(const osg::Vec4f & vert) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(const osg::Vec4f & vert)\nClass arguments details:\narg 1 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4f* vert_ptr=(Luna< osg::Vec4f >::check(L,2));
@@ -2351,8 +2193,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(const osg::Vec4f &). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(const osg::Vec4f &). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::vertex(vert);
 
@@ -2362,8 +2203,7 @@ public:
 	// void osgUtil::Statistics::base_vertex(float x, float y)
 	static int _bind_base_vertex_overload_5(lua_State *L) {
 		if (!_lg_typecheck_base_vertex_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(float x, float y) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(float x, float y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(float x, float y) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(float x, float y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -2371,8 +2211,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(float, float). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(float, float). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::vertex(x, y);
 
@@ -2382,8 +2221,7 @@ public:
 	// void osgUtil::Statistics::base_vertex(float x, float y, float z, float w)
 	static int _bind_base_vertex_overload_6(lua_State *L) {
 		if (!_lg_typecheck_base_vertex_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(float x, float y, float z, float w) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(float x, float y, float z, float w)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(float x, float y, float z, float w) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(float x, float y, float z, float w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -2393,8 +2231,7 @@ public:
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(float, float, float, float). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(float, float, float, float). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::vertex(x, y, z, w);
 
@@ -2417,15 +2254,13 @@ public:
 	// void osgUtil::Statistics::base_end()
 	static int _bind_base_end(lua_State *L) {
 		if (!_lg_typecheck_base_end(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_end() function, expected prototype:\nvoid osgUtil::Statistics::base_end()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_end() function, expected prototype:\nvoid osgUtil::Statistics::base_end()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_end(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_end(). Got : '%s'\n%s",typeid(Luna< osgUtil::Statistics >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Statistics::end();
 

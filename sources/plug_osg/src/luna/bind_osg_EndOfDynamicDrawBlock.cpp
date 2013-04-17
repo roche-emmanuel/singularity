@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::BlockCount* self=(Luna< OpenThreads::BlockCount >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::EndOfDynamicDrawBlock* self= (osg::EndOfDynamicDrawBlock*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< OpenThreads::BlockCount >::check(L,1));
@@ -147,8 +144,7 @@ public:
 	// osg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(unsigned int arg1)
 	static osg::EndOfDynamicDrawBlock* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(unsigned int arg1) function, expected prototype:\nosg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(unsigned int arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(unsigned int arg1) function, expected prototype:\nosg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(unsigned int arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned _arg1=(unsigned)lua_tointeger(L,1);
@@ -159,8 +155,7 @@ public:
 	// osg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(lua_Table * data, unsigned int arg2)
 	static osg::EndOfDynamicDrawBlock* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(lua_Table * data, unsigned int arg2) function, expected prototype:\nosg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(lua_Table * data, unsigned int arg2)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(lua_Table * data, unsigned int arg2) function, expected prototype:\nosg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(lua_Table * data, unsigned int arg2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned _arg2=(unsigned)lua_tointeger(L,2);
@@ -182,16 +177,14 @@ public:
 	// void osg::EndOfDynamicDrawBlock::completed(osg::State * state)
 	static int _bind_completed(lua_State *L) {
 		if (!_lg_typecheck_completed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::EndOfDynamicDrawBlock::completed(osg::State * state) function, expected prototype:\nvoid osg::EndOfDynamicDrawBlock::completed(osg::State * state)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::EndOfDynamicDrawBlock::completed(osg::State * state) function, expected prototype:\nvoid osg::EndOfDynamicDrawBlock::completed(osg::State * state)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
 
 		osg::EndOfDynamicDrawBlock* self=Luna< OpenThreads::BlockCount >::checkSubType< osg::EndOfDynamicDrawBlock >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EndOfDynamicDrawBlock::completed(osg::State *). Got : '%s'",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::EndOfDynamicDrawBlock::completed(osg::State *). Got : '%s'\n%s",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->completed(state);
 
@@ -201,16 +194,14 @@ public:
 	// void osg::EndOfDynamicDrawBlock::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::EndOfDynamicDrawBlock::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::EndOfDynamicDrawBlock::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::EndOfDynamicDrawBlock::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::EndOfDynamicDrawBlock::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::EndOfDynamicDrawBlock* self=Luna< OpenThreads::BlockCount >::checkSubType< osg::EndOfDynamicDrawBlock >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EndOfDynamicDrawBlock::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::EndOfDynamicDrawBlock::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EndOfDynamicDrawBlock::setThreadSafeRefUnref(threadSafe);
 
@@ -220,16 +211,14 @@ public:
 	// void osg::EndOfDynamicDrawBlock::base_completed(osg::State * state)
 	static int _bind_base_completed(lua_State *L) {
 		if (!_lg_typecheck_base_completed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::EndOfDynamicDrawBlock::base_completed(osg::State * state) function, expected prototype:\nvoid osg::EndOfDynamicDrawBlock::base_completed(osg::State * state)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::EndOfDynamicDrawBlock::base_completed(osg::State * state) function, expected prototype:\nvoid osg::EndOfDynamicDrawBlock::base_completed(osg::State * state)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
 
 		osg::EndOfDynamicDrawBlock* self=Luna< OpenThreads::BlockCount >::checkSubType< osg::EndOfDynamicDrawBlock >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EndOfDynamicDrawBlock::base_completed(osg::State *). Got : '%s'",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::EndOfDynamicDrawBlock::base_completed(osg::State *). Got : '%s'\n%s",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EndOfDynamicDrawBlock::completed(state);
 
@@ -247,8 +236,7 @@ public:
 
 	static int _bind_baseCast_osg_Referenced(lua_State *L) {
 		if (!_lg_typecheck_baseCast_osg_Referenced(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in baseCast_osg_Referenced function, expected prototype:\nbaseCast()");
+			luaL_error(L, "luna typecheck failed in baseCast_osg_Referenced function, expected prototype:\nbaseCast(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::BlockCount* self=(Luna< OpenThreads::BlockCount >::check(L,1));

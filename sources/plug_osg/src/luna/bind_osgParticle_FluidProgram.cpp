@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgParticle::FluidProgram* self= (osgParticle::FluidProgram*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -412,8 +409,7 @@ public:
 	// osgParticle::FluidProgram::FluidProgram()
 	static osgParticle::FluidProgram* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::FluidProgram::FluidProgram() function, expected prototype:\nosgParticle::FluidProgram::FluidProgram()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::FluidProgram::FluidProgram() function, expected prototype:\nosgParticle::FluidProgram::FluidProgram()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -423,8 +419,7 @@ public:
 	// osgParticle::FluidProgram::FluidProgram(const osgParticle::FluidProgram & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgParticle::FluidProgram* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::FluidProgram::FluidProgram(const osgParticle::FluidProgram & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::FluidProgram::FluidProgram(const osgParticle::FluidProgram & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::FluidProgram::FluidProgram(const osgParticle::FluidProgram & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::FluidProgram::FluidProgram(const osgParticle::FluidProgram & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -446,8 +441,7 @@ public:
 	// osgParticle::FluidProgram::FluidProgram(lua_Table * data)
 	static osgParticle::FluidProgram* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::FluidProgram::FluidProgram(lua_Table * data) function, expected prototype:\nosgParticle::FluidProgram::FluidProgram(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::FluidProgram::FluidProgram(lua_Table * data) function, expected prototype:\nosgParticle::FluidProgram::FluidProgram(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -457,8 +451,7 @@ public:
 	// osgParticle::FluidProgram::FluidProgram(lua_Table * data, const osgParticle::FluidProgram & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgParticle::FluidProgram* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::FluidProgram::FluidProgram(lua_Table * data, const osgParticle::FluidProgram & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::FluidProgram::FluidProgram(lua_Table * data, const osgParticle::FluidProgram & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::FluidProgram::FluidProgram(lua_Table * data, const osgParticle::FluidProgram & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::FluidProgram::FluidProgram(lua_Table * data, const osgParticle::FluidProgram & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -493,15 +486,13 @@ public:
 	// osg::Object * osgParticle::FluidProgram::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::FluidProgram::cloneType() const function, expected prototype:\nosg::Object * osgParticle::FluidProgram::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::FluidProgram::cloneType() const function, expected prototype:\nosg::Object * osgParticle::FluidProgram::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::FluidProgram::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::FluidProgram::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -514,8 +505,7 @@ public:
 	// osg::Object * osgParticle::FluidProgram::clone(const osg::CopyOp & copyop) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::FluidProgram::clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osgParticle::FluidProgram::clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::FluidProgram::clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osgParticle::FluidProgram::clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -526,8 +516,7 @@ public:
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::FluidProgram::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::FluidProgram::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -540,16 +529,14 @@ public:
 	// bool osgParticle::FluidProgram::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgParticle::FluidProgram::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgParticle::FluidProgram::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgParticle::FluidProgram::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgParticle::FluidProgram::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::FluidProgram::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgParticle::FluidProgram::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -560,15 +547,13 @@ public:
 	// const char * osgParticle::FluidProgram::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgParticle::FluidProgram::className() const function, expected prototype:\nconst char * osgParticle::FluidProgram::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgParticle::FluidProgram::className() const function, expected prototype:\nconst char * osgParticle::FluidProgram::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::FluidProgram::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgParticle::FluidProgram::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -579,15 +564,13 @@ public:
 	// const char * osgParticle::FluidProgram::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgParticle::FluidProgram::libraryName() const function, expected prototype:\nconst char * osgParticle::FluidProgram::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgParticle::FluidProgram::libraryName() const function, expected prototype:\nconst char * osgParticle::FluidProgram::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::FluidProgram::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgParticle::FluidProgram::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -598,8 +581,7 @@ public:
 	// void osgParticle::FluidProgram::accept(osg::NodeVisitor & nv)
 	static int _bind_accept(lua_State *L) {
 		if (!_lg_typecheck_accept(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osgParticle::FluidProgram::accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osgParticle::FluidProgram::accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -610,8 +592,7 @@ public:
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::accept(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->accept(nv);
 
@@ -621,16 +602,14 @@ public:
 	// void osgParticle::FluidProgram::setFluidViscosity(float v)
 	static int _bind_setFluidViscosity(lua_State *L) {
 		if (!_lg_typecheck_setFluidViscosity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::setFluidViscosity(float v) function, expected prototype:\nvoid osgParticle::FluidProgram::setFluidViscosity(float v)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::setFluidViscosity(float v) function, expected prototype:\nvoid osgParticle::FluidProgram::setFluidViscosity(float v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float v=(float)lua_tonumber(L,2);
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::setFluidViscosity(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::setFluidViscosity(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFluidViscosity(v);
 
@@ -640,15 +619,13 @@ public:
 	// float osgParticle::FluidProgram::getFluidViscosity() const
 	static int _bind_getFluidViscosity(lua_State *L) {
 		if (!_lg_typecheck_getFluidViscosity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgParticle::FluidProgram::getFluidViscosity() const function, expected prototype:\nfloat osgParticle::FluidProgram::getFluidViscosity() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgParticle::FluidProgram::getFluidViscosity() const function, expected prototype:\nfloat osgParticle::FluidProgram::getFluidViscosity() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::FluidProgram::getFluidViscosity() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgParticle::FluidProgram::getFluidViscosity() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getFluidViscosity();
 		lua_pushnumber(L,lret);
@@ -659,16 +636,14 @@ public:
 	// void osgParticle::FluidProgram::setFluidDensity(float d)
 	static int _bind_setFluidDensity(lua_State *L) {
 		if (!_lg_typecheck_setFluidDensity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::setFluidDensity(float d) function, expected prototype:\nvoid osgParticle::FluidProgram::setFluidDensity(float d)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::setFluidDensity(float d) function, expected prototype:\nvoid osgParticle::FluidProgram::setFluidDensity(float d)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float d=(float)lua_tonumber(L,2);
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::setFluidDensity(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::setFluidDensity(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFluidDensity(d);
 
@@ -678,15 +653,13 @@ public:
 	// float osgParticle::FluidProgram::getFluidDensity() const
 	static int _bind_getFluidDensity(lua_State *L) {
 		if (!_lg_typecheck_getFluidDensity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgParticle::FluidProgram::getFluidDensity() const function, expected prototype:\nfloat osgParticle::FluidProgram::getFluidDensity() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgParticle::FluidProgram::getFluidDensity() const function, expected prototype:\nfloat osgParticle::FluidProgram::getFluidDensity() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::FluidProgram::getFluidDensity() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgParticle::FluidProgram::getFluidDensity() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getFluidDensity();
 		lua_pushnumber(L,lret);
@@ -697,8 +670,7 @@ public:
 	// void osgParticle::FluidProgram::setWind(const osg::Vec3f & wind)
 	static int _bind_setWind(lua_State *L) {
 		if (!_lg_typecheck_setWind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::setWind(const osg::Vec3f & wind) function, expected prototype:\nvoid osgParticle::FluidProgram::setWind(const osg::Vec3f & wind)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::setWind(const osg::Vec3f & wind) function, expected prototype:\nvoid osgParticle::FluidProgram::setWind(const osg::Vec3f & wind)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* wind_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -709,8 +681,7 @@ public:
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::setWind(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::setWind(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setWind(wind);
 
@@ -720,15 +691,13 @@ public:
 	// const osg::Vec3f & osgParticle::FluidProgram::getWind() const
 	static int _bind_getWind(lua_State *L) {
 		if (!_lg_typecheck_getWind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osgParticle::FluidProgram::getWind() const function, expected prototype:\nconst osg::Vec3f & osgParticle::FluidProgram::getWind() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osgParticle::FluidProgram::getWind() const function, expected prototype:\nconst osg::Vec3f & osgParticle::FluidProgram::getWind() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::FluidProgram::getWind() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::FluidProgram::getWind() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->getWind();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -741,8 +710,7 @@ public:
 	// void osgParticle::FluidProgram::setAcceleration(const osg::Vec3f & v)
 	static int _bind_setAcceleration(lua_State *L) {
 		if (!_lg_typecheck_setAcceleration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::setAcceleration(const osg::Vec3f & v) function, expected prototype:\nvoid osgParticle::FluidProgram::setAcceleration(const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::setAcceleration(const osg::Vec3f & v) function, expected prototype:\nvoid osgParticle::FluidProgram::setAcceleration(const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -753,8 +721,7 @@ public:
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::setAcceleration(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::setAcceleration(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAcceleration(v);
 
@@ -764,15 +731,13 @@ public:
 	// const osg::Vec3f & osgParticle::FluidProgram::getAcceleration() const
 	static int _bind_getAcceleration(lua_State *L) {
 		if (!_lg_typecheck_getAcceleration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osgParticle::FluidProgram::getAcceleration() const function, expected prototype:\nconst osg::Vec3f & osgParticle::FluidProgram::getAcceleration() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osgParticle::FluidProgram::getAcceleration() const function, expected prototype:\nconst osg::Vec3f & osgParticle::FluidProgram::getAcceleration() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::FluidProgram::getAcceleration() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::FluidProgram::getAcceleration() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->getAcceleration();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -785,8 +750,7 @@ public:
 	// void osgParticle::FluidProgram::setToGravity(float scale = 1.0f)
 	static int _bind_setToGravity(lua_State *L) {
 		if (!_lg_typecheck_setToGravity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::setToGravity(float scale = 1.0f) function, expected prototype:\nvoid osgParticle::FluidProgram::setToGravity(float scale = 1.0f)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::setToGravity(float scale = 1.0f) function, expected prototype:\nvoid osgParticle::FluidProgram::setToGravity(float scale = 1.0f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -795,8 +759,7 @@ public:
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::setToGravity(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::setToGravity(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setToGravity(scale);
 
@@ -806,15 +769,13 @@ public:
 	// void osgParticle::FluidProgram::setFluidToAir()
 	static int _bind_setFluidToAir(lua_State *L) {
 		if (!_lg_typecheck_setFluidToAir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::setFluidToAir() function, expected prototype:\nvoid osgParticle::FluidProgram::setFluidToAir()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::setFluidToAir() function, expected prototype:\nvoid osgParticle::FluidProgram::setFluidToAir()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::setFluidToAir(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::setFluidToAir(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFluidToAir();
 
@@ -824,15 +785,13 @@ public:
 	// void osgParticle::FluidProgram::setFluidToWater()
 	static int _bind_setFluidToWater(lua_State *L) {
 		if (!_lg_typecheck_setFluidToWater(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::setFluidToWater() function, expected prototype:\nvoid osgParticle::FluidProgram::setFluidToWater()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::setFluidToWater() function, expected prototype:\nvoid osgParticle::FluidProgram::setFluidToWater()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::setFluidToWater(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::setFluidToWater(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFluidToWater();
 
@@ -842,16 +801,14 @@ public:
 	// void osgParticle::FluidProgram::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_setName(const std::string & name) function, expected prototype:\nvoid osgParticle::FluidProgram::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_setName(const std::string & name) function, expected prototype:\nvoid osgParticle::FluidProgram::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FluidProgram::setName(name);
 
@@ -861,15 +818,13 @@ public:
 	// void osgParticle::FluidProgram::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_computeDataVariance() function, expected prototype:\nvoid osgParticle::FluidProgram::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_computeDataVariance() function, expected prototype:\nvoid osgParticle::FluidProgram::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FluidProgram::computeDataVariance();
 
@@ -879,16 +834,14 @@ public:
 	// void osgParticle::FluidProgram::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgParticle::FluidProgram::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgParticle::FluidProgram::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FluidProgram::setUserData(obj);
 
@@ -898,15 +851,13 @@ public:
 	// osg::Referenced * osgParticle::FluidProgram::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osgParticle::FluidProgram::base_getUserData() function, expected prototype:\nosg::Referenced * osgParticle::FluidProgram::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osgParticle::FluidProgram::base_getUserData() function, expected prototype:\nosg::Referenced * osgParticle::FluidProgram::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::FluidProgram::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::FluidProgram::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->FluidProgram::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -919,15 +870,13 @@ public:
 	// const osg::Referenced * osgParticle::FluidProgram::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgParticle::FluidProgram::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgParticle::FluidProgram::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgParticle::FluidProgram::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgParticle::FluidProgram::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::FluidProgram::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::FluidProgram::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->FluidProgram::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -949,15 +898,13 @@ public:
 	// osg::Group * osgParticle::FluidProgram::base_asGroup()
 	static int _bind_base_asGroup_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asGroup_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Group * osgParticle::FluidProgram::base_asGroup() function, expected prototype:\nosg::Group * osgParticle::FluidProgram::base_asGroup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Group * osgParticle::FluidProgram::base_asGroup() function, expected prototype:\nosg::Group * osgParticle::FluidProgram::base_asGroup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Group * osgParticle::FluidProgram::base_asGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Group * osgParticle::FluidProgram::base_asGroup(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Group * lret = self->FluidProgram::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -970,15 +917,13 @@ public:
 	// const osg::Group * osgParticle::FluidProgram::base_asGroup() const
 	static int _bind_base_asGroup_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asGroup_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Group * osgParticle::FluidProgram::base_asGroup() const function, expected prototype:\nconst osg::Group * osgParticle::FluidProgram::base_asGroup() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Group * osgParticle::FluidProgram::base_asGroup() const function, expected prototype:\nconst osg::Group * osgParticle::FluidProgram::base_asGroup() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Group * osgParticle::FluidProgram::base_asGroup() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Group * osgParticle::FluidProgram::base_asGroup() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Group * lret = self->FluidProgram::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1000,15 +945,13 @@ public:
 	// osg::Transform * osgParticle::FluidProgram::base_asTransform()
 	static int _bind_base_asTransform_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asTransform_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Transform * osgParticle::FluidProgram::base_asTransform() function, expected prototype:\nosg::Transform * osgParticle::FluidProgram::base_asTransform()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Transform * osgParticle::FluidProgram::base_asTransform() function, expected prototype:\nosg::Transform * osgParticle::FluidProgram::base_asTransform()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * osgParticle::FluidProgram::base_asTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Transform * osgParticle::FluidProgram::base_asTransform(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Transform * lret = self->FluidProgram::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1021,15 +964,13 @@ public:
 	// const osg::Transform * osgParticle::FluidProgram::base_asTransform() const
 	static int _bind_base_asTransform_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asTransform_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Transform * osgParticle::FluidProgram::base_asTransform() const function, expected prototype:\nconst osg::Transform * osgParticle::FluidProgram::base_asTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Transform * osgParticle::FluidProgram::base_asTransform() const function, expected prototype:\nconst osg::Transform * osgParticle::FluidProgram::base_asTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * osgParticle::FluidProgram::base_asTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Transform * osgParticle::FluidProgram::base_asTransform() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Transform * lret = self->FluidProgram::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1051,15 +992,13 @@ public:
 	// osg::Camera * osgParticle::FluidProgram::base_asCamera()
 	static int _bind_base_asCamera_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asCamera_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Camera * osgParticle::FluidProgram::base_asCamera() function, expected prototype:\nosg::Camera * osgParticle::FluidProgram::base_asCamera()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Camera * osgParticle::FluidProgram::base_asCamera() function, expected prototype:\nosg::Camera * osgParticle::FluidProgram::base_asCamera()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera * osgParticle::FluidProgram::base_asCamera(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Camera * osgParticle::FluidProgram::base_asCamera(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Camera * lret = self->FluidProgram::asCamera();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1072,15 +1011,13 @@ public:
 	// const osg::Camera * osgParticle::FluidProgram::base_asCamera() const
 	static int _bind_base_asCamera_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asCamera_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Camera * osgParticle::FluidProgram::base_asCamera() const function, expected prototype:\nconst osg::Camera * osgParticle::FluidProgram::base_asCamera() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Camera * osgParticle::FluidProgram::base_asCamera() const function, expected prototype:\nconst osg::Camera * osgParticle::FluidProgram::base_asCamera() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Camera * osgParticle::FluidProgram::base_asCamera() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Camera * osgParticle::FluidProgram::base_asCamera() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Camera * lret = self->FluidProgram::asCamera();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1102,15 +1039,13 @@ public:
 	// osg::Switch * osgParticle::FluidProgram::base_asSwitch()
 	static int _bind_base_asSwitch_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asSwitch_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Switch * osgParticle::FluidProgram::base_asSwitch() function, expected prototype:\nosg::Switch * osgParticle::FluidProgram::base_asSwitch()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Switch * osgParticle::FluidProgram::base_asSwitch() function, expected prototype:\nosg::Switch * osgParticle::FluidProgram::base_asSwitch()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osgParticle::FluidProgram::base_asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Switch * osgParticle::FluidProgram::base_asSwitch(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Switch * lret = self->FluidProgram::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1123,15 +1058,13 @@ public:
 	// const osg::Switch * osgParticle::FluidProgram::base_asSwitch() const
 	static int _bind_base_asSwitch_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asSwitch_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Switch * osgParticle::FluidProgram::base_asSwitch() const function, expected prototype:\nconst osg::Switch * osgParticle::FluidProgram::base_asSwitch() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Switch * osgParticle::FluidProgram::base_asSwitch() const function, expected prototype:\nconst osg::Switch * osgParticle::FluidProgram::base_asSwitch() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osgParticle::FluidProgram::base_asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Switch * osgParticle::FluidProgram::base_asSwitch() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Switch * lret = self->FluidProgram::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1153,15 +1086,13 @@ public:
 	// osg::Geode * osgParticle::FluidProgram::base_asGeode()
 	static int _bind_base_asGeode_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asGeode_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geode * osgParticle::FluidProgram::base_asGeode() function, expected prototype:\nosg::Geode * osgParticle::FluidProgram::base_asGeode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Geode * osgParticle::FluidProgram::base_asGeode() function, expected prototype:\nosg::Geode * osgParticle::FluidProgram::base_asGeode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osgParticle::FluidProgram::base_asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Geode * osgParticle::FluidProgram::base_asGeode(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Geode * lret = self->FluidProgram::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1174,15 +1105,13 @@ public:
 	// const osg::Geode * osgParticle::FluidProgram::base_asGeode() const
 	static int _bind_base_asGeode_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asGeode_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Geode * osgParticle::FluidProgram::base_asGeode() const function, expected prototype:\nconst osg::Geode * osgParticle::FluidProgram::base_asGeode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Geode * osgParticle::FluidProgram::base_asGeode() const function, expected prototype:\nconst osg::Geode * osgParticle::FluidProgram::base_asGeode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osgParticle::FluidProgram::base_asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Geode * osgParticle::FluidProgram::base_asGeode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Geode * lret = self->FluidProgram::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1204,8 +1133,7 @@ public:
 	// void osgParticle::FluidProgram::base_ascend(osg::NodeVisitor & nv)
 	static int _bind_base_ascend(lua_State *L) {
 		if (!_lg_typecheck_base_ascend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_ascend(osg::NodeVisitor & nv) function, expected prototype:\nvoid osgParticle::FluidProgram::base_ascend(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_ascend(osg::NodeVisitor & nv) function, expected prototype:\nvoid osgParticle::FluidProgram::base_ascend(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1216,8 +1144,7 @@ public:
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_ascend(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_ascend(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FluidProgram::ascend(nv);
 
@@ -1227,16 +1154,14 @@ public:
 	// void osgParticle::FluidProgram::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgParticle::FluidProgram::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgParticle::FluidProgram::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FluidProgram::setThreadSafeRefUnref(threadSafe);
 
@@ -1246,8 +1171,7 @@ public:
 	// void osgParticle::FluidProgram::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgParticle::FluidProgram::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgParticle::FluidProgram::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1256,8 +1180,7 @@ public:
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FluidProgram::releaseGLObjects(_arg1);
 
@@ -1267,8 +1190,7 @@ public:
 	// void osgParticle::FluidProgram::base_traverse(osg::NodeVisitor & arg1)
 	static int _bind_base_traverse(lua_State *L) {
 		if (!_lg_typecheck_base_traverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_traverse(osg::NodeVisitor & arg1) function, expected prototype:\nvoid osgParticle::FluidProgram::base_traverse(osg::NodeVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_traverse(osg::NodeVisitor & arg1) function, expected prototype:\nvoid osgParticle::FluidProgram::base_traverse(osg::NodeVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1279,8 +1201,7 @@ public:
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_traverse(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FluidProgram::traverse(_arg1);
 
@@ -1290,15 +1211,13 @@ public:
 	// osg::BoundingSphered osgParticle::FluidProgram::base_computeBound() const
 	static int _bind_base_computeBound(lua_State *L) {
 		if (!_lg_typecheck_base_computeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osgParticle::FluidProgram::base_computeBound() const function, expected prototype:\nosg::BoundingSphered osgParticle::FluidProgram::base_computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osgParticle::FluidProgram::base_computeBound() const function, expected prototype:\nosg::BoundingSphered osgParticle::FluidProgram::base_computeBound() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osgParticle::FluidProgram::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osgParticle::FluidProgram::base_computeBound() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::BoundingSphered stack_lret = self->FluidProgram::computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -1312,15 +1231,13 @@ public:
 	// osg::Object * osgParticle::FluidProgram::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::FluidProgram::base_cloneType() const function, expected prototype:\nosg::Object * osgParticle::FluidProgram::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::FluidProgram::base_cloneType() const function, expected prototype:\nosg::Object * osgParticle::FluidProgram::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::FluidProgram::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::FluidProgram::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->FluidProgram::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1333,8 +1250,7 @@ public:
 	// osg::Object * osgParticle::FluidProgram::base_clone(const osg::CopyOp & copyop) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::FluidProgram::base_clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osgParticle::FluidProgram::base_clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::FluidProgram::base_clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osgParticle::FluidProgram::base_clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1345,8 +1261,7 @@ public:
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::FluidProgram::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::FluidProgram::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->FluidProgram::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1359,16 +1274,14 @@ public:
 	// bool osgParticle::FluidProgram::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgParticle::FluidProgram::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgParticle::FluidProgram::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgParticle::FluidProgram::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgParticle::FluidProgram::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::FluidProgram::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgParticle::FluidProgram::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->FluidProgram::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1379,15 +1292,13 @@ public:
 	// const char * osgParticle::FluidProgram::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgParticle::FluidProgram::base_className() const function, expected prototype:\nconst char * osgParticle::FluidProgram::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgParticle::FluidProgram::base_className() const function, expected prototype:\nconst char * osgParticle::FluidProgram::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::FluidProgram::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgParticle::FluidProgram::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->FluidProgram::className();
 		lua_pushstring(L,lret);
@@ -1398,15 +1309,13 @@ public:
 	// const char * osgParticle::FluidProgram::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgParticle::FluidProgram::base_libraryName() const function, expected prototype:\nconst char * osgParticle::FluidProgram::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgParticle::FluidProgram::base_libraryName() const function, expected prototype:\nconst char * osgParticle::FluidProgram::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::FluidProgram::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgParticle::FluidProgram::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->FluidProgram::libraryName();
 		lua_pushstring(L,lret);
@@ -1417,8 +1326,7 @@ public:
 	// void osgParticle::FluidProgram::base_accept(osg::NodeVisitor & nv)
 	static int _bind_base_accept(lua_State *L) {
 		if (!_lg_typecheck_base_accept(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osgParticle::FluidProgram::base_accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::FluidProgram::base_accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osgParticle::FluidProgram::base_accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -1429,8 +1337,7 @@ public:
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::FluidProgram::base_accept(osg::NodeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FluidProgram::accept(nv);
 

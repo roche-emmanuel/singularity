@@ -387,16 +387,14 @@ public:
 	// void osgViewer::StatsHandler::public_setUpHUDCamera(osgViewer::ViewerBase * viewer)
 	static int _bind_public_setUpHUDCamera(lua_State *L) {
 		if (!_lg_typecheck_public_setUpHUDCamera(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::StatsHandler::public_setUpHUDCamera(osgViewer::ViewerBase * viewer) function, expected prototype:\nvoid osgViewer::StatsHandler::public_setUpHUDCamera(osgViewer::ViewerBase * viewer)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::StatsHandler::public_setUpHUDCamera(osgViewer::ViewerBase * viewer) function, expected prototype:\nvoid osgViewer::StatsHandler::public_setUpHUDCamera(osgViewer::ViewerBase * viewer)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgViewer::ViewerBase* viewer=(Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,2));
 
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_setUpHUDCamera(osgViewer::ViewerBase *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_setUpHUDCamera(osgViewer::ViewerBase *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setUpHUDCamera(viewer);
 
@@ -406,8 +404,7 @@ public:
 	// void osgViewer::StatsHandler::public_setWindowSize(int width, int height)
 	static int _bind_public_setWindowSize(lua_State *L) {
 		if (!_lg_typecheck_public_setWindowSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::StatsHandler::public_setWindowSize(int width, int height) function, expected prototype:\nvoid osgViewer::StatsHandler::public_setWindowSize(int width, int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::StatsHandler::public_setWindowSize(int width, int height) function, expected prototype:\nvoid osgViewer::StatsHandler::public_setWindowSize(int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int width=(int)lua_tointeger(L,2);
@@ -415,8 +412,7 @@ public:
 
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_setWindowSize(int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_setWindowSize(int, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setWindowSize(width, height);
 
@@ -426,8 +422,7 @@ public:
 	// osg::Geometry * osgViewer::StatsHandler::public_createBackgroundRectangle(const osg::Vec3f & pos, const float width, const float height, osg::Vec4f & color)
 	static int _bind_public_createBackgroundRectangle(lua_State *L) {
 		if (!_lg_typecheck_public_createBackgroundRectangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geometry * osgViewer::StatsHandler::public_createBackgroundRectangle(const osg::Vec3f & pos, const float width, const float height, osg::Vec4f & color) function, expected prototype:\nosg::Geometry * osgViewer::StatsHandler::public_createBackgroundRectangle(const osg::Vec3f & pos, const float width, const float height, osg::Vec4f & color)\nClass arguments details:\narg 1 ID = 92303204\narg 4 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in osg::Geometry * osgViewer::StatsHandler::public_createBackgroundRectangle(const osg::Vec3f & pos, const float width, const float height, osg::Vec4f & color) function, expected prototype:\nosg::Geometry * osgViewer::StatsHandler::public_createBackgroundRectangle(const osg::Vec3f & pos, const float width, const float height, osg::Vec4f & color)\nClass arguments details:\narg 1 ID = 92303204\narg 4 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* pos_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -445,8 +440,7 @@ public:
 
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createBackgroundRectangle(const osg::Vec3f &, const float, const float, osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createBackgroundRectangle(const osg::Vec3f &, const float, const float, osg::Vec4f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Geometry * lret = self->public_createBackgroundRectangle(pos, width, height, color);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -459,8 +453,7 @@ public:
 	// osg::Geometry * osgViewer::StatsHandler::public_createGeometry(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numBlocks)
 	static int _bind_public_createGeometry(lua_State *L) {
 		if (!_lg_typecheck_public_createGeometry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geometry * osgViewer::StatsHandler::public_createGeometry(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numBlocks) function, expected prototype:\nosg::Geometry * osgViewer::StatsHandler::public_createGeometry(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numBlocks)\nClass arguments details:\narg 1 ID = 92303204\narg 3 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in osg::Geometry * osgViewer::StatsHandler::public_createGeometry(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numBlocks) function, expected prototype:\nosg::Geometry * osgViewer::StatsHandler::public_createGeometry(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numBlocks)\nClass arguments details:\narg 1 ID = 92303204\narg 3 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* pos_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -478,8 +471,7 @@ public:
 
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createGeometry(const osg::Vec3f &, float, const osg::Vec4f &, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createGeometry(const osg::Vec3f &, float, const osg::Vec4f &, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Geometry * lret = self->public_createGeometry(pos, height, colour, numBlocks);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -492,8 +484,7 @@ public:
 	// osg::Geometry * osgViewer::StatsHandler::public_createFrameMarkers(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numBlocks)
 	static int _bind_public_createFrameMarkers(lua_State *L) {
 		if (!_lg_typecheck_public_createFrameMarkers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geometry * osgViewer::StatsHandler::public_createFrameMarkers(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numBlocks) function, expected prototype:\nosg::Geometry * osgViewer::StatsHandler::public_createFrameMarkers(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numBlocks)\nClass arguments details:\narg 1 ID = 92303204\narg 3 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in osg::Geometry * osgViewer::StatsHandler::public_createFrameMarkers(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numBlocks) function, expected prototype:\nosg::Geometry * osgViewer::StatsHandler::public_createFrameMarkers(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numBlocks)\nClass arguments details:\narg 1 ID = 92303204\narg 3 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* pos_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -511,8 +502,7 @@ public:
 
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createFrameMarkers(const osg::Vec3f &, float, const osg::Vec4f &, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createFrameMarkers(const osg::Vec3f &, float, const osg::Vec4f &, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Geometry * lret = self->public_createFrameMarkers(pos, height, colour, numBlocks);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -525,8 +515,7 @@ public:
 	// osg::Geometry * osgViewer::StatsHandler::public_createTick(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numTicks)
 	static int _bind_public_createTick(lua_State *L) {
 		if (!_lg_typecheck_public_createTick(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geometry * osgViewer::StatsHandler::public_createTick(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numTicks) function, expected prototype:\nosg::Geometry * osgViewer::StatsHandler::public_createTick(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numTicks)\nClass arguments details:\narg 1 ID = 92303204\narg 3 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in osg::Geometry * osgViewer::StatsHandler::public_createTick(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numTicks) function, expected prototype:\nosg::Geometry * osgViewer::StatsHandler::public_createTick(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numTicks)\nClass arguments details:\narg 1 ID = 92303204\narg 3 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* pos_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -544,8 +533,7 @@ public:
 
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createTick(const osg::Vec3f &, float, const osg::Vec4f &, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createTick(const osg::Vec3f &, float, const osg::Vec4f &, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Geometry * lret = self->public_createTick(pos, height, colour, numTicks);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -558,8 +546,7 @@ public:
 	// void osgViewer::StatsHandler::public_createTimeStatsLine(const std::string & lineLabel, osg::Vec3f pos, const osg::Vec4f & textColor, const osg::Vec4f & barColor, osg::Stats * viewerStats, osg::Stats * stats, const std::string & timeTakenName, float multiplier, bool average, bool averageInInverseSpace, const std::string & beginTimeName, const std::string & endTimeName)
 	static int _bind_public_createTimeStatsLine(lua_State *L) {
 		if (!_lg_typecheck_public_createTimeStatsLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::StatsHandler::public_createTimeStatsLine(const std::string & lineLabel, osg::Vec3f pos, const osg::Vec4f & textColor, const osg::Vec4f & barColor, osg::Stats * viewerStats, osg::Stats * stats, const std::string & timeTakenName, float multiplier, bool average, bool averageInInverseSpace, const std::string & beginTimeName, const std::string & endTimeName) function, expected prototype:\nvoid osgViewer::StatsHandler::public_createTimeStatsLine(const std::string & lineLabel, osg::Vec3f pos, const osg::Vec4f & textColor, const osg::Vec4f & barColor, osg::Stats * viewerStats, osg::Stats * stats, const std::string & timeTakenName, float multiplier, bool average, bool averageInInverseSpace, const std::string & beginTimeName, const std::string & endTimeName)\nClass arguments details:\narg 2 ID = 92303204\narg 3 ID = 92303235\narg 4 ID = 92303235\narg 5 ID = 50169651\narg 6 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::StatsHandler::public_createTimeStatsLine(const std::string & lineLabel, osg::Vec3f pos, const osg::Vec4f & textColor, const osg::Vec4f & barColor, osg::Stats * viewerStats, osg::Stats * stats, const std::string & timeTakenName, float multiplier, bool average, bool averageInInverseSpace, const std::string & beginTimeName, const std::string & endTimeName) function, expected prototype:\nvoid osgViewer::StatsHandler::public_createTimeStatsLine(const std::string & lineLabel, osg::Vec3f pos, const osg::Vec4f & textColor, const osg::Vec4f & barColor, osg::Stats * viewerStats, osg::Stats * stats, const std::string & timeTakenName, float multiplier, bool average, bool averageInInverseSpace, const std::string & beginTimeName, const std::string & endTimeName)\nClass arguments details:\narg 2 ID = 92303204\narg 3 ID = 92303235\narg 4 ID = 92303235\narg 5 ID = 50169651\narg 6 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string lineLabel(lua_tostring(L,2),lua_objlen(L,2));
@@ -589,8 +576,7 @@ public:
 
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_createTimeStatsLine(const std::string &, osg::Vec3f, const osg::Vec4f &, const osg::Vec4f &, osg::Stats *, osg::Stats *, const std::string &, float, bool, bool, const std::string &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_createTimeStatsLine(const std::string &, osg::Vec3f, const osg::Vec4f &, const osg::Vec4f &, osg::Stats *, osg::Stats *, const std::string &, float, bool, bool, const std::string &, const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_createTimeStatsLine(lineLabel, pos, textColor, barColor, viewerStats, stats, timeTakenName, multiplier, average, averageInInverseSpace, beginTimeName, endTimeName);
 
@@ -600,8 +586,7 @@ public:
 	// void osgViewer::StatsHandler::public_createCameraTimeStats(osg::Vec3f & pos, bool acquireGPUStats, osg::Stats * viewerStats, osg::Camera * camera)
 	static int _bind_public_createCameraTimeStats(lua_State *L) {
 		if (!_lg_typecheck_public_createCameraTimeStats(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::StatsHandler::public_createCameraTimeStats(osg::Vec3f & pos, bool acquireGPUStats, osg::Stats * viewerStats, osg::Camera * camera) function, expected prototype:\nvoid osgViewer::StatsHandler::public_createCameraTimeStats(osg::Vec3f & pos, bool acquireGPUStats, osg::Stats * viewerStats, osg::Camera * camera)\nClass arguments details:\narg 1 ID = 92303204\narg 3 ID = 50169651\narg 4 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::StatsHandler::public_createCameraTimeStats(osg::Vec3f & pos, bool acquireGPUStats, osg::Stats * viewerStats, osg::Camera * camera) function, expected prototype:\nvoid osgViewer::StatsHandler::public_createCameraTimeStats(osg::Vec3f & pos, bool acquireGPUStats, osg::Stats * viewerStats, osg::Camera * camera)\nClass arguments details:\narg 1 ID = 92303204\narg 3 ID = 50169651\narg 4 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3f* pos_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -615,8 +600,7 @@ public:
 
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_createCameraTimeStats(osg::Vec3f &, bool, osg::Stats *, osg::Camera *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_createCameraTimeStats(osg::Vec3f &, bool, osg::Stats *, osg::Camera *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_createCameraTimeStats(pos, acquireGPUStats, viewerStats, camera);
 
@@ -626,16 +610,14 @@ public:
 	// void osgViewer::StatsHandler::public_setUpScene(osgViewer::ViewerBase * viewer)
 	static int _bind_public_setUpScene(lua_State *L) {
 		if (!_lg_typecheck_public_setUpScene(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::StatsHandler::public_setUpScene(osgViewer::ViewerBase * viewer) function, expected prototype:\nvoid osgViewer::StatsHandler::public_setUpScene(osgViewer::ViewerBase * viewer)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::StatsHandler::public_setUpScene(osgViewer::ViewerBase * viewer) function, expected prototype:\nvoid osgViewer::StatsHandler::public_setUpScene(osgViewer::ViewerBase * viewer)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgViewer::ViewerBase* viewer=(Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,2));
 
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_setUpScene(osgViewer::ViewerBase *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_setUpScene(osgViewer::ViewerBase *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setUpScene(viewer);
 
@@ -645,15 +627,13 @@ public:
 	// void osgViewer::StatsHandler::public_updateThreadingModelText()
 	static int _bind_public_updateThreadingModelText(lua_State *L) {
 		if (!_lg_typecheck_public_updateThreadingModelText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::StatsHandler::public_updateThreadingModelText() function, expected prototype:\nvoid osgViewer::StatsHandler::public_updateThreadingModelText()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::StatsHandler::public_updateThreadingModelText() function, expected prototype:\nvoid osgViewer::StatsHandler::public_updateThreadingModelText()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_updateThreadingModelText(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_updateThreadingModelText(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_updateThreadingModelText();
 
@@ -663,8 +643,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -672,8 +651,7 @@ public:
 
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -683,15 +661,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

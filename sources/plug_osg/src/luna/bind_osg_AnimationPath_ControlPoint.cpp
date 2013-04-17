@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::AnimationPath::ControlPoint*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::AnimationPath::ControlPoint*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::AnimationPath::ControlPoint* rhs =(Luna< osg::AnimationPath::ControlPoint >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::AnimationPath::ControlPoint* self= (osg::AnimationPath::ControlPoint*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -239,8 +235,7 @@ public:
 	// osg::AnimationPath::ControlPoint::ControlPoint()
 	static osg::AnimationPath::ControlPoint* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AnimationPath::ControlPoint::ControlPoint() function, expected prototype:\nosg::AnimationPath::ControlPoint::ControlPoint()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::AnimationPath::ControlPoint::ControlPoint() function, expected prototype:\nosg::AnimationPath::ControlPoint::ControlPoint()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -250,8 +245,7 @@ public:
 	// osg::AnimationPath::ControlPoint::ControlPoint(const osg::Vec3d & position)
 	static osg::AnimationPath::ControlPoint* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AnimationPath::ControlPoint::ControlPoint(const osg::Vec3d & position) function, expected prototype:\nosg::AnimationPath::ControlPoint::ControlPoint(const osg::Vec3d & position)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in osg::AnimationPath::ControlPoint::ControlPoint(const osg::Vec3d & position) function, expected prototype:\nosg::AnimationPath::ControlPoint::ControlPoint(const osg::Vec3d & position)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* position_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -266,8 +260,7 @@ public:
 	// osg::AnimationPath::ControlPoint::ControlPoint(const osg::Vec3d & position, const osg::Quat & rotation)
 	static osg::AnimationPath::ControlPoint* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AnimationPath::ControlPoint::ControlPoint(const osg::Vec3d & position, const osg::Quat & rotation) function, expected prototype:\nosg::AnimationPath::ControlPoint::ControlPoint(const osg::Vec3d & position, const osg::Quat & rotation)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in osg::AnimationPath::ControlPoint::ControlPoint(const osg::Vec3d & position, const osg::Quat & rotation) function, expected prototype:\nosg::AnimationPath::ControlPoint::ControlPoint(const osg::Vec3d & position, const osg::Quat & rotation)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* position_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -287,8 +280,7 @@ public:
 	// osg::AnimationPath::ControlPoint::ControlPoint(const osg::Vec3d & position, const osg::Quat & rotation, const osg::Vec3d & scale)
 	static osg::AnimationPath::ControlPoint* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AnimationPath::ControlPoint::ControlPoint(const osg::Vec3d & position, const osg::Quat & rotation, const osg::Vec3d & scale) function, expected prototype:\nosg::AnimationPath::ControlPoint::ControlPoint(const osg::Vec3d & position, const osg::Quat & rotation, const osg::Vec3d & scale)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in osg::AnimationPath::ControlPoint::ControlPoint(const osg::Vec3d & position, const osg::Quat & rotation, const osg::Vec3d & scale) function, expected prototype:\nosg::AnimationPath::ControlPoint::ControlPoint(const osg::Vec3d & position, const osg::Quat & rotation, const osg::Vec3d & scale)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* position_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -326,8 +318,7 @@ public:
 	// void osg::AnimationPath::ControlPoint::setPosition(const osg::Vec3d & position)
 	static int _bind_setPosition(lua_State *L) {
 		if (!_lg_typecheck_setPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::setPosition(const osg::Vec3d & position) function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::setPosition(const osg::Vec3d & position)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::setPosition(const osg::Vec3d & position) function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::setPosition(const osg::Vec3d & position)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* position_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -338,8 +329,7 @@ public:
 
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::setPosition(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::setPosition(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPosition(position);
 
@@ -349,15 +339,13 @@ public:
 	// const osg::Vec3d & osg::AnimationPath::ControlPoint::getPosition() const
 	static int _bind_getPosition(lua_State *L) {
 		if (!_lg_typecheck_getPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::AnimationPath::ControlPoint::getPosition() const function, expected prototype:\nconst osg::Vec3d & osg::AnimationPath::ControlPoint::getPosition() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::AnimationPath::ControlPoint::getPosition() const function, expected prototype:\nconst osg::Vec3d & osg::AnimationPath::ControlPoint::getPosition() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AnimationPath::ControlPoint::getPosition() const. Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AnimationPath::ControlPoint::getPosition() const. Got : '%s'\n%s",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3d* lret = &self->getPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -370,8 +358,7 @@ public:
 	// void osg::AnimationPath::ControlPoint::setRotation(const osg::Quat & rotation)
 	static int _bind_setRotation(lua_State *L) {
 		if (!_lg_typecheck_setRotation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::setRotation(const osg::Quat & rotation) function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::setRotation(const osg::Quat & rotation)\nClass arguments details:\narg 1 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::setRotation(const osg::Quat & rotation) function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::setRotation(const osg::Quat & rotation)\nClass arguments details:\narg 1 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Quat* rotation_ptr=(Luna< osg::Quat >::check(L,2));
@@ -382,8 +369,7 @@ public:
 
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::setRotation(const osg::Quat &). Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::setRotation(const osg::Quat &). Got : '%s'\n%s",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRotation(rotation);
 
@@ -393,15 +379,13 @@ public:
 	// const osg::Quat & osg::AnimationPath::ControlPoint::getRotation() const
 	static int _bind_getRotation(lua_State *L) {
 		if (!_lg_typecheck_getRotation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Quat & osg::AnimationPath::ControlPoint::getRotation() const function, expected prototype:\nconst osg::Quat & osg::AnimationPath::ControlPoint::getRotation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Quat & osg::AnimationPath::ControlPoint::getRotation() const function, expected prototype:\nconst osg::Quat & osg::AnimationPath::ControlPoint::getRotation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Quat & osg::AnimationPath::ControlPoint::getRotation() const. Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Quat & osg::AnimationPath::ControlPoint::getRotation() const. Got : '%s'\n%s",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Quat* lret = &self->getRotation();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -414,8 +398,7 @@ public:
 	// void osg::AnimationPath::ControlPoint::setScale(const osg::Vec3d & scale)
 	static int _bind_setScale(lua_State *L) {
 		if (!_lg_typecheck_setScale(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::setScale(const osg::Vec3d & scale) function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::setScale(const osg::Vec3d & scale)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::setScale(const osg::Vec3d & scale) function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::setScale(const osg::Vec3d & scale)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* scale_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -426,8 +409,7 @@ public:
 
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::setScale(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::setScale(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setScale(scale);
 
@@ -437,15 +419,13 @@ public:
 	// const osg::Vec3d & osg::AnimationPath::ControlPoint::getScale() const
 	static int _bind_getScale(lua_State *L) {
 		if (!_lg_typecheck_getScale(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::AnimationPath::ControlPoint::getScale() const function, expected prototype:\nconst osg::Vec3d & osg::AnimationPath::ControlPoint::getScale() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3d & osg::AnimationPath::ControlPoint::getScale() const function, expected prototype:\nconst osg::Vec3d & osg::AnimationPath::ControlPoint::getScale() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AnimationPath::ControlPoint::getScale() const. Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AnimationPath::ControlPoint::getScale() const. Got : '%s'\n%s",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3d* lret = &self->getScale();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -458,8 +438,7 @@ public:
 	// void osg::AnimationPath::ControlPoint::interpolate(float ratio, const osg::AnimationPath::ControlPoint & first, const osg::AnimationPath::ControlPoint & second)
 	static int _bind_interpolate_overload_1(lua_State *L) {
 		if (!_lg_typecheck_interpolate_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::interpolate(float ratio, const osg::AnimationPath::ControlPoint & first, const osg::AnimationPath::ControlPoint & second) function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::interpolate(float ratio, const osg::AnimationPath::ControlPoint & first, const osg::AnimationPath::ControlPoint & second)\nClass arguments details:\narg 2 ID = 19942584\narg 3 ID = 19942584\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::interpolate(float ratio, const osg::AnimationPath::ControlPoint & first, const osg::AnimationPath::ControlPoint & second) function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::interpolate(float ratio, const osg::AnimationPath::ControlPoint & first, const osg::AnimationPath::ControlPoint & second)\nClass arguments details:\narg 2 ID = 19942584\narg 3 ID = 19942584\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float ratio=(float)lua_tonumber(L,2);
@@ -476,8 +455,7 @@ public:
 
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::interpolate(float, const osg::AnimationPath::ControlPoint &, const osg::AnimationPath::ControlPoint &). Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::interpolate(float, const osg::AnimationPath::ControlPoint &, const osg::AnimationPath::ControlPoint &). Got : '%s'\n%s",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->interpolate(ratio, first, second);
 
@@ -487,8 +465,7 @@ public:
 	// void osg::AnimationPath::ControlPoint::interpolate(double ratio, const osg::AnimationPath::ControlPoint & first, const osg::AnimationPath::ControlPoint & second)
 	static int _bind_interpolate_overload_2(lua_State *L) {
 		if (!_lg_typecheck_interpolate_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::interpolate(double ratio, const osg::AnimationPath::ControlPoint & first, const osg::AnimationPath::ControlPoint & second) function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::interpolate(double ratio, const osg::AnimationPath::ControlPoint & first, const osg::AnimationPath::ControlPoint & second)\nClass arguments details:\narg 2 ID = 19942584\narg 3 ID = 19942584\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::interpolate(double ratio, const osg::AnimationPath::ControlPoint & first, const osg::AnimationPath::ControlPoint & second) function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::interpolate(double ratio, const osg::AnimationPath::ControlPoint & first, const osg::AnimationPath::ControlPoint & second)\nClass arguments details:\narg 2 ID = 19942584\narg 3 ID = 19942584\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double ratio=(double)lua_tonumber(L,2);
@@ -505,8 +482,7 @@ public:
 
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::interpolate(double, const osg::AnimationPath::ControlPoint &, const osg::AnimationPath::ControlPoint &). Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::interpolate(double, const osg::AnimationPath::ControlPoint &, const osg::AnimationPath::ControlPoint &). Got : '%s'\n%s",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->interpolate(ratio, first, second);
 
@@ -525,8 +501,7 @@ public:
 	// void osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixf & matrix) const
 	static int _bind_getMatrix_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getMatrix_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixf & matrix) const function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixf & matrix) const\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixf & matrix) const function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixf & matrix) const\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Matrixf* matrix_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -537,8 +512,7 @@ public:
 
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixf &) const. Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixf &) const. Got : '%s'\n%s",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getMatrix(matrix);
 
@@ -548,8 +522,7 @@ public:
 	// void osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixd & matrix) const
 	static int _bind_getMatrix_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getMatrix_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixd & matrix) const function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixd & matrix) const\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixd & matrix) const function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixd & matrix) const\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -560,8 +533,7 @@ public:
 
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixd &) const. Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixd &) const. Got : '%s'\n%s",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getMatrix(matrix);
 
@@ -580,8 +552,7 @@ public:
 	// void osg::AnimationPath::ControlPoint::getInverse(osg::Matrixf & matrix) const
 	static int _bind_getInverse_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getInverse_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::getInverse(osg::Matrixf & matrix) const function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::getInverse(osg::Matrixf & matrix) const\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::getInverse(osg::Matrixf & matrix) const function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::getInverse(osg::Matrixf & matrix) const\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Matrixf* matrix_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -592,8 +563,7 @@ public:
 
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getInverse(osg::Matrixf &) const. Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getInverse(osg::Matrixf &) const. Got : '%s'\n%s",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInverse(matrix);
 
@@ -603,8 +573,7 @@ public:
 	// void osg::AnimationPath::ControlPoint::getInverse(osg::Matrixd & matrix) const
 	static int _bind_getInverse_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getInverse_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::getInverse(osg::Matrixd & matrix) const function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::getInverse(osg::Matrixd & matrix) const\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::ControlPoint::getInverse(osg::Matrixd & matrix) const function, expected prototype:\nvoid osg::AnimationPath::ControlPoint::getInverse(osg::Matrixd & matrix) const\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -615,8 +584,7 @@ public:
 
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getInverse(osg::Matrixd &) const. Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getInverse(osg::Matrixd &) const. Got : '%s'\n%s",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInverse(matrix);
 

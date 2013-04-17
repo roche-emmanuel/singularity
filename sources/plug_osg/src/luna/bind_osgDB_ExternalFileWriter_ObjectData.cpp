@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ExternalFileWriter::ObjectData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ExternalFileWriter::ObjectData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ExternalFileWriter::ObjectData* rhs =(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ExternalFileWriter::ObjectData* self= (osgDB::ExternalFileWriter::ObjectData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -164,8 +160,7 @@ public:
 	// osgDB::ExternalFileWriter::ObjectData::ObjectData()
 	static osgDB::ExternalFileWriter::ObjectData* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ExternalFileWriter::ObjectData::ObjectData() function, expected prototype:\nosgDB::ExternalFileWriter::ObjectData::ObjectData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ExternalFileWriter::ObjectData::ObjectData() function, expected prototype:\nosgDB::ExternalFileWriter::ObjectData::ObjectData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -175,8 +170,7 @@ public:
 	// osgDB::ExternalFileWriter::ObjectData::ObjectData(const std::string & absolutePath, const std::string & relativePath, bool written)
 	static osgDB::ExternalFileWriter::ObjectData* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ExternalFileWriter::ObjectData::ObjectData(const std::string & absolutePath, const std::string & relativePath, bool written) function, expected prototype:\nosgDB::ExternalFileWriter::ObjectData::ObjectData(const std::string & absolutePath, const std::string & relativePath, bool written)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ExternalFileWriter::ObjectData::ObjectData(const std::string & absolutePath, const std::string & relativePath, bool written) function, expected prototype:\nosgDB::ExternalFileWriter::ObjectData::ObjectData(const std::string & absolutePath, const std::string & relativePath, bool written)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string absolutePath(lua_tostring(L,1),lua_objlen(L,1));
@@ -200,15 +194,13 @@ public:
 	// std::string osgDB::ExternalFileWriter::ObjectData::absolutePath()
 	static int _bind_getAbsolutePath(lua_State *L) {
 		if (!_lg_typecheck_getAbsolutePath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string osgDB::ExternalFileWriter::ObjectData::absolutePath() function, expected prototype:\nstd::string osgDB::ExternalFileWriter::ObjectData::absolutePath()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string osgDB::ExternalFileWriter::ObjectData::absolutePath() function, expected prototype:\nstd::string osgDB::ExternalFileWriter::ObjectData::absolutePath()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ExternalFileWriter::ObjectData* self=(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgDB::ExternalFileWriter::ObjectData::absolutePath(). Got : '%s'",typeid(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string osgDB::ExternalFileWriter::ObjectData::absolutePath(). Got : '%s'\n%s",typeid(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->absolutePath;
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -219,15 +211,13 @@ public:
 	// std::string osgDB::ExternalFileWriter::ObjectData::relativePath()
 	static int _bind_getRelativePath(lua_State *L) {
 		if (!_lg_typecheck_getRelativePath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string osgDB::ExternalFileWriter::ObjectData::relativePath() function, expected prototype:\nstd::string osgDB::ExternalFileWriter::ObjectData::relativePath()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string osgDB::ExternalFileWriter::ObjectData::relativePath() function, expected prototype:\nstd::string osgDB::ExternalFileWriter::ObjectData::relativePath()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ExternalFileWriter::ObjectData* self=(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgDB::ExternalFileWriter::ObjectData::relativePath(). Got : '%s'",typeid(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string osgDB::ExternalFileWriter::ObjectData::relativePath(). Got : '%s'\n%s",typeid(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->relativePath;
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -238,15 +228,13 @@ public:
 	// bool osgDB::ExternalFileWriter::ObjectData::written()
 	static int _bind_getWritten(lua_State *L) {
 		if (!_lg_typecheck_getWritten(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::ExternalFileWriter::ObjectData::written() function, expected prototype:\nbool osgDB::ExternalFileWriter::ObjectData::written()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::ExternalFileWriter::ObjectData::written() function, expected prototype:\nbool osgDB::ExternalFileWriter::ObjectData::written()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ExternalFileWriter::ObjectData* self=(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ExternalFileWriter::ObjectData::written(). Got : '%s'",typeid(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::ExternalFileWriter::ObjectData::written(). Got : '%s'\n%s",typeid(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->written;
 		lua_pushboolean(L,lret?1:0);
@@ -257,16 +245,14 @@ public:
 	// void osgDB::ExternalFileWriter::ObjectData::absolutePath(std::string value)
 	static int _bind_setAbsolutePath(lua_State *L) {
 		if (!_lg_typecheck_setAbsolutePath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ExternalFileWriter::ObjectData::absolutePath(std::string value) function, expected prototype:\nvoid osgDB::ExternalFileWriter::ObjectData::absolutePath(std::string value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ExternalFileWriter::ObjectData::absolutePath(std::string value) function, expected prototype:\nvoid osgDB::ExternalFileWriter::ObjectData::absolutePath(std::string value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::ExternalFileWriter::ObjectData* self=(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ExternalFileWriter::ObjectData::absolutePath(std::string). Got : '%s'",typeid(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ExternalFileWriter::ObjectData::absolutePath(std::string). Got : '%s'\n%s",typeid(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->absolutePath = value;
 
@@ -276,16 +262,14 @@ public:
 	// void osgDB::ExternalFileWriter::ObjectData::relativePath(std::string value)
 	static int _bind_setRelativePath(lua_State *L) {
 		if (!_lg_typecheck_setRelativePath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ExternalFileWriter::ObjectData::relativePath(std::string value) function, expected prototype:\nvoid osgDB::ExternalFileWriter::ObjectData::relativePath(std::string value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ExternalFileWriter::ObjectData::relativePath(std::string value) function, expected prototype:\nvoid osgDB::ExternalFileWriter::ObjectData::relativePath(std::string value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::ExternalFileWriter::ObjectData* self=(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ExternalFileWriter::ObjectData::relativePath(std::string). Got : '%s'",typeid(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ExternalFileWriter::ObjectData::relativePath(std::string). Got : '%s'\n%s",typeid(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->relativePath = value;
 
@@ -295,16 +279,14 @@ public:
 	// void osgDB::ExternalFileWriter::ObjectData::written(bool value)
 	static int _bind_setWritten(lua_State *L) {
 		if (!_lg_typecheck_setWritten(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ExternalFileWriter::ObjectData::written(bool value) function, expected prototype:\nvoid osgDB::ExternalFileWriter::ObjectData::written(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ExternalFileWriter::ObjectData::written(bool value) function, expected prototype:\nvoid osgDB::ExternalFileWriter::ObjectData::written(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::ExternalFileWriter::ObjectData* self=(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ExternalFileWriter::ObjectData::written(bool). Got : '%s'",typeid(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ExternalFileWriter::ObjectData::written(bool). Got : '%s'\n%s",typeid(Luna< osgDB::ExternalFileWriter::ObjectData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->written = value;
 

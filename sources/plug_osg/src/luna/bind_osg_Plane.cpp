@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Plane* self= (osg::Plane*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Plane >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -396,8 +393,7 @@ public:
 	// osg::Plane::Plane()
 	static osg::Plane* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Plane::Plane() function, expected prototype:\nosg::Plane::Plane()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Plane::Plane() function, expected prototype:\nosg::Plane::Plane()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -407,8 +403,7 @@ public:
 	// osg::Plane::Plane(const osg::Plane & pl)
 	static osg::Plane* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Plane::Plane(const osg::Plane & pl) function, expected prototype:\nosg::Plane::Plane(const osg::Plane & pl)\nClass arguments details:\narg 1 ID = 86970521\n");
+			luaL_error(L, "luna typecheck failed in osg::Plane::Plane(const osg::Plane & pl) function, expected prototype:\nosg::Plane::Plane(const osg::Plane & pl)\nClass arguments details:\narg 1 ID = 86970521\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Plane* pl_ptr=(Luna< osg::Plane >::check(L,1));
@@ -423,8 +418,7 @@ public:
 	// osg::Plane::Plane(double a, double b, double c, double d)
 	static osg::Plane* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Plane::Plane(double a, double b, double c, double d) function, expected prototype:\nosg::Plane::Plane(double a, double b, double c, double d)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Plane::Plane(double a, double b, double c, double d) function, expected prototype:\nosg::Plane::Plane(double a, double b, double c, double d)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double a=(double)lua_tonumber(L,1);
@@ -438,8 +432,7 @@ public:
 	// osg::Plane::Plane(const osg::Vec4f & vec)
 	static osg::Plane* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Plane::Plane(const osg::Vec4f & vec) function, expected prototype:\nosg::Plane::Plane(const osg::Vec4f & vec)\nClass arguments details:\narg 1 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in osg::Plane::Plane(const osg::Vec4f & vec) function, expected prototype:\nosg::Plane::Plane(const osg::Vec4f & vec)\nClass arguments details:\narg 1 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4f* vec_ptr=(Luna< osg::Vec4f >::check(L,1));
@@ -454,8 +447,7 @@ public:
 	// osg::Plane::Plane(const osg::Vec4d & vec)
 	static osg::Plane* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Plane::Plane(const osg::Vec4d & vec) function, expected prototype:\nosg::Plane::Plane(const osg::Vec4d & vec)\nClass arguments details:\narg 1 ID = 92303233\n");
+			luaL_error(L, "luna typecheck failed in osg::Plane::Plane(const osg::Vec4d & vec) function, expected prototype:\nosg::Plane::Plane(const osg::Vec4d & vec)\nClass arguments details:\narg 1 ID = 92303233\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4d* vec_ptr=(Luna< osg::Vec4d >::check(L,1));
@@ -470,8 +462,7 @@ public:
 	// osg::Plane::Plane(const osg::Vec3d & norm, double d)
 	static osg::Plane* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Plane::Plane(const osg::Vec3d & norm, double d) function, expected prototype:\nosg::Plane::Plane(const osg::Vec3d & norm, double d)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in osg::Plane::Plane(const osg::Vec3d & norm, double d) function, expected prototype:\nosg::Plane::Plane(const osg::Vec3d & norm, double d)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* norm_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -487,8 +478,7 @@ public:
 	// osg::Plane::Plane(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3)
 	static osg::Plane* _bind_ctor_overload_7(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Plane::Plane(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3) function, expected prototype:\nosg::Plane::Plane(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in osg::Plane::Plane(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3) function, expected prototype:\nosg::Plane::Plane(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* v1_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -513,8 +503,7 @@ public:
 	// osg::Plane::Plane(const osg::Vec3d & norm, const osg::Vec3d & point)
 	static osg::Plane* _bind_ctor_overload_8(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Plane::Plane(const osg::Vec3d & norm, const osg::Vec3d & point) function, expected prototype:\nosg::Plane::Plane(const osg::Vec3d & norm, const osg::Vec3d & point)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in osg::Plane::Plane(const osg::Vec3d & norm, const osg::Vec3d & point) function, expected prototype:\nosg::Plane::Plane(const osg::Vec3d & norm, const osg::Vec3d & point)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* norm_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -551,8 +540,7 @@ public:
 	// void osg::Plane::set(const osg::Plane & pl)
 	static int _bind_set_overload_1(lua_State *L) {
 		if (!_lg_typecheck_set_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Plane::set(const osg::Plane & pl) function, expected prototype:\nvoid osg::Plane::set(const osg::Plane & pl)\nClass arguments details:\narg 1 ID = 86970521\n");
+			luaL_error(L, "luna typecheck failed in void osg::Plane::set(const osg::Plane & pl) function, expected prototype:\nvoid osg::Plane::set(const osg::Plane & pl)\nClass arguments details:\narg 1 ID = 86970521\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Plane* pl_ptr=(Luna< osg::Plane >::check(L,2));
@@ -563,8 +551,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Plane &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Plane &). Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(pl);
 
@@ -574,8 +561,7 @@ public:
 	// void osg::Plane::set(double a, double b, double c, double d)
 	static int _bind_set_overload_2(lua_State *L) {
 		if (!_lg_typecheck_set_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Plane::set(double a, double b, double c, double d) function, expected prototype:\nvoid osg::Plane::set(double a, double b, double c, double d)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Plane::set(double a, double b, double c, double d) function, expected prototype:\nvoid osg::Plane::set(double a, double b, double c, double d)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double a=(double)lua_tonumber(L,2);
@@ -585,8 +571,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::set(double, double, double, double). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Plane::set(double, double, double, double). Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(a, b, c, d);
 
@@ -596,8 +581,7 @@ public:
 	// void osg::Plane::set(const osg::Vec4f & vec)
 	static int _bind_set_overload_3(lua_State *L) {
 		if (!_lg_typecheck_set_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Plane::set(const osg::Vec4f & vec) function, expected prototype:\nvoid osg::Plane::set(const osg::Vec4f & vec)\nClass arguments details:\narg 1 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osg::Plane::set(const osg::Vec4f & vec) function, expected prototype:\nvoid osg::Plane::set(const osg::Vec4f & vec)\nClass arguments details:\narg 1 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4f* vec_ptr=(Luna< osg::Vec4f >::check(L,2));
@@ -608,8 +592,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec4f &). Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(vec);
 
@@ -619,8 +602,7 @@ public:
 	// void osg::Plane::set(const osg::Vec4d & vec)
 	static int _bind_set_overload_4(lua_State *L) {
 		if (!_lg_typecheck_set_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Plane::set(const osg::Vec4d & vec) function, expected prototype:\nvoid osg::Plane::set(const osg::Vec4d & vec)\nClass arguments details:\narg 1 ID = 92303233\n");
+			luaL_error(L, "luna typecheck failed in void osg::Plane::set(const osg::Vec4d & vec) function, expected prototype:\nvoid osg::Plane::set(const osg::Vec4d & vec)\nClass arguments details:\narg 1 ID = 92303233\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4d* vec_ptr=(Luna< osg::Vec4d >::check(L,2));
@@ -631,8 +613,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec4d &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec4d &). Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(vec);
 
@@ -642,8 +623,7 @@ public:
 	// void osg::Plane::set(const osg::Vec3d & norm, double d)
 	static int _bind_set_overload_5(lua_State *L) {
 		if (!_lg_typecheck_set_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Plane::set(const osg::Vec3d & norm, double d) function, expected prototype:\nvoid osg::Plane::set(const osg::Vec3d & norm, double d)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::Plane::set(const osg::Vec3d & norm, double d) function, expected prototype:\nvoid osg::Plane::set(const osg::Vec3d & norm, double d)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* norm_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -655,8 +635,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec3d &, double). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec3d &, double). Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(norm, d);
 
@@ -666,8 +645,7 @@ public:
 	// void osg::Plane::set(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3)
 	static int _bind_set_overload_6(lua_State *L) {
 		if (!_lg_typecheck_set_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Plane::set(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3) function, expected prototype:\nvoid osg::Plane::set(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::Plane::set(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3) function, expected prototype:\nvoid osg::Plane::set(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* v1_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -688,8 +666,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(v1, v2, v3);
 
@@ -699,8 +676,7 @@ public:
 	// void osg::Plane::set(const osg::Vec3d & norm, const osg::Vec3d & point)
 	static int _bind_set_overload_7(lua_State *L) {
 		if (!_lg_typecheck_set_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Plane::set(const osg::Vec3d & norm, const osg::Vec3d & point) function, expected prototype:\nvoid osg::Plane::set(const osg::Vec3d & norm, const osg::Vec3d & point)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::Plane::set(const osg::Vec3d & norm, const osg::Vec3d & point) function, expected prototype:\nvoid osg::Plane::set(const osg::Vec3d & norm, const osg::Vec3d & point)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* norm_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -716,8 +692,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec3d &, const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(norm, point);
 
@@ -741,15 +716,13 @@ public:
 	// void osg::Plane::flip()
 	static int _bind_flip(lua_State *L) {
 		if (!_lg_typecheck_flip(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Plane::flip() function, expected prototype:\nvoid osg::Plane::flip()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Plane::flip() function, expected prototype:\nvoid osg::Plane::flip()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::flip(). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Plane::flip(). Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->flip();
 
@@ -759,15 +732,13 @@ public:
 	// void osg::Plane::makeUnitLength()
 	static int _bind_makeUnitLength(lua_State *L) {
 		if (!_lg_typecheck_makeUnitLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Plane::makeUnitLength() function, expected prototype:\nvoid osg::Plane::makeUnitLength()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Plane::makeUnitLength() function, expected prototype:\nvoid osg::Plane::makeUnitLength()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::makeUnitLength(). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Plane::makeUnitLength(). Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->makeUnitLength();
 
@@ -777,15 +748,13 @@ public:
 	// void osg::Plane::calculateUpperLowerBBCorners()
 	static int _bind_calculateUpperLowerBBCorners(lua_State *L) {
 		if (!_lg_typecheck_calculateUpperLowerBBCorners(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Plane::calculateUpperLowerBBCorners() function, expected prototype:\nvoid osg::Plane::calculateUpperLowerBBCorners()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Plane::calculateUpperLowerBBCorners() function, expected prototype:\nvoid osg::Plane::calculateUpperLowerBBCorners()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::calculateUpperLowerBBCorners(). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Plane::calculateUpperLowerBBCorners(). Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->calculateUpperLowerBBCorners();
 
@@ -795,15 +764,13 @@ public:
 	// bool osg::Plane::valid() const
 	static int _bind_valid(lua_State *L) {
 		if (!_lg_typecheck_valid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Plane::valid() const function, expected prototype:\nbool osg::Plane::valid() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Plane::valid() const function, expected prototype:\nbool osg::Plane::valid() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Plane::valid() const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Plane::valid() const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->valid();
 		lua_pushboolean(L,lret?1:0);
@@ -814,15 +781,13 @@ public:
 	// bool osg::Plane::isNaN() const
 	static int _bind_isNaN(lua_State *L) {
 		if (!_lg_typecheck_isNaN(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Plane::isNaN() const function, expected prototype:\nbool osg::Plane::isNaN() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Plane::isNaN() const function, expected prototype:\nbool osg::Plane::isNaN() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Plane::isNaN() const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Plane::isNaN() const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isNaN();
 		lua_pushboolean(L,lret?1:0);
@@ -833,15 +798,13 @@ public:
 	// double * osg::Plane::ptr()
 	static int _bind_ptr_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ptr_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double * osg::Plane::ptr() function, expected prototype:\ndouble * osg::Plane::ptr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double * osg::Plane::ptr() function, expected prototype:\ndouble * osg::Plane::ptr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double * osg::Plane::ptr(). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double * osg::Plane::ptr(). Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double * lret = self->ptr();
 		lua_pushnumber(L,*lret);
@@ -852,15 +815,13 @@ public:
 	// const double * osg::Plane::ptr() const
 	static int _bind_ptr_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ptr_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const double * osg::Plane::ptr() const function, expected prototype:\nconst double * osg::Plane::ptr() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const double * osg::Plane::ptr() const function, expected prototype:\nconst double * osg::Plane::ptr() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const double * osg::Plane::ptr() const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const double * osg::Plane::ptr() const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const double * lret = self->ptr();
 		lua_pushnumber(L,*lret);
@@ -880,15 +841,13 @@ public:
 	// osg::Vec4d osg::Plane::asVec4() const
 	static int _bind_asVec4(lua_State *L) {
 		if (!_lg_typecheck_asVec4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec4d osg::Plane::asVec4() const function, expected prototype:\nosg::Vec4d osg::Plane::asVec4() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec4d osg::Plane::asVec4() const function, expected prototype:\nosg::Vec4d osg::Plane::asVec4() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4d osg::Plane::asVec4() const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec4d osg::Plane::asVec4() const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec4d stack_lret = self->asVec4();
 		osg::Vec4d* lret = new osg::Vec4d(stack_lret);
@@ -902,15 +861,13 @@ public:
 	// osg::Vec3d osg::Plane::getNormal() const
 	static int _bind_getNormal(lua_State *L) {
 		if (!_lg_typecheck_getNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::Plane::getNormal() const function, expected prototype:\nosg::Vec3d osg::Plane::getNormal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::Plane::getNormal() const function, expected prototype:\nosg::Vec3d osg::Plane::getNormal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Plane::getNormal() const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Plane::getNormal() const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3d stack_lret = self->getNormal();
 		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
@@ -924,8 +881,7 @@ public:
 	// float osg::Plane::distance(const osg::Vec3f & v) const
 	static int _bind_distance_overload_1(lua_State *L) {
 		if (!_lg_typecheck_distance_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::Plane::distance(const osg::Vec3f & v) const function, expected prototype:\nfloat osg::Plane::distance(const osg::Vec3f & v) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osg::Plane::distance(const osg::Vec3f & v) const function, expected prototype:\nfloat osg::Plane::distance(const osg::Vec3f & v) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -936,8 +892,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::Plane::distance(const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::Plane::distance(const osg::Vec3f &) const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->distance(v);
 		lua_pushnumber(L,lret);
@@ -948,8 +903,7 @@ public:
 	// double osg::Plane::distance(const osg::Vec3d & v) const
 	static int _bind_distance_overload_2(lua_State *L) {
 		if (!_lg_typecheck_distance_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Plane::distance(const osg::Vec3d & v) const function, expected prototype:\ndouble osg::Plane::distance(const osg::Vec3d & v) const\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in double osg::Plane::distance(const osg::Vec3d & v) const function, expected prototype:\ndouble osg::Plane::distance(const osg::Vec3d & v) const\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* v_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -960,8 +914,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Plane::distance(const osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::Plane::distance(const osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->distance(v);
 		lua_pushnumber(L,lret);
@@ -981,8 +934,7 @@ public:
 	// float osg::Plane::dotProductNormal(const osg::Vec3f & v) const
 	static int _bind_dotProductNormal_overload_1(lua_State *L) {
 		if (!_lg_typecheck_dotProductNormal_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::Plane::dotProductNormal(const osg::Vec3f & v) const function, expected prototype:\nfloat osg::Plane::dotProductNormal(const osg::Vec3f & v) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osg::Plane::dotProductNormal(const osg::Vec3f & v) const function, expected prototype:\nfloat osg::Plane::dotProductNormal(const osg::Vec3f & v) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -993,8 +945,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::Plane::dotProductNormal(const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::Plane::dotProductNormal(const osg::Vec3f &) const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->dotProductNormal(v);
 		lua_pushnumber(L,lret);
@@ -1005,8 +956,7 @@ public:
 	// double osg::Plane::dotProductNormal(const osg::Vec3d & v) const
 	static int _bind_dotProductNormal_overload_2(lua_State *L) {
 		if (!_lg_typecheck_dotProductNormal_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Plane::dotProductNormal(const osg::Vec3d & v) const function, expected prototype:\ndouble osg::Plane::dotProductNormal(const osg::Vec3d & v) const\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in double osg::Plane::dotProductNormal(const osg::Vec3d & v) const function, expected prototype:\ndouble osg::Plane::dotProductNormal(const osg::Vec3d & v) const\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* v_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1017,8 +967,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Plane::dotProductNormal(const osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::Plane::dotProductNormal(const osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->dotProductNormal(v);
 		lua_pushnumber(L,lret);
@@ -1038,8 +987,7 @@ public:
 	// int osg::Plane::intersect(const std::vector< osg::Vec3f > & vertices) const
 	static int _bind_intersect_overload_1(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const std::vector< osg::Vec3f > & vertices) const function, expected prototype:\nint osg::Plane::intersect(const std::vector< osg::Vec3f > & vertices) const\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const std::vector< osg::Vec3f > & vertices) const function, expected prototype:\nint osg::Plane::intersect(const std::vector< osg::Vec3f > & vertices) const\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const std::vector< osg::Vec3f >* vertices_ptr=(Luna< std::vector< osg::Vec3f > >::check(L,2));
@@ -1050,8 +998,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const std::vector< osg::Vec3f > &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const std::vector< osg::Vec3f > &) const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->intersect(vertices);
 		lua_pushnumber(L,lret);
@@ -1062,8 +1009,7 @@ public:
 	// int osg::Plane::intersect(const std::vector< osg::Vec3d > & vertices) const
 	static int _bind_intersect_overload_2(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const std::vector< osg::Vec3d > & vertices) const function, expected prototype:\nint osg::Plane::intersect(const std::vector< osg::Vec3d > & vertices) const\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const std::vector< osg::Vec3d > & vertices) const function, expected prototype:\nint osg::Plane::intersect(const std::vector< osg::Vec3d > & vertices) const\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const std::vector< osg::Vec3d >* vertices_ptr=(Luna< std::vector< osg::Vec3d > >::check(L,2));
@@ -1074,8 +1020,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const std::vector< osg::Vec3d > &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const std::vector< osg::Vec3d > &) const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->intersect(vertices);
 		lua_pushnumber(L,lret);
@@ -1086,8 +1031,7 @@ public:
 	// int osg::Plane::intersect(const osg::BoundingSphered & bs) const
 	static int _bind_intersect_overload_3(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const osg::BoundingSphered & bs) const function, expected prototype:\nint osg::Plane::intersect(const osg::BoundingSphered & bs) const\nClass arguments details:\narg 1 ID = 54337300\n");
+			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const osg::BoundingSphered & bs) const function, expected prototype:\nint osg::Plane::intersect(const osg::BoundingSphered & bs) const\nClass arguments details:\narg 1 ID = 54337300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
@@ -1098,8 +1042,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const osg::BoundingSphered &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const osg::BoundingSphered &) const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->intersect(bs);
 		lua_pushnumber(L,lret);
@@ -1110,8 +1053,7 @@ public:
 	// int osg::Plane::intersect(const osg::BoundingBoxd & bb) const
 	static int _bind_intersect_overload_4(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const osg::BoundingBoxd & bb) const function, expected prototype:\nint osg::Plane::intersect(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n");
+			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const osg::BoundingBoxd & bb) const function, expected prototype:\nint osg::Plane::intersect(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
@@ -1122,8 +1064,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const osg::BoundingBoxd &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const osg::BoundingBoxd &) const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->intersect(bb);
 		lua_pushnumber(L,lret);
@@ -1145,8 +1086,7 @@ public:
 	// void osg::Plane::transform(const osg::Matrixd & matrix)
 	static int _bind_transform(lua_State *L) {
 		if (!_lg_typecheck_transform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Plane::transform(const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::Plane::transform(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::Plane::transform(const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::Plane::transform(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -1157,8 +1097,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::transform(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Plane::transform(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->transform(matrix);
 
@@ -1168,8 +1107,7 @@ public:
 	// void osg::Plane::transformProvidingInverse(const osg::Matrixd & matrix)
 	static int _bind_transformProvidingInverse(lua_State *L) {
 		if (!_lg_typecheck_transformProvidingInverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Plane::transformProvidingInverse(const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::Plane::transformProvidingInverse(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::Plane::transformProvidingInverse(const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::Plane::transformProvidingInverse(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -1180,8 +1118,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::transformProvidingInverse(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Plane::transformProvidingInverse(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->transformProvidingInverse(matrix);
 
@@ -1193,8 +1130,7 @@ public:
 	// osg::Plane & osg::Plane::operator=(const osg::Plane & pl)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Plane & osg::Plane::operator=(const osg::Plane & pl) function, expected prototype:\nosg::Plane & osg::Plane::operator=(const osg::Plane & pl)\nClass arguments details:\narg 1 ID = 86970521\n");
+			luaL_error(L, "luna typecheck failed in osg::Plane & osg::Plane::operator=(const osg::Plane & pl) function, expected prototype:\nosg::Plane & osg::Plane::operator=(const osg::Plane & pl)\nClass arguments details:\narg 1 ID = 86970521\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Plane* pl_ptr=(Luna< osg::Plane >::check(L,2));
@@ -1205,8 +1141,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Plane & osg::Plane::operator=(const osg::Plane &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Plane & osg::Plane::operator=(const osg::Plane &). Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Plane* lret = &self->operator=(pl);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1219,8 +1154,7 @@ public:
 	// bool osg::Plane::operator==(const osg::Plane & plane) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Plane::operator==(const osg::Plane & plane) const function, expected prototype:\nbool osg::Plane::operator==(const osg::Plane & plane) const\nClass arguments details:\narg 1 ID = 86970521\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Plane::operator==(const osg::Plane & plane) const function, expected prototype:\nbool osg::Plane::operator==(const osg::Plane & plane) const\nClass arguments details:\narg 1 ID = 86970521\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Plane* plane_ptr=(Luna< osg::Plane >::check(L,2));
@@ -1231,8 +1165,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Plane::operator==(const osg::Plane &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Plane::operator==(const osg::Plane &) const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(plane);
 		lua_pushboolean(L,lret?1:0);
@@ -1243,8 +1176,7 @@ public:
 	// bool osg::Plane::operator!=(const osg::Plane & plane) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Plane::operator!=(const osg::Plane & plane) const function, expected prototype:\nbool osg::Plane::operator!=(const osg::Plane & plane) const\nClass arguments details:\narg 1 ID = 86970521\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Plane::operator!=(const osg::Plane & plane) const function, expected prototype:\nbool osg::Plane::operator!=(const osg::Plane & plane) const\nClass arguments details:\narg 1 ID = 86970521\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Plane* plane_ptr=(Luna< osg::Plane >::check(L,2));
@@ -1255,8 +1187,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Plane::operator!=(const osg::Plane &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Plane::operator!=(const osg::Plane &) const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(plane);
 		lua_pushboolean(L,lret?1:0);
@@ -1267,8 +1198,7 @@ public:
 	// bool osg::Plane::operator<(const osg::Plane & plane) const
 	static int _bind___lt(lua_State *L) {
 		if (!_lg_typecheck___lt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Plane::operator<(const osg::Plane & plane) const function, expected prototype:\nbool osg::Plane::operator<(const osg::Plane & plane) const\nClass arguments details:\narg 1 ID = 86970521\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Plane::operator<(const osg::Plane & plane) const function, expected prototype:\nbool osg::Plane::operator<(const osg::Plane & plane) const\nClass arguments details:\narg 1 ID = 86970521\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Plane* plane_ptr=(Luna< osg::Plane >::check(L,2));
@@ -1279,8 +1209,7 @@ public:
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Plane::operator<(const osg::Plane &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Plane::operator<(const osg::Plane &) const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator<(plane);
 		lua_pushboolean(L,lret?1:0);
@@ -1291,16 +1220,14 @@ public:
 	// double & osg::Plane::operator[](unsigned int i)
 	static int _bind_op_index_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double & osg::Plane::operator[](unsigned int i) function, expected prototype:\ndouble & osg::Plane::operator[](unsigned int i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double & osg::Plane::operator[](unsigned int i) function, expected prototype:\ndouble & osg::Plane::operator[](unsigned int i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double & osg::Plane::operator[](unsigned int). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double & osg::Plane::operator[](unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double & lret = self->operator[](i);
 		lua_pushnumber(L,lret);
@@ -1311,16 +1238,14 @@ public:
 	// double osg::Plane::operator[](unsigned int i) const
 	static int _bind_op_index_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Plane::operator[](unsigned int i) const function, expected prototype:\ndouble osg::Plane::operator[](unsigned int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::Plane::operator[](unsigned int i) const function, expected prototype:\ndouble osg::Plane::operator[](unsigned int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Plane::operator[](unsigned int) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::Plane::operator[](unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Plane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->operator[](i);
 		lua_pushnumber(L,lret);

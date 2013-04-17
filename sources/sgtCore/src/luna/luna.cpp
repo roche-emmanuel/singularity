@@ -24,8 +24,7 @@ std::string luna_getTypeName(long hash) {
 	return it->second;
 }
 
-void luna_printStack(lua_State* L, bool compact)
-{
+std::string luna_dumpStack(lua_State* L) {
 	std::ostringstream os;
 
 
@@ -35,7 +34,7 @@ void luna_printStack(lua_State* L, bool compact)
 		
 		int lt = lua_type(L,ist);
 		
-		os << " " << ist <<": ";
+		os << "  " << ist <<": ";
 
 		if(lt == LUA_TNIL) {
 			os << "[nil]";
@@ -80,7 +79,13 @@ void luna_printStack(lua_State* L, bool compact)
 		os << "\n";
 	}
 	
-	trDEBUG("Luna",os.str().c_str());
+	return os.str();
+}
+
+void luna_printStack(lua_State* L, bool compact)
+{
+	std::string str = luna_dumpStack(L);
+	trDEBUG("Luna",str.c_str());
 }
 
 void luna_dostring(lua_State* L, const char* luacode)

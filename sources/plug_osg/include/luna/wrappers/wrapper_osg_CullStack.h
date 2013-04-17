@@ -108,15 +108,13 @@ public:
 	// void osg::CullStack::public_computeFrustumVolume()
 	static int _bind_public_computeFrustumVolume(lua_State *L) {
 		if (!_lg_typecheck_public_computeFrustumVolume(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CullStack::public_computeFrustumVolume() function, expected prototype:\nvoid osg::CullStack::public_computeFrustumVolume()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::CullStack::public_computeFrustumVolume() function, expected prototype:\nvoid osg::CullStack::public_computeFrustumVolume()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osg_CullStack* self=Luna< osg::CullSettings >::checkSubType< wrapper_osg_CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::public_computeFrustumVolume(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::CullStack::public_computeFrustumVolume(). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computeFrustumVolume();
 
@@ -126,8 +124,7 @@ public:
 	// osg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd & value)
 	static int _bind_public_createOrReuseMatrix(lua_State *L) {
 		if (!_lg_typecheck_public_createOrReuseMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd & value) function, expected prototype:\nosg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd & value)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in osg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd & value) function, expected prototype:\nosg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd & value)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* value_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -138,8 +135,7 @@ public:
 
 		wrapper_osg_CullStack* self=Luna< osg::CullSettings >::checkSubType< wrapper_osg_CullStack >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::CullSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::RefMatrixd * lret = self->public_createOrReuseMatrix(value);
 		if(!lret) return 0; // Do not write NULL pointers.

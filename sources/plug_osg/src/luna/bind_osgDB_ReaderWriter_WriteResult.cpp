@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ReaderWriter::WriteResult*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ReaderWriter::WriteResult*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ReaderWriter::WriteResult* rhs =(Luna< osgDB::ReaderWriter::WriteResult >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ReaderWriter::WriteResult* self= (osgDB::ReaderWriter::WriteResult*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -168,8 +164,7 @@ public:
 	// osgDB::ReaderWriter::WriteResult::WriteResult(const std::string & m)
 	static osgDB::ReaderWriter::WriteResult* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult::WriteResult(const std::string & m) function, expected prototype:\nosgDB::ReaderWriter::WriteResult::WriteResult(const std::string & m)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult::WriteResult(const std::string & m) function, expected prototype:\nosgDB::ReaderWriter::WriteResult::WriteResult(const std::string & m)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string m(lua_tostring(L,1),lua_objlen(L,1));
@@ -180,8 +175,7 @@ public:
 	// osgDB::ReaderWriter::WriteResult::WriteResult(const osgDB::ReaderWriter::WriteResult & rr)
 	static osgDB::ReaderWriter::WriteResult* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult::WriteResult(const osgDB::ReaderWriter::WriteResult & rr) function, expected prototype:\nosgDB::ReaderWriter::WriteResult::WriteResult(const osgDB::ReaderWriter::WriteResult & rr)\nClass arguments details:\narg 1 ID = 54653644\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult::WriteResult(const osgDB::ReaderWriter::WriteResult & rr) function, expected prototype:\nosgDB::ReaderWriter::WriteResult::WriteResult(const osgDB::ReaderWriter::WriteResult & rr)\nClass arguments details:\narg 1 ID = 54653644\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgDB::ReaderWriter::WriteResult* rr_ptr=(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1));
@@ -207,15 +201,13 @@ public:
 	// std::string & osgDB::ReaderWriter::WriteResult::message()
 	static int _bind_message_overload_1(lua_State *L) {
 		if (!_lg_typecheck_message_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string & osgDB::ReaderWriter::WriteResult::message() function, expected prototype:\nstd::string & osgDB::ReaderWriter::WriteResult::message()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string & osgDB::ReaderWriter::WriteResult::message() function, expected prototype:\nstd::string & osgDB::ReaderWriter::WriteResult::message()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ReaderWriter::WriteResult* self=(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string & osgDB::ReaderWriter::WriteResult::message(). Got : '%s'",typeid(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string & osgDB::ReaderWriter::WriteResult::message(). Got : '%s'\n%s",typeid(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string & lret = self->message();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -226,15 +218,13 @@ public:
 	// const std::string & osgDB::ReaderWriter::WriteResult::message() const
 	static int _bind_message_overload_2(lua_State *L) {
 		if (!_lg_typecheck_message_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osgDB::ReaderWriter::WriteResult::message() const function, expected prototype:\nconst std::string & osgDB::ReaderWriter::WriteResult::message() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osgDB::ReaderWriter::WriteResult::message() const function, expected prototype:\nconst std::string & osgDB::ReaderWriter::WriteResult::message() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ReaderWriter::WriteResult* self=(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::ReaderWriter::WriteResult::message() const. Got : '%s'",typeid(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::ReaderWriter::WriteResult::message() const. Got : '%s'\n%s",typeid(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->message();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -254,15 +244,13 @@ public:
 	// osgDB::ReaderWriter::WriteResult::WriteStatus osgDB::ReaderWriter::WriteResult::status() const
 	static int _bind_status(lua_State *L) {
 		if (!_lg_typecheck_status(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult::WriteStatus osgDB::ReaderWriter::WriteResult::status() const function, expected prototype:\nosgDB::ReaderWriter::WriteResult::WriteStatus osgDB::ReaderWriter::WriteResult::status() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult::WriteStatus osgDB::ReaderWriter::WriteResult::status() const function, expected prototype:\nosgDB::ReaderWriter::WriteResult::WriteStatus osgDB::ReaderWriter::WriteResult::status() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ReaderWriter::WriteResult* self=(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult::WriteStatus osgDB::ReaderWriter::WriteResult::status() const. Got : '%s'",typeid(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult::WriteStatus osgDB::ReaderWriter::WriteResult::status() const. Got : '%s'\n%s",typeid(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::ReaderWriter::WriteResult::WriteStatus lret = self->status();
 		lua_pushnumber(L,lret);
@@ -273,15 +261,13 @@ public:
 	// bool osgDB::ReaderWriter::WriteResult::success() const
 	static int _bind_success(lua_State *L) {
 		if (!_lg_typecheck_success(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::ReaderWriter::WriteResult::success() const function, expected prototype:\nbool osgDB::ReaderWriter::WriteResult::success() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::ReaderWriter::WriteResult::success() const function, expected prototype:\nbool osgDB::ReaderWriter::WriteResult::success() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ReaderWriter::WriteResult* self=(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::WriteResult::success() const. Got : '%s'",typeid(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::WriteResult::success() const. Got : '%s'\n%s",typeid(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->success();
 		lua_pushboolean(L,lret?1:0);
@@ -292,15 +278,13 @@ public:
 	// bool osgDB::ReaderWriter::WriteResult::error() const
 	static int _bind_error(lua_State *L) {
 		if (!_lg_typecheck_error(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::ReaderWriter::WriteResult::error() const function, expected prototype:\nbool osgDB::ReaderWriter::WriteResult::error() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::ReaderWriter::WriteResult::error() const function, expected prototype:\nbool osgDB::ReaderWriter::WriteResult::error() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ReaderWriter::WriteResult* self=(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::WriteResult::error() const. Got : '%s'",typeid(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::WriteResult::error() const. Got : '%s'\n%s",typeid(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->error();
 		lua_pushboolean(L,lret?1:0);
@@ -311,15 +295,13 @@ public:
 	// bool osgDB::ReaderWriter::WriteResult::notHandled() const
 	static int _bind_notHandled(lua_State *L) {
 		if (!_lg_typecheck_notHandled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::ReaderWriter::WriteResult::notHandled() const function, expected prototype:\nbool osgDB::ReaderWriter::WriteResult::notHandled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::ReaderWriter::WriteResult::notHandled() const function, expected prototype:\nbool osgDB::ReaderWriter::WriteResult::notHandled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ReaderWriter::WriteResult* self=(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::WriteResult::notHandled() const. Got : '%s'",typeid(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::WriteResult::notHandled() const. Got : '%s'\n%s",typeid(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->notHandled();
 		lua_pushboolean(L,lret?1:0);
@@ -332,8 +314,7 @@ public:
 	// osgDB::ReaderWriter::WriteResult & osgDB::ReaderWriter::WriteResult::operator=(const osgDB::ReaderWriter::WriteResult & rr)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult & osgDB::ReaderWriter::WriteResult::operator=(const osgDB::ReaderWriter::WriteResult & rr) function, expected prototype:\nosgDB::ReaderWriter::WriteResult & osgDB::ReaderWriter::WriteResult::operator=(const osgDB::ReaderWriter::WriteResult & rr)\nClass arguments details:\narg 1 ID = 54653644\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult & osgDB::ReaderWriter::WriteResult::operator=(const osgDB::ReaderWriter::WriteResult & rr) function, expected prototype:\nosgDB::ReaderWriter::WriteResult & osgDB::ReaderWriter::WriteResult::operator=(const osgDB::ReaderWriter::WriteResult & rr)\nClass arguments details:\narg 1 ID = 54653644\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgDB::ReaderWriter::WriteResult* rr_ptr=(Luna< osgDB::ReaderWriter::WriteResult >::check(L,2));
@@ -344,8 +325,7 @@ public:
 
 		osgDB::ReaderWriter::WriteResult* self=(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult & osgDB::ReaderWriter::WriteResult::operator=(const osgDB::ReaderWriter::WriteResult &). Got : '%s'",typeid(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult & osgDB::ReaderWriter::WriteResult::operator=(const osgDB::ReaderWriter::WriteResult &). Got : '%s'\n%s",typeid(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgDB::ReaderWriter::WriteResult* lret = &self->operator=(rr);
 		if(!lret) return 0; // Do not write NULL pointers.

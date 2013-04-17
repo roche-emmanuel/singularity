@@ -103,9 +103,9 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	luna_pushModule(L,"osg");
 	Luna< osg::KdTree::Triangle >::Register(L);
 	Luna< osg::Program::UniformBlockInfo >::Register(L);
+	Luna< osg::Drawable::UpdateCallback >::Register(L);
 	Luna< osg::StateAttributeCallback >::Register(L);
 	Luna< osg::Image::UpdateCallback >::Register(L);
-	Luna< osg::Drawable::UpdateCallback >::Register(L);
 	Luna< osg::View::Slave::UpdateSlaveCallback >::Register(L);
 	Luna< osg::Geometry::Vec3ArrayData >::Register(L);
 	Luna< osg::GraphicsContext::WindowingSystemInterface >::Register(L);
@@ -198,7 +198,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::TemplateValueObject< osg::Plane > >::Register(L);
 	Luna< osg::TemplateValueObject< osg::Matrixf > >::Register(L);
 	Luna< osg::TemplateValueObject< osg::Matrixd > >::Register(L);
-	Luna< std::vector< osg::Vec3d > >::Register(L);
 	Luna< std::vector< osg::StateSet const * > >::Register(L);
 	Luna< osg::StateAttribute >::Register(L);
 	Luna< osg::AlphaFunc >::Register(L);
@@ -562,6 +561,9 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::NodePathList >::Register(L);
 	Luna< osg::Matrix3 >::Register(L);
 	Luna< osg::Matrix3d >::Register(L);
+	Luna< osg::Vec2dVector >::Register(L);
+	Luna< osg::Vec3dVector >::Register(L);
+	Luna< osg::Vec4dVector >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"osgDB");
 	Luna< std::deque< std::string > >::Register(L);

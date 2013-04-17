@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::EdgeCollector*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::EdgeCollector*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::EdgeCollector* rhs =(Luna< osgUtil::EdgeCollector >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::EdgeCollector* self= (osgUtil::EdgeCollector*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgUtil::EdgeCollector >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -262,16 +258,14 @@ public:
 	// void osgUtil::EdgeCollector::setGeometry(osg::Geometry * geometry)
 	static int _bind_setGeometry(lua_State *L) {
 		if (!_lg_typecheck_setGeometry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::setGeometry(osg::Geometry * geometry) function, expected prototype:\nvoid osgUtil::EdgeCollector::setGeometry(osg::Geometry * geometry)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::setGeometry(osg::Geometry * geometry) function, expected prototype:\nvoid osgUtil::EdgeCollector::setGeometry(osg::Geometry * geometry)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geometry* geometry=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::setGeometry(osg::Geometry *). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::setGeometry(osg::Geometry *). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setGeometry(geometry);
 
@@ -281,15 +275,13 @@ public:
 	// osg::Geometry * osgUtil::EdgeCollector::getGeometry()
 	static int _bind_getGeometry(lua_State *L) {
 		if (!_lg_typecheck_getGeometry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geometry * osgUtil::EdgeCollector::getGeometry() function, expected prototype:\nosg::Geometry * osgUtil::EdgeCollector::getGeometry()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Geometry * osgUtil::EdgeCollector::getGeometry() function, expected prototype:\nosg::Geometry * osgUtil::EdgeCollector::getGeometry()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgUtil::EdgeCollector::getGeometry(). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgUtil::EdgeCollector::getGeometry(). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Geometry * lret = self->getGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -302,15 +294,13 @@ public:
 	// unsigned int osgUtil::EdgeCollector::getNumOfTriangles()
 	static int _bind_getNumOfTriangles(lua_State *L) {
 		if (!_lg_typecheck_getNumOfTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::EdgeCollector::getNumOfTriangles() function, expected prototype:\nunsigned int osgUtil::EdgeCollector::getNumOfTriangles()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::EdgeCollector::getNumOfTriangles() function, expected prototype:\nunsigned int osgUtil::EdgeCollector::getNumOfTriangles()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::EdgeCollector::getNumOfTriangles(). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::EdgeCollector::getNumOfTriangles(). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getNumOfTriangles();
 		lua_pushnumber(L,lret);
@@ -321,8 +311,7 @@ public:
 	// osgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(unsigned int p1, unsigned int p2, unsigned int p3)
 	static int _bind_addTriangle_overload_1(lua_State *L) {
 		if (!_lg_typecheck_addTriangle_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(unsigned int p1, unsigned int p2, unsigned int p3) function, expected prototype:\nosgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(unsigned int p1, unsigned int p2, unsigned int p3)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(unsigned int p1, unsigned int p2, unsigned int p3) function, expected prototype:\nosgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(unsigned int p1, unsigned int p2, unsigned int p3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int p1=(unsigned int)lua_tointeger(L,2);
@@ -331,8 +320,7 @@ public:
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(unsigned int, unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::EdgeCollector::Triangle * lret = self->addTriangle(p1, p2, p3);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -345,8 +333,7 @@ public:
 	// osgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2, osgUtil::EdgeCollector::Point * p3)
 	static int _bind_addTriangle_overload_2(lua_State *L) {
 		if (!_lg_typecheck_addTriangle_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2, osgUtil::EdgeCollector::Point * p3) function, expected prototype:\nosgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2, osgUtil::EdgeCollector::Point * p3)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2, osgUtil::EdgeCollector::Point * p3) function, expected prototype:\nosgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2, osgUtil::EdgeCollector::Point * p3)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::EdgeCollector::Point* p1=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,2));
@@ -355,8 +342,7 @@ public:
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(osgUtil::EdgeCollector::Point *, osgUtil::EdgeCollector::Point *, osgUtil::EdgeCollector::Point *). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(osgUtil::EdgeCollector::Point *, osgUtil::EdgeCollector::Point *, osgUtil::EdgeCollector::Point *). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::EdgeCollector::Triangle * lret = self->addTriangle(p1, p2, p3);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -378,8 +364,7 @@ public:
 	// osgUtil::EdgeCollector::Edge * osgUtil::EdgeCollector::addEdge(osgUtil::EdgeCollector::Triangle * triangle, osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2)
 	static int _bind_addEdge(lua_State *L) {
 		if (!_lg_typecheck_addEdge(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Edge * osgUtil::EdgeCollector::addEdge(osgUtil::EdgeCollector::Triangle * triangle, osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2) function, expected prototype:\nosgUtil::EdgeCollector::Edge * osgUtil::EdgeCollector::addEdge(osgUtil::EdgeCollector::Triangle * triangle, osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Edge * osgUtil::EdgeCollector::addEdge(osgUtil::EdgeCollector::Triangle * triangle, osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2) function, expected prototype:\nosgUtil::EdgeCollector::Edge * osgUtil::EdgeCollector::addEdge(osgUtil::EdgeCollector::Triangle * triangle, osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::EdgeCollector::Triangle* triangle=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Triangle >(L,2));
@@ -388,8 +373,7 @@ public:
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Edge * osgUtil::EdgeCollector::addEdge(osgUtil::EdgeCollector::Triangle *, osgUtil::EdgeCollector::Point *, osgUtil::EdgeCollector::Point *). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Edge * osgUtil::EdgeCollector::addEdge(osgUtil::EdgeCollector::Triangle *, osgUtil::EdgeCollector::Point *, osgUtil::EdgeCollector::Point *). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::EdgeCollector::Edge * lret = self->addEdge(triangle, p1, p2);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -402,8 +386,7 @@ public:
 	// osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle * triangle, unsigned int p1)
 	static int _bind_addPoint_overload_1(lua_State *L) {
 		if (!_lg_typecheck_addPoint_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle * triangle, unsigned int p1) function, expected prototype:\nosgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle * triangle, unsigned int p1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle * triangle, unsigned int p1) function, expected prototype:\nosgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle * triangle, unsigned int p1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::EdgeCollector::Triangle* triangle=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Triangle >(L,2));
@@ -411,8 +394,7 @@ public:
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle *, unsigned int). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle *, unsigned int). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::EdgeCollector::Point * lret = self->addPoint(triangle, p1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -425,8 +407,7 @@ public:
 	// osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle * triangle, osgUtil::EdgeCollector::Point * point)
 	static int _bind_addPoint_overload_2(lua_State *L) {
 		if (!_lg_typecheck_addPoint_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle * triangle, osgUtil::EdgeCollector::Point * point) function, expected prototype:\nosgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle * triangle, osgUtil::EdgeCollector::Point * point)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle * triangle, osgUtil::EdgeCollector::Point * point) function, expected prototype:\nosgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle * triangle, osgUtil::EdgeCollector::Point * point)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::EdgeCollector::Triangle* triangle=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Triangle >(L,2));
@@ -434,8 +415,7 @@ public:
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle *, osgUtil::EdgeCollector::Point *). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle *, osgUtil::EdgeCollector::Point *). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::EdgeCollector::Point * lret = self->addPoint(triangle, point);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -457,8 +437,7 @@ public:
 	// void osgUtil::EdgeCollector::getBoundaryEdgeList(osgUtil::EdgeCollector::EdgeList & el)
 	static int _bind_getBoundaryEdgeList(lua_State *L) {
 		if (!_lg_typecheck_getBoundaryEdgeList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::getBoundaryEdgeList(osgUtil::EdgeCollector::EdgeList & el) function, expected prototype:\nvoid osgUtil::EdgeCollector::getBoundaryEdgeList(osgUtil::EdgeCollector::EdgeList & el)\nClass arguments details:\narg 1 ID = 66168244\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::getBoundaryEdgeList(osgUtil::EdgeCollector::EdgeList & el) function, expected prototype:\nvoid osgUtil::EdgeCollector::getBoundaryEdgeList(osgUtil::EdgeCollector::EdgeList & el)\nClass arguments details:\narg 1 ID = 66168244\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::EdgeCollector::EdgeList* el_ptr=(Luna< std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > > >::checkSubType< osgUtil::EdgeCollector::EdgeList >(L,2));
@@ -469,8 +448,7 @@ public:
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::getBoundaryEdgeList(osgUtil::EdgeCollector::EdgeList &). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::getBoundaryEdgeList(osgUtil::EdgeCollector::EdgeList &). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getBoundaryEdgeList(el);
 
@@ -480,8 +458,7 @@ public:
 	// bool osgUtil::EdgeCollector::extractBoundaryEdgeloop(osgUtil::EdgeCollector::EdgeList & el, osgUtil::EdgeCollector::Edgeloop & edgeloop)
 	static int _bind_extractBoundaryEdgeloop(lua_State *L) {
 		if (!_lg_typecheck_extractBoundaryEdgeloop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::EdgeCollector::extractBoundaryEdgeloop(osgUtil::EdgeCollector::EdgeList & el, osgUtil::EdgeCollector::Edgeloop & edgeloop) function, expected prototype:\nbool osgUtil::EdgeCollector::extractBoundaryEdgeloop(osgUtil::EdgeCollector::EdgeList & el, osgUtil::EdgeCollector::Edgeloop & edgeloop)\nClass arguments details:\narg 1 ID = 66168244\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::EdgeCollector::extractBoundaryEdgeloop(osgUtil::EdgeCollector::EdgeList & el, osgUtil::EdgeCollector::Edgeloop & edgeloop) function, expected prototype:\nbool osgUtil::EdgeCollector::extractBoundaryEdgeloop(osgUtil::EdgeCollector::EdgeList & el, osgUtil::EdgeCollector::Edgeloop & edgeloop)\nClass arguments details:\narg 1 ID = 66168244\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::EdgeCollector::EdgeList* el_ptr=(Luna< std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > > >::checkSubType< osgUtil::EdgeCollector::EdgeList >(L,2));
@@ -497,8 +474,7 @@ public:
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::extractBoundaryEdgeloop(osgUtil::EdgeCollector::EdgeList &, osgUtil::EdgeCollector::Edgeloop &). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::extractBoundaryEdgeloop(osgUtil::EdgeCollector::EdgeList &, osgUtil::EdgeCollector::Edgeloop &). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->extractBoundaryEdgeloop(el, edgeloop);
 		lua_pushboolean(L,lret?1:0);
@@ -509,8 +485,7 @@ public:
 	// bool osgUtil::EdgeCollector::extractBoundaryEdgeloopList(osgUtil::EdgeCollector::EdgeList & el, osgUtil::EdgeCollector::EdgeloopList & edgeloopList)
 	static int _bind_extractBoundaryEdgeloopList(lua_State *L) {
 		if (!_lg_typecheck_extractBoundaryEdgeloopList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::EdgeCollector::extractBoundaryEdgeloopList(osgUtil::EdgeCollector::EdgeList & el, osgUtil::EdgeCollector::EdgeloopList & edgeloopList) function, expected prototype:\nbool osgUtil::EdgeCollector::extractBoundaryEdgeloopList(osgUtil::EdgeCollector::EdgeList & el, osgUtil::EdgeCollector::EdgeloopList & edgeloopList)\nClass arguments details:\narg 1 ID = 66168244\narg 2 ID = 55216760\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::EdgeCollector::extractBoundaryEdgeloopList(osgUtil::EdgeCollector::EdgeList & el, osgUtil::EdgeCollector::EdgeloopList & edgeloopList) function, expected prototype:\nbool osgUtil::EdgeCollector::extractBoundaryEdgeloopList(osgUtil::EdgeCollector::EdgeList & el, osgUtil::EdgeCollector::EdgeloopList & edgeloopList)\nClass arguments details:\narg 1 ID = 66168244\narg 2 ID = 55216760\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::EdgeCollector::EdgeList* el_ptr=(Luna< std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > > >::checkSubType< osgUtil::EdgeCollector::EdgeList >(L,2));
@@ -526,8 +501,7 @@ public:
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::extractBoundaryEdgeloopList(osgUtil::EdgeCollector::EdgeList &, osgUtil::EdgeCollector::EdgeloopList &). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::extractBoundaryEdgeloopList(osgUtil::EdgeCollector::EdgeList &, osgUtil::EdgeCollector::EdgeloopList &). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->extractBoundaryEdgeloopList(el, edgeloopList);
 		lua_pushboolean(L,lret?1:0);
@@ -538,8 +512,7 @@ public:
 	// void osgUtil::EdgeCollector::getEdgeloopIndexList(osgUtil::EdgeCollector::IndexArrayList & ial)
 	static int _bind_getEdgeloopIndexList(lua_State *L) {
 		if (!_lg_typecheck_getEdgeloopIndexList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::getEdgeloopIndexList(osgUtil::EdgeCollector::IndexArrayList & ial) function, expected prototype:\nvoid osgUtil::EdgeCollector::getEdgeloopIndexList(osgUtil::EdgeCollector::IndexArrayList & ial)\nClass arguments details:\narg 1 ID = 655286\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::getEdgeloopIndexList(osgUtil::EdgeCollector::IndexArrayList & ial) function, expected prototype:\nvoid osgUtil::EdgeCollector::getEdgeloopIndexList(osgUtil::EdgeCollector::IndexArrayList & ial)\nClass arguments details:\narg 1 ID = 655286\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::EdgeCollector::IndexArrayList* ial_ptr=(Luna< std::list< osg::ref_ptr< osg::UIntArray > > >::checkSubType< osgUtil::EdgeCollector::IndexArrayList >(L,2));
@@ -550,8 +523,7 @@ public:
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::getEdgeloopIndexList(osgUtil::EdgeCollector::IndexArrayList &). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::getEdgeloopIndexList(osgUtil::EdgeCollector::IndexArrayList &). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getEdgeloopIndexList(ial);
 
@@ -561,15 +533,13 @@ public:
 	// osgUtil::EdgeCollector::EdgeSet osgUtil::EdgeCollector::_edgeSet()
 	static int _bind_getEdgeSet(lua_State *L) {
 		if (!_lg_typecheck_getEdgeSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::EdgeSet osgUtil::EdgeCollector::_edgeSet() function, expected prototype:\nosgUtil::EdgeCollector::EdgeSet osgUtil::EdgeCollector::_edgeSet()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::EdgeSet osgUtil::EdgeCollector::_edgeSet() function, expected prototype:\nosgUtil::EdgeCollector::EdgeSet osgUtil::EdgeCollector::_edgeSet()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::EdgeSet osgUtil::EdgeCollector::_edgeSet(). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::EdgeSet osgUtil::EdgeCollector::_edgeSet(). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::EdgeCollector::EdgeSet* lret = &self->_edgeSet;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -582,15 +552,13 @@ public:
 	// osgUtil::EdgeCollector::TriangleSet osgUtil::EdgeCollector::_triangleSet()
 	static int _bind_getTriangleSet(lua_State *L) {
 		if (!_lg_typecheck_getTriangleSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::TriangleSet osgUtil::EdgeCollector::_triangleSet() function, expected prototype:\nosgUtil::EdgeCollector::TriangleSet osgUtil::EdgeCollector::_triangleSet()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::TriangleSet osgUtil::EdgeCollector::_triangleSet() function, expected prototype:\nosgUtil::EdgeCollector::TriangleSet osgUtil::EdgeCollector::_triangleSet()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::TriangleSet osgUtil::EdgeCollector::_triangleSet(). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::TriangleSet osgUtil::EdgeCollector::_triangleSet(). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::EdgeCollector::TriangleSet* lret = &self->_triangleSet;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -603,15 +571,13 @@ public:
 	// osgUtil::EdgeCollector::PointSet osgUtil::EdgeCollector::_pointSet()
 	static int _bind_getPointSet(lua_State *L) {
 		if (!_lg_typecheck_getPointSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::PointSet osgUtil::EdgeCollector::_pointSet() function, expected prototype:\nosgUtil::EdgeCollector::PointSet osgUtil::EdgeCollector::_pointSet()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::PointSet osgUtil::EdgeCollector::_pointSet() function, expected prototype:\nosgUtil::EdgeCollector::PointSet osgUtil::EdgeCollector::_pointSet()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::PointSet osgUtil::EdgeCollector::_pointSet(). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::PointSet osgUtil::EdgeCollector::_pointSet(). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::EdgeCollector::PointSet* lret = &self->_pointSet;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -624,15 +590,13 @@ public:
 	// osgUtil::EdgeCollector::PointList osgUtil::EdgeCollector::_originalPointList()
 	static int _bind_getOriginalPointList(lua_State *L) {
 		if (!_lg_typecheck_getOriginalPointList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::PointList osgUtil::EdgeCollector::_originalPointList() function, expected prototype:\nosgUtil::EdgeCollector::PointList osgUtil::EdgeCollector::_originalPointList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::PointList osgUtil::EdgeCollector::_originalPointList() function, expected prototype:\nosgUtil::EdgeCollector::PointList osgUtil::EdgeCollector::_originalPointList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::PointList osgUtil::EdgeCollector::_originalPointList(). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::PointList osgUtil::EdgeCollector::_originalPointList(). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgUtil::EdgeCollector::PointList* lret = &self->_originalPointList;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -645,8 +609,7 @@ public:
 	// void osgUtil::EdgeCollector::_edgeSet(osgUtil::EdgeCollector::EdgeSet value)
 	static int _bind_setEdgeSet(lua_State *L) {
 		if (!_lg_typecheck_setEdgeSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::_edgeSet(osgUtil::EdgeCollector::EdgeSet value) function, expected prototype:\nvoid osgUtil::EdgeCollector::_edgeSet(osgUtil::EdgeCollector::EdgeSet value)\nClass arguments details:\narg 1 ID = 50528172\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::_edgeSet(osgUtil::EdgeCollector::EdgeSet value) function, expected prototype:\nvoid osgUtil::EdgeCollector::_edgeSet(osgUtil::EdgeCollector::EdgeSet value)\nClass arguments details:\narg 1 ID = 50528172\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::EdgeCollector::EdgeSet* value_ptr=(Luna< std::set< osg::ref_ptr< osgUtil::EdgeCollector::Edge >, osgUtil::dereference_less > >::checkSubType< osgUtil::EdgeCollector::EdgeSet >(L,2));
@@ -657,8 +620,7 @@ public:
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::_edgeSet(osgUtil::EdgeCollector::EdgeSet). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::_edgeSet(osgUtil::EdgeCollector::EdgeSet). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_edgeSet = value;
 
@@ -668,8 +630,7 @@ public:
 	// void osgUtil::EdgeCollector::_triangleSet(osgUtil::EdgeCollector::TriangleSet value)
 	static int _bind_setTriangleSet(lua_State *L) {
 		if (!_lg_typecheck_setTriangleSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::_triangleSet(osgUtil::EdgeCollector::TriangleSet value) function, expected prototype:\nvoid osgUtil::EdgeCollector::_triangleSet(osgUtil::EdgeCollector::TriangleSet value)\nClass arguments details:\narg 1 ID = 62987903\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::_triangleSet(osgUtil::EdgeCollector::TriangleSet value) function, expected prototype:\nvoid osgUtil::EdgeCollector::_triangleSet(osgUtil::EdgeCollector::TriangleSet value)\nClass arguments details:\narg 1 ID = 62987903\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::EdgeCollector::TriangleSet* value_ptr=(Luna< std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > >::checkSubType< osgUtil::EdgeCollector::TriangleSet >(L,2));
@@ -680,8 +641,7 @@ public:
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::_triangleSet(osgUtil::EdgeCollector::TriangleSet). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::_triangleSet(osgUtil::EdgeCollector::TriangleSet). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_triangleSet = value;
 
@@ -691,8 +651,7 @@ public:
 	// void osgUtil::EdgeCollector::_pointSet(osgUtil::EdgeCollector::PointSet value)
 	static int _bind_setPointSet(lua_State *L) {
 		if (!_lg_typecheck_setPointSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::_pointSet(osgUtil::EdgeCollector::PointSet value) function, expected prototype:\nvoid osgUtil::EdgeCollector::_pointSet(osgUtil::EdgeCollector::PointSet value)\nClass arguments details:\narg 1 ID = 34110025\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::_pointSet(osgUtil::EdgeCollector::PointSet value) function, expected prototype:\nvoid osgUtil::EdgeCollector::_pointSet(osgUtil::EdgeCollector::PointSet value)\nClass arguments details:\narg 1 ID = 34110025\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::EdgeCollector::PointSet* value_ptr=(Luna< std::set< osg::ref_ptr< osgUtil::EdgeCollector::Point >, osgUtil::dereference_less > >::checkSubType< osgUtil::EdgeCollector::PointSet >(L,2));
@@ -703,8 +662,7 @@ public:
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::_pointSet(osgUtil::EdgeCollector::PointSet). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::_pointSet(osgUtil::EdgeCollector::PointSet). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_pointSet = value;
 
@@ -714,8 +672,7 @@ public:
 	// void osgUtil::EdgeCollector::_originalPointList(osgUtil::EdgeCollector::PointList value)
 	static int _bind_setOriginalPointList(lua_State *L) {
 		if (!_lg_typecheck_setOriginalPointList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::_originalPointList(osgUtil::EdgeCollector::PointList value) function, expected prototype:\nvoid osgUtil::EdgeCollector::_originalPointList(osgUtil::EdgeCollector::PointList value)\nClass arguments details:\narg 1 ID = 57205837\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::_originalPointList(osgUtil::EdgeCollector::PointList value) function, expected prototype:\nvoid osgUtil::EdgeCollector::_originalPointList(osgUtil::EdgeCollector::PointList value)\nClass arguments details:\narg 1 ID = 57205837\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::EdgeCollector::PointList* value_ptr=(Luna< std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > > >::checkSubType< osgUtil::EdgeCollector::PointList >(L,2));
@@ -726,8 +683,7 @@ public:
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::_originalPointList(osgUtil::EdgeCollector::PointList). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::_originalPointList(osgUtil::EdgeCollector::PointList). Got : '%s'\n%s",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_originalPointList = value;
 

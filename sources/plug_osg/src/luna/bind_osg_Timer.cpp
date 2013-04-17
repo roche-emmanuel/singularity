@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Timer*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Timer*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Timer* rhs =(Luna< osg::Timer >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Timer* self= (osg::Timer*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Timer >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -210,8 +206,7 @@ public:
 	// osg::Timer::Timer()
 	static osg::Timer* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Timer::Timer() function, expected prototype:\nosg::Timer::Timer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Timer::Timer() function, expected prototype:\nosg::Timer::Timer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -223,15 +218,13 @@ public:
 	// __int64 osg::Timer::tick() const
 	static int _bind_tick(lua_State *L) {
 		if (!_lg_typecheck_tick(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __int64 osg::Timer::tick() const function, expected prototype:\n__int64 osg::Timer::tick() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in __int64 osg::Timer::tick() const function, expected prototype:\n__int64 osg::Timer::tick() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call __int64 osg::Timer::tick() const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call __int64 osg::Timer::tick() const. Got : '%s'\n%s",typeid(Luna< osg::Timer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		__int64 stack_lret = self->tick();
 		__int64* lret = new __int64(stack_lret);
@@ -245,15 +238,13 @@ public:
 	// void osg::Timer::setStartTick()
 	static int _bind_setStartTick_overload_1(lua_State *L) {
 		if (!_lg_typecheck_setStartTick_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Timer::setStartTick() function, expected prototype:\nvoid osg::Timer::setStartTick()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Timer::setStartTick() function, expected prototype:\nvoid osg::Timer::setStartTick()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Timer::setStartTick(). Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Timer::setStartTick(). Got : '%s'\n%s",typeid(Luna< osg::Timer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setStartTick();
 
@@ -263,8 +254,7 @@ public:
 	// void osg::Timer::setStartTick(__int64 t)
 	static int _bind_setStartTick_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setStartTick_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Timer::setStartTick(__int64 t) function, expected prototype:\nvoid osg::Timer::setStartTick(__int64 t)\nClass arguments details:\narg 1 ID = 32973728\n");
+			luaL_error(L, "luna typecheck failed in void osg::Timer::setStartTick(__int64 t) function, expected prototype:\nvoid osg::Timer::setStartTick(__int64 t)\nClass arguments details:\narg 1 ID = 32973728\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		__int64* t_ptr=(Luna< __int64 >::check(L,2));
@@ -275,8 +265,7 @@ public:
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Timer::setStartTick(__int64). Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Timer::setStartTick(__int64). Got : '%s'\n%s",typeid(Luna< osg::Timer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setStartTick(t);
 
@@ -295,15 +284,13 @@ public:
 	// __int64 osg::Timer::getStartTick() const
 	static int _bind_getStartTick(lua_State *L) {
 		if (!_lg_typecheck_getStartTick(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __int64 osg::Timer::getStartTick() const function, expected prototype:\n__int64 osg::Timer::getStartTick() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in __int64 osg::Timer::getStartTick() const function, expected prototype:\n__int64 osg::Timer::getStartTick() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call __int64 osg::Timer::getStartTick() const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call __int64 osg::Timer::getStartTick() const. Got : '%s'\n%s",typeid(Luna< osg::Timer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		__int64 stack_lret = self->getStartTick();
 		__int64* lret = new __int64(stack_lret);
@@ -317,15 +304,13 @@ public:
 	// double osg::Timer::time_s() const
 	static int _bind_time_s(lua_State *L) {
 		if (!_lg_typecheck_time_s(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Timer::time_s() const function, expected prototype:\ndouble osg::Timer::time_s() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::Timer::time_s() const function, expected prototype:\ndouble osg::Timer::time_s() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::time_s() const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::Timer::time_s() const. Got : '%s'\n%s",typeid(Luna< osg::Timer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->time_s();
 		lua_pushnumber(L,lret);
@@ -336,15 +321,13 @@ public:
 	// double osg::Timer::time_m() const
 	static int _bind_time_m(lua_State *L) {
 		if (!_lg_typecheck_time_m(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Timer::time_m() const function, expected prototype:\ndouble osg::Timer::time_m() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::Timer::time_m() const function, expected prototype:\ndouble osg::Timer::time_m() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::time_m() const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::Timer::time_m() const. Got : '%s'\n%s",typeid(Luna< osg::Timer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->time_m();
 		lua_pushnumber(L,lret);
@@ -355,15 +338,13 @@ public:
 	// double osg::Timer::time_u() const
 	static int _bind_time_u(lua_State *L) {
 		if (!_lg_typecheck_time_u(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Timer::time_u() const function, expected prototype:\ndouble osg::Timer::time_u() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::Timer::time_u() const function, expected prototype:\ndouble osg::Timer::time_u() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::time_u() const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::Timer::time_u() const. Got : '%s'\n%s",typeid(Luna< osg::Timer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->time_u();
 		lua_pushnumber(L,lret);
@@ -374,15 +355,13 @@ public:
 	// double osg::Timer::time_n() const
 	static int _bind_time_n(lua_State *L) {
 		if (!_lg_typecheck_time_n(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Timer::time_n() const function, expected prototype:\ndouble osg::Timer::time_n() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::Timer::time_n() const function, expected prototype:\ndouble osg::Timer::time_n() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::time_n() const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::Timer::time_n() const. Got : '%s'\n%s",typeid(Luna< osg::Timer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->time_n();
 		lua_pushnumber(L,lret);
@@ -393,8 +372,7 @@ public:
 	// double osg::Timer::delta_s(__int64 t1, __int64 t2) const
 	static int _bind_delta_s(lua_State *L) {
 		if (!_lg_typecheck_delta_s(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_s(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_s(__int64 t1, __int64 t2) const\nClass arguments details:\narg 1 ID = 32973728\narg 2 ID = 32973728\n");
+			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_s(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_s(__int64 t1, __int64 t2) const\nClass arguments details:\narg 1 ID = 32973728\narg 2 ID = 32973728\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		__int64* t1_ptr=(Luna< __int64 >::check(L,2));
@@ -410,8 +388,7 @@ public:
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::delta_s(__int64, __int64) const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::Timer::delta_s(__int64, __int64) const. Got : '%s'\n%s",typeid(Luna< osg::Timer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->delta_s(t1, t2);
 		lua_pushnumber(L,lret);
@@ -422,8 +399,7 @@ public:
 	// double osg::Timer::delta_m(__int64 t1, __int64 t2) const
 	static int _bind_delta_m(lua_State *L) {
 		if (!_lg_typecheck_delta_m(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_m(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_m(__int64 t1, __int64 t2) const\nClass arguments details:\narg 1 ID = 32973728\narg 2 ID = 32973728\n");
+			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_m(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_m(__int64 t1, __int64 t2) const\nClass arguments details:\narg 1 ID = 32973728\narg 2 ID = 32973728\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		__int64* t1_ptr=(Luna< __int64 >::check(L,2));
@@ -439,8 +415,7 @@ public:
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::delta_m(__int64, __int64) const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::Timer::delta_m(__int64, __int64) const. Got : '%s'\n%s",typeid(Luna< osg::Timer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->delta_m(t1, t2);
 		lua_pushnumber(L,lret);
@@ -451,8 +426,7 @@ public:
 	// double osg::Timer::delta_u(__int64 t1, __int64 t2) const
 	static int _bind_delta_u(lua_State *L) {
 		if (!_lg_typecheck_delta_u(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_u(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_u(__int64 t1, __int64 t2) const\nClass arguments details:\narg 1 ID = 32973728\narg 2 ID = 32973728\n");
+			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_u(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_u(__int64 t1, __int64 t2) const\nClass arguments details:\narg 1 ID = 32973728\narg 2 ID = 32973728\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		__int64* t1_ptr=(Luna< __int64 >::check(L,2));
@@ -468,8 +442,7 @@ public:
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::delta_u(__int64, __int64) const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::Timer::delta_u(__int64, __int64) const. Got : '%s'\n%s",typeid(Luna< osg::Timer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->delta_u(t1, t2);
 		lua_pushnumber(L,lret);
@@ -480,8 +453,7 @@ public:
 	// double osg::Timer::delta_n(__int64 t1, __int64 t2) const
 	static int _bind_delta_n(lua_State *L) {
 		if (!_lg_typecheck_delta_n(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_n(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_n(__int64 t1, __int64 t2) const\nClass arguments details:\narg 1 ID = 32973728\narg 2 ID = 32973728\n");
+			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_n(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_n(__int64 t1, __int64 t2) const\nClass arguments details:\narg 1 ID = 32973728\narg 2 ID = 32973728\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		__int64* t1_ptr=(Luna< __int64 >::check(L,2));
@@ -497,8 +469,7 @@ public:
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::delta_n(__int64, __int64) const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::Timer::delta_n(__int64, __int64) const. Got : '%s'\n%s",typeid(Luna< osg::Timer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->delta_n(t1, t2);
 		lua_pushnumber(L,lret);
@@ -509,15 +480,13 @@ public:
 	// double osg::Timer::getSecondsPerTick() const
 	static int _bind_getSecondsPerTick(lua_State *L) {
 		if (!_lg_typecheck_getSecondsPerTick(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Timer::getSecondsPerTick() const function, expected prototype:\ndouble osg::Timer::getSecondsPerTick() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::Timer::getSecondsPerTick() const function, expected prototype:\ndouble osg::Timer::getSecondsPerTick() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::getSecondsPerTick() const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::Timer::getSecondsPerTick() const. Got : '%s'\n%s",typeid(Luna< osg::Timer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getSecondsPerTick();
 		lua_pushnumber(L,lret);
@@ -528,8 +497,7 @@ public:
 	// static osg::Timer * osg::Timer::instance()
 	static int _bind_instance(lua_State *L) {
 		if (!_lg_typecheck_instance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Timer * osg::Timer::instance() function, expected prototype:\nstatic osg::Timer * osg::Timer::instance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::Timer * osg::Timer::instance() function, expected prototype:\nstatic osg::Timer * osg::Timer::instance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 

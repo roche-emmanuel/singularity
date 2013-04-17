@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::TriStripVisitor* self= (osgUtil::TriStripVisitor*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -246,8 +243,7 @@ public:
 	// osgUtil::TriStripVisitor::TriStripVisitor(osgUtil::Optimizer * optimizer = 0)
 	static osgUtil::TriStripVisitor* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::TriStripVisitor::TriStripVisitor(osgUtil::Optimizer * optimizer = 0) function, expected prototype:\nosgUtil::TriStripVisitor::TriStripVisitor(osgUtil::Optimizer * optimizer = 0)\nClass arguments details:\narg 1 ID = 85233381\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::TriStripVisitor::TriStripVisitor(osgUtil::Optimizer * optimizer = 0) function, expected prototype:\nosgUtil::TriStripVisitor::TriStripVisitor(osgUtil::Optimizer * optimizer = 0)\nClass arguments details:\narg 1 ID = 85233381\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -260,8 +256,7 @@ public:
 	// osgUtil::TriStripVisitor::TriStripVisitor(lua_Table * data, osgUtil::Optimizer * optimizer = 0)
 	static osgUtil::TriStripVisitor* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::TriStripVisitor::TriStripVisitor(lua_Table * data, osgUtil::Optimizer * optimizer = 0) function, expected prototype:\nosgUtil::TriStripVisitor::TriStripVisitor(lua_Table * data, osgUtil::Optimizer * optimizer = 0)\nClass arguments details:\narg 2 ID = 85233381\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::TriStripVisitor::TriStripVisitor(lua_Table * data, osgUtil::Optimizer * optimizer = 0) function, expected prototype:\nosgUtil::TriStripVisitor::TriStripVisitor(lua_Table * data, osgUtil::Optimizer * optimizer = 0)\nClass arguments details:\narg 2 ID = 85233381\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -285,8 +280,7 @@ public:
 	// void osgUtil::TriStripVisitor::stripify(osg::Geometry & drawable)
 	static int _bind_stripify_overload_1(lua_State *L) {
 		if (!_lg_typecheck_stripify_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::stripify(osg::Geometry & drawable) function, expected prototype:\nvoid osgUtil::TriStripVisitor::stripify(osg::Geometry & drawable)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::stripify(osg::Geometry & drawable) function, expected prototype:\nvoid osgUtil::TriStripVisitor::stripify(osg::Geometry & drawable)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geometry* drawable_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
@@ -297,8 +291,7 @@ public:
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::stripify(osg::Geometry &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::stripify(osg::Geometry &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->stripify(drawable);
 
@@ -308,15 +301,13 @@ public:
 	// void osgUtil::TriStripVisitor::stripify()
 	static int _bind_stripify_overload_2(lua_State *L) {
 		if (!_lg_typecheck_stripify_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::stripify() function, expected prototype:\nvoid osgUtil::TriStripVisitor::stripify()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::stripify() function, expected prototype:\nvoid osgUtil::TriStripVisitor::stripify()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::stripify(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::stripify(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->stripify();
 
@@ -335,8 +326,7 @@ public:
 	// void osgUtil::TriStripVisitor::apply(osg::Geode & geode)
 	static int _bind_apply(lua_State *L) {
 		if (!_lg_typecheck_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::TriStripVisitor::apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::TriStripVisitor::apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geode* geode_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geode >(L,2));
@@ -347,8 +337,7 @@ public:
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::apply(osg::Geode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(geode);
 
@@ -358,16 +347,14 @@ public:
 	// void osgUtil::TriStripVisitor::setCacheSize(unsigned int size)
 	static int _bind_setCacheSize(lua_State *L) {
 		if (!_lg_typecheck_setCacheSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::setCacheSize(unsigned int size) function, expected prototype:\nvoid osgUtil::TriStripVisitor::setCacheSize(unsigned int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::setCacheSize(unsigned int size) function, expected prototype:\nvoid osgUtil::TriStripVisitor::setCacheSize(unsigned int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int size=(unsigned int)lua_tointeger(L,2);
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::setCacheSize(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::setCacheSize(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCacheSize(size);
 
@@ -377,15 +364,13 @@ public:
 	// unsigned int osgUtil::TriStripVisitor::getCacheSize() const
 	static int _bind_getCacheSize(lua_State *L) {
 		if (!_lg_typecheck_getCacheSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::TriStripVisitor::getCacheSize() const function, expected prototype:\nunsigned int osgUtil::TriStripVisitor::getCacheSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::TriStripVisitor::getCacheSize() const function, expected prototype:\nunsigned int osgUtil::TriStripVisitor::getCacheSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::TriStripVisitor::getCacheSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::TriStripVisitor::getCacheSize() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getCacheSize();
 		lua_pushnumber(L,lret);
@@ -396,16 +381,14 @@ public:
 	// void osgUtil::TriStripVisitor::setMinStripSize(unsigned int size)
 	static int _bind_setMinStripSize(lua_State *L) {
 		if (!_lg_typecheck_setMinStripSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::setMinStripSize(unsigned int size) function, expected prototype:\nvoid osgUtil::TriStripVisitor::setMinStripSize(unsigned int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::setMinStripSize(unsigned int size) function, expected prototype:\nvoid osgUtil::TriStripVisitor::setMinStripSize(unsigned int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int size=(unsigned int)lua_tointeger(L,2);
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::setMinStripSize(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::setMinStripSize(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMinStripSize(size);
 
@@ -415,15 +398,13 @@ public:
 	// unsigned int osgUtil::TriStripVisitor::getMinStripSize() const
 	static int _bind_getMinStripSize(lua_State *L) {
 		if (!_lg_typecheck_getMinStripSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::TriStripVisitor::getMinStripSize() const function, expected prototype:\nunsigned int osgUtil::TriStripVisitor::getMinStripSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::TriStripVisitor::getMinStripSize() const function, expected prototype:\nunsigned int osgUtil::TriStripVisitor::getMinStripSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::TriStripVisitor::getMinStripSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::TriStripVisitor::getMinStripSize() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getMinStripSize();
 		lua_pushnumber(L,lret);
@@ -434,16 +415,14 @@ public:
 	// void osgUtil::TriStripVisitor::setGenerateFourPointPrimitivesQuads(bool flag)
 	static int _bind_setGenerateFourPointPrimitivesQuads(lua_State *L) {
 		if (!_lg_typecheck_setGenerateFourPointPrimitivesQuads(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::setGenerateFourPointPrimitivesQuads(bool flag) function, expected prototype:\nvoid osgUtil::TriStripVisitor::setGenerateFourPointPrimitivesQuads(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::setGenerateFourPointPrimitivesQuads(bool flag) function, expected prototype:\nvoid osgUtil::TriStripVisitor::setGenerateFourPointPrimitivesQuads(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::setGenerateFourPointPrimitivesQuads(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::setGenerateFourPointPrimitivesQuads(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setGenerateFourPointPrimitivesQuads(flag);
 
@@ -453,15 +432,13 @@ public:
 	// bool osgUtil::TriStripVisitor::getGenerateFourPointPrimitivesQuads() const
 	static int _bind_getGenerateFourPointPrimitivesQuads(lua_State *L) {
 		if (!_lg_typecheck_getGenerateFourPointPrimitivesQuads(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::TriStripVisitor::getGenerateFourPointPrimitivesQuads() const function, expected prototype:\nbool osgUtil::TriStripVisitor::getGenerateFourPointPrimitivesQuads() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::TriStripVisitor::getGenerateFourPointPrimitivesQuads() const function, expected prototype:\nbool osgUtil::TriStripVisitor::getGenerateFourPointPrimitivesQuads() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::TriStripVisitor::getGenerateFourPointPrimitivesQuads() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::TriStripVisitor::getGenerateFourPointPrimitivesQuads() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getGenerateFourPointPrimitivesQuads();
 		lua_pushboolean(L,lret?1:0);
@@ -472,16 +449,14 @@ public:
 	// void osgUtil::TriStripVisitor::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::TriStripVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::TriStripVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriStripVisitor::setThreadSafeRefUnref(threadSafe);
 
@@ -491,15 +466,13 @@ public:
 	// const char * osgUtil::TriStripVisitor::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::TriStripVisitor::base_libraryName() const function, expected prototype:\nconst char * osgUtil::TriStripVisitor::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::TriStripVisitor::base_libraryName() const function, expected prototype:\nconst char * osgUtil::TriStripVisitor::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::TriStripVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::TriStripVisitor::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->TriStripVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -510,15 +483,13 @@ public:
 	// const char * osgUtil::TriStripVisitor::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::TriStripVisitor::base_className() const function, expected prototype:\nconst char * osgUtil::TriStripVisitor::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::TriStripVisitor::base_className() const function, expected prototype:\nconst char * osgUtil::TriStripVisitor::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::TriStripVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::TriStripVisitor::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->TriStripVisitor::className();
 		lua_pushstring(L,lret);
@@ -529,15 +500,13 @@ public:
 	// void osgUtil::TriStripVisitor::base_reset()
 	static int _bind_base_reset(lua_State *L) {
 		if (!_lg_typecheck_base_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::base_reset() function, expected prototype:\nvoid osgUtil::TriStripVisitor::base_reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::base_reset() function, expected prototype:\nvoid osgUtil::TriStripVisitor::base_reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::base_reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriStripVisitor::reset();
 
@@ -547,15 +516,13 @@ public:
 	// osg::Vec3f osgUtil::TriStripVisitor::base_getEyePoint() const
 	static int _bind_base_getEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::TriStripVisitor::base_getEyePoint() const function, expected prototype:\nosg::Vec3f osgUtil::TriStripVisitor::base_getEyePoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::TriStripVisitor::base_getEyePoint() const function, expected prototype:\nosg::Vec3f osgUtil::TriStripVisitor::base_getEyePoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::TriStripVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::TriStripVisitor::base_getEyePoint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->TriStripVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -569,15 +536,13 @@ public:
 	// osg::Vec3f osgUtil::TriStripVisitor::base_getViewPoint() const
 	static int _bind_base_getViewPoint(lua_State *L) {
 		if (!_lg_typecheck_base_getViewPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::TriStripVisitor::base_getViewPoint() const function, expected prototype:\nosg::Vec3f osgUtil::TriStripVisitor::base_getViewPoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::TriStripVisitor::base_getViewPoint() const function, expected prototype:\nosg::Vec3f osgUtil::TriStripVisitor::base_getViewPoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::TriStripVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::TriStripVisitor::base_getViewPoint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->TriStripVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -591,8 +556,7 @@ public:
 	// float osgUtil::TriStripVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceToEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceToEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::TriStripVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::TriStripVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::TriStripVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::TriStripVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -604,8 +568,7 @@ public:
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::TriStripVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::TriStripVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->TriStripVisitor::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -616,8 +579,7 @@ public:
 	// float osgUtil::TriStripVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceFromEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceFromEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::TriStripVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::TriStripVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::TriStripVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::TriStripVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -629,8 +591,7 @@ public:
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::TriStripVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::TriStripVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->TriStripVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -641,8 +602,7 @@ public:
 	// float osgUtil::TriStripVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceToViewPoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceToViewPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::TriStripVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::TriStripVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::TriStripVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::TriStripVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -654,8 +614,7 @@ public:
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::TriStripVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::TriStripVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->TriStripVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -666,8 +625,7 @@ public:
 	// void osgUtil::TriStripVisitor::base_apply(osg::Geode & geode)
 	static int _bind_base_apply(lua_State *L) {
 		if (!_lg_typecheck_base_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::base_apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::TriStripVisitor::base_apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::TriStripVisitor::base_apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::TriStripVisitor::base_apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geode* geode_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geode >(L,2));
@@ -678,8 +636,7 @@ public:
 
 		osgUtil::TriStripVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::TriStripVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::TriStripVisitor::base_apply(osg::Geode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriStripVisitor::apply(geode);
 

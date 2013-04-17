@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgViewer::RecordCameraPathHandler* self= (osgViewer::RecordCameraPathHandler*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -269,8 +266,7 @@ public:
 	// osgViewer::RecordCameraPathHandler::RecordCameraPathHandler(const std::string & filename = "saved_animation.path", float fps = 25.0f)
 	static osgViewer::RecordCameraPathHandler* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgViewer::RecordCameraPathHandler::RecordCameraPathHandler(const std::string & filename = \"saved_animation.path\", float fps = 25.0f) function, expected prototype:\nosgViewer::RecordCameraPathHandler::RecordCameraPathHandler(const std::string & filename = \"saved_animation.path\", float fps = 25.0f)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgViewer::RecordCameraPathHandler::RecordCameraPathHandler(const std::string & filename = \"saved_animation.path\", float fps = 25.0f) function, expected prototype:\nosgViewer::RecordCameraPathHandler::RecordCameraPathHandler(const std::string & filename = \"saved_animation.path\", float fps = 25.0f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -284,8 +280,7 @@ public:
 	// osgViewer::RecordCameraPathHandler::RecordCameraPathHandler(lua_Table * data, const std::string & filename = "saved_animation.path", float fps = 25.0f)
 	static osgViewer::RecordCameraPathHandler* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgViewer::RecordCameraPathHandler::RecordCameraPathHandler(lua_Table * data, const std::string & filename = \"saved_animation.path\", float fps = 25.0f) function, expected prototype:\nosgViewer::RecordCameraPathHandler::RecordCameraPathHandler(lua_Table * data, const std::string & filename = \"saved_animation.path\", float fps = 25.0f)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgViewer::RecordCameraPathHandler::RecordCameraPathHandler(lua_Table * data, const std::string & filename = \"saved_animation.path\", float fps = 25.0f) function, expected prototype:\nosgViewer::RecordCameraPathHandler::RecordCameraPathHandler(lua_Table * data, const std::string & filename = \"saved_animation.path\", float fps = 25.0f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -310,16 +305,14 @@ public:
 	// void osgViewer::RecordCameraPathHandler::setKeyEventToggleRecord(int key)
 	static int _bind_setKeyEventToggleRecord(lua_State *L) {
 		if (!_lg_typecheck_setKeyEventToggleRecord(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::setKeyEventToggleRecord(int key) function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::setKeyEventToggleRecord(int key)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::setKeyEventToggleRecord(int key) function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::setKeyEventToggleRecord(int key)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int key=(int)lua_tointeger(L,2);
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::setKeyEventToggleRecord(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::setKeyEventToggleRecord(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setKeyEventToggleRecord(key);
 
@@ -329,15 +322,13 @@ public:
 	// int osgViewer::RecordCameraPathHandler::getKeyEventToggleRecord() const
 	static int _bind_getKeyEventToggleRecord(lua_State *L) {
 		if (!_lg_typecheck_getKeyEventToggleRecord(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgViewer::RecordCameraPathHandler::getKeyEventToggleRecord() const function, expected prototype:\nint osgViewer::RecordCameraPathHandler::getKeyEventToggleRecord() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgViewer::RecordCameraPathHandler::getKeyEventToggleRecord() const function, expected prototype:\nint osgViewer::RecordCameraPathHandler::getKeyEventToggleRecord() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgViewer::RecordCameraPathHandler::getKeyEventToggleRecord() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgViewer::RecordCameraPathHandler::getKeyEventToggleRecord() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getKeyEventToggleRecord();
 		lua_pushnumber(L,lret);
@@ -348,16 +339,14 @@ public:
 	// void osgViewer::RecordCameraPathHandler::setKeyEventTogglePlayback(int key)
 	static int _bind_setKeyEventTogglePlayback(lua_State *L) {
 		if (!_lg_typecheck_setKeyEventTogglePlayback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::setKeyEventTogglePlayback(int key) function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::setKeyEventTogglePlayback(int key)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::setKeyEventTogglePlayback(int key) function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::setKeyEventTogglePlayback(int key)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int key=(int)lua_tointeger(L,2);
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::setKeyEventTogglePlayback(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::setKeyEventTogglePlayback(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setKeyEventTogglePlayback(key);
 
@@ -367,15 +356,13 @@ public:
 	// int osgViewer::RecordCameraPathHandler::getKeyEventTogglePlayback() const
 	static int _bind_getKeyEventTogglePlayback(lua_State *L) {
 		if (!_lg_typecheck_getKeyEventTogglePlayback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgViewer::RecordCameraPathHandler::getKeyEventTogglePlayback() const function, expected prototype:\nint osgViewer::RecordCameraPathHandler::getKeyEventTogglePlayback() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgViewer::RecordCameraPathHandler::getKeyEventTogglePlayback() const function, expected prototype:\nint osgViewer::RecordCameraPathHandler::getKeyEventTogglePlayback() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgViewer::RecordCameraPathHandler::getKeyEventTogglePlayback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgViewer::RecordCameraPathHandler::getKeyEventTogglePlayback() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getKeyEventTogglePlayback();
 		lua_pushnumber(L,lret);
@@ -386,8 +373,7 @@ public:
 	// void osgViewer::RecordCameraPathHandler::setAutoIncrementFilename(bool autoinc = true)
 	static int _bind_setAutoIncrementFilename(lua_State *L) {
 		if (!_lg_typecheck_setAutoIncrementFilename(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::setAutoIncrementFilename(bool autoinc = true) function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::setAutoIncrementFilename(bool autoinc = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::setAutoIncrementFilename(bool autoinc = true) function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::setAutoIncrementFilename(bool autoinc = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -396,8 +382,7 @@ public:
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::setAutoIncrementFilename(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::setAutoIncrementFilename(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAutoIncrementFilename(autoinc);
 
@@ -407,8 +392,7 @@ public:
 	// void osgViewer::RecordCameraPathHandler::getUsage(osg::ApplicationUsage & arg1) const
 	static int _bind_getUsage(lua_State *L) {
 		if (!_lg_typecheck_getUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::getUsage(osg::ApplicationUsage & arg1) const function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::getUsage(osg::ApplicationUsage & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::getUsage(osg::ApplicationUsage & arg1) const function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::getUsage(osg::ApplicationUsage & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ApplicationUsage* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,2));
@@ -419,8 +403,7 @@ public:
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::getUsage(osg::ApplicationUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getUsage(_arg1);
 
@@ -430,8 +413,7 @@ public:
 	// bool osgViewer::RecordCameraPathHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_handle(lua_State *L) {
 		if (!_lg_typecheck_handle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgViewer::RecordCameraPathHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nbool osgViewer::RecordCameraPathHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in bool osgViewer::RecordCameraPathHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nbool osgViewer::RecordCameraPathHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -447,8 +429,7 @@ public:
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::RecordCameraPathHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgViewer::RecordCameraPathHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->handle(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -459,16 +440,14 @@ public:
 	// void osgViewer::RecordCameraPathHandler::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RecordCameraPathHandler::setThreadSafeRefUnref(threadSafe);
 
@@ -478,16 +457,14 @@ public:
 	// void osgViewer::RecordCameraPathHandler::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::base_setName(const std::string & name) function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::base_setName(const std::string & name) function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RecordCameraPathHandler::setName(name);
 
@@ -497,15 +474,13 @@ public:
 	// void osgViewer::RecordCameraPathHandler::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::base_computeDataVariance() function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::base_computeDataVariance() function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RecordCameraPathHandler::computeDataVariance();
 
@@ -515,16 +490,14 @@ public:
 	// void osgViewer::RecordCameraPathHandler::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RecordCameraPathHandler::setUserData(obj);
 
@@ -534,15 +507,13 @@ public:
 	// osg::Referenced * osgViewer::RecordCameraPathHandler::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osgViewer::RecordCameraPathHandler::base_getUserData() function, expected prototype:\nosg::Referenced * osgViewer::RecordCameraPathHandler::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osgViewer::RecordCameraPathHandler::base_getUserData() function, expected prototype:\nosg::Referenced * osgViewer::RecordCameraPathHandler::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgViewer::RecordCameraPathHandler::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgViewer::RecordCameraPathHandler::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->RecordCameraPathHandler::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -555,15 +526,13 @@ public:
 	// const osg::Referenced * osgViewer::RecordCameraPathHandler::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgViewer::RecordCameraPathHandler::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgViewer::RecordCameraPathHandler::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgViewer::RecordCameraPathHandler::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgViewer::RecordCameraPathHandler::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgViewer::RecordCameraPathHandler::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgViewer::RecordCameraPathHandler::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->RecordCameraPathHandler::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -585,8 +554,7 @@ public:
 	// void osgViewer::RecordCameraPathHandler::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -595,8 +563,7 @@ public:
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RecordCameraPathHandler::releaseGLObjects(_arg1);
 
@@ -606,15 +573,13 @@ public:
 	// osg::Object * osgViewer::RecordCameraPathHandler::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgViewer::RecordCameraPathHandler::base_cloneType() const function, expected prototype:\nosg::Object * osgViewer::RecordCameraPathHandler::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgViewer::RecordCameraPathHandler::base_cloneType() const function, expected prototype:\nosg::Object * osgViewer::RecordCameraPathHandler::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::RecordCameraPathHandler::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::RecordCameraPathHandler::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->RecordCameraPathHandler::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -627,8 +592,7 @@ public:
 	// osg::Object * osgViewer::RecordCameraPathHandler::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgViewer::RecordCameraPathHandler::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgViewer::RecordCameraPathHandler::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgViewer::RecordCameraPathHandler::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgViewer::RecordCameraPathHandler::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -639,8 +603,7 @@ public:
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::RecordCameraPathHandler::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::RecordCameraPathHandler::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->RecordCameraPathHandler::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -653,16 +616,14 @@ public:
 	// bool osgViewer::RecordCameraPathHandler::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgViewer::RecordCameraPathHandler::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgViewer::RecordCameraPathHandler::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgViewer::RecordCameraPathHandler::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgViewer::RecordCameraPathHandler::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::RecordCameraPathHandler::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgViewer::RecordCameraPathHandler::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RecordCameraPathHandler::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -673,15 +634,13 @@ public:
 	// const char * osgViewer::RecordCameraPathHandler::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgViewer::RecordCameraPathHandler::base_libraryName() const function, expected prototype:\nconst char * osgViewer::RecordCameraPathHandler::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgViewer::RecordCameraPathHandler::base_libraryName() const function, expected prototype:\nconst char * osgViewer::RecordCameraPathHandler::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::RecordCameraPathHandler::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgViewer::RecordCameraPathHandler::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->RecordCameraPathHandler::libraryName();
 		lua_pushstring(L,lret);
@@ -692,15 +651,13 @@ public:
 	// const char * osgViewer::RecordCameraPathHandler::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgViewer::RecordCameraPathHandler::base_className() const function, expected prototype:\nconst char * osgViewer::RecordCameraPathHandler::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgViewer::RecordCameraPathHandler::base_className() const function, expected prototype:\nconst char * osgViewer::RecordCameraPathHandler::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::RecordCameraPathHandler::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgViewer::RecordCameraPathHandler::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->RecordCameraPathHandler::className();
 		lua_pushstring(L,lret);
@@ -711,8 +668,7 @@ public:
 	// void osgViewer::RecordCameraPathHandler::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable)
 	static int _bind_base_event(lua_State *L) {
 		if (!_lg_typecheck_base_event(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable) function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable) function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -720,8 +676,7 @@ public:
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RecordCameraPathHandler::event(nv, drawable);
 
@@ -731,8 +686,7 @@ public:
 	// void osgViewer::RecordCameraPathHandler::base_getUsage(osg::ApplicationUsage & arg1) const
 	static int _bind_base_getUsage(lua_State *L) {
 		if (!_lg_typecheck_base_getUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::base_getUsage(osg::ApplicationUsage & arg1) const function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::base_getUsage(osg::ApplicationUsage & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::base_getUsage(osg::ApplicationUsage & arg1) const function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::base_getUsage(osg::ApplicationUsage & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ApplicationUsage* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,2));
@@ -743,8 +697,7 @@ public:
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgViewer::RecordCameraPathHandler::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RecordCameraPathHandler::getUsage(_arg1);
 
@@ -754,8 +707,7 @@ public:
 	// bool osgViewer::RecordCameraPathHandler::base_handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_base_handle(lua_State *L) {
 		if (!_lg_typecheck_base_handle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgViewer::RecordCameraPathHandler::base_handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nbool osgViewer::RecordCameraPathHandler::base_handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in bool osgViewer::RecordCameraPathHandler::base_handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nbool osgViewer::RecordCameraPathHandler::base_handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -771,8 +723,7 @@ public:
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::RecordCameraPathHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgViewer::RecordCameraPathHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RecordCameraPathHandler::handle(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);

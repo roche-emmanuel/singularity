@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::BaseCompressor* self= (osgDB::BaseCompressor*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -142,8 +139,7 @@ public:
 	// osgDB::BaseCompressor::BaseCompressor(lua_Table * data)
 	static osgDB::BaseCompressor* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::BaseCompressor::BaseCompressor(lua_Table * data) function, expected prototype:\nosgDB::BaseCompressor::BaseCompressor(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::BaseCompressor::BaseCompressor(lua_Table * data) function, expected prototype:\nosgDB::BaseCompressor::BaseCompressor(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -155,16 +151,14 @@ public:
 	// void osgDB::BaseCompressor::setName(const std::string & name)
 	static int _bind_setName(lua_State *L) {
 		if (!_lg_typecheck_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::BaseCompressor::setName(const std::string & name) function, expected prototype:\nvoid osgDB::BaseCompressor::setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::BaseCompressor::setName(const std::string & name) function, expected prototype:\nvoid osgDB::BaseCompressor::setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgDB::BaseCompressor* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseCompressor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::BaseCompressor::setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::BaseCompressor::setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setName(name);
 
@@ -174,15 +168,13 @@ public:
 	// const std::string & osgDB::BaseCompressor::getName() const
 	static int _bind_getName(lua_State *L) {
 		if (!_lg_typecheck_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osgDB::BaseCompressor::getName() const function, expected prototype:\nconst std::string & osgDB::BaseCompressor::getName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osgDB::BaseCompressor::getName() const function, expected prototype:\nconst std::string & osgDB::BaseCompressor::getName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::BaseCompressor* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseCompressor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::BaseCompressor::getName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::BaseCompressor::getName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -193,8 +185,7 @@ public:
 	// bool osgDB::BaseCompressor::compress(std::ostream & arg1, const std::string & arg2)
 	static int _bind_compress(lua_State *L) {
 		if (!_lg_typecheck_compress(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::BaseCompressor::compress(std::ostream & arg1, const std::string & arg2) function, expected prototype:\nbool osgDB::BaseCompressor::compress(std::ostream & arg1, const std::string & arg2)\nClass arguments details:\narg 1 ID = 2993706\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::BaseCompressor::compress(std::ostream & arg1, const std::string & arg2) function, expected prototype:\nbool osgDB::BaseCompressor::compress(std::ostream & arg1, const std::string & arg2)\nClass arguments details:\narg 1 ID = 2993706\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::ostream* _arg1_ptr=(Luna< std::ostream >::check(L,2));
@@ -206,8 +197,7 @@ public:
 
 		osgDB::BaseCompressor* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseCompressor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::BaseCompressor::compress(std::ostream &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::BaseCompressor::compress(std::ostream &, const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->compress(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -218,8 +208,7 @@ public:
 	// bool osgDB::BaseCompressor::decompress(std::istream & arg1, std::string & arg2)
 	static int _bind_decompress(lua_State *L) {
 		if (!_lg_typecheck_decompress(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::BaseCompressor::decompress(std::istream & arg1, std::string & arg2) function, expected prototype:\nbool osgDB::BaseCompressor::decompress(std::istream & arg1, std::string & arg2)\nClass arguments details:\narg 1 ID = 77972206\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::BaseCompressor::decompress(std::istream & arg1, std::string & arg2) function, expected prototype:\nbool osgDB::BaseCompressor::decompress(std::istream & arg1, std::string & arg2)\nClass arguments details:\narg 1 ID = 77972206\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::istream* _arg1_ptr=(Luna< std::istream >::check(L,2));
@@ -231,8 +220,7 @@ public:
 
 		osgDB::BaseCompressor* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseCompressor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::BaseCompressor::decompress(std::istream &, std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::BaseCompressor::decompress(std::istream &, std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->decompress(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -244,16 +232,14 @@ public:
 	// void osgDB::BaseCompressor::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::BaseCompressor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::BaseCompressor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::BaseCompressor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::BaseCompressor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::BaseCompressor* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseCompressor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::BaseCompressor::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::BaseCompressor::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseCompressor::setThreadSafeRefUnref(threadSafe);
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::MultiplyRangeOperator*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::MultiplyRangeOperator*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::MultiplyRangeOperator* rhs =(Luna< osgUtil::MultiplyRangeOperator >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::MultiplyRangeOperator* self= (osgUtil::MultiplyRangeOperator*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgUtil::MultiplyRangeOperator >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -151,15 +147,13 @@ public:
 	// unsigned int osgUtil::MultiplyRangeOperator::_begin()
 	static int _bind_getBegin(lua_State *L) {
 		if (!_lg_typecheck_getBegin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::MultiplyRangeOperator::_begin() function, expected prototype:\nunsigned int osgUtil::MultiplyRangeOperator::_begin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::MultiplyRangeOperator::_begin() function, expected prototype:\nunsigned int osgUtil::MultiplyRangeOperator::_begin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::MultiplyRangeOperator* self=(Luna< osgUtil::MultiplyRangeOperator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::MultiplyRangeOperator::_begin(). Got : '%s'",typeid(Luna< osgUtil::MultiplyRangeOperator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::MultiplyRangeOperator::_begin(). Got : '%s'\n%s",typeid(Luna< osgUtil::MultiplyRangeOperator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_begin;
 		lua_pushnumber(L,lret);
@@ -170,15 +164,13 @@ public:
 	// unsigned int osgUtil::MultiplyRangeOperator::_count()
 	static int _bind_getCount(lua_State *L) {
 		if (!_lg_typecheck_getCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::MultiplyRangeOperator::_count() function, expected prototype:\nunsigned int osgUtil::MultiplyRangeOperator::_count()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::MultiplyRangeOperator::_count() function, expected prototype:\nunsigned int osgUtil::MultiplyRangeOperator::_count()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::MultiplyRangeOperator* self=(Luna< osgUtil::MultiplyRangeOperator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::MultiplyRangeOperator::_count(). Got : '%s'",typeid(Luna< osgUtil::MultiplyRangeOperator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::MultiplyRangeOperator::_count(). Got : '%s'\n%s",typeid(Luna< osgUtil::MultiplyRangeOperator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_count;
 		lua_pushnumber(L,lret);
@@ -189,15 +181,13 @@ public:
 	// osg::Vec3d osgUtil::MultiplyRangeOperator::_vector()
 	static int _bind_getVector(lua_State *L) {
 		if (!_lg_typecheck_getVector(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3d osgUtil::MultiplyRangeOperator::_vector() function, expected prototype:\nosg::Vec3d osgUtil::MultiplyRangeOperator::_vector()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3d osgUtil::MultiplyRangeOperator::_vector() function, expected prototype:\nosg::Vec3d osgUtil::MultiplyRangeOperator::_vector()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::MultiplyRangeOperator* self=(Luna< osgUtil::MultiplyRangeOperator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d osgUtil::MultiplyRangeOperator::_vector(). Got : '%s'",typeid(Luna< osgUtil::MultiplyRangeOperator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3d osgUtil::MultiplyRangeOperator::_vector(). Got : '%s'\n%s",typeid(Luna< osgUtil::MultiplyRangeOperator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3d* lret = &self->_vector;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -210,16 +200,14 @@ public:
 	// void osgUtil::MultiplyRangeOperator::_begin(unsigned int value)
 	static int _bind_setBegin(lua_State *L) {
 		if (!_lg_typecheck_setBegin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::MultiplyRangeOperator::_begin(unsigned int value) function, expected prototype:\nvoid osgUtil::MultiplyRangeOperator::_begin(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::MultiplyRangeOperator::_begin(unsigned int value) function, expected prototype:\nvoid osgUtil::MultiplyRangeOperator::_begin(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osgUtil::MultiplyRangeOperator* self=(Luna< osgUtil::MultiplyRangeOperator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::MultiplyRangeOperator::_begin(unsigned int). Got : '%s'",typeid(Luna< osgUtil::MultiplyRangeOperator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::MultiplyRangeOperator::_begin(unsigned int). Got : '%s'\n%s",typeid(Luna< osgUtil::MultiplyRangeOperator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_begin = value;
 
@@ -229,16 +217,14 @@ public:
 	// void osgUtil::MultiplyRangeOperator::_count(unsigned int value)
 	static int _bind_setCount(lua_State *L) {
 		if (!_lg_typecheck_setCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::MultiplyRangeOperator::_count(unsigned int value) function, expected prototype:\nvoid osgUtil::MultiplyRangeOperator::_count(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::MultiplyRangeOperator::_count(unsigned int value) function, expected prototype:\nvoid osgUtil::MultiplyRangeOperator::_count(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osgUtil::MultiplyRangeOperator* self=(Luna< osgUtil::MultiplyRangeOperator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::MultiplyRangeOperator::_count(unsigned int). Got : '%s'",typeid(Luna< osgUtil::MultiplyRangeOperator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::MultiplyRangeOperator::_count(unsigned int). Got : '%s'\n%s",typeid(Luna< osgUtil::MultiplyRangeOperator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_count = value;
 
@@ -248,8 +234,7 @@ public:
 	// void osgUtil::MultiplyRangeOperator::_vector(osg::Vec3d value)
 	static int _bind_setVector(lua_State *L) {
 		if (!_lg_typecheck_setVector(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::MultiplyRangeOperator::_vector(osg::Vec3d value) function, expected prototype:\nvoid osgUtil::MultiplyRangeOperator::_vector(osg::Vec3d value)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::MultiplyRangeOperator::_vector(osg::Vec3d value) function, expected prototype:\nvoid osgUtil::MultiplyRangeOperator::_vector(osg::Vec3d value)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3d* value_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -260,8 +245,7 @@ public:
 
 		osgUtil::MultiplyRangeOperator* self=(Luna< osgUtil::MultiplyRangeOperator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::MultiplyRangeOperator::_vector(osg::Vec3d). Got : '%s'",typeid(Luna< osgUtil::MultiplyRangeOperator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::MultiplyRangeOperator::_vector(osg::Vec3d). Got : '%s'\n%s",typeid(Luna< osgUtil::MultiplyRangeOperator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_vector = value;
 

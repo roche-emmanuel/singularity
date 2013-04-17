@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Image::DataIterator*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Image::DataIterator*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Image::DataIterator* rhs =(Luna< osg::Image::DataIterator >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Image::DataIterator* self= (osg::Image::DataIterator*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Image::DataIterator >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -150,8 +146,7 @@ public:
 	// osg::Image::DataIterator::DataIterator(const osg::Image * image)
 	static osg::Image::DataIterator* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image::DataIterator::DataIterator(const osg::Image * image) function, expected prototype:\nosg::Image::DataIterator::DataIterator(const osg::Image * image)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Image::DataIterator::DataIterator(const osg::Image * image) function, expected prototype:\nosg::Image::DataIterator::DataIterator(const osg::Image * image)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
@@ -162,8 +157,7 @@ public:
 	// osg::Image::DataIterator::DataIterator(const osg::Image::DataIterator & ri)
 	static osg::Image::DataIterator* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image::DataIterator::DataIterator(const osg::Image::DataIterator & ri) function, expected prototype:\nosg::Image::DataIterator::DataIterator(const osg::Image::DataIterator & ri)\nClass arguments details:\narg 1 ID = 9354401\n");
+			luaL_error(L, "luna typecheck failed in osg::Image::DataIterator::DataIterator(const osg::Image::DataIterator & ri) function, expected prototype:\nosg::Image::DataIterator::DataIterator(const osg::Image::DataIterator & ri)\nClass arguments details:\narg 1 ID = 9354401\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Image::DataIterator* ri_ptr=(Luna< osg::Image::DataIterator >::check(L,1));
@@ -189,15 +183,13 @@ public:
 	// bool osg::Image::DataIterator::valid() const
 	static int _bind_valid(lua_State *L) {
 		if (!_lg_typecheck_valid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Image::DataIterator::valid() const function, expected prototype:\nbool osg::Image::DataIterator::valid() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Image::DataIterator::valid() const function, expected prototype:\nbool osg::Image::DataIterator::valid() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Image::DataIterator* self=(Luna< osg::Image::DataIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Image::DataIterator::valid() const. Got : '%s'",typeid(Luna< osg::Image::DataIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Image::DataIterator::valid() const. Got : '%s'\n%s",typeid(Luna< osg::Image::DataIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->valid();
 		lua_pushboolean(L,lret?1:0);
@@ -208,15 +200,13 @@ public:
 	// const unsigned char * osg::Image::DataIterator::data() const
 	static int _bind_data(lua_State *L) {
 		if (!_lg_typecheck_data(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const unsigned char * osg::Image::DataIterator::data() const function, expected prototype:\nconst unsigned char * osg::Image::DataIterator::data() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const unsigned char * osg::Image::DataIterator::data() const function, expected prototype:\nconst unsigned char * osg::Image::DataIterator::data() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Image::DataIterator* self=(Luna< osg::Image::DataIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const unsigned char * osg::Image::DataIterator::data() const. Got : '%s'",typeid(Luna< osg::Image::DataIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const unsigned char * osg::Image::DataIterator::data() const. Got : '%s'\n%s",typeid(Luna< osg::Image::DataIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const unsigned char * lret = self->data();
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -227,15 +217,13 @@ public:
 	// unsigned int osg::Image::DataIterator::size() const
 	static int _bind_size(lua_State *L) {
 		if (!_lg_typecheck_size(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Image::DataIterator::size() const function, expected prototype:\nunsigned int osg::Image::DataIterator::size() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Image::DataIterator::size() const function, expected prototype:\nunsigned int osg::Image::DataIterator::size() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Image::DataIterator* self=(Luna< osg::Image::DataIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Image::DataIterator::size() const. Got : '%s'",typeid(Luna< osg::Image::DataIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Image::DataIterator::size() const. Got : '%s'\n%s",typeid(Luna< osg::Image::DataIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->size();
 		lua_pushnumber(L,lret);
@@ -248,15 +236,13 @@ public:
 	// void osg::Image::DataIterator::operator++()
 	static int _bind_op_inc(lua_State *L) {
 		if (!_lg_typecheck_op_inc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Image::DataIterator::operator++() function, expected prototype:\nvoid osg::Image::DataIterator::operator++()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Image::DataIterator::operator++() function, expected prototype:\nvoid osg::Image::DataIterator::operator++()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Image::DataIterator* self=(Luna< osg::Image::DataIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Image::DataIterator::operator++(). Got : '%s'",typeid(Luna< osg::Image::DataIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Image::DataIterator::operator++(). Got : '%s'\n%s",typeid(Luna< osg::Image::DataIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->operator++();
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::MatrixList*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::MatrixList*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::MatrixList* rhs =(Luna< osg::MatrixList >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::MatrixList* self= (osg::MatrixList*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::MatrixList >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -100,6 +96,12 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_assign(lua_State *L) {
@@ -179,13 +181,22 @@ public:
 
 
 	// Constructor binds:
+	// osg::MatrixList::MatrixList()
+	static osg::MatrixList* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luaL_error(L, "luna typecheck failed in osg::MatrixList::MatrixList() function, expected prototype:\nosg::MatrixList::MatrixList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+
+		return new osg::MatrixList();
+	}
+
 
 	// Function binds:
 	// void osg::MatrixList::assign(unsigned int arg1, osg::Matrixd arg2)
 	static int _bind_assign(lua_State *L) {
 		if (!_lg_typecheck_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::MatrixList::assign(unsigned int arg1, osg::Matrixd arg2) function, expected prototype:\nvoid osg::MatrixList::assign(unsigned int arg1, osg::Matrixd arg2)\nClass arguments details:\narg 2 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::MatrixList::assign(unsigned int arg1, osg::Matrixd arg2) function, expected prototype:\nvoid osg::MatrixList::assign(unsigned int arg1, osg::Matrixd arg2)\nClass arguments details:\narg 2 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
@@ -197,8 +208,7 @@ public:
 
 		osg::MatrixList* self=(Luna< osg::MatrixList >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::MatrixList::assign(unsigned int, osg::Matrixd). Got : '%s'",typeid(Luna< osg::MatrixList >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::MatrixList::assign(unsigned int, osg::Matrixd). Got : '%s'\n%s",typeid(Luna< osg::MatrixList >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->assign(arg1, arg2);
 
@@ -208,16 +218,14 @@ public:
 	// osg::Matrixd osg::MatrixList::at(unsigned int arg1)
 	static int _bind_at(lua_State *L) {
 		if (!_lg_typecheck_at(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osg::MatrixList::at(unsigned int arg1) function, expected prototype:\nosg::Matrixd osg::MatrixList::at(unsigned int arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osg::MatrixList::at(unsigned int arg1) function, expected prototype:\nosg::Matrixd osg::MatrixList::at(unsigned int arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
 
 		osg::MatrixList* self=(Luna< osg::MatrixList >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osg::MatrixList::at(unsigned int). Got : '%s'",typeid(Luna< osg::MatrixList >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osg::MatrixList::at(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::MatrixList >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixd stack_lret = self->at(arg1);
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -231,15 +239,13 @@ public:
 	// osg::Matrixd osg::MatrixList::back()
 	static int _bind_back(lua_State *L) {
 		if (!_lg_typecheck_back(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osg::MatrixList::back() function, expected prototype:\nosg::Matrixd osg::MatrixList::back()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osg::MatrixList::back() function, expected prototype:\nosg::Matrixd osg::MatrixList::back()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::MatrixList* self=(Luna< osg::MatrixList >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osg::MatrixList::back(). Got : '%s'",typeid(Luna< osg::MatrixList >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osg::MatrixList::back(). Got : '%s'\n%s",typeid(Luna< osg::MatrixList >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixd stack_lret = self->back();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -253,15 +259,13 @@ public:
 	// osg::Matrixd osg::MatrixList::front()
 	static int _bind_front(lua_State *L) {
 		if (!_lg_typecheck_front(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osg::MatrixList::front() function, expected prototype:\nosg::Matrixd osg::MatrixList::front()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osg::MatrixList::front() function, expected prototype:\nosg::Matrixd osg::MatrixList::front()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::MatrixList* self=(Luna< osg::MatrixList >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osg::MatrixList::front(). Got : '%s'",typeid(Luna< osg::MatrixList >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osg::MatrixList::front(). Got : '%s'\n%s",typeid(Luna< osg::MatrixList >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixd stack_lret = self->front();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -275,15 +279,13 @@ public:
 	// void osg::MatrixList::clear()
 	static int _bind_clear(lua_State *L) {
 		if (!_lg_typecheck_clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::MatrixList::clear() function, expected prototype:\nvoid osg::MatrixList::clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::MatrixList::clear() function, expected prototype:\nvoid osg::MatrixList::clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::MatrixList* self=(Luna< osg::MatrixList >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::MatrixList::clear(). Got : '%s'",typeid(Luna< osg::MatrixList >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::MatrixList::clear(). Got : '%s'\n%s",typeid(Luna< osg::MatrixList >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->clear();
 
@@ -293,15 +295,13 @@ public:
 	// bool osg::MatrixList::empty()
 	static int _bind_empty(lua_State *L) {
 		if (!_lg_typecheck_empty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::MatrixList::empty() function, expected prototype:\nbool osg::MatrixList::empty()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::MatrixList::empty() function, expected prototype:\nbool osg::MatrixList::empty()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::MatrixList* self=(Luna< osg::MatrixList >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::MatrixList::empty(). Got : '%s'",typeid(Luna< osg::MatrixList >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::MatrixList::empty(). Got : '%s'\n%s",typeid(Luna< osg::MatrixList >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->empty();
 		lua_pushboolean(L,lret?1:0);
@@ -312,15 +312,13 @@ public:
 	// unsigned int osg::MatrixList::size()
 	static int _bind_size(lua_State *L) {
 		if (!_lg_typecheck_size(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::MatrixList::size() function, expected prototype:\nunsigned int osg::MatrixList::size()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::MatrixList::size() function, expected prototype:\nunsigned int osg::MatrixList::size()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::MatrixList* self=(Luna< osg::MatrixList >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::MatrixList::size(). Got : '%s'",typeid(Luna< osg::MatrixList >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::MatrixList::size(). Got : '%s'\n%s",typeid(Luna< osg::MatrixList >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->size();
 		lua_pushnumber(L,lret);
@@ -331,16 +329,14 @@ public:
 	// void osg::MatrixList::resize(unsigned int arg1)
 	static int _bind_resize(lua_State *L) {
 		if (!_lg_typecheck_resize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::MatrixList::resize(unsigned int arg1) function, expected prototype:\nvoid osg::MatrixList::resize(unsigned int arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::MatrixList::resize(unsigned int arg1) function, expected prototype:\nvoid osg::MatrixList::resize(unsigned int arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
 
 		osg::MatrixList* self=(Luna< osg::MatrixList >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::MatrixList::resize(unsigned int). Got : '%s'",typeid(Luna< osg::MatrixList >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::MatrixList::resize(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::MatrixList >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->resize(arg1);
 
@@ -350,15 +346,13 @@ public:
 	// void osg::MatrixList::pop_back()
 	static int _bind_pop_back(lua_State *L) {
 		if (!_lg_typecheck_pop_back(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::MatrixList::pop_back() function, expected prototype:\nvoid osg::MatrixList::pop_back()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::MatrixList::pop_back() function, expected prototype:\nvoid osg::MatrixList::pop_back()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::MatrixList* self=(Luna< osg::MatrixList >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::MatrixList::pop_back(). Got : '%s'",typeid(Luna< osg::MatrixList >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::MatrixList::pop_back(). Got : '%s'\n%s",typeid(Luna< osg::MatrixList >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pop_back();
 
@@ -368,8 +362,7 @@ public:
 	// void osg::MatrixList::push_back(osg::Matrixd arg1)
 	static int _bind_push_back(lua_State *L) {
 		if (!_lg_typecheck_push_back(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::MatrixList::push_back(osg::Matrixd arg1) function, expected prototype:\nvoid osg::MatrixList::push_back(osg::Matrixd arg1)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::MatrixList::push_back(osg::Matrixd arg1) function, expected prototype:\nvoid osg::MatrixList::push_back(osg::Matrixd arg1)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Matrixd* arg1_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -380,8 +373,7 @@ public:
 
 		osg::MatrixList* self=(Luna< osg::MatrixList >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::MatrixList::push_back(osg::Matrixd). Got : '%s'",typeid(Luna< osg::MatrixList >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::MatrixList::push_back(osg::Matrixd). Got : '%s'\n%s",typeid(Luna< osg::MatrixList >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->push_back(arg1);
 
@@ -393,16 +385,14 @@ public:
 	// osg::Matrixd osg::MatrixList::operator[](unsigned int arg1)
 	static int _bind_op_index(lua_State *L) {
 		if (!_lg_typecheck_op_index(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osg::MatrixList::operator[](unsigned int arg1) function, expected prototype:\nosg::Matrixd osg::MatrixList::operator[](unsigned int arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osg::MatrixList::operator[](unsigned int arg1) function, expected prototype:\nosg::Matrixd osg::MatrixList::operator[](unsigned int arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
 
 		osg::MatrixList* self=(Luna< osg::MatrixList >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osg::MatrixList::operator[](unsigned int). Got : '%s'",typeid(Luna< osg::MatrixList >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osg::MatrixList::operator[](unsigned int). Got : '%s'\n%s",typeid(Luna< osg::MatrixList >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrixd stack_lret = self->operator[](arg1);
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -417,7 +407,7 @@ public:
 };
 
 osg::MatrixList* LunaTraits< osg::MatrixList >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osg_MatrixList::_bind_ctor(L);
 }
 
 void LunaTraits< osg::MatrixList >::_bind_dtor(osg::MatrixList* obj) {

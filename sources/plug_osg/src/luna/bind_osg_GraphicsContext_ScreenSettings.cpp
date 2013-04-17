@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::GraphicsContext::ScreenSettings*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::GraphicsContext::ScreenSettings*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::GraphicsContext::ScreenSettings* rhs =(Luna< osg::GraphicsContext::ScreenSettings >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::GraphicsContext::ScreenSettings* self= (osg::GraphicsContext::ScreenSettings*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -179,8 +175,7 @@ public:
 	// osg::GraphicsContext::ScreenSettings::ScreenSettings()
 	static osg::GraphicsContext::ScreenSettings* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::GraphicsContext::ScreenSettings::ScreenSettings() function, expected prototype:\nosg::GraphicsContext::ScreenSettings::ScreenSettings()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::GraphicsContext::ScreenSettings::ScreenSettings() function, expected prototype:\nosg::GraphicsContext::ScreenSettings::ScreenSettings()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -190,8 +185,7 @@ public:
 	// osg::GraphicsContext::ScreenSettings::ScreenSettings(int width, int height, double refreshRate = 0, unsigned int colorDepth = 0)
 	static osg::GraphicsContext::ScreenSettings* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::GraphicsContext::ScreenSettings::ScreenSettings(int width, int height, double refreshRate = 0, unsigned int colorDepth = 0) function, expected prototype:\nosg::GraphicsContext::ScreenSettings::ScreenSettings(int width, int height, double refreshRate = 0, unsigned int colorDepth = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::GraphicsContext::ScreenSettings::ScreenSettings(int width, int height, double refreshRate = 0, unsigned int colorDepth = 0) function, expected prototype:\nosg::GraphicsContext::ScreenSettings::ScreenSettings(int width, int height, double refreshRate = 0, unsigned int colorDepth = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -218,15 +212,13 @@ public:
 	// int osg::GraphicsContext::ScreenSettings::width()
 	static int _bind_getWidth(lua_State *L) {
 		if (!_lg_typecheck_getWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::GraphicsContext::ScreenSettings::width() function, expected prototype:\nint osg::GraphicsContext::ScreenSettings::width()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::GraphicsContext::ScreenSettings::width() function, expected prototype:\nint osg::GraphicsContext::ScreenSettings::width()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::GraphicsContext::ScreenSettings* self=(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::GraphicsContext::ScreenSettings::width(). Got : '%s'",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::GraphicsContext::ScreenSettings::width(). Got : '%s'\n%s",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->width;
 		lua_pushnumber(L,lret);
@@ -237,15 +229,13 @@ public:
 	// int osg::GraphicsContext::ScreenSettings::height()
 	static int _bind_getHeight(lua_State *L) {
 		if (!_lg_typecheck_getHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::GraphicsContext::ScreenSettings::height() function, expected prototype:\nint osg::GraphicsContext::ScreenSettings::height()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::GraphicsContext::ScreenSettings::height() function, expected prototype:\nint osg::GraphicsContext::ScreenSettings::height()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::GraphicsContext::ScreenSettings* self=(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::GraphicsContext::ScreenSettings::height(). Got : '%s'",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::GraphicsContext::ScreenSettings::height(). Got : '%s'\n%s",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->height;
 		lua_pushnumber(L,lret);
@@ -256,15 +246,13 @@ public:
 	// double osg::GraphicsContext::ScreenSettings::refreshRate()
 	static int _bind_getRefreshRate(lua_State *L) {
 		if (!_lg_typecheck_getRefreshRate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::GraphicsContext::ScreenSettings::refreshRate() function, expected prototype:\ndouble osg::GraphicsContext::ScreenSettings::refreshRate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::GraphicsContext::ScreenSettings::refreshRate() function, expected prototype:\ndouble osg::GraphicsContext::ScreenSettings::refreshRate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::GraphicsContext::ScreenSettings* self=(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::GraphicsContext::ScreenSettings::refreshRate(). Got : '%s'",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::GraphicsContext::ScreenSettings::refreshRate(). Got : '%s'\n%s",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->refreshRate;
 		lua_pushnumber(L,lret);
@@ -275,15 +263,13 @@ public:
 	// unsigned int osg::GraphicsContext::ScreenSettings::colorDepth()
 	static int _bind_getColorDepth(lua_State *L) {
 		if (!_lg_typecheck_getColorDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::GraphicsContext::ScreenSettings::colorDepth() function, expected prototype:\nunsigned int osg::GraphicsContext::ScreenSettings::colorDepth()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::GraphicsContext::ScreenSettings::colorDepth() function, expected prototype:\nunsigned int osg::GraphicsContext::ScreenSettings::colorDepth()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::GraphicsContext::ScreenSettings* self=(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::GraphicsContext::ScreenSettings::colorDepth(). Got : '%s'",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::GraphicsContext::ScreenSettings::colorDepth(). Got : '%s'\n%s",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->colorDepth;
 		lua_pushnumber(L,lret);
@@ -294,16 +280,14 @@ public:
 	// void osg::GraphicsContext::ScreenSettings::width(int value)
 	static int _bind_setWidth(lua_State *L) {
 		if (!_lg_typecheck_setWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::ScreenSettings::width(int value) function, expected prototype:\nvoid osg::GraphicsContext::ScreenSettings::width(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::ScreenSettings::width(int value) function, expected prototype:\nvoid osg::GraphicsContext::ScreenSettings::width(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::GraphicsContext::ScreenSettings* self=(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::ScreenSettings::width(int). Got : '%s'",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::ScreenSettings::width(int). Got : '%s'\n%s",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->width = value;
 
@@ -313,16 +297,14 @@ public:
 	// void osg::GraphicsContext::ScreenSettings::height(int value)
 	static int _bind_setHeight(lua_State *L) {
 		if (!_lg_typecheck_setHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::ScreenSettings::height(int value) function, expected prototype:\nvoid osg::GraphicsContext::ScreenSettings::height(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::ScreenSettings::height(int value) function, expected prototype:\nvoid osg::GraphicsContext::ScreenSettings::height(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::GraphicsContext::ScreenSettings* self=(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::ScreenSettings::height(int). Got : '%s'",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::ScreenSettings::height(int). Got : '%s'\n%s",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->height = value;
 
@@ -332,16 +314,14 @@ public:
 	// void osg::GraphicsContext::ScreenSettings::refreshRate(double value)
 	static int _bind_setRefreshRate(lua_State *L) {
 		if (!_lg_typecheck_setRefreshRate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::ScreenSettings::refreshRate(double value) function, expected prototype:\nvoid osg::GraphicsContext::ScreenSettings::refreshRate(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::ScreenSettings::refreshRate(double value) function, expected prototype:\nvoid osg::GraphicsContext::ScreenSettings::refreshRate(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osg::GraphicsContext::ScreenSettings* self=(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::ScreenSettings::refreshRate(double). Got : '%s'",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::ScreenSettings::refreshRate(double). Got : '%s'\n%s",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->refreshRate = value;
 
@@ -351,16 +331,14 @@ public:
 	// void osg::GraphicsContext::ScreenSettings::colorDepth(unsigned int value)
 	static int _bind_setColorDepth(lua_State *L) {
 		if (!_lg_typecheck_setColorDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::ScreenSettings::colorDepth(unsigned int value) function, expected prototype:\nvoid osg::GraphicsContext::ScreenSettings::colorDepth(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::ScreenSettings::colorDepth(unsigned int value) function, expected prototype:\nvoid osg::GraphicsContext::ScreenSettings::colorDepth(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::GraphicsContext::ScreenSettings* self=(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::ScreenSettings::colorDepth(unsigned int). Got : '%s'",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::ScreenSettings::colorDepth(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::GraphicsContext::ScreenSettings >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->colorDepth = value;
 

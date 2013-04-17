@@ -36,6 +36,7 @@
 - Added extension form land module, added support for infinity values, implemented update from TerrainNode.
 - Added planeList support in osg module.
 - Added getVisibility functions in land module.
+- Fixed incorrect typecheck for __unm metamethod. Testing osg vector negations.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

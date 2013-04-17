@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::DatabasePager* self= (osgDB::DatabasePager*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -476,8 +473,7 @@ public:
 	// osgDB::DatabasePager::DatabasePager()
 	static osgDB::DatabasePager* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager::DatabasePager() function, expected prototype:\nosgDB::DatabasePager::DatabasePager()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager::DatabasePager() function, expected prototype:\nosgDB::DatabasePager::DatabasePager()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -487,8 +483,7 @@ public:
 	// osgDB::DatabasePager::DatabasePager(const osgDB::DatabasePager & rhs)
 	static osgDB::DatabasePager* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager::DatabasePager(const osgDB::DatabasePager & rhs) function, expected prototype:\nosgDB::DatabasePager::DatabasePager(const osgDB::DatabasePager & rhs)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager::DatabasePager(const osgDB::DatabasePager & rhs) function, expected prototype:\nosgDB::DatabasePager::DatabasePager(const osgDB::DatabasePager & rhs)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgDB::DatabasePager* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1));
@@ -503,8 +498,7 @@ public:
 	// osgDB::DatabasePager::DatabasePager(lua_Table * data)
 	static osgDB::DatabasePager* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager::DatabasePager(lua_Table * data) function, expected prototype:\nosgDB::DatabasePager::DatabasePager(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager::DatabasePager(lua_Table * data) function, expected prototype:\nosgDB::DatabasePager::DatabasePager(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -514,8 +508,7 @@ public:
 	// osgDB::DatabasePager::DatabasePager(lua_Table * data, const osgDB::DatabasePager & rhs)
 	static osgDB::DatabasePager* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager::DatabasePager(lua_Table * data, const osgDB::DatabasePager & rhs) function, expected prototype:\nosgDB::DatabasePager::DatabasePager(lua_Table * data, const osgDB::DatabasePager & rhs)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager::DatabasePager(lua_Table * data, const osgDB::DatabasePager & rhs) function, expected prototype:\nosgDB::DatabasePager::DatabasePager(lua_Table * data, const osgDB::DatabasePager & rhs)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgDB::DatabasePager* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,2));
@@ -543,15 +536,13 @@ public:
 	// const char * osgDB::DatabasePager::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgDB::DatabasePager::className() const function, expected prototype:\nconst char * osgDB::DatabasePager::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgDB::DatabasePager::className() const function, expected prototype:\nconst char * osgDB::DatabasePager::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::DatabasePager::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgDB::DatabasePager::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -562,15 +553,13 @@ public:
 	// osgDB::DatabasePager * osgDB::DatabasePager::clone() const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager * osgDB::DatabasePager::clone() const function, expected prototype:\nosgDB::DatabasePager * osgDB::DatabasePager::clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager * osgDB::DatabasePager::clone() const function, expected prototype:\nosgDB::DatabasePager * osgDB::DatabasePager::clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::DatabasePager * osgDB::DatabasePager::clone() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::DatabasePager * osgDB::DatabasePager::clone() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::DatabasePager * lret = self->clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -583,8 +572,7 @@ public:
 	// void osgDB::DatabasePager::requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options)
 	static int _bind_requestNodeFile(lua_State *L) {
 		if (!_lg_typecheck_requestNodeFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options) function, expected prototype:\nvoid osgDB::DatabasePager::requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options)\nClass arguments details:\narg 2 ID = 52841328\narg 4 ID = 50169651\narg 5 ID = [unknown]\narg 6 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options) function, expected prototype:\nvoid osgDB::DatabasePager::requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options)\nClass arguments details:\narg 2 ID = 52841328\narg 4 ID = 50169651\narg 5 ID = [unknown]\narg 6 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
@@ -600,8 +588,7 @@ public:
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::requestNodeFile(const std::string &, osg::NodePath &, float, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::requestNodeFile(const std::string &, osg::NodePath &, float, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->requestNodeFile(fileName, nodePath, priority, framestamp, databaseRequest, options);
 
@@ -611,16 +598,14 @@ public:
 	// int osgDB::DatabasePager::setSchedulePriority(OpenThreads::Thread::ThreadPriority priority)
 	static int _bind_setSchedulePriority(lua_State *L) {
 		if (!_lg_typecheck_setSchedulePriority(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgDB::DatabasePager::setSchedulePriority(OpenThreads::Thread::ThreadPriority priority) function, expected prototype:\nint osgDB::DatabasePager::setSchedulePriority(OpenThreads::Thread::ThreadPriority priority)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgDB::DatabasePager::setSchedulePriority(OpenThreads::Thread::ThreadPriority priority) function, expected prototype:\nint osgDB::DatabasePager::setSchedulePriority(OpenThreads::Thread::ThreadPriority priority)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::Thread::ThreadPriority priority=(OpenThreads::Thread::ThreadPriority)lua_tointeger(L,2);
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgDB::DatabasePager::setSchedulePriority(OpenThreads::Thread::ThreadPriority). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgDB::DatabasePager::setSchedulePriority(OpenThreads::Thread::ThreadPriority). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->setSchedulePriority(priority);
 		lua_pushnumber(L,lret);
@@ -631,15 +616,13 @@ public:
 	// int osgDB::DatabasePager::cancel()
 	static int _bind_cancel(lua_State *L) {
 		if (!_lg_typecheck_cancel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgDB::DatabasePager::cancel() function, expected prototype:\nint osgDB::DatabasePager::cancel()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgDB::DatabasePager::cancel() function, expected prototype:\nint osgDB::DatabasePager::cancel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgDB::DatabasePager::cancel(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgDB::DatabasePager::cancel(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->cancel();
 		lua_pushnumber(L,lret);
@@ -650,15 +633,13 @@ public:
 	// bool osgDB::DatabasePager::isRunning() const
 	static int _bind_isRunning(lua_State *L) {
 		if (!_lg_typecheck_isRunning(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::isRunning() const function, expected prototype:\nbool osgDB::DatabasePager::isRunning() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::isRunning() const function, expected prototype:\nbool osgDB::DatabasePager::isRunning() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::isRunning() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::isRunning() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isRunning();
 		lua_pushboolean(L,lret?1:0);
@@ -669,15 +650,13 @@ public:
 	// void osgDB::DatabasePager::clear()
 	static int _bind_clear(lua_State *L) {
 		if (!_lg_typecheck_clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::clear() function, expected prototype:\nvoid osgDB::DatabasePager::clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::clear() function, expected prototype:\nvoid osgDB::DatabasePager::clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::clear(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::clear(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->clear();
 
@@ -687,8 +666,7 @@ public:
 	// void osgDB::DatabasePager::setUpThreads(unsigned int totalNumThreads = 2, unsigned int numHttpThreads = 1)
 	static int _bind_setUpThreads(lua_State *L) {
 		if (!_lg_typecheck_setUpThreads(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setUpThreads(unsigned int totalNumThreads = 2, unsigned int numHttpThreads = 1) function, expected prototype:\nvoid osgDB::DatabasePager::setUpThreads(unsigned int totalNumThreads = 2, unsigned int numHttpThreads = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setUpThreads(unsigned int totalNumThreads = 2, unsigned int numHttpThreads = 1) function, expected prototype:\nvoid osgDB::DatabasePager::setUpThreads(unsigned int totalNumThreads = 2, unsigned int numHttpThreads = 1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -698,8 +676,7 @@ public:
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setUpThreads(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setUpThreads(unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setUpThreads(totalNumThreads, numHttpThreads);
 
@@ -709,16 +686,14 @@ public:
 	// void osgDB::DatabasePager::setDatabasePagerThreadPause(bool pause)
 	static int _bind_setDatabasePagerThreadPause(lua_State *L) {
 		if (!_lg_typecheck_setDatabasePagerThreadPause(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setDatabasePagerThreadPause(bool pause) function, expected prototype:\nvoid osgDB::DatabasePager::setDatabasePagerThreadPause(bool pause)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setDatabasePagerThreadPause(bool pause) function, expected prototype:\nvoid osgDB::DatabasePager::setDatabasePagerThreadPause(bool pause)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool pause=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setDatabasePagerThreadPause(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setDatabasePagerThreadPause(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDatabasePagerThreadPause(pause);
 
@@ -728,15 +703,13 @@ public:
 	// bool osgDB::DatabasePager::getDatabasePagerThreadPause() const
 	static int _bind_getDatabasePagerThreadPause(lua_State *L) {
 		if (!_lg_typecheck_getDatabasePagerThreadPause(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::getDatabasePagerThreadPause() const function, expected prototype:\nbool osgDB::DatabasePager::getDatabasePagerThreadPause() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::getDatabasePagerThreadPause() const function, expected prototype:\nbool osgDB::DatabasePager::getDatabasePagerThreadPause() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::getDatabasePagerThreadPause() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::getDatabasePagerThreadPause() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getDatabasePagerThreadPause();
 		lua_pushboolean(L,lret?1:0);
@@ -747,16 +720,14 @@ public:
 	// void osgDB::DatabasePager::setAcceptNewDatabaseRequests(bool acceptNewRequests)
 	static int _bind_setAcceptNewDatabaseRequests(lua_State *L) {
 		if (!_lg_typecheck_setAcceptNewDatabaseRequests(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setAcceptNewDatabaseRequests(bool acceptNewRequests) function, expected prototype:\nvoid osgDB::DatabasePager::setAcceptNewDatabaseRequests(bool acceptNewRequests)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setAcceptNewDatabaseRequests(bool acceptNewRequests) function, expected prototype:\nvoid osgDB::DatabasePager::setAcceptNewDatabaseRequests(bool acceptNewRequests)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool acceptNewRequests=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setAcceptNewDatabaseRequests(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setAcceptNewDatabaseRequests(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAcceptNewDatabaseRequests(acceptNewRequests);
 
@@ -766,15 +737,13 @@ public:
 	// bool osgDB::DatabasePager::getAcceptNewDatabaseRequests() const
 	static int _bind_getAcceptNewDatabaseRequests(lua_State *L) {
 		if (!_lg_typecheck_getAcceptNewDatabaseRequests(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::getAcceptNewDatabaseRequests() const function, expected prototype:\nbool osgDB::DatabasePager::getAcceptNewDatabaseRequests() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::getAcceptNewDatabaseRequests() const function, expected prototype:\nbool osgDB::DatabasePager::getAcceptNewDatabaseRequests() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::getAcceptNewDatabaseRequests() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::getAcceptNewDatabaseRequests() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getAcceptNewDatabaseRequests();
 		lua_pushboolean(L,lret?1:0);
@@ -785,15 +754,13 @@ public:
 	// int osgDB::DatabasePager::getNumFramesActive() const
 	static int _bind_getNumFramesActive(lua_State *L) {
 		if (!_lg_typecheck_getNumFramesActive(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgDB::DatabasePager::getNumFramesActive() const function, expected prototype:\nint osgDB::DatabasePager::getNumFramesActive() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgDB::DatabasePager::getNumFramesActive() const function, expected prototype:\nint osgDB::DatabasePager::getNumFramesActive() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgDB::DatabasePager::getNumFramesActive() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgDB::DatabasePager::getNumFramesActive() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNumFramesActive();
 		lua_pushnumber(L,lret);
@@ -804,16 +771,14 @@ public:
 	// void osgDB::DatabasePager::signalBeginFrame(const osg::FrameStamp * framestamp)
 	static int _bind_signalBeginFrame(lua_State *L) {
 		if (!_lg_typecheck_signalBeginFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::signalBeginFrame(const osg::FrameStamp * framestamp) function, expected prototype:\nvoid osgDB::DatabasePager::signalBeginFrame(const osg::FrameStamp * framestamp)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::signalBeginFrame(const osg::FrameStamp * framestamp) function, expected prototype:\nvoid osgDB::DatabasePager::signalBeginFrame(const osg::FrameStamp * framestamp)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::FrameStamp* framestamp=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::signalBeginFrame(const osg::FrameStamp *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::signalBeginFrame(const osg::FrameStamp *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->signalBeginFrame(framestamp);
 
@@ -823,15 +788,13 @@ public:
 	// void osgDB::DatabasePager::signalEndFrame()
 	static int _bind_signalEndFrame(lua_State *L) {
 		if (!_lg_typecheck_signalEndFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::signalEndFrame() function, expected prototype:\nvoid osgDB::DatabasePager::signalEndFrame()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::signalEndFrame() function, expected prototype:\nvoid osgDB::DatabasePager::signalEndFrame()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::signalEndFrame(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::signalEndFrame(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->signalEndFrame();
 
@@ -841,8 +804,7 @@ public:
 	// void osgDB::DatabasePager::registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0)
 	static int _bind_registerPagedLODs(lua_State *L) {
 		if (!_lg_typecheck_registerPagedLODs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0) function, expected prototype:\nvoid osgDB::DatabasePager::registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0) function, expected prototype:\nvoid osgDB::DatabasePager::registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -852,8 +814,7 @@ public:
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::registerPagedLODs(osg::Node *, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::registerPagedLODs(osg::Node *, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->registerPagedLODs(subgraph, frameNumber);
 
@@ -863,16 +824,14 @@ public:
 	// void osgDB::DatabasePager::setDoPreCompile(bool flag)
 	static int _bind_setDoPreCompile(lua_State *L) {
 		if (!_lg_typecheck_setDoPreCompile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setDoPreCompile(bool flag) function, expected prototype:\nvoid osgDB::DatabasePager::setDoPreCompile(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setDoPreCompile(bool flag) function, expected prototype:\nvoid osgDB::DatabasePager::setDoPreCompile(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setDoPreCompile(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setDoPreCompile(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDoPreCompile(flag);
 
@@ -882,15 +841,13 @@ public:
 	// bool osgDB::DatabasePager::getDoPreCompile() const
 	static int _bind_getDoPreCompile(lua_State *L) {
 		if (!_lg_typecheck_getDoPreCompile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::getDoPreCompile() const function, expected prototype:\nbool osgDB::DatabasePager::getDoPreCompile() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::getDoPreCompile() const function, expected prototype:\nbool osgDB::DatabasePager::getDoPreCompile() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::getDoPreCompile() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::getDoPreCompile() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getDoPreCompile();
 		lua_pushboolean(L,lret?1:0);
@@ -901,16 +858,14 @@ public:
 	// void osgDB::DatabasePager::setTargetMaximumNumberOfPageLOD(unsigned int target)
 	static int _bind_setTargetMaximumNumberOfPageLOD(lua_State *L) {
 		if (!_lg_typecheck_setTargetMaximumNumberOfPageLOD(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setTargetMaximumNumberOfPageLOD(unsigned int target) function, expected prototype:\nvoid osgDB::DatabasePager::setTargetMaximumNumberOfPageLOD(unsigned int target)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setTargetMaximumNumberOfPageLOD(unsigned int target) function, expected prototype:\nvoid osgDB::DatabasePager::setTargetMaximumNumberOfPageLOD(unsigned int target)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setTargetMaximumNumberOfPageLOD(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setTargetMaximumNumberOfPageLOD(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTargetMaximumNumberOfPageLOD(target);
 
@@ -920,15 +875,13 @@ public:
 	// unsigned int osgDB::DatabasePager::getTargetMaximumNumberOfPageLOD() const
 	static int _bind_getTargetMaximumNumberOfPageLOD(lua_State *L) {
 		if (!_lg_typecheck_getTargetMaximumNumberOfPageLOD(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgDB::DatabasePager::getTargetMaximumNumberOfPageLOD() const function, expected prototype:\nunsigned int osgDB::DatabasePager::getTargetMaximumNumberOfPageLOD() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::DatabasePager::getTargetMaximumNumberOfPageLOD() const function, expected prototype:\nunsigned int osgDB::DatabasePager::getTargetMaximumNumberOfPageLOD() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::DatabasePager::getTargetMaximumNumberOfPageLOD() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::DatabasePager::getTargetMaximumNumberOfPageLOD() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getTargetMaximumNumberOfPageLOD();
 		lua_pushnumber(L,lret);
@@ -939,16 +892,14 @@ public:
 	// void osgDB::DatabasePager::setDrawablePolicy(osgDB::DatabasePager::DrawablePolicy policy)
 	static int _bind_setDrawablePolicy(lua_State *L) {
 		if (!_lg_typecheck_setDrawablePolicy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setDrawablePolicy(osgDB::DatabasePager::DrawablePolicy policy) function, expected prototype:\nvoid osgDB::DatabasePager::setDrawablePolicy(osgDB::DatabasePager::DrawablePolicy policy)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setDrawablePolicy(osgDB::DatabasePager::DrawablePolicy policy) function, expected prototype:\nvoid osgDB::DatabasePager::setDrawablePolicy(osgDB::DatabasePager::DrawablePolicy policy)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::DatabasePager::DrawablePolicy policy=(osgDB::DatabasePager::DrawablePolicy)lua_tointeger(L,2);
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setDrawablePolicy(osgDB::DatabasePager::DrawablePolicy). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setDrawablePolicy(osgDB::DatabasePager::DrawablePolicy). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDrawablePolicy(policy);
 
@@ -958,15 +909,13 @@ public:
 	// osgDB::DatabasePager::DrawablePolicy osgDB::DatabasePager::getDrawablePolicy() const
 	static int _bind_getDrawablePolicy(lua_State *L) {
 		if (!_lg_typecheck_getDrawablePolicy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager::DrawablePolicy osgDB::DatabasePager::getDrawablePolicy() const function, expected prototype:\nosgDB::DatabasePager::DrawablePolicy osgDB::DatabasePager::getDrawablePolicy() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager::DrawablePolicy osgDB::DatabasePager::getDrawablePolicy() const function, expected prototype:\nosgDB::DatabasePager::DrawablePolicy osgDB::DatabasePager::getDrawablePolicy() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::DatabasePager::DrawablePolicy osgDB::DatabasePager::getDrawablePolicy() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::DatabasePager::DrawablePolicy osgDB::DatabasePager::getDrawablePolicy() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::DatabasePager::DrawablePolicy lret = self->getDrawablePolicy();
 		lua_pushnumber(L,lret);
@@ -977,16 +926,14 @@ public:
 	// void osgDB::DatabasePager::setApplyPBOToImages(bool assignPBOToImages)
 	static int _bind_setApplyPBOToImages(lua_State *L) {
 		if (!_lg_typecheck_setApplyPBOToImages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setApplyPBOToImages(bool assignPBOToImages) function, expected prototype:\nvoid osgDB::DatabasePager::setApplyPBOToImages(bool assignPBOToImages)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setApplyPBOToImages(bool assignPBOToImages) function, expected prototype:\nvoid osgDB::DatabasePager::setApplyPBOToImages(bool assignPBOToImages)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool assignPBOToImages=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setApplyPBOToImages(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setApplyPBOToImages(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setApplyPBOToImages(assignPBOToImages);
 
@@ -996,15 +943,13 @@ public:
 	// bool osgDB::DatabasePager::getApplyPBOToImages() const
 	static int _bind_getApplyPBOToImages(lua_State *L) {
 		if (!_lg_typecheck_getApplyPBOToImages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::getApplyPBOToImages() const function, expected prototype:\nbool osgDB::DatabasePager::getApplyPBOToImages() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::getApplyPBOToImages() const function, expected prototype:\nbool osgDB::DatabasePager::getApplyPBOToImages() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::getApplyPBOToImages() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::getApplyPBOToImages() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getApplyPBOToImages();
 		lua_pushboolean(L,lret?1:0);
@@ -1015,8 +960,7 @@ public:
 	// void osgDB::DatabasePager::setUnrefImageDataAfterApplyPolicy(bool changeAutoUnRef, bool valueAutoUnRef)
 	static int _bind_setUnrefImageDataAfterApplyPolicy(lua_State *L) {
 		if (!_lg_typecheck_setUnrefImageDataAfterApplyPolicy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setUnrefImageDataAfterApplyPolicy(bool changeAutoUnRef, bool valueAutoUnRef) function, expected prototype:\nvoid osgDB::DatabasePager::setUnrefImageDataAfterApplyPolicy(bool changeAutoUnRef, bool valueAutoUnRef)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setUnrefImageDataAfterApplyPolicy(bool changeAutoUnRef, bool valueAutoUnRef) function, expected prototype:\nvoid osgDB::DatabasePager::setUnrefImageDataAfterApplyPolicy(bool changeAutoUnRef, bool valueAutoUnRef)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool changeAutoUnRef=(bool)(lua_toboolean(L,2)==1);
@@ -1024,8 +968,7 @@ public:
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setUnrefImageDataAfterApplyPolicy(bool, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setUnrefImageDataAfterApplyPolicy(bool, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setUnrefImageDataAfterApplyPolicy(changeAutoUnRef, valueAutoUnRef);
 
@@ -1035,8 +978,7 @@ public:
 	// void osgDB::DatabasePager::getUnrefImageDataAfterApplyPolicy(bool & changeAutoUnRef, bool & valueAutoUnRef) const
 	static int _bind_getUnrefImageDataAfterApplyPolicy(lua_State *L) {
 		if (!_lg_typecheck_getUnrefImageDataAfterApplyPolicy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::getUnrefImageDataAfterApplyPolicy(bool & changeAutoUnRef, bool & valueAutoUnRef) const function, expected prototype:\nvoid osgDB::DatabasePager::getUnrefImageDataAfterApplyPolicy(bool & changeAutoUnRef, bool & valueAutoUnRef) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::getUnrefImageDataAfterApplyPolicy(bool & changeAutoUnRef, bool & valueAutoUnRef) const function, expected prototype:\nvoid osgDB::DatabasePager::getUnrefImageDataAfterApplyPolicy(bool & changeAutoUnRef, bool & valueAutoUnRef) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool changeAutoUnRef=(bool)(lua_toboolean(L,2)==1);
@@ -1044,8 +986,7 @@ public:
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::getUnrefImageDataAfterApplyPolicy(bool &, bool &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::getUnrefImageDataAfterApplyPolicy(bool &, bool &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getUnrefImageDataAfterApplyPolicy(changeAutoUnRef, valueAutoUnRef);
 
@@ -1057,8 +998,7 @@ public:
 	// void osgDB::DatabasePager::setMaxAnisotropyPolicy(bool changeAnisotropy, float valueAnisotropy)
 	static int _bind_setMaxAnisotropyPolicy(lua_State *L) {
 		if (!_lg_typecheck_setMaxAnisotropyPolicy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setMaxAnisotropyPolicy(bool changeAnisotropy, float valueAnisotropy) function, expected prototype:\nvoid osgDB::DatabasePager::setMaxAnisotropyPolicy(bool changeAnisotropy, float valueAnisotropy)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setMaxAnisotropyPolicy(bool changeAnisotropy, float valueAnisotropy) function, expected prototype:\nvoid osgDB::DatabasePager::setMaxAnisotropyPolicy(bool changeAnisotropy, float valueAnisotropy)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool changeAnisotropy=(bool)(lua_toboolean(L,2)==1);
@@ -1066,8 +1006,7 @@ public:
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setMaxAnisotropyPolicy(bool, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setMaxAnisotropyPolicy(bool, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMaxAnisotropyPolicy(changeAnisotropy, valueAnisotropy);
 
@@ -1077,8 +1016,7 @@ public:
 	// void osgDB::DatabasePager::getMaxAnisotropyPolicy(bool & changeAnisotropy, float & valueAnisotropy) const
 	static int _bind_getMaxAnisotropyPolicy(lua_State *L) {
 		if (!_lg_typecheck_getMaxAnisotropyPolicy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::getMaxAnisotropyPolicy(bool & changeAnisotropy, float & valueAnisotropy) const function, expected prototype:\nvoid osgDB::DatabasePager::getMaxAnisotropyPolicy(bool & changeAnisotropy, float & valueAnisotropy) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::getMaxAnisotropyPolicy(bool & changeAnisotropy, float & valueAnisotropy) const function, expected prototype:\nvoid osgDB::DatabasePager::getMaxAnisotropyPolicy(bool & changeAnisotropy, float & valueAnisotropy) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool changeAnisotropy=(bool)(lua_toboolean(L,2)==1);
@@ -1086,8 +1024,7 @@ public:
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::getMaxAnisotropyPolicy(bool &, float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::getMaxAnisotropyPolicy(bool &, float &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getMaxAnisotropyPolicy(changeAnisotropy, valueAnisotropy);
 
@@ -1099,15 +1036,13 @@ public:
 	// bool osgDB::DatabasePager::requiresUpdateSceneGraph() const
 	static int _bind_requiresUpdateSceneGraph(lua_State *L) {
 		if (!_lg_typecheck_requiresUpdateSceneGraph(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::requiresUpdateSceneGraph() const function, expected prototype:\nbool osgDB::DatabasePager::requiresUpdateSceneGraph() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::requiresUpdateSceneGraph() const function, expected prototype:\nbool osgDB::DatabasePager::requiresUpdateSceneGraph() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::requiresUpdateSceneGraph() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::requiresUpdateSceneGraph() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->requiresUpdateSceneGraph();
 		lua_pushboolean(L,lret?1:0);
@@ -1118,8 +1053,7 @@ public:
 	// void osgDB::DatabasePager::updateSceneGraph(const osg::FrameStamp & frameStamp)
 	static int _bind_updateSceneGraph(lua_State *L) {
 		if (!_lg_typecheck_updateSceneGraph(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::updateSceneGraph(const osg::FrameStamp & frameStamp) function, expected prototype:\nvoid osgDB::DatabasePager::updateSceneGraph(const osg::FrameStamp & frameStamp)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::updateSceneGraph(const osg::FrameStamp & frameStamp) function, expected prototype:\nvoid osgDB::DatabasePager::updateSceneGraph(const osg::FrameStamp & frameStamp)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::FrameStamp* frameStamp_ptr=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
@@ -1130,8 +1064,7 @@ public:
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::updateSceneGraph(const osg::FrameStamp &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::updateSceneGraph(const osg::FrameStamp &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateSceneGraph(frameStamp);
 
@@ -1141,15 +1074,13 @@ public:
 	// unsigned int osgDB::DatabasePager::getFileRequestListSize() const
 	static int _bind_getFileRequestListSize(lua_State *L) {
 		if (!_lg_typecheck_getFileRequestListSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgDB::DatabasePager::getFileRequestListSize() const function, expected prototype:\nunsigned int osgDB::DatabasePager::getFileRequestListSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::DatabasePager::getFileRequestListSize() const function, expected prototype:\nunsigned int osgDB::DatabasePager::getFileRequestListSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::DatabasePager::getFileRequestListSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::DatabasePager::getFileRequestListSize() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getFileRequestListSize();
 		lua_pushnumber(L,lret);
@@ -1160,15 +1091,13 @@ public:
 	// unsigned int osgDB::DatabasePager::getDataToCompileListSize() const
 	static int _bind_getDataToCompileListSize(lua_State *L) {
 		if (!_lg_typecheck_getDataToCompileListSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgDB::DatabasePager::getDataToCompileListSize() const function, expected prototype:\nunsigned int osgDB::DatabasePager::getDataToCompileListSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::DatabasePager::getDataToCompileListSize() const function, expected prototype:\nunsigned int osgDB::DatabasePager::getDataToCompileListSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::DatabasePager::getDataToCompileListSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::DatabasePager::getDataToCompileListSize() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getDataToCompileListSize();
 		lua_pushnumber(L,lret);
@@ -1179,15 +1108,13 @@ public:
 	// unsigned int osgDB::DatabasePager::getDataToMergeListSize() const
 	static int _bind_getDataToMergeListSize(lua_State *L) {
 		if (!_lg_typecheck_getDataToMergeListSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgDB::DatabasePager::getDataToMergeListSize() const function, expected prototype:\nunsigned int osgDB::DatabasePager::getDataToMergeListSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::DatabasePager::getDataToMergeListSize() const function, expected prototype:\nunsigned int osgDB::DatabasePager::getDataToMergeListSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::DatabasePager::getDataToMergeListSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::DatabasePager::getDataToMergeListSize() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getDataToMergeListSize();
 		lua_pushnumber(L,lret);
@@ -1198,15 +1125,13 @@ public:
 	// bool osgDB::DatabasePager::getRequestsInProgress() const
 	static int _bind_getRequestsInProgress(lua_State *L) {
 		if (!_lg_typecheck_getRequestsInProgress(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::getRequestsInProgress() const function, expected prototype:\nbool osgDB::DatabasePager::getRequestsInProgress() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::getRequestsInProgress() const function, expected prototype:\nbool osgDB::DatabasePager::getRequestsInProgress() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::getRequestsInProgress() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::getRequestsInProgress() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getRequestsInProgress();
 		lua_pushboolean(L,lret?1:0);
@@ -1217,15 +1142,13 @@ public:
 	// double osgDB::DatabasePager::getMinimumTimeToMergeTile() const
 	static int _bind_getMinimumTimeToMergeTile(lua_State *L) {
 		if (!_lg_typecheck_getMinimumTimeToMergeTile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgDB::DatabasePager::getMinimumTimeToMergeTile() const function, expected prototype:\ndouble osgDB::DatabasePager::getMinimumTimeToMergeTile() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgDB::DatabasePager::getMinimumTimeToMergeTile() const function, expected prototype:\ndouble osgDB::DatabasePager::getMinimumTimeToMergeTile() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgDB::DatabasePager::getMinimumTimeToMergeTile() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgDB::DatabasePager::getMinimumTimeToMergeTile() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getMinimumTimeToMergeTile();
 		lua_pushnumber(L,lret);
@@ -1236,15 +1159,13 @@ public:
 	// double osgDB::DatabasePager::getMaximumTimeToMergeTile() const
 	static int _bind_getMaximumTimeToMergeTile(lua_State *L) {
 		if (!_lg_typecheck_getMaximumTimeToMergeTile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgDB::DatabasePager::getMaximumTimeToMergeTile() const function, expected prototype:\ndouble osgDB::DatabasePager::getMaximumTimeToMergeTile() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgDB::DatabasePager::getMaximumTimeToMergeTile() const function, expected prototype:\ndouble osgDB::DatabasePager::getMaximumTimeToMergeTile() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgDB::DatabasePager::getMaximumTimeToMergeTile() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgDB::DatabasePager::getMaximumTimeToMergeTile() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getMaximumTimeToMergeTile();
 		lua_pushnumber(L,lret);
@@ -1255,15 +1176,13 @@ public:
 	// double osgDB::DatabasePager::getAverageTimeToMergeTiles() const
 	static int _bind_getAverageTimeToMergeTiles(lua_State *L) {
 		if (!_lg_typecheck_getAverageTimeToMergeTiles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgDB::DatabasePager::getAverageTimeToMergeTiles() const function, expected prototype:\ndouble osgDB::DatabasePager::getAverageTimeToMergeTiles() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgDB::DatabasePager::getAverageTimeToMergeTiles() const function, expected prototype:\ndouble osgDB::DatabasePager::getAverageTimeToMergeTiles() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgDB::DatabasePager::getAverageTimeToMergeTiles() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgDB::DatabasePager::getAverageTimeToMergeTiles() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getAverageTimeToMergeTiles();
 		lua_pushnumber(L,lret);
@@ -1274,15 +1193,13 @@ public:
 	// void osgDB::DatabasePager::resetStats()
 	static int _bind_resetStats(lua_State *L) {
 		if (!_lg_typecheck_resetStats(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::resetStats() function, expected prototype:\nvoid osgDB::DatabasePager::resetStats()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::resetStats() function, expected prototype:\nvoid osgDB::DatabasePager::resetStats()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::resetStats(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::resetStats(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->resetStats();
 
@@ -1292,8 +1209,7 @@ public:
 	// static osg::ref_ptr< osgDB::DatabasePager > & osgDB::DatabasePager::prototype()
 	static int _bind_prototype(lua_State *L) {
 		if (!_lg_typecheck_prototype(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::ref_ptr< osgDB::DatabasePager > & osgDB::DatabasePager::prototype() function, expected prototype:\nstatic osg::ref_ptr< osgDB::DatabasePager > & osgDB::DatabasePager::prototype()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::ref_ptr< osgDB::DatabasePager > & osgDB::DatabasePager::prototype() function, expected prototype:\nstatic osg::ref_ptr< osgDB::DatabasePager > & osgDB::DatabasePager::prototype()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -1306,8 +1222,7 @@ public:
 	// static osgDB::DatabasePager * osgDB::DatabasePager::create()
 	static int _bind_create(lua_State *L) {
 		if (!_lg_typecheck_create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osgDB::DatabasePager * osgDB::DatabasePager::create() function, expected prototype:\nstatic osgDB::DatabasePager * osgDB::DatabasePager::create()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osgDB::DatabasePager * osgDB::DatabasePager::create() function, expected prototype:\nstatic osgDB::DatabasePager * osgDB::DatabasePager::create()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -1322,16 +1237,14 @@ public:
 	// void osgDB::DatabasePager::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::DatabasePager::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::DatabasePager::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DatabasePager::setThreadSafeRefUnref(threadSafe);
 
@@ -1341,15 +1254,13 @@ public:
 	// const char * osgDB::DatabasePager::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgDB::DatabasePager::base_className() const function, expected prototype:\nconst char * osgDB::DatabasePager::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgDB::DatabasePager::base_className() const function, expected prototype:\nconst char * osgDB::DatabasePager::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::DatabasePager::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgDB::DatabasePager::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->DatabasePager::className();
 		lua_pushstring(L,lret);
@@ -1360,15 +1271,13 @@ public:
 	// osgDB::DatabasePager * osgDB::DatabasePager::base_clone() const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager * osgDB::DatabasePager::base_clone() const function, expected prototype:\nosgDB::DatabasePager * osgDB::DatabasePager::base_clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager * osgDB::DatabasePager::base_clone() const function, expected prototype:\nosgDB::DatabasePager * osgDB::DatabasePager::base_clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::DatabasePager * osgDB::DatabasePager::base_clone() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgDB::DatabasePager * osgDB::DatabasePager::base_clone() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgDB::DatabasePager * lret = self->DatabasePager::clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1381,8 +1290,7 @@ public:
 	// void osgDB::DatabasePager::base_requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options)
 	static int _bind_base_requestNodeFile(lua_State *L) {
 		if (!_lg_typecheck_base_requestNodeFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options) function, expected prototype:\nvoid osgDB::DatabasePager::base_requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options)\nClass arguments details:\narg 2 ID = 52841328\narg 4 ID = 50169651\narg 5 ID = [unknown]\narg 6 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options) function, expected prototype:\nvoid osgDB::DatabasePager::base_requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options)\nClass arguments details:\narg 2 ID = 52841328\narg 4 ID = 50169651\narg 5 ID = [unknown]\narg 6 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
@@ -1398,8 +1306,7 @@ public:
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_requestNodeFile(const std::string &, osg::NodePath &, float, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_requestNodeFile(const std::string &, osg::NodePath &, float, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DatabasePager::requestNodeFile(fileName, nodePath, priority, framestamp, databaseRequest, options);
 
@@ -1409,15 +1316,13 @@ public:
 	// int osgDB::DatabasePager::base_cancel()
 	static int _bind_base_cancel(lua_State *L) {
 		if (!_lg_typecheck_base_cancel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgDB::DatabasePager::base_cancel() function, expected prototype:\nint osgDB::DatabasePager::base_cancel()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgDB::DatabasePager::base_cancel() function, expected prototype:\nint osgDB::DatabasePager::base_cancel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgDB::DatabasePager::base_cancel(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgDB::DatabasePager::base_cancel(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->DatabasePager::cancel();
 		lua_pushnumber(L,lret);
@@ -1428,15 +1333,13 @@ public:
 	// bool osgDB::DatabasePager::base_isRunning() const
 	static int _bind_base_isRunning(lua_State *L) {
 		if (!_lg_typecheck_base_isRunning(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::base_isRunning() const function, expected prototype:\nbool osgDB::DatabasePager::base_isRunning() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::base_isRunning() const function, expected prototype:\nbool osgDB::DatabasePager::base_isRunning() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::base_isRunning() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::base_isRunning() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DatabasePager::isRunning();
 		lua_pushboolean(L,lret?1:0);
@@ -1447,15 +1350,13 @@ public:
 	// void osgDB::DatabasePager::base_clear()
 	static int _bind_base_clear(lua_State *L) {
 		if (!_lg_typecheck_base_clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_clear() function, expected prototype:\nvoid osgDB::DatabasePager::base_clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_clear() function, expected prototype:\nvoid osgDB::DatabasePager::base_clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_clear(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_clear(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DatabasePager::clear();
 
@@ -1465,16 +1366,14 @@ public:
 	// void osgDB::DatabasePager::base_signalBeginFrame(const osg::FrameStamp * framestamp)
 	static int _bind_base_signalBeginFrame(lua_State *L) {
 		if (!_lg_typecheck_base_signalBeginFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_signalBeginFrame(const osg::FrameStamp * framestamp) function, expected prototype:\nvoid osgDB::DatabasePager::base_signalBeginFrame(const osg::FrameStamp * framestamp)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_signalBeginFrame(const osg::FrameStamp * framestamp) function, expected prototype:\nvoid osgDB::DatabasePager::base_signalBeginFrame(const osg::FrameStamp * framestamp)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::FrameStamp* framestamp=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_signalBeginFrame(const osg::FrameStamp *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_signalBeginFrame(const osg::FrameStamp *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DatabasePager::signalBeginFrame(framestamp);
 
@@ -1484,15 +1383,13 @@ public:
 	// void osgDB::DatabasePager::base_signalEndFrame()
 	static int _bind_base_signalEndFrame(lua_State *L) {
 		if (!_lg_typecheck_base_signalEndFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_signalEndFrame() function, expected prototype:\nvoid osgDB::DatabasePager::base_signalEndFrame()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_signalEndFrame() function, expected prototype:\nvoid osgDB::DatabasePager::base_signalEndFrame()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_signalEndFrame(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_signalEndFrame(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DatabasePager::signalEndFrame();
 
@@ -1502,8 +1399,7 @@ public:
 	// void osgDB::DatabasePager::base_registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0)
 	static int _bind_base_registerPagedLODs(lua_State *L) {
 		if (!_lg_typecheck_base_registerPagedLODs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0) function, expected prototype:\nvoid osgDB::DatabasePager::base_registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0) function, expected prototype:\nvoid osgDB::DatabasePager::base_registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1513,8 +1409,7 @@ public:
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_registerPagedLODs(osg::Node *, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_registerPagedLODs(osg::Node *, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DatabasePager::registerPagedLODs(subgraph, frameNumber);
 
@@ -1524,8 +1419,7 @@ public:
 	// void osgDB::DatabasePager::base_updateSceneGraph(const osg::FrameStamp & frameStamp)
 	static int _bind_base_updateSceneGraph(lua_State *L) {
 		if (!_lg_typecheck_base_updateSceneGraph(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_updateSceneGraph(const osg::FrameStamp & frameStamp) function, expected prototype:\nvoid osgDB::DatabasePager::base_updateSceneGraph(const osg::FrameStamp & frameStamp)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_updateSceneGraph(const osg::FrameStamp & frameStamp) function, expected prototype:\nvoid osgDB::DatabasePager::base_updateSceneGraph(const osg::FrameStamp & frameStamp)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::FrameStamp* frameStamp_ptr=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
@@ -1536,8 +1430,7 @@ public:
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_updateSceneGraph(const osg::FrameStamp &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_updateSceneGraph(const osg::FrameStamp &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DatabasePager::updateSceneGraph(frameStamp);
 

@@ -132,20 +132,26 @@ protected:
 };
 
 class MatrixList {
-
+public:
+	MatrixList();
+	
 };
 
 class NodePath {
-
+public:
+	NodePath();
 };
 
 class NodePathList {
-
+public:
+	NodePathList();
 };
 
 class Polytope {
 public:
 	class PlaneList {
+	public: 
+		PlaneList();
 	};
 };
 

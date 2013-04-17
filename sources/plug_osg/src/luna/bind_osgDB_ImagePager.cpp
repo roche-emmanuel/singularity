@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::ImagePager* self= (osgDB::ImagePager*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -240,8 +237,7 @@ public:
 	// osgDB::ImagePager::ImagePager()
 	static osgDB::ImagePager* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ImagePager::ImagePager() function, expected prototype:\nosgDB::ImagePager::ImagePager()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ImagePager::ImagePager() function, expected prototype:\nosgDB::ImagePager::ImagePager()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -251,8 +247,7 @@ public:
 	// osgDB::ImagePager::ImagePager(lua_Table * data)
 	static osgDB::ImagePager* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ImagePager::ImagePager(lua_Table * data) function, expected prototype:\nosgDB::ImagePager::ImagePager(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ImagePager::ImagePager(lua_Table * data) function, expected prototype:\nosgDB::ImagePager::ImagePager(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -273,16 +268,14 @@ public:
 	// void osgDB::ImagePager::setPreLoadTime(double preLoadTime)
 	static int _bind_setPreLoadTime(lua_State *L) {
 		if (!_lg_typecheck_setPreLoadTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::setPreLoadTime(double preLoadTime) function, expected prototype:\nvoid osgDB::ImagePager::setPreLoadTime(double preLoadTime)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::setPreLoadTime(double preLoadTime) function, expected prototype:\nvoid osgDB::ImagePager::setPreLoadTime(double preLoadTime)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double preLoadTime=(double)lua_tonumber(L,2);
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::setPreLoadTime(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::setPreLoadTime(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPreLoadTime(preLoadTime);
 
@@ -292,15 +285,13 @@ public:
 	// double osgDB::ImagePager::getPreLoadTime() const
 	static int _bind_getPreLoadTime(lua_State *L) {
 		if (!_lg_typecheck_getPreLoadTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgDB::ImagePager::getPreLoadTime() const function, expected prototype:\ndouble osgDB::ImagePager::getPreLoadTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgDB::ImagePager::getPreLoadTime() const function, expected prototype:\ndouble osgDB::ImagePager::getPreLoadTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgDB::ImagePager::getPreLoadTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgDB::ImagePager::getPreLoadTime() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getPreLoadTime();
 		lua_pushnumber(L,lret);
@@ -311,8 +302,7 @@ public:
 	// osg::Image * osgDB::ImagePager::readImageFile(const std::string & fileName, const osg::Referenced * options = 0)
 	static int _bind_readImageFile(lua_State *L) {
 		if (!_lg_typecheck_readImageFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * osgDB::ImagePager::readImageFile(const std::string & fileName, const osg::Referenced * options = 0) function, expected prototype:\nosg::Image * osgDB::ImagePager::readImageFile(const std::string & fileName, const osg::Referenced * options = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * osgDB::ImagePager::readImageFile(const std::string & fileName, const osg::Referenced * options = 0) function, expected prototype:\nosg::Image * osgDB::ImagePager::readImageFile(const std::string & fileName, const osg::Referenced * options = 0)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -322,8 +312,7 @@ public:
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osgDB::ImagePager::readImageFile(const std::string &, const osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Image * osgDB::ImagePager::readImageFile(const std::string &, const osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Image * lret = self->readImageFile(fileName, options);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -336,8 +325,7 @@ public:
 	// void osgDB::ImagePager::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options)
 	static int _bind_requestImageFile(lua_State *L) {
 		if (!_lg_typecheck_requestImageFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options) function, expected prototype:\nvoid osgDB::ImagePager::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options)\nClass arguments details:\narg 2 ID = 50169651\narg 5 ID = 50169651\narg 6 ID = [unknown]\narg 7 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options) function, expected prototype:\nvoid osgDB::ImagePager::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options)\nClass arguments details:\narg 2 ID = 50169651\narg 5 ID = 50169651\narg 6 ID = [unknown]\narg 7 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
@@ -350,8 +338,7 @@ public:
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::requestImageFile(const std::string &, osg::Object *, int, double, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::requestImageFile(const std::string &, osg::Object *, int, double, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->requestImageFile(fileName, attachmentPoint, attachmentIndex, timeToMergeBy, framestamp, imageRequest, options);
 
@@ -361,15 +348,13 @@ public:
 	// bool osgDB::ImagePager::requiresUpdateSceneGraph() const
 	static int _bind_requiresUpdateSceneGraph(lua_State *L) {
 		if (!_lg_typecheck_requiresUpdateSceneGraph(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::ImagePager::requiresUpdateSceneGraph() const function, expected prototype:\nbool osgDB::ImagePager::requiresUpdateSceneGraph() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::ImagePager::requiresUpdateSceneGraph() const function, expected prototype:\nbool osgDB::ImagePager::requiresUpdateSceneGraph() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ImagePager::requiresUpdateSceneGraph() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::ImagePager::requiresUpdateSceneGraph() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->requiresUpdateSceneGraph();
 		lua_pushboolean(L,lret?1:0);
@@ -380,8 +365,7 @@ public:
 	// void osgDB::ImagePager::updateSceneGraph(const osg::FrameStamp & frameStamp)
 	static int _bind_updateSceneGraph(lua_State *L) {
 		if (!_lg_typecheck_updateSceneGraph(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::updateSceneGraph(const osg::FrameStamp & frameStamp) function, expected prototype:\nvoid osgDB::ImagePager::updateSceneGraph(const osg::FrameStamp & frameStamp)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::updateSceneGraph(const osg::FrameStamp & frameStamp) function, expected prototype:\nvoid osgDB::ImagePager::updateSceneGraph(const osg::FrameStamp & frameStamp)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::FrameStamp* frameStamp_ptr=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
@@ -392,8 +376,7 @@ public:
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::updateSceneGraph(const osg::FrameStamp &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::updateSceneGraph(const osg::FrameStamp &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateSceneGraph(frameStamp);
 
@@ -403,16 +386,14 @@ public:
 	// void osgDB::ImagePager::signalBeginFrame(const osg::FrameStamp * framestamp)
 	static int _bind_signalBeginFrame(lua_State *L) {
 		if (!_lg_typecheck_signalBeginFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::signalBeginFrame(const osg::FrameStamp * framestamp) function, expected prototype:\nvoid osgDB::ImagePager::signalBeginFrame(const osg::FrameStamp * framestamp)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::signalBeginFrame(const osg::FrameStamp * framestamp) function, expected prototype:\nvoid osgDB::ImagePager::signalBeginFrame(const osg::FrameStamp * framestamp)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::FrameStamp* framestamp=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::signalBeginFrame(const osg::FrameStamp *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::signalBeginFrame(const osg::FrameStamp *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->signalBeginFrame(framestamp);
 
@@ -422,15 +403,13 @@ public:
 	// void osgDB::ImagePager::signalEndFrame()
 	static int _bind_signalEndFrame(lua_State *L) {
 		if (!_lg_typecheck_signalEndFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::signalEndFrame() function, expected prototype:\nvoid osgDB::ImagePager::signalEndFrame()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::signalEndFrame() function, expected prototype:\nvoid osgDB::ImagePager::signalEndFrame()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::signalEndFrame(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::signalEndFrame(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->signalEndFrame();
 
@@ -440,15 +419,13 @@ public:
 	// int osgDB::ImagePager::cancel()
 	static int _bind_cancel(lua_State *L) {
 		if (!_lg_typecheck_cancel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgDB::ImagePager::cancel() function, expected prototype:\nint osgDB::ImagePager::cancel()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgDB::ImagePager::cancel() function, expected prototype:\nint osgDB::ImagePager::cancel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgDB::ImagePager::cancel(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgDB::ImagePager::cancel(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->cancel();
 		lua_pushnumber(L,lret);
@@ -459,16 +436,14 @@ public:
 	// void osgDB::ImagePager::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::ImagePager::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::ImagePager::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImagePager::setThreadSafeRefUnref(threadSafe);
 
@@ -478,15 +453,13 @@ public:
 	// double osgDB::ImagePager::base_getPreLoadTime() const
 	static int _bind_base_getPreLoadTime(lua_State *L) {
 		if (!_lg_typecheck_base_getPreLoadTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgDB::ImagePager::base_getPreLoadTime() const function, expected prototype:\ndouble osgDB::ImagePager::base_getPreLoadTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgDB::ImagePager::base_getPreLoadTime() const function, expected prototype:\ndouble osgDB::ImagePager::base_getPreLoadTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgDB::ImagePager::base_getPreLoadTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgDB::ImagePager::base_getPreLoadTime() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->ImagePager::getPreLoadTime();
 		lua_pushnumber(L,lret);
@@ -497,8 +470,7 @@ public:
 	// osg::Image * osgDB::ImagePager::base_readImageFile(const std::string & fileName, const osg::Referenced * options = 0)
 	static int _bind_base_readImageFile(lua_State *L) {
 		if (!_lg_typecheck_base_readImageFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * osgDB::ImagePager::base_readImageFile(const std::string & fileName, const osg::Referenced * options = 0) function, expected prototype:\nosg::Image * osgDB::ImagePager::base_readImageFile(const std::string & fileName, const osg::Referenced * options = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * osgDB::ImagePager::base_readImageFile(const std::string & fileName, const osg::Referenced * options = 0) function, expected prototype:\nosg::Image * osgDB::ImagePager::base_readImageFile(const std::string & fileName, const osg::Referenced * options = 0)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -508,8 +480,7 @@ public:
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osgDB::ImagePager::base_readImageFile(const std::string &, const osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Image * osgDB::ImagePager::base_readImageFile(const std::string &, const osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Image * lret = self->ImagePager::readImageFile(fileName, options);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -522,8 +493,7 @@ public:
 	// void osgDB::ImagePager::base_requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options)
 	static int _bind_base_requestImageFile(lua_State *L) {
 		if (!_lg_typecheck_base_requestImageFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::base_requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options) function, expected prototype:\nvoid osgDB::ImagePager::base_requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options)\nClass arguments details:\narg 2 ID = 50169651\narg 5 ID = 50169651\narg 6 ID = [unknown]\narg 7 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::base_requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options) function, expected prototype:\nvoid osgDB::ImagePager::base_requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options)\nClass arguments details:\narg 2 ID = 50169651\narg 5 ID = 50169651\narg 6 ID = [unknown]\narg 7 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
@@ -536,8 +506,7 @@ public:
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::base_requestImageFile(const std::string &, osg::Object *, int, double, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::base_requestImageFile(const std::string &, osg::Object *, int, double, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImagePager::requestImageFile(fileName, attachmentPoint, attachmentIndex, timeToMergeBy, framestamp, imageRequest, options);
 
@@ -547,15 +516,13 @@ public:
 	// bool osgDB::ImagePager::base_requiresUpdateSceneGraph() const
 	static int _bind_base_requiresUpdateSceneGraph(lua_State *L) {
 		if (!_lg_typecheck_base_requiresUpdateSceneGraph(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::ImagePager::base_requiresUpdateSceneGraph() const function, expected prototype:\nbool osgDB::ImagePager::base_requiresUpdateSceneGraph() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::ImagePager::base_requiresUpdateSceneGraph() const function, expected prototype:\nbool osgDB::ImagePager::base_requiresUpdateSceneGraph() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ImagePager::base_requiresUpdateSceneGraph() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::ImagePager::base_requiresUpdateSceneGraph() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ImagePager::requiresUpdateSceneGraph();
 		lua_pushboolean(L,lret?1:0);
@@ -566,8 +533,7 @@ public:
 	// void osgDB::ImagePager::base_updateSceneGraph(const osg::FrameStamp & frameStamp)
 	static int _bind_base_updateSceneGraph(lua_State *L) {
 		if (!_lg_typecheck_base_updateSceneGraph(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::base_updateSceneGraph(const osg::FrameStamp & frameStamp) function, expected prototype:\nvoid osgDB::ImagePager::base_updateSceneGraph(const osg::FrameStamp & frameStamp)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::base_updateSceneGraph(const osg::FrameStamp & frameStamp) function, expected prototype:\nvoid osgDB::ImagePager::base_updateSceneGraph(const osg::FrameStamp & frameStamp)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::FrameStamp* frameStamp_ptr=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
@@ -578,8 +544,7 @@ public:
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::base_updateSceneGraph(const osg::FrameStamp &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::base_updateSceneGraph(const osg::FrameStamp &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImagePager::updateSceneGraph(frameStamp);
 
@@ -589,16 +554,14 @@ public:
 	// void osgDB::ImagePager::base_signalBeginFrame(const osg::FrameStamp * framestamp)
 	static int _bind_base_signalBeginFrame(lua_State *L) {
 		if (!_lg_typecheck_base_signalBeginFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::base_signalBeginFrame(const osg::FrameStamp * framestamp) function, expected prototype:\nvoid osgDB::ImagePager::base_signalBeginFrame(const osg::FrameStamp * framestamp)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::base_signalBeginFrame(const osg::FrameStamp * framestamp) function, expected prototype:\nvoid osgDB::ImagePager::base_signalBeginFrame(const osg::FrameStamp * framestamp)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::FrameStamp* framestamp=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::base_signalBeginFrame(const osg::FrameStamp *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::base_signalBeginFrame(const osg::FrameStamp *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImagePager::signalBeginFrame(framestamp);
 
@@ -608,15 +571,13 @@ public:
 	// void osgDB::ImagePager::base_signalEndFrame()
 	static int _bind_base_signalEndFrame(lua_State *L) {
 		if (!_lg_typecheck_base_signalEndFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::base_signalEndFrame() function, expected prototype:\nvoid osgDB::ImagePager::base_signalEndFrame()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImagePager::base_signalEndFrame() function, expected prototype:\nvoid osgDB::ImagePager::base_signalEndFrame()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::ImagePager* self=Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::base_signalEndFrame(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::ImagePager::base_signalEndFrame(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImagePager::signalEndFrame();
 

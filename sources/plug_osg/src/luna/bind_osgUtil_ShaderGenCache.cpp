@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::ShaderGenCache* self= (osgUtil::ShaderGenCache*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -141,8 +138,7 @@ public:
 	// osgUtil::ShaderGenCache::ShaderGenCache()
 	static osgUtil::ShaderGenCache* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::ShaderGenCache::ShaderGenCache() function, expected prototype:\nosgUtil::ShaderGenCache::ShaderGenCache()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::ShaderGenCache::ShaderGenCache() function, expected prototype:\nosgUtil::ShaderGenCache::ShaderGenCache()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -152,8 +148,7 @@ public:
 	// osgUtil::ShaderGenCache::ShaderGenCache(lua_Table * data)
 	static osgUtil::ShaderGenCache* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::ShaderGenCache::ShaderGenCache(lua_Table * data) function, expected prototype:\nosgUtil::ShaderGenCache::ShaderGenCache(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::ShaderGenCache::ShaderGenCache(lua_Table * data) function, expected prototype:\nosgUtil::ShaderGenCache::ShaderGenCache(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -174,8 +169,7 @@ public:
 	// void osgUtil::ShaderGenCache::setStateSet(int stateMask, osg::StateSet * program)
 	static int _bind_setStateSet(lua_State *L) {
 		if (!_lg_typecheck_setStateSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::ShaderGenCache::setStateSet(int stateMask, osg::StateSet * program) function, expected prototype:\nvoid osgUtil::ShaderGenCache::setStateSet(int stateMask, osg::StateSet * program)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::ShaderGenCache::setStateSet(int stateMask, osg::StateSet * program) function, expected prototype:\nvoid osgUtil::ShaderGenCache::setStateSet(int stateMask, osg::StateSet * program)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int stateMask=(int)lua_tointeger(L,2);
@@ -183,8 +177,7 @@ public:
 
 		osgUtil::ShaderGenCache* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenCache::setStateSet(int, osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenCache::setStateSet(int, osg::StateSet *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setStateSet(stateMask, program);
 
@@ -194,16 +187,14 @@ public:
 	// osg::StateSet * osgUtil::ShaderGenCache::getStateSet(int stateMask) const
 	static int _bind_getStateSet(lua_State *L) {
 		if (!_lg_typecheck_getStateSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateSet * osgUtil::ShaderGenCache::getStateSet(int stateMask) const function, expected prototype:\nosg::StateSet * osgUtil::ShaderGenCache::getStateSet(int stateMask) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateSet * osgUtil::ShaderGenCache::getStateSet(int stateMask) const function, expected prototype:\nosg::StateSet * osgUtil::ShaderGenCache::getStateSet(int stateMask) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int stateMask=(int)lua_tointeger(L,2);
 
 		osgUtil::ShaderGenCache* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osgUtil::ShaderGenCache::getStateSet(int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateSet * osgUtil::ShaderGenCache::getStateSet(int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateSet * lret = self->getStateSet(stateMask);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -216,16 +207,14 @@ public:
 	// osg::StateSet * osgUtil::ShaderGenCache::getOrCreateStateSet(int stateMask)
 	static int _bind_getOrCreateStateSet(lua_State *L) {
 		if (!_lg_typecheck_getOrCreateStateSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateSet * osgUtil::ShaderGenCache::getOrCreateStateSet(int stateMask) function, expected prototype:\nosg::StateSet * osgUtil::ShaderGenCache::getOrCreateStateSet(int stateMask)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateSet * osgUtil::ShaderGenCache::getOrCreateStateSet(int stateMask) function, expected prototype:\nosg::StateSet * osgUtil::ShaderGenCache::getOrCreateStateSet(int stateMask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int stateMask=(int)lua_tointeger(L,2);
 
 		osgUtil::ShaderGenCache* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osgUtil::ShaderGenCache::getOrCreateStateSet(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateSet * osgUtil::ShaderGenCache::getOrCreateStateSet(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateSet * lret = self->getOrCreateStateSet(stateMask);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -238,16 +227,14 @@ public:
 	// void osgUtil::ShaderGenCache::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::ShaderGenCache::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::ShaderGenCache::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::ShaderGenCache::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::ShaderGenCache::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::ShaderGenCache* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenCache::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenCache::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ShaderGenCache::setThreadSafeRefUnref(threadSafe);
 

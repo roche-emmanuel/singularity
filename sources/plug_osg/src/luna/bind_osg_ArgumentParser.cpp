@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::ArgumentParser*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::ArgumentParser*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ArgumentParser* rhs =(Luna< osg::ArgumentParser >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ArgumentParser* self= (osg::ArgumentParser*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::ArgumentParser >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -567,8 +563,7 @@ public:
 	// static bool osg::ArgumentParser::isOption(const char * str)
 	static int _bind_isOption_overload_1(lua_State *L) {
 		if (!_lg_typecheck_isOption_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool osg::ArgumentParser::isOption(const char * str) function, expected prototype:\nstatic bool osg::ArgumentParser::isOption(const char * str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool osg::ArgumentParser::isOption(const char * str) function, expected prototype:\nstatic bool osg::ArgumentParser::isOption(const char * str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,1);
@@ -582,16 +577,14 @@ public:
 	// bool osg::ArgumentParser::isOption(int pos) const
 	static int _bind_isOption_overload_2(lua_State *L) {
 		if (!_lg_typecheck_isOption_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::isOption(int pos) const function, expected prototype:\nbool osg::ArgumentParser::isOption(int pos) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::isOption(int pos) const function, expected prototype:\nbool osg::ArgumentParser::isOption(int pos) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::isOption(int) const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::isOption(int) const. Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isOption(pos);
 		lua_pushboolean(L,lret?1:0);
@@ -611,8 +604,7 @@ public:
 	// static bool osg::ArgumentParser::isString(const char * str)
 	static int _bind_isString_overload_1(lua_State *L) {
 		if (!_lg_typecheck_isString_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool osg::ArgumentParser::isString(const char * str) function, expected prototype:\nstatic bool osg::ArgumentParser::isString(const char * str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool osg::ArgumentParser::isString(const char * str) function, expected prototype:\nstatic bool osg::ArgumentParser::isString(const char * str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,1);
@@ -626,16 +618,14 @@ public:
 	// bool osg::ArgumentParser::isString(int pos) const
 	static int _bind_isString_overload_2(lua_State *L) {
 		if (!_lg_typecheck_isString_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::isString(int pos) const function, expected prototype:\nbool osg::ArgumentParser::isString(int pos) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::isString(int pos) const function, expected prototype:\nbool osg::ArgumentParser::isString(int pos) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::isString(int) const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::isString(int) const. Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isString(pos);
 		lua_pushboolean(L,lret?1:0);
@@ -655,8 +645,7 @@ public:
 	// static bool osg::ArgumentParser::isNumber(const char * str)
 	static int _bind_isNumber_overload_1(lua_State *L) {
 		if (!_lg_typecheck_isNumber_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool osg::ArgumentParser::isNumber(const char * str) function, expected prototype:\nstatic bool osg::ArgumentParser::isNumber(const char * str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool osg::ArgumentParser::isNumber(const char * str) function, expected prototype:\nstatic bool osg::ArgumentParser::isNumber(const char * str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,1);
@@ -670,16 +659,14 @@ public:
 	// bool osg::ArgumentParser::isNumber(int pos) const
 	static int _bind_isNumber_overload_2(lua_State *L) {
 		if (!_lg_typecheck_isNumber_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::isNumber(int pos) const function, expected prototype:\nbool osg::ArgumentParser::isNumber(int pos) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::isNumber(int pos) const function, expected prototype:\nbool osg::ArgumentParser::isNumber(int pos) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::isNumber(int) const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::isNumber(int) const. Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isNumber(pos);
 		lua_pushboolean(L,lret?1:0);
@@ -699,8 +686,7 @@ public:
 	// static bool osg::ArgumentParser::isBool(const char * str)
 	static int _bind_isBool(lua_State *L) {
 		if (!_lg_typecheck_isBool(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool osg::ArgumentParser::isBool(const char * str) function, expected prototype:\nstatic bool osg::ArgumentParser::isBool(const char * str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool osg::ArgumentParser::isBool(const char * str) function, expected prototype:\nstatic bool osg::ArgumentParser::isBool(const char * str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,1);
@@ -714,16 +700,14 @@ public:
 	// void osg::ArgumentParser::setApplicationUsage(osg::ApplicationUsage * usage)
 	static int _bind_setApplicationUsage(lua_State *L) {
 		if (!_lg_typecheck_setApplicationUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ArgumentParser::setApplicationUsage(osg::ApplicationUsage * usage) function, expected prototype:\nvoid osg::ArgumentParser::setApplicationUsage(osg::ApplicationUsage * usage)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ArgumentParser::setApplicationUsage(osg::ApplicationUsage * usage) function, expected prototype:\nvoid osg::ArgumentParser::setApplicationUsage(osg::ApplicationUsage * usage)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ApplicationUsage* usage=(Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,2));
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::setApplicationUsage(osg::ApplicationUsage *). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::setApplicationUsage(osg::ApplicationUsage *). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setApplicationUsage(usage);
 
@@ -733,15 +717,13 @@ public:
 	// osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage()
 	static int _bind_getApplicationUsage_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getApplicationUsage_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage() function, expected prototype:\nosg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage() function, expected prototype:\nosg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage(). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage(). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::ApplicationUsage * lret = self->getApplicationUsage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -754,15 +736,13 @@ public:
 	// const osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage() const
 	static int _bind_getApplicationUsage_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getApplicationUsage_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage() const function, expected prototype:\nconst osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage() const function, expected prototype:\nconst osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage() const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage() const. Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ApplicationUsage * lret = self->getApplicationUsage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -784,15 +764,13 @@ public:
 	// int & osg::ArgumentParser::argc()
 	static int _bind_argc(lua_State *L) {
 		if (!_lg_typecheck_argc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int & osg::ArgumentParser::argc() function, expected prototype:\nint & osg::ArgumentParser::argc()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int & osg::ArgumentParser::argc() function, expected prototype:\nint & osg::ArgumentParser::argc()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int & osg::ArgumentParser::argc(). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int & osg::ArgumentParser::argc(). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int & lret = self->argc();
 		lua_pushnumber(L,lret);
@@ -803,15 +781,13 @@ public:
 	// std::string osg::ArgumentParser::getApplicationName() const
 	static int _bind_getApplicationName(lua_State *L) {
 		if (!_lg_typecheck_getApplicationName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string osg::ArgumentParser::getApplicationName() const function, expected prototype:\nstd::string osg::ArgumentParser::getApplicationName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string osg::ArgumentParser::getApplicationName() const function, expected prototype:\nstd::string osg::ArgumentParser::getApplicationName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osg::ArgumentParser::getApplicationName() const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string osg::ArgumentParser::getApplicationName() const. Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->getApplicationName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -822,16 +798,14 @@ public:
 	// int osg::ArgumentParser::find(const std::string & str) const
 	static int _bind_find(lua_State *L) {
 		if (!_lg_typecheck_find(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::ArgumentParser::find(const std::string & str) const function, expected prototype:\nint osg::ArgumentParser::find(const std::string & str) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::ArgumentParser::find(const std::string & str) const function, expected prototype:\nint osg::ArgumentParser::find(const std::string & str) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::ArgumentParser::find(const std::string &) const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::ArgumentParser::find(const std::string &) const. Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->find(str);
 		lua_pushnumber(L,lret);
@@ -842,15 +816,13 @@ public:
 	// bool osg::ArgumentParser::containsOptions() const
 	static int _bind_containsOptions(lua_State *L) {
 		if (!_lg_typecheck_containsOptions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::containsOptions() const function, expected prototype:\nbool osg::ArgumentParser::containsOptions() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::containsOptions() const function, expected prototype:\nbool osg::ArgumentParser::containsOptions() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::containsOptions() const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::containsOptions() const. Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->containsOptions();
 		lua_pushboolean(L,lret?1:0);
@@ -861,8 +833,7 @@ public:
 	// void osg::ArgumentParser::remove(int pos, int num = 1)
 	static int _bind_remove(lua_State *L) {
 		if (!_lg_typecheck_remove(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ArgumentParser::remove(int pos, int num = 1) function, expected prototype:\nvoid osg::ArgumentParser::remove(int pos, int num = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ArgumentParser::remove(int pos, int num = 1) function, expected prototype:\nvoid osg::ArgumentParser::remove(int pos, int num = 1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -872,8 +843,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::remove(int, int). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::remove(int, int). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->remove(pos, num);
 
@@ -883,8 +853,7 @@ public:
 	// bool osg::ArgumentParser::match(int pos, const std::string & str) const
 	static int _bind_match(lua_State *L) {
 		if (!_lg_typecheck_match(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::match(int pos, const std::string & str) const function, expected prototype:\nbool osg::ArgumentParser::match(int pos, const std::string & str) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::match(int pos, const std::string & str) const function, expected prototype:\nbool osg::ArgumentParser::match(int pos, const std::string & str) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -892,8 +861,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::match(int, const std::string &) const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::match(int, const std::string &) const. Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->match(pos, str);
 		lua_pushboolean(L,lret?1:0);
@@ -904,16 +872,14 @@ public:
 	// bool osg::ArgumentParser::read(const std::string & str)
 	static int _bind_read_overload_1(lua_State *L) {
 		if (!_lg_typecheck_read_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str);
 		lua_pushboolean(L,lret?1:0);
@@ -924,8 +890,7 @@ public:
 	// bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1)
 	static int _bind_read_overload_2(lua_State *L) {
 		if (!_lg_typecheck_read_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1)\nClass arguments details:\narg 2 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1)\nClass arguments details:\narg 2 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
@@ -937,8 +902,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1);
 		lua_pushboolean(L,lret?1:0);
@@ -949,8 +913,7 @@ public:
 	// bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2)
 	static int _bind_read_overload_3(lua_State *L) {
 		if (!_lg_typecheck_read_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
@@ -967,8 +930,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1, value2);
 		lua_pushboolean(L,lret?1:0);
@@ -979,8 +941,7 @@ public:
 	// bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3)
 	static int _bind_read_overload_4(lua_State *L) {
 		if (!_lg_typecheck_read_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
@@ -1002,8 +963,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1, value2, value3);
 		lua_pushboolean(L,lret?1:0);
@@ -1014,8 +974,7 @@ public:
 	// bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4)
 	static int _bind_read_overload_5(lua_State *L) {
 		if (!_lg_typecheck_read_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
@@ -1042,8 +1001,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1, value2, value3, value4);
 		lua_pushboolean(L,lret?1:0);
@@ -1054,8 +1012,7 @@ public:
 	// bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5)
 	static int _bind_read_overload_6(lua_State *L) {
 		if (!_lg_typecheck_read_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
@@ -1087,8 +1044,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1, value2, value3, value4, value5);
 		lua_pushboolean(L,lret?1:0);
@@ -1099,8 +1055,7 @@ public:
 	// bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6)
 	static int _bind_read_overload_7(lua_State *L) {
 		if (!_lg_typecheck_read_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
@@ -1137,8 +1092,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1, value2, value3, value4, value5, value6);
 		lua_pushboolean(L,lret?1:0);
@@ -1149,8 +1103,7 @@ public:
 	// bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7)
 	static int _bind_read_overload_8(lua_State *L) {
 		if (!_lg_typecheck_read_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
@@ -1192,8 +1145,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1, value2, value3, value4, value5, value6, value7);
 		lua_pushboolean(L,lret?1:0);
@@ -1204,8 +1156,7 @@ public:
 	// bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8)
 	static int _bind_read_overload_9(lua_State *L) {
 		if (!_lg_typecheck_read_overload_9(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\narg 9 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8) function, expected prototype:\nbool osg::ArgumentParser::read(const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8)\nClass arguments details:\narg 2 ID = 67360031\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\narg 9 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
@@ -1252,8 +1203,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(str, value1, value2, value3, value4, value5, value6, value7, value8);
 		lua_pushboolean(L,lret?1:0);
@@ -1264,8 +1214,7 @@ public:
 	// bool osg::ArgumentParser::read(int pos, const std::string & str)
 	static int _bind_read_overload_10(lua_State *L) {
 		if (!_lg_typecheck_read_overload_10(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -1273,8 +1222,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(pos, str);
 		lua_pushboolean(L,lret?1:0);
@@ -1285,8 +1233,7 @@ public:
 	// bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1)
 	static int _bind_read_overload_11(lua_State *L) {
 		if (!_lg_typecheck_read_overload_11(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1)\nClass arguments details:\narg 3 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1)\nClass arguments details:\narg 3 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -1299,8 +1246,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(pos, str, value1);
 		lua_pushboolean(L,lret?1:0);
@@ -1311,8 +1257,7 @@ public:
 	// bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2)
 	static int _bind_read_overload_12(lua_State *L) {
 		if (!_lg_typecheck_read_overload_12(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2)\nClass arguments details:\narg 3 ID = 67360031\narg 4 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2)\nClass arguments details:\narg 3 ID = 67360031\narg 4 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -1330,8 +1275,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(pos, str, value1, value2);
 		lua_pushboolean(L,lret?1:0);
@@ -1342,8 +1286,7 @@ public:
 	// bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3)
 	static int _bind_read_overload_13(lua_State *L) {
 		if (!_lg_typecheck_read_overload_13(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3)\nClass arguments details:\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3)\nClass arguments details:\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -1366,8 +1309,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(pos, str, value1, value2, value3);
 		lua_pushboolean(L,lret?1:0);
@@ -1378,8 +1320,7 @@ public:
 	// bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4)
 	static int _bind_read_overload_14(lua_State *L) {
 		if (!_lg_typecheck_read_overload_14(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4)\nClass arguments details:\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4)\nClass arguments details:\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -1407,8 +1348,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(pos, str, value1, value2, value3, value4);
 		lua_pushboolean(L,lret?1:0);
@@ -1419,8 +1359,7 @@ public:
 	// bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5)
 	static int _bind_read_overload_15(lua_State *L) {
 		if (!_lg_typecheck_read_overload_15(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5)\nClass arguments details:\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5)\nClass arguments details:\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -1453,8 +1392,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(pos, str, value1, value2, value3, value4, value5);
 		lua_pushboolean(L,lret?1:0);
@@ -1465,8 +1403,7 @@ public:
 	// bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6)
 	static int _bind_read_overload_16(lua_State *L) {
 		if (!_lg_typecheck_read_overload_16(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6)\nClass arguments details:\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6)\nClass arguments details:\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -1504,8 +1441,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(pos, str, value1, value2, value3, value4, value5, value6);
 		lua_pushboolean(L,lret?1:0);
@@ -1516,8 +1452,7 @@ public:
 	// bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7)
 	static int _bind_read_overload_17(lua_State *L) {
 		if (!_lg_typecheck_read_overload_17(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7)\nClass arguments details:\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\narg 9 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7)\nClass arguments details:\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\narg 9 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -1560,8 +1495,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(pos, str, value1, value2, value3, value4, value5, value6, value7);
 		lua_pushboolean(L,lret?1:0);
@@ -1572,8 +1506,7 @@ public:
 	// bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8)
 	static int _bind_read_overload_18(lua_State *L) {
 		if (!_lg_typecheck_read_overload_18(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8)\nClass arguments details:\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\narg 9 ID = 67360031\narg 10 ID = 67360031\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8) function, expected prototype:\nbool osg::ArgumentParser::read(int pos, const std::string & str, osg::ArgumentParser::Parameter value1, osg::ArgumentParser::Parameter value2, osg::ArgumentParser::Parameter value3, osg::ArgumentParser::Parameter value4, osg::ArgumentParser::Parameter value5, osg::ArgumentParser::Parameter value6, osg::ArgumentParser::Parameter value7, osg::ArgumentParser::Parameter value8)\nClass arguments details:\narg 3 ID = 67360031\narg 4 ID = 67360031\narg 5 ID = 67360031\narg 6 ID = 67360031\narg 7 ID = 67360031\narg 8 ID = 67360031\narg 9 ID = 67360031\narg 10 ID = 67360031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -1621,8 +1554,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(pos, str, value1, value2, value3, value4, value5, value6, value7, value8);
 		lua_pushboolean(L,lret?1:0);
@@ -1658,8 +1590,7 @@ public:
 	// bool osg::ArgumentParser::errors(osg::ArgumentParser::ErrorSeverity severity = osg::ArgumentParser::BENIGN) const
 	static int _bind_errors(lua_State *L) {
 		if (!_lg_typecheck_errors(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::errors(osg::ArgumentParser::ErrorSeverity severity = osg::ArgumentParser::BENIGN) const function, expected prototype:\nbool osg::ArgumentParser::errors(osg::ArgumentParser::ErrorSeverity severity = osg::ArgumentParser::BENIGN) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ArgumentParser::errors(osg::ArgumentParser::ErrorSeverity severity = osg::ArgumentParser::BENIGN) const function, expected prototype:\nbool osg::ArgumentParser::errors(osg::ArgumentParser::ErrorSeverity severity = osg::ArgumentParser::BENIGN) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1668,8 +1599,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::errors(osg::ArgumentParser::ErrorSeverity) const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::errors(osg::ArgumentParser::ErrorSeverity) const. Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->errors(severity);
 		lua_pushboolean(L,lret?1:0);
@@ -1680,8 +1610,7 @@ public:
 	// void osg::ArgumentParser::reportError(const std::string & message, osg::ArgumentParser::ErrorSeverity severity = osg::ArgumentParser::CRITICAL)
 	static int _bind_reportError(lua_State *L) {
 		if (!_lg_typecheck_reportError(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ArgumentParser::reportError(const std::string & message, osg::ArgumentParser::ErrorSeverity severity = osg::ArgumentParser::CRITICAL) function, expected prototype:\nvoid osg::ArgumentParser::reportError(const std::string & message, osg::ArgumentParser::ErrorSeverity severity = osg::ArgumentParser::CRITICAL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ArgumentParser::reportError(const std::string & message, osg::ArgumentParser::ErrorSeverity severity = osg::ArgumentParser::CRITICAL) function, expected prototype:\nvoid osg::ArgumentParser::reportError(const std::string & message, osg::ArgumentParser::ErrorSeverity severity = osg::ArgumentParser::CRITICAL)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1691,8 +1620,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::reportError(const std::string &, osg::ArgumentParser::ErrorSeverity). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::reportError(const std::string &, osg::ArgumentParser::ErrorSeverity). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reportError(message, severity);
 
@@ -1702,8 +1630,7 @@ public:
 	// void osg::ArgumentParser::reportRemainingOptionsAsUnrecognized(osg::ArgumentParser::ErrorSeverity severity = osg::ArgumentParser::BENIGN)
 	static int _bind_reportRemainingOptionsAsUnrecognized(lua_State *L) {
 		if (!_lg_typecheck_reportRemainingOptionsAsUnrecognized(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ArgumentParser::reportRemainingOptionsAsUnrecognized(osg::ArgumentParser::ErrorSeverity severity = osg::ArgumentParser::BENIGN) function, expected prototype:\nvoid osg::ArgumentParser::reportRemainingOptionsAsUnrecognized(osg::ArgumentParser::ErrorSeverity severity = osg::ArgumentParser::BENIGN)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ArgumentParser::reportRemainingOptionsAsUnrecognized(osg::ArgumentParser::ErrorSeverity severity = osg::ArgumentParser::BENIGN) function, expected prototype:\nvoid osg::ArgumentParser::reportRemainingOptionsAsUnrecognized(osg::ArgumentParser::ErrorSeverity severity = osg::ArgumentParser::BENIGN)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1712,8 +1639,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::reportRemainingOptionsAsUnrecognized(osg::ArgumentParser::ErrorSeverity). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::reportRemainingOptionsAsUnrecognized(osg::ArgumentParser::ErrorSeverity). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reportRemainingOptionsAsUnrecognized(severity);
 
@@ -1723,15 +1649,13 @@ public:
 	// osg::ArgumentParser::ErrorMessageMap & osg::ArgumentParser::getErrorMessageMap()
 	static int _bind_getErrorMessageMap_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getErrorMessageMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ArgumentParser::ErrorMessageMap & osg::ArgumentParser::getErrorMessageMap() function, expected prototype:\nosg::ArgumentParser::ErrorMessageMap & osg::ArgumentParser::getErrorMessageMap()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ArgumentParser::ErrorMessageMap & osg::ArgumentParser::getErrorMessageMap() function, expected prototype:\nosg::ArgumentParser::ErrorMessageMap & osg::ArgumentParser::getErrorMessageMap()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ArgumentParser::ErrorMessageMap & osg::ArgumentParser::getErrorMessageMap(). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ArgumentParser::ErrorMessageMap & osg::ArgumentParser::getErrorMessageMap(). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ArgumentParser::ErrorMessageMap* lret = &self->getErrorMessageMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1744,15 +1668,13 @@ public:
 	// const osg::ArgumentParser::ErrorMessageMap & osg::ArgumentParser::getErrorMessageMap() const
 	static int _bind_getErrorMessageMap_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getErrorMessageMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::ArgumentParser::ErrorMessageMap & osg::ArgumentParser::getErrorMessageMap() const function, expected prototype:\nconst osg::ArgumentParser::ErrorMessageMap & osg::ArgumentParser::getErrorMessageMap() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::ArgumentParser::ErrorMessageMap & osg::ArgumentParser::getErrorMessageMap() const function, expected prototype:\nconst osg::ArgumentParser::ErrorMessageMap & osg::ArgumentParser::getErrorMessageMap() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ArgumentParser::ErrorMessageMap & osg::ArgumentParser::getErrorMessageMap() const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::ArgumentParser::ErrorMessageMap & osg::ArgumentParser::getErrorMessageMap() const. Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ArgumentParser::ErrorMessageMap* lret = &self->getErrorMessageMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1774,8 +1696,7 @@ public:
 	// void osg::ArgumentParser::writeErrorMessages(std::ostream & output, osg::ArgumentParser::ErrorSeverity sevrity = osg::ArgumentParser::BENIGN)
 	static int _bind_writeErrorMessages(lua_State *L) {
 		if (!_lg_typecheck_writeErrorMessages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ArgumentParser::writeErrorMessages(std::ostream & output, osg::ArgumentParser::ErrorSeverity sevrity = osg::ArgumentParser::BENIGN) function, expected prototype:\nvoid osg::ArgumentParser::writeErrorMessages(std::ostream & output, osg::ArgumentParser::ErrorSeverity sevrity = osg::ArgumentParser::BENIGN)\nClass arguments details:\narg 1 ID = 2993706\n");
+			luaL_error(L, "luna typecheck failed in void osg::ArgumentParser::writeErrorMessages(std::ostream & output, osg::ArgumentParser::ErrorSeverity sevrity = osg::ArgumentParser::BENIGN) function, expected prototype:\nvoid osg::ArgumentParser::writeErrorMessages(std::ostream & output, osg::ArgumentParser::ErrorSeverity sevrity = osg::ArgumentParser::BENIGN)\nClass arguments details:\narg 1 ID = 2993706\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1789,8 +1710,7 @@ public:
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::writeErrorMessages(std::ostream &, osg::ArgumentParser::ErrorSeverity). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::writeErrorMessages(std::ostream &, osg::ArgumentParser::ErrorSeverity). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->writeErrorMessages(output, sevrity);
 
@@ -1800,15 +1720,13 @@ public:
 	// osg::ApplicationUsage::Type osg::ArgumentParser::readHelpType()
 	static int _bind_readHelpType(lua_State *L) {
 		if (!_lg_typecheck_readHelpType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ApplicationUsage::Type osg::ArgumentParser::readHelpType() function, expected prototype:\nosg::ApplicationUsage::Type osg::ArgumentParser::readHelpType()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ApplicationUsage::Type osg::ArgumentParser::readHelpType() function, expected prototype:\nosg::ApplicationUsage::Type osg::ArgumentParser::readHelpType()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ApplicationUsage::Type osg::ArgumentParser::readHelpType(). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ApplicationUsage::Type osg::ArgumentParser::readHelpType(). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::ApplicationUsage::Type lret = self->readHelpType();
 		lua_pushnumber(L,lret);
@@ -1821,16 +1739,14 @@ public:
 	// char * osg::ArgumentParser::operator[](int pos)
 	static int _bind_op_index_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in char * osg::ArgumentParser::operator[](int pos) function, expected prototype:\nchar * osg::ArgumentParser::operator[](int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in char * osg::ArgumentParser::operator[](int pos) function, expected prototype:\nchar * osg::ArgumentParser::operator[](int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call char * osg::ArgumentParser::operator[](int). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call char * osg::ArgumentParser::operator[](int). Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		char * lret = self->operator[](pos);
 		lua_pushnumber(L,*lret);
@@ -1841,16 +1757,14 @@ public:
 	// const char * osg::ArgumentParser::operator[](int pos) const
 	static int _bind_op_index_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::ArgumentParser::operator[](int pos) const function, expected prototype:\nconst char * osg::ArgumentParser::operator[](int pos) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::ArgumentParser::operator[](int pos) const function, expected prototype:\nconst char * osg::ArgumentParser::operator[](int pos) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ArgumentParser::operator[](int) const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::ArgumentParser::operator[](int) const. Got : '%s'\n%s",typeid(Luna< osg::ArgumentParser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->operator[](pos);
 		lua_pushstring(L,lret);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgParticle::ConstantRateCounter* self= (osgParticle::ConstantRateCounter*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -286,8 +283,7 @@ public:
 	// osgParticle::ConstantRateCounter::ConstantRateCounter()
 	static osgParticle::ConstantRateCounter* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::ConstantRateCounter::ConstantRateCounter() function, expected prototype:\nosgParticle::ConstantRateCounter::ConstantRateCounter()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::ConstantRateCounter::ConstantRateCounter() function, expected prototype:\nosgParticle::ConstantRateCounter::ConstantRateCounter()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -297,8 +293,7 @@ public:
 	// osgParticle::ConstantRateCounter::ConstantRateCounter(const osgParticle::ConstantRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgParticle::ConstantRateCounter* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::ConstantRateCounter::ConstantRateCounter(const osgParticle::ConstantRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::ConstantRateCounter::ConstantRateCounter(const osgParticle::ConstantRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::ConstantRateCounter::ConstantRateCounter(const osgParticle::ConstantRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::ConstantRateCounter::ConstantRateCounter(const osgParticle::ConstantRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -320,8 +315,7 @@ public:
 	// osgParticle::ConstantRateCounter::ConstantRateCounter(lua_Table * data)
 	static osgParticle::ConstantRateCounter* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::ConstantRateCounter::ConstantRateCounter(lua_Table * data) function, expected prototype:\nosgParticle::ConstantRateCounter::ConstantRateCounter(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::ConstantRateCounter::ConstantRateCounter(lua_Table * data) function, expected prototype:\nosgParticle::ConstantRateCounter::ConstantRateCounter(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -331,8 +325,7 @@ public:
 	// osgParticle::ConstantRateCounter::ConstantRateCounter(lua_Table * data, const osgParticle::ConstantRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgParticle::ConstantRateCounter* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::ConstantRateCounter::ConstantRateCounter(lua_Table * data, const osgParticle::ConstantRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::ConstantRateCounter::ConstantRateCounter(lua_Table * data, const osgParticle::ConstantRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::ConstantRateCounter::ConstantRateCounter(lua_Table * data, const osgParticle::ConstantRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::ConstantRateCounter::ConstantRateCounter(lua_Table * data, const osgParticle::ConstantRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -367,15 +360,13 @@ public:
 	// osg::Object * osgParticle::ConstantRateCounter::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::ConstantRateCounter::cloneType() const function, expected prototype:\nosg::Object * osgParticle::ConstantRateCounter::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::ConstantRateCounter::cloneType() const function, expected prototype:\nosg::Object * osgParticle::ConstantRateCounter::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ConstantRateCounter::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ConstantRateCounter::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -388,8 +379,7 @@ public:
 	// osg::Object * osgParticle::ConstantRateCounter::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::ConstantRateCounter::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgParticle::ConstantRateCounter::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::ConstantRateCounter::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgParticle::ConstantRateCounter::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -400,8 +390,7 @@ public:
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ConstantRateCounter::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ConstantRateCounter::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -414,16 +403,14 @@ public:
 	// bool osgParticle::ConstantRateCounter::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgParticle::ConstantRateCounter::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgParticle::ConstantRateCounter::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgParticle::ConstantRateCounter::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgParticle::ConstantRateCounter::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::ConstantRateCounter::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgParticle::ConstantRateCounter::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -434,15 +421,13 @@ public:
 	// const char * osgParticle::ConstantRateCounter::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgParticle::ConstantRateCounter::libraryName() const function, expected prototype:\nconst char * osgParticle::ConstantRateCounter::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgParticle::ConstantRateCounter::libraryName() const function, expected prototype:\nconst char * osgParticle::ConstantRateCounter::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::ConstantRateCounter::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgParticle::ConstantRateCounter::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -453,15 +438,13 @@ public:
 	// const char * osgParticle::ConstantRateCounter::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgParticle::ConstantRateCounter::className() const function, expected prototype:\nconst char * osgParticle::ConstantRateCounter::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgParticle::ConstantRateCounter::className() const function, expected prototype:\nconst char * osgParticle::ConstantRateCounter::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::ConstantRateCounter::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgParticle::ConstantRateCounter::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -472,16 +455,14 @@ public:
 	// void osgParticle::ConstantRateCounter::setMinimumNumberOfParticlesToCreate(int minNumToCreate)
 	static int _bind_setMinimumNumberOfParticlesToCreate(lua_State *L) {
 		if (!_lg_typecheck_setMinimumNumberOfParticlesToCreate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::ConstantRateCounter::setMinimumNumberOfParticlesToCreate(int minNumToCreate) function, expected prototype:\nvoid osgParticle::ConstantRateCounter::setMinimumNumberOfParticlesToCreate(int minNumToCreate)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::ConstantRateCounter::setMinimumNumberOfParticlesToCreate(int minNumToCreate) function, expected prototype:\nvoid osgParticle::ConstantRateCounter::setMinimumNumberOfParticlesToCreate(int minNumToCreate)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int minNumToCreate=(int)lua_tointeger(L,2);
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ConstantRateCounter::setMinimumNumberOfParticlesToCreate(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::ConstantRateCounter::setMinimumNumberOfParticlesToCreate(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMinimumNumberOfParticlesToCreate(minNumToCreate);
 
@@ -491,15 +472,13 @@ public:
 	// int osgParticle::ConstantRateCounter::getMinimumNumberOfParticlesToCreate() const
 	static int _bind_getMinimumNumberOfParticlesToCreate(lua_State *L) {
 		if (!_lg_typecheck_getMinimumNumberOfParticlesToCreate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgParticle::ConstantRateCounter::getMinimumNumberOfParticlesToCreate() const function, expected prototype:\nint osgParticle::ConstantRateCounter::getMinimumNumberOfParticlesToCreate() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgParticle::ConstantRateCounter::getMinimumNumberOfParticlesToCreate() const function, expected prototype:\nint osgParticle::ConstantRateCounter::getMinimumNumberOfParticlesToCreate() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgParticle::ConstantRateCounter::getMinimumNumberOfParticlesToCreate() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgParticle::ConstantRateCounter::getMinimumNumberOfParticlesToCreate() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getMinimumNumberOfParticlesToCreate();
 		lua_pushnumber(L,lret);
@@ -510,16 +489,14 @@ public:
 	// void osgParticle::ConstantRateCounter::setNumberOfParticlesPerSecondToCreate(double numPerSecond)
 	static int _bind_setNumberOfParticlesPerSecondToCreate(lua_State *L) {
 		if (!_lg_typecheck_setNumberOfParticlesPerSecondToCreate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::ConstantRateCounter::setNumberOfParticlesPerSecondToCreate(double numPerSecond) function, expected prototype:\nvoid osgParticle::ConstantRateCounter::setNumberOfParticlesPerSecondToCreate(double numPerSecond)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::ConstantRateCounter::setNumberOfParticlesPerSecondToCreate(double numPerSecond) function, expected prototype:\nvoid osgParticle::ConstantRateCounter::setNumberOfParticlesPerSecondToCreate(double numPerSecond)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double numPerSecond=(double)lua_tonumber(L,2);
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ConstantRateCounter::setNumberOfParticlesPerSecondToCreate(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::ConstantRateCounter::setNumberOfParticlesPerSecondToCreate(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setNumberOfParticlesPerSecondToCreate(numPerSecond);
 
@@ -529,15 +506,13 @@ public:
 	// double osgParticle::ConstantRateCounter::getNumberOfParticlesPerSecondToCreate() const
 	static int _bind_getNumberOfParticlesPerSecondToCreate(lua_State *L) {
 		if (!_lg_typecheck_getNumberOfParticlesPerSecondToCreate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgParticle::ConstantRateCounter::getNumberOfParticlesPerSecondToCreate() const function, expected prototype:\ndouble osgParticle::ConstantRateCounter::getNumberOfParticlesPerSecondToCreate() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgParticle::ConstantRateCounter::getNumberOfParticlesPerSecondToCreate() const function, expected prototype:\ndouble osgParticle::ConstantRateCounter::getNumberOfParticlesPerSecondToCreate() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgParticle::ConstantRateCounter::getNumberOfParticlesPerSecondToCreate() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgParticle::ConstantRateCounter::getNumberOfParticlesPerSecondToCreate() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getNumberOfParticlesPerSecondToCreate();
 		lua_pushnumber(L,lret);
@@ -548,16 +523,14 @@ public:
 	// int osgParticle::ConstantRateCounter::numParticlesToCreate(double dt) const
 	static int _bind_numParticlesToCreate(lua_State *L) {
 		if (!_lg_typecheck_numParticlesToCreate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgParticle::ConstantRateCounter::numParticlesToCreate(double dt) const function, expected prototype:\nint osgParticle::ConstantRateCounter::numParticlesToCreate(double dt) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgParticle::ConstantRateCounter::numParticlesToCreate(double dt) const function, expected prototype:\nint osgParticle::ConstantRateCounter::numParticlesToCreate(double dt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double dt=(double)lua_tonumber(L,2);
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgParticle::ConstantRateCounter::numParticlesToCreate(double) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgParticle::ConstantRateCounter::numParticlesToCreate(double) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->numParticlesToCreate(dt);
 		lua_pushnumber(L,lret);
@@ -568,16 +541,14 @@ public:
 	// void osgParticle::ConstantRateCounter::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::ConstantRateCounter::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgParticle::ConstantRateCounter::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::ConstantRateCounter::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgParticle::ConstantRateCounter::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ConstantRateCounter::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::ConstantRateCounter::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstantRateCounter::setThreadSafeRefUnref(threadSafe);
 
@@ -587,16 +558,14 @@ public:
 	// void osgParticle::ConstantRateCounter::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::ConstantRateCounter::base_setName(const std::string & name) function, expected prototype:\nvoid osgParticle::ConstantRateCounter::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::ConstantRateCounter::base_setName(const std::string & name) function, expected prototype:\nvoid osgParticle::ConstantRateCounter::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ConstantRateCounter::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::ConstantRateCounter::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstantRateCounter::setName(name);
 
@@ -606,15 +575,13 @@ public:
 	// void osgParticle::ConstantRateCounter::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::ConstantRateCounter::base_computeDataVariance() function, expected prototype:\nvoid osgParticle::ConstantRateCounter::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::ConstantRateCounter::base_computeDataVariance() function, expected prototype:\nvoid osgParticle::ConstantRateCounter::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ConstantRateCounter::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::ConstantRateCounter::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstantRateCounter::computeDataVariance();
 
@@ -624,16 +591,14 @@ public:
 	// void osgParticle::ConstantRateCounter::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::ConstantRateCounter::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgParticle::ConstantRateCounter::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::ConstantRateCounter::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgParticle::ConstantRateCounter::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ConstantRateCounter::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::ConstantRateCounter::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstantRateCounter::setUserData(obj);
 
@@ -643,15 +608,13 @@ public:
 	// osg::Referenced * osgParticle::ConstantRateCounter::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osgParticle::ConstantRateCounter::base_getUserData() function, expected prototype:\nosg::Referenced * osgParticle::ConstantRateCounter::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osgParticle::ConstantRateCounter::base_getUserData() function, expected prototype:\nosg::Referenced * osgParticle::ConstantRateCounter::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::ConstantRateCounter::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::ConstantRateCounter::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->ConstantRateCounter::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -664,15 +627,13 @@ public:
 	// const osg::Referenced * osgParticle::ConstantRateCounter::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgParticle::ConstantRateCounter::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgParticle::ConstantRateCounter::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgParticle::ConstantRateCounter::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgParticle::ConstantRateCounter::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::ConstantRateCounter::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::ConstantRateCounter::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->ConstantRateCounter::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -694,8 +655,7 @@ public:
 	// void osgParticle::ConstantRateCounter::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::ConstantRateCounter::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgParticle::ConstantRateCounter::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::ConstantRateCounter::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osgParticle::ConstantRateCounter::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -704,8 +664,7 @@ public:
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ConstantRateCounter::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::ConstantRateCounter::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstantRateCounter::releaseGLObjects(_arg1);
 
@@ -715,15 +674,13 @@ public:
 	// osg::Object * osgParticle::ConstantRateCounter::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::ConstantRateCounter::base_cloneType() const function, expected prototype:\nosg::Object * osgParticle::ConstantRateCounter::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::ConstantRateCounter::base_cloneType() const function, expected prototype:\nosg::Object * osgParticle::ConstantRateCounter::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ConstantRateCounter::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ConstantRateCounter::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->ConstantRateCounter::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -736,8 +693,7 @@ public:
 	// osg::Object * osgParticle::ConstantRateCounter::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::ConstantRateCounter::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgParticle::ConstantRateCounter::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::ConstantRateCounter::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgParticle::ConstantRateCounter::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -748,8 +704,7 @@ public:
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ConstantRateCounter::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ConstantRateCounter::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->ConstantRateCounter::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -762,16 +717,14 @@ public:
 	// bool osgParticle::ConstantRateCounter::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgParticle::ConstantRateCounter::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgParticle::ConstantRateCounter::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgParticle::ConstantRateCounter::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgParticle::ConstantRateCounter::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::ConstantRateCounter::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgParticle::ConstantRateCounter::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ConstantRateCounter::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -782,15 +735,13 @@ public:
 	// const char * osgParticle::ConstantRateCounter::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgParticle::ConstantRateCounter::base_libraryName() const function, expected prototype:\nconst char * osgParticle::ConstantRateCounter::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgParticle::ConstantRateCounter::base_libraryName() const function, expected prototype:\nconst char * osgParticle::ConstantRateCounter::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::ConstantRateCounter::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgParticle::ConstantRateCounter::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->ConstantRateCounter::libraryName();
 		lua_pushstring(L,lret);
@@ -801,15 +752,13 @@ public:
 	// const char * osgParticle::ConstantRateCounter::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgParticle::ConstantRateCounter::base_className() const function, expected prototype:\nconst char * osgParticle::ConstantRateCounter::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgParticle::ConstantRateCounter::base_className() const function, expected prototype:\nconst char * osgParticle::ConstantRateCounter::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::ConstantRateCounter::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgParticle::ConstantRateCounter::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->ConstantRateCounter::className();
 		lua_pushstring(L,lret);
@@ -820,16 +769,14 @@ public:
 	// int osgParticle::ConstantRateCounter::base_numParticlesToCreate(double dt) const
 	static int _bind_base_numParticlesToCreate(lua_State *L) {
 		if (!_lg_typecheck_base_numParticlesToCreate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgParticle::ConstantRateCounter::base_numParticlesToCreate(double dt) const function, expected prototype:\nint osgParticle::ConstantRateCounter::base_numParticlesToCreate(double dt) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgParticle::ConstantRateCounter::base_numParticlesToCreate(double dt) const function, expected prototype:\nint osgParticle::ConstantRateCounter::base_numParticlesToCreate(double dt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double dt=(double)lua_tonumber(L,2);
 
 		osgParticle::ConstantRateCounter* self=Luna< osg::Referenced >::checkSubType< osgParticle::ConstantRateCounter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgParticle::ConstantRateCounter::base_numParticlesToCreate(double) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgParticle::ConstantRateCounter::base_numParticlesToCreate(double) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->ConstantRateCounter::numParticlesToCreate(dt);
 		lua_pushnumber(L,lret);

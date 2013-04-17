@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::BarrierOperation* self= (osg::BarrierOperation*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -191,8 +188,7 @@ public:
 	// osg::BarrierOperation::BarrierOperation(int numThreads, osg::BarrierOperation::PreBlockOp op = osg::BarrierOperation::NO_OPERATION, bool keep = true)
 	static osg::BarrierOperation* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BarrierOperation::BarrierOperation(int numThreads, osg::BarrierOperation::PreBlockOp op = osg::BarrierOperation::NO_OPERATION, bool keep = true) function, expected prototype:\nosg::BarrierOperation::BarrierOperation(int numThreads, osg::BarrierOperation::PreBlockOp op = osg::BarrierOperation::NO_OPERATION, bool keep = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BarrierOperation::BarrierOperation(int numThreads, osg::BarrierOperation::PreBlockOp op = osg::BarrierOperation::NO_OPERATION, bool keep = true) function, expected prototype:\nosg::BarrierOperation::BarrierOperation(int numThreads, osg::BarrierOperation::PreBlockOp op = osg::BarrierOperation::NO_OPERATION, bool keep = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -207,8 +203,7 @@ public:
 	// osg::BarrierOperation::BarrierOperation(lua_Table * data, int numThreads, osg::BarrierOperation::PreBlockOp op = osg::BarrierOperation::NO_OPERATION, bool keep = true)
 	static osg::BarrierOperation* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BarrierOperation::BarrierOperation(lua_Table * data, int numThreads, osg::BarrierOperation::PreBlockOp op = osg::BarrierOperation::NO_OPERATION, bool keep = true) function, expected prototype:\nosg::BarrierOperation::BarrierOperation(lua_Table * data, int numThreads, osg::BarrierOperation::PreBlockOp op = osg::BarrierOperation::NO_OPERATION, bool keep = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BarrierOperation::BarrierOperation(lua_Table * data, int numThreads, osg::BarrierOperation::PreBlockOp op = osg::BarrierOperation::NO_OPERATION, bool keep = true) function, expected prototype:\nosg::BarrierOperation::BarrierOperation(lua_Table * data, int numThreads, osg::BarrierOperation::PreBlockOp op = osg::BarrierOperation::NO_OPERATION, bool keep = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -234,15 +229,13 @@ public:
 	// void osg::BarrierOperation::release()
 	static int _bind_release(lua_State *L) {
 		if (!_lg_typecheck_release(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::release() function, expected prototype:\nvoid osg::BarrierOperation::release()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::release() function, expected prototype:\nvoid osg::BarrierOperation::release()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::release(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->release();
 
@@ -252,15 +245,13 @@ public:
 	// osg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp()
 	static int _bind_getPreBlockOp(lua_State *L) {
 		if (!_lg_typecheck_getPreBlockOp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp() function, expected prototype:\nosg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp() function, expected prototype:\nosg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::BarrierOperation::PreBlockOp lret = self->_preBlockOp;
 		lua_pushnumber(L,lret);
@@ -271,16 +262,14 @@ public:
 	// void osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp value)
 	static int _bind_setPreBlockOp(lua_State *L) {
 		if (!_lg_typecheck_setPreBlockOp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp value) function, expected prototype:\nvoid osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp value) function, expected prototype:\nvoid osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::BarrierOperation::PreBlockOp value=(osg::BarrierOperation::PreBlockOp)lua_tointeger(L,2);
 
 		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_preBlockOp = value;
 
@@ -290,16 +279,14 @@ public:
 	// void osg::BarrierOperation::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::BarrierOperation::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::BarrierOperation::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BarrierOperation::setThreadSafeRefUnref(threadSafe);
 
@@ -309,15 +296,13 @@ public:
 	// void osg::BarrierOperation::base_reset()
 	static int _bind_base_reset(lua_State *L) {
 		if (!_lg_typecheck_base_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::base_reset() function, expected prototype:\nvoid osg::BarrierOperation::base_reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::base_reset() function, expected prototype:\nvoid osg::BarrierOperation::base_reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::base_reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BarrierOperation::reset();
 
@@ -327,8 +312,7 @@ public:
 	// void osg::BarrierOperation::base_block(unsigned int numThreads = 0)
 	static int _bind_base_block(lua_State *L) {
 		if (!_lg_typecheck_base_block(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::base_block(unsigned int numThreads = 0) function, expected prototype:\nvoid osg::BarrierOperation::base_block(unsigned int numThreads = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::base_block(unsigned int numThreads = 0) function, expected prototype:\nvoid osg::BarrierOperation::base_block(unsigned int numThreads = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -337,8 +321,7 @@ public:
 
 		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::base_block(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::base_block(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BarrierOperation::block(numThreads);
 
@@ -348,15 +331,13 @@ public:
 	// int osg::BarrierOperation::base_numThreadsCurrentlyBlocked()
 	static int _bind_base_numThreadsCurrentlyBlocked(lua_State *L) {
 		if (!_lg_typecheck_base_numThreadsCurrentlyBlocked(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::BarrierOperation::base_numThreadsCurrentlyBlocked() function, expected prototype:\nint osg::BarrierOperation::base_numThreadsCurrentlyBlocked()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::BarrierOperation::base_numThreadsCurrentlyBlocked() function, expected prototype:\nint osg::BarrierOperation::base_numThreadsCurrentlyBlocked()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::BarrierOperation::base_numThreadsCurrentlyBlocked(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::BarrierOperation::base_numThreadsCurrentlyBlocked(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->BarrierOperation::numThreadsCurrentlyBlocked();
 		lua_pushnumber(L,lret);
@@ -367,15 +348,13 @@ public:
 	// void osg::BarrierOperation::base_release()
 	static int _bind_base_release(lua_State *L) {
 		if (!_lg_typecheck_base_release(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::base_release() function, expected prototype:\nvoid osg::BarrierOperation::base_release()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::base_release() function, expected prototype:\nvoid osg::BarrierOperation::base_release()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::base_release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::base_release(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BarrierOperation::release();
 
@@ -387,16 +366,14 @@ public:
 	// void osg::BarrierOperation::operator()(osg::Object * arg1)
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::operator()(osg::Object * arg1) function, expected prototype:\nvoid osg::BarrierOperation::operator()(osg::Object * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::operator()(osg::Object * arg1) function, expected prototype:\nvoid osg::BarrierOperation::operator()(osg::Object * arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Object* _arg1=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::operator()(osg::Object *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::operator()(osg::Object *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->operator()(_arg1);
 
@@ -412,8 +389,7 @@ public:
 
 	static int _bind_baseCast_OpenThreads_Barrier(lua_State *L) {
 		if (!_lg_typecheck_baseCast_OpenThreads_Barrier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in baseCast_OpenThreads_Barrier function, expected prototype:\nbaseCast()");
+			luaL_error(L, "luna typecheck failed in baseCast_OpenThreads_Barrier function, expected prototype:\nbaseCast(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));

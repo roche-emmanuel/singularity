@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::GUIActionAdapter* self=(Luna< osgGA::GUIActionAdapter >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgGA::GUIActionAdapter*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgGA::GUIActionAdapter*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::GUIActionAdapter* rhs =(Luna< osgGA::GUIActionAdapter >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgGA::GUIActionAdapter* self= (osgGA::GUIActionAdapter*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgGA::GUIActionAdapter >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -177,8 +172,7 @@ public:
 	// osgGA::GUIActionAdapter::GUIActionAdapter(lua_Table * data)
 	static osgGA::GUIActionAdapter* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::GUIActionAdapter::GUIActionAdapter(lua_Table * data) function, expected prototype:\nosgGA::GUIActionAdapter::GUIActionAdapter(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgGA::GUIActionAdapter::GUIActionAdapter(lua_Table * data) function, expected prototype:\nosgGA::GUIActionAdapter::GUIActionAdapter(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -190,15 +184,13 @@ public:
 	// osg::View * osgGA::GUIActionAdapter::asView()
 	static int _bind_asView(lua_State *L) {
 		if (!_lg_typecheck_asView(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::View * osgGA::GUIActionAdapter::asView() function, expected prototype:\nosg::View * osgGA::GUIActionAdapter::asView()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::View * osgGA::GUIActionAdapter::asView() function, expected prototype:\nosg::View * osgGA::GUIActionAdapter::asView()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::GUIActionAdapter* self=(Luna< osgGA::GUIActionAdapter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::View * osgGA::GUIActionAdapter::asView(). Got : '%s'",typeid(Luna< osgGA::GUIActionAdapter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::View * osgGA::GUIActionAdapter::asView(). Got : '%s'\n%s",typeid(Luna< osgGA::GUIActionAdapter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::View * lret = self->asView();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -211,15 +203,13 @@ public:
 	// void osgGA::GUIActionAdapter::requestRedraw()
 	static int _bind_requestRedraw(lua_State *L) {
 		if (!_lg_typecheck_requestRedraw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::GUIActionAdapter::requestRedraw() function, expected prototype:\nvoid osgGA::GUIActionAdapter::requestRedraw()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIActionAdapter::requestRedraw() function, expected prototype:\nvoid osgGA::GUIActionAdapter::requestRedraw()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::GUIActionAdapter* self=(Luna< osgGA::GUIActionAdapter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::GUIActionAdapter::requestRedraw(). Got : '%s'",typeid(Luna< osgGA::GUIActionAdapter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::GUIActionAdapter::requestRedraw(). Got : '%s'\n%s",typeid(Luna< osgGA::GUIActionAdapter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->requestRedraw();
 
@@ -229,8 +219,7 @@ public:
 	// void osgGA::GUIActionAdapter::requestContinuousUpdate(bool needed = true)
 	static int _bind_requestContinuousUpdate(lua_State *L) {
 		if (!_lg_typecheck_requestContinuousUpdate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::GUIActionAdapter::requestContinuousUpdate(bool needed = true) function, expected prototype:\nvoid osgGA::GUIActionAdapter::requestContinuousUpdate(bool needed = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIActionAdapter::requestContinuousUpdate(bool needed = true) function, expected prototype:\nvoid osgGA::GUIActionAdapter::requestContinuousUpdate(bool needed = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -239,8 +228,7 @@ public:
 
 		osgGA::GUIActionAdapter* self=(Luna< osgGA::GUIActionAdapter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::GUIActionAdapter::requestContinuousUpdate(bool). Got : '%s'",typeid(Luna< osgGA::GUIActionAdapter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::GUIActionAdapter::requestContinuousUpdate(bool). Got : '%s'\n%s",typeid(Luna< osgGA::GUIActionAdapter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->requestContinuousUpdate(needed);
 
@@ -250,8 +238,7 @@ public:
 	// void osgGA::GUIActionAdapter::requestWarpPointer(float x, float y)
 	static int _bind_requestWarpPointer(lua_State *L) {
 		if (!_lg_typecheck_requestWarpPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::GUIActionAdapter::requestWarpPointer(float x, float y) function, expected prototype:\nvoid osgGA::GUIActionAdapter::requestWarpPointer(float x, float y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIActionAdapter::requestWarpPointer(float x, float y) function, expected prototype:\nvoid osgGA::GUIActionAdapter::requestWarpPointer(float x, float y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,2);
@@ -259,8 +246,7 @@ public:
 
 		osgGA::GUIActionAdapter* self=(Luna< osgGA::GUIActionAdapter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::GUIActionAdapter::requestWarpPointer(float, float). Got : '%s'",typeid(Luna< osgGA::GUIActionAdapter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgGA::GUIActionAdapter::requestWarpPointer(float, float). Got : '%s'\n%s",typeid(Luna< osgGA::GUIActionAdapter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->requestWarpPointer(x, y);
 
@@ -270,15 +256,13 @@ public:
 	// osg::View * osgGA::GUIActionAdapter::base_asView()
 	static int _bind_base_asView(lua_State *L) {
 		if (!_lg_typecheck_base_asView(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::View * osgGA::GUIActionAdapter::base_asView() function, expected prototype:\nosg::View * osgGA::GUIActionAdapter::base_asView()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::View * osgGA::GUIActionAdapter::base_asView() function, expected prototype:\nosg::View * osgGA::GUIActionAdapter::base_asView()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgGA::GUIActionAdapter* self=(Luna< osgGA::GUIActionAdapter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::View * osgGA::GUIActionAdapter::base_asView(). Got : '%s'",typeid(Luna< osgGA::GUIActionAdapter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::View * osgGA::GUIActionAdapter::base_asView(). Got : '%s'\n%s",typeid(Luna< osgGA::GUIActionAdapter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::View * lret = self->GUIActionAdapter::asView();
 		if(!lret) return 0; // Do not write NULL pointers.

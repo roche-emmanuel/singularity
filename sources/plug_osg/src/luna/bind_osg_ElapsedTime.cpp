@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::ElapsedTime*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::ElapsedTime*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ElapsedTime* rhs =(Luna< osg::ElapsedTime >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ElapsedTime* self= (osg::ElapsedTime*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::ElapsedTime >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -165,8 +161,7 @@ public:
 	// osg::ElapsedTime::ElapsedTime(double * elapsedTime, osg::Timer * timer = 0)
 	static osg::ElapsedTime* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ElapsedTime::ElapsedTime(double * elapsedTime, osg::Timer * timer = 0) function, expected prototype:\nosg::ElapsedTime::ElapsedTime(double * elapsedTime, osg::Timer * timer = 0)\nClass arguments details:\narg 2 ID = 90586498\n");
+			luaL_error(L, "luna typecheck failed in osg::ElapsedTime::ElapsedTime(double * elapsedTime, osg::Timer * timer = 0) function, expected prototype:\nosg::ElapsedTime::ElapsedTime(double * elapsedTime, osg::Timer * timer = 0)\nClass arguments details:\narg 2 ID = 90586498\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -180,8 +175,7 @@ public:
 	// osg::ElapsedTime::ElapsedTime(osg::Timer * timer = 0)
 	static osg::ElapsedTime* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ElapsedTime::ElapsedTime(osg::Timer * timer = 0) function, expected prototype:\nosg::ElapsedTime::ElapsedTime(osg::Timer * timer = 0)\nClass arguments details:\narg 1 ID = 90586498\n");
+			luaL_error(L, "luna typecheck failed in osg::ElapsedTime::ElapsedTime(osg::Timer * timer = 0) function, expected prototype:\nosg::ElapsedTime::ElapsedTime(osg::Timer * timer = 0)\nClass arguments details:\narg 1 ID = 90586498\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -205,15 +199,13 @@ public:
 	// void osg::ElapsedTime::reset()
 	static int _bind_reset(lua_State *L) {
 		if (!_lg_typecheck_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ElapsedTime::reset() function, expected prototype:\nvoid osg::ElapsedTime::reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ElapsedTime::reset() function, expected prototype:\nvoid osg::ElapsedTime::reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ElapsedTime* self=(Luna< osg::ElapsedTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ElapsedTime::reset(). Got : '%s'",typeid(Luna< osg::ElapsedTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ElapsedTime::reset(). Got : '%s'\n%s",typeid(Luna< osg::ElapsedTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reset();
 
@@ -223,15 +215,13 @@ public:
 	// double osg::ElapsedTime::elapsedTime() const
 	static int _bind_elapsedTime(lua_State *L) {
 		if (!_lg_typecheck_elapsedTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ElapsedTime::elapsedTime() const function, expected prototype:\ndouble osg::ElapsedTime::elapsedTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ElapsedTime::elapsedTime() const function, expected prototype:\ndouble osg::ElapsedTime::elapsedTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ElapsedTime* self=(Luna< osg::ElapsedTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime() const. Got : '%s'",typeid(Luna< osg::ElapsedTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime() const. Got : '%s'\n%s",typeid(Luna< osg::ElapsedTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->elapsedTime();
 		lua_pushnumber(L,lret);
@@ -242,15 +232,13 @@ public:
 	// double osg::ElapsedTime::elapsedTime_m() const
 	static int _bind_elapsedTime_m(lua_State *L) {
 		if (!_lg_typecheck_elapsedTime_m(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ElapsedTime::elapsedTime_m() const function, expected prototype:\ndouble osg::ElapsedTime::elapsedTime_m() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ElapsedTime::elapsedTime_m() const function, expected prototype:\ndouble osg::ElapsedTime::elapsedTime_m() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ElapsedTime* self=(Luna< osg::ElapsedTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime_m() const. Got : '%s'",typeid(Luna< osg::ElapsedTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime_m() const. Got : '%s'\n%s",typeid(Luna< osg::ElapsedTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->elapsedTime_m();
 		lua_pushnumber(L,lret);
@@ -261,15 +249,13 @@ public:
 	// double osg::ElapsedTime::elapsedTime_u() const
 	static int _bind_elapsedTime_u(lua_State *L) {
 		if (!_lg_typecheck_elapsedTime_u(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ElapsedTime::elapsedTime_u() const function, expected prototype:\ndouble osg::ElapsedTime::elapsedTime_u() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ElapsedTime::elapsedTime_u() const function, expected prototype:\ndouble osg::ElapsedTime::elapsedTime_u() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ElapsedTime* self=(Luna< osg::ElapsedTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime_u() const. Got : '%s'",typeid(Luna< osg::ElapsedTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime_u() const. Got : '%s'\n%s",typeid(Luna< osg::ElapsedTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->elapsedTime_u();
 		lua_pushnumber(L,lret);
@@ -280,15 +266,13 @@ public:
 	// double osg::ElapsedTime::elapsedTime_n() const
 	static int _bind_elapsedTime_n(lua_State *L) {
 		if (!_lg_typecheck_elapsedTime_n(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ElapsedTime::elapsedTime_n() const function, expected prototype:\ndouble osg::ElapsedTime::elapsedTime_n() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ElapsedTime::elapsedTime_n() const function, expected prototype:\ndouble osg::ElapsedTime::elapsedTime_n() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ElapsedTime* self=(Luna< osg::ElapsedTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime_n() const. Got : '%s'",typeid(Luna< osg::ElapsedTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime_n() const. Got : '%s'\n%s",typeid(Luna< osg::ElapsedTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->elapsedTime_n();
 		lua_pushnumber(L,lret);
@@ -299,15 +283,13 @@ public:
 	// void osg::ElapsedTime::finish()
 	static int _bind_finish(lua_State *L) {
 		if (!_lg_typecheck_finish(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ElapsedTime::finish() function, expected prototype:\nvoid osg::ElapsedTime::finish()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ElapsedTime::finish() function, expected prototype:\nvoid osg::ElapsedTime::finish()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ElapsedTime* self=(Luna< osg::ElapsedTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ElapsedTime::finish(). Got : '%s'",typeid(Luna< osg::ElapsedTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ElapsedTime::finish(). Got : '%s'\n%s",typeid(Luna< osg::ElapsedTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->finish();
 

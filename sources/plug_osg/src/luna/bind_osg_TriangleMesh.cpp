@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::TriangleMesh* self= (osg::TriangleMesh*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -316,8 +313,7 @@ public:
 	// osg::TriangleMesh::TriangleMesh()
 	static osg::TriangleMesh* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::TriangleMesh::TriangleMesh() function, expected prototype:\nosg::TriangleMesh::TriangleMesh()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::TriangleMesh::TriangleMesh() function, expected prototype:\nosg::TriangleMesh::TriangleMesh()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -327,8 +323,7 @@ public:
 	// osg::TriangleMesh::TriangleMesh(const osg::TriangleMesh & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::TriangleMesh* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::TriangleMesh::TriangleMesh(const osg::TriangleMesh & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::TriangleMesh::TriangleMesh(const osg::TriangleMesh & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::TriangleMesh::TriangleMesh(const osg::TriangleMesh & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::TriangleMesh::TriangleMesh(const osg::TriangleMesh & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -350,8 +345,7 @@ public:
 	// osg::TriangleMesh::TriangleMesh(lua_Table * data)
 	static osg::TriangleMesh* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::TriangleMesh::TriangleMesh(lua_Table * data) function, expected prototype:\nosg::TriangleMesh::TriangleMesh(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::TriangleMesh::TriangleMesh(lua_Table * data) function, expected prototype:\nosg::TriangleMesh::TriangleMesh(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -361,8 +355,7 @@ public:
 	// osg::TriangleMesh::TriangleMesh(lua_Table * data, const osg::TriangleMesh & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::TriangleMesh* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::TriangleMesh::TriangleMesh(lua_Table * data, const osg::TriangleMesh & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::TriangleMesh::TriangleMesh(lua_Table * data, const osg::TriangleMesh & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::TriangleMesh::TriangleMesh(lua_Table * data, const osg::TriangleMesh & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::TriangleMesh::TriangleMesh(lua_Table * data, const osg::TriangleMesh & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -397,15 +390,13 @@ public:
 	// osg::Object * osg::TriangleMesh::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::TriangleMesh::cloneType() const function, expected prototype:\nosg::Object * osg::TriangleMesh::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::TriangleMesh::cloneType() const function, expected prototype:\nosg::Object * osg::TriangleMesh::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -418,8 +409,7 @@ public:
 	// osg::Object * osg::TriangleMesh::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::TriangleMesh::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::TriangleMesh::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::TriangleMesh::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::TriangleMesh::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -430,8 +420,7 @@ public:
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -444,16 +433,14 @@ public:
 	// bool osg::TriangleMesh::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::TriangleMesh::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::TriangleMesh::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::TriangleMesh::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::TriangleMesh::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TriangleMesh::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::TriangleMesh::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -464,15 +451,13 @@ public:
 	// const char * osg::TriangleMesh::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::TriangleMesh::libraryName() const function, expected prototype:\nconst char * osg::TriangleMesh::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::TriangleMesh::libraryName() const function, expected prototype:\nconst char * osg::TriangleMesh::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -483,15 +468,13 @@ public:
 	// const char * osg::TriangleMesh::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::TriangleMesh::className() const function, expected prototype:\nconst char * osg::TriangleMesh::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::TriangleMesh::className() const function, expected prototype:\nconst char * osg::TriangleMesh::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -502,8 +485,7 @@ public:
 	// void osg::TriangleMesh::accept(osg::ShapeVisitor & arg1)
 	static int _bind_accept_overload_1(lua_State *L) {
 		if (!_lg_typecheck_accept_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::accept(osg::ShapeVisitor & arg1) function, expected prototype:\nvoid osg::TriangleMesh::accept(osg::ShapeVisitor & arg1)\nClass arguments details:\narg 1 ID = 36301858\n");
+			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::accept(osg::ShapeVisitor & arg1) function, expected prototype:\nvoid osg::TriangleMesh::accept(osg::ShapeVisitor & arg1)\nClass arguments details:\narg 1 ID = 36301858\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ShapeVisitor* _arg1_ptr=(Luna< osg::ShapeVisitor >::check(L,2));
@@ -514,8 +496,7 @@ public:
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::accept(osg::ShapeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->accept(_arg1);
 
@@ -525,8 +506,7 @@ public:
 	// void osg::TriangleMesh::accept(osg::ConstShapeVisitor & arg1) const
 	static int _bind_accept_overload_2(lua_State *L) {
 		if (!_lg_typecheck_accept_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::accept(osg::ConstShapeVisitor & arg1) const function, expected prototype:\nvoid osg::TriangleMesh::accept(osg::ConstShapeVisitor & arg1) const\nClass arguments details:\narg 1 ID = 45826538\n");
+			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::accept(osg::ConstShapeVisitor & arg1) const function, expected prototype:\nvoid osg::TriangleMesh::accept(osg::ConstShapeVisitor & arg1) const\nClass arguments details:\narg 1 ID = 45826538\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ConstShapeVisitor* _arg1_ptr=(Luna< osg::ConstShapeVisitor >::check(L,2));
@@ -537,8 +517,7 @@ public:
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::accept(osg::ConstShapeVisitor &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->accept(_arg1);
 
@@ -557,16 +536,14 @@ public:
 	// void osg::TriangleMesh::setVertices(osg::Vec3Array * vertices)
 	static int _bind_setVertices(lua_State *L) {
 		if (!_lg_typecheck_setVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::setVertices(osg::Vec3Array * vertices) function, expected prototype:\nvoid osg::TriangleMesh::setVertices(osg::Vec3Array * vertices)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::setVertices(osg::Vec3Array * vertices) function, expected prototype:\nvoid osg::TriangleMesh::setVertices(osg::Vec3Array * vertices)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3Array* vertices=(Luna< osg::Referenced >::checkSubType< osg::Vec3Array >(L,2));
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::setVertices(osg::Vec3Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::setVertices(osg::Vec3Array *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setVertices(vertices);
 
@@ -576,15 +553,13 @@ public:
 	// osg::Vec3Array * osg::TriangleMesh::getVertices()
 	static int _bind_getVertices_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getVertices_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3Array * osg::TriangleMesh::getVertices() function, expected prototype:\nosg::Vec3Array * osg::TriangleMesh::getVertices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3Array * osg::TriangleMesh::getVertices() function, expected prototype:\nosg::Vec3Array * osg::TriangleMesh::getVertices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3Array * osg::TriangleMesh::getVertices(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3Array * osg::TriangleMesh::getVertices(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3Array * lret = self->getVertices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -597,15 +572,13 @@ public:
 	// const osg::Vec3Array * osg::TriangleMesh::getVertices() const
 	static int _bind_getVertices_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getVertices_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3Array * osg::TriangleMesh::getVertices() const function, expected prototype:\nconst osg::Vec3Array * osg::TriangleMesh::getVertices() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3Array * osg::TriangleMesh::getVertices() const function, expected prototype:\nconst osg::Vec3Array * osg::TriangleMesh::getVertices() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3Array * osg::TriangleMesh::getVertices() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3Array * osg::TriangleMesh::getVertices() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3Array * lret = self->getVertices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -627,16 +600,14 @@ public:
 	// void osg::TriangleMesh::setIndices(osg::IndexArray * indices)
 	static int _bind_setIndices(lua_State *L) {
 		if (!_lg_typecheck_setIndices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::setIndices(osg::IndexArray * indices) function, expected prototype:\nvoid osg::TriangleMesh::setIndices(osg::IndexArray * indices)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::setIndices(osg::IndexArray * indices) function, expected prototype:\nvoid osg::TriangleMesh::setIndices(osg::IndexArray * indices)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::IndexArray* indices=(Luna< osg::Referenced >::checkSubType< osg::IndexArray >(L,2));
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::setIndices(osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::setIndices(osg::IndexArray *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setIndices(indices);
 
@@ -646,15 +617,13 @@ public:
 	// osg::IndexArray * osg::TriangleMesh::getIndices()
 	static int _bind_getIndices_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getIndices_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::IndexArray * osg::TriangleMesh::getIndices() function, expected prototype:\nosg::IndexArray * osg::TriangleMesh::getIndices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::IndexArray * osg::TriangleMesh::getIndices() function, expected prototype:\nosg::IndexArray * osg::TriangleMesh::getIndices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::IndexArray * osg::TriangleMesh::getIndices(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::IndexArray * osg::TriangleMesh::getIndices(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::IndexArray * lret = self->getIndices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -667,15 +636,13 @@ public:
 	// const osg::IndexArray * osg::TriangleMesh::getIndices() const
 	static int _bind_getIndices_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getIndices_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::IndexArray * osg::TriangleMesh::getIndices() const function, expected prototype:\nconst osg::IndexArray * osg::TriangleMesh::getIndices() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::IndexArray * osg::TriangleMesh::getIndices() const function, expected prototype:\nconst osg::IndexArray * osg::TriangleMesh::getIndices() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::IndexArray * osg::TriangleMesh::getIndices() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::IndexArray * osg::TriangleMesh::getIndices() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::IndexArray * lret = self->getIndices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -697,16 +664,14 @@ public:
 	// void osg::TriangleMesh::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::TriangleMesh::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::TriangleMesh::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriangleMesh::setThreadSafeRefUnref(threadSafe);
 
@@ -716,16 +681,14 @@ public:
 	// void osg::TriangleMesh::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::base_setName(const std::string & name) function, expected prototype:\nvoid osg::TriangleMesh::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::base_setName(const std::string & name) function, expected prototype:\nvoid osg::TriangleMesh::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriangleMesh::setName(name);
 
@@ -735,15 +698,13 @@ public:
 	// void osg::TriangleMesh::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::base_computeDataVariance() function, expected prototype:\nvoid osg::TriangleMesh::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::base_computeDataVariance() function, expected prototype:\nvoid osg::TriangleMesh::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriangleMesh::computeDataVariance();
 
@@ -753,16 +714,14 @@ public:
 	// void osg::TriangleMesh::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::TriangleMesh::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::TriangleMesh::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriangleMesh::setUserData(obj);
 
@@ -772,15 +731,13 @@ public:
 	// osg::Referenced * osg::TriangleMesh::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::TriangleMesh::base_getUserData() function, expected prototype:\nosg::Referenced * osg::TriangleMesh::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::TriangleMesh::base_getUserData() function, expected prototype:\nosg::Referenced * osg::TriangleMesh::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::TriangleMesh::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::TriangleMesh::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->TriangleMesh::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -793,15 +750,13 @@ public:
 	// const osg::Referenced * osg::TriangleMesh::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::TriangleMesh::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::TriangleMesh::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::TriangleMesh::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::TriangleMesh::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::TriangleMesh::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::TriangleMesh::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->TriangleMesh::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -823,8 +778,7 @@ public:
 	// void osg::TriangleMesh::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::TriangleMesh::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::TriangleMesh::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -833,8 +787,7 @@ public:
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriangleMesh::releaseGLObjects(_arg1);
 
@@ -844,15 +797,13 @@ public:
 	// osg::Object * osg::TriangleMesh::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::TriangleMesh::base_cloneType() const function, expected prototype:\nosg::Object * osg::TriangleMesh::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::TriangleMesh::base_cloneType() const function, expected prototype:\nosg::Object * osg::TriangleMesh::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->TriangleMesh::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -865,8 +816,7 @@ public:
 	// osg::Object * osg::TriangleMesh::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::TriangleMesh::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::TriangleMesh::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::TriangleMesh::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::TriangleMesh::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -877,8 +827,7 @@ public:
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->TriangleMesh::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -891,16 +840,14 @@ public:
 	// bool osg::TriangleMesh::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::TriangleMesh::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::TriangleMesh::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::TriangleMesh::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::TriangleMesh::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TriangleMesh::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::TriangleMesh::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->TriangleMesh::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -911,15 +858,13 @@ public:
 	// const char * osg::TriangleMesh::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::TriangleMesh::base_libraryName() const function, expected prototype:\nconst char * osg::TriangleMesh::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::TriangleMesh::base_libraryName() const function, expected prototype:\nconst char * osg::TriangleMesh::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->TriangleMesh::libraryName();
 		lua_pushstring(L,lret);
@@ -930,15 +875,13 @@ public:
 	// const char * osg::TriangleMesh::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::TriangleMesh::base_className() const function, expected prototype:\nconst char * osg::TriangleMesh::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::TriangleMesh::base_className() const function, expected prototype:\nconst char * osg::TriangleMesh::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->TriangleMesh::className();
 		lua_pushstring(L,lret);
@@ -949,8 +892,7 @@ public:
 	// void osg::TriangleMesh::base_accept(osg::ShapeVisitor & arg1)
 	static int _bind_base_accept_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_accept_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::base_accept(osg::ShapeVisitor & arg1) function, expected prototype:\nvoid osg::TriangleMesh::base_accept(osg::ShapeVisitor & arg1)\nClass arguments details:\narg 1 ID = 36301858\n");
+			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::base_accept(osg::ShapeVisitor & arg1) function, expected prototype:\nvoid osg::TriangleMesh::base_accept(osg::ShapeVisitor & arg1)\nClass arguments details:\narg 1 ID = 36301858\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ShapeVisitor* _arg1_ptr=(Luna< osg::ShapeVisitor >::check(L,2));
@@ -961,8 +903,7 @@ public:
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_accept(osg::ShapeVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriangleMesh::accept(_arg1);
 
@@ -972,8 +913,7 @@ public:
 	// void osg::TriangleMesh::base_accept(osg::ConstShapeVisitor & arg1) const
 	static int _bind_base_accept_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_accept_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::base_accept(osg::ConstShapeVisitor & arg1) const function, expected prototype:\nvoid osg::TriangleMesh::base_accept(osg::ConstShapeVisitor & arg1) const\nClass arguments details:\narg 1 ID = 45826538\n");
+			luaL_error(L, "luna typecheck failed in void osg::TriangleMesh::base_accept(osg::ConstShapeVisitor & arg1) const function, expected prototype:\nvoid osg::TriangleMesh::base_accept(osg::ConstShapeVisitor & arg1) const\nClass arguments details:\narg 1 ID = 45826538\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ConstShapeVisitor* _arg1_ptr=(Luna< osg::ConstShapeVisitor >::check(L,2));
@@ -984,8 +924,7 @@ public:
 
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_accept(osg::ConstShapeVisitor &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriangleMesh::accept(_arg1);
 

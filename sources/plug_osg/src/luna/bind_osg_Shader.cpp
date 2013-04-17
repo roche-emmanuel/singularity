@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Shader* self= (osg::Shader*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -475,8 +472,7 @@ public:
 	// osg::Shader::Shader(osg::Shader::Type type = osg::Shader::UNDEFINED)
 	static osg::Shader* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(osg::Shader::Type type = osg::Shader::UNDEFINED) function, expected prototype:\nosg::Shader::Shader(osg::Shader::Type type = osg::Shader::UNDEFINED)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(osg::Shader::Type type = osg::Shader::UNDEFINED) function, expected prototype:\nosg::Shader::Shader(osg::Shader::Type type = osg::Shader::UNDEFINED)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -489,8 +485,7 @@ public:
 	// osg::Shader::Shader(osg::Shader::Type type, const std::string & source)
 	static osg::Shader* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(osg::Shader::Type type, const std::string & source) function, expected prototype:\nosg::Shader::Shader(osg::Shader::Type type, const std::string & source)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(osg::Shader::Type type, const std::string & source) function, expected prototype:\nosg::Shader::Shader(osg::Shader::Type type, const std::string & source)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Shader::Type type=(osg::Shader::Type)lua_tointeger(L,1);
@@ -502,8 +497,7 @@ public:
 	// osg::Shader::Shader(osg::Shader::Type type, osg::ShaderBinary * shaderBinary)
 	static osg::Shader* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(osg::Shader::Type type, osg::ShaderBinary * shaderBinary) function, expected prototype:\nosg::Shader::Shader(osg::Shader::Type type, osg::ShaderBinary * shaderBinary)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(osg::Shader::Type type, osg::ShaderBinary * shaderBinary) function, expected prototype:\nosg::Shader::Shader(osg::Shader::Type type, osg::ShaderBinary * shaderBinary)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Shader::Type type=(osg::Shader::Type)lua_tointeger(L,1);
@@ -515,8 +509,7 @@ public:
 	// osg::Shader::Shader(const osg::Shader & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::Shader* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(const osg::Shader & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Shader::Shader(const osg::Shader & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(const osg::Shader & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Shader::Shader(const osg::Shader & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -538,8 +531,7 @@ public:
 	// osg::Shader::Shader(lua_Table * data, osg::Shader::Type type = osg::Shader::UNDEFINED)
 	static osg::Shader* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(lua_Table * data, osg::Shader::Type type = osg::Shader::UNDEFINED) function, expected prototype:\nosg::Shader::Shader(lua_Table * data, osg::Shader::Type type = osg::Shader::UNDEFINED)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(lua_Table * data, osg::Shader::Type type = osg::Shader::UNDEFINED) function, expected prototype:\nosg::Shader::Shader(lua_Table * data, osg::Shader::Type type = osg::Shader::UNDEFINED)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -552,8 +544,7 @@ public:
 	// osg::Shader::Shader(lua_Table * data, osg::Shader::Type type, const std::string & source)
 	static osg::Shader* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(lua_Table * data, osg::Shader::Type type, const std::string & source) function, expected prototype:\nosg::Shader::Shader(lua_Table * data, osg::Shader::Type type, const std::string & source)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(lua_Table * data, osg::Shader::Type type, const std::string & source) function, expected prototype:\nosg::Shader::Shader(lua_Table * data, osg::Shader::Type type, const std::string & source)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Shader::Type type=(osg::Shader::Type)lua_tointeger(L,2);
@@ -565,8 +556,7 @@ public:
 	// osg::Shader::Shader(lua_Table * data, osg::Shader::Type type, osg::ShaderBinary * shaderBinary)
 	static osg::Shader* _bind_ctor_overload_7(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(lua_Table * data, osg::Shader::Type type, osg::ShaderBinary * shaderBinary) function, expected prototype:\nosg::Shader::Shader(lua_Table * data, osg::Shader::Type type, osg::ShaderBinary * shaderBinary)\nClass arguments details:\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(lua_Table * data, osg::Shader::Type type, osg::ShaderBinary * shaderBinary) function, expected prototype:\nosg::Shader::Shader(lua_Table * data, osg::Shader::Type type, osg::ShaderBinary * shaderBinary)\nClass arguments details:\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Shader::Type type=(osg::Shader::Type)lua_tointeger(L,2);
@@ -578,8 +568,7 @@ public:
 	// osg::Shader::Shader(lua_Table * data, const osg::Shader & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::Shader* _bind_ctor_overload_8(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(lua_Table * data, const osg::Shader & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Shader::Shader(lua_Table * data, const osg::Shader & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Shader::Shader(lua_Table * data, const osg::Shader & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Shader::Shader(lua_Table * data, const osg::Shader & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -618,15 +607,13 @@ public:
 	// osg::Object * osg::Shader::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Shader::cloneType() const function, expected prototype:\nosg::Object * osg::Shader::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Shader::cloneType() const function, expected prototype:\nosg::Object * osg::Shader::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -639,8 +626,7 @@ public:
 	// osg::Object * osg::Shader::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Shader::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Shader::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Shader::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Shader::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -651,8 +637,7 @@ public:
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -665,16 +650,14 @@ public:
 	// bool osg::Shader::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Shader::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Shader::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Shader::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Shader::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Shader::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Shader::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -685,15 +668,13 @@ public:
 	// const char * osg::Shader::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Shader::libraryName() const function, expected prototype:\nconst char * osg::Shader::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Shader::libraryName() const function, expected prototype:\nconst char * osg::Shader::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Shader::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Shader::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -704,15 +685,13 @@ public:
 	// const char * osg::Shader::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Shader::className() const function, expected prototype:\nconst char * osg::Shader::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Shader::className() const function, expected prototype:\nconst char * osg::Shader::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Shader::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Shader::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -723,8 +702,7 @@ public:
 	// int osg::Shader::compare(const osg::Shader & rhs) const
 	static int _bind_compare(lua_State *L) {
 		if (!_lg_typecheck_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Shader::compare(const osg::Shader & rhs) const function, expected prototype:\nint osg::Shader::compare(const osg::Shader & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osg::Shader::compare(const osg::Shader & rhs) const function, expected prototype:\nint osg::Shader::compare(const osg::Shader & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Shader* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,2));
@@ -735,8 +713,7 @@ public:
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Shader::compare(const osg::Shader &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Shader::compare(const osg::Shader &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->compare(rhs);
 		lua_pushnumber(L,lret);
@@ -747,16 +724,14 @@ public:
 	// bool osg::Shader::setType(osg::Shader::Type t)
 	static int _bind_setType(lua_State *L) {
 		if (!_lg_typecheck_setType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Shader::setType(osg::Shader::Type t) function, expected prototype:\nbool osg::Shader::setType(osg::Shader::Type t)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Shader::setType(osg::Shader::Type t) function, expected prototype:\nbool osg::Shader::setType(osg::Shader::Type t)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Shader::Type t=(osg::Shader::Type)lua_tointeger(L,2);
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Shader::setType(osg::Shader::Type). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Shader::setType(osg::Shader::Type). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->setType(t);
 		lua_pushboolean(L,lret?1:0);
@@ -767,15 +742,13 @@ public:
 	// osg::Shader::Type osg::Shader::getType() const
 	static int _bind_getType(lua_State *L) {
 		if (!_lg_typecheck_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader::Type osg::Shader::getType() const function, expected prototype:\nosg::Shader::Type osg::Shader::getType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Shader::Type osg::Shader::getType() const function, expected prototype:\nosg::Shader::Type osg::Shader::getType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Shader::Type osg::Shader::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Shader::Type osg::Shader::getType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Shader::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -786,15 +759,13 @@ public:
 	// const char * osg::Shader::getTypename() const
 	static int _bind_getTypename(lua_State *L) {
 		if (!_lg_typecheck_getTypename(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Shader::getTypename() const function, expected prototype:\nconst char * osg::Shader::getTypename() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Shader::getTypename() const function, expected prototype:\nconst char * osg::Shader::getTypename() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Shader::getTypename() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Shader::getTypename() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->getTypename();
 		lua_pushstring(L,lret);
@@ -805,16 +776,14 @@ public:
 	// void osg::Shader::setFileName(const std::string & fileName)
 	static int _bind_setFileName(lua_State *L) {
 		if (!_lg_typecheck_setFileName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shader::setFileName(const std::string & fileName) function, expected prototype:\nvoid osg::Shader::setFileName(const std::string & fileName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shader::setFileName(const std::string & fileName) function, expected prototype:\nvoid osg::Shader::setFileName(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::setFileName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Shader::setFileName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFileName(fileName);
 
@@ -824,15 +793,13 @@ public:
 	// const std::string & osg::Shader::getFileName() const
 	static int _bind_getFileName(lua_State *L) {
 		if (!_lg_typecheck_getFileName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osg::Shader::getFileName() const function, expected prototype:\nconst std::string & osg::Shader::getFileName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osg::Shader::getFileName() const function, expected prototype:\nconst std::string & osg::Shader::getFileName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::Shader::getFileName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osg::Shader::getFileName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getFileName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -843,16 +810,14 @@ public:
 	// void osg::Shader::setShaderSource(const std::string & sourceText)
 	static int _bind_setShaderSource(lua_State *L) {
 		if (!_lg_typecheck_setShaderSource(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shader::setShaderSource(const std::string & sourceText) function, expected prototype:\nvoid osg::Shader::setShaderSource(const std::string & sourceText)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shader::setShaderSource(const std::string & sourceText) function, expected prototype:\nvoid osg::Shader::setShaderSource(const std::string & sourceText)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string sourceText(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::setShaderSource(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Shader::setShaderSource(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setShaderSource(sourceText);
 
@@ -862,15 +827,13 @@ public:
 	// const std::string & osg::Shader::getShaderSource() const
 	static int _bind_getShaderSource(lua_State *L) {
 		if (!_lg_typecheck_getShaderSource(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osg::Shader::getShaderSource() const function, expected prototype:\nconst std::string & osg::Shader::getShaderSource() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osg::Shader::getShaderSource() const function, expected prototype:\nconst std::string & osg::Shader::getShaderSource() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::Shader::getShaderSource() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osg::Shader::getShaderSource() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getShaderSource();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -881,16 +844,14 @@ public:
 	// void osg::Shader::setShaderBinary(osg::ShaderBinary * shaderBinary)
 	static int _bind_setShaderBinary(lua_State *L) {
 		if (!_lg_typecheck_setShaderBinary(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shader::setShaderBinary(osg::ShaderBinary * shaderBinary) function, expected prototype:\nvoid osg::Shader::setShaderBinary(osg::ShaderBinary * shaderBinary)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shader::setShaderBinary(osg::ShaderBinary * shaderBinary) function, expected prototype:\nvoid osg::Shader::setShaderBinary(osg::ShaderBinary * shaderBinary)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ShaderBinary* shaderBinary=(Luna< osg::Referenced >::checkSubType< osg::ShaderBinary >(L,2));
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::setShaderBinary(osg::ShaderBinary *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Shader::setShaderBinary(osg::ShaderBinary *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setShaderBinary(shaderBinary);
 
@@ -900,15 +861,13 @@ public:
 	// osg::ShaderBinary * osg::Shader::getShaderBinary()
 	static int _bind_getShaderBinary_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getShaderBinary_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ShaderBinary * osg::Shader::getShaderBinary() function, expected prototype:\nosg::ShaderBinary * osg::Shader::getShaderBinary()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ShaderBinary * osg::Shader::getShaderBinary() function, expected prototype:\nosg::ShaderBinary * osg::Shader::getShaderBinary()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ShaderBinary * osg::Shader::getShaderBinary(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ShaderBinary * osg::Shader::getShaderBinary(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::ShaderBinary * lret = self->getShaderBinary();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -921,15 +880,13 @@ public:
 	// const osg::ShaderBinary * osg::Shader::getShaderBinary() const
 	static int _bind_getShaderBinary_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getShaderBinary_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::ShaderBinary * osg::Shader::getShaderBinary() const function, expected prototype:\nconst osg::ShaderBinary * osg::Shader::getShaderBinary() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::ShaderBinary * osg::Shader::getShaderBinary() const function, expected prototype:\nconst osg::ShaderBinary * osg::Shader::getShaderBinary() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ShaderBinary * osg::Shader::getShaderBinary() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::ShaderBinary * osg::Shader::getShaderBinary() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ShaderBinary * lret = self->getShaderBinary();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -951,16 +908,14 @@ public:
 	// bool osg::Shader::loadShaderSourceFromFile(const std::string & fileName)
 	static int _bind_loadShaderSourceFromFile(lua_State *L) {
 		if (!_lg_typecheck_loadShaderSourceFromFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Shader::loadShaderSourceFromFile(const std::string & fileName) function, expected prototype:\nbool osg::Shader::loadShaderSourceFromFile(const std::string & fileName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Shader::loadShaderSourceFromFile(const std::string & fileName) function, expected prototype:\nbool osg::Shader::loadShaderSourceFromFile(const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Shader::loadShaderSourceFromFile(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Shader::loadShaderSourceFromFile(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->loadShaderSourceFromFile(fileName);
 		lua_pushboolean(L,lret?1:0);
@@ -971,8 +926,7 @@ public:
 	// void osg::Shader::addCodeInjection(float position, const std::string & code)
 	static int _bind_addCodeInjection(lua_State *L) {
 		if (!_lg_typecheck_addCodeInjection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shader::addCodeInjection(float position, const std::string & code) function, expected prototype:\nvoid osg::Shader::addCodeInjection(float position, const std::string & code)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shader::addCodeInjection(float position, const std::string & code) function, expected prototype:\nvoid osg::Shader::addCodeInjection(float position, const std::string & code)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float position=(float)lua_tonumber(L,2);
@@ -980,8 +934,7 @@ public:
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::addCodeInjection(float, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Shader::addCodeInjection(float, const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addCodeInjection(position, code);
 
@@ -991,15 +944,13 @@ public:
 	// osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap()
 	static int _bind_getCodeInjectionMap_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getCodeInjectionMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap() function, expected prototype:\nosg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap() function, expected prototype:\nosg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Shader::CodeInjectionMap* lret = &self->getCodeInjectionMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1012,15 +963,13 @@ public:
 	// const osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap() const
 	static int _bind_getCodeInjectionMap_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getCodeInjectionMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap() const function, expected prototype:\nconst osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap() const function, expected prototype:\nconst osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Shader::CodeInjectionMap* lret = &self->getCodeInjectionMap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1042,8 +991,7 @@ public:
 	// void osg::Shader::releaseGLObjects(osg::State * state = 0) const
 	static int _bind_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shader::releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osg::Shader::releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shader::releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osg::Shader::releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1052,8 +1000,7 @@ public:
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Shader::releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->releaseGLObjects(state);
 
@@ -1063,15 +1010,13 @@ public:
 	// void osg::Shader::dirtyShader()
 	static int _bind_dirtyShader(lua_State *L) {
 		if (!_lg_typecheck_dirtyShader(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shader::dirtyShader() function, expected prototype:\nvoid osg::Shader::dirtyShader()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shader::dirtyShader() function, expected prototype:\nvoid osg::Shader::dirtyShader()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::dirtyShader(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Shader::dirtyShader(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->dirtyShader();
 
@@ -1081,8 +1026,7 @@ public:
 	// void osg::Shader::compileShader(osg::State & state) const
 	static int _bind_compileShader(lua_State *L) {
 		if (!_lg_typecheck_compileShader(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shader::compileShader(osg::State & state) const function, expected prototype:\nvoid osg::Shader::compileShader(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shader::compileShader(osg::State & state) const function, expected prototype:\nvoid osg::Shader::compileShader(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1093,8 +1037,7 @@ public:
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::compileShader(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Shader::compileShader(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->compileShader(state);
 
@@ -1104,8 +1047,7 @@ public:
 	// void osg::Shader::attachShader(unsigned int contextID, unsigned int program) const
 	static int _bind_attachShader(lua_State *L) {
 		if (!_lg_typecheck_attachShader(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shader::attachShader(unsigned int contextID, unsigned int program) const function, expected prototype:\nvoid osg::Shader::attachShader(unsigned int contextID, unsigned int program) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shader::attachShader(unsigned int contextID, unsigned int program) const function, expected prototype:\nvoid osg::Shader::attachShader(unsigned int contextID, unsigned int program) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
@@ -1113,8 +1055,7 @@ public:
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::attachShader(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Shader::attachShader(unsigned int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->attachShader(contextID, program);
 
@@ -1124,8 +1065,7 @@ public:
 	// void osg::Shader::detachShader(unsigned int contextID, unsigned int program) const
 	static int _bind_detachShader(lua_State *L) {
 		if (!_lg_typecheck_detachShader(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shader::detachShader(unsigned int contextID, unsigned int program) const function, expected prototype:\nvoid osg::Shader::detachShader(unsigned int contextID, unsigned int program) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shader::detachShader(unsigned int contextID, unsigned int program) const function, expected prototype:\nvoid osg::Shader::detachShader(unsigned int contextID, unsigned int program) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
@@ -1133,8 +1073,7 @@ public:
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::detachShader(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Shader::detachShader(unsigned int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->detachShader(contextID, program);
 
@@ -1144,8 +1083,7 @@ public:
 	// bool osg::Shader::getGlShaderInfoLog(unsigned int contextID, std::string & log) const
 	static int _bind_getGlShaderInfoLog(lua_State *L) {
 		if (!_lg_typecheck_getGlShaderInfoLog(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Shader::getGlShaderInfoLog(unsigned int contextID, std::string & log) const function, expected prototype:\nbool osg::Shader::getGlShaderInfoLog(unsigned int contextID, std::string & log) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Shader::getGlShaderInfoLog(unsigned int contextID, std::string & log) const function, expected prototype:\nbool osg::Shader::getGlShaderInfoLog(unsigned int contextID, std::string & log) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
@@ -1153,8 +1091,7 @@ public:
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Shader::getGlShaderInfoLog(unsigned int, std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Shader::getGlShaderInfoLog(unsigned int, std::string &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getGlShaderInfoLog(contextID, log);
 		lua_pushboolean(L,lret?1:0);
@@ -1166,16 +1103,14 @@ public:
 	// osg::Shader::PerContextShader * osg::Shader::getPCS(unsigned int contextID) const
 	static int _bind_getPCS(lua_State *L) {
 		if (!_lg_typecheck_getPCS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader::PerContextShader * osg::Shader::getPCS(unsigned int contextID) const function, expected prototype:\nosg::Shader::PerContextShader * osg::Shader::getPCS(unsigned int contextID) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Shader::PerContextShader * osg::Shader::getPCS(unsigned int contextID) const function, expected prototype:\nosg::Shader::PerContextShader * osg::Shader::getPCS(unsigned int contextID) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Shader::PerContextShader * osg::Shader::getPCS(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Shader::PerContextShader * osg::Shader::getPCS(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Shader::PerContextShader * lret = self->getPCS(contextID);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1188,8 +1123,7 @@ public:
 	// static osg::Shader * osg::Shader::readShaderFile(osg::Shader::Type type, const std::string & fileName)
 	static int _bind_readShaderFile(lua_State *L) {
 		if (!_lg_typecheck_readShaderFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Shader * osg::Shader::readShaderFile(osg::Shader::Type type, const std::string & fileName) function, expected prototype:\nstatic osg::Shader * osg::Shader::readShaderFile(osg::Shader::Type type, const std::string & fileName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::Shader * osg::Shader::readShaderFile(osg::Shader::Type type, const std::string & fileName) function, expected prototype:\nstatic osg::Shader * osg::Shader::readShaderFile(osg::Shader::Type type, const std::string & fileName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Shader::Type type=(osg::Shader::Type)lua_tointeger(L,1);
@@ -1206,8 +1140,7 @@ public:
 	// static void osg::Shader::deleteGlShader(unsigned int contextID, unsigned int shader)
 	static int _bind_deleteGlShader(lua_State *L) {
 		if (!_lg_typecheck_deleteGlShader(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osg::Shader::deleteGlShader(unsigned int contextID, unsigned int shader) function, expected prototype:\nstatic void osg::Shader::deleteGlShader(unsigned int contextID, unsigned int shader)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osg::Shader::deleteGlShader(unsigned int contextID, unsigned int shader) function, expected prototype:\nstatic void osg::Shader::deleteGlShader(unsigned int contextID, unsigned int shader)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1221,8 +1154,7 @@ public:
 	// static void osg::Shader::flushDeletedGlShaders(unsigned int contextID, double currentTime, double & availableTime)
 	static int _bind_flushDeletedGlShaders(lua_State *L) {
 		if (!_lg_typecheck_flushDeletedGlShaders(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osg::Shader::flushDeletedGlShaders(unsigned int contextID, double currentTime, double & availableTime) function, expected prototype:\nstatic void osg::Shader::flushDeletedGlShaders(unsigned int contextID, double currentTime, double & availableTime)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osg::Shader::flushDeletedGlShaders(unsigned int contextID, double currentTime, double & availableTime) function, expected prototype:\nstatic void osg::Shader::flushDeletedGlShaders(unsigned int contextID, double currentTime, double & availableTime)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1238,8 +1170,7 @@ public:
 	// static void osg::Shader::discardDeletedGlShaders(unsigned int contextID)
 	static int _bind_discardDeletedGlShaders(lua_State *L) {
 		if (!_lg_typecheck_discardDeletedGlShaders(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osg::Shader::discardDeletedGlShaders(unsigned int contextID) function, expected prototype:\nstatic void osg::Shader::discardDeletedGlShaders(unsigned int contextID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osg::Shader::discardDeletedGlShaders(unsigned int contextID) function, expected prototype:\nstatic void osg::Shader::discardDeletedGlShaders(unsigned int contextID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1252,8 +1183,7 @@ public:
 	// static osg::Shader::Type osg::Shader::getTypeId(const std::string & tname)
 	static int _bind_getTypeId(lua_State *L) {
 		if (!_lg_typecheck_getTypeId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::Shader::Type osg::Shader::getTypeId(const std::string & tname) function, expected prototype:\nstatic osg::Shader::Type osg::Shader::getTypeId(const std::string & tname)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::Shader::Type osg::Shader::getTypeId(const std::string & tname) function, expected prototype:\nstatic osg::Shader::Type osg::Shader::getTypeId(const std::string & tname)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string tname(lua_tostring(L,1),lua_objlen(L,1));
@@ -1267,16 +1197,14 @@ public:
 	// void osg::Shader::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shader::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Shader::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shader::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Shader::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Shader::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Shader::setThreadSafeRefUnref(threadSafe);
 
@@ -1286,16 +1214,14 @@ public:
 	// void osg::Shader::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shader::base_setName(const std::string & name) function, expected prototype:\nvoid osg::Shader::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shader::base_setName(const std::string & name) function, expected prototype:\nvoid osg::Shader::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Shader::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Shader::setName(name);
 
@@ -1305,15 +1231,13 @@ public:
 	// void osg::Shader::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shader::base_computeDataVariance() function, expected prototype:\nvoid osg::Shader::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shader::base_computeDataVariance() function, expected prototype:\nvoid osg::Shader::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Shader::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Shader::computeDataVariance();
 
@@ -1323,16 +1247,14 @@ public:
 	// void osg::Shader::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shader::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::Shader::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shader::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::Shader::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Shader::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Shader::setUserData(obj);
 
@@ -1342,15 +1264,13 @@ public:
 	// osg::Referenced * osg::Shader::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::Shader::base_getUserData() function, expected prototype:\nosg::Referenced * osg::Shader::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::Shader::base_getUserData() function, expected prototype:\nosg::Referenced * osg::Shader::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Shader::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Shader::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->Shader::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1363,15 +1283,13 @@ public:
 	// const osg::Referenced * osg::Shader::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::Shader::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::Shader::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::Shader::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::Shader::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Shader::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Shader::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->Shader::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1393,15 +1311,13 @@ public:
 	// osg::Object * osg::Shader::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Shader::base_cloneType() const function, expected prototype:\nosg::Object * osg::Shader::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Shader::base_cloneType() const function, expected prototype:\nosg::Object * osg::Shader::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->Shader::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1414,8 +1330,7 @@ public:
 	// osg::Object * osg::Shader::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Shader::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Shader::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Shader::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Shader::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1426,8 +1341,7 @@ public:
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->Shader::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1440,16 +1354,14 @@ public:
 	// bool osg::Shader::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Shader::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Shader::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Shader::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Shader::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Shader::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Shader::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Shader::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1460,15 +1372,13 @@ public:
 	// const char * osg::Shader::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Shader::base_libraryName() const function, expected prototype:\nconst char * osg::Shader::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Shader::base_libraryName() const function, expected prototype:\nconst char * osg::Shader::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Shader::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Shader::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Shader::libraryName();
 		lua_pushstring(L,lret);
@@ -1479,15 +1389,13 @@ public:
 	// const char * osg::Shader::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::Shader::base_className() const function, expected prototype:\nconst char * osg::Shader::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::Shader::base_className() const function, expected prototype:\nconst char * osg::Shader::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Shader::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::Shader::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Shader::className();
 		lua_pushstring(L,lret);
@@ -1498,8 +1406,7 @@ public:
 	// void osg::Shader::base_releaseGLObjects(osg::State * state = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shader::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osg::Shader::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shader::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osg::Shader::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1508,8 +1415,7 @@ public:
 
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Shader::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Shader::releaseGLObjects(state);
 

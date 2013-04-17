@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::BaseOptimizerVisitor* self= (osgUtil::BaseOptimizerVisitor*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -379,8 +376,7 @@ public:
 	// osgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(osgUtil::Optimizer * optimizer, unsigned int operation)
 	static osgUtil::BaseOptimizerVisitor* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(osgUtil::Optimizer * optimizer, unsigned int operation) function, expected prototype:\nosgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(osgUtil::Optimizer * optimizer, unsigned int operation)\nClass arguments details:\narg 1 ID = 85233381\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(osgUtil::Optimizer * optimizer, unsigned int operation) function, expected prototype:\nosgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(osgUtil::Optimizer * optimizer, unsigned int operation)\nClass arguments details:\narg 1 ID = 85233381\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Optimizer* optimizer=(Luna< osgUtil::Optimizer >::check(L,1));
@@ -392,8 +388,7 @@ public:
 	// osgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(lua_Table * data, osgUtil::Optimizer * optimizer, unsigned int operation)
 	static osgUtil::BaseOptimizerVisitor* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(lua_Table * data, osgUtil::Optimizer * optimizer, unsigned int operation) function, expected prototype:\nosgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(lua_Table * data, osgUtil::Optimizer * optimizer, unsigned int operation)\nClass arguments details:\narg 2 ID = 85233381\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(lua_Table * data, osgUtil::Optimizer * optimizer, unsigned int operation) function, expected prototype:\nosgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(lua_Table * data, osgUtil::Optimizer * optimizer, unsigned int operation)\nClass arguments details:\narg 2 ID = 85233381\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Optimizer* optimizer=(Luna< osgUtil::Optimizer >::check(L,2));
@@ -416,16 +411,14 @@ public:
 	// bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateSet * object) const
 	static int _bind_isOperationPermissibleForObject_overload_1(lua_State *L) {
 		if (!_lg_typecheck_isOperationPermissibleForObject_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateSet * object) const function, expected prototype:\nbool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateSet * object) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateSet * object) const function, expected prototype:\nbool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateSet * object) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateSet* object=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateSet *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateSet *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isOperationPermissibleForObject(object);
 		lua_pushboolean(L,lret?1:0);
@@ -436,16 +429,14 @@ public:
 	// bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateAttribute * object) const
 	static int _bind_isOperationPermissibleForObject_overload_2(lua_State *L) {
 		if (!_lg_typecheck_isOperationPermissibleForObject_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateAttribute * object) const function, expected prototype:\nbool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateAttribute * object) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateAttribute * object) const function, expected prototype:\nbool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateAttribute * object) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* object=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateAttribute *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateAttribute *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isOperationPermissibleForObject(object);
 		lua_pushboolean(L,lret?1:0);
@@ -456,16 +447,14 @@ public:
 	// bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Drawable * object) const
 	static int _bind_isOperationPermissibleForObject_overload_3(lua_State *L) {
 		if (!_lg_typecheck_isOperationPermissibleForObject_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Drawable * object) const function, expected prototype:\nbool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Drawable * object) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Drawable * object) const function, expected prototype:\nbool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Drawable * object) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Drawable* object=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Drawable *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Drawable *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isOperationPermissibleForObject(object);
 		lua_pushboolean(L,lret?1:0);
@@ -476,16 +465,14 @@ public:
 	// bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Node * object) const
 	static int _bind_isOperationPermissibleForObject_overload_4(lua_State *L) {
 		if (!_lg_typecheck_isOperationPermissibleForObject_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Node * object) const function, expected prototype:\nbool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Node * object) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Node * object) const function, expected prototype:\nbool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Node * object) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Node* object=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Node *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Node *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isOperationPermissibleForObject(object);
 		lua_pushboolean(L,lret?1:0);
@@ -507,16 +494,14 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::setThreadSafeRefUnref(threadSafe);
 
@@ -526,15 +511,13 @@ public:
 	// const char * osgUtil::BaseOptimizerVisitor::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::BaseOptimizerVisitor::base_libraryName() const function, expected prototype:\nconst char * osgUtil::BaseOptimizerVisitor::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::BaseOptimizerVisitor::base_libraryName() const function, expected prototype:\nconst char * osgUtil::BaseOptimizerVisitor::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::BaseOptimizerVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::BaseOptimizerVisitor::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->BaseOptimizerVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -545,15 +528,13 @@ public:
 	// const char * osgUtil::BaseOptimizerVisitor::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgUtil::BaseOptimizerVisitor::base_className() const function, expected prototype:\nconst char * osgUtil::BaseOptimizerVisitor::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::BaseOptimizerVisitor::base_className() const function, expected prototype:\nconst char * osgUtil::BaseOptimizerVisitor::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::BaseOptimizerVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgUtil::BaseOptimizerVisitor::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->BaseOptimizerVisitor::className();
 		lua_pushstring(L,lret);
@@ -564,15 +545,13 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_reset()
 	static int _bind_base_reset(lua_State *L) {
 		if (!_lg_typecheck_base_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_reset() function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_reset() function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::reset();
 
@@ -582,15 +561,13 @@ public:
 	// osg::Vec3f osgUtil::BaseOptimizerVisitor::base_getEyePoint() const
 	static int _bind_base_getEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::BaseOptimizerVisitor::base_getEyePoint() const function, expected prototype:\nosg::Vec3f osgUtil::BaseOptimizerVisitor::base_getEyePoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::BaseOptimizerVisitor::base_getEyePoint() const function, expected prototype:\nosg::Vec3f osgUtil::BaseOptimizerVisitor::base_getEyePoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::BaseOptimizerVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::BaseOptimizerVisitor::base_getEyePoint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->BaseOptimizerVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -604,15 +581,13 @@ public:
 	// osg::Vec3f osgUtil::BaseOptimizerVisitor::base_getViewPoint() const
 	static int _bind_base_getViewPoint(lua_State *L) {
 		if (!_lg_typecheck_base_getViewPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::BaseOptimizerVisitor::base_getViewPoint() const function, expected prototype:\nosg::Vec3f osgUtil::BaseOptimizerVisitor::base_getViewPoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::BaseOptimizerVisitor::base_getViewPoint() const function, expected prototype:\nosg::Vec3f osgUtil::BaseOptimizerVisitor::base_getViewPoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::BaseOptimizerVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::BaseOptimizerVisitor::base_getViewPoint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3f stack_lret = self->BaseOptimizerVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -626,8 +601,7 @@ public:
 	// float osgUtil::BaseOptimizerVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceToEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceToEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::BaseOptimizerVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::BaseOptimizerVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::BaseOptimizerVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::BaseOptimizerVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -639,8 +613,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::BaseOptimizerVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::BaseOptimizerVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->BaseOptimizerVisitor::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -651,8 +624,7 @@ public:
 	// float osgUtil::BaseOptimizerVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceFromEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceFromEyePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::BaseOptimizerVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::BaseOptimizerVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::BaseOptimizerVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::BaseOptimizerVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -664,8 +636,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::BaseOptimizerVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::BaseOptimizerVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->BaseOptimizerVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -676,8 +647,7 @@ public:
 	// float osgUtil::BaseOptimizerVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_base_getDistanceToViewPoint(lua_State *L) {
 		if (!_lg_typecheck_base_getDistanceToViewPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::BaseOptimizerVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::BaseOptimizerVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::BaseOptimizerVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::BaseOptimizerVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -689,8 +659,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::BaseOptimizerVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgUtil::BaseOptimizerVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->BaseOptimizerVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -701,8 +670,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::Node & node)
 	static int _bind_base_apply_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Node & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Node & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
@@ -713,8 +681,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Node &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -724,8 +691,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::Geode & node)
 	static int _bind_base_apply_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Geode & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Geode & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Geode & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Geode & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Geode* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geode >(L,2));
@@ -736,8 +702,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Geode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -747,8 +712,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::Billboard & node)
 	static int _bind_base_apply_overload_3(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Billboard & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Billboard & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Billboard & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Billboard & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Billboard* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,2));
@@ -759,8 +723,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Billboard &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Billboard &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -770,8 +733,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::Group & node)
 	static int _bind_base_apply_overload_4(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Group & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Group & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Group & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Group & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Group* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Group >(L,2));
@@ -782,8 +744,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Group &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Group &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -793,8 +754,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::Projection & node)
 	static int _bind_base_apply_overload_5(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Projection & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Projection & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Projection & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Projection & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Projection* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Projection >(L,2));
@@ -805,8 +765,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Projection &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Projection &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -816,8 +775,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::CoordinateSystemNode & node)
 	static int _bind_base_apply_overload_6(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::CoordinateSystemNode & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::CoordinateSystemNode & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::CoordinateSystemNode & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::CoordinateSystemNode & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::CoordinateSystemNode* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::CoordinateSystemNode >(L,2));
@@ -828,8 +786,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::CoordinateSystemNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::CoordinateSystemNode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -839,8 +796,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::ClipNode & node)
 	static int _bind_base_apply_overload_7(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::ClipNode & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::ClipNode & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::ClipNode & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::ClipNode & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ClipNode* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::ClipNode >(L,2));
@@ -851,8 +807,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::ClipNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::ClipNode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -862,8 +817,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::TexGenNode & node)
 	static int _bind_base_apply_overload_8(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::TexGenNode & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::TexGenNode & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::TexGenNode & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::TexGenNode & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::TexGenNode* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,2));
@@ -874,8 +828,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::TexGenNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::TexGenNode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -885,8 +838,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::LightSource & node)
 	static int _bind_base_apply_overload_9(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_9(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::LightSource & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::LightSource & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::LightSource & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::LightSource & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::LightSource* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::LightSource >(L,2));
@@ -897,8 +849,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::LightSource &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::LightSource &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -908,8 +859,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::Transform & node)
 	static int _bind_base_apply_overload_10(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_10(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Transform & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Transform & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Transform & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Transform & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Transform* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Transform >(L,2));
@@ -920,8 +870,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Transform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Transform &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -931,8 +880,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::Camera & node)
 	static int _bind_base_apply_overload_11(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_11(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Camera & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Camera & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Camera & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Camera & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Camera* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
@@ -943,8 +891,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Camera &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Camera &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -954,8 +901,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::CameraView & node)
 	static int _bind_base_apply_overload_12(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_12(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::CameraView & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::CameraView & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::CameraView & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::CameraView & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::CameraView* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::CameraView >(L,2));
@@ -966,8 +912,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::CameraView &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::CameraView &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -977,8 +922,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::MatrixTransform & node)
 	static int _bind_base_apply_overload_13(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_13(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::MatrixTransform & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::MatrixTransform & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::MatrixTransform & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::MatrixTransform & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::MatrixTransform* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::MatrixTransform >(L,2));
@@ -989,8 +933,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::MatrixTransform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::MatrixTransform &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -1000,8 +943,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::PositionAttitudeTransform & node)
 	static int _bind_base_apply_overload_14(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_14(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::PositionAttitudeTransform & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::PositionAttitudeTransform & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::PositionAttitudeTransform & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::PositionAttitudeTransform & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::PositionAttitudeTransform* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,2));
@@ -1012,8 +954,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::PositionAttitudeTransform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::PositionAttitudeTransform &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -1023,8 +964,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::Switch & node)
 	static int _bind_base_apply_overload_15(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_15(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Switch & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Switch & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Switch & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Switch & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Switch* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Switch >(L,2));
@@ -1035,8 +975,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Switch &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Switch &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -1046,8 +985,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::Sequence & node)
 	static int _bind_base_apply_overload_16(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_16(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Sequence & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Sequence & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::Sequence & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::Sequence & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Sequence* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,2));
@@ -1058,8 +996,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Sequence &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Sequence &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -1069,8 +1006,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::LOD & node)
 	static int _bind_base_apply_overload_17(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_17(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::LOD & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::LOD & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::LOD & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::LOD & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::LOD* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::LOD >(L,2));
@@ -1081,8 +1017,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::LOD &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::LOD &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -1092,8 +1027,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::PagedLOD & node)
 	static int _bind_base_apply_overload_18(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_18(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::PagedLOD & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::PagedLOD & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::PagedLOD & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::PagedLOD & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::PagedLOD* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,2));
@@ -1104,8 +1038,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::PagedLOD &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::PagedLOD &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -1115,8 +1048,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::ClearNode & node)
 	static int _bind_base_apply_overload_19(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_19(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::ClearNode & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::ClearNode & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::ClearNode & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::ClearNode & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ClearNode* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,2));
@@ -1127,8 +1059,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::ClearNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::ClearNode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -1138,8 +1069,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::OccluderNode & node)
 	static int _bind_base_apply_overload_20(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_20(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::OccluderNode & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::OccluderNode & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::OccluderNode & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::OccluderNode & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::OccluderNode* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::OccluderNode >(L,2));
@@ -1150,8 +1080,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::OccluderNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::OccluderNode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -1161,8 +1090,7 @@ public:
 	// void osgUtil::BaseOptimizerVisitor::base_apply(osg::OcclusionQueryNode & node)
 	static int _bind_base_apply_overload_21(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_21(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::OcclusionQueryNode & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::OcclusionQueryNode & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_apply(osg::OcclusionQueryNode & node) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_apply(osg::OcclusionQueryNode & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::OcclusionQueryNode* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::OcclusionQueryNode >(L,2));
@@ -1173,8 +1101,7 @@ public:
 
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::OcclusionQueryNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::OcclusionQueryNode &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 

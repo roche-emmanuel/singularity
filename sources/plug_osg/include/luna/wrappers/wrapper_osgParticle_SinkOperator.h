@@ -415,16 +415,14 @@ public:
 	// const osg::Vec3f & osgParticle::SinkOperator::public_getValue(osgParticle::Particle * P)
 	static int _bind_public_getValue(lua_State *L) {
 		if (!_lg_typecheck_public_getValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osgParticle::SinkOperator::public_getValue(osgParticle::Particle * P) function, expected prototype:\nconst osg::Vec3f & osgParticle::SinkOperator::public_getValue(osgParticle::Particle * P)\nClass arguments details:\narg 1 ID = 81629555\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osgParticle::SinkOperator::public_getValue(osgParticle::Particle * P) function, expected prototype:\nconst osg::Vec3f & osgParticle::SinkOperator::public_getValue(osgParticle::Particle * P)\nClass arguments details:\narg 1 ID = 81629555\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgParticle::Particle* P=(Luna< osgParticle::Particle >::check(L,2));
 
 		wrapper_osgParticle_SinkOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_SinkOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::SinkOperator::public_getValue(osgParticle::Particle *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::SinkOperator::public_getValue(osgParticle::Particle *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->public_getValue(P);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -437,8 +435,7 @@ public:
 	// void osgParticle::SinkOperator::public_kill(osgParticle::Particle * P, bool insideDomain)
 	static int _bind_public_kill(lua_State *L) {
 		if (!_lg_typecheck_public_kill(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::SinkOperator::public_kill(osgParticle::Particle * P, bool insideDomain) function, expected prototype:\nvoid osgParticle::SinkOperator::public_kill(osgParticle::Particle * P, bool insideDomain)\nClass arguments details:\narg 1 ID = 81629555\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::SinkOperator::public_kill(osgParticle::Particle * P, bool insideDomain) function, expected prototype:\nvoid osgParticle::SinkOperator::public_kill(osgParticle::Particle * P, bool insideDomain)\nClass arguments details:\narg 1 ID = 81629555\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgParticle::Particle* P=(Luna< osgParticle::Particle >::check(L,2));
@@ -446,8 +443,7 @@ public:
 
 		wrapper_osgParticle_SinkOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_SinkOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::SinkOperator::public_kill(osgParticle::Particle *, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::SinkOperator::public_kill(osgParticle::Particle *, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_kill(P, insideDomain);
 
@@ -457,8 +453,7 @@ public:
 	// osgParticle::SinkOperator & osgParticle::SinkOperator::public_op_assign(const osgParticle::SinkOperator & arg1)
 	static int _bind_public_op_assign(lua_State *L) {
 		if (!_lg_typecheck_public_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgParticle::SinkOperator & osgParticle::SinkOperator::public_op_assign(const osgParticle::SinkOperator & arg1) function, expected prototype:\nosgParticle::SinkOperator & osgParticle::SinkOperator::public_op_assign(const osgParticle::SinkOperator & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgParticle::SinkOperator & osgParticle::SinkOperator::public_op_assign(const osgParticle::SinkOperator & arg1) function, expected prototype:\nosgParticle::SinkOperator & osgParticle::SinkOperator::public_op_assign(const osgParticle::SinkOperator & arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgParticle::SinkOperator* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgParticle::SinkOperator >(L,2));
@@ -469,8 +464,7 @@ public:
 
 		wrapper_osgParticle_SinkOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_SinkOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgParticle::SinkOperator & osgParticle::SinkOperator::public_op_assign(const osgParticle::SinkOperator &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgParticle::SinkOperator & osgParticle::SinkOperator::public_op_assign(const osgParticle::SinkOperator &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgParticle::SinkOperator* lret = &self->public_op_assign(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -483,8 +477,7 @@ public:
 	// void osgParticle::DomainOperator::public_computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4)
 	static int _bind_public_computeNewBasis(lua_State *L) {
 		if (!_lg_typecheck_public_computeNewBasis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::public_computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4) function, expected prototype:\nvoid osgParticle::DomainOperator::public_computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\narg 3 ID = 92303204\narg 4 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::public_computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4) function, expected prototype:\nvoid osgParticle::DomainOperator::public_computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\narg 3 ID = 92303204\narg 4 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -510,8 +503,7 @@ public:
 
 		wrapper_osgParticle_SinkOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_SinkOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::public_computeNewBasis(const osg::Vec3f &, const osg::Vec3f &, osg::Vec3f &, osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::public_computeNewBasis(const osg::Vec3f &, const osg::Vec3f &, osg::Vec3f &, osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computeNewBasis(_arg1, _arg2, _arg3, _arg4);
 
@@ -521,16 +513,14 @@ public:
 	// void osgParticle::DomainOperator::public_ignore(const std::string & func)
 	static int _bind_public_ignore(lua_State *L) {
 		if (!_lg_typecheck_public_ignore(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::public_ignore(const std::string & func) function, expected prototype:\nvoid osgParticle::DomainOperator::public_ignore(const std::string & func)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::DomainOperator::public_ignore(const std::string & func) function, expected prototype:\nvoid osgParticle::DomainOperator::public_ignore(const std::string & func)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string func(lua_tostring(L,2),lua_objlen(L,2));
 
 		wrapper_osgParticle_SinkOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_SinkOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::public_ignore(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::public_ignore(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_ignore(func);
 
@@ -540,8 +530,7 @@ public:
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
@@ -549,8 +538,7 @@ public:
 
 		wrapper_osgParticle_SinkOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_SinkOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -560,15 +548,13 @@ public:
 	// void osg::Referenced::public_deleteUsingDeleteHandler() const
 	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
 		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgParticle_SinkOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_SinkOperator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_deleteUsingDeleteHandler();
 

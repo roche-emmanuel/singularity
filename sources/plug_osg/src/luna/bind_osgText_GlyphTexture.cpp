@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::GlyphTexture* self= (osgText::GlyphTexture*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -385,8 +382,7 @@ public:
 	// osgText::GlyphTexture::GlyphTexture()
 	static osgText::GlyphTexture* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::GlyphTexture::GlyphTexture() function, expected prototype:\nosgText::GlyphTexture::GlyphTexture()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::GlyphTexture::GlyphTexture() function, expected prototype:\nosgText::GlyphTexture::GlyphTexture()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -396,8 +392,7 @@ public:
 	// osgText::GlyphTexture::GlyphTexture(lua_Table * data)
 	static osgText::GlyphTexture* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::GlyphTexture::GlyphTexture(lua_Table * data) function, expected prototype:\nosgText::GlyphTexture::GlyphTexture(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::GlyphTexture::GlyphTexture(lua_Table * data) function, expected prototype:\nosgText::GlyphTexture::GlyphTexture(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -418,15 +413,13 @@ public:
 	// const char * osgText::GlyphTexture::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgText::GlyphTexture::className() const function, expected prototype:\nconst char * osgText::GlyphTexture::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgText::GlyphTexture::className() const function, expected prototype:\nconst char * osgText::GlyphTexture::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::GlyphTexture::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgText::GlyphTexture::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -437,8 +430,7 @@ public:
 	// int osgText::GlyphTexture::compare(const osg::StateAttribute & rhs) const
 	static int _bind_compare(lua_State *L) {
 		if (!_lg_typecheck_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgText::GlyphTexture::compare(const osg::StateAttribute & rhs) const function, expected prototype:\nint osgText::GlyphTexture::compare(const osg::StateAttribute & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osgText::GlyphTexture::compare(const osg::StateAttribute & rhs) const function, expected prototype:\nint osgText::GlyphTexture::compare(const osg::StateAttribute & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
@@ -449,8 +441,7 @@ public:
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgText::GlyphTexture::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgText::GlyphTexture::compare(const osg::StateAttribute &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->compare(rhs);
 		lua_pushnumber(L,lret);
@@ -461,16 +452,14 @@ public:
 	// void osgText::GlyphTexture::setGlyphImageMargin(unsigned int margin)
 	static int _bind_setGlyphImageMargin(lua_State *L) {
 		if (!_lg_typecheck_setGlyphImageMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::setGlyphImageMargin(unsigned int margin) function, expected prototype:\nvoid osgText::GlyphTexture::setGlyphImageMargin(unsigned int margin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::setGlyphImageMargin(unsigned int margin) function, expected prototype:\nvoid osgText::GlyphTexture::setGlyphImageMargin(unsigned int margin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int margin=(unsigned int)lua_tointeger(L,2);
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::setGlyphImageMargin(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::setGlyphImageMargin(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setGlyphImageMargin(margin);
 
@@ -480,15 +469,13 @@ public:
 	// unsigned int osgText::GlyphTexture::getGlyphImageMargin() const
 	static int _bind_getGlyphImageMargin(lua_State *L) {
 		if (!_lg_typecheck_getGlyphImageMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgText::GlyphTexture::getGlyphImageMargin() const function, expected prototype:\nunsigned int osgText::GlyphTexture::getGlyphImageMargin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgText::GlyphTexture::getGlyphImageMargin() const function, expected prototype:\nunsigned int osgText::GlyphTexture::getGlyphImageMargin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgText::GlyphTexture::getGlyphImageMargin() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgText::GlyphTexture::getGlyphImageMargin() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getGlyphImageMargin();
 		lua_pushnumber(L,lret);
@@ -499,16 +486,14 @@ public:
 	// void osgText::GlyphTexture::setGlyphImageMarginRatio(float margin)
 	static int _bind_setGlyphImageMarginRatio(lua_State *L) {
 		if (!_lg_typecheck_setGlyphImageMarginRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::setGlyphImageMarginRatio(float margin) function, expected prototype:\nvoid osgText::GlyphTexture::setGlyphImageMarginRatio(float margin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::setGlyphImageMarginRatio(float margin) function, expected prototype:\nvoid osgText::GlyphTexture::setGlyphImageMarginRatio(float margin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float margin=(float)lua_tonumber(L,2);
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::setGlyphImageMarginRatio(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::setGlyphImageMarginRatio(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setGlyphImageMarginRatio(margin);
 
@@ -518,15 +503,13 @@ public:
 	// float osgText::GlyphTexture::getGlyphImageMarginRatio() const
 	static int _bind_getGlyphImageMarginRatio(lua_State *L) {
 		if (!_lg_typecheck_getGlyphImageMarginRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgText::GlyphTexture::getGlyphImageMarginRatio() const function, expected prototype:\nfloat osgText::GlyphTexture::getGlyphImageMarginRatio() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgText::GlyphTexture::getGlyphImageMarginRatio() const function, expected prototype:\nfloat osgText::GlyphTexture::getGlyphImageMarginRatio() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::GlyphTexture::getGlyphImageMarginRatio() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgText::GlyphTexture::getGlyphImageMarginRatio() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getGlyphImageMarginRatio();
 		lua_pushnumber(L,lret);
@@ -537,8 +520,7 @@ public:
 	// bool osgText::GlyphTexture::getSpaceForGlyph(osgText::Glyph * glyph, int & posX, int & posY)
 	static int _bind_getSpaceForGlyph(lua_State *L) {
 		if (!_lg_typecheck_getSpaceForGlyph(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgText::GlyphTexture::getSpaceForGlyph(osgText::Glyph * glyph, int & posX, int & posY) function, expected prototype:\nbool osgText::GlyphTexture::getSpaceForGlyph(osgText::Glyph * glyph, int & posX, int & posY)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgText::GlyphTexture::getSpaceForGlyph(osgText::Glyph * glyph, int & posX, int & posY) function, expected prototype:\nbool osgText::GlyphTexture::getSpaceForGlyph(osgText::Glyph * glyph, int & posX, int & posY)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::Glyph* glyph=(Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,2));
@@ -547,8 +529,7 @@ public:
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::GlyphTexture::getSpaceForGlyph(osgText::Glyph *, int &, int &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgText::GlyphTexture::getSpaceForGlyph(osgText::Glyph *, int &, int &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getSpaceForGlyph(glyph, posX, posY);
 		lua_pushboolean(L,lret?1:0);
@@ -561,8 +542,7 @@ public:
 	// void osgText::GlyphTexture::addGlyph(osgText::Glyph * glyph, int posX, int posY)
 	static int _bind_addGlyph(lua_State *L) {
 		if (!_lg_typecheck_addGlyph(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::addGlyph(osgText::Glyph * glyph, int posX, int posY) function, expected prototype:\nvoid osgText::GlyphTexture::addGlyph(osgText::Glyph * glyph, int posX, int posY)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::addGlyph(osgText::Glyph * glyph, int posX, int posY) function, expected prototype:\nvoid osgText::GlyphTexture::addGlyph(osgText::Glyph * glyph, int posX, int posY)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::Glyph* glyph=(Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,2));
@@ -571,8 +551,7 @@ public:
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::addGlyph(osgText::Glyph *, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::addGlyph(osgText::Glyph *, int, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addGlyph(glyph, posX, posY);
 
@@ -582,8 +561,7 @@ public:
 	// void osgText::GlyphTexture::apply(osg::State & state) const
 	static int _bind_apply(lua_State *L) {
 		if (!_lg_typecheck_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::apply(osg::State & state) const function, expected prototype:\nvoid osgText::GlyphTexture::apply(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::apply(osg::State & state) const function, expected prototype:\nvoid osgText::GlyphTexture::apply(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -594,8 +572,7 @@ public:
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::apply(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(state);
 
@@ -605,16 +582,14 @@ public:
 	// void osgText::GlyphTexture::setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::GlyphTexture::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::GlyphTexture::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setThreadSafeRefUnref(threadSafe);
 
@@ -624,15 +599,13 @@ public:
 	// osg::Image * osgText::GlyphTexture::createImage()
 	static int _bind_createImage(lua_State *L) {
 		if (!_lg_typecheck_createImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * osgText::GlyphTexture::createImage() function, expected prototype:\nosg::Image * osgText::GlyphTexture::createImage()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * osgText::GlyphTexture::createImage() function, expected prototype:\nosg::Image * osgText::GlyphTexture::createImage()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osgText::GlyphTexture::createImage(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Image * osgText::GlyphTexture::createImage(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Image * lret = self->createImage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -645,16 +618,14 @@ public:
 	// void osgText::GlyphTexture::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_setName(const std::string & name) function, expected prototype:\nvoid osgText::GlyphTexture::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_setName(const std::string & name) function, expected prototype:\nvoid osgText::GlyphTexture::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GlyphTexture::setName(name);
 
@@ -664,15 +635,13 @@ public:
 	// void osgText::GlyphTexture::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_computeDataVariance() function, expected prototype:\nvoid osgText::GlyphTexture::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_computeDataVariance() function, expected prototype:\nvoid osgText::GlyphTexture::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GlyphTexture::computeDataVariance();
 
@@ -682,16 +651,14 @@ public:
 	// void osgText::GlyphTexture::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgText::GlyphTexture::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgText::GlyphTexture::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GlyphTexture::setUserData(obj);
 
@@ -701,15 +668,13 @@ public:
 	// osg::Referenced * osgText::GlyphTexture::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osgText::GlyphTexture::base_getUserData() function, expected prototype:\nosg::Referenced * osgText::GlyphTexture::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osgText::GlyphTexture::base_getUserData() function, expected prototype:\nosg::Referenced * osgText::GlyphTexture::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgText::GlyphTexture::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgText::GlyphTexture::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->GlyphTexture::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -722,15 +687,13 @@ public:
 	// const osg::Referenced * osgText::GlyphTexture::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgText::GlyphTexture::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgText::GlyphTexture::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgText::GlyphTexture::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgText::GlyphTexture::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgText::GlyphTexture::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgText::GlyphTexture::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->GlyphTexture::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -752,15 +715,13 @@ public:
 	// unsigned int osgText::GlyphTexture::base_getMember() const
 	static int _bind_base_getMember(lua_State *L) {
 		if (!_lg_typecheck_base_getMember(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgText::GlyphTexture::base_getMember() const function, expected prototype:\nunsigned int osgText::GlyphTexture::base_getMember() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgText::GlyphTexture::base_getMember() const function, expected prototype:\nunsigned int osgText::GlyphTexture::base_getMember() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgText::GlyphTexture::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgText::GlyphTexture::base_getMember() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->GlyphTexture::getMember();
 		lua_pushnumber(L,lret);
@@ -771,8 +732,7 @@ public:
 	// bool osgText::GlyphTexture::base_checkValidityOfAssociatedModes(osg::State & arg1) const
 	static int _bind_base_checkValidityOfAssociatedModes(lua_State *L) {
 		if (!_lg_typecheck_base_checkValidityOfAssociatedModes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgText::GlyphTexture::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osgText::GlyphTexture::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgText::GlyphTexture::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osgText::GlyphTexture::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -783,8 +743,7 @@ public:
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::GlyphTexture::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgText::GlyphTexture::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GlyphTexture::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -795,15 +754,13 @@ public:
 	// osg::Texture * osgText::GlyphTexture::base_asTexture()
 	static int _bind_base_asTexture_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asTexture_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture * osgText::GlyphTexture::base_asTexture() function, expected prototype:\nosg::Texture * osgText::GlyphTexture::base_asTexture()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture * osgText::GlyphTexture::base_asTexture() function, expected prototype:\nosg::Texture * osgText::GlyphTexture::base_asTexture()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osgText::GlyphTexture::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture * osgText::GlyphTexture::base_asTexture(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture * lret = self->GlyphTexture::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -816,15 +773,13 @@ public:
 	// const osg::Texture * osgText::GlyphTexture::base_asTexture() const
 	static int _bind_base_asTexture_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asTexture_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Texture * osgText::GlyphTexture::base_asTexture() const function, expected prototype:\nconst osg::Texture * osgText::GlyphTexture::base_asTexture() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Texture * osgText::GlyphTexture::base_asTexture() const function, expected prototype:\nconst osg::Texture * osgText::GlyphTexture::base_asTexture() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osgText::GlyphTexture::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Texture * osgText::GlyphTexture::base_asTexture() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Texture * lret = self->GlyphTexture::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -846,15 +801,13 @@ public:
 	// bool osgText::GlyphTexture::base_isTextureAttribute() const
 	static int _bind_base_isTextureAttribute(lua_State *L) {
 		if (!_lg_typecheck_base_isTextureAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgText::GlyphTexture::base_isTextureAttribute() const function, expected prototype:\nbool osgText::GlyphTexture::base_isTextureAttribute() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgText::GlyphTexture::base_isTextureAttribute() const function, expected prototype:\nbool osgText::GlyphTexture::base_isTextureAttribute() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::GlyphTexture::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgText::GlyphTexture::base_isTextureAttribute() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GlyphTexture::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -865,8 +818,7 @@ public:
 	// bool osgText::GlyphTexture::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
 	static int _bind_base_getModeUsage(lua_State *L) {
 		if (!_lg_typecheck_base_getModeUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgText::GlyphTexture::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osgText::GlyphTexture::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n");
+			luaL_error(L, "luna typecheck failed in bool osgText::GlyphTexture::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osgText::GlyphTexture::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateAttribute::ModeUsage* _arg1_ptr=(Luna< osg::StateAttribute::ModeUsage >::check(L,2));
@@ -877,8 +829,7 @@ public:
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::GlyphTexture::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgText::GlyphTexture::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GlyphTexture::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -889,8 +840,7 @@ public:
 	// void osgText::GlyphTexture::base_compileGLObjects(osg::State & state) const
 	static int _bind_base_compileGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_compileGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_compileGLObjects(osg::State & state) const function, expected prototype:\nvoid osgText::GlyphTexture::base_compileGLObjects(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_compileGLObjects(osg::State & state) const function, expected prototype:\nvoid osgText::GlyphTexture::base_compileGLObjects(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -901,8 +851,7 @@ public:
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_compileGLObjects(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GlyphTexture::compileGLObjects(state);
 
@@ -912,8 +861,7 @@ public:
 	// void osgText::GlyphTexture::base_releaseGLObjects(osg::State * state = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osgText::GlyphTexture::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osgText::GlyphTexture::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -922,8 +870,7 @@ public:
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GlyphTexture::releaseGLObjects(state);
 
@@ -933,15 +880,13 @@ public:
 	// osg::Object * osgText::GlyphTexture::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgText::GlyphTexture::base_cloneType() const function, expected prototype:\nosg::Object * osgText::GlyphTexture::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgText::GlyphTexture::base_cloneType() const function, expected prototype:\nosg::Object * osgText::GlyphTexture::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgText::GlyphTexture::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgText::GlyphTexture::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->GlyphTexture::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -954,8 +899,7 @@ public:
 	// osg::Object * osgText::GlyphTexture::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgText::GlyphTexture::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgText::GlyphTexture::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgText::GlyphTexture::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgText::GlyphTexture::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -966,8 +910,7 @@ public:
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgText::GlyphTexture::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osgText::GlyphTexture::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->GlyphTexture::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -980,16 +923,14 @@ public:
 	// bool osgText::GlyphTexture::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgText::GlyphTexture::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgText::GlyphTexture::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgText::GlyphTexture::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgText::GlyphTexture::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::GlyphTexture::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgText::GlyphTexture::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GlyphTexture::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1000,15 +941,13 @@ public:
 	// const char * osgText::GlyphTexture::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgText::GlyphTexture::base_libraryName() const function, expected prototype:\nconst char * osgText::GlyphTexture::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgText::GlyphTexture::base_libraryName() const function, expected prototype:\nconst char * osgText::GlyphTexture::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::GlyphTexture::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgText::GlyphTexture::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->GlyphTexture::libraryName();
 		lua_pushstring(L,lret);
@@ -1019,15 +958,13 @@ public:
 	// osg::StateAttribute::Type osgText::GlyphTexture::base_getType() const
 	static int _bind_base_getType(lua_State *L) {
 		if (!_lg_typecheck_base_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osgText::GlyphTexture::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osgText::GlyphTexture::base_getType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osgText::GlyphTexture::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osgText::GlyphTexture::base_getType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osgText::GlyphTexture::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osgText::GlyphTexture::base_getType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute::Type lret = self->GlyphTexture::getType();
 		lua_pushnumber(L,lret);
@@ -1038,15 +975,13 @@ public:
 	// unsigned int osgText::GlyphTexture::base_getTextureTarget() const
 	static int _bind_base_getTextureTarget(lua_State *L) {
 		if (!_lg_typecheck_base_getTextureTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgText::GlyphTexture::base_getTextureTarget() const function, expected prototype:\nunsigned int osgText::GlyphTexture::base_getTextureTarget() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgText::GlyphTexture::base_getTextureTarget() const function, expected prototype:\nunsigned int osgText::GlyphTexture::base_getTextureTarget() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgText::GlyphTexture::base_getTextureTarget() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgText::GlyphTexture::base_getTextureTarget() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->GlyphTexture::getTextureTarget();
 		lua_pushnumber(L,lret);
@@ -1057,8 +992,7 @@ public:
 	// void osgText::GlyphTexture::base_setImage(unsigned int arg1, osg::Image * image)
 	static int _bind_base_setImage(lua_State *L) {
 		if (!_lg_typecheck_base_setImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_setImage(unsigned int arg1, osg::Image * image) function, expected prototype:\nvoid osgText::GlyphTexture::base_setImage(unsigned int arg1, osg::Image * image)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_setImage(unsigned int arg1, osg::Image * image) function, expected prototype:\nvoid osgText::GlyphTexture::base_setImage(unsigned int arg1, osg::Image * image)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned _arg1=(unsigned)lua_tointeger(L,2);
@@ -1066,8 +1000,7 @@ public:
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_setImage(unsigned int, osg::Image *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_setImage(unsigned int, osg::Image *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GlyphTexture::setImage(_arg1, image);
 
@@ -1077,16 +1010,14 @@ public:
 	// osg::Image * osgText::GlyphTexture::base_getImage(unsigned int arg1)
 	static int _bind_base_getImage_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getImage_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * osgText::GlyphTexture::base_getImage(unsigned int arg1) function, expected prototype:\nosg::Image * osgText::GlyphTexture::base_getImage(unsigned int arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * osgText::GlyphTexture::base_getImage(unsigned int arg1) function, expected prototype:\nosg::Image * osgText::GlyphTexture::base_getImage(unsigned int arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned _arg1=(unsigned)lua_tointeger(L,2);
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osgText::GlyphTexture::base_getImage(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Image * osgText::GlyphTexture::base_getImage(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Image * lret = self->GlyphTexture::getImage(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1099,16 +1030,14 @@ public:
 	// const osg::Image * osgText::GlyphTexture::base_getImage(unsigned int arg1) const
 	static int _bind_base_getImage_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getImage_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Image * osgText::GlyphTexture::base_getImage(unsigned int arg1) const function, expected prototype:\nconst osg::Image * osgText::GlyphTexture::base_getImage(unsigned int arg1) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Image * osgText::GlyphTexture::base_getImage(unsigned int arg1) const function, expected prototype:\nconst osg::Image * osgText::GlyphTexture::base_getImage(unsigned int arg1) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned _arg1=(unsigned)lua_tointeger(L,2);
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Image * osgText::GlyphTexture::base_getImage(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Image * osgText::GlyphTexture::base_getImage(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Image * lret = self->GlyphTexture::getImage(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1130,15 +1059,13 @@ public:
 	// unsigned int osgText::GlyphTexture::base_getNumImages() const
 	static int _bind_base_getNumImages(lua_State *L) {
 		if (!_lg_typecheck_base_getNumImages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgText::GlyphTexture::base_getNumImages() const function, expected prototype:\nunsigned int osgText::GlyphTexture::base_getNumImages() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgText::GlyphTexture::base_getNumImages() const function, expected prototype:\nunsigned int osgText::GlyphTexture::base_getNumImages() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgText::GlyphTexture::base_getNumImages() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgText::GlyphTexture::base_getNumImages() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->GlyphTexture::getNumImages();
 		lua_pushnumber(L,lret);
@@ -1149,15 +1076,13 @@ public:
 	// int osgText::GlyphTexture::base_getTextureWidth() const
 	static int _bind_base_getTextureWidth(lua_State *L) {
 		if (!_lg_typecheck_base_getTextureWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgText::GlyphTexture::base_getTextureWidth() const function, expected prototype:\nint osgText::GlyphTexture::base_getTextureWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgText::GlyphTexture::base_getTextureWidth() const function, expected prototype:\nint osgText::GlyphTexture::base_getTextureWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgText::GlyphTexture::base_getTextureWidth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgText::GlyphTexture::base_getTextureWidth() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GlyphTexture::getTextureWidth();
 		lua_pushnumber(L,lret);
@@ -1168,15 +1093,13 @@ public:
 	// int osgText::GlyphTexture::base_getTextureHeight() const
 	static int _bind_base_getTextureHeight(lua_State *L) {
 		if (!_lg_typecheck_base_getTextureHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgText::GlyphTexture::base_getTextureHeight() const function, expected prototype:\nint osgText::GlyphTexture::base_getTextureHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgText::GlyphTexture::base_getTextureHeight() const function, expected prototype:\nint osgText::GlyphTexture::base_getTextureHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgText::GlyphTexture::base_getTextureHeight() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgText::GlyphTexture::base_getTextureHeight() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GlyphTexture::getTextureHeight();
 		lua_pushnumber(L,lret);
@@ -1187,15 +1110,13 @@ public:
 	// int osgText::GlyphTexture::base_getTextureDepth() const
 	static int _bind_base_getTextureDepth(lua_State *L) {
 		if (!_lg_typecheck_base_getTextureDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgText::GlyphTexture::base_getTextureDepth() const function, expected prototype:\nint osgText::GlyphTexture::base_getTextureDepth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osgText::GlyphTexture::base_getTextureDepth() const function, expected prototype:\nint osgText::GlyphTexture::base_getTextureDepth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgText::GlyphTexture::base_getTextureDepth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgText::GlyphTexture::base_getTextureDepth() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GlyphTexture::getTextureDepth();
 		lua_pushnumber(L,lret);
@@ -1206,15 +1127,13 @@ public:
 	// const char * osgText::GlyphTexture::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgText::GlyphTexture::base_className() const function, expected prototype:\nconst char * osgText::GlyphTexture::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgText::GlyphTexture::base_className() const function, expected prototype:\nconst char * osgText::GlyphTexture::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::GlyphTexture::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgText::GlyphTexture::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->GlyphTexture::className();
 		lua_pushstring(L,lret);
@@ -1225,8 +1144,7 @@ public:
 	// int osgText::GlyphTexture::base_compare(const osg::StateAttribute & rhs) const
 	static int _bind_base_compare(lua_State *L) {
 		if (!_lg_typecheck_base_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osgText::GlyphTexture::base_compare(const osg::StateAttribute & rhs) const function, expected prototype:\nint osgText::GlyphTexture::base_compare(const osg::StateAttribute & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osgText::GlyphTexture::base_compare(const osg::StateAttribute & rhs) const function, expected prototype:\nint osgText::GlyphTexture::base_compare(const osg::StateAttribute & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
@@ -1237,8 +1155,7 @@ public:
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgText::GlyphTexture::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osgText::GlyphTexture::base_compare(const osg::StateAttribute &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GlyphTexture::compare(rhs);
 		lua_pushnumber(L,lret);
@@ -1249,8 +1166,7 @@ public:
 	// void osgText::GlyphTexture::base_apply(osg::State & state) const
 	static int _bind_base_apply(lua_State *L) {
 		if (!_lg_typecheck_base_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_apply(osg::State & state) const function, expected prototype:\nvoid osgText::GlyphTexture::base_apply(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_apply(osg::State & state) const function, expected prototype:\nvoid osgText::GlyphTexture::base_apply(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1261,8 +1177,7 @@ public:
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_apply(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GlyphTexture::apply(state);
 
@@ -1272,16 +1187,14 @@ public:
 	// void osgText::GlyphTexture::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::GlyphTexture::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::GlyphTexture::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GlyphTexture::setThreadSafeRefUnref(threadSafe);
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Polytope*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Polytope*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Polytope* rhs =(Luna< osg::Polytope >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Polytope* self= (osg::Polytope*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Polytope >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -351,8 +347,7 @@ public:
 	// osg::Polytope::Polytope()
 	static osg::Polytope* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Polytope::Polytope() function, expected prototype:\nosg::Polytope::Polytope()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Polytope::Polytope() function, expected prototype:\nosg::Polytope::Polytope()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -362,8 +357,7 @@ public:
 	// osg::Polytope::Polytope(const osg::Polytope & cv)
 	static osg::Polytope* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Polytope::Polytope(const osg::Polytope & cv) function, expected prototype:\nosg::Polytope::Polytope(const osg::Polytope & cv)\nClass arguments details:\narg 1 ID = 26652350\n");
+			luaL_error(L, "luna typecheck failed in osg::Polytope::Polytope(const osg::Polytope & cv) function, expected prototype:\nosg::Polytope::Polytope(const osg::Polytope & cv)\nClass arguments details:\narg 1 ID = 26652350\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Polytope* cv_ptr=(Luna< osg::Polytope >::check(L,1));
@@ -378,8 +372,7 @@ public:
 	// osg::Polytope::Polytope(const osg::Polytope::PlaneList & pl)
 	static osg::Polytope* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Polytope::Polytope(const osg::Polytope::PlaneList & pl) function, expected prototype:\nosg::Polytope::Polytope(const osg::Polytope::PlaneList & pl)\nClass arguments details:\narg 1 ID = 33161232\n");
+			luaL_error(L, "luna typecheck failed in osg::Polytope::Polytope(const osg::Polytope::PlaneList & pl) function, expected prototype:\nosg::Polytope::Polytope(const osg::Polytope::PlaneList & pl)\nClass arguments details:\narg 1 ID = 33161232\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Polytope::PlaneList* pl_ptr=(Luna< osg::Polytope::PlaneList >::check(L,1));
@@ -406,15 +399,13 @@ public:
 	// void osg::Polytope::clear()
 	static int _bind_clear(lua_State *L) {
 		if (!_lg_typecheck_clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Polytope::clear() function, expected prototype:\nvoid osg::Polytope::clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Polytope::clear() function, expected prototype:\nvoid osg::Polytope::clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Polytope::clear(). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Polytope::clear(). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->clear();
 
@@ -424,8 +415,7 @@ public:
 	// void osg::Polytope::setToUnitFrustum(bool withNear = true, bool withFar = true)
 	static int _bind_setToUnitFrustum(lua_State *L) {
 		if (!_lg_typecheck_setToUnitFrustum(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Polytope::setToUnitFrustum(bool withNear = true, bool withFar = true) function, expected prototype:\nvoid osg::Polytope::setToUnitFrustum(bool withNear = true, bool withFar = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Polytope::setToUnitFrustum(bool withNear = true, bool withFar = true) function, expected prototype:\nvoid osg::Polytope::setToUnitFrustum(bool withNear = true, bool withFar = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -435,8 +425,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Polytope::setToUnitFrustum(bool, bool). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Polytope::setToUnitFrustum(bool, bool). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setToUnitFrustum(withNear, withFar);
 
@@ -446,8 +435,7 @@ public:
 	// void osg::Polytope::setToBoundingBox(const osg::BoundingBoxd & bb)
 	static int _bind_setToBoundingBox(lua_State *L) {
 		if (!_lg_typecheck_setToBoundingBox(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Polytope::setToBoundingBox(const osg::BoundingBoxd & bb) function, expected prototype:\nvoid osg::Polytope::setToBoundingBox(const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n");
+			luaL_error(L, "luna typecheck failed in void osg::Polytope::setToBoundingBox(const osg::BoundingBoxd & bb) function, expected prototype:\nvoid osg::Polytope::setToBoundingBox(const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
@@ -458,8 +446,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Polytope::setToBoundingBox(const osg::BoundingBoxd &). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Polytope::setToBoundingBox(const osg::BoundingBoxd &). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setToBoundingBox(bb);
 
@@ -469,8 +456,7 @@ public:
 	// void osg::Polytope::setAndTransformProvidingInverse(const osg::Polytope & pt, const osg::Matrixd & matrix)
 	static int _bind_setAndTransformProvidingInverse(lua_State *L) {
 		if (!_lg_typecheck_setAndTransformProvidingInverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Polytope::setAndTransformProvidingInverse(const osg::Polytope & pt, const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::Polytope::setAndTransformProvidingInverse(const osg::Polytope & pt, const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 26652350\narg 2 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::Polytope::setAndTransformProvidingInverse(const osg::Polytope & pt, const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::Polytope::setAndTransformProvidingInverse(const osg::Polytope & pt, const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 26652350\narg 2 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Polytope* pt_ptr=(Luna< osg::Polytope >::check(L,2));
@@ -486,8 +472,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Polytope::setAndTransformProvidingInverse(const osg::Polytope &, const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Polytope::setAndTransformProvidingInverse(const osg::Polytope &, const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAndTransformProvidingInverse(pt, matrix);
 
@@ -497,8 +482,7 @@ public:
 	// void osg::Polytope::set(const osg::Polytope::PlaneList & pl)
 	static int _bind_set(lua_State *L) {
 		if (!_lg_typecheck_set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Polytope::set(const osg::Polytope::PlaneList & pl) function, expected prototype:\nvoid osg::Polytope::set(const osg::Polytope::PlaneList & pl)\nClass arguments details:\narg 1 ID = 33161232\n");
+			luaL_error(L, "luna typecheck failed in void osg::Polytope::set(const osg::Polytope::PlaneList & pl) function, expected prototype:\nvoid osg::Polytope::set(const osg::Polytope::PlaneList & pl)\nClass arguments details:\narg 1 ID = 33161232\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Polytope::PlaneList* pl_ptr=(Luna< osg::Polytope::PlaneList >::check(L,2));
@@ -509,8 +493,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Polytope::set(const osg::Polytope::PlaneList &). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Polytope::set(const osg::Polytope::PlaneList &). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(pl);
 
@@ -520,8 +503,7 @@ public:
 	// void osg::Polytope::add(const osg::Plane & pl)
 	static int _bind_add(lua_State *L) {
 		if (!_lg_typecheck_add(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Polytope::add(const osg::Plane & pl) function, expected prototype:\nvoid osg::Polytope::add(const osg::Plane & pl)\nClass arguments details:\narg 1 ID = 86970521\n");
+			luaL_error(L, "luna typecheck failed in void osg::Polytope::add(const osg::Plane & pl) function, expected prototype:\nvoid osg::Polytope::add(const osg::Plane & pl)\nClass arguments details:\narg 1 ID = 86970521\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Plane* pl_ptr=(Luna< osg::Plane >::check(L,2));
@@ -532,8 +514,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Polytope::add(const osg::Plane &). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Polytope::add(const osg::Plane &). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->add(pl);
 
@@ -543,15 +524,13 @@ public:
 	// void osg::Polytope::flip()
 	static int _bind_flip(lua_State *L) {
 		if (!_lg_typecheck_flip(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Polytope::flip() function, expected prototype:\nvoid osg::Polytope::flip()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Polytope::flip() function, expected prototype:\nvoid osg::Polytope::flip()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Polytope::flip(). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Polytope::flip(). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->flip();
 
@@ -561,15 +540,13 @@ public:
 	// bool osg::Polytope::empty() const
 	static int _bind_empty(lua_State *L) {
 		if (!_lg_typecheck_empty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Polytope::empty() const function, expected prototype:\nbool osg::Polytope::empty() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Polytope::empty() const function, expected prototype:\nbool osg::Polytope::empty() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Polytope::empty() const. Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Polytope::empty() const. Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->empty();
 		lua_pushboolean(L,lret?1:0);
@@ -580,15 +557,13 @@ public:
 	// osg::Polytope::PlaneList & osg::Polytope::getPlaneList()
 	static int _bind_getPlaneList_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getPlaneList_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Polytope::PlaneList & osg::Polytope::getPlaneList() function, expected prototype:\nosg::Polytope::PlaneList & osg::Polytope::getPlaneList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Polytope::PlaneList & osg::Polytope::getPlaneList() function, expected prototype:\nosg::Polytope::PlaneList & osg::Polytope::getPlaneList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Polytope::PlaneList & osg::Polytope::getPlaneList(). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Polytope::PlaneList & osg::Polytope::getPlaneList(). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Polytope::PlaneList* lret = &self->getPlaneList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -601,15 +576,13 @@ public:
 	// const osg::Polytope::PlaneList & osg::Polytope::getPlaneList() const
 	static int _bind_getPlaneList_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getPlaneList_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Polytope::PlaneList & osg::Polytope::getPlaneList() const function, expected prototype:\nconst osg::Polytope::PlaneList & osg::Polytope::getPlaneList() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Polytope::PlaneList & osg::Polytope::getPlaneList() const function, expected prototype:\nconst osg::Polytope::PlaneList & osg::Polytope::getPlaneList() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Polytope::PlaneList & osg::Polytope::getPlaneList() const. Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Polytope::PlaneList & osg::Polytope::getPlaneList() const. Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Polytope::PlaneList* lret = &self->getPlaneList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -631,8 +604,7 @@ public:
 	// void osg::Polytope::setReferenceVertexList(osg::Polytope::VertexList & vertices)
 	static int _bind_setReferenceVertexList(lua_State *L) {
 		if (!_lg_typecheck_setReferenceVertexList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Polytope::setReferenceVertexList(osg::Polytope::VertexList & vertices) function, expected prototype:\nvoid osg::Polytope::setReferenceVertexList(osg::Polytope::VertexList & vertices)\nClass arguments details:\narg 1 ID = 71066845\n");
+			luaL_error(L, "luna typecheck failed in void osg::Polytope::setReferenceVertexList(osg::Polytope::VertexList & vertices) function, expected prototype:\nvoid osg::Polytope::setReferenceVertexList(osg::Polytope::VertexList & vertices)\nClass arguments details:\narg 1 ID = 71066845\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Polytope::VertexList* vertices_ptr=(Luna< std::vector< osg::Vec3f > >::checkSubType< osg::Polytope::VertexList >(L,2));
@@ -643,8 +615,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Polytope::setReferenceVertexList(osg::Polytope::VertexList &). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Polytope::setReferenceVertexList(osg::Polytope::VertexList &). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setReferenceVertexList(vertices);
 
@@ -654,15 +625,13 @@ public:
 	// osg::Polytope::VertexList & osg::Polytope::getReferenceVertexList()
 	static int _bind_getReferenceVertexList_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getReferenceVertexList_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Polytope::VertexList & osg::Polytope::getReferenceVertexList() function, expected prototype:\nosg::Polytope::VertexList & osg::Polytope::getReferenceVertexList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Polytope::VertexList & osg::Polytope::getReferenceVertexList() function, expected prototype:\nosg::Polytope::VertexList & osg::Polytope::getReferenceVertexList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Polytope::VertexList & osg::Polytope::getReferenceVertexList(). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Polytope::VertexList & osg::Polytope::getReferenceVertexList(). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Polytope::VertexList* lret = &self->getReferenceVertexList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -675,15 +644,13 @@ public:
 	// const osg::Polytope::VertexList & osg::Polytope::getReferenceVertexList() const
 	static int _bind_getReferenceVertexList_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getReferenceVertexList_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Polytope::VertexList & osg::Polytope::getReferenceVertexList() const function, expected prototype:\nconst osg::Polytope::VertexList & osg::Polytope::getReferenceVertexList() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Polytope::VertexList & osg::Polytope::getReferenceVertexList() const function, expected prototype:\nconst osg::Polytope::VertexList & osg::Polytope::getReferenceVertexList() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Polytope::VertexList & osg::Polytope::getReferenceVertexList() const. Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Polytope::VertexList & osg::Polytope::getReferenceVertexList() const. Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Polytope::VertexList* lret = &self->getReferenceVertexList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -705,15 +672,13 @@ public:
 	// void osg::Polytope::setupMask()
 	static int _bind_setupMask(lua_State *L) {
 		if (!_lg_typecheck_setupMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Polytope::setupMask() function, expected prototype:\nvoid osg::Polytope::setupMask()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Polytope::setupMask() function, expected prototype:\nvoid osg::Polytope::setupMask()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Polytope::setupMask(). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Polytope::setupMask(). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setupMask();
 
@@ -723,15 +688,13 @@ public:
 	// unsigned int & osg::Polytope::getCurrentMask()
 	static int _bind_getCurrentMask_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getCurrentMask_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int & osg::Polytope::getCurrentMask() function, expected prototype:\nunsigned int & osg::Polytope::getCurrentMask()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int & osg::Polytope::getCurrentMask() function, expected prototype:\nunsigned int & osg::Polytope::getCurrentMask()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int & osg::Polytope::getCurrentMask(). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int & osg::Polytope::getCurrentMask(). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int & lret = self->getCurrentMask();
 		lua_pushnumber(L,lret);
@@ -742,15 +705,13 @@ public:
 	// unsigned int osg::Polytope::getCurrentMask() const
 	static int _bind_getCurrentMask_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getCurrentMask_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Polytope::getCurrentMask() const function, expected prototype:\nunsigned int osg::Polytope::getCurrentMask() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Polytope::getCurrentMask() const function, expected prototype:\nunsigned int osg::Polytope::getCurrentMask() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Polytope::getCurrentMask() const. Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Polytope::getCurrentMask() const. Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getCurrentMask();
 		lua_pushnumber(L,lret);
@@ -770,16 +731,14 @@ public:
 	// void osg::Polytope::setResultMask(unsigned int mask)
 	static int _bind_setResultMask(lua_State *L) {
 		if (!_lg_typecheck_setResultMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Polytope::setResultMask(unsigned int mask) function, expected prototype:\nvoid osg::Polytope::setResultMask(unsigned int mask)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Polytope::setResultMask(unsigned int mask) function, expected prototype:\nvoid osg::Polytope::setResultMask(unsigned int mask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mask=(unsigned int)lua_tointeger(L,2);
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Polytope::setResultMask(unsigned int). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Polytope::setResultMask(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setResultMask(mask);
 
@@ -789,15 +748,13 @@ public:
 	// unsigned int osg::Polytope::getResultMask() const
 	static int _bind_getResultMask(lua_State *L) {
 		if (!_lg_typecheck_getResultMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Polytope::getResultMask() const function, expected prototype:\nunsigned int osg::Polytope::getResultMask() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Polytope::getResultMask() const function, expected prototype:\nunsigned int osg::Polytope::getResultMask() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Polytope::getResultMask() const. Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Polytope::getResultMask() const. Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getResultMask();
 		lua_pushnumber(L,lret);
@@ -808,15 +765,13 @@ public:
 	// osg::Polytope::MaskStack & osg::Polytope::getMaskStack()
 	static int _bind_getMaskStack_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getMaskStack_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Polytope::MaskStack & osg::Polytope::getMaskStack() function, expected prototype:\nosg::Polytope::MaskStack & osg::Polytope::getMaskStack()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Polytope::MaskStack & osg::Polytope::getMaskStack() function, expected prototype:\nosg::Polytope::MaskStack & osg::Polytope::getMaskStack()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Polytope::MaskStack & osg::Polytope::getMaskStack(). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Polytope::MaskStack & osg::Polytope::getMaskStack(). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Polytope::MaskStack* lret = &self->getMaskStack();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -829,15 +784,13 @@ public:
 	// const osg::Polytope::MaskStack & osg::Polytope::getMaskStack() const
 	static int _bind_getMaskStack_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getMaskStack_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Polytope::MaskStack & osg::Polytope::getMaskStack() const function, expected prototype:\nconst osg::Polytope::MaskStack & osg::Polytope::getMaskStack() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Polytope::MaskStack & osg::Polytope::getMaskStack() const function, expected prototype:\nconst osg::Polytope::MaskStack & osg::Polytope::getMaskStack() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Polytope::MaskStack & osg::Polytope::getMaskStack() const. Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Polytope::MaskStack & osg::Polytope::getMaskStack() const. Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Polytope::MaskStack* lret = &self->getMaskStack();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -859,15 +812,13 @@ public:
 	// void osg::Polytope::pushCurrentMask()
 	static int _bind_pushCurrentMask(lua_State *L) {
 		if (!_lg_typecheck_pushCurrentMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Polytope::pushCurrentMask() function, expected prototype:\nvoid osg::Polytope::pushCurrentMask()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Polytope::pushCurrentMask() function, expected prototype:\nvoid osg::Polytope::pushCurrentMask()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Polytope::pushCurrentMask(). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Polytope::pushCurrentMask(). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pushCurrentMask();
 
@@ -877,15 +828,13 @@ public:
 	// void osg::Polytope::popCurrentMask()
 	static int _bind_popCurrentMask(lua_State *L) {
 		if (!_lg_typecheck_popCurrentMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Polytope::popCurrentMask() function, expected prototype:\nvoid osg::Polytope::popCurrentMask()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Polytope::popCurrentMask() function, expected prototype:\nvoid osg::Polytope::popCurrentMask()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Polytope::popCurrentMask(). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Polytope::popCurrentMask(). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->popCurrentMask();
 
@@ -895,8 +844,7 @@ public:
 	// bool osg::Polytope::contains(const osg::Vec3f & v) const
 	static int _bind_contains_overload_1(lua_State *L) {
 		if (!_lg_typecheck_contains_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Polytope::contains(const osg::Vec3f & v) const function, expected prototype:\nbool osg::Polytope::contains(const osg::Vec3f & v) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Polytope::contains(const osg::Vec3f & v) const function, expected prototype:\nbool osg::Polytope::contains(const osg::Vec3f & v) const\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -907,8 +855,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Polytope::contains(const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Polytope::contains(const osg::Vec3f &) const. Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->contains(v);
 		lua_pushboolean(L,lret?1:0);
@@ -919,8 +866,7 @@ public:
 	// bool osg::Polytope::contains(const std::vector< osg::Vec3f > & vertices)
 	static int _bind_contains_overload_2(lua_State *L) {
 		if (!_lg_typecheck_contains_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Polytope::contains(const std::vector< osg::Vec3f > & vertices) function, expected prototype:\nbool osg::Polytope::contains(const std::vector< osg::Vec3f > & vertices)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Polytope::contains(const std::vector< osg::Vec3f > & vertices) function, expected prototype:\nbool osg::Polytope::contains(const std::vector< osg::Vec3f > & vertices)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const std::vector< osg::Vec3f >* vertices_ptr=(Luna< std::vector< osg::Vec3f > >::check(L,2));
@@ -931,8 +877,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Polytope::contains(const std::vector< osg::Vec3f > &). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Polytope::contains(const std::vector< osg::Vec3f > &). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->contains(vertices);
 		lua_pushboolean(L,lret?1:0);
@@ -943,8 +888,7 @@ public:
 	// bool osg::Polytope::contains(const osg::BoundingSphered & bs)
 	static int _bind_contains_overload_3(lua_State *L) {
 		if (!_lg_typecheck_contains_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Polytope::contains(const osg::BoundingSphered & bs) function, expected prototype:\nbool osg::Polytope::contains(const osg::BoundingSphered & bs)\nClass arguments details:\narg 1 ID = 54337300\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Polytope::contains(const osg::BoundingSphered & bs) function, expected prototype:\nbool osg::Polytope::contains(const osg::BoundingSphered & bs)\nClass arguments details:\narg 1 ID = 54337300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
@@ -955,8 +899,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Polytope::contains(const osg::BoundingSphered &). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Polytope::contains(const osg::BoundingSphered &). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->contains(bs);
 		lua_pushboolean(L,lret?1:0);
@@ -967,8 +910,7 @@ public:
 	// bool osg::Polytope::contains(const osg::BoundingBoxd & bb)
 	static int _bind_contains_overload_4(lua_State *L) {
 		if (!_lg_typecheck_contains_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Polytope::contains(const osg::BoundingBoxd & bb) function, expected prototype:\nbool osg::Polytope::contains(const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Polytope::contains(const osg::BoundingBoxd & bb) function, expected prototype:\nbool osg::Polytope::contains(const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
@@ -979,8 +921,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Polytope::contains(const osg::BoundingBoxd &). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Polytope::contains(const osg::BoundingBoxd &). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->contains(bb);
 		lua_pushboolean(L,lret?1:0);
@@ -1002,8 +943,7 @@ public:
 	// bool osg::Polytope::containsAllOf(const std::vector< osg::Vec3f > & vertices)
 	static int _bind_containsAllOf_overload_1(lua_State *L) {
 		if (!_lg_typecheck_containsAllOf_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Polytope::containsAllOf(const std::vector< osg::Vec3f > & vertices) function, expected prototype:\nbool osg::Polytope::containsAllOf(const std::vector< osg::Vec3f > & vertices)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Polytope::containsAllOf(const std::vector< osg::Vec3f > & vertices) function, expected prototype:\nbool osg::Polytope::containsAllOf(const std::vector< osg::Vec3f > & vertices)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const std::vector< osg::Vec3f >* vertices_ptr=(Luna< std::vector< osg::Vec3f > >::check(L,2));
@@ -1014,8 +954,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Polytope::containsAllOf(const std::vector< osg::Vec3f > &). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Polytope::containsAllOf(const std::vector< osg::Vec3f > &). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->containsAllOf(vertices);
 		lua_pushboolean(L,lret?1:0);
@@ -1026,8 +965,7 @@ public:
 	// bool osg::Polytope::containsAllOf(const osg::BoundingSphered & bs)
 	static int _bind_containsAllOf_overload_2(lua_State *L) {
 		if (!_lg_typecheck_containsAllOf_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Polytope::containsAllOf(const osg::BoundingSphered & bs) function, expected prototype:\nbool osg::Polytope::containsAllOf(const osg::BoundingSphered & bs)\nClass arguments details:\narg 1 ID = 54337300\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Polytope::containsAllOf(const osg::BoundingSphered & bs) function, expected prototype:\nbool osg::Polytope::containsAllOf(const osg::BoundingSphered & bs)\nClass arguments details:\narg 1 ID = 54337300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
@@ -1038,8 +976,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Polytope::containsAllOf(const osg::BoundingSphered &). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Polytope::containsAllOf(const osg::BoundingSphered &). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->containsAllOf(bs);
 		lua_pushboolean(L,lret?1:0);
@@ -1050,8 +987,7 @@ public:
 	// bool osg::Polytope::containsAllOf(const osg::BoundingBoxd & bb)
 	static int _bind_containsAllOf_overload_3(lua_State *L) {
 		if (!_lg_typecheck_containsAllOf_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Polytope::containsAllOf(const osg::BoundingBoxd & bb) function, expected prototype:\nbool osg::Polytope::containsAllOf(const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Polytope::containsAllOf(const osg::BoundingBoxd & bb) function, expected prototype:\nbool osg::Polytope::containsAllOf(const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
@@ -1062,8 +998,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Polytope::containsAllOf(const osg::BoundingBoxd &). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Polytope::containsAllOf(const osg::BoundingBoxd &). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->containsAllOf(bb);
 		lua_pushboolean(L,lret?1:0);
@@ -1084,8 +1019,7 @@ public:
 	// void osg::Polytope::transform(const osg::Matrixd & matrix)
 	static int _bind_transform(lua_State *L) {
 		if (!_lg_typecheck_transform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Polytope::transform(const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::Polytope::transform(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::Polytope::transform(const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::Polytope::transform(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -1096,8 +1030,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Polytope::transform(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Polytope::transform(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->transform(matrix);
 
@@ -1107,8 +1040,7 @@ public:
 	// void osg::Polytope::transformProvidingInverse(const osg::Matrixd & matrix)
 	static int _bind_transformProvidingInverse(lua_State *L) {
 		if (!_lg_typecheck_transformProvidingInverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Polytope::transformProvidingInverse(const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::Polytope::transformProvidingInverse(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::Polytope::transformProvidingInverse(const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::Polytope::transformProvidingInverse(const osg::Matrixd & matrix)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -1119,8 +1051,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Polytope::transformProvidingInverse(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Polytope::transformProvidingInverse(const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->transformProvidingInverse(matrix);
 
@@ -1132,8 +1063,7 @@ public:
 	// osg::Polytope & osg::Polytope::operator=(const osg::Polytope & cv)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Polytope & osg::Polytope::operator=(const osg::Polytope & cv) function, expected prototype:\nosg::Polytope & osg::Polytope::operator=(const osg::Polytope & cv)\nClass arguments details:\narg 1 ID = 26652350\n");
+			luaL_error(L, "luna typecheck failed in osg::Polytope & osg::Polytope::operator=(const osg::Polytope & cv) function, expected prototype:\nosg::Polytope & osg::Polytope::operator=(const osg::Polytope & cv)\nClass arguments details:\narg 1 ID = 26652350\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Polytope* cv_ptr=(Luna< osg::Polytope >::check(L,2));
@@ -1144,8 +1074,7 @@ public:
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Polytope & osg::Polytope::operator=(const osg::Polytope &). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Polytope & osg::Polytope::operator=(const osg::Polytope &). Got : '%s'\n%s",typeid(Luna< osg::Polytope >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Polytope* lret = &self->operator=(cv);
 		if(!lret) return 0; // Do not write NULL pointers.

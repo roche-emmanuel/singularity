@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::DisplaySettings* self= (osg::DisplaySettings*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -656,8 +653,7 @@ public:
 	// osg::DisplaySettings::DisplaySettings()
 	static osg::DisplaySettings* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplaySettings() function, expected prototype:\nosg::DisplaySettings::DisplaySettings()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplaySettings() function, expected prototype:\nosg::DisplaySettings::DisplaySettings()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -667,8 +663,7 @@ public:
 	// osg::DisplaySettings::DisplaySettings(osg::ArgumentParser & arguments)
 	static osg::DisplaySettings* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplaySettings(osg::ArgumentParser & arguments) function, expected prototype:\nosg::DisplaySettings::DisplaySettings(osg::ArgumentParser & arguments)\nClass arguments details:\narg 1 ID = 99527028\n");
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplaySettings(osg::ArgumentParser & arguments) function, expected prototype:\nosg::DisplaySettings::DisplaySettings(osg::ArgumentParser & arguments)\nClass arguments details:\narg 1 ID = 99527028\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ArgumentParser* arguments_ptr=(Luna< osg::ArgumentParser >::check(L,1));
@@ -683,8 +678,7 @@ public:
 	// osg::DisplaySettings::DisplaySettings(const osg::DisplaySettings & vs)
 	static osg::DisplaySettings* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplaySettings(const osg::DisplaySettings & vs) function, expected prototype:\nosg::DisplaySettings::DisplaySettings(const osg::DisplaySettings & vs)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplaySettings(const osg::DisplaySettings & vs) function, expected prototype:\nosg::DisplaySettings::DisplaySettings(const osg::DisplaySettings & vs)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::DisplaySettings* vs_ptr=(Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1));
@@ -699,8 +693,7 @@ public:
 	// osg::DisplaySettings::DisplaySettings(lua_Table * data)
 	static osg::DisplaySettings* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplaySettings(lua_Table * data) function, expected prototype:\nosg::DisplaySettings::DisplaySettings(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplaySettings(lua_Table * data) function, expected prototype:\nosg::DisplaySettings::DisplaySettings(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -710,8 +703,7 @@ public:
 	// osg::DisplaySettings::DisplaySettings(lua_Table * data, osg::ArgumentParser & arguments)
 	static osg::DisplaySettings* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplaySettings(lua_Table * data, osg::ArgumentParser & arguments) function, expected prototype:\nosg::DisplaySettings::DisplaySettings(lua_Table * data, osg::ArgumentParser & arguments)\nClass arguments details:\narg 2 ID = 99527028\n");
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplaySettings(lua_Table * data, osg::ArgumentParser & arguments) function, expected prototype:\nosg::DisplaySettings::DisplaySettings(lua_Table * data, osg::ArgumentParser & arguments)\nClass arguments details:\narg 2 ID = 99527028\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ArgumentParser* arguments_ptr=(Luna< osg::ArgumentParser >::check(L,2));
@@ -726,8 +718,7 @@ public:
 	// osg::DisplaySettings::DisplaySettings(lua_Table * data, const osg::DisplaySettings & vs)
 	static osg::DisplaySettings* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplaySettings(lua_Table * data, const osg::DisplaySettings & vs) function, expected prototype:\nosg::DisplaySettings::DisplaySettings(lua_Table * data, const osg::DisplaySettings & vs)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplaySettings(lua_Table * data, const osg::DisplaySettings & vs) function, expected prototype:\nosg::DisplaySettings::DisplaySettings(lua_Table * data, const osg::DisplaySettings & vs)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::DisplaySettings* vs_ptr=(Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,2));
@@ -757,8 +748,7 @@ public:
 	// static osg::ref_ptr< osg::DisplaySettings > & osg::DisplaySettings::instance()
 	static int _bind_instance(lua_State *L) {
 		if (!_lg_typecheck_instance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::ref_ptr< osg::DisplaySettings > & osg::DisplaySettings::instance() function, expected prototype:\nstatic osg::ref_ptr< osg::DisplaySettings > & osg::DisplaySettings::instance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::ref_ptr< osg::DisplaySettings > & osg::DisplaySettings::instance() function, expected prototype:\nstatic osg::ref_ptr< osg::DisplaySettings > & osg::DisplaySettings::instance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -771,8 +761,7 @@ public:
 	// void osg::DisplaySettings::setDisplaySettings(const osg::DisplaySettings & vs)
 	static int _bind_setDisplaySettings(lua_State *L) {
 		if (!_lg_typecheck_setDisplaySettings(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setDisplaySettings(const osg::DisplaySettings & vs) function, expected prototype:\nvoid osg::DisplaySettings::setDisplaySettings(const osg::DisplaySettings & vs)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setDisplaySettings(const osg::DisplaySettings & vs) function, expected prototype:\nvoid osg::DisplaySettings::setDisplaySettings(const osg::DisplaySettings & vs)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::DisplaySettings* vs_ptr=(Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,2));
@@ -783,8 +772,7 @@ public:
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setDisplaySettings(const osg::DisplaySettings &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setDisplaySettings(const osg::DisplaySettings &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDisplaySettings(vs);
 
@@ -794,8 +782,7 @@ public:
 	// void osg::DisplaySettings::merge(const osg::DisplaySettings & vs)
 	static int _bind_merge(lua_State *L) {
 		if (!_lg_typecheck_merge(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::merge(const osg::DisplaySettings & vs) function, expected prototype:\nvoid osg::DisplaySettings::merge(const osg::DisplaySettings & vs)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::merge(const osg::DisplaySettings & vs) function, expected prototype:\nvoid osg::DisplaySettings::merge(const osg::DisplaySettings & vs)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::DisplaySettings* vs_ptr=(Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,2));
@@ -806,8 +793,7 @@ public:
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::merge(const osg::DisplaySettings &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::merge(const osg::DisplaySettings &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->merge(vs);
 
@@ -817,15 +803,13 @@ public:
 	// void osg::DisplaySettings::setDefaults()
 	static int _bind_setDefaults(lua_State *L) {
 		if (!_lg_typecheck_setDefaults(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setDefaults() function, expected prototype:\nvoid osg::DisplaySettings::setDefaults()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setDefaults() function, expected prototype:\nvoid osg::DisplaySettings::setDefaults()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setDefaults(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setDefaults(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDefaults();
 
@@ -835,15 +819,13 @@ public:
 	// void osg::DisplaySettings::readEnvironmentalVariables()
 	static int _bind_readEnvironmentalVariables(lua_State *L) {
 		if (!_lg_typecheck_readEnvironmentalVariables(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::readEnvironmentalVariables() function, expected prototype:\nvoid osg::DisplaySettings::readEnvironmentalVariables()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::readEnvironmentalVariables() function, expected prototype:\nvoid osg::DisplaySettings::readEnvironmentalVariables()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::readEnvironmentalVariables(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::readEnvironmentalVariables(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readEnvironmentalVariables();
 
@@ -853,8 +835,7 @@ public:
 	// void osg::DisplaySettings::readCommandLine(osg::ArgumentParser & arguments)
 	static int _bind_readCommandLine(lua_State *L) {
 		if (!_lg_typecheck_readCommandLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::readCommandLine(osg::ArgumentParser & arguments) function, expected prototype:\nvoid osg::DisplaySettings::readCommandLine(osg::ArgumentParser & arguments)\nClass arguments details:\narg 1 ID = 99527028\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::readCommandLine(osg::ArgumentParser & arguments) function, expected prototype:\nvoid osg::DisplaySettings::readCommandLine(osg::ArgumentParser & arguments)\nClass arguments details:\narg 1 ID = 99527028\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ArgumentParser* arguments_ptr=(Luna< osg::ArgumentParser >::check(L,2));
@@ -865,8 +846,7 @@ public:
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::readCommandLine(osg::ArgumentParser &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::readCommandLine(osg::ArgumentParser &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readCommandLine(arguments);
 
@@ -876,16 +856,14 @@ public:
 	// void osg::DisplaySettings::setDisplayType(osg::DisplaySettings::DisplayType type)
 	static int _bind_setDisplayType(lua_State *L) {
 		if (!_lg_typecheck_setDisplayType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setDisplayType(osg::DisplaySettings::DisplayType type) function, expected prototype:\nvoid osg::DisplaySettings::setDisplayType(osg::DisplaySettings::DisplayType type)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setDisplayType(osg::DisplaySettings::DisplayType type) function, expected prototype:\nvoid osg::DisplaySettings::setDisplayType(osg::DisplaySettings::DisplayType type)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::DisplaySettings::DisplayType type=(osg::DisplaySettings::DisplayType)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setDisplayType(osg::DisplaySettings::DisplayType). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setDisplayType(osg::DisplaySettings::DisplayType). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDisplayType(type);
 
@@ -895,15 +873,13 @@ public:
 	// osg::DisplaySettings::DisplayType osg::DisplaySettings::getDisplayType() const
 	static int _bind_getDisplayType(lua_State *L) {
 		if (!_lg_typecheck_getDisplayType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplayType osg::DisplaySettings::getDisplayType() const function, expected prototype:\nosg::DisplaySettings::DisplayType osg::DisplaySettings::getDisplayType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplayType osg::DisplaySettings::getDisplayType() const function, expected prototype:\nosg::DisplaySettings::DisplayType osg::DisplaySettings::getDisplayType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::DisplaySettings::DisplayType osg::DisplaySettings::getDisplayType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::DisplaySettings::DisplayType osg::DisplaySettings::getDisplayType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::DisplaySettings::DisplayType lret = self->getDisplayType();
 		lua_pushnumber(L,lret);
@@ -914,16 +890,14 @@ public:
 	// void osg::DisplaySettings::setStereo(bool on)
 	static int _bind_setStereo(lua_State *L) {
 		if (!_lg_typecheck_setStereo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setStereo(bool on) function, expected prototype:\nvoid osg::DisplaySettings::setStereo(bool on)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setStereo(bool on) function, expected prototype:\nvoid osg::DisplaySettings::setStereo(bool on)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool on=(bool)(lua_toboolean(L,2)==1);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setStereo(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setStereo(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setStereo(on);
 
@@ -933,15 +907,13 @@ public:
 	// bool osg::DisplaySettings::getStereo() const
 	static int _bind_getStereo(lua_State *L) {
 		if (!_lg_typecheck_getStereo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getStereo() const function, expected prototype:\nbool osg::DisplaySettings::getStereo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getStereo() const function, expected prototype:\nbool osg::DisplaySettings::getStereo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getStereo() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getStereo() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getStereo();
 		lua_pushboolean(L,lret?1:0);
@@ -952,16 +924,14 @@ public:
 	// void osg::DisplaySettings::setStereoMode(osg::DisplaySettings::StereoMode mode)
 	static int _bind_setStereoMode(lua_State *L) {
 		if (!_lg_typecheck_setStereoMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setStereoMode(osg::DisplaySettings::StereoMode mode) function, expected prototype:\nvoid osg::DisplaySettings::setStereoMode(osg::DisplaySettings::StereoMode mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setStereoMode(osg::DisplaySettings::StereoMode mode) function, expected prototype:\nvoid osg::DisplaySettings::setStereoMode(osg::DisplaySettings::StereoMode mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::DisplaySettings::StereoMode mode=(osg::DisplaySettings::StereoMode)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setStereoMode(osg::DisplaySettings::StereoMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setStereoMode(osg::DisplaySettings::StereoMode). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setStereoMode(mode);
 
@@ -971,15 +941,13 @@ public:
 	// osg::DisplaySettings::StereoMode osg::DisplaySettings::getStereoMode() const
 	static int _bind_getStereoMode(lua_State *L) {
 		if (!_lg_typecheck_getStereoMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::StereoMode osg::DisplaySettings::getStereoMode() const function, expected prototype:\nosg::DisplaySettings::StereoMode osg::DisplaySettings::getStereoMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::StereoMode osg::DisplaySettings::getStereoMode() const function, expected prototype:\nosg::DisplaySettings::StereoMode osg::DisplaySettings::getStereoMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::DisplaySettings::StereoMode osg::DisplaySettings::getStereoMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::DisplaySettings::StereoMode osg::DisplaySettings::getStereoMode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::DisplaySettings::StereoMode lret = self->getStereoMode();
 		lua_pushnumber(L,lret);
@@ -990,16 +958,14 @@ public:
 	// void osg::DisplaySettings::setEyeSeparation(float eyeSeparation)
 	static int _bind_setEyeSeparation(lua_State *L) {
 		if (!_lg_typecheck_setEyeSeparation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setEyeSeparation(float eyeSeparation) function, expected prototype:\nvoid osg::DisplaySettings::setEyeSeparation(float eyeSeparation)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setEyeSeparation(float eyeSeparation) function, expected prototype:\nvoid osg::DisplaySettings::setEyeSeparation(float eyeSeparation)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float eyeSeparation=(float)lua_tonumber(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setEyeSeparation(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setEyeSeparation(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setEyeSeparation(eyeSeparation);
 
@@ -1009,15 +975,13 @@ public:
 	// float osg::DisplaySettings::getEyeSeparation() const
 	static int _bind_getEyeSeparation(lua_State *L) {
 		if (!_lg_typecheck_getEyeSeparation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::DisplaySettings::getEyeSeparation() const function, expected prototype:\nfloat osg::DisplaySettings::getEyeSeparation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::DisplaySettings::getEyeSeparation() const function, expected prototype:\nfloat osg::DisplaySettings::getEyeSeparation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::DisplaySettings::getEyeSeparation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::DisplaySettings::getEyeSeparation() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getEyeSeparation();
 		lua_pushnumber(L,lret);
@@ -1028,16 +992,14 @@ public:
 	// void osg::DisplaySettings::setSplitStereoHorizontalEyeMapping(osg::DisplaySettings::SplitStereoHorizontalEyeMapping m)
 	static int _bind_setSplitStereoHorizontalEyeMapping(lua_State *L) {
 		if (!_lg_typecheck_setSplitStereoHorizontalEyeMapping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setSplitStereoHorizontalEyeMapping(osg::DisplaySettings::SplitStereoHorizontalEyeMapping m) function, expected prototype:\nvoid osg::DisplaySettings::setSplitStereoHorizontalEyeMapping(osg::DisplaySettings::SplitStereoHorizontalEyeMapping m)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setSplitStereoHorizontalEyeMapping(osg::DisplaySettings::SplitStereoHorizontalEyeMapping m) function, expected prototype:\nvoid osg::DisplaySettings::setSplitStereoHorizontalEyeMapping(osg::DisplaySettings::SplitStereoHorizontalEyeMapping m)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::DisplaySettings::SplitStereoHorizontalEyeMapping m=(osg::DisplaySettings::SplitStereoHorizontalEyeMapping)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setSplitStereoHorizontalEyeMapping(osg::DisplaySettings::SplitStereoHorizontalEyeMapping). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setSplitStereoHorizontalEyeMapping(osg::DisplaySettings::SplitStereoHorizontalEyeMapping). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSplitStereoHorizontalEyeMapping(m);
 
@@ -1047,15 +1009,13 @@ public:
 	// osg::DisplaySettings::SplitStereoHorizontalEyeMapping osg::DisplaySettings::getSplitStereoHorizontalEyeMapping() const
 	static int _bind_getSplitStereoHorizontalEyeMapping(lua_State *L) {
 		if (!_lg_typecheck_getSplitStereoHorizontalEyeMapping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::SplitStereoHorizontalEyeMapping osg::DisplaySettings::getSplitStereoHorizontalEyeMapping() const function, expected prototype:\nosg::DisplaySettings::SplitStereoHorizontalEyeMapping osg::DisplaySettings::getSplitStereoHorizontalEyeMapping() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::SplitStereoHorizontalEyeMapping osg::DisplaySettings::getSplitStereoHorizontalEyeMapping() const function, expected prototype:\nosg::DisplaySettings::SplitStereoHorizontalEyeMapping osg::DisplaySettings::getSplitStereoHorizontalEyeMapping() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::DisplaySettings::SplitStereoHorizontalEyeMapping osg::DisplaySettings::getSplitStereoHorizontalEyeMapping() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::DisplaySettings::SplitStereoHorizontalEyeMapping osg::DisplaySettings::getSplitStereoHorizontalEyeMapping() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::DisplaySettings::SplitStereoHorizontalEyeMapping lret = self->getSplitStereoHorizontalEyeMapping();
 		lua_pushnumber(L,lret);
@@ -1066,16 +1026,14 @@ public:
 	// void osg::DisplaySettings::setSplitStereoHorizontalSeparation(int s)
 	static int _bind_setSplitStereoHorizontalSeparation(lua_State *L) {
 		if (!_lg_typecheck_setSplitStereoHorizontalSeparation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setSplitStereoHorizontalSeparation(int s) function, expected prototype:\nvoid osg::DisplaySettings::setSplitStereoHorizontalSeparation(int s)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setSplitStereoHorizontalSeparation(int s) function, expected prototype:\nvoid osg::DisplaySettings::setSplitStereoHorizontalSeparation(int s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int s=(int)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setSplitStereoHorizontalSeparation(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setSplitStereoHorizontalSeparation(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSplitStereoHorizontalSeparation(s);
 
@@ -1085,15 +1043,13 @@ public:
 	// int osg::DisplaySettings::getSplitStereoHorizontalSeparation() const
 	static int _bind_getSplitStereoHorizontalSeparation(lua_State *L) {
 		if (!_lg_typecheck_getSplitStereoHorizontalSeparation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::DisplaySettings::getSplitStereoHorizontalSeparation() const function, expected prototype:\nint osg::DisplaySettings::getSplitStereoHorizontalSeparation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::DisplaySettings::getSplitStereoHorizontalSeparation() const function, expected prototype:\nint osg::DisplaySettings::getSplitStereoHorizontalSeparation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::DisplaySettings::getSplitStereoHorizontalSeparation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::DisplaySettings::getSplitStereoHorizontalSeparation() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getSplitStereoHorizontalSeparation();
 		lua_pushnumber(L,lret);
@@ -1104,16 +1060,14 @@ public:
 	// void osg::DisplaySettings::setSplitStereoVerticalEyeMapping(osg::DisplaySettings::SplitStereoVerticalEyeMapping m)
 	static int _bind_setSplitStereoVerticalEyeMapping(lua_State *L) {
 		if (!_lg_typecheck_setSplitStereoVerticalEyeMapping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setSplitStereoVerticalEyeMapping(osg::DisplaySettings::SplitStereoVerticalEyeMapping m) function, expected prototype:\nvoid osg::DisplaySettings::setSplitStereoVerticalEyeMapping(osg::DisplaySettings::SplitStereoVerticalEyeMapping m)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setSplitStereoVerticalEyeMapping(osg::DisplaySettings::SplitStereoVerticalEyeMapping m) function, expected prototype:\nvoid osg::DisplaySettings::setSplitStereoVerticalEyeMapping(osg::DisplaySettings::SplitStereoVerticalEyeMapping m)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::DisplaySettings::SplitStereoVerticalEyeMapping m=(osg::DisplaySettings::SplitStereoVerticalEyeMapping)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setSplitStereoVerticalEyeMapping(osg::DisplaySettings::SplitStereoVerticalEyeMapping). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setSplitStereoVerticalEyeMapping(osg::DisplaySettings::SplitStereoVerticalEyeMapping). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSplitStereoVerticalEyeMapping(m);
 
@@ -1123,15 +1077,13 @@ public:
 	// osg::DisplaySettings::SplitStereoVerticalEyeMapping osg::DisplaySettings::getSplitStereoVerticalEyeMapping() const
 	static int _bind_getSplitStereoVerticalEyeMapping(lua_State *L) {
 		if (!_lg_typecheck_getSplitStereoVerticalEyeMapping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::SplitStereoVerticalEyeMapping osg::DisplaySettings::getSplitStereoVerticalEyeMapping() const function, expected prototype:\nosg::DisplaySettings::SplitStereoVerticalEyeMapping osg::DisplaySettings::getSplitStereoVerticalEyeMapping() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::SplitStereoVerticalEyeMapping osg::DisplaySettings::getSplitStereoVerticalEyeMapping() const function, expected prototype:\nosg::DisplaySettings::SplitStereoVerticalEyeMapping osg::DisplaySettings::getSplitStereoVerticalEyeMapping() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::DisplaySettings::SplitStereoVerticalEyeMapping osg::DisplaySettings::getSplitStereoVerticalEyeMapping() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::DisplaySettings::SplitStereoVerticalEyeMapping osg::DisplaySettings::getSplitStereoVerticalEyeMapping() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::DisplaySettings::SplitStereoVerticalEyeMapping lret = self->getSplitStereoVerticalEyeMapping();
 		lua_pushnumber(L,lret);
@@ -1142,16 +1094,14 @@ public:
 	// void osg::DisplaySettings::setSplitStereoVerticalSeparation(int s)
 	static int _bind_setSplitStereoVerticalSeparation(lua_State *L) {
 		if (!_lg_typecheck_setSplitStereoVerticalSeparation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setSplitStereoVerticalSeparation(int s) function, expected prototype:\nvoid osg::DisplaySettings::setSplitStereoVerticalSeparation(int s)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setSplitStereoVerticalSeparation(int s) function, expected prototype:\nvoid osg::DisplaySettings::setSplitStereoVerticalSeparation(int s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int s=(int)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setSplitStereoVerticalSeparation(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setSplitStereoVerticalSeparation(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSplitStereoVerticalSeparation(s);
 
@@ -1161,15 +1111,13 @@ public:
 	// int osg::DisplaySettings::getSplitStereoVerticalSeparation() const
 	static int _bind_getSplitStereoVerticalSeparation(lua_State *L) {
 		if (!_lg_typecheck_getSplitStereoVerticalSeparation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::DisplaySettings::getSplitStereoVerticalSeparation() const function, expected prototype:\nint osg::DisplaySettings::getSplitStereoVerticalSeparation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::DisplaySettings::getSplitStereoVerticalSeparation() const function, expected prototype:\nint osg::DisplaySettings::getSplitStereoVerticalSeparation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::DisplaySettings::getSplitStereoVerticalSeparation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::DisplaySettings::getSplitStereoVerticalSeparation() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getSplitStereoVerticalSeparation();
 		lua_pushnumber(L,lret);
@@ -1180,16 +1128,14 @@ public:
 	// void osg::DisplaySettings::setSplitStereoAutoAdjustAspectRatio(bool flag)
 	static int _bind_setSplitStereoAutoAdjustAspectRatio(lua_State *L) {
 		if (!_lg_typecheck_setSplitStereoAutoAdjustAspectRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setSplitStereoAutoAdjustAspectRatio(bool flag) function, expected prototype:\nvoid osg::DisplaySettings::setSplitStereoAutoAdjustAspectRatio(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setSplitStereoAutoAdjustAspectRatio(bool flag) function, expected prototype:\nvoid osg::DisplaySettings::setSplitStereoAutoAdjustAspectRatio(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setSplitStereoAutoAdjustAspectRatio(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setSplitStereoAutoAdjustAspectRatio(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSplitStereoAutoAdjustAspectRatio(flag);
 
@@ -1199,15 +1145,13 @@ public:
 	// bool osg::DisplaySettings::getSplitStereoAutoAdjustAspectRatio() const
 	static int _bind_getSplitStereoAutoAdjustAspectRatio(lua_State *L) {
 		if (!_lg_typecheck_getSplitStereoAutoAdjustAspectRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getSplitStereoAutoAdjustAspectRatio() const function, expected prototype:\nbool osg::DisplaySettings::getSplitStereoAutoAdjustAspectRatio() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getSplitStereoAutoAdjustAspectRatio() const function, expected prototype:\nbool osg::DisplaySettings::getSplitStereoAutoAdjustAspectRatio() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getSplitStereoAutoAdjustAspectRatio() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getSplitStereoAutoAdjustAspectRatio() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getSplitStereoAutoAdjustAspectRatio();
 		lua_pushboolean(L,lret?1:0);
@@ -1218,16 +1162,14 @@ public:
 	// void osg::DisplaySettings::setScreenWidth(float width)
 	static int _bind_setScreenWidth(lua_State *L) {
 		if (!_lg_typecheck_setScreenWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setScreenWidth(float width) function, expected prototype:\nvoid osg::DisplaySettings::setScreenWidth(float width)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setScreenWidth(float width) function, expected prototype:\nvoid osg::DisplaySettings::setScreenWidth(float width)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float width=(float)lua_tonumber(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setScreenWidth(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setScreenWidth(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setScreenWidth(width);
 
@@ -1237,15 +1179,13 @@ public:
 	// float osg::DisplaySettings::getScreenWidth() const
 	static int _bind_getScreenWidth(lua_State *L) {
 		if (!_lg_typecheck_getScreenWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::DisplaySettings::getScreenWidth() const function, expected prototype:\nfloat osg::DisplaySettings::getScreenWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::DisplaySettings::getScreenWidth() const function, expected prototype:\nfloat osg::DisplaySettings::getScreenWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::DisplaySettings::getScreenWidth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::DisplaySettings::getScreenWidth() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getScreenWidth();
 		lua_pushnumber(L,lret);
@@ -1256,16 +1196,14 @@ public:
 	// void osg::DisplaySettings::setScreenHeight(float height)
 	static int _bind_setScreenHeight(lua_State *L) {
 		if (!_lg_typecheck_setScreenHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setScreenHeight(float height) function, expected prototype:\nvoid osg::DisplaySettings::setScreenHeight(float height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setScreenHeight(float height) function, expected prototype:\nvoid osg::DisplaySettings::setScreenHeight(float height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float height=(float)lua_tonumber(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setScreenHeight(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setScreenHeight(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setScreenHeight(height);
 
@@ -1275,15 +1213,13 @@ public:
 	// float osg::DisplaySettings::getScreenHeight() const
 	static int _bind_getScreenHeight(lua_State *L) {
 		if (!_lg_typecheck_getScreenHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::DisplaySettings::getScreenHeight() const function, expected prototype:\nfloat osg::DisplaySettings::getScreenHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::DisplaySettings::getScreenHeight() const function, expected prototype:\nfloat osg::DisplaySettings::getScreenHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::DisplaySettings::getScreenHeight() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::DisplaySettings::getScreenHeight() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getScreenHeight();
 		lua_pushnumber(L,lret);
@@ -1294,16 +1230,14 @@ public:
 	// void osg::DisplaySettings::setScreenDistance(float distance)
 	static int _bind_setScreenDistance(lua_State *L) {
 		if (!_lg_typecheck_setScreenDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setScreenDistance(float distance) function, expected prototype:\nvoid osg::DisplaySettings::setScreenDistance(float distance)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setScreenDistance(float distance) function, expected prototype:\nvoid osg::DisplaySettings::setScreenDistance(float distance)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float distance=(float)lua_tonumber(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setScreenDistance(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setScreenDistance(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setScreenDistance(distance);
 
@@ -1313,15 +1247,13 @@ public:
 	// float osg::DisplaySettings::getScreenDistance() const
 	static int _bind_getScreenDistance(lua_State *L) {
 		if (!_lg_typecheck_getScreenDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::DisplaySettings::getScreenDistance() const function, expected prototype:\nfloat osg::DisplaySettings::getScreenDistance() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::DisplaySettings::getScreenDistance() const function, expected prototype:\nfloat osg::DisplaySettings::getScreenDistance() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::DisplaySettings::getScreenDistance() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::DisplaySettings::getScreenDistance() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getScreenDistance();
 		lua_pushnumber(L,lret);
@@ -1332,16 +1264,14 @@ public:
 	// void osg::DisplaySettings::setDoubleBuffer(bool flag)
 	static int _bind_setDoubleBuffer(lua_State *L) {
 		if (!_lg_typecheck_setDoubleBuffer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setDoubleBuffer(bool flag) function, expected prototype:\nvoid osg::DisplaySettings::setDoubleBuffer(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setDoubleBuffer(bool flag) function, expected prototype:\nvoid osg::DisplaySettings::setDoubleBuffer(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setDoubleBuffer(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setDoubleBuffer(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDoubleBuffer(flag);
 
@@ -1351,15 +1281,13 @@ public:
 	// bool osg::DisplaySettings::getDoubleBuffer() const
 	static int _bind_getDoubleBuffer(lua_State *L) {
 		if (!_lg_typecheck_getDoubleBuffer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getDoubleBuffer() const function, expected prototype:\nbool osg::DisplaySettings::getDoubleBuffer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getDoubleBuffer() const function, expected prototype:\nbool osg::DisplaySettings::getDoubleBuffer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getDoubleBuffer() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getDoubleBuffer() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getDoubleBuffer();
 		lua_pushboolean(L,lret?1:0);
@@ -1370,16 +1298,14 @@ public:
 	// void osg::DisplaySettings::setRGB(bool flag)
 	static int _bind_setRGB(lua_State *L) {
 		if (!_lg_typecheck_setRGB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setRGB(bool flag) function, expected prototype:\nvoid osg::DisplaySettings::setRGB(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setRGB(bool flag) function, expected prototype:\nvoid osg::DisplaySettings::setRGB(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setRGB(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setRGB(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRGB(flag);
 
@@ -1389,15 +1315,13 @@ public:
 	// bool osg::DisplaySettings::getRGB() const
 	static int _bind_getRGB(lua_State *L) {
 		if (!_lg_typecheck_getRGB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getRGB() const function, expected prototype:\nbool osg::DisplaySettings::getRGB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getRGB() const function, expected prototype:\nbool osg::DisplaySettings::getRGB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getRGB() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getRGB() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getRGB();
 		lua_pushboolean(L,lret?1:0);
@@ -1408,16 +1332,14 @@ public:
 	// void osg::DisplaySettings::setDepthBuffer(bool flag)
 	static int _bind_setDepthBuffer(lua_State *L) {
 		if (!_lg_typecheck_setDepthBuffer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setDepthBuffer(bool flag) function, expected prototype:\nvoid osg::DisplaySettings::setDepthBuffer(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setDepthBuffer(bool flag) function, expected prototype:\nvoid osg::DisplaySettings::setDepthBuffer(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setDepthBuffer(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setDepthBuffer(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDepthBuffer(flag);
 
@@ -1427,15 +1349,13 @@ public:
 	// bool osg::DisplaySettings::getDepthBuffer() const
 	static int _bind_getDepthBuffer(lua_State *L) {
 		if (!_lg_typecheck_getDepthBuffer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getDepthBuffer() const function, expected prototype:\nbool osg::DisplaySettings::getDepthBuffer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getDepthBuffer() const function, expected prototype:\nbool osg::DisplaySettings::getDepthBuffer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getDepthBuffer() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getDepthBuffer() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getDepthBuffer();
 		lua_pushboolean(L,lret?1:0);
@@ -1446,16 +1366,14 @@ public:
 	// void osg::DisplaySettings::setMinimumNumAlphaBits(unsigned int bits)
 	static int _bind_setMinimumNumAlphaBits(lua_State *L) {
 		if (!_lg_typecheck_setMinimumNumAlphaBits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setMinimumNumAlphaBits(unsigned int bits) function, expected prototype:\nvoid osg::DisplaySettings::setMinimumNumAlphaBits(unsigned int bits)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setMinimumNumAlphaBits(unsigned int bits) function, expected prototype:\nvoid osg::DisplaySettings::setMinimumNumAlphaBits(unsigned int bits)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int bits=(unsigned int)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setMinimumNumAlphaBits(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setMinimumNumAlphaBits(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMinimumNumAlphaBits(bits);
 
@@ -1465,15 +1383,13 @@ public:
 	// unsigned int osg::DisplaySettings::getMinimumNumAlphaBits() const
 	static int _bind_getMinimumNumAlphaBits(lua_State *L) {
 		if (!_lg_typecheck_getMinimumNumAlphaBits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMinimumNumAlphaBits() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMinimumNumAlphaBits() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMinimumNumAlphaBits() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMinimumNumAlphaBits() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMinimumNumAlphaBits() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMinimumNumAlphaBits() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getMinimumNumAlphaBits();
 		lua_pushnumber(L,lret);
@@ -1484,15 +1400,13 @@ public:
 	// bool osg::DisplaySettings::getAlphaBuffer() const
 	static int _bind_getAlphaBuffer(lua_State *L) {
 		if (!_lg_typecheck_getAlphaBuffer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getAlphaBuffer() const function, expected prototype:\nbool osg::DisplaySettings::getAlphaBuffer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getAlphaBuffer() const function, expected prototype:\nbool osg::DisplaySettings::getAlphaBuffer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getAlphaBuffer() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getAlphaBuffer() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getAlphaBuffer();
 		lua_pushboolean(L,lret?1:0);
@@ -1503,16 +1417,14 @@ public:
 	// void osg::DisplaySettings::setMinimumNumStencilBits(unsigned int bits)
 	static int _bind_setMinimumNumStencilBits(lua_State *L) {
 		if (!_lg_typecheck_setMinimumNumStencilBits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setMinimumNumStencilBits(unsigned int bits) function, expected prototype:\nvoid osg::DisplaySettings::setMinimumNumStencilBits(unsigned int bits)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setMinimumNumStencilBits(unsigned int bits) function, expected prototype:\nvoid osg::DisplaySettings::setMinimumNumStencilBits(unsigned int bits)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int bits=(unsigned int)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setMinimumNumStencilBits(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setMinimumNumStencilBits(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMinimumNumStencilBits(bits);
 
@@ -1522,15 +1434,13 @@ public:
 	// unsigned int osg::DisplaySettings::getMinimumNumStencilBits() const
 	static int _bind_getMinimumNumStencilBits(lua_State *L) {
 		if (!_lg_typecheck_getMinimumNumStencilBits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMinimumNumStencilBits() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMinimumNumStencilBits() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMinimumNumStencilBits() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMinimumNumStencilBits() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMinimumNumStencilBits() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMinimumNumStencilBits() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getMinimumNumStencilBits();
 		lua_pushnumber(L,lret);
@@ -1541,15 +1451,13 @@ public:
 	// bool osg::DisplaySettings::getStencilBuffer() const
 	static int _bind_getStencilBuffer(lua_State *L) {
 		if (!_lg_typecheck_getStencilBuffer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getStencilBuffer() const function, expected prototype:\nbool osg::DisplaySettings::getStencilBuffer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getStencilBuffer() const function, expected prototype:\nbool osg::DisplaySettings::getStencilBuffer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getStencilBuffer() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getStencilBuffer() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getStencilBuffer();
 		lua_pushboolean(L,lret?1:0);
@@ -1560,8 +1468,7 @@ public:
 	// void osg::DisplaySettings::setMinimumNumAccumBits(unsigned int red, unsigned int green, unsigned int blue, unsigned int alpha)
 	static int _bind_setMinimumNumAccumBits(lua_State *L) {
 		if (!_lg_typecheck_setMinimumNumAccumBits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setMinimumNumAccumBits(unsigned int red, unsigned int green, unsigned int blue, unsigned int alpha) function, expected prototype:\nvoid osg::DisplaySettings::setMinimumNumAccumBits(unsigned int red, unsigned int green, unsigned int blue, unsigned int alpha)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setMinimumNumAccumBits(unsigned int red, unsigned int green, unsigned int blue, unsigned int alpha) function, expected prototype:\nvoid osg::DisplaySettings::setMinimumNumAccumBits(unsigned int red, unsigned int green, unsigned int blue, unsigned int alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int red=(unsigned int)lua_tointeger(L,2);
@@ -1571,8 +1478,7 @@ public:
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setMinimumNumAccumBits(unsigned int, unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setMinimumNumAccumBits(unsigned int, unsigned int, unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMinimumNumAccumBits(red, green, blue, alpha);
 
@@ -1582,15 +1488,13 @@ public:
 	// unsigned int osg::DisplaySettings::getMinimumNumAccumRedBits() const
 	static int _bind_getMinimumNumAccumRedBits(lua_State *L) {
 		if (!_lg_typecheck_getMinimumNumAccumRedBits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMinimumNumAccumRedBits() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMinimumNumAccumRedBits() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMinimumNumAccumRedBits() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMinimumNumAccumRedBits() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMinimumNumAccumRedBits() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMinimumNumAccumRedBits() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getMinimumNumAccumRedBits();
 		lua_pushnumber(L,lret);
@@ -1601,15 +1505,13 @@ public:
 	// unsigned int osg::DisplaySettings::getMinimumNumAccumGreenBits() const
 	static int _bind_getMinimumNumAccumGreenBits(lua_State *L) {
 		if (!_lg_typecheck_getMinimumNumAccumGreenBits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMinimumNumAccumGreenBits() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMinimumNumAccumGreenBits() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMinimumNumAccumGreenBits() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMinimumNumAccumGreenBits() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMinimumNumAccumGreenBits() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMinimumNumAccumGreenBits() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getMinimumNumAccumGreenBits();
 		lua_pushnumber(L,lret);
@@ -1620,15 +1522,13 @@ public:
 	// unsigned int osg::DisplaySettings::getMinimumNumAccumBlueBits() const
 	static int _bind_getMinimumNumAccumBlueBits(lua_State *L) {
 		if (!_lg_typecheck_getMinimumNumAccumBlueBits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMinimumNumAccumBlueBits() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMinimumNumAccumBlueBits() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMinimumNumAccumBlueBits() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMinimumNumAccumBlueBits() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMinimumNumAccumBlueBits() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMinimumNumAccumBlueBits() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getMinimumNumAccumBlueBits();
 		lua_pushnumber(L,lret);
@@ -1639,15 +1539,13 @@ public:
 	// unsigned int osg::DisplaySettings::getMinimumNumAccumAlphaBits() const
 	static int _bind_getMinimumNumAccumAlphaBits(lua_State *L) {
 		if (!_lg_typecheck_getMinimumNumAccumAlphaBits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMinimumNumAccumAlphaBits() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMinimumNumAccumAlphaBits() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMinimumNumAccumAlphaBits() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMinimumNumAccumAlphaBits() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMinimumNumAccumAlphaBits() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMinimumNumAccumAlphaBits() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getMinimumNumAccumAlphaBits();
 		lua_pushnumber(L,lret);
@@ -1658,15 +1556,13 @@ public:
 	// bool osg::DisplaySettings::getAccumBuffer() const
 	static int _bind_getAccumBuffer(lua_State *L) {
 		if (!_lg_typecheck_getAccumBuffer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getAccumBuffer() const function, expected prototype:\nbool osg::DisplaySettings::getAccumBuffer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getAccumBuffer() const function, expected prototype:\nbool osg::DisplaySettings::getAccumBuffer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getAccumBuffer() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getAccumBuffer() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getAccumBuffer();
 		lua_pushboolean(L,lret?1:0);
@@ -1677,16 +1573,14 @@ public:
 	// void osg::DisplaySettings::setMaxNumberOfGraphicsContexts(unsigned int num)
 	static int _bind_setMaxNumberOfGraphicsContexts(lua_State *L) {
 		if (!_lg_typecheck_setMaxNumberOfGraphicsContexts(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setMaxNumberOfGraphicsContexts(unsigned int num) function, expected prototype:\nvoid osg::DisplaySettings::setMaxNumberOfGraphicsContexts(unsigned int num)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setMaxNumberOfGraphicsContexts(unsigned int num) function, expected prototype:\nvoid osg::DisplaySettings::setMaxNumberOfGraphicsContexts(unsigned int num)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int num=(unsigned int)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setMaxNumberOfGraphicsContexts(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setMaxNumberOfGraphicsContexts(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMaxNumberOfGraphicsContexts(num);
 
@@ -1696,15 +1590,13 @@ public:
 	// unsigned int osg::DisplaySettings::getMaxNumberOfGraphicsContexts() const
 	static int _bind_getMaxNumberOfGraphicsContexts(lua_State *L) {
 		if (!_lg_typecheck_getMaxNumberOfGraphicsContexts(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMaxNumberOfGraphicsContexts() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMaxNumberOfGraphicsContexts() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMaxNumberOfGraphicsContexts() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMaxNumberOfGraphicsContexts() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMaxNumberOfGraphicsContexts() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMaxNumberOfGraphicsContexts() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getMaxNumberOfGraphicsContexts();
 		lua_pushnumber(L,lret);
@@ -1715,16 +1607,14 @@ public:
 	// void osg::DisplaySettings::setNumMultiSamples(unsigned int samples)
 	static int _bind_setNumMultiSamples(lua_State *L) {
 		if (!_lg_typecheck_setNumMultiSamples(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setNumMultiSamples(unsigned int samples) function, expected prototype:\nvoid osg::DisplaySettings::setNumMultiSamples(unsigned int samples)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setNumMultiSamples(unsigned int samples) function, expected prototype:\nvoid osg::DisplaySettings::setNumMultiSamples(unsigned int samples)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int samples=(unsigned int)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setNumMultiSamples(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setNumMultiSamples(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setNumMultiSamples(samples);
 
@@ -1734,15 +1624,13 @@ public:
 	// unsigned int osg::DisplaySettings::getNumMultiSamples() const
 	static int _bind_getNumMultiSamples(lua_State *L) {
 		if (!_lg_typecheck_getNumMultiSamples(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getNumMultiSamples() const function, expected prototype:\nunsigned int osg::DisplaySettings::getNumMultiSamples() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getNumMultiSamples() const function, expected prototype:\nunsigned int osg::DisplaySettings::getNumMultiSamples() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getNumMultiSamples() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getNumMultiSamples() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getNumMultiSamples();
 		lua_pushnumber(L,lret);
@@ -1753,15 +1641,13 @@ public:
 	// bool osg::DisplaySettings::getMultiSamples() const
 	static int _bind_getMultiSamples(lua_State *L) {
 		if (!_lg_typecheck_getMultiSamples(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getMultiSamples() const function, expected prototype:\nbool osg::DisplaySettings::getMultiSamples() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getMultiSamples() const function, expected prototype:\nbool osg::DisplaySettings::getMultiSamples() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getMultiSamples() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getMultiSamples() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getMultiSamples();
 		lua_pushboolean(L,lret?1:0);
@@ -1772,16 +1658,14 @@ public:
 	// void osg::DisplaySettings::setCompileContextsHint(bool useCompileContexts)
 	static int _bind_setCompileContextsHint(lua_State *L) {
 		if (!_lg_typecheck_setCompileContextsHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setCompileContextsHint(bool useCompileContexts) function, expected prototype:\nvoid osg::DisplaySettings::setCompileContextsHint(bool useCompileContexts)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setCompileContextsHint(bool useCompileContexts) function, expected prototype:\nvoid osg::DisplaySettings::setCompileContextsHint(bool useCompileContexts)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useCompileContexts=(bool)(lua_toboolean(L,2)==1);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setCompileContextsHint(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setCompileContextsHint(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCompileContextsHint(useCompileContexts);
 
@@ -1791,15 +1675,13 @@ public:
 	// bool osg::DisplaySettings::getCompileContextsHint() const
 	static int _bind_getCompileContextsHint(lua_State *L) {
 		if (!_lg_typecheck_getCompileContextsHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getCompileContextsHint() const function, expected prototype:\nbool osg::DisplaySettings::getCompileContextsHint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getCompileContextsHint() const function, expected prototype:\nbool osg::DisplaySettings::getCompileContextsHint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getCompileContextsHint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getCompileContextsHint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getCompileContextsHint();
 		lua_pushboolean(L,lret?1:0);
@@ -1810,16 +1692,14 @@ public:
 	// void osg::DisplaySettings::setSerializeDrawDispatch(bool serializeDrawDispatch)
 	static int _bind_setSerializeDrawDispatch(lua_State *L) {
 		if (!_lg_typecheck_setSerializeDrawDispatch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setSerializeDrawDispatch(bool serializeDrawDispatch) function, expected prototype:\nvoid osg::DisplaySettings::setSerializeDrawDispatch(bool serializeDrawDispatch)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setSerializeDrawDispatch(bool serializeDrawDispatch) function, expected prototype:\nvoid osg::DisplaySettings::setSerializeDrawDispatch(bool serializeDrawDispatch)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool serializeDrawDispatch=(bool)(lua_toboolean(L,2)==1);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setSerializeDrawDispatch(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setSerializeDrawDispatch(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSerializeDrawDispatch(serializeDrawDispatch);
 
@@ -1829,15 +1709,13 @@ public:
 	// bool osg::DisplaySettings::getSerializeDrawDispatch() const
 	static int _bind_getSerializeDrawDispatch(lua_State *L) {
 		if (!_lg_typecheck_getSerializeDrawDispatch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getSerializeDrawDispatch() const function, expected prototype:\nbool osg::DisplaySettings::getSerializeDrawDispatch() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::DisplaySettings::getSerializeDrawDispatch() const function, expected prototype:\nbool osg::DisplaySettings::getSerializeDrawDispatch() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getSerializeDrawDispatch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::DisplaySettings::getSerializeDrawDispatch() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getSerializeDrawDispatch();
 		lua_pushboolean(L,lret?1:0);
@@ -1848,16 +1726,14 @@ public:
 	// void osg::DisplaySettings::setApplication(const std::string & application)
 	static int _bind_setApplication(lua_State *L) {
 		if (!_lg_typecheck_setApplication(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setApplication(const std::string & application) function, expected prototype:\nvoid osg::DisplaySettings::setApplication(const std::string & application)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setApplication(const std::string & application) function, expected prototype:\nvoid osg::DisplaySettings::setApplication(const std::string & application)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string application(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setApplication(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setApplication(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setApplication(application);
 
@@ -1867,15 +1743,13 @@ public:
 	// const std::string & osg::DisplaySettings::getApplication()
 	static int _bind_getApplication(lua_State *L) {
 		if (!_lg_typecheck_getApplication(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osg::DisplaySettings::getApplication() function, expected prototype:\nconst std::string & osg::DisplaySettings::getApplication()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osg::DisplaySettings::getApplication() function, expected prototype:\nconst std::string & osg::DisplaySettings::getApplication()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::DisplaySettings::getApplication(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osg::DisplaySettings::getApplication(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getApplication();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1886,16 +1760,14 @@ public:
 	// void osg::DisplaySettings::setMaxTexturePoolSize(unsigned int size)
 	static int _bind_setMaxTexturePoolSize(lua_State *L) {
 		if (!_lg_typecheck_setMaxTexturePoolSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setMaxTexturePoolSize(unsigned int size) function, expected prototype:\nvoid osg::DisplaySettings::setMaxTexturePoolSize(unsigned int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setMaxTexturePoolSize(unsigned int size) function, expected prototype:\nvoid osg::DisplaySettings::setMaxTexturePoolSize(unsigned int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int size=(unsigned int)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setMaxTexturePoolSize(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setMaxTexturePoolSize(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMaxTexturePoolSize(size);
 
@@ -1905,15 +1777,13 @@ public:
 	// unsigned int osg::DisplaySettings::getMaxTexturePoolSize() const
 	static int _bind_getMaxTexturePoolSize(lua_State *L) {
 		if (!_lg_typecheck_getMaxTexturePoolSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMaxTexturePoolSize() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMaxTexturePoolSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMaxTexturePoolSize() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMaxTexturePoolSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMaxTexturePoolSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMaxTexturePoolSize() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getMaxTexturePoolSize();
 		lua_pushnumber(L,lret);
@@ -1924,16 +1794,14 @@ public:
 	// void osg::DisplaySettings::setMaxBufferObjectPoolSize(unsigned int size)
 	static int _bind_setMaxBufferObjectPoolSize(lua_State *L) {
 		if (!_lg_typecheck_setMaxBufferObjectPoolSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setMaxBufferObjectPoolSize(unsigned int size) function, expected prototype:\nvoid osg::DisplaySettings::setMaxBufferObjectPoolSize(unsigned int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setMaxBufferObjectPoolSize(unsigned int size) function, expected prototype:\nvoid osg::DisplaySettings::setMaxBufferObjectPoolSize(unsigned int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int size=(unsigned int)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setMaxBufferObjectPoolSize(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setMaxBufferObjectPoolSize(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMaxBufferObjectPoolSize(size);
 
@@ -1943,15 +1811,13 @@ public:
 	// unsigned int osg::DisplaySettings::getMaxBufferObjectPoolSize() const
 	static int _bind_getMaxBufferObjectPoolSize(lua_State *L) {
 		if (!_lg_typecheck_getMaxBufferObjectPoolSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMaxBufferObjectPoolSize() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMaxBufferObjectPoolSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getMaxBufferObjectPoolSize() const function, expected prototype:\nunsigned int osg::DisplaySettings::getMaxBufferObjectPoolSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMaxBufferObjectPoolSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getMaxBufferObjectPoolSize() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getMaxBufferObjectPoolSize();
 		lua_pushnumber(L,lret);
@@ -1962,8 +1828,7 @@ public:
 	// void osg::DisplaySettings::setImplicitBufferAttachmentMask(int renderMask = osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT, int resolveMask = osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT)
 	static int _bind_setImplicitBufferAttachmentMask(lua_State *L) {
 		if (!_lg_typecheck_setImplicitBufferAttachmentMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setImplicitBufferAttachmentMask(int renderMask = osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT, int resolveMask = osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT) function, expected prototype:\nvoid osg::DisplaySettings::setImplicitBufferAttachmentMask(int renderMask = osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT, int resolveMask = osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setImplicitBufferAttachmentMask(int renderMask = osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT, int resolveMask = osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT) function, expected prototype:\nvoid osg::DisplaySettings::setImplicitBufferAttachmentMask(int renderMask = osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT, int resolveMask = osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1973,8 +1838,7 @@ public:
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setImplicitBufferAttachmentMask(int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setImplicitBufferAttachmentMask(int, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setImplicitBufferAttachmentMask(renderMask, resolveMask);
 
@@ -1984,16 +1848,14 @@ public:
 	// void osg::DisplaySettings::setImplicitBufferAttachmentRenderMask(int implicitBufferAttachmentRenderMask)
 	static int _bind_setImplicitBufferAttachmentRenderMask(lua_State *L) {
 		if (!_lg_typecheck_setImplicitBufferAttachmentRenderMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setImplicitBufferAttachmentRenderMask(int implicitBufferAttachmentRenderMask) function, expected prototype:\nvoid osg::DisplaySettings::setImplicitBufferAttachmentRenderMask(int implicitBufferAttachmentRenderMask)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setImplicitBufferAttachmentRenderMask(int implicitBufferAttachmentRenderMask) function, expected prototype:\nvoid osg::DisplaySettings::setImplicitBufferAttachmentRenderMask(int implicitBufferAttachmentRenderMask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int implicitBufferAttachmentRenderMask=(int)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setImplicitBufferAttachmentRenderMask(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setImplicitBufferAttachmentRenderMask(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setImplicitBufferAttachmentRenderMask(implicitBufferAttachmentRenderMask);
 
@@ -2003,16 +1865,14 @@ public:
 	// void osg::DisplaySettings::setImplicitBufferAttachmentResolveMask(int implicitBufferAttachmentResolveMask)
 	static int _bind_setImplicitBufferAttachmentResolveMask(lua_State *L) {
 		if (!_lg_typecheck_setImplicitBufferAttachmentResolveMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setImplicitBufferAttachmentResolveMask(int implicitBufferAttachmentResolveMask) function, expected prototype:\nvoid osg::DisplaySettings::setImplicitBufferAttachmentResolveMask(int implicitBufferAttachmentResolveMask)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setImplicitBufferAttachmentResolveMask(int implicitBufferAttachmentResolveMask) function, expected prototype:\nvoid osg::DisplaySettings::setImplicitBufferAttachmentResolveMask(int implicitBufferAttachmentResolveMask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int implicitBufferAttachmentResolveMask=(int)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setImplicitBufferAttachmentResolveMask(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setImplicitBufferAttachmentResolveMask(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setImplicitBufferAttachmentResolveMask(implicitBufferAttachmentResolveMask);
 
@@ -2022,15 +1882,13 @@ public:
 	// int osg::DisplaySettings::getImplicitBufferAttachmentRenderMask() const
 	static int _bind_getImplicitBufferAttachmentRenderMask(lua_State *L) {
 		if (!_lg_typecheck_getImplicitBufferAttachmentRenderMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::DisplaySettings::getImplicitBufferAttachmentRenderMask() const function, expected prototype:\nint osg::DisplaySettings::getImplicitBufferAttachmentRenderMask() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::DisplaySettings::getImplicitBufferAttachmentRenderMask() const function, expected prototype:\nint osg::DisplaySettings::getImplicitBufferAttachmentRenderMask() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::DisplaySettings::getImplicitBufferAttachmentRenderMask() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::DisplaySettings::getImplicitBufferAttachmentRenderMask() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getImplicitBufferAttachmentRenderMask();
 		lua_pushnumber(L,lret);
@@ -2041,15 +1899,13 @@ public:
 	// int osg::DisplaySettings::getImplicitBufferAttachmentResolveMask() const
 	static int _bind_getImplicitBufferAttachmentResolveMask(lua_State *L) {
 		if (!_lg_typecheck_getImplicitBufferAttachmentResolveMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::DisplaySettings::getImplicitBufferAttachmentResolveMask() const function, expected prototype:\nint osg::DisplaySettings::getImplicitBufferAttachmentResolveMask() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::DisplaySettings::getImplicitBufferAttachmentResolveMask() const function, expected prototype:\nint osg::DisplaySettings::getImplicitBufferAttachmentResolveMask() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::DisplaySettings::getImplicitBufferAttachmentResolveMask() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::DisplaySettings::getImplicitBufferAttachmentResolveMask() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getImplicitBufferAttachmentResolveMask();
 		lua_pushnumber(L,lret);
@@ -2060,16 +1916,14 @@ public:
 	// void osg::DisplaySettings::setSwapMethod(osg::DisplaySettings::SwapMethod swapMethod)
 	static int _bind_setSwapMethod(lua_State *L) {
 		if (!_lg_typecheck_setSwapMethod(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setSwapMethod(osg::DisplaySettings::SwapMethod swapMethod) function, expected prototype:\nvoid osg::DisplaySettings::setSwapMethod(osg::DisplaySettings::SwapMethod swapMethod)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setSwapMethod(osg::DisplaySettings::SwapMethod swapMethod) function, expected prototype:\nvoid osg::DisplaySettings::setSwapMethod(osg::DisplaySettings::SwapMethod swapMethod)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::DisplaySettings::SwapMethod swapMethod=(osg::DisplaySettings::SwapMethod)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setSwapMethod(osg::DisplaySettings::SwapMethod). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setSwapMethod(osg::DisplaySettings::SwapMethod). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSwapMethod(swapMethod);
 
@@ -2079,15 +1933,13 @@ public:
 	// osg::DisplaySettings::SwapMethod osg::DisplaySettings::getSwapMethod()
 	static int _bind_getSwapMethod(lua_State *L) {
 		if (!_lg_typecheck_getSwapMethod(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::SwapMethod osg::DisplaySettings::getSwapMethod() function, expected prototype:\nosg::DisplaySettings::SwapMethod osg::DisplaySettings::getSwapMethod()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::SwapMethod osg::DisplaySettings::getSwapMethod() function, expected prototype:\nosg::DisplaySettings::SwapMethod osg::DisplaySettings::getSwapMethod()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::DisplaySettings::SwapMethod osg::DisplaySettings::getSwapMethod(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::DisplaySettings::SwapMethod osg::DisplaySettings::getSwapMethod(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::DisplaySettings::SwapMethod lret = self->getSwapMethod();
 		lua_pushnumber(L,lret);
@@ -2098,16 +1950,14 @@ public:
 	// void osg::DisplaySettings::setGLContextVersion(const std::string & version)
 	static int _bind_setGLContextVersion(lua_State *L) {
 		if (!_lg_typecheck_setGLContextVersion(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setGLContextVersion(const std::string & version) function, expected prototype:\nvoid osg::DisplaySettings::setGLContextVersion(const std::string & version)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setGLContextVersion(const std::string & version) function, expected prototype:\nvoid osg::DisplaySettings::setGLContextVersion(const std::string & version)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string version(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setGLContextVersion(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setGLContextVersion(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setGLContextVersion(version);
 
@@ -2117,15 +1967,13 @@ public:
 	// const std::string osg::DisplaySettings::getGLContextVersion() const
 	static int _bind_getGLContextVersion(lua_State *L) {
 		if (!_lg_typecheck_getGLContextVersion(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string osg::DisplaySettings::getGLContextVersion() const function, expected prototype:\nconst std::string osg::DisplaySettings::getGLContextVersion() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string osg::DisplaySettings::getGLContextVersion() const function, expected prototype:\nconst std::string osg::DisplaySettings::getGLContextVersion() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string osg::DisplaySettings::getGLContextVersion() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string osg::DisplaySettings::getGLContextVersion() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string lret = self->getGLContextVersion();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2136,16 +1984,14 @@ public:
 	// void osg::DisplaySettings::setGLContextFlags(unsigned int flags)
 	static int _bind_setGLContextFlags(lua_State *L) {
 		if (!_lg_typecheck_setGLContextFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setGLContextFlags(unsigned int flags) function, expected prototype:\nvoid osg::DisplaySettings::setGLContextFlags(unsigned int flags)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setGLContextFlags(unsigned int flags) function, expected prototype:\nvoid osg::DisplaySettings::setGLContextFlags(unsigned int flags)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int flags=(unsigned int)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setGLContextFlags(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setGLContextFlags(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setGLContextFlags(flags);
 
@@ -2155,15 +2001,13 @@ public:
 	// unsigned int osg::DisplaySettings::getGLContextFlags() const
 	static int _bind_getGLContextFlags(lua_State *L) {
 		if (!_lg_typecheck_getGLContextFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getGLContextFlags() const function, expected prototype:\nunsigned int osg::DisplaySettings::getGLContextFlags() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getGLContextFlags() const function, expected prototype:\nunsigned int osg::DisplaySettings::getGLContextFlags() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getGLContextFlags() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getGLContextFlags() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getGLContextFlags();
 		lua_pushnumber(L,lret);
@@ -2174,16 +2018,14 @@ public:
 	// void osg::DisplaySettings::setGLContextProfileMask(unsigned int mask)
 	static int _bind_setGLContextProfileMask(lua_State *L) {
 		if (!_lg_typecheck_setGLContextProfileMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setGLContextProfileMask(unsigned int mask) function, expected prototype:\nvoid osg::DisplaySettings::setGLContextProfileMask(unsigned int mask)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setGLContextProfileMask(unsigned int mask) function, expected prototype:\nvoid osg::DisplaySettings::setGLContextProfileMask(unsigned int mask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mask=(unsigned int)lua_tointeger(L,2);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setGLContextProfileMask(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setGLContextProfileMask(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setGLContextProfileMask(mask);
 
@@ -2193,15 +2035,13 @@ public:
 	// unsigned int osg::DisplaySettings::getGLContextProfileMask() const
 	static int _bind_getGLContextProfileMask(lua_State *L) {
 		if (!_lg_typecheck_getGLContextProfileMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getGLContextProfileMask() const function, expected prototype:\nunsigned int osg::DisplaySettings::getGLContextProfileMask() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getGLContextProfileMask() const function, expected prototype:\nunsigned int osg::DisplaySettings::getGLContextProfileMask() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getGLContextProfileMask() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getGLContextProfileMask() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getGLContextProfileMask();
 		lua_pushnumber(L,lret);
@@ -2212,16 +2052,14 @@ public:
 	// void osg::DisplaySettings::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::DisplaySettings::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::DisplaySettings::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DisplaySettings::setThreadSafeRefUnref(threadSafe);
 
@@ -2233,8 +2071,7 @@ public:
 	// osg::DisplaySettings & osg::DisplaySettings::operator=(const osg::DisplaySettings & vs)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::DisplaySettings & osg::DisplaySettings::operator=(const osg::DisplaySettings & vs) function, expected prototype:\nosg::DisplaySettings & osg::DisplaySettings::operator=(const osg::DisplaySettings & vs)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings & osg::DisplaySettings::operator=(const osg::DisplaySettings & vs) function, expected prototype:\nosg::DisplaySettings & osg::DisplaySettings::operator=(const osg::DisplaySettings & vs)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::DisplaySettings* vs_ptr=(Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,2));
@@ -2245,8 +2082,7 @@ public:
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::DisplaySettings & osg::DisplaySettings::operator=(const osg::DisplaySettings &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::DisplaySettings & osg::DisplaySettings::operator=(const osg::DisplaySettings &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::DisplaySettings* lret = &self->operator=(vs);
 		if(!lret) return 0; // Do not write NULL pointers.

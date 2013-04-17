@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::Condition* self=(Luna< OpenThreads::Condition >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(OpenThreads::Condition*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(OpenThreads::Condition*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::Condition* rhs =(Luna< OpenThreads::Condition >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::Condition* self= (OpenThreads::Condition*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< OpenThreads::Condition >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -173,8 +168,7 @@ public:
 	// OpenThreads::Condition::Condition()
 	static OpenThreads::Condition* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in OpenThreads::Condition::Condition() function, expected prototype:\nOpenThreads::Condition::Condition()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in OpenThreads::Condition::Condition() function, expected prototype:\nOpenThreads::Condition::Condition()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -184,8 +178,7 @@ public:
 	// OpenThreads::Condition::Condition(lua_Table * data)
 	static OpenThreads::Condition* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in OpenThreads::Condition::Condition(lua_Table * data) function, expected prototype:\nOpenThreads::Condition::Condition(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in OpenThreads::Condition::Condition(lua_Table * data) function, expected prototype:\nOpenThreads::Condition::Condition(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -206,15 +199,13 @@ public:
 	// int OpenThreads::Condition::signal()
 	static int _bind_signal(lua_State *L) {
 		if (!_lg_typecheck_signal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Condition::signal() function, expected prototype:\nint OpenThreads::Condition::signal()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Condition::signal() function, expected prototype:\nint OpenThreads::Condition::signal()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Condition* self=(Luna< OpenThreads::Condition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Condition::signal(). Got : '%s'",typeid(Luna< OpenThreads::Condition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Condition::signal(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Condition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->signal();
 		lua_pushnumber(L,lret);
@@ -225,15 +216,13 @@ public:
 	// int OpenThreads::Condition::broadcast()
 	static int _bind_broadcast(lua_State *L) {
 		if (!_lg_typecheck_broadcast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Condition::broadcast() function, expected prototype:\nint OpenThreads::Condition::broadcast()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Condition::broadcast() function, expected prototype:\nint OpenThreads::Condition::broadcast()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Condition* self=(Luna< OpenThreads::Condition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Condition::broadcast(). Got : '%s'",typeid(Luna< OpenThreads::Condition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Condition::broadcast(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Condition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->broadcast();
 		lua_pushnumber(L,lret);
@@ -244,15 +233,13 @@ public:
 	// int OpenThreads::Condition::base_signal()
 	static int _bind_base_signal(lua_State *L) {
 		if (!_lg_typecheck_base_signal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Condition::base_signal() function, expected prototype:\nint OpenThreads::Condition::base_signal()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Condition::base_signal() function, expected prototype:\nint OpenThreads::Condition::base_signal()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Condition* self=(Luna< OpenThreads::Condition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Condition::base_signal(). Got : '%s'",typeid(Luna< OpenThreads::Condition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Condition::base_signal(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Condition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Condition::signal();
 		lua_pushnumber(L,lret);
@@ -263,15 +250,13 @@ public:
 	// int OpenThreads::Condition::base_broadcast()
 	static int _bind_base_broadcast(lua_State *L) {
 		if (!_lg_typecheck_base_broadcast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int OpenThreads::Condition::base_broadcast() function, expected prototype:\nint OpenThreads::Condition::base_broadcast()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int OpenThreads::Condition::base_broadcast() function, expected prototype:\nint OpenThreads::Condition::base_broadcast()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::Condition* self=(Luna< OpenThreads::Condition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int OpenThreads::Condition::base_broadcast(). Got : '%s'",typeid(Luna< OpenThreads::Condition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int OpenThreads::Condition::base_broadcast(). Got : '%s'\n%s",typeid(Luna< OpenThreads::Condition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Condition::broadcast();
 		lua_pushnumber(L,lret);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3s* self= (osg::Vec3s*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Vec3s >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -297,7 +294,7 @@ public:
 	}
 
 	inline static bool _lg_typecheck___unm(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
+		if( lua_gettop(L)!=2 ) return false;
 
 		return true;
 	}
@@ -307,8 +304,7 @@ public:
 	// osg::Vec3s::Vec3s()
 	static osg::Vec3s* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3s::Vec3s() function, expected prototype:\nosg::Vec3s::Vec3s()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3s::Vec3s() function, expected prototype:\nosg::Vec3s::Vec3s()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -318,8 +314,7 @@ public:
 	// osg::Vec3s::Vec3s(short r, short g, short b)
 	static osg::Vec3s* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3s::Vec3s(short r, short g, short b) function, expected prototype:\nosg::Vec3s::Vec3s(short r, short g, short b)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3s::Vec3s(short r, short g, short b) function, expected prototype:\nosg::Vec3s::Vec3s(short r, short g, short b)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		short r=(short)lua_tointeger(L,1);
@@ -343,15 +338,13 @@ public:
 	// short * osg::Vec3s::ptr()
 	static int _bind_ptr_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ptr_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short * osg::Vec3s::ptr() function, expected prototype:\nshort * osg::Vec3s::ptr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short * osg::Vec3s::ptr() function, expected prototype:\nshort * osg::Vec3s::ptr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short * osg::Vec3s::ptr(). Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short * osg::Vec3s::ptr(). Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short * lret = self->ptr();
 		lua_pushnumber(L,*lret);
@@ -362,15 +355,13 @@ public:
 	// const short * osg::Vec3s::ptr() const
 	static int _bind_ptr_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ptr_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const short * osg::Vec3s::ptr() const function, expected prototype:\nconst short * osg::Vec3s::ptr() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const short * osg::Vec3s::ptr() const function, expected prototype:\nconst short * osg::Vec3s::ptr() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const short * osg::Vec3s::ptr() const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const short * osg::Vec3s::ptr() const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const short * lret = self->ptr();
 		lua_pushnumber(L,*lret);
@@ -390,8 +381,7 @@ public:
 	// void osg::Vec3s::set(short r, short g, short b)
 	static int _bind_set_overload_1(lua_State *L) {
 		if (!_lg_typecheck_set_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Vec3s::set(short r, short g, short b) function, expected prototype:\nvoid osg::Vec3s::set(short r, short g, short b)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Vec3s::set(short r, short g, short b) function, expected prototype:\nvoid osg::Vec3s::set(short r, short g, short b)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		short r=(short)lua_tointeger(L,2);
@@ -400,8 +390,7 @@ public:
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec3s::set(short, short, short). Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Vec3s::set(short, short, short). Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(r, g, b);
 
@@ -411,8 +400,7 @@ public:
 	// void osg::Vec3s::set(const osg::Vec3s & rhs)
 	static int _bind_set_overload_2(lua_State *L) {
 		if (!_lg_typecheck_set_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Vec3s::set(const osg::Vec3s & rhs) function, expected prototype:\nvoid osg::Vec3s::set(const osg::Vec3s & rhs)\nClass arguments details:\narg 1 ID = 92303217\n");
+			luaL_error(L, "luna typecheck failed in void osg::Vec3s::set(const osg::Vec3s & rhs) function, expected prototype:\nvoid osg::Vec3s::set(const osg::Vec3s & rhs)\nClass arguments details:\narg 1 ID = 92303217\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3s* rhs_ptr=(Luna< osg::Vec3s >::check(L,2));
@@ -423,8 +411,7 @@ public:
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec3s::set(const osg::Vec3s &). Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Vec3s::set(const osg::Vec3s &). Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(rhs);
 
@@ -443,15 +430,13 @@ public:
 	// short & osg::Vec3s::x()
 	static int _bind_x_overload_1(lua_State *L) {
 		if (!_lg_typecheck_x_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short & osg::Vec3s::x() function, expected prototype:\nshort & osg::Vec3s::x()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short & osg::Vec3s::x() function, expected prototype:\nshort & osg::Vec3s::x()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec3s::x(). Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short & osg::Vec3s::x(). Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short & lret = self->x();
 		lua_pushnumber(L,lret);
@@ -462,15 +447,13 @@ public:
 	// short osg::Vec3s::x() const
 	static int _bind_x_overload_2(lua_State *L) {
 		if (!_lg_typecheck_x_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short osg::Vec3s::x() const function, expected prototype:\nshort osg::Vec3s::x() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short osg::Vec3s::x() const function, expected prototype:\nshort osg::Vec3s::x() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec3s::x() const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short osg::Vec3s::x() const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short lret = self->x();
 		lua_pushnumber(L,lret);
@@ -490,15 +473,13 @@ public:
 	// short & osg::Vec3s::y()
 	static int _bind_y_overload_1(lua_State *L) {
 		if (!_lg_typecheck_y_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short & osg::Vec3s::y() function, expected prototype:\nshort & osg::Vec3s::y()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short & osg::Vec3s::y() function, expected prototype:\nshort & osg::Vec3s::y()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec3s::y(). Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short & osg::Vec3s::y(). Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short & lret = self->y();
 		lua_pushnumber(L,lret);
@@ -509,15 +490,13 @@ public:
 	// short osg::Vec3s::y() const
 	static int _bind_y_overload_2(lua_State *L) {
 		if (!_lg_typecheck_y_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short osg::Vec3s::y() const function, expected prototype:\nshort osg::Vec3s::y() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short osg::Vec3s::y() const function, expected prototype:\nshort osg::Vec3s::y() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec3s::y() const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short osg::Vec3s::y() const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short lret = self->y();
 		lua_pushnumber(L,lret);
@@ -537,15 +516,13 @@ public:
 	// short & osg::Vec3s::z()
 	static int _bind_z_overload_1(lua_State *L) {
 		if (!_lg_typecheck_z_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short & osg::Vec3s::z() function, expected prototype:\nshort & osg::Vec3s::z()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short & osg::Vec3s::z() function, expected prototype:\nshort & osg::Vec3s::z()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec3s::z(). Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short & osg::Vec3s::z(). Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short & lret = self->z();
 		lua_pushnumber(L,lret);
@@ -556,15 +533,13 @@ public:
 	// short osg::Vec3s::z() const
 	static int _bind_z_overload_2(lua_State *L) {
 		if (!_lg_typecheck_z_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short osg::Vec3s::z() const function, expected prototype:\nshort osg::Vec3s::z() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short osg::Vec3s::z() const function, expected prototype:\nshort osg::Vec3s::z() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec3s::z() const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short osg::Vec3s::z() const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short lret = self->z();
 		lua_pushnumber(L,lret);
@@ -584,15 +559,13 @@ public:
 	// short & osg::Vec3s::r()
 	static int _bind_r_overload_1(lua_State *L) {
 		if (!_lg_typecheck_r_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short & osg::Vec3s::r() function, expected prototype:\nshort & osg::Vec3s::r()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short & osg::Vec3s::r() function, expected prototype:\nshort & osg::Vec3s::r()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec3s::r(). Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short & osg::Vec3s::r(). Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short & lret = self->r();
 		lua_pushnumber(L,lret);
@@ -603,15 +576,13 @@ public:
 	// short osg::Vec3s::r() const
 	static int _bind_r_overload_2(lua_State *L) {
 		if (!_lg_typecheck_r_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short osg::Vec3s::r() const function, expected prototype:\nshort osg::Vec3s::r() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short osg::Vec3s::r() const function, expected prototype:\nshort osg::Vec3s::r() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec3s::r() const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short osg::Vec3s::r() const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short lret = self->r();
 		lua_pushnumber(L,lret);
@@ -631,15 +602,13 @@ public:
 	// short & osg::Vec3s::g()
 	static int _bind_g_overload_1(lua_State *L) {
 		if (!_lg_typecheck_g_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short & osg::Vec3s::g() function, expected prototype:\nshort & osg::Vec3s::g()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short & osg::Vec3s::g() function, expected prototype:\nshort & osg::Vec3s::g()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec3s::g(). Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short & osg::Vec3s::g(). Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short & lret = self->g();
 		lua_pushnumber(L,lret);
@@ -650,15 +619,13 @@ public:
 	// short osg::Vec3s::g() const
 	static int _bind_g_overload_2(lua_State *L) {
 		if (!_lg_typecheck_g_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short osg::Vec3s::g() const function, expected prototype:\nshort osg::Vec3s::g() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short osg::Vec3s::g() const function, expected prototype:\nshort osg::Vec3s::g() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec3s::g() const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short osg::Vec3s::g() const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short lret = self->g();
 		lua_pushnumber(L,lret);
@@ -678,15 +645,13 @@ public:
 	// short & osg::Vec3s::b()
 	static int _bind_b_overload_1(lua_State *L) {
 		if (!_lg_typecheck_b_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short & osg::Vec3s::b() function, expected prototype:\nshort & osg::Vec3s::b()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short & osg::Vec3s::b() function, expected prototype:\nshort & osg::Vec3s::b()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec3s::b(). Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short & osg::Vec3s::b(). Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short & lret = self->b();
 		lua_pushnumber(L,lret);
@@ -697,15 +662,13 @@ public:
 	// short osg::Vec3s::b() const
 	static int _bind_b_overload_2(lua_State *L) {
 		if (!_lg_typecheck_b_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short osg::Vec3s::b() const function, expected prototype:\nshort osg::Vec3s::b() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short osg::Vec3s::b() const function, expected prototype:\nshort osg::Vec3s::b() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec3s::b() const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short osg::Vec3s::b() const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short lret = self->b();
 		lua_pushnumber(L,lret);
@@ -727,8 +690,7 @@ public:
 	// bool osg::Vec3s::operator==(const osg::Vec3s & v) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Vec3s::operator==(const osg::Vec3s & v) const function, expected prototype:\nbool osg::Vec3s::operator==(const osg::Vec3s & v) const\nClass arguments details:\narg 1 ID = 92303217\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Vec3s::operator==(const osg::Vec3s & v) const function, expected prototype:\nbool osg::Vec3s::operator==(const osg::Vec3s & v) const\nClass arguments details:\narg 1 ID = 92303217\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3s* v_ptr=(Luna< osg::Vec3s >::check(L,2));
@@ -739,8 +701,7 @@ public:
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Vec3s::operator==(const osg::Vec3s &) const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Vec3s::operator==(const osg::Vec3s &) const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(v);
 		lua_pushboolean(L,lret?1:0);
@@ -751,8 +712,7 @@ public:
 	// bool osg::Vec3s::operator!=(const osg::Vec3s & v) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Vec3s::operator!=(const osg::Vec3s & v) const function, expected prototype:\nbool osg::Vec3s::operator!=(const osg::Vec3s & v) const\nClass arguments details:\narg 1 ID = 92303217\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Vec3s::operator!=(const osg::Vec3s & v) const function, expected prototype:\nbool osg::Vec3s::operator!=(const osg::Vec3s & v) const\nClass arguments details:\narg 1 ID = 92303217\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3s* v_ptr=(Luna< osg::Vec3s >::check(L,2));
@@ -763,8 +723,7 @@ public:
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Vec3s::operator!=(const osg::Vec3s &) const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Vec3s::operator!=(const osg::Vec3s &) const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(v);
 		lua_pushboolean(L,lret?1:0);
@@ -775,8 +734,7 @@ public:
 	// bool osg::Vec3s::operator<(const osg::Vec3s & v) const
 	static int _bind___lt(lua_State *L) {
 		if (!_lg_typecheck___lt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Vec3s::operator<(const osg::Vec3s & v) const function, expected prototype:\nbool osg::Vec3s::operator<(const osg::Vec3s & v) const\nClass arguments details:\narg 1 ID = 92303217\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Vec3s::operator<(const osg::Vec3s & v) const function, expected prototype:\nbool osg::Vec3s::operator<(const osg::Vec3s & v) const\nClass arguments details:\narg 1 ID = 92303217\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3s* v_ptr=(Luna< osg::Vec3s >::check(L,2));
@@ -787,8 +745,7 @@ public:
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Vec3s::operator<(const osg::Vec3s &) const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Vec3s::operator<(const osg::Vec3s &) const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator<(v);
 		lua_pushboolean(L,lret?1:0);
@@ -799,16 +756,14 @@ public:
 	// short & osg::Vec3s::operator[](unsigned int i)
 	static int _bind_op_index_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short & osg::Vec3s::operator[](unsigned int i) function, expected prototype:\nshort & osg::Vec3s::operator[](unsigned int i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short & osg::Vec3s::operator[](unsigned int i) function, expected prototype:\nshort & osg::Vec3s::operator[](unsigned int i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec3s::operator[](unsigned int). Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short & osg::Vec3s::operator[](unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short & lret = self->operator[](i);
 		lua_pushnumber(L,lret);
@@ -819,16 +774,14 @@ public:
 	// short osg::Vec3s::operator[](unsigned int i) const
 	static int _bind_op_index_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short osg::Vec3s::operator[](unsigned int i) const function, expected prototype:\nshort osg::Vec3s::operator[](unsigned int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short osg::Vec3s::operator[](unsigned int i) const function, expected prototype:\nshort osg::Vec3s::operator[](unsigned int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec3s::operator[](unsigned int) const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short osg::Vec3s::operator[](unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short lret = self->operator[](i);
 		lua_pushnumber(L,lret);
@@ -848,16 +801,14 @@ public:
 	// osg::Vec3s osg::Vec3s::operator*(short rhs) const
 	static int _bind___mul_overload_1(lua_State *L) {
 		if (!_lg_typecheck___mul_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3s osg::Vec3s::operator*(short rhs) const function, expected prototype:\nosg::Vec3s osg::Vec3s::operator*(short rhs) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3s osg::Vec3s::operator*(short rhs) const function, expected prototype:\nosg::Vec3s osg::Vec3s::operator*(short rhs) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		short rhs=(short)lua_tointeger(L,2);
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3s osg::Vec3s::operator*(short) const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3s osg::Vec3s::operator*(short) const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3s stack_lret = self->operator*(rhs);
 		osg::Vec3s* lret = new osg::Vec3s(stack_lret);
@@ -871,8 +822,7 @@ public:
 	// osg::Vec3s osg::Vec3s::operator*(const osg::Vec3s & rhs) const
 	static int _bind___mul_overload_2(lua_State *L) {
 		if (!_lg_typecheck___mul_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3s osg::Vec3s::operator*(const osg::Vec3s & rhs) const function, expected prototype:\nosg::Vec3s osg::Vec3s::operator*(const osg::Vec3s & rhs) const\nClass arguments details:\narg 1 ID = 92303217\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3s osg::Vec3s::operator*(const osg::Vec3s & rhs) const function, expected prototype:\nosg::Vec3s osg::Vec3s::operator*(const osg::Vec3s & rhs) const\nClass arguments details:\narg 1 ID = 92303217\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3s* rhs_ptr=(Luna< osg::Vec3s >::check(L,2));
@@ -883,8 +833,7 @@ public:
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3s osg::Vec3s::operator*(const osg::Vec3s &) const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3s osg::Vec3s::operator*(const osg::Vec3s &) const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3s stack_lret = self->operator*(rhs);
 		osg::Vec3s* lret = new osg::Vec3s(stack_lret);
@@ -907,16 +856,14 @@ public:
 	// osg::Vec3s & osg::Vec3s::operator*=(short rhs)
 	static int _bind_op_mult(lua_State *L) {
 		if (!_lg_typecheck_op_mult(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3s & osg::Vec3s::operator*=(short rhs) function, expected prototype:\nosg::Vec3s & osg::Vec3s::operator*=(short rhs)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3s & osg::Vec3s::operator*=(short rhs) function, expected prototype:\nosg::Vec3s & osg::Vec3s::operator*=(short rhs)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		short rhs=(short)lua_tointeger(L,2);
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3s & osg::Vec3s::operator*=(short). Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3s & osg::Vec3s::operator*=(short). Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3s* lret = &self->operator*=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -929,16 +876,14 @@ public:
 	// osg::Vec3s osg::Vec3s::operator/(short rhs) const
 	static int _bind___div(lua_State *L) {
 		if (!_lg_typecheck___div(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3s osg::Vec3s::operator/(short rhs) const function, expected prototype:\nosg::Vec3s osg::Vec3s::operator/(short rhs) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3s osg::Vec3s::operator/(short rhs) const function, expected prototype:\nosg::Vec3s osg::Vec3s::operator/(short rhs) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		short rhs=(short)lua_tointeger(L,2);
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3s osg::Vec3s::operator/(short) const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3s osg::Vec3s::operator/(short) const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3s stack_lret = self->operator/(rhs);
 		osg::Vec3s* lret = new osg::Vec3s(stack_lret);
@@ -952,16 +897,14 @@ public:
 	// osg::Vec3s & osg::Vec3s::operator/=(short rhs)
 	static int _bind_op_div(lua_State *L) {
 		if (!_lg_typecheck_op_div(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3s & osg::Vec3s::operator/=(short rhs) function, expected prototype:\nosg::Vec3s & osg::Vec3s::operator/=(short rhs)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3s & osg::Vec3s::operator/=(short rhs) function, expected prototype:\nosg::Vec3s & osg::Vec3s::operator/=(short rhs)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		short rhs=(short)lua_tointeger(L,2);
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3s & osg::Vec3s::operator/=(short). Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3s & osg::Vec3s::operator/=(short). Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3s* lret = &self->operator/=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -974,8 +917,7 @@ public:
 	// osg::Vec3s osg::Vec3s::operator+(const osg::Vec3s & rhs) const
 	static int _bind___add(lua_State *L) {
 		if (!_lg_typecheck___add(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3s osg::Vec3s::operator+(const osg::Vec3s & rhs) const function, expected prototype:\nosg::Vec3s osg::Vec3s::operator+(const osg::Vec3s & rhs) const\nClass arguments details:\narg 1 ID = 92303217\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3s osg::Vec3s::operator+(const osg::Vec3s & rhs) const function, expected prototype:\nosg::Vec3s osg::Vec3s::operator+(const osg::Vec3s & rhs) const\nClass arguments details:\narg 1 ID = 92303217\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3s* rhs_ptr=(Luna< osg::Vec3s >::check(L,2));
@@ -986,8 +928,7 @@ public:
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3s osg::Vec3s::operator+(const osg::Vec3s &) const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3s osg::Vec3s::operator+(const osg::Vec3s &) const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3s stack_lret = self->operator+(rhs);
 		osg::Vec3s* lret = new osg::Vec3s(stack_lret);
@@ -1001,8 +942,7 @@ public:
 	// osg::Vec3s & osg::Vec3s::operator+=(const osg::Vec3s & rhs)
 	static int _bind_op_add(lua_State *L) {
 		if (!_lg_typecheck_op_add(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3s & osg::Vec3s::operator+=(const osg::Vec3s & rhs) function, expected prototype:\nosg::Vec3s & osg::Vec3s::operator+=(const osg::Vec3s & rhs)\nClass arguments details:\narg 1 ID = 92303217\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3s & osg::Vec3s::operator+=(const osg::Vec3s & rhs) function, expected prototype:\nosg::Vec3s & osg::Vec3s::operator+=(const osg::Vec3s & rhs)\nClass arguments details:\narg 1 ID = 92303217\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3s* rhs_ptr=(Luna< osg::Vec3s >::check(L,2));
@@ -1013,8 +953,7 @@ public:
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3s & osg::Vec3s::operator+=(const osg::Vec3s &). Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3s & osg::Vec3s::operator+=(const osg::Vec3s &). Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3s* lret = &self->operator+=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1027,8 +966,7 @@ public:
 	// osg::Vec3s osg::Vec3s::operator-(const osg::Vec3s & rhs) const
 	static int _bind___sub(lua_State *L) {
 		if (!_lg_typecheck___sub(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3s osg::Vec3s::operator-(const osg::Vec3s & rhs) const function, expected prototype:\nosg::Vec3s osg::Vec3s::operator-(const osg::Vec3s & rhs) const\nClass arguments details:\narg 1 ID = 92303217\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3s osg::Vec3s::operator-(const osg::Vec3s & rhs) const function, expected prototype:\nosg::Vec3s osg::Vec3s::operator-(const osg::Vec3s & rhs) const\nClass arguments details:\narg 1 ID = 92303217\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3s* rhs_ptr=(Luna< osg::Vec3s >::check(L,2));
@@ -1039,8 +977,7 @@ public:
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3s osg::Vec3s::operator-(const osg::Vec3s &) const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3s osg::Vec3s::operator-(const osg::Vec3s &) const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3s stack_lret = self->operator-(rhs);
 		osg::Vec3s* lret = new osg::Vec3s(stack_lret);
@@ -1054,8 +991,7 @@ public:
 	// osg::Vec3s & osg::Vec3s::operator-=(const osg::Vec3s & rhs)
 	static int _bind_op_sub(lua_State *L) {
 		if (!_lg_typecheck_op_sub(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3s & osg::Vec3s::operator-=(const osg::Vec3s & rhs) function, expected prototype:\nosg::Vec3s & osg::Vec3s::operator-=(const osg::Vec3s & rhs)\nClass arguments details:\narg 1 ID = 92303217\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3s & osg::Vec3s::operator-=(const osg::Vec3s & rhs) function, expected prototype:\nosg::Vec3s & osg::Vec3s::operator-=(const osg::Vec3s & rhs)\nClass arguments details:\narg 1 ID = 92303217\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3s* rhs_ptr=(Luna< osg::Vec3s >::check(L,2));
@@ -1066,8 +1002,7 @@ public:
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3s & osg::Vec3s::operator-=(const osg::Vec3s &). Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3s & osg::Vec3s::operator-=(const osg::Vec3s &). Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3s* lret = &self->operator-=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1080,15 +1015,13 @@ public:
 	// osg::Vec3s osg::Vec3s::operator-() const
 	static int _bind___unm(lua_State *L) {
 		if (!_lg_typecheck___unm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3s osg::Vec3s::operator-() const function, expected prototype:\nosg::Vec3s osg::Vec3s::operator-() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3s osg::Vec3s::operator-() const function, expected prototype:\nosg::Vec3s osg::Vec3s::operator-() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Vec3s* self=(Luna< osg::Vec3s >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3s osg::Vec3s::operator-() const. Got : '%s'",typeid(Luna< osg::Vec3s >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3s osg::Vec3s::operator-() const. Got : '%s'\n%s",typeid(Luna< osg::Vec3s >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Vec3s stack_lret = self->operator-();
 		osg::Vec3s* lret = new osg::Vec3s(stack_lret);

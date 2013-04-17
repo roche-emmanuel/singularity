@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::HalfWayMapGenerator* self= (osgUtil::HalfWayMapGenerator*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -148,8 +145,7 @@ public:
 	// osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(const osg::Vec3f & light_direction, int texture_size = 64)
 	static osgUtil::HalfWayMapGenerator* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(const osg::Vec3f & light_direction, int texture_size = 64) function, expected prototype:\nosgUtil::HalfWayMapGenerator::HalfWayMapGenerator(const osg::Vec3f & light_direction, int texture_size = 64)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(const osg::Vec3f & light_direction, int texture_size = 64) function, expected prototype:\nosgUtil::HalfWayMapGenerator::HalfWayMapGenerator(const osg::Vec3f & light_direction, int texture_size = 64)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -167,8 +163,7 @@ public:
 	// osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop)
 	static osgUtil::HalfWayMapGenerator* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop) function, expected prototype:\nosgUtil::HalfWayMapGenerator::HalfWayMapGenerator(const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop) function, expected prototype:\nosgUtil::HalfWayMapGenerator::HalfWayMapGenerator(const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgUtil::HalfWayMapGenerator* copy_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::HalfWayMapGenerator >(L,1));
@@ -188,8 +183,7 @@ public:
 	// osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osg::Vec3f & light_direction, int texture_size = 64)
 	static osgUtil::HalfWayMapGenerator* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osg::Vec3f & light_direction, int texture_size = 64) function, expected prototype:\nosgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osg::Vec3f & light_direction, int texture_size = 64)\nClass arguments details:\narg 2 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osg::Vec3f & light_direction, int texture_size = 64) function, expected prototype:\nosgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osg::Vec3f & light_direction, int texture_size = 64)\nClass arguments details:\narg 2 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -207,8 +201,7 @@ public:
 	// osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop)
 	static osgUtil::HalfWayMapGenerator* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop) function, expected prototype:\nosgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop) function, expected prototype:\nosgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgUtil::HalfWayMapGenerator* copy_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::HalfWayMapGenerator >(L,2));
@@ -241,16 +234,14 @@ public:
 	// void osgUtil::HalfWayMapGenerator::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::HalfWayMapGenerator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::HalfWayMapGenerator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::HalfWayMapGenerator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::HalfWayMapGenerator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::HalfWayMapGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::HalfWayMapGenerator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::HalfWayMapGenerator::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::HalfWayMapGenerator::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HalfWayMapGenerator::setThreadSafeRefUnref(threadSafe);
 

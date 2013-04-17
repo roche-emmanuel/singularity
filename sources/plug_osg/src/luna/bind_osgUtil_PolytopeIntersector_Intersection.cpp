@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::PolytopeIntersector::Intersection*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::PolytopeIntersector::Intersection*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::PolytopeIntersector::Intersection* rhs =(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::PolytopeIntersector::Intersection* self= (osgUtil::PolytopeIntersector::Intersection*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -227,8 +223,7 @@ public:
 	// osgUtil::PolytopeIntersector::Intersection::Intersection()
 	static osgUtil::PolytopeIntersector::Intersection* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::Intersection::Intersection() function, expected prototype:\nosgUtil::PolytopeIntersector::Intersection::Intersection()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::Intersection::Intersection() function, expected prototype:\nosgUtil::PolytopeIntersector::Intersection::Intersection()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -240,15 +235,13 @@ public:
 	// double osgUtil::PolytopeIntersector::Intersection::distance()
 	static int _bind_getDistance(lua_State *L) {
 		if (!_lg_typecheck_getDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgUtil::PolytopeIntersector::Intersection::distance() function, expected prototype:\ndouble osgUtil::PolytopeIntersector::Intersection::distance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgUtil::PolytopeIntersector::Intersection::distance() function, expected prototype:\ndouble osgUtil::PolytopeIntersector::Intersection::distance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgUtil::PolytopeIntersector::Intersection::distance(). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgUtil::PolytopeIntersector::Intersection::distance(). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->distance;
 		lua_pushnumber(L,lret);
@@ -259,15 +252,13 @@ public:
 	// double osgUtil::PolytopeIntersector::Intersection::maxDistance()
 	static int _bind_getMaxDistance(lua_State *L) {
 		if (!_lg_typecheck_getMaxDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgUtil::PolytopeIntersector::Intersection::maxDistance() function, expected prototype:\ndouble osgUtil::PolytopeIntersector::Intersection::maxDistance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgUtil::PolytopeIntersector::Intersection::maxDistance() function, expected prototype:\ndouble osgUtil::PolytopeIntersector::Intersection::maxDistance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgUtil::PolytopeIntersector::Intersection::maxDistance(). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgUtil::PolytopeIntersector::Intersection::maxDistance(). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->maxDistance;
 		lua_pushnumber(L,lret);
@@ -278,15 +269,13 @@ public:
 	// osg::NodePath osgUtil::PolytopeIntersector::Intersection::nodePath()
 	static int _bind_getNodePath(lua_State *L) {
 		if (!_lg_typecheck_getNodePath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::NodePath osgUtil::PolytopeIntersector::Intersection::nodePath() function, expected prototype:\nosg::NodePath osgUtil::PolytopeIntersector::Intersection::nodePath()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::NodePath osgUtil::PolytopeIntersector::Intersection::nodePath() function, expected prototype:\nosg::NodePath osgUtil::PolytopeIntersector::Intersection::nodePath()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::NodePath osgUtil::PolytopeIntersector::Intersection::nodePath(). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::NodePath osgUtil::PolytopeIntersector::Intersection::nodePath(). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::NodePath* lret = &self->nodePath;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -299,15 +288,13 @@ public:
 	// osg::ref_ptr< osg::Drawable > osgUtil::PolytopeIntersector::Intersection::drawable()
 	static int _bind_getDrawable(lua_State *L) {
 		if (!_lg_typecheck_getDrawable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Drawable > osgUtil::PolytopeIntersector::Intersection::drawable() function, expected prototype:\nosg::ref_ptr< osg::Drawable > osgUtil::PolytopeIntersector::Intersection::drawable()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Drawable > osgUtil::PolytopeIntersector::Intersection::drawable() function, expected prototype:\nosg::ref_ptr< osg::Drawable > osgUtil::PolytopeIntersector::Intersection::drawable()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Drawable > osgUtil::PolytopeIntersector::Intersection::drawable(). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Drawable > osgUtil::PolytopeIntersector::Intersection::drawable(). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::ref_ptr< osg::Drawable > lret = self->drawable;
 		Luna< osg::Drawable >::push(L,lret.get(),false);
@@ -318,15 +305,13 @@ public:
 	// osg::ref_ptr< osg::RefMatrixd > osgUtil::PolytopeIntersector::Intersection::matrix()
 	static int _bind_getMatrix(lua_State *L) {
 		if (!_lg_typecheck_getMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::RefMatrixd > osgUtil::PolytopeIntersector::Intersection::matrix() function, expected prototype:\nosg::ref_ptr< osg::RefMatrixd > osgUtil::PolytopeIntersector::Intersection::matrix()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::RefMatrixd > osgUtil::PolytopeIntersector::Intersection::matrix() function, expected prototype:\nosg::ref_ptr< osg::RefMatrixd > osgUtil::PolytopeIntersector::Intersection::matrix()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::RefMatrixd > osgUtil::PolytopeIntersector::Intersection::matrix(). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::RefMatrixd > osgUtil::PolytopeIntersector::Intersection::matrix(). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::ref_ptr< osg::RefMatrixd > lret = self->matrix;
 		Luna< osg::RefMatrixd >::push(L,lret.get(),false);
@@ -337,15 +322,13 @@ public:
 	// osg::Vec3d osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint()
 	static int _bind_getLocalIntersectionPoint(lua_State *L) {
 		if (!_lg_typecheck_getLocalIntersectionPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3d osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint() function, expected prototype:\nosg::Vec3d osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3d osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint() function, expected prototype:\nosg::Vec3d osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3d osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3d* lret = &self->localIntersectionPoint;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -358,15 +341,13 @@ public:
 	// unsigned int osgUtil::PolytopeIntersector::Intersection::numIntersectionPoints()
 	static int _bind_getNumIntersectionPoints(lua_State *L) {
 		if (!_lg_typecheck_getNumIntersectionPoints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::PolytopeIntersector::Intersection::numIntersectionPoints() function, expected prototype:\nunsigned int osgUtil::PolytopeIntersector::Intersection::numIntersectionPoints()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::PolytopeIntersector::Intersection::numIntersectionPoints() function, expected prototype:\nunsigned int osgUtil::PolytopeIntersector::Intersection::numIntersectionPoints()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::PolytopeIntersector::Intersection::numIntersectionPoints(). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::PolytopeIntersector::Intersection::numIntersectionPoints(). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->numIntersectionPoints;
 		lua_pushnumber(L,lret);
@@ -377,15 +358,13 @@ public:
 	// unsigned int osgUtil::PolytopeIntersector::Intersection::primitiveIndex()
 	static int _bind_getPrimitiveIndex(lua_State *L) {
 		if (!_lg_typecheck_getPrimitiveIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::PolytopeIntersector::Intersection::primitiveIndex() function, expected prototype:\nunsigned int osgUtil::PolytopeIntersector::Intersection::primitiveIndex()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::PolytopeIntersector::Intersection::primitiveIndex() function, expected prototype:\nunsigned int osgUtil::PolytopeIntersector::Intersection::primitiveIndex()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::PolytopeIntersector::Intersection::primitiveIndex(). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::PolytopeIntersector::Intersection::primitiveIndex(). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->primitiveIndex;
 		lua_pushnumber(L,lret);
@@ -396,16 +375,14 @@ public:
 	// void osgUtil::PolytopeIntersector::Intersection::distance(double value)
 	static int _bind_setDistance(lua_State *L) {
 		if (!_lg_typecheck_setDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::distance(double value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::distance(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::distance(double value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::distance(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::distance(double). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::distance(double). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->distance = value;
 
@@ -415,16 +392,14 @@ public:
 	// void osgUtil::PolytopeIntersector::Intersection::maxDistance(double value)
 	static int _bind_setMaxDistance(lua_State *L) {
 		if (!_lg_typecheck_setMaxDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::maxDistance(double value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::maxDistance(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::maxDistance(double value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::maxDistance(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::maxDistance(double). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::maxDistance(double). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->maxDistance = value;
 
@@ -434,8 +409,7 @@ public:
 	// void osgUtil::PolytopeIntersector::Intersection::nodePath(osg::NodePath value)
 	static int _bind_setNodePath(lua_State *L) {
 		if (!_lg_typecheck_setNodePath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::nodePath(osg::NodePath value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::nodePath(osg::NodePath value)\nClass arguments details:\narg 1 ID = 52841328\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::nodePath(osg::NodePath value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::nodePath(osg::NodePath value)\nClass arguments details:\narg 1 ID = 52841328\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodePath* value_ptr=(Luna< osg::NodePath >::check(L,2));
@@ -446,8 +420,7 @@ public:
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::nodePath(osg::NodePath). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::nodePath(osg::NodePath). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->nodePath = value;
 
@@ -457,16 +430,14 @@ public:
 	// void osgUtil::PolytopeIntersector::Intersection::drawable(osg::ref_ptr< osg::Drawable > value)
 	static int _bind_setDrawable(lua_State *L) {
 		if (!_lg_typecheck_setDrawable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::drawable(osg::ref_ptr< osg::Drawable > value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::drawable(osg::ref_ptr< osg::Drawable > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::drawable(osg::ref_ptr< osg::Drawable > value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::drawable(osg::ref_ptr< osg::Drawable > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ref_ptr< osg::Drawable > value = dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,2));
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::drawable(osg::ref_ptr< osg::Drawable >). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::drawable(osg::ref_ptr< osg::Drawable >). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawable = value;
 
@@ -476,16 +447,14 @@ public:
 	// void osgUtil::PolytopeIntersector::Intersection::matrix(osg::ref_ptr< osg::RefMatrixd > value)
 	static int _bind_setMatrix(lua_State *L) {
 		if (!_lg_typecheck_setMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::matrix(osg::ref_ptr< osg::RefMatrixd > value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::matrix(osg::ref_ptr< osg::RefMatrixd > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::matrix(osg::ref_ptr< osg::RefMatrixd > value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::matrix(osg::ref_ptr< osg::RefMatrixd > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ref_ptr< osg::RefMatrixd > value = dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2));
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::matrix(osg::ref_ptr< osg::RefMatrixd >). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::matrix(osg::ref_ptr< osg::RefMatrixd >). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->matrix = value;
 
@@ -495,8 +464,7 @@ public:
 	// void osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(osg::Vec3d value)
 	static int _bind_setLocalIntersectionPoint(lua_State *L) {
 		if (!_lg_typecheck_setLocalIntersectionPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(osg::Vec3d value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(osg::Vec3d value)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(osg::Vec3d value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(osg::Vec3d value)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Vec3d* value_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -507,8 +475,7 @@ public:
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(osg::Vec3d). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(osg::Vec3d). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->localIntersectionPoint = value;
 
@@ -518,16 +485,14 @@ public:
 	// void osgUtil::PolytopeIntersector::Intersection::numIntersectionPoints(unsigned int value)
 	static int _bind_setNumIntersectionPoints(lua_State *L) {
 		if (!_lg_typecheck_setNumIntersectionPoints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::numIntersectionPoints(unsigned int value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::numIntersectionPoints(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::numIntersectionPoints(unsigned int value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::numIntersectionPoints(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::numIntersectionPoints(unsigned int). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::numIntersectionPoints(unsigned int). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->numIntersectionPoints = value;
 
@@ -537,16 +502,14 @@ public:
 	// void osgUtil::PolytopeIntersector::Intersection::primitiveIndex(unsigned int value)
 	static int _bind_setPrimitiveIndex(lua_State *L) {
 		if (!_lg_typecheck_setPrimitiveIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::primitiveIndex(unsigned int value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::primitiveIndex(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::primitiveIndex(unsigned int value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::primitiveIndex(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::primitiveIndex(unsigned int). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::primitiveIndex(unsigned int). Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->primitiveIndex = value;
 
@@ -558,8 +521,7 @@ public:
 	// bool osgUtil::PolytopeIntersector::Intersection::operator<(const osgUtil::PolytopeIntersector::Intersection & rhs) const
 	static int _bind___lt(lua_State *L) {
 		if (!_lg_typecheck___lt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::PolytopeIntersector::Intersection::operator<(const osgUtil::PolytopeIntersector::Intersection & rhs) const function, expected prototype:\nbool osgUtil::PolytopeIntersector::Intersection::operator<(const osgUtil::PolytopeIntersector::Intersection & rhs) const\nClass arguments details:\narg 1 ID = 31087672\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::PolytopeIntersector::Intersection::operator<(const osgUtil::PolytopeIntersector::Intersection & rhs) const function, expected prototype:\nbool osgUtil::PolytopeIntersector::Intersection::operator<(const osgUtil::PolytopeIntersector::Intersection & rhs) const\nClass arguments details:\narg 1 ID = 31087672\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgUtil::PolytopeIntersector::Intersection* rhs_ptr=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,2));
@@ -570,8 +532,7 @@ public:
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::Intersection::operator<(const osgUtil::PolytopeIntersector::Intersection &) const. Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::Intersection::operator<(const osgUtil::PolytopeIntersector::Intersection &) const. Got : '%s'\n%s",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);

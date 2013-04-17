@@ -669,13 +669,6 @@ struct luna_caster<osg::TemplateValueObject< osg::Matrixd >,dstType> {
 };
 
 template <typename dstType>
-struct luna_caster<std::vector< osg::Vec3d >,dstType> {
-	static inline dstType* cast(std::vector< osg::Vec3d >* ptr) {
-		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <typename dstType>
 struct luna_caster<std::vector< osg::StateSet const * >,dstType> {
 	static inline dstType* cast(std::vector< osg::StateSet const * >* ptr) {
 		return static_cast<dstType*>(ptr);
@@ -1630,6 +1623,27 @@ struct luna_caster<osg::Matrix3,dstType> {
 template <typename dstType>
 struct luna_caster<osg::Matrix3d,dstType> {
 	static inline dstType* cast(osg::Matrix3d* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Vec2dVector,dstType> {
+	static inline dstType* cast(osg::Vec2dVector* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Vec3dVector,dstType> {
+	static inline dstType* cast(osg::Vec3dVector* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Vec4dVector,dstType> {
+	static inline dstType* cast(osg::Vec4dVector* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };

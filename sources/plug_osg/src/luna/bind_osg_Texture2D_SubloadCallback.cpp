@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Texture2D::SubloadCallback* self= (osg::Texture2D::SubloadCallback*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -161,8 +158,7 @@ public:
 	// osg::Texture2D::SubloadCallback::SubloadCallback(lua_Table * data)
 	static osg::Texture2D::SubloadCallback* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture2D::SubloadCallback::SubloadCallback(lua_Table * data) function, expected prototype:\nosg::Texture2D::SubloadCallback::SubloadCallback(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture2D::SubloadCallback::SubloadCallback(lua_Table * data) function, expected prototype:\nosg::Texture2D::SubloadCallback::SubloadCallback(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -174,8 +170,7 @@ public:
 	// bool osg::Texture2D::SubloadCallback::textureObjectValid(const osg::Texture2D & texture, osg::State & state) const
 	static int _bind_textureObjectValid(lua_State *L) {
 		if (!_lg_typecheck_textureObjectValid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Texture2D::SubloadCallback::textureObjectValid(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nbool osg::Texture2D::SubloadCallback::textureObjectValid(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Texture2D::SubloadCallback::textureObjectValid(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nbool osg::Texture2D::SubloadCallback::textureObjectValid(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Texture2D* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,2));
@@ -191,8 +186,7 @@ public:
 
 		osg::Texture2D::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2D::SubloadCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture2D::SubloadCallback::textureObjectValid(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Texture2D::SubloadCallback::textureObjectValid(const osg::Texture2D &, osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->textureObjectValid(texture, state);
 		lua_pushboolean(L,lret?1:0);
@@ -203,8 +197,7 @@ public:
 	// osg::Texture::TextureObject * osg::Texture2D::SubloadCallback::generateTextureObject(const osg::Texture2D & texture, osg::State & state) const
 	static int _bind_generateTextureObject(lua_State *L) {
 		if (!_lg_typecheck_generateTextureObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObject * osg::Texture2D::SubloadCallback::generateTextureObject(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nosg::Texture::TextureObject * osg::Texture2D::SubloadCallback::generateTextureObject(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObject * osg::Texture2D::SubloadCallback::generateTextureObject(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nosg::Texture::TextureObject * osg::Texture2D::SubloadCallback::generateTextureObject(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Texture2D* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,2));
@@ -220,8 +213,7 @@ public:
 
 		osg::Texture2D::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2D::SubloadCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture::TextureObject * osg::Texture2D::SubloadCallback::generateTextureObject(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture::TextureObject * osg::Texture2D::SubloadCallback::generateTextureObject(const osg::Texture2D &, osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture::TextureObject * lret = self->generateTextureObject(texture, state);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -234,8 +226,7 @@ public:
 	// void osg::Texture2D::SubloadCallback::load(const osg::Texture2D & texture, osg::State & state) const
 	static int _bind_load(lua_State *L) {
 		if (!_lg_typecheck_load(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2D::SubloadCallback::load(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nvoid osg::Texture2D::SubloadCallback::load(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2D::SubloadCallback::load(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nvoid osg::Texture2D::SubloadCallback::load(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Texture2D* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,2));
@@ -251,8 +242,7 @@ public:
 
 		osg::Texture2D::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2D::SubloadCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2D::SubloadCallback::load(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2D::SubloadCallback::load(const osg::Texture2D &, osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->load(texture, state);
 
@@ -262,8 +252,7 @@ public:
 	// void osg::Texture2D::SubloadCallback::subload(const osg::Texture2D & texture, osg::State & state) const
 	static int _bind_subload(lua_State *L) {
 		if (!_lg_typecheck_subload(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2D::SubloadCallback::subload(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nvoid osg::Texture2D::SubloadCallback::subload(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2D::SubloadCallback::subload(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nvoid osg::Texture2D::SubloadCallback::subload(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Texture2D* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,2));
@@ -279,8 +268,7 @@ public:
 
 		osg::Texture2D::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2D::SubloadCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2D::SubloadCallback::subload(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2D::SubloadCallback::subload(const osg::Texture2D &, osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->subload(texture, state);
 
@@ -290,16 +278,14 @@ public:
 	// void osg::Texture2D::SubloadCallback::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2D::SubloadCallback::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Texture2D::SubloadCallback::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2D::SubloadCallback::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Texture2D::SubloadCallback::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::Texture2D::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2D::SubloadCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2D::SubloadCallback::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Texture2D::SubloadCallback::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SubloadCallback::setThreadSafeRefUnref(threadSafe);
 
@@ -309,8 +295,7 @@ public:
 	// bool osg::Texture2D::SubloadCallback::base_textureObjectValid(const osg::Texture2D & texture, osg::State & state) const
 	static int _bind_base_textureObjectValid(lua_State *L) {
 		if (!_lg_typecheck_base_textureObjectValid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Texture2D::SubloadCallback::base_textureObjectValid(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nbool osg::Texture2D::SubloadCallback::base_textureObjectValid(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Texture2D::SubloadCallback::base_textureObjectValid(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nbool osg::Texture2D::SubloadCallback::base_textureObjectValid(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Texture2D* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,2));
@@ -326,8 +311,7 @@ public:
 
 		osg::Texture2D::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2D::SubloadCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture2D::SubloadCallback::base_textureObjectValid(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Texture2D::SubloadCallback::base_textureObjectValid(const osg::Texture2D &, osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SubloadCallback::textureObjectValid(texture, state);
 		lua_pushboolean(L,lret?1:0);
@@ -338,8 +322,7 @@ public:
 	// osg::Texture::TextureObject * osg::Texture2D::SubloadCallback::base_generateTextureObject(const osg::Texture2D & texture, osg::State & state) const
 	static int _bind_base_generateTextureObject(lua_State *L) {
 		if (!_lg_typecheck_base_generateTextureObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObject * osg::Texture2D::SubloadCallback::base_generateTextureObject(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nosg::Texture::TextureObject * osg::Texture2D::SubloadCallback::base_generateTextureObject(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObject * osg::Texture2D::SubloadCallback::base_generateTextureObject(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nosg::Texture::TextureObject * osg::Texture2D::SubloadCallback::base_generateTextureObject(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Texture2D* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,2));
@@ -355,8 +338,7 @@ public:
 
 		osg::Texture2D::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2D::SubloadCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture::TextureObject * osg::Texture2D::SubloadCallback::base_generateTextureObject(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture::TextureObject * osg::Texture2D::SubloadCallback::base_generateTextureObject(const osg::Texture2D &, osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture::TextureObject * lret = self->SubloadCallback::generateTextureObject(texture, state);
 		if(!lret) return 0; // Do not write NULL pointers.

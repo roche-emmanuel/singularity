@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Multisample::Extensions* self= (osg::Multisample::Extensions*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -162,8 +159,7 @@ public:
 	// osg::Multisample::Extensions::Extensions(unsigned int contextID)
 	static osg::Multisample::Extensions* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Multisample::Extensions::Extensions(unsigned int contextID) function, expected prototype:\nosg::Multisample::Extensions::Extensions(unsigned int contextID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Multisample::Extensions::Extensions(unsigned int contextID) function, expected prototype:\nosg::Multisample::Extensions::Extensions(unsigned int contextID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -174,8 +170,7 @@ public:
 	// osg::Multisample::Extensions::Extensions(lua_Table * data, unsigned int contextID)
 	static osg::Multisample::Extensions* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Multisample::Extensions::Extensions(lua_Table * data, unsigned int contextID) function, expected prototype:\nosg::Multisample::Extensions::Extensions(lua_Table * data, unsigned int contextID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Multisample::Extensions::Extensions(lua_Table * data, unsigned int contextID) function, expected prototype:\nosg::Multisample::Extensions::Extensions(lua_Table * data, unsigned int contextID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
@@ -197,16 +192,14 @@ public:
 	// void osg::Multisample::Extensions::setupGLExtensions(unsigned int contextID)
 	static int _bind_setupGLExtensions(lua_State *L) {
 		if (!_lg_typecheck_setupGLExtensions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Multisample::Extensions::setupGLExtensions(unsigned int contextID) function, expected prototype:\nvoid osg::Multisample::Extensions::setupGLExtensions(unsigned int contextID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Multisample::Extensions::setupGLExtensions(unsigned int contextID) function, expected prototype:\nvoid osg::Multisample::Extensions::setupGLExtensions(unsigned int contextID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
 		osg::Multisample::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Multisample::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::setupGLExtensions(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::setupGLExtensions(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setupGLExtensions(contextID);
 
@@ -216,16 +209,14 @@ public:
 	// void osg::Multisample::Extensions::setMultisampleSupported(bool flag)
 	static int _bind_setMultisampleSupported(lua_State *L) {
 		if (!_lg_typecheck_setMultisampleSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Multisample::Extensions::setMultisampleSupported(bool flag) function, expected prototype:\nvoid osg::Multisample::Extensions::setMultisampleSupported(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Multisample::Extensions::setMultisampleSupported(bool flag) function, expected prototype:\nvoid osg::Multisample::Extensions::setMultisampleSupported(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osg::Multisample::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Multisample::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::setMultisampleSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::setMultisampleSupported(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMultisampleSupported(flag);
 
@@ -235,16 +226,14 @@ public:
 	// void osg::Multisample::Extensions::setMultisampleFilterHintSupported(bool flag)
 	static int _bind_setMultisampleFilterHintSupported(lua_State *L) {
 		if (!_lg_typecheck_setMultisampleFilterHintSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Multisample::Extensions::setMultisampleFilterHintSupported(bool flag) function, expected prototype:\nvoid osg::Multisample::Extensions::setMultisampleFilterHintSupported(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Multisample::Extensions::setMultisampleFilterHintSupported(bool flag) function, expected prototype:\nvoid osg::Multisample::Extensions::setMultisampleFilterHintSupported(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osg::Multisample::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Multisample::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::setMultisampleFilterHintSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::setMultisampleFilterHintSupported(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMultisampleFilterHintSupported(flag);
 
@@ -254,15 +243,13 @@ public:
 	// bool osg::Multisample::Extensions::isMultisampleSupported() const
 	static int _bind_isMultisampleSupported(lua_State *L) {
 		if (!_lg_typecheck_isMultisampleSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Multisample::Extensions::isMultisampleSupported() const function, expected prototype:\nbool osg::Multisample::Extensions::isMultisampleSupported() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Multisample::Extensions::isMultisampleSupported() const function, expected prototype:\nbool osg::Multisample::Extensions::isMultisampleSupported() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Multisample::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Multisample::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Multisample::Extensions::isMultisampleSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Multisample::Extensions::isMultisampleSupported() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isMultisampleSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -273,15 +260,13 @@ public:
 	// bool osg::Multisample::Extensions::isMultisampleFilterHintSupported() const
 	static int _bind_isMultisampleFilterHintSupported(lua_State *L) {
 		if (!_lg_typecheck_isMultisampleFilterHintSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Multisample::Extensions::isMultisampleFilterHintSupported() const function, expected prototype:\nbool osg::Multisample::Extensions::isMultisampleFilterHintSupported() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Multisample::Extensions::isMultisampleFilterHintSupported() const function, expected prototype:\nbool osg::Multisample::Extensions::isMultisampleFilterHintSupported() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Multisample::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Multisample::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Multisample::Extensions::isMultisampleFilterHintSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::Multisample::Extensions::isMultisampleFilterHintSupported() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isMultisampleFilterHintSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -292,8 +277,7 @@ public:
 	// void osg::Multisample::Extensions::glSampleCoverage(float value, unsigned char invert) const
 	static int _bind_glSampleCoverage(lua_State *L) {
 		if (!_lg_typecheck_glSampleCoverage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Multisample::Extensions::glSampleCoverage(float value, unsigned char invert) const function, expected prototype:\nvoid osg::Multisample::Extensions::glSampleCoverage(float value, unsigned char invert) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Multisample::Extensions::glSampleCoverage(float value, unsigned char invert) const function, expected prototype:\nvoid osg::Multisample::Extensions::glSampleCoverage(float value, unsigned char invert) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
@@ -301,8 +285,7 @@ public:
 
 		osg::Multisample::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Multisample::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::glSampleCoverage(float, unsigned char) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::glSampleCoverage(float, unsigned char) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->glSampleCoverage(value, invert);
 
@@ -312,16 +295,14 @@ public:
 	// void osg::Multisample::Extensions::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Multisample::Extensions::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Multisample::Extensions::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Multisample::Extensions::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Multisample::Extensions::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::Multisample::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Multisample::Extensions >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Extensions::setThreadSafeRefUnref(threadSafe);
 

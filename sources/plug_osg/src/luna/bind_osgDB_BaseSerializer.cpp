@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::BaseSerializer* self= (osgDB::BaseSerializer*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -135,8 +132,7 @@ public:
 	// osgDB::BaseSerializer::BaseSerializer(lua_Table * data)
 	static osgDB::BaseSerializer* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::BaseSerializer::BaseSerializer(lua_Table * data) function, expected prototype:\nosgDB::BaseSerializer::BaseSerializer(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::BaseSerializer::BaseSerializer(lua_Table * data) function, expected prototype:\nosgDB::BaseSerializer::BaseSerializer(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -148,8 +144,7 @@ public:
 	// bool osgDB::BaseSerializer::read(osgDB::InputStream & arg1, osg::Object & arg2)
 	static int _bind_read(lua_State *L) {
 		if (!_lg_typecheck_read(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::BaseSerializer::read(osgDB::InputStream & arg1, osg::Object & arg2) function, expected prototype:\nbool osgDB::BaseSerializer::read(osgDB::InputStream & arg1, osg::Object & arg2)\nClass arguments details:\narg 1 ID = 47918182\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::BaseSerializer::read(osgDB::InputStream & arg1, osg::Object & arg2) function, expected prototype:\nbool osgDB::BaseSerializer::read(osgDB::InputStream & arg1, osg::Object & arg2)\nClass arguments details:\narg 1 ID = 47918182\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::InputStream* _arg1_ptr=(Luna< osgDB::InputStream >::check(L,2));
@@ -165,8 +160,7 @@ public:
 
 		osgDB::BaseSerializer* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseSerializer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::BaseSerializer::read(osgDB::InputStream &, osg::Object &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::BaseSerializer::read(osgDB::InputStream &, osg::Object &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -177,8 +171,7 @@ public:
 	// bool osgDB::BaseSerializer::write(osgDB::OutputStream & arg1, const osg::Object & arg2)
 	static int _bind_write(lua_State *L) {
 		if (!_lg_typecheck_write(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::BaseSerializer::write(osgDB::OutputStream & arg1, const osg::Object & arg2) function, expected prototype:\nbool osgDB::BaseSerializer::write(osgDB::OutputStream & arg1, const osg::Object & arg2)\nClass arguments details:\narg 1 ID = 70071506\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::BaseSerializer::write(osgDB::OutputStream & arg1, const osg::Object & arg2) function, expected prototype:\nbool osgDB::BaseSerializer::write(osgDB::OutputStream & arg1, const osg::Object & arg2)\nClass arguments details:\narg 1 ID = 70071506\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgDB::OutputStream* _arg1_ptr=(Luna< osgDB::OutputStream >::check(L,2));
@@ -194,8 +187,7 @@ public:
 
 		osgDB::BaseSerializer* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseSerializer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::BaseSerializer::write(osgDB::OutputStream &, const osg::Object &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgDB::BaseSerializer::write(osgDB::OutputStream &, const osg::Object &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->write(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -206,15 +198,13 @@ public:
 	// const std::string & osgDB::BaseSerializer::getName() const
 	static int _bind_getName(lua_State *L) {
 		if (!_lg_typecheck_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osgDB::BaseSerializer::getName() const function, expected prototype:\nconst std::string & osgDB::BaseSerializer::getName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osgDB::BaseSerializer::getName() const function, expected prototype:\nconst std::string & osgDB::BaseSerializer::getName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgDB::BaseSerializer* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseSerializer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::BaseSerializer::getName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::BaseSerializer::getName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -225,16 +215,14 @@ public:
 	// void osgDB::BaseSerializer::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::BaseSerializer::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::BaseSerializer::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::BaseSerializer::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::BaseSerializer::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgDB::BaseSerializer* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseSerializer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::BaseSerializer::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::BaseSerializer::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BaseSerializer::setThreadSafeRefUnref(threadSafe);
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Intersector* self= (osgUtil::Intersector*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -211,8 +208,7 @@ public:
 	// osgUtil::Intersector::Intersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf = osgUtil::Intersector::MODEL)
 	static osgUtil::Intersector* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Intersector::Intersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf = osgUtil::Intersector::MODEL) function, expected prototype:\nosgUtil::Intersector::Intersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf = osgUtil::Intersector::MODEL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::Intersector::Intersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf = osgUtil::Intersector::MODEL) function, expected prototype:\nosgUtil::Intersector::Intersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf = osgUtil::Intersector::MODEL)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -227,16 +223,14 @@ public:
 	// void osgUtil::Intersector::setCoordinateFrame(osgUtil::Intersector::CoordinateFrame cf)
 	static int _bind_setCoordinateFrame(lua_State *L) {
 		if (!_lg_typecheck_setCoordinateFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::setCoordinateFrame(osgUtil::Intersector::CoordinateFrame cf) function, expected prototype:\nvoid osgUtil::Intersector::setCoordinateFrame(osgUtil::Intersector::CoordinateFrame cf)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::setCoordinateFrame(osgUtil::Intersector::CoordinateFrame cf) function, expected prototype:\nvoid osgUtil::Intersector::setCoordinateFrame(osgUtil::Intersector::CoordinateFrame cf)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Intersector::CoordinateFrame cf=(osgUtil::Intersector::CoordinateFrame)lua_tointeger(L,2);
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::setCoordinateFrame(osgUtil::Intersector::CoordinateFrame). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::setCoordinateFrame(osgUtil::Intersector::CoordinateFrame). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCoordinateFrame(cf);
 
@@ -246,15 +240,13 @@ public:
 	// osgUtil::Intersector::CoordinateFrame osgUtil::Intersector::getCoordinateFrame() const
 	static int _bind_getCoordinateFrame(lua_State *L) {
 		if (!_lg_typecheck_getCoordinateFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Intersector::CoordinateFrame osgUtil::Intersector::getCoordinateFrame() const function, expected prototype:\nosgUtil::Intersector::CoordinateFrame osgUtil::Intersector::getCoordinateFrame() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::Intersector::CoordinateFrame osgUtil::Intersector::getCoordinateFrame() const function, expected prototype:\nosgUtil::Intersector::CoordinateFrame osgUtil::Intersector::getCoordinateFrame() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Intersector::CoordinateFrame osgUtil::Intersector::getCoordinateFrame() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::Intersector::CoordinateFrame osgUtil::Intersector::getCoordinateFrame() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::Intersector::CoordinateFrame lret = self->getCoordinateFrame();
 		lua_pushnumber(L,lret);
@@ -265,16 +257,14 @@ public:
 	// void osgUtil::Intersector::setIntersectionLimit(osgUtil::Intersector::IntersectionLimit limit)
 	static int _bind_setIntersectionLimit(lua_State *L) {
 		if (!_lg_typecheck_setIntersectionLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::setIntersectionLimit(osgUtil::Intersector::IntersectionLimit limit) function, expected prototype:\nvoid osgUtil::Intersector::setIntersectionLimit(osgUtil::Intersector::IntersectionLimit limit)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::setIntersectionLimit(osgUtil::Intersector::IntersectionLimit limit) function, expected prototype:\nvoid osgUtil::Intersector::setIntersectionLimit(osgUtil::Intersector::IntersectionLimit limit)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::Intersector::IntersectionLimit limit=(osgUtil::Intersector::IntersectionLimit)lua_tointeger(L,2);
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::setIntersectionLimit(osgUtil::Intersector::IntersectionLimit). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::setIntersectionLimit(osgUtil::Intersector::IntersectionLimit). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setIntersectionLimit(limit);
 
@@ -284,15 +274,13 @@ public:
 	// osgUtil::Intersector::IntersectionLimit osgUtil::Intersector::getIntersectionLimit() const
 	static int _bind_getIntersectionLimit(lua_State *L) {
 		if (!_lg_typecheck_getIntersectionLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Intersector::IntersectionLimit osgUtil::Intersector::getIntersectionLimit() const function, expected prototype:\nosgUtil::Intersector::IntersectionLimit osgUtil::Intersector::getIntersectionLimit() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::Intersector::IntersectionLimit osgUtil::Intersector::getIntersectionLimit() const function, expected prototype:\nosgUtil::Intersector::IntersectionLimit osgUtil::Intersector::getIntersectionLimit() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Intersector::IntersectionLimit osgUtil::Intersector::getIntersectionLimit() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::Intersector::IntersectionLimit osgUtil::Intersector::getIntersectionLimit() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::Intersector::IntersectionLimit lret = self->getIntersectionLimit();
 		lua_pushnumber(L,lret);
@@ -303,8 +291,7 @@ public:
 	// osgUtil::Intersector * osgUtil::Intersector::clone(osgUtil::IntersectionVisitor & iv)
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Intersector * osgUtil::Intersector::clone(osgUtil::IntersectionVisitor & iv) function, expected prototype:\nosgUtil::Intersector * osgUtil::Intersector::clone(osgUtil::IntersectionVisitor & iv)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::Intersector * osgUtil::Intersector::clone(osgUtil::IntersectionVisitor & iv) function, expected prototype:\nosgUtil::Intersector * osgUtil::Intersector::clone(osgUtil::IntersectionVisitor & iv)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::IntersectionVisitor* iv_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,2));
@@ -315,8 +302,7 @@ public:
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::Intersector::clone(osgUtil::IntersectionVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::Intersector::clone(osgUtil::IntersectionVisitor &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgUtil::Intersector * lret = self->clone(iv);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -329,8 +315,7 @@ public:
 	// bool osgUtil::Intersector::enter(const osg::Node & node)
 	static int _bind_enter(lua_State *L) {
 		if (!_lg_typecheck_enter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::Intersector::enter(const osg::Node & node) function, expected prototype:\nbool osgUtil::Intersector::enter(const osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::Intersector::enter(const osg::Node & node) function, expected prototype:\nbool osgUtil::Intersector::enter(const osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
@@ -341,8 +326,7 @@ public:
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Intersector::enter(const osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::Intersector::enter(const osg::Node &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->enter(node);
 		lua_pushboolean(L,lret?1:0);
@@ -353,15 +337,13 @@ public:
 	// void osgUtil::Intersector::leave()
 	static int _bind_leave(lua_State *L) {
 		if (!_lg_typecheck_leave(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::leave() function, expected prototype:\nvoid osgUtil::Intersector::leave()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::leave() function, expected prototype:\nvoid osgUtil::Intersector::leave()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::leave(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::leave(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->leave();
 
@@ -371,8 +353,7 @@ public:
 	// void osgUtil::Intersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)
 	static int _bind_intersect(lua_State *L) {
 		if (!_lg_typecheck_intersect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable) function, expected prototype:\nvoid osgUtil::Intersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable) function, expected prototype:\nvoid osgUtil::Intersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::IntersectionVisitor* iv_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,2));
@@ -384,8 +365,7 @@ public:
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::intersect(osgUtil::IntersectionVisitor &, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::intersect(osgUtil::IntersectionVisitor &, osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->intersect(iv, drawable);
 
@@ -395,15 +375,13 @@ public:
 	// void osgUtil::Intersector::reset()
 	static int _bind_reset(lua_State *L) {
 		if (!_lg_typecheck_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::reset() function, expected prototype:\nvoid osgUtil::Intersector::reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::reset() function, expected prototype:\nvoid osgUtil::Intersector::reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reset();
 
@@ -413,15 +391,13 @@ public:
 	// bool osgUtil::Intersector::containsIntersections()
 	static int _bind_containsIntersections(lua_State *L) {
 		if (!_lg_typecheck_containsIntersections(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::Intersector::containsIntersections() function, expected prototype:\nbool osgUtil::Intersector::containsIntersections()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::Intersector::containsIntersections() function, expected prototype:\nbool osgUtil::Intersector::containsIntersections()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Intersector::containsIntersections(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::Intersector::containsIntersections(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->containsIntersections();
 		lua_pushboolean(L,lret?1:0);
@@ -432,15 +408,13 @@ public:
 	// bool osgUtil::Intersector::disabled() const
 	static int _bind_disabled(lua_State *L) {
 		if (!_lg_typecheck_disabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::Intersector::disabled() const function, expected prototype:\nbool osgUtil::Intersector::disabled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::Intersector::disabled() const function, expected prototype:\nbool osgUtil::Intersector::disabled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Intersector::disabled() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::Intersector::disabled() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->disabled();
 		lua_pushboolean(L,lret?1:0);
@@ -451,15 +425,13 @@ public:
 	// void osgUtil::Intersector::incrementDisabledCount()
 	static int _bind_incrementDisabledCount(lua_State *L) {
 		if (!_lg_typecheck_incrementDisabledCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::incrementDisabledCount() function, expected prototype:\nvoid osgUtil::Intersector::incrementDisabledCount()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::incrementDisabledCount() function, expected prototype:\nvoid osgUtil::Intersector::incrementDisabledCount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::incrementDisabledCount(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::incrementDisabledCount(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->incrementDisabledCount();
 
@@ -469,15 +441,13 @@ public:
 	// void osgUtil::Intersector::decrementDisabledCount()
 	static int _bind_decrementDisabledCount(lua_State *L) {
 		if (!_lg_typecheck_decrementDisabledCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::decrementDisabledCount() function, expected prototype:\nvoid osgUtil::Intersector::decrementDisabledCount()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::decrementDisabledCount() function, expected prototype:\nvoid osgUtil::Intersector::decrementDisabledCount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::decrementDisabledCount(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::decrementDisabledCount(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->decrementDisabledCount();
 
@@ -487,15 +457,13 @@ public:
 	// bool osgUtil::Intersector::reachedLimit()
 	static int _bind_reachedLimit(lua_State *L) {
 		if (!_lg_typecheck_reachedLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::Intersector::reachedLimit() function, expected prototype:\nbool osgUtil::Intersector::reachedLimit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::Intersector::reachedLimit() function, expected prototype:\nbool osgUtil::Intersector::reachedLimit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Intersector::reachedLimit(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgUtil::Intersector::reachedLimit(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->reachedLimit();
 		lua_pushboolean(L,lret?1:0);
@@ -506,16 +474,14 @@ public:
 	// void osgUtil::Intersector::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::Intersector::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::Intersector::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Intersector::setThreadSafeRefUnref(threadSafe);
 
@@ -525,15 +491,13 @@ public:
 	// void osgUtil::Intersector::base_reset()
 	static int _bind_base_reset(lua_State *L) {
 		if (!_lg_typecheck_base_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::base_reset() function, expected prototype:\nvoid osgUtil::Intersector::base_reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::Intersector::base_reset() function, expected prototype:\nvoid osgUtil::Intersector::base_reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgUtil::Intersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::Intersector::base_reset(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Intersector::reset();
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::TextBase* self= (osgText::TextBase*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -648,8 +645,7 @@ public:
 	// osgText::TextBase::TextBase(lua_Table * data)
 	static osgText::TextBase* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::TextBase::TextBase(lua_Table * data) function, expected prototype:\nosgText::TextBase::TextBase(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::TextBase::TextBase(lua_Table * data) function, expected prototype:\nosgText::TextBase::TextBase(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -659,8 +655,7 @@ public:
 	// osgText::TextBase::TextBase(lua_Table * data, const osgText::TextBase & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgText::TextBase* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::TextBase::TextBase(lua_Table * data, const osgText::TextBase & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgText::TextBase::TextBase(lua_Table * data, const osgText::TextBase & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgText::TextBase::TextBase(lua_Table * data, const osgText::TextBase & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgText::TextBase::TextBase(lua_Table * data, const osgText::TextBase & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -693,16 +688,14 @@ public:
 	// bool osgText::TextBase::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgText::TextBase::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgText::TextBase::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgText::TextBase::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgText::TextBase::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::TextBase::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgText::TextBase::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -713,15 +706,13 @@ public:
 	// const char * osgText::TextBase::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgText::TextBase::className() const function, expected prototype:\nconst char * osgText::TextBase::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgText::TextBase::className() const function, expected prototype:\nconst char * osgText::TextBase::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::TextBase::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgText::TextBase::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -732,15 +723,13 @@ public:
 	// const char * osgText::TextBase::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgText::TextBase::libraryName() const function, expected prototype:\nconst char * osgText::TextBase::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgText::TextBase::libraryName() const function, expected prototype:\nconst char * osgText::TextBase::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::TextBase::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgText::TextBase::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -751,8 +740,7 @@ public:
 	// void osgText::TextBase::setColor(const osg::Vec4f & color)
 	static int _bind_setColor(lua_State *L) {
 		if (!_lg_typecheck_setColor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setColor(const osg::Vec4f & color) function, expected prototype:\nvoid osgText::TextBase::setColor(const osg::Vec4f & color)\nClass arguments details:\narg 1 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setColor(const osg::Vec4f & color) function, expected prototype:\nvoid osgText::TextBase::setColor(const osg::Vec4f & color)\nClass arguments details:\narg 1 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4f* color_ptr=(Luna< osg::Vec4f >::check(L,2));
@@ -763,8 +751,7 @@ public:
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setColor(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setColor(const osg::Vec4f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setColor(color);
 
@@ -774,15 +761,13 @@ public:
 	// const osg::Vec4f & osgText::TextBase::getColor() const
 	static int _bind_getColor(lua_State *L) {
 		if (!_lg_typecheck_getColor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec4f & osgText::TextBase::getColor() const function, expected prototype:\nconst osg::Vec4f & osgText::TextBase::getColor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec4f & osgText::TextBase::getColor() const function, expected prototype:\nconst osg::Vec4f & osgText::TextBase::getColor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgText::TextBase::getColor() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgText::TextBase::getColor() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec4f* lret = &self->getColor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -795,8 +780,7 @@ public:
 	// void osgText::TextBase::setFont(osgText::Font * font = 0)
 	static int _bind_setFont_overload_1(lua_State *L) {
 		if (!_lg_typecheck_setFont_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setFont(osgText::Font * font = 0) function, expected prototype:\nvoid osgText::TextBase::setFont(osgText::Font * font = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setFont(osgText::Font * font = 0) function, expected prototype:\nvoid osgText::TextBase::setFont(osgText::Font * font = 0)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -805,8 +789,7 @@ public:
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setFont(osgText::Font *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setFont(osgText::Font *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFont(font);
 
@@ -816,16 +799,14 @@ public:
 	// void osgText::TextBase::setFont(const std::string & fontfile)
 	static int _bind_setFont_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setFont_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setFont(const std::string & fontfile) function, expected prototype:\nvoid osgText::TextBase::setFont(const std::string & fontfile)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setFont(const std::string & fontfile) function, expected prototype:\nvoid osgText::TextBase::setFont(const std::string & fontfile)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fontfile(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setFont(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setFont(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFont(fontfile);
 
@@ -844,15 +825,13 @@ public:
 	// const osgText::Font * osgText::TextBase::getFont() const
 	static int _bind_getFont(lua_State *L) {
 		if (!_lg_typecheck_getFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgText::Font * osgText::TextBase::getFont() const function, expected prototype:\nconst osgText::Font * osgText::TextBase::getFont() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgText::Font * osgText::TextBase::getFont() const function, expected prototype:\nconst osgText::Font * osgText::TextBase::getFont() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Font * osgText::TextBase::getFont() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgText::Font * osgText::TextBase::getFont() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::Font * lret = self->getFont();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -865,16 +844,14 @@ public:
 	// void osgText::TextBase::setStyle(osgText::Style * style)
 	static int _bind_setStyle(lua_State *L) {
 		if (!_lg_typecheck_setStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setStyle(osgText::Style * style) function, expected prototype:\nvoid osgText::TextBase::setStyle(osgText::Style * style)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setStyle(osgText::Style * style) function, expected prototype:\nvoid osgText::TextBase::setStyle(osgText::Style * style)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::Style* style=(Luna< osg::Referenced >::checkSubType< osgText::Style >(L,2));
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setStyle(osgText::Style *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setStyle(osgText::Style *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setStyle(style);
 
@@ -884,15 +861,13 @@ public:
 	// osgText::Style * osgText::TextBase::getStyle()
 	static int _bind_getStyle_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getStyle_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::Style * osgText::TextBase::getStyle() function, expected prototype:\nosgText::Style * osgText::TextBase::getStyle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::Style * osgText::TextBase::getStyle() function, expected prototype:\nosgText::Style * osgText::TextBase::getStyle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Style * osgText::TextBase::getStyle(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::Style * osgText::TextBase::getStyle(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgText::Style * lret = self->getStyle();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -905,15 +880,13 @@ public:
 	// const osgText::Style * osgText::TextBase::getStyle() const
 	static int _bind_getStyle_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getStyle_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgText::Style * osgText::TextBase::getStyle() const function, expected prototype:\nconst osgText::Style * osgText::TextBase::getStyle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgText::Style * osgText::TextBase::getStyle() const function, expected prototype:\nconst osgText::Style * osgText::TextBase::getStyle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Style * osgText::TextBase::getStyle() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgText::Style * osgText::TextBase::getStyle() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::Style * lret = self->getStyle();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -935,15 +908,13 @@ public:
 	// osgText::Style * osgText::TextBase::getOrCreateStyle()
 	static int _bind_getOrCreateStyle(lua_State *L) {
 		if (!_lg_typecheck_getOrCreateStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::Style * osgText::TextBase::getOrCreateStyle() function, expected prototype:\nosgText::Style * osgText::TextBase::getOrCreateStyle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::Style * osgText::TextBase::getOrCreateStyle() function, expected prototype:\nosgText::Style * osgText::TextBase::getOrCreateStyle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Style * osgText::TextBase::getOrCreateStyle(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::Style * osgText::TextBase::getOrCreateStyle(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgText::Style * lret = self->getOrCreateStyle();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -956,8 +927,7 @@ public:
 	// void osgText::TextBase::setFontResolution(unsigned int width, unsigned int height)
 	static int _bind_setFontResolution(lua_State *L) {
 		if (!_lg_typecheck_setFontResolution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setFontResolution(unsigned int width, unsigned int height) function, expected prototype:\nvoid osgText::TextBase::setFontResolution(unsigned int width, unsigned int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setFontResolution(unsigned int width, unsigned int height) function, expected prototype:\nvoid osgText::TextBase::setFontResolution(unsigned int width, unsigned int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int width=(unsigned int)lua_tointeger(L,2);
@@ -965,8 +935,7 @@ public:
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setFontResolution(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setFontResolution(unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFontResolution(width, height);
 
@@ -976,15 +945,13 @@ public:
 	// unsigned int osgText::TextBase::getFontWidth() const
 	static int _bind_getFontWidth(lua_State *L) {
 		if (!_lg_typecheck_getFontWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgText::TextBase::getFontWidth() const function, expected prototype:\nunsigned int osgText::TextBase::getFontWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgText::TextBase::getFontWidth() const function, expected prototype:\nunsigned int osgText::TextBase::getFontWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgText::TextBase::getFontWidth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgText::TextBase::getFontWidth() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getFontWidth();
 		lua_pushnumber(L,lret);
@@ -995,15 +962,13 @@ public:
 	// unsigned int osgText::TextBase::getFontHeight() const
 	static int _bind_getFontHeight(lua_State *L) {
 		if (!_lg_typecheck_getFontHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgText::TextBase::getFontHeight() const function, expected prototype:\nunsigned int osgText::TextBase::getFontHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgText::TextBase::getFontHeight() const function, expected prototype:\nunsigned int osgText::TextBase::getFontHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgText::TextBase::getFontHeight() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgText::TextBase::getFontHeight() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getFontHeight();
 		lua_pushnumber(L,lret);
@@ -1014,8 +979,7 @@ public:
 	// void osgText::TextBase::setText(const osgText::String & text)
 	static int _bind_setText_overload_1(lua_State *L) {
 		if (!_lg_typecheck_setText_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setText(const osgText::String & text) function, expected prototype:\nvoid osgText::TextBase::setText(const osgText::String & text)\nClass arguments details:\narg 1 ID = 42086333\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setText(const osgText::String & text) function, expected prototype:\nvoid osgText::TextBase::setText(const osgText::String & text)\nClass arguments details:\narg 1 ID = 42086333\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgText::String* text_ptr=(Luna< osgText::String >::check(L,2));
@@ -1026,8 +990,7 @@ public:
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setText(const osgText::String &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setText(const osgText::String &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setText(text);
 
@@ -1037,16 +1000,14 @@ public:
 	// void osgText::TextBase::setText(const std::string & text)
 	static int _bind_setText_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setText_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setText(const std::string & text) function, expected prototype:\nvoid osgText::TextBase::setText(const std::string & text)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setText(const std::string & text) function, expected prototype:\nvoid osgText::TextBase::setText(const std::string & text)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string text(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setText(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setText(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setText(text);
 
@@ -1056,8 +1017,7 @@ public:
 	// void osgText::TextBase::setText(const std::string & text, osgText::String::Encoding encoding)
 	static int _bind_setText_overload_3(lua_State *L) {
 		if (!_lg_typecheck_setText_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setText(const std::string & text, osgText::String::Encoding encoding) function, expected prototype:\nvoid osgText::TextBase::setText(const std::string & text, osgText::String::Encoding encoding)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setText(const std::string & text, osgText::String::Encoding encoding) function, expected prototype:\nvoid osgText::TextBase::setText(const std::string & text, osgText::String::Encoding encoding)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string text(lua_tostring(L,2),lua_objlen(L,2));
@@ -1065,8 +1025,7 @@ public:
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setText(const std::string &, osgText::String::Encoding). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setText(const std::string &, osgText::String::Encoding). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setText(text, encoding);
 
@@ -1086,15 +1045,13 @@ public:
 	// osgText::String & osgText::TextBase::getText()
 	static int _bind_getText_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getText_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::String & osgText::TextBase::getText() function, expected prototype:\nosgText::String & osgText::TextBase::getText()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::String & osgText::TextBase::getText() function, expected prototype:\nosgText::String & osgText::TextBase::getText()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::String & osgText::TextBase::getText(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::String & osgText::TextBase::getText(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::String* lret = &self->getText();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1107,15 +1064,13 @@ public:
 	// const osgText::String & osgText::TextBase::getText() const
 	static int _bind_getText_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getText_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgText::String & osgText::TextBase::getText() const function, expected prototype:\nconst osgText::String & osgText::TextBase::getText() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgText::String & osgText::TextBase::getText() const function, expected prototype:\nconst osgText::String & osgText::TextBase::getText() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::String & osgText::TextBase::getText() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgText::String & osgText::TextBase::getText() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osgText::String* lret = &self->getText();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1137,15 +1092,13 @@ public:
 	// void osgText::TextBase::update()
 	static int _bind_update(lua_State *L) {
 		if (!_lg_typecheck_update(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::update() function, expected prototype:\nvoid osgText::TextBase::update()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::update() function, expected prototype:\nvoid osgText::TextBase::update()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::update(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::update(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->update();
 
@@ -1155,16 +1108,14 @@ public:
 	// void osgText::TextBase::setCharacterSize(float height)
 	static int _bind_setCharacterSize_overload_1(lua_State *L) {
 		if (!_lg_typecheck_setCharacterSize_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setCharacterSize(float height) function, expected prototype:\nvoid osgText::TextBase::setCharacterSize(float height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setCharacterSize(float height) function, expected prototype:\nvoid osgText::TextBase::setCharacterSize(float height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float height=(float)lua_tonumber(L,2);
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setCharacterSize(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setCharacterSize(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCharacterSize(height);
 
@@ -1174,8 +1125,7 @@ public:
 	// void osgText::TextBase::setCharacterSize(float height, float aspectRatio)
 	static int _bind_setCharacterSize_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setCharacterSize_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setCharacterSize(float height, float aspectRatio) function, expected prototype:\nvoid osgText::TextBase::setCharacterSize(float height, float aspectRatio)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setCharacterSize(float height, float aspectRatio) function, expected prototype:\nvoid osgText::TextBase::setCharacterSize(float height, float aspectRatio)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float height=(float)lua_tonumber(L,2);
@@ -1183,8 +1133,7 @@ public:
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setCharacterSize(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setCharacterSize(float, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCharacterSize(height, aspectRatio);
 
@@ -1203,15 +1152,13 @@ public:
 	// float osgText::TextBase::getCharacterHeight() const
 	static int _bind_getCharacterHeight(lua_State *L) {
 		if (!_lg_typecheck_getCharacterHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgText::TextBase::getCharacterHeight() const function, expected prototype:\nfloat osgText::TextBase::getCharacterHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgText::TextBase::getCharacterHeight() const function, expected prototype:\nfloat osgText::TextBase::getCharacterHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::TextBase::getCharacterHeight() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgText::TextBase::getCharacterHeight() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getCharacterHeight();
 		lua_pushnumber(L,lret);
@@ -1222,15 +1169,13 @@ public:
 	// float osgText::TextBase::getCharacterAspectRatio() const
 	static int _bind_getCharacterAspectRatio(lua_State *L) {
 		if (!_lg_typecheck_getCharacterAspectRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgText::TextBase::getCharacterAspectRatio() const function, expected prototype:\nfloat osgText::TextBase::getCharacterAspectRatio() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgText::TextBase::getCharacterAspectRatio() const function, expected prototype:\nfloat osgText::TextBase::getCharacterAspectRatio() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::TextBase::getCharacterAspectRatio() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgText::TextBase::getCharacterAspectRatio() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getCharacterAspectRatio();
 		lua_pushnumber(L,lret);
@@ -1241,16 +1186,14 @@ public:
 	// void osgText::TextBase::setCharacterSizeMode(osgText::TextBase::CharacterSizeMode mode)
 	static int _bind_setCharacterSizeMode(lua_State *L) {
 		if (!_lg_typecheck_setCharacterSizeMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setCharacterSizeMode(osgText::TextBase::CharacterSizeMode mode) function, expected prototype:\nvoid osgText::TextBase::setCharacterSizeMode(osgText::TextBase::CharacterSizeMode mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setCharacterSizeMode(osgText::TextBase::CharacterSizeMode mode) function, expected prototype:\nvoid osgText::TextBase::setCharacterSizeMode(osgText::TextBase::CharacterSizeMode mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::TextBase::CharacterSizeMode mode=(osgText::TextBase::CharacterSizeMode)lua_tointeger(L,2);
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setCharacterSizeMode(osgText::TextBase::CharacterSizeMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setCharacterSizeMode(osgText::TextBase::CharacterSizeMode). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCharacterSizeMode(mode);
 
@@ -1260,15 +1203,13 @@ public:
 	// osgText::TextBase::CharacterSizeMode osgText::TextBase::getCharacterSizeMode() const
 	static int _bind_getCharacterSizeMode(lua_State *L) {
 		if (!_lg_typecheck_getCharacterSizeMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::TextBase::CharacterSizeMode osgText::TextBase::getCharacterSizeMode() const function, expected prototype:\nosgText::TextBase::CharacterSizeMode osgText::TextBase::getCharacterSizeMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::TextBase::CharacterSizeMode osgText::TextBase::getCharacterSizeMode() const function, expected prototype:\nosgText::TextBase::CharacterSizeMode osgText::TextBase::getCharacterSizeMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::TextBase::CharacterSizeMode osgText::TextBase::getCharacterSizeMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::TextBase::CharacterSizeMode osgText::TextBase::getCharacterSizeMode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgText::TextBase::CharacterSizeMode lret = self->getCharacterSizeMode();
 		lua_pushnumber(L,lret);
@@ -1279,16 +1220,14 @@ public:
 	// void osgText::TextBase::setMaximumWidth(float maximumWidth)
 	static int _bind_setMaximumWidth(lua_State *L) {
 		if (!_lg_typecheck_setMaximumWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setMaximumWidth(float maximumWidth) function, expected prototype:\nvoid osgText::TextBase::setMaximumWidth(float maximumWidth)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setMaximumWidth(float maximumWidth) function, expected prototype:\nvoid osgText::TextBase::setMaximumWidth(float maximumWidth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float maximumWidth=(float)lua_tonumber(L,2);
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setMaximumWidth(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setMaximumWidth(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMaximumWidth(maximumWidth);
 
@@ -1298,15 +1237,13 @@ public:
 	// float osgText::TextBase::getMaximumWidth() const
 	static int _bind_getMaximumWidth(lua_State *L) {
 		if (!_lg_typecheck_getMaximumWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgText::TextBase::getMaximumWidth() const function, expected prototype:\nfloat osgText::TextBase::getMaximumWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgText::TextBase::getMaximumWidth() const function, expected prototype:\nfloat osgText::TextBase::getMaximumWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::TextBase::getMaximumWidth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgText::TextBase::getMaximumWidth() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getMaximumWidth();
 		lua_pushnumber(L,lret);
@@ -1317,16 +1254,14 @@ public:
 	// void osgText::TextBase::setMaximumHeight(float maximumHeight)
 	static int _bind_setMaximumHeight(lua_State *L) {
 		if (!_lg_typecheck_setMaximumHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setMaximumHeight(float maximumHeight) function, expected prototype:\nvoid osgText::TextBase::setMaximumHeight(float maximumHeight)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setMaximumHeight(float maximumHeight) function, expected prototype:\nvoid osgText::TextBase::setMaximumHeight(float maximumHeight)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float maximumHeight=(float)lua_tonumber(L,2);
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setMaximumHeight(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setMaximumHeight(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMaximumHeight(maximumHeight);
 
@@ -1336,15 +1271,13 @@ public:
 	// float osgText::TextBase::getMaximumHeight() const
 	static int _bind_getMaximumHeight(lua_State *L) {
 		if (!_lg_typecheck_getMaximumHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgText::TextBase::getMaximumHeight() const function, expected prototype:\nfloat osgText::TextBase::getMaximumHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgText::TextBase::getMaximumHeight() const function, expected prototype:\nfloat osgText::TextBase::getMaximumHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::TextBase::getMaximumHeight() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgText::TextBase::getMaximumHeight() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getMaximumHeight();
 		lua_pushnumber(L,lret);
@@ -1355,16 +1288,14 @@ public:
 	// void osgText::TextBase::setLineSpacing(float lineSpacing)
 	static int _bind_setLineSpacing(lua_State *L) {
 		if (!_lg_typecheck_setLineSpacing(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setLineSpacing(float lineSpacing) function, expected prototype:\nvoid osgText::TextBase::setLineSpacing(float lineSpacing)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setLineSpacing(float lineSpacing) function, expected prototype:\nvoid osgText::TextBase::setLineSpacing(float lineSpacing)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float lineSpacing=(float)lua_tonumber(L,2);
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setLineSpacing(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setLineSpacing(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLineSpacing(lineSpacing);
 
@@ -1374,15 +1305,13 @@ public:
 	// float osgText::TextBase::getLineSpacing() const
 	static int _bind_getLineSpacing(lua_State *L) {
 		if (!_lg_typecheck_getLineSpacing(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgText::TextBase::getLineSpacing() const function, expected prototype:\nfloat osgText::TextBase::getLineSpacing() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgText::TextBase::getLineSpacing() const function, expected prototype:\nfloat osgText::TextBase::getLineSpacing() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::TextBase::getLineSpacing() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgText::TextBase::getLineSpacing() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getLineSpacing();
 		lua_pushnumber(L,lret);
@@ -1393,8 +1322,7 @@ public:
 	// void osgText::TextBase::setPosition(const osg::Vec3f & pos)
 	static int _bind_setPosition(lua_State *L) {
 		if (!_lg_typecheck_setPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setPosition(const osg::Vec3f & pos) function, expected prototype:\nvoid osgText::TextBase::setPosition(const osg::Vec3f & pos)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setPosition(const osg::Vec3f & pos) function, expected prototype:\nvoid osgText::TextBase::setPosition(const osg::Vec3f & pos)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* pos_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -1405,8 +1333,7 @@ public:
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setPosition(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setPosition(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPosition(pos);
 
@@ -1416,15 +1343,13 @@ public:
 	// const osg::Vec3f & osgText::TextBase::getPosition() const
 	static int _bind_getPosition(lua_State *L) {
 		if (!_lg_typecheck_getPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osgText::TextBase::getPosition() const function, expected prototype:\nconst osg::Vec3f & osgText::TextBase::getPosition() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec3f & osgText::TextBase::getPosition() const function, expected prototype:\nconst osg::Vec3f & osgText::TextBase::getPosition() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgText::TextBase::getPosition() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgText::TextBase::getPosition() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec3f* lret = &self->getPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1437,16 +1362,14 @@ public:
 	// void osgText::TextBase::setAlignment(osgText::TextBase::AlignmentType alignment)
 	static int _bind_setAlignment(lua_State *L) {
 		if (!_lg_typecheck_setAlignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setAlignment(osgText::TextBase::AlignmentType alignment) function, expected prototype:\nvoid osgText::TextBase::setAlignment(osgText::TextBase::AlignmentType alignment)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setAlignment(osgText::TextBase::AlignmentType alignment) function, expected prototype:\nvoid osgText::TextBase::setAlignment(osgText::TextBase::AlignmentType alignment)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::TextBase::AlignmentType alignment=(osgText::TextBase::AlignmentType)lua_tointeger(L,2);
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setAlignment(osgText::TextBase::AlignmentType). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setAlignment(osgText::TextBase::AlignmentType). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAlignment(alignment);
 
@@ -1456,15 +1379,13 @@ public:
 	// osgText::TextBase::AlignmentType osgText::TextBase::getAlignment() const
 	static int _bind_getAlignment(lua_State *L) {
 		if (!_lg_typecheck_getAlignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::TextBase::AlignmentType osgText::TextBase::getAlignment() const function, expected prototype:\nosgText::TextBase::AlignmentType osgText::TextBase::getAlignment() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::TextBase::AlignmentType osgText::TextBase::getAlignment() const function, expected prototype:\nosgText::TextBase::AlignmentType osgText::TextBase::getAlignment() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::TextBase::AlignmentType osgText::TextBase::getAlignment() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::TextBase::AlignmentType osgText::TextBase::getAlignment() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgText::TextBase::AlignmentType lret = self->getAlignment();
 		lua_pushnumber(L,lret);
@@ -1475,16 +1396,14 @@ public:
 	// void osgText::TextBase::setAxisAlignment(osgText::TextBase::AxisAlignment axis)
 	static int _bind_setAxisAlignment(lua_State *L) {
 		if (!_lg_typecheck_setAxisAlignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setAxisAlignment(osgText::TextBase::AxisAlignment axis) function, expected prototype:\nvoid osgText::TextBase::setAxisAlignment(osgText::TextBase::AxisAlignment axis)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setAxisAlignment(osgText::TextBase::AxisAlignment axis) function, expected prototype:\nvoid osgText::TextBase::setAxisAlignment(osgText::TextBase::AxisAlignment axis)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::TextBase::AxisAlignment axis=(osgText::TextBase::AxisAlignment)lua_tointeger(L,2);
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setAxisAlignment(osgText::TextBase::AxisAlignment). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setAxisAlignment(osgText::TextBase::AxisAlignment). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAxisAlignment(axis);
 
@@ -1494,15 +1413,13 @@ public:
 	// osgText::TextBase::AxisAlignment osgText::TextBase::getAxisAlignment() const
 	static int _bind_getAxisAlignment(lua_State *L) {
 		if (!_lg_typecheck_getAxisAlignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::TextBase::AxisAlignment osgText::TextBase::getAxisAlignment() const function, expected prototype:\nosgText::TextBase::AxisAlignment osgText::TextBase::getAxisAlignment() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::TextBase::AxisAlignment osgText::TextBase::getAxisAlignment() const function, expected prototype:\nosgText::TextBase::AxisAlignment osgText::TextBase::getAxisAlignment() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::TextBase::AxisAlignment osgText::TextBase::getAxisAlignment() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::TextBase::AxisAlignment osgText::TextBase::getAxisAlignment() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgText::TextBase::AxisAlignment lret = self->getAxisAlignment();
 		lua_pushnumber(L,lret);
@@ -1513,8 +1430,7 @@ public:
 	// void osgText::TextBase::setRotation(const osg::Quat & quat)
 	static int _bind_setRotation(lua_State *L) {
 		if (!_lg_typecheck_setRotation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setRotation(const osg::Quat & quat) function, expected prototype:\nvoid osgText::TextBase::setRotation(const osg::Quat & quat)\nClass arguments details:\narg 1 ID = 80263306\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setRotation(const osg::Quat & quat) function, expected prototype:\nvoid osgText::TextBase::setRotation(const osg::Quat & quat)\nClass arguments details:\narg 1 ID = 80263306\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Quat* quat_ptr=(Luna< osg::Quat >::check(L,2));
@@ -1525,8 +1441,7 @@ public:
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setRotation(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setRotation(const osg::Quat &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRotation(quat);
 
@@ -1536,15 +1451,13 @@ public:
 	// const osg::Quat & osgText::TextBase::getRotation() const
 	static int _bind_getRotation(lua_State *L) {
 		if (!_lg_typecheck_getRotation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Quat & osgText::TextBase::getRotation() const function, expected prototype:\nconst osg::Quat & osgText::TextBase::getRotation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Quat & osgText::TextBase::getRotation() const function, expected prototype:\nconst osg::Quat & osgText::TextBase::getRotation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Quat & osgText::TextBase::getRotation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Quat & osgText::TextBase::getRotation() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Quat* lret = &self->getRotation();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1557,16 +1470,14 @@ public:
 	// void osgText::TextBase::setAutoRotateToScreen(bool autoRotateToScreen)
 	static int _bind_setAutoRotateToScreen(lua_State *L) {
 		if (!_lg_typecheck_setAutoRotateToScreen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setAutoRotateToScreen(bool autoRotateToScreen) function, expected prototype:\nvoid osgText::TextBase::setAutoRotateToScreen(bool autoRotateToScreen)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setAutoRotateToScreen(bool autoRotateToScreen) function, expected prototype:\nvoid osgText::TextBase::setAutoRotateToScreen(bool autoRotateToScreen)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool autoRotateToScreen=(bool)(lua_toboolean(L,2)==1);
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setAutoRotateToScreen(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setAutoRotateToScreen(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAutoRotateToScreen(autoRotateToScreen);
 
@@ -1576,15 +1487,13 @@ public:
 	// bool osgText::TextBase::getAutoRotateToScreen() const
 	static int _bind_getAutoRotateToScreen(lua_State *L) {
 		if (!_lg_typecheck_getAutoRotateToScreen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgText::TextBase::getAutoRotateToScreen() const function, expected prototype:\nbool osgText::TextBase::getAutoRotateToScreen() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgText::TextBase::getAutoRotateToScreen() const function, expected prototype:\nbool osgText::TextBase::getAutoRotateToScreen() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::TextBase::getAutoRotateToScreen() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgText::TextBase::getAutoRotateToScreen() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getAutoRotateToScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -1595,16 +1504,14 @@ public:
 	// void osgText::TextBase::setLayout(osgText::TextBase::Layout layout)
 	static int _bind_setLayout(lua_State *L) {
 		if (!_lg_typecheck_setLayout(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setLayout(osgText::TextBase::Layout layout) function, expected prototype:\nvoid osgText::TextBase::setLayout(osgText::TextBase::Layout layout)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setLayout(osgText::TextBase::Layout layout) function, expected prototype:\nvoid osgText::TextBase::setLayout(osgText::TextBase::Layout layout)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::TextBase::Layout layout=(osgText::TextBase::Layout)lua_tointeger(L,2);
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setLayout(osgText::TextBase::Layout). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setLayout(osgText::TextBase::Layout). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLayout(layout);
 
@@ -1614,15 +1521,13 @@ public:
 	// osgText::TextBase::Layout osgText::TextBase::getLayout() const
 	static int _bind_getLayout(lua_State *L) {
 		if (!_lg_typecheck_getLayout(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::TextBase::Layout osgText::TextBase::getLayout() const function, expected prototype:\nosgText::TextBase::Layout osgText::TextBase::getLayout() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::TextBase::Layout osgText::TextBase::getLayout() const function, expected prototype:\nosgText::TextBase::Layout osgText::TextBase::getLayout() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::TextBase::Layout osgText::TextBase::getLayout() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::TextBase::Layout osgText::TextBase::getLayout() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgText::TextBase::Layout lret = self->getLayout();
 		lua_pushnumber(L,lret);
@@ -1633,16 +1538,14 @@ public:
 	// void osgText::TextBase::setDrawMode(unsigned int mode)
 	static int _bind_setDrawMode(lua_State *L) {
 		if (!_lg_typecheck_setDrawMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setDrawMode(unsigned int mode) function, expected prototype:\nvoid osgText::TextBase::setDrawMode(unsigned int mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setDrawMode(unsigned int mode) function, expected prototype:\nvoid osgText::TextBase::setDrawMode(unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setDrawMode(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setDrawMode(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDrawMode(mode);
 
@@ -1652,15 +1555,13 @@ public:
 	// unsigned int osgText::TextBase::getDrawMode() const
 	static int _bind_getDrawMode(lua_State *L) {
 		if (!_lg_typecheck_getDrawMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgText::TextBase::getDrawMode() const function, expected prototype:\nunsigned int osgText::TextBase::getDrawMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgText::TextBase::getDrawMode() const function, expected prototype:\nunsigned int osgText::TextBase::getDrawMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgText::TextBase::getDrawMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgText::TextBase::getDrawMode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getDrawMode();
 		lua_pushnumber(L,lret);
@@ -1671,16 +1572,14 @@ public:
 	// void osgText::TextBase::setBoundingBoxMargin(float margin)
 	static int _bind_setBoundingBoxMargin(lua_State *L) {
 		if (!_lg_typecheck_setBoundingBoxMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setBoundingBoxMargin(float margin) function, expected prototype:\nvoid osgText::TextBase::setBoundingBoxMargin(float margin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setBoundingBoxMargin(float margin) function, expected prototype:\nvoid osgText::TextBase::setBoundingBoxMargin(float margin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float margin=(float)lua_tonumber(L,2);
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setBoundingBoxMargin(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setBoundingBoxMargin(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setBoundingBoxMargin(margin);
 
@@ -1690,15 +1589,13 @@ public:
 	// float osgText::TextBase::getBoundingBoxMargin() const
 	static int _bind_getBoundingBoxMargin(lua_State *L) {
 		if (!_lg_typecheck_getBoundingBoxMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgText::TextBase::getBoundingBoxMargin() const function, expected prototype:\nfloat osgText::TextBase::getBoundingBoxMargin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgText::TextBase::getBoundingBoxMargin() const function, expected prototype:\nfloat osgText::TextBase::getBoundingBoxMargin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::TextBase::getBoundingBoxMargin() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgText::TextBase::getBoundingBoxMargin() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getBoundingBoxMargin();
 		lua_pushnumber(L,lret);
@@ -1709,8 +1606,7 @@ public:
 	// void osgText::TextBase::setBoundingBoxColor(const osg::Vec4f & color)
 	static int _bind_setBoundingBoxColor(lua_State *L) {
 		if (!_lg_typecheck_setBoundingBoxColor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setBoundingBoxColor(const osg::Vec4f & color) function, expected prototype:\nvoid osgText::TextBase::setBoundingBoxColor(const osg::Vec4f & color)\nClass arguments details:\narg 1 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setBoundingBoxColor(const osg::Vec4f & color) function, expected prototype:\nvoid osgText::TextBase::setBoundingBoxColor(const osg::Vec4f & color)\nClass arguments details:\narg 1 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4f* color_ptr=(Luna< osg::Vec4f >::check(L,2));
@@ -1721,8 +1617,7 @@ public:
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setBoundingBoxColor(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setBoundingBoxColor(const osg::Vec4f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setBoundingBoxColor(color);
 
@@ -1732,15 +1627,13 @@ public:
 	// const osg::Vec4f & osgText::TextBase::getBoundingBoxColor() const
 	static int _bind_getBoundingBoxColor(lua_State *L) {
 		if (!_lg_typecheck_getBoundingBoxColor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Vec4f & osgText::TextBase::getBoundingBoxColor() const function, expected prototype:\nconst osg::Vec4f & osgText::TextBase::getBoundingBoxColor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Vec4f & osgText::TextBase::getBoundingBoxColor() const function, expected prototype:\nconst osg::Vec4f & osgText::TextBase::getBoundingBoxColor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgText::TextBase::getBoundingBoxColor() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgText::TextBase::getBoundingBoxColor() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Vec4f* lret = &self->getBoundingBoxColor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1753,16 +1646,14 @@ public:
 	// void osgText::TextBase::setKerningType(osgText::KerningType kerningType)
 	static int _bind_setKerningType(lua_State *L) {
 		if (!_lg_typecheck_setKerningType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setKerningType(osgText::KerningType kerningType) function, expected prototype:\nvoid osgText::TextBase::setKerningType(osgText::KerningType kerningType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setKerningType(osgText::KerningType kerningType) function, expected prototype:\nvoid osgText::TextBase::setKerningType(osgText::KerningType kerningType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgText::KerningType kerningType=(osgText::KerningType)lua_tointeger(L,2);
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setKerningType(osgText::KerningType). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setKerningType(osgText::KerningType). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setKerningType(kerningType);
 
@@ -1772,15 +1663,13 @@ public:
 	// osgText::KerningType osgText::TextBase::getKerningType() const
 	static int _bind_getKerningType(lua_State *L) {
 		if (!_lg_typecheck_getKerningType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgText::KerningType osgText::TextBase::getKerningType() const function, expected prototype:\nosgText::KerningType osgText::TextBase::getKerningType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgText::KerningType osgText::TextBase::getKerningType() const function, expected prototype:\nosgText::KerningType osgText::TextBase::getKerningType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::KerningType osgText::TextBase::getKerningType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osgText::KerningType osgText::TextBase::getKerningType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osgText::KerningType lret = self->getKerningType();
 		lua_pushnumber(L,lret);
@@ -1791,15 +1680,13 @@ public:
 	// unsigned int osgText::TextBase::getLineCount() const
 	static int _bind_getLineCount(lua_State *L) {
 		if (!_lg_typecheck_getLineCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgText::TextBase::getLineCount() const function, expected prototype:\nunsigned int osgText::TextBase::getLineCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgText::TextBase::getLineCount() const function, expected prototype:\nunsigned int osgText::TextBase::getLineCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgText::TextBase::getLineCount() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgText::TextBase::getLineCount() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getLineCount();
 		lua_pushnumber(L,lret);
@@ -1810,16 +1697,14 @@ public:
 	// void osgText::TextBase::setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::TextBase::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::TextBase::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setThreadSafeRefUnref(threadSafe);
 
@@ -1829,8 +1714,7 @@ public:
 	// void osgText::TextBase::releaseGLObjects(osg::State * state = 0) const
 	static int _bind_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osgText::TextBase::releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osgText::TextBase::releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1839,8 +1723,7 @@ public:
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->releaseGLObjects(state);
 
@@ -1850,15 +1733,13 @@ public:
 	// osg::BoundingBoxd osgText::TextBase::computeBound() const
 	static int _bind_computeBound(lua_State *L) {
 		if (!_lg_typecheck_computeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingBoxd osgText::TextBase::computeBound() const function, expected prototype:\nosg::BoundingBoxd osgText::TextBase::computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingBoxd osgText::TextBase::computeBound() const function, expected prototype:\nosg::BoundingBoxd osgText::TextBase::computeBound() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osgText::TextBase::computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osgText::TextBase::computeBound() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::BoundingBoxd stack_lret = self->computeBound();
 		osg::BoundingBoxd* lret = new osg::BoundingBoxd(stack_lret);
@@ -1872,16 +1753,14 @@ public:
 	// void osgText::TextBase::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setName(const std::string & name) function, expected prototype:\nvoid osgText::TextBase::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setName(const std::string & name) function, expected prototype:\nvoid osgText::TextBase::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextBase::setName(name);
 
@@ -1891,16 +1770,14 @@ public:
 	// void osgText::TextBase::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgText::TextBase::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osgText::TextBase::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextBase::setUserData(obj);
 
@@ -1910,15 +1787,13 @@ public:
 	// osg::Referenced * osgText::TextBase::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osgText::TextBase::base_getUserData() function, expected prototype:\nosg::Referenced * osgText::TextBase::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osgText::TextBase::base_getUserData() function, expected prototype:\nosg::Referenced * osgText::TextBase::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgText::TextBase::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgText::TextBase::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->TextBase::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1931,15 +1806,13 @@ public:
 	// const osg::Referenced * osgText::TextBase::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgText::TextBase::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgText::TextBase::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osgText::TextBase::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osgText::TextBase::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgText::TextBase::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgText::TextBase::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->TextBase::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1961,15 +1834,13 @@ public:
 	// osg::Geometry * osgText::TextBase::base_asGeometry()
 	static int _bind_base_asGeometry_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asGeometry_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geometry * osgText::TextBase::base_asGeometry() function, expected prototype:\nosg::Geometry * osgText::TextBase::base_asGeometry()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Geometry * osgText::TextBase::base_asGeometry() function, expected prototype:\nosg::Geometry * osgText::TextBase::base_asGeometry()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgText::TextBase::base_asGeometry(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgText::TextBase::base_asGeometry(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Geometry * lret = self->TextBase::asGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1982,15 +1853,13 @@ public:
 	// const osg::Geometry * osgText::TextBase::base_asGeometry() const
 	static int _bind_base_asGeometry_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asGeometry_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Geometry * osgText::TextBase::base_asGeometry() const function, expected prototype:\nconst osg::Geometry * osgText::TextBase::base_asGeometry() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Geometry * osgText::TextBase::base_asGeometry() const function, expected prototype:\nconst osg::Geometry * osgText::TextBase::base_asGeometry() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geometry * osgText::TextBase::base_asGeometry() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Geometry * osgText::TextBase::base_asGeometry() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Geometry * lret = self->TextBase::asGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2012,15 +1881,13 @@ public:
 	// void osgText::TextBase::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_computeDataVariance() function, expected prototype:\nvoid osgText::TextBase::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_computeDataVariance() function, expected prototype:\nvoid osgText::TextBase::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextBase::computeDataVariance();
 
@@ -2030,16 +1897,14 @@ public:
 	// void osgText::TextBase::base_setUseVertexBufferObjects(bool flag)
 	static int _bind_base_setUseVertexBufferObjects(lua_State *L) {
 		if (!_lg_typecheck_base_setUseVertexBufferObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setUseVertexBufferObjects(bool flag) function, expected prototype:\nvoid osgText::TextBase::base_setUseVertexBufferObjects(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setUseVertexBufferObjects(bool flag) function, expected prototype:\nvoid osgText::TextBase::base_setUseVertexBufferObjects(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setUseVertexBufferObjects(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setUseVertexBufferObjects(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextBase::setUseVertexBufferObjects(flag);
 
@@ -2049,15 +1914,13 @@ public:
 	// void osgText::TextBase::base_dirtyDisplayList()
 	static int _bind_base_dirtyDisplayList(lua_State *L) {
 		if (!_lg_typecheck_base_dirtyDisplayList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_dirtyDisplayList() function, expected prototype:\nvoid osgText::TextBase::base_dirtyDisplayList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_dirtyDisplayList() function, expected prototype:\nvoid osgText::TextBase::base_dirtyDisplayList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_dirtyDisplayList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_dirtyDisplayList(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextBase::dirtyDisplayList();
 
@@ -2067,15 +1930,13 @@ public:
 	// unsigned int osgText::TextBase::base_getGLObjectSizeHint() const
 	static int _bind_base_getGLObjectSizeHint(lua_State *L) {
 		if (!_lg_typecheck_base_getGLObjectSizeHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osgText::TextBase::base_getGLObjectSizeHint() const function, expected prototype:\nunsigned int osgText::TextBase::base_getGLObjectSizeHint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osgText::TextBase::base_getGLObjectSizeHint() const function, expected prototype:\nunsigned int osgText::TextBase::base_getGLObjectSizeHint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgText::TextBase::base_getGLObjectSizeHint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osgText::TextBase::base_getGLObjectSizeHint() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->TextBase::getGLObjectSizeHint();
 		lua_pushnumber(L,lret);
@@ -2086,8 +1947,7 @@ public:
 	// void osgText::TextBase::base_compileGLObjects(osg::RenderInfo & renderInfo) const
 	static int _bind_base_compileGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_compileGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_compileGLObjects(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid osgText::TextBase::base_compileGLObjects(osg::RenderInfo & renderInfo) const\nClass arguments details:\narg 1 ID = 2286263\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_compileGLObjects(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid osgText::TextBase::base_compileGLObjects(osg::RenderInfo & renderInfo) const\nClass arguments details:\narg 1 ID = 2286263\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
@@ -2098,8 +1958,7 @@ public:
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_compileGLObjects(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_compileGLObjects(osg::RenderInfo &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextBase::compileGLObjects(renderInfo);
 
@@ -2109,16 +1968,14 @@ public:
 	// void osgText::TextBase::base_setUpdateCallback(osg::Drawable::UpdateCallback * ac)
 	static int _bind_base_setUpdateCallback(lua_State *L) {
 		if (!_lg_typecheck_base_setUpdateCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setUpdateCallback(osg::Drawable::UpdateCallback * ac) function, expected prototype:\nvoid osgText::TextBase::base_setUpdateCallback(osg::Drawable::UpdateCallback * ac)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setUpdateCallback(osg::Drawable::UpdateCallback * ac) function, expected prototype:\nvoid osgText::TextBase::base_setUpdateCallback(osg::Drawable::UpdateCallback * ac)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Drawable::UpdateCallback* ac=(Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,2));
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setUpdateCallback(osg::Drawable::UpdateCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setUpdateCallback(osg::Drawable::UpdateCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextBase::setUpdateCallback(ac);
 
@@ -2128,16 +1985,14 @@ public:
 	// void osgText::TextBase::base_setEventCallback(osg::Drawable::EventCallback * ac)
 	static int _bind_base_setEventCallback(lua_State *L) {
 		if (!_lg_typecheck_base_setEventCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setEventCallback(osg::Drawable::EventCallback * ac) function, expected prototype:\nvoid osgText::TextBase::base_setEventCallback(osg::Drawable::EventCallback * ac)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setEventCallback(osg::Drawable::EventCallback * ac) function, expected prototype:\nvoid osgText::TextBase::base_setEventCallback(osg::Drawable::EventCallback * ac)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Drawable::EventCallback* ac=(Luna< osg::Referenced >::checkSubType< osg::Drawable::EventCallback >(L,2));
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setEventCallback(osg::Drawable::EventCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setEventCallback(osg::Drawable::EventCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextBase::setEventCallback(ac);
 
@@ -2147,16 +2002,14 @@ public:
 	// void osgText::TextBase::base_setCullCallback(osg::Drawable::CullCallback * cc)
 	static int _bind_base_setCullCallback(lua_State *L) {
 		if (!_lg_typecheck_base_setCullCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setCullCallback(osg::Drawable::CullCallback * cc) function, expected prototype:\nvoid osgText::TextBase::base_setCullCallback(osg::Drawable::CullCallback * cc)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setCullCallback(osg::Drawable::CullCallback * cc) function, expected prototype:\nvoid osgText::TextBase::base_setCullCallback(osg::Drawable::CullCallback * cc)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Drawable::CullCallback* cc=(Luna< osg::Referenced >::checkSubType< osg::Drawable::CullCallback >(L,2));
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setCullCallback(osg::Drawable::CullCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setCullCallback(osg::Drawable::CullCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextBase::setCullCallback(cc);
 
@@ -2166,16 +2019,14 @@ public:
 	// void osgText::TextBase::base_setDrawCallback(osg::Drawable::DrawCallback * dc)
 	static int _bind_base_setDrawCallback(lua_State *L) {
 		if (!_lg_typecheck_base_setDrawCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setDrawCallback(osg::Drawable::DrawCallback * dc) function, expected prototype:\nvoid osgText::TextBase::base_setDrawCallback(osg::Drawable::DrawCallback * dc)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setDrawCallback(osg::Drawable::DrawCallback * dc) function, expected prototype:\nvoid osgText::TextBase::base_setDrawCallback(osg::Drawable::DrawCallback * dc)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Drawable::DrawCallback* dc=(Luna< osg::Referenced >::checkSubType< osg::Drawable::DrawCallback >(L,2));
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setDrawCallback(osg::Drawable::DrawCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setDrawCallback(osg::Drawable::DrawCallback *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextBase::setDrawCallback(dc);
 
@@ -2185,16 +2036,14 @@ public:
 	// bool osgText::TextBase::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgText::TextBase::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgText::TextBase::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgText::TextBase::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osgText::TextBase::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::TextBase::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgText::TextBase::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->TextBase::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -2205,15 +2054,13 @@ public:
 	// const char * osgText::TextBase::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgText::TextBase::base_className() const function, expected prototype:\nconst char * osgText::TextBase::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgText::TextBase::base_className() const function, expected prototype:\nconst char * osgText::TextBase::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::TextBase::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgText::TextBase::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->TextBase::className();
 		lua_pushstring(L,lret);
@@ -2224,15 +2071,13 @@ public:
 	// const char * osgText::TextBase::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osgText::TextBase::base_libraryName() const function, expected prototype:\nconst char * osgText::TextBase::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osgText::TextBase::base_libraryName() const function, expected prototype:\nconst char * osgText::TextBase::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::TextBase::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osgText::TextBase::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->TextBase::libraryName();
 		lua_pushstring(L,lret);
@@ -2243,8 +2088,7 @@ public:
 	// void osgText::TextBase::base_setFont(osgText::Font * font = 0)
 	static int _bind_base_setFont_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_setFont_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setFont(osgText::Font * font = 0) function, expected prototype:\nvoid osgText::TextBase::base_setFont(osgText::Font * font = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setFont(osgText::Font * font = 0) function, expected prototype:\nvoid osgText::TextBase::base_setFont(osgText::Font * font = 0)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2253,8 +2097,7 @@ public:
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setFont(osgText::Font *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setFont(osgText::Font *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextBase::setFont(font);
 
@@ -2264,16 +2107,14 @@ public:
 	// void osgText::TextBase::base_setFont(const std::string & fontfile)
 	static int _bind_base_setFont_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_setFont_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setFont(const std::string & fontfile) function, expected prototype:\nvoid osgText::TextBase::base_setFont(const std::string & fontfile)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setFont(const std::string & fontfile) function, expected prototype:\nvoid osgText::TextBase::base_setFont(const std::string & fontfile)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string fontfile(lua_tostring(L,2),lua_objlen(L,2));
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setFont(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setFont(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextBase::setFont(fontfile);
 
@@ -2292,16 +2133,14 @@ public:
 	// void osgText::TextBase::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::TextBase::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::TextBase::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextBase::setThreadSafeRefUnref(threadSafe);
 
@@ -2311,8 +2150,7 @@ public:
 	// void osgText::TextBase::base_releaseGLObjects(osg::State * state = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osgText::TextBase::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgText::TextBase::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osgText::TextBase::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2321,8 +2159,7 @@ public:
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextBase::releaseGLObjects(state);
 
@@ -2332,15 +2169,13 @@ public:
 	// osg::BoundingBoxd osgText::TextBase::base_computeBound() const
 	static int _bind_base_computeBound(lua_State *L) {
 		if (!_lg_typecheck_base_computeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingBoxd osgText::TextBase::base_computeBound() const function, expected prototype:\nosg::BoundingBoxd osgText::TextBase::base_computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingBoxd osgText::TextBase::base_computeBound() const function, expected prototype:\nosg::BoundingBoxd osgText::TextBase::base_computeBound() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgText::TextBase* self=Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osgText::TextBase::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osgText::TextBase::base_computeBound() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::BoundingBoxd stack_lret = self->TextBase::computeBound();
 		osg::BoundingBoxd* lret = new osg::BoundingBoxd(stack_lret);

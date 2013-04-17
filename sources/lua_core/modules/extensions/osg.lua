@@ -1,4 +1,10 @@
 
+osg.PlaneList = osg.Polytope_PlaneList
+
+osg.Plane.__tostring = function(self)
+	return tostring(self:asVec4())
+end
+
 -- Matrixd extensions:
 osg.Matrixd.__tostring = function(self)
 	local str = "{\n"
@@ -73,6 +79,26 @@ end
 
 osg.Vec4f.xyz = function(self)
 	return osg.Vec3f(self:x(),self:y(),self:z())
+end
+
+osg.Vec3d.clone = function(self)
+	return osg.Vec3d(self:x(),self:y(),self:z())
+end
+
+osg.Vec3f.clone = function(self)
+	return osg.Vec3f(self:x(),self:y(),self:z())
+end
+
+osg.Vec3d.normalized = function(self)
+	local res = self:clone()
+	res:normalize()
+	return res
+end
+
+osg.Vec3f.normalized = function(self)
+	local res = self:clone()
+	res:normalize()
+	return res
 end
 
 osg.XAXIS = osg.Vec3d(1.0,0.0,0.0)

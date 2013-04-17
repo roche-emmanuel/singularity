@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::PerlinNoise*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::PerlinNoise*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::PerlinNoise* rhs =(Luna< osgUtil::PerlinNoise >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgUtil::PerlinNoise* self= (osgUtil::PerlinNoise*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgUtil::PerlinNoise >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -177,8 +173,7 @@ public:
 	// osgUtil::PerlinNoise::PerlinNoise()
 	static osgUtil::PerlinNoise* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::PerlinNoise::PerlinNoise() function, expected prototype:\nosgUtil::PerlinNoise::PerlinNoise()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::PerlinNoise::PerlinNoise() function, expected prototype:\nosgUtil::PerlinNoise::PerlinNoise()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -190,16 +185,14 @@ public:
 	// void osgUtil::PerlinNoise::SetNoiseFrequency(int frequency)
 	static int _bind_SetNoiseFrequency(lua_State *L) {
 		if (!_lg_typecheck_SetNoiseFrequency(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PerlinNoise::SetNoiseFrequency(int frequency) function, expected prototype:\nvoid osgUtil::PerlinNoise::SetNoiseFrequency(int frequency)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PerlinNoise::SetNoiseFrequency(int frequency) function, expected prototype:\nvoid osgUtil::PerlinNoise::SetNoiseFrequency(int frequency)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int frequency=(int)lua_tointeger(L,2);
 
 		osgUtil::PerlinNoise* self=(Luna< osgUtil::PerlinNoise >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PerlinNoise::SetNoiseFrequency(int). Got : '%s'",typeid(Luna< osgUtil::PerlinNoise >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PerlinNoise::SetNoiseFrequency(int). Got : '%s'\n%s",typeid(Luna< osgUtil::PerlinNoise >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetNoiseFrequency(frequency);
 
@@ -209,16 +202,14 @@ public:
 	// double osgUtil::PerlinNoise::noise1(double arg)
 	static int _bind_noise1(lua_State *L) {
 		if (!_lg_typecheck_noise1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgUtil::PerlinNoise::noise1(double arg) function, expected prototype:\ndouble osgUtil::PerlinNoise::noise1(double arg)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgUtil::PerlinNoise::noise1(double arg) function, expected prototype:\ndouble osgUtil::PerlinNoise::noise1(double arg)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double arg=(double)lua_tonumber(L,2);
 
 		osgUtil::PerlinNoise* self=(Luna< osgUtil::PerlinNoise >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgUtil::PerlinNoise::noise1(double). Got : '%s'",typeid(Luna< osgUtil::PerlinNoise >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgUtil::PerlinNoise::noise1(double). Got : '%s'\n%s",typeid(Luna< osgUtil::PerlinNoise >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->noise1(arg);
 		lua_pushnumber(L,lret);
@@ -229,8 +220,7 @@ public:
 	// double osgUtil::PerlinNoise::PerlinNoise1D(double x, double alpha, double beta, int n)
 	static int _bind_PerlinNoise1D(lua_State *L) {
 		if (!_lg_typecheck_PerlinNoise1D(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgUtil::PerlinNoise::PerlinNoise1D(double x, double alpha, double beta, int n) function, expected prototype:\ndouble osgUtil::PerlinNoise::PerlinNoise1D(double x, double alpha, double beta, int n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgUtil::PerlinNoise::PerlinNoise1D(double x, double alpha, double beta, int n) function, expected prototype:\ndouble osgUtil::PerlinNoise::PerlinNoise1D(double x, double alpha, double beta, int n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double x=(double)lua_tonumber(L,2);
@@ -240,8 +230,7 @@ public:
 
 		osgUtil::PerlinNoise* self=(Luna< osgUtil::PerlinNoise >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgUtil::PerlinNoise::PerlinNoise1D(double, double, double, int). Got : '%s'",typeid(Luna< osgUtil::PerlinNoise >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgUtil::PerlinNoise::PerlinNoise1D(double, double, double, int). Got : '%s'\n%s",typeid(Luna< osgUtil::PerlinNoise >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->PerlinNoise1D(x, alpha, beta, n);
 		lua_pushnumber(L,lret);
@@ -252,8 +241,7 @@ public:
 	// double osgUtil::PerlinNoise::PerlinNoise2D(double x, double y, double alpha, double beta, int n)
 	static int _bind_PerlinNoise2D(lua_State *L) {
 		if (!_lg_typecheck_PerlinNoise2D(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgUtil::PerlinNoise::PerlinNoise2D(double x, double y, double alpha, double beta, int n) function, expected prototype:\ndouble osgUtil::PerlinNoise::PerlinNoise2D(double x, double y, double alpha, double beta, int n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgUtil::PerlinNoise::PerlinNoise2D(double x, double y, double alpha, double beta, int n) function, expected prototype:\ndouble osgUtil::PerlinNoise::PerlinNoise2D(double x, double y, double alpha, double beta, int n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double x=(double)lua_tonumber(L,2);
@@ -264,8 +252,7 @@ public:
 
 		osgUtil::PerlinNoise* self=(Luna< osgUtil::PerlinNoise >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgUtil::PerlinNoise::PerlinNoise2D(double, double, double, double, int). Got : '%s'",typeid(Luna< osgUtil::PerlinNoise >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgUtil::PerlinNoise::PerlinNoise2D(double, double, double, double, int). Got : '%s'\n%s",typeid(Luna< osgUtil::PerlinNoise >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->PerlinNoise2D(x, y, alpha, beta, n);
 		lua_pushnumber(L,lret);
@@ -276,8 +263,7 @@ public:
 	// double osgUtil::PerlinNoise::PerlinNoise3D(double x, double y, double z, double alpha, double beta, int n)
 	static int _bind_PerlinNoise3D(lua_State *L) {
 		if (!_lg_typecheck_PerlinNoise3D(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgUtil::PerlinNoise::PerlinNoise3D(double x, double y, double z, double alpha, double beta, int n) function, expected prototype:\ndouble osgUtil::PerlinNoise::PerlinNoise3D(double x, double y, double z, double alpha, double beta, int n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgUtil::PerlinNoise::PerlinNoise3D(double x, double y, double z, double alpha, double beta, int n) function, expected prototype:\ndouble osgUtil::PerlinNoise::PerlinNoise3D(double x, double y, double z, double alpha, double beta, int n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double x=(double)lua_tonumber(L,2);
@@ -289,8 +275,7 @@ public:
 
 		osgUtil::PerlinNoise* self=(Luna< osgUtil::PerlinNoise >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgUtil::PerlinNoise::PerlinNoise3D(double, double, double, double, double, int). Got : '%s'",typeid(Luna< osgUtil::PerlinNoise >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osgUtil::PerlinNoise::PerlinNoise3D(double, double, double, double, double, int). Got : '%s'\n%s",typeid(Luna< osgUtil::PerlinNoise >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->PerlinNoise3D(x, y, z, alpha, beta, n);
 		lua_pushnumber(L,lret);
@@ -301,16 +286,14 @@ public:
 	// osg::Image * osgUtil::PerlinNoise::create3DNoiseImage(int texSize)
 	static int _bind_create3DNoiseImage(lua_State *L) {
 		if (!_lg_typecheck_create3DNoiseImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * osgUtil::PerlinNoise::create3DNoiseImage(int texSize) function, expected prototype:\nosg::Image * osgUtil::PerlinNoise::create3DNoiseImage(int texSize)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * osgUtil::PerlinNoise::create3DNoiseImage(int texSize) function, expected prototype:\nosg::Image * osgUtil::PerlinNoise::create3DNoiseImage(int texSize)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int texSize=(int)lua_tointeger(L,2);
 
 		osgUtil::PerlinNoise* self=(Luna< osgUtil::PerlinNoise >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osgUtil::PerlinNoise::create3DNoiseImage(int). Got : '%s'",typeid(Luna< osgUtil::PerlinNoise >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Image * osgUtil::PerlinNoise::create3DNoiseImage(int). Got : '%s'\n%s",typeid(Luna< osgUtil::PerlinNoise >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Image * lret = self->create3DNoiseImage(texSize);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -323,16 +306,14 @@ public:
 	// osg::Texture3D * osgUtil::PerlinNoise::create3DNoiseTexture(int texSize)
 	static int _bind_create3DNoiseTexture(lua_State *L) {
 		if (!_lg_typecheck_create3DNoiseTexture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture3D * osgUtil::PerlinNoise::create3DNoiseTexture(int texSize) function, expected prototype:\nosg::Texture3D * osgUtil::PerlinNoise::create3DNoiseTexture(int texSize)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture3D * osgUtil::PerlinNoise::create3DNoiseTexture(int texSize) function, expected prototype:\nosg::Texture3D * osgUtil::PerlinNoise::create3DNoiseTexture(int texSize)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int texSize=(int)lua_tointeger(L,2);
 
 		osgUtil::PerlinNoise* self=(Luna< osgUtil::PerlinNoise >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture3D * osgUtil::PerlinNoise::create3DNoiseTexture(int). Got : '%s'",typeid(Luna< osgUtil::PerlinNoise >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture3D * osgUtil::PerlinNoise::create3DNoiseTexture(int). Got : '%s'\n%s",typeid(Luna< osgUtil::PerlinNoise >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture3D * lret = self->create3DNoiseTexture(texSize);
 		if(!lret) return 0; // Do not write NULL pointers.

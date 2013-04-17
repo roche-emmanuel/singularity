@@ -68,15 +68,13 @@ public:
 	// void osgDB::InputStream::public_checkStream()
 	static int _bind_public_checkStream(lua_State *L) {
 		if (!_lg_typecheck_public_checkStream(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputStream::public_checkStream() function, expected prototype:\nvoid osgDB::InputStream::public_checkStream()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputStream::public_checkStream() function, expected prototype:\nvoid osgDB::InputStream::public_checkStream()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_osgDB_InputStream* self=Luna< osgDB::InputStream >::checkSubType< wrapper_osgDB_InputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputStream::public_checkStream(). Got : '%s'",typeid(Luna< osgDB::InputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputStream::public_checkStream(). Got : '%s'\n%s",typeid(Luna< osgDB::InputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_checkStream();
 
@@ -86,8 +84,7 @@ public:
 	// void osgDB::InputStream::public_setWrapperSchema(const std::string & name, const std::string & properties)
 	static int _bind_public_setWrapperSchema(lua_State *L) {
 		if (!_lg_typecheck_public_setWrapperSchema(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::InputStream::public_setWrapperSchema(const std::string & name, const std::string & properties) function, expected prototype:\nvoid osgDB::InputStream::public_setWrapperSchema(const std::string & name, const std::string & properties)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::InputStream::public_setWrapperSchema(const std::string & name, const std::string & properties) function, expected prototype:\nvoid osgDB::InputStream::public_setWrapperSchema(const std::string & name, const std::string & properties)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -95,8 +92,7 @@ public:
 
 		wrapper_osgDB_InputStream* self=Luna< osgDB::InputStream >::checkSubType< wrapper_osgDB_InputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::InputStream::public_setWrapperSchema(const std::string &, const std::string &). Got : '%s'",typeid(Luna< osgDB::InputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgDB::InputStream::public_setWrapperSchema(const std::string &, const std::string &). Got : '%s'\n%s",typeid(Luna< osgDB::InputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setWrapperSchema(name, properties);
 

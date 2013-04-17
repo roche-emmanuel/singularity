@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor::ImageRequestHandler* self= (osg::NodeVisitor::ImageRequestHandler*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -142,8 +139,7 @@ public:
 	// osg::NodeVisitor::ImageRequestHandler::ImageRequestHandler(lua_Table * data)
 	static osg::NodeVisitor::ImageRequestHandler* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::NodeVisitor::ImageRequestHandler::ImageRequestHandler(lua_Table * data) function, expected prototype:\nosg::NodeVisitor::ImageRequestHandler::ImageRequestHandler(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::NodeVisitor::ImageRequestHandler::ImageRequestHandler(lua_Table * data) function, expected prototype:\nosg::NodeVisitor::ImageRequestHandler::ImageRequestHandler(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -155,15 +151,13 @@ public:
 	// double osg::NodeVisitor::ImageRequestHandler::getPreLoadTime() const
 	static int _bind_getPreLoadTime(lua_State *L) {
 		if (!_lg_typecheck_getPreLoadTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::NodeVisitor::ImageRequestHandler::getPreLoadTime() const function, expected prototype:\ndouble osg::NodeVisitor::ImageRequestHandler::getPreLoadTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::NodeVisitor::ImageRequestHandler::getPreLoadTime() const function, expected prototype:\ndouble osg::NodeVisitor::ImageRequestHandler::getPreLoadTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::NodeVisitor::ImageRequestHandler* self=Luna< osg::Referenced >::checkSubType< osg::NodeVisitor::ImageRequestHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::NodeVisitor::ImageRequestHandler::getPreLoadTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::NodeVisitor::ImageRequestHandler::getPreLoadTime() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getPreLoadTime();
 		lua_pushnumber(L,lret);
@@ -174,8 +168,7 @@ public:
 	// osg::Image * osg::NodeVisitor::ImageRequestHandler::readImageFile(const std::string & fileName, const osg::Referenced * options = 0)
 	static int _bind_readImageFile(lua_State *L) {
 		if (!_lg_typecheck_readImageFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * osg::NodeVisitor::ImageRequestHandler::readImageFile(const std::string & fileName, const osg::Referenced * options = 0) function, expected prototype:\nosg::Image * osg::NodeVisitor::ImageRequestHandler::readImageFile(const std::string & fileName, const osg::Referenced * options = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * osg::NodeVisitor::ImageRequestHandler::readImageFile(const std::string & fileName, const osg::Referenced * options = 0) function, expected prototype:\nosg::Image * osg::NodeVisitor::ImageRequestHandler::readImageFile(const std::string & fileName, const osg::Referenced * options = 0)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -185,8 +178,7 @@ public:
 
 		osg::NodeVisitor::ImageRequestHandler* self=Luna< osg::Referenced >::checkSubType< osg::NodeVisitor::ImageRequestHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osg::NodeVisitor::ImageRequestHandler::readImageFile(const std::string &, const osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Image * osg::NodeVisitor::ImageRequestHandler::readImageFile(const std::string &, const osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Image * lret = self->readImageFile(fileName, options);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -199,8 +191,7 @@ public:
 	// void osg::NodeVisitor::ImageRequestHandler::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options = 0)
 	static int _bind_requestImageFile(lua_State *L) {
 		if (!_lg_typecheck_requestImageFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::ImageRequestHandler::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options = 0) function, expected prototype:\nvoid osg::NodeVisitor::ImageRequestHandler::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options = 0)\nClass arguments details:\narg 2 ID = 50169651\narg 5 ID = 50169651\narg 6 ID = [unknown]\narg 7 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::ImageRequestHandler::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options = 0) function, expected prototype:\nvoid osg::NodeVisitor::ImageRequestHandler::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options = 0)\nClass arguments details:\narg 2 ID = 50169651\narg 5 ID = 50169651\narg 6 ID = [unknown]\narg 7 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -215,8 +206,7 @@ public:
 
 		osg::NodeVisitor::ImageRequestHandler* self=Luna< osg::Referenced >::checkSubType< osg::NodeVisitor::ImageRequestHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeVisitor::ImageRequestHandler::requestImageFile(const std::string &, osg::Object *, int, double, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::NodeVisitor::ImageRequestHandler::requestImageFile(const std::string &, osg::Object *, int, double, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->requestImageFile(fileName, attachmentPoint, attachmentIndex, timeToMergeBy, framestamp, imageRequest, options);
 
@@ -226,16 +216,14 @@ public:
 	// void osg::NodeVisitor::ImageRequestHandler::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::ImageRequestHandler::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::NodeVisitor::ImageRequestHandler::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::ImageRequestHandler::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::NodeVisitor::ImageRequestHandler::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::NodeVisitor::ImageRequestHandler* self=Luna< osg::Referenced >::checkSubType< osg::NodeVisitor::ImageRequestHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeVisitor::ImageRequestHandler::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::NodeVisitor::ImageRequestHandler::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageRequestHandler::setThreadSafeRefUnref(threadSafe);
 

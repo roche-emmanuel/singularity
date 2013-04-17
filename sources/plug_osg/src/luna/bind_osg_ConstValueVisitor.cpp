@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::ConstValueVisitor*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::ConstValueVisitor*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ConstValueVisitor* rhs =(Luna< osg::ConstValueVisitor >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ConstValueVisitor* self= (osg::ConstValueVisitor*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::ConstValueVisitor >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -485,8 +480,7 @@ public:
 	// osg::ConstValueVisitor::ConstValueVisitor()
 	static osg::ConstValueVisitor* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ConstValueVisitor::ConstValueVisitor() function, expected prototype:\nosg::ConstValueVisitor::ConstValueVisitor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ConstValueVisitor::ConstValueVisitor() function, expected prototype:\nosg::ConstValueVisitor::ConstValueVisitor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -496,8 +490,7 @@ public:
 	// osg::ConstValueVisitor::ConstValueVisitor(lua_Table * data)
 	static osg::ConstValueVisitor* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ConstValueVisitor::ConstValueVisitor(lua_Table * data) function, expected prototype:\nosg::ConstValueVisitor::ConstValueVisitor(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ConstValueVisitor::ConstValueVisitor(lua_Table * data) function, expected prototype:\nosg::ConstValueVisitor::ConstValueVisitor(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -518,16 +511,14 @@ public:
 	// void osg::ConstValueVisitor::apply(const signed char & arg1)
 	static int _bind_apply_overload_1(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const signed char & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const signed char & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const signed char & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const signed char & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const signed char _arg1=(const signed char)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const signed char &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const signed char &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -537,16 +528,14 @@ public:
 	// void osg::ConstValueVisitor::apply(const short & arg1)
 	static int _bind_apply_overload_2(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const short & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const short & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const short & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const short & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const short _arg1=(const short)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const short &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const short &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -556,16 +545,14 @@ public:
 	// void osg::ConstValueVisitor::apply(const int & arg1)
 	static int _bind_apply_overload_3(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const int & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const int & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const int & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const int & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const int _arg1=(const int)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const int &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const int &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -575,16 +562,14 @@ public:
 	// void osg::ConstValueVisitor::apply(const unsigned short & arg1)
 	static int _bind_apply_overload_4(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const unsigned short & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const unsigned short & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const unsigned short & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const unsigned short & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const unsigned short _arg1=(const unsigned short)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const unsigned short &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const unsigned short &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -594,16 +579,14 @@ public:
 	// void osg::ConstValueVisitor::apply(const unsigned char & arg1)
 	static int _bind_apply_overload_5(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const unsigned char & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const unsigned char & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const unsigned char & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const unsigned char & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char _arg1 = (unsigned char)(lua_tointeger(L,2));
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const unsigned char &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const unsigned char &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -613,16 +596,14 @@ public:
 	// void osg::ConstValueVisitor::apply(const unsigned int & arg1)
 	static int _bind_apply_overload_6(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const unsigned int & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const unsigned int & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const unsigned int & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const unsigned int & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const unsigned int _arg1=(const unsigned int)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const unsigned int &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const unsigned int &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -632,16 +613,14 @@ public:
 	// void osg::ConstValueVisitor::apply(const float & arg1)
 	static int _bind_apply_overload_7(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const float & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const float & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const float & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const float & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const float _arg1=(const float)lua_tonumber(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const float &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const float &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -651,16 +630,14 @@ public:
 	// void osg::ConstValueVisitor::apply(const double & arg1)
 	static int _bind_apply_overload_8(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const double & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const double & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const double & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const double & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const double _arg1=(const double)lua_tonumber(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const double &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const double &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -670,8 +647,7 @@ public:
 	// void osg::ConstValueVisitor::apply(const osg::Vec4ub & arg1)
 	static int _bind_apply_overload_9(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_9(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec4ub & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec4ub & arg1)\nClass arguments details:\narg 1 ID = 61400540\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec4ub & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec4ub & arg1)\nClass arguments details:\narg 1 ID = 61400540\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4ub* _arg1_ptr=(Luna< osg::Vec4ub >::check(L,2));
@@ -682,8 +658,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec4ub &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec4ub &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -693,8 +668,7 @@ public:
 	// void osg::ConstValueVisitor::apply(const osg::Vec2f & arg1)
 	static int _bind_apply_overload_10(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_10(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec2f & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec2f & arg1)\nClass arguments details:\narg 1 ID = 92303173\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec2f & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec2f & arg1)\nClass arguments details:\narg 1 ID = 92303173\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec2f* _arg1_ptr=(Luna< osg::Vec2f >::check(L,2));
@@ -705,8 +679,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec2f &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec2f &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -716,8 +689,7 @@ public:
 	// void osg::ConstValueVisitor::apply(const osg::Vec3f & arg1)
 	static int _bind_apply_overload_11(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_11(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec3f & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec3f & arg1)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec3f & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec3f & arg1)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -728,8 +700,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -739,8 +710,7 @@ public:
 	// void osg::ConstValueVisitor::apply(const osg::Vec4f & arg1)
 	static int _bind_apply_overload_12(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_12(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec4f & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec4f & arg1)\nClass arguments details:\narg 1 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec4f & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec4f & arg1)\nClass arguments details:\narg 1 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4f* _arg1_ptr=(Luna< osg::Vec4f >::check(L,2));
@@ -751,8 +721,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec4f &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -762,8 +731,7 @@ public:
 	// void osg::ConstValueVisitor::apply(const osg::Vec2b & arg1)
 	static int _bind_apply_overload_13(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_13(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec2b & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec2b & arg1)\nClass arguments details:\narg 1 ID = 92303169\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec2b & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec2b & arg1)\nClass arguments details:\narg 1 ID = 92303169\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec2b* _arg1_ptr=(Luna< osg::Vec2b >::check(L,2));
@@ -774,8 +742,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec2b &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec2b &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -785,8 +752,7 @@ public:
 	// void osg::ConstValueVisitor::apply(const osg::Vec3b & arg1)
 	static int _bind_apply_overload_14(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_14(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec3b & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec3b & arg1)\nClass arguments details:\narg 1 ID = 92303200\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec3b & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec3b & arg1)\nClass arguments details:\narg 1 ID = 92303200\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3b* _arg1_ptr=(Luna< osg::Vec3b >::check(L,2));
@@ -797,8 +763,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec3b &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec3b &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -808,8 +773,7 @@ public:
 	// void osg::ConstValueVisitor::apply(const osg::Vec4b & arg1)
 	static int _bind_apply_overload_15(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_15(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec4b & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec4b & arg1)\nClass arguments details:\narg 1 ID = 92303231\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec4b & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec4b & arg1)\nClass arguments details:\narg 1 ID = 92303231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4b* _arg1_ptr=(Luna< osg::Vec4b >::check(L,2));
@@ -820,8 +784,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec4b &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec4b &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -831,8 +794,7 @@ public:
 	// void osg::ConstValueVisitor::apply(const osg::Vec2s & arg1)
 	static int _bind_apply_overload_16(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_16(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec2s & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec2s & arg1)\nClass arguments details:\narg 1 ID = 92303186\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec2s & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec2s & arg1)\nClass arguments details:\narg 1 ID = 92303186\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec2s* _arg1_ptr=(Luna< osg::Vec2s >::check(L,2));
@@ -843,8 +805,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec2s &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec2s &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -854,8 +815,7 @@ public:
 	// void osg::ConstValueVisitor::apply(const osg::Vec3s & arg1)
 	static int _bind_apply_overload_17(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_17(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec3s & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec3s & arg1)\nClass arguments details:\narg 1 ID = 92303217\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec3s & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec3s & arg1)\nClass arguments details:\narg 1 ID = 92303217\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3s* _arg1_ptr=(Luna< osg::Vec3s >::check(L,2));
@@ -866,8 +826,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec3s &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec3s &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -877,8 +836,7 @@ public:
 	// void osg::ConstValueVisitor::apply(const osg::Vec4s & arg1)
 	static int _bind_apply_overload_18(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_18(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec4s & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec4s & arg1)\nClass arguments details:\narg 1 ID = 92303248\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec4s & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec4s & arg1)\nClass arguments details:\narg 1 ID = 92303248\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4s* _arg1_ptr=(Luna< osg::Vec4s >::check(L,2));
@@ -889,8 +847,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec4s &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec4s &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -900,8 +857,7 @@ public:
 	// void osg::ConstValueVisitor::apply(const osg::Vec2d & arg1)
 	static int _bind_apply_overload_19(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_19(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec2d & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec2d & arg1)\nClass arguments details:\narg 1 ID = 92303171\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec2d & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec2d & arg1)\nClass arguments details:\narg 1 ID = 92303171\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec2d* _arg1_ptr=(Luna< osg::Vec2d >::check(L,2));
@@ -912,8 +868,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec2d &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec2d &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -923,8 +878,7 @@ public:
 	// void osg::ConstValueVisitor::apply(const osg::Vec3d & arg1)
 	static int _bind_apply_overload_20(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_20(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec3d & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec3d & arg1)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec3d & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec3d & arg1)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* _arg1_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -935,8 +889,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -946,8 +899,7 @@ public:
 	// void osg::ConstValueVisitor::apply(const osg::Vec4d & arg1)
 	static int _bind_apply_overload_21(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_21(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec4d & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec4d & arg1)\nClass arguments details:\narg 1 ID = 92303233\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Vec4d & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Vec4d & arg1)\nClass arguments details:\narg 1 ID = 92303233\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4d* _arg1_ptr=(Luna< osg::Vec4d >::check(L,2));
@@ -958,8 +910,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec4d &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Vec4d &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -969,8 +920,7 @@ public:
 	// void osg::ConstValueVisitor::apply(const osg::Matrixf & arg1)
 	static int _bind_apply_overload_22(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_22(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Matrixf & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Matrixf & arg1)\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const osg::Matrixf & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const osg::Matrixf & arg1)\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* _arg1_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -981,8 +931,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::apply(const osg::Matrixf &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -1021,16 +970,14 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const signed char & arg1)
 	static int _bind_base_apply_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const signed char & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const signed char & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const signed char & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const signed char & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const signed char _arg1=(const signed char)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const signed char &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const signed char &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1040,16 +987,14 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const short & arg1)
 	static int _bind_base_apply_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const short & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const short & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const short & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const short & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const short _arg1=(const short)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const short &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const short &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1059,16 +1004,14 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const int & arg1)
 	static int _bind_base_apply_overload_3(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const int & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const int & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const int & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const int & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const int _arg1=(const int)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const int &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const int &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1078,16 +1021,14 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const unsigned short & arg1)
 	static int _bind_base_apply_overload_4(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const unsigned short & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const unsigned short & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const unsigned short & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const unsigned short & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const unsigned short _arg1=(const unsigned short)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const unsigned short &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const unsigned short &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1097,16 +1038,14 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const unsigned char & arg1)
 	static int _bind_base_apply_overload_5(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const unsigned char & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const unsigned char & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const unsigned char & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const unsigned char & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char _arg1 = (unsigned char)(lua_tointeger(L,2));
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const unsigned char &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const unsigned char &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1116,16 +1055,14 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const unsigned int & arg1)
 	static int _bind_base_apply_overload_6(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const unsigned int & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const unsigned int & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const unsigned int & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const unsigned int & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const unsigned int _arg1=(const unsigned int)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const unsigned int &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const unsigned int &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1135,16 +1072,14 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const float & arg1)
 	static int _bind_base_apply_overload_7(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const float & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const float & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const float & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const float & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const float _arg1=(const float)lua_tonumber(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const float &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const float &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1154,16 +1089,14 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const double & arg1)
 	static int _bind_base_apply_overload_8(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const double & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const double & arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const double & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const double & arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const double _arg1=(const double)lua_tonumber(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const double &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const double &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1173,8 +1106,7 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const osg::Vec4ub & arg1)
 	static int _bind_base_apply_overload_9(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_9(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec4ub & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec4ub & arg1)\nClass arguments details:\narg 1 ID = 61400540\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec4ub & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec4ub & arg1)\nClass arguments details:\narg 1 ID = 61400540\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4ub* _arg1_ptr=(Luna< osg::Vec4ub >::check(L,2));
@@ -1185,8 +1117,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec4ub &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec4ub &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1196,8 +1127,7 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const osg::Vec2f & arg1)
 	static int _bind_base_apply_overload_10(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_10(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec2f & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec2f & arg1)\nClass arguments details:\narg 1 ID = 92303173\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec2f & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec2f & arg1)\nClass arguments details:\narg 1 ID = 92303173\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec2f* _arg1_ptr=(Luna< osg::Vec2f >::check(L,2));
@@ -1208,8 +1138,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec2f &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec2f &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1219,8 +1148,7 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const osg::Vec3f & arg1)
 	static int _bind_base_apply_overload_11(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_11(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec3f & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec3f & arg1)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec3f & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec3f & arg1)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -1231,8 +1159,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1242,8 +1169,7 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const osg::Vec4f & arg1)
 	static int _bind_base_apply_overload_12(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_12(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec4f & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec4f & arg1)\nClass arguments details:\narg 1 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec4f & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec4f & arg1)\nClass arguments details:\narg 1 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4f* _arg1_ptr=(Luna< osg::Vec4f >::check(L,2));
@@ -1254,8 +1180,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec4f &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1265,8 +1190,7 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const osg::Vec2b & arg1)
 	static int _bind_base_apply_overload_13(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_13(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec2b & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec2b & arg1)\nClass arguments details:\narg 1 ID = 92303169\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec2b & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec2b & arg1)\nClass arguments details:\narg 1 ID = 92303169\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec2b* _arg1_ptr=(Luna< osg::Vec2b >::check(L,2));
@@ -1277,8 +1201,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec2b &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec2b &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1288,8 +1211,7 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const osg::Vec3b & arg1)
 	static int _bind_base_apply_overload_14(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_14(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec3b & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec3b & arg1)\nClass arguments details:\narg 1 ID = 92303200\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec3b & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec3b & arg1)\nClass arguments details:\narg 1 ID = 92303200\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3b* _arg1_ptr=(Luna< osg::Vec3b >::check(L,2));
@@ -1300,8 +1222,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec3b &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec3b &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1311,8 +1232,7 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const osg::Vec4b & arg1)
 	static int _bind_base_apply_overload_15(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_15(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec4b & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec4b & arg1)\nClass arguments details:\narg 1 ID = 92303231\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec4b & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec4b & arg1)\nClass arguments details:\narg 1 ID = 92303231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4b* _arg1_ptr=(Luna< osg::Vec4b >::check(L,2));
@@ -1323,8 +1243,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec4b &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec4b &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1334,8 +1253,7 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const osg::Vec2s & arg1)
 	static int _bind_base_apply_overload_16(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_16(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec2s & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec2s & arg1)\nClass arguments details:\narg 1 ID = 92303186\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec2s & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec2s & arg1)\nClass arguments details:\narg 1 ID = 92303186\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec2s* _arg1_ptr=(Luna< osg::Vec2s >::check(L,2));
@@ -1346,8 +1264,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec2s &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec2s &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1357,8 +1274,7 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const osg::Vec3s & arg1)
 	static int _bind_base_apply_overload_17(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_17(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec3s & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec3s & arg1)\nClass arguments details:\narg 1 ID = 92303217\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec3s & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec3s & arg1)\nClass arguments details:\narg 1 ID = 92303217\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3s* _arg1_ptr=(Luna< osg::Vec3s >::check(L,2));
@@ -1369,8 +1285,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec3s &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec3s &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1380,8 +1295,7 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const osg::Vec4s & arg1)
 	static int _bind_base_apply_overload_18(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_18(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec4s & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec4s & arg1)\nClass arguments details:\narg 1 ID = 92303248\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec4s & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec4s & arg1)\nClass arguments details:\narg 1 ID = 92303248\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4s* _arg1_ptr=(Luna< osg::Vec4s >::check(L,2));
@@ -1392,8 +1306,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec4s &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec4s &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1403,8 +1316,7 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const osg::Vec2d & arg1)
 	static int _bind_base_apply_overload_19(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_19(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec2d & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec2d & arg1)\nClass arguments details:\narg 1 ID = 92303171\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec2d & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec2d & arg1)\nClass arguments details:\narg 1 ID = 92303171\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec2d* _arg1_ptr=(Luna< osg::Vec2d >::check(L,2));
@@ -1415,8 +1327,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec2d &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec2d &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1426,8 +1337,7 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const osg::Vec3d & arg1)
 	static int _bind_base_apply_overload_20(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_20(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec3d & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec3d & arg1)\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec3d & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec3d & arg1)\nClass arguments details:\narg 1 ID = 92303202\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* _arg1_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -1438,8 +1348,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1449,8 +1358,7 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const osg::Vec4d & arg1)
 	static int _bind_base_apply_overload_21(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_21(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec4d & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec4d & arg1)\nClass arguments details:\narg 1 ID = 92303233\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Vec4d & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Vec4d & arg1)\nClass arguments details:\narg 1 ID = 92303233\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec4d* _arg1_ptr=(Luna< osg::Vec4d >::check(L,2));
@@ -1461,8 +1369,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec4d &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Vec4d &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 
@@ -1472,8 +1379,7 @@ public:
 	// void osg::ConstValueVisitor::base_apply(const osg::Matrixf & arg1)
 	static int _bind_base_apply_overload_22(lua_State *L) {
 		if (!_lg_typecheck_base_apply_overload_22(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Matrixf & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Matrixf & arg1)\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const osg::Matrixf & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const osg::Matrixf & arg1)\nClass arguments details:\narg 1 ID = 18903840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Matrixf* _arg1_ptr=(Luna< osg::Matrixf >::check(L,2));
@@ -1484,8 +1390,7 @@ public:
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ConstValueVisitor::base_apply(const osg::Matrixf &). Got : '%s'\n%s",typeid(Luna< osg::ConstValueVisitor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstValueVisitor::apply(_arg1);
 

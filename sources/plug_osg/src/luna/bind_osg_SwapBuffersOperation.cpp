@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::SwapBuffersOperation* self= (osg::SwapBuffersOperation*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -132,8 +129,7 @@ public:
 	// osg::SwapBuffersOperation::SwapBuffersOperation()
 	static osg::SwapBuffersOperation* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::SwapBuffersOperation::SwapBuffersOperation() function, expected prototype:\nosg::SwapBuffersOperation::SwapBuffersOperation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::SwapBuffersOperation::SwapBuffersOperation() function, expected prototype:\nosg::SwapBuffersOperation::SwapBuffersOperation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -143,8 +139,7 @@ public:
 	// osg::SwapBuffersOperation::SwapBuffersOperation(lua_Table * data)
 	static osg::SwapBuffersOperation* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::SwapBuffersOperation::SwapBuffersOperation(lua_Table * data) function, expected prototype:\nosg::SwapBuffersOperation::SwapBuffersOperation(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::SwapBuffersOperation::SwapBuffersOperation(lua_Table * data) function, expected prototype:\nosg::SwapBuffersOperation::SwapBuffersOperation(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -165,16 +160,14 @@ public:
 	// void osg::SwapBuffersOperation::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::SwapBuffersOperation::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::SwapBuffersOperation::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::SwapBuffersOperation::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::SwapBuffersOperation::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::SwapBuffersOperation* self=Luna< osg::Referenced >::checkSubType< osg::SwapBuffersOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::SwapBuffersOperation::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::SwapBuffersOperation::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SwapBuffersOperation::setThreadSafeRefUnref(threadSafe);
 
@@ -184,15 +177,13 @@ public:
 	// void osg::SwapBuffersOperation::base_release()
 	static int _bind_base_release(lua_State *L) {
 		if (!_lg_typecheck_base_release(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::SwapBuffersOperation::base_release() function, expected prototype:\nvoid osg::SwapBuffersOperation::base_release()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::SwapBuffersOperation::base_release() function, expected prototype:\nvoid osg::SwapBuffersOperation::base_release()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::SwapBuffersOperation* self=Luna< osg::Referenced >::checkSubType< osg::SwapBuffersOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::SwapBuffersOperation::base_release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::SwapBuffersOperation::base_release(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SwapBuffersOperation::release();
 
@@ -204,16 +195,14 @@ public:
 	// void osg::SwapBuffersOperation::operator()(osg::GraphicsContext * context)
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::SwapBuffersOperation::operator()(osg::GraphicsContext * context) function, expected prototype:\nvoid osg::SwapBuffersOperation::operator()(osg::GraphicsContext * context)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::SwapBuffersOperation::operator()(osg::GraphicsContext * context) function, expected prototype:\nvoid osg::SwapBuffersOperation::operator()(osg::GraphicsContext * context)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::GraphicsContext* context=(Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,2));
 
 		osg::SwapBuffersOperation* self=Luna< osg::Referenced >::checkSubType< osg::SwapBuffersOperation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::SwapBuffersOperation::operator()(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::SwapBuffersOperation::operator()(osg::GraphicsContext *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->operator()(context);
 

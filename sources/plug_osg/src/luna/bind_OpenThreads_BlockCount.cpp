@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(OpenThreads::BlockCount*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(OpenThreads::BlockCount*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::BlockCount* rhs =(Luna< OpenThreads::BlockCount >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OpenThreads::BlockCount* self= (OpenThreads::BlockCount*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< OpenThreads::BlockCount >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -160,8 +156,7 @@ public:
 	// OpenThreads::BlockCount::BlockCount(unsigned int blockCount)
 	static OpenThreads::BlockCount* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in OpenThreads::BlockCount::BlockCount(unsigned int blockCount) function, expected prototype:\nOpenThreads::BlockCount::BlockCount(unsigned int blockCount)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in OpenThreads::BlockCount::BlockCount(unsigned int blockCount) function, expected prototype:\nOpenThreads::BlockCount::BlockCount(unsigned int blockCount)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int blockCount=(unsigned int)lua_tointeger(L,1);
@@ -174,15 +169,13 @@ public:
 	// void OpenThreads::BlockCount::completed()
 	static int _bind_completed(lua_State *L) {
 		if (!_lg_typecheck_completed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void OpenThreads::BlockCount::completed() function, expected prototype:\nvoid OpenThreads::BlockCount::completed()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void OpenThreads::BlockCount::completed() function, expected prototype:\nvoid OpenThreads::BlockCount::completed()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::BlockCount* self=(Luna< OpenThreads::BlockCount >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void OpenThreads::BlockCount::completed(). Got : '%s'",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void OpenThreads::BlockCount::completed(). Got : '%s'\n%s",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->completed();
 
@@ -192,15 +185,13 @@ public:
 	// void OpenThreads::BlockCount::block()
 	static int _bind_block(lua_State *L) {
 		if (!_lg_typecheck_block(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void OpenThreads::BlockCount::block() function, expected prototype:\nvoid OpenThreads::BlockCount::block()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void OpenThreads::BlockCount::block() function, expected prototype:\nvoid OpenThreads::BlockCount::block()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::BlockCount* self=(Luna< OpenThreads::BlockCount >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void OpenThreads::BlockCount::block(). Got : '%s'",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void OpenThreads::BlockCount::block(). Got : '%s'\n%s",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->block();
 
@@ -210,15 +201,13 @@ public:
 	// void OpenThreads::BlockCount::reset()
 	static int _bind_reset(lua_State *L) {
 		if (!_lg_typecheck_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void OpenThreads::BlockCount::reset() function, expected prototype:\nvoid OpenThreads::BlockCount::reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void OpenThreads::BlockCount::reset() function, expected prototype:\nvoid OpenThreads::BlockCount::reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::BlockCount* self=(Luna< OpenThreads::BlockCount >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void OpenThreads::BlockCount::reset(). Got : '%s'",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void OpenThreads::BlockCount::reset(). Got : '%s'\n%s",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reset();
 
@@ -228,15 +217,13 @@ public:
 	// void OpenThreads::BlockCount::release()
 	static int _bind_release(lua_State *L) {
 		if (!_lg_typecheck_release(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void OpenThreads::BlockCount::release() function, expected prototype:\nvoid OpenThreads::BlockCount::release()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void OpenThreads::BlockCount::release() function, expected prototype:\nvoid OpenThreads::BlockCount::release()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::BlockCount* self=(Luna< OpenThreads::BlockCount >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void OpenThreads::BlockCount::release(). Got : '%s'",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void OpenThreads::BlockCount::release(). Got : '%s'\n%s",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->release();
 
@@ -246,16 +233,14 @@ public:
 	// void OpenThreads::BlockCount::setBlockCount(unsigned int blockCount)
 	static int _bind_setBlockCount(lua_State *L) {
 		if (!_lg_typecheck_setBlockCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void OpenThreads::BlockCount::setBlockCount(unsigned int blockCount) function, expected prototype:\nvoid OpenThreads::BlockCount::setBlockCount(unsigned int blockCount)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void OpenThreads::BlockCount::setBlockCount(unsigned int blockCount) function, expected prototype:\nvoid OpenThreads::BlockCount::setBlockCount(unsigned int blockCount)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int blockCount=(unsigned int)lua_tointeger(L,2);
 
 		OpenThreads::BlockCount* self=(Luna< OpenThreads::BlockCount >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void OpenThreads::BlockCount::setBlockCount(unsigned int). Got : '%s'",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void OpenThreads::BlockCount::setBlockCount(unsigned int). Got : '%s'\n%s",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setBlockCount(blockCount);
 
@@ -265,15 +250,13 @@ public:
 	// unsigned int OpenThreads::BlockCount::getBlockCount() const
 	static int _bind_getBlockCount(lua_State *L) {
 		if (!_lg_typecheck_getBlockCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::BlockCount::getBlockCount() const function, expected prototype:\nunsigned int OpenThreads::BlockCount::getBlockCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::BlockCount::getBlockCount() const function, expected prototype:\nunsigned int OpenThreads::BlockCount::getBlockCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::BlockCount* self=(Luna< OpenThreads::BlockCount >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::BlockCount::getBlockCount() const. Got : '%s'",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::BlockCount::getBlockCount() const. Got : '%s'\n%s",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getBlockCount();
 		lua_pushnumber(L,lret);
@@ -284,15 +267,13 @@ public:
 	// unsigned int OpenThreads::BlockCount::getCurrentCount() const
 	static int _bind_getCurrentCount(lua_State *L) {
 		if (!_lg_typecheck_getCurrentCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::BlockCount::getCurrentCount() const function, expected prototype:\nunsigned int OpenThreads::BlockCount::getCurrentCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::BlockCount::getCurrentCount() const function, expected prototype:\nunsigned int OpenThreads::BlockCount::getCurrentCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OpenThreads::BlockCount* self=(Luna< OpenThreads::BlockCount >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::BlockCount::getCurrentCount() const. Got : '%s'",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::BlockCount::getCurrentCount() const. Got : '%s'\n%s",typeid(Luna< OpenThreads::BlockCount >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getCurrentCount();
 		lua_pushnumber(L,lret);

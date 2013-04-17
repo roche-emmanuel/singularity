@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Program::ActiveVarInfo*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Program::ActiveVarInfo*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Program::ActiveVarInfo* rhs =(Luna< osg::Program::ActiveVarInfo >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Program::ActiveVarInfo* self= (osg::Program::ActiveVarInfo*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Program::ActiveVarInfo >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -164,8 +160,7 @@ public:
 	// osg::Program::ActiveVarInfo::ActiveVarInfo()
 	static osg::Program::ActiveVarInfo* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Program::ActiveVarInfo::ActiveVarInfo() function, expected prototype:\nosg::Program::ActiveVarInfo::ActiveVarInfo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Program::ActiveVarInfo::ActiveVarInfo() function, expected prototype:\nosg::Program::ActiveVarInfo::ActiveVarInfo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -175,8 +170,7 @@ public:
 	// osg::Program::ActiveVarInfo::ActiveVarInfo(int loc, unsigned int type, int size)
 	static osg::Program::ActiveVarInfo* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Program::ActiveVarInfo::ActiveVarInfo(int loc, unsigned int type, int size) function, expected prototype:\nosg::Program::ActiveVarInfo::ActiveVarInfo(int loc, unsigned int type, int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Program::ActiveVarInfo::ActiveVarInfo(int loc, unsigned int type, int size) function, expected prototype:\nosg::Program::ActiveVarInfo::ActiveVarInfo(int loc, unsigned int type, int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int loc=(int)lua_tointeger(L,1);
@@ -200,15 +194,13 @@ public:
 	// int osg::Program::ActiveVarInfo::_location()
 	static int _bind_getLocation(lua_State *L) {
 		if (!_lg_typecheck_getLocation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Program::ActiveVarInfo::_location() function, expected prototype:\nint osg::Program::ActiveVarInfo::_location()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::Program::ActiveVarInfo::_location() function, expected prototype:\nint osg::Program::ActiveVarInfo::_location()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Program::ActiveVarInfo* self=(Luna< osg::Program::ActiveVarInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Program::ActiveVarInfo::_location(). Got : '%s'",typeid(Luna< osg::Program::ActiveVarInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Program::ActiveVarInfo::_location(). Got : '%s'\n%s",typeid(Luna< osg::Program::ActiveVarInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->_location;
 		lua_pushnumber(L,lret);
@@ -219,15 +211,13 @@ public:
 	// unsigned int osg::Program::ActiveVarInfo::_type()
 	static int _bind_getType(lua_State *L) {
 		if (!_lg_typecheck_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Program::ActiveVarInfo::_type() function, expected prototype:\nunsigned int osg::Program::ActiveVarInfo::_type()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Program::ActiveVarInfo::_type() function, expected prototype:\nunsigned int osg::Program::ActiveVarInfo::_type()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Program::ActiveVarInfo* self=(Luna< osg::Program::ActiveVarInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Program::ActiveVarInfo::_type(). Got : '%s'",typeid(Luna< osg::Program::ActiveVarInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::Program::ActiveVarInfo::_type(). Got : '%s'\n%s",typeid(Luna< osg::Program::ActiveVarInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->_type;
 		lua_pushnumber(L,lret);
@@ -238,15 +228,13 @@ public:
 	// int osg::Program::ActiveVarInfo::_size()
 	static int _bind_getSize(lua_State *L) {
 		if (!_lg_typecheck_getSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Program::ActiveVarInfo::_size() function, expected prototype:\nint osg::Program::ActiveVarInfo::_size()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int osg::Program::ActiveVarInfo::_size() function, expected prototype:\nint osg::Program::ActiveVarInfo::_size()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::Program::ActiveVarInfo* self=(Luna< osg::Program::ActiveVarInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Program::ActiveVarInfo::_size(). Got : '%s'",typeid(Luna< osg::Program::ActiveVarInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::Program::ActiveVarInfo::_size(). Got : '%s'\n%s",typeid(Luna< osg::Program::ActiveVarInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->_size;
 		lua_pushnumber(L,lret);
@@ -257,16 +245,14 @@ public:
 	// void osg::Program::ActiveVarInfo::_location(int value)
 	static int _bind_setLocation(lua_State *L) {
 		if (!_lg_typecheck_setLocation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Program::ActiveVarInfo::_location(int value) function, expected prototype:\nvoid osg::Program::ActiveVarInfo::_location(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Program::ActiveVarInfo::_location(int value) function, expected prototype:\nvoid osg::Program::ActiveVarInfo::_location(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::Program::ActiveVarInfo* self=(Luna< osg::Program::ActiveVarInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::ActiveVarInfo::_location(int). Got : '%s'",typeid(Luna< osg::Program::ActiveVarInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Program::ActiveVarInfo::_location(int). Got : '%s'\n%s",typeid(Luna< osg::Program::ActiveVarInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_location = value;
 
@@ -276,16 +262,14 @@ public:
 	// void osg::Program::ActiveVarInfo::_type(unsigned int value)
 	static int _bind_setType(lua_State *L) {
 		if (!_lg_typecheck_setType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Program::ActiveVarInfo::_type(unsigned int value) function, expected prototype:\nvoid osg::Program::ActiveVarInfo::_type(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Program::ActiveVarInfo::_type(unsigned int value) function, expected prototype:\nvoid osg::Program::ActiveVarInfo::_type(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		osg::Program::ActiveVarInfo* self=(Luna< osg::Program::ActiveVarInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::ActiveVarInfo::_type(unsigned int). Got : '%s'",typeid(Luna< osg::Program::ActiveVarInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Program::ActiveVarInfo::_type(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Program::ActiveVarInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_type = value;
 
@@ -295,16 +279,14 @@ public:
 	// void osg::Program::ActiveVarInfo::_size(int value)
 	static int _bind_setSize(lua_State *L) {
 		if (!_lg_typecheck_setSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Program::ActiveVarInfo::_size(int value) function, expected prototype:\nvoid osg::Program::ActiveVarInfo::_size(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Program::ActiveVarInfo::_size(int value) function, expected prototype:\nvoid osg::Program::ActiveVarInfo::_size(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		osg::Program::ActiveVarInfo* self=(Luna< osg::Program::ActiveVarInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::ActiveVarInfo::_size(int). Got : '%s'",typeid(Luna< osg::Program::ActiveVarInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::Program::ActiveVarInfo::_size(int). Got : '%s'\n%s",typeid(Luna< osg::Program::ActiveVarInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_size = value;
 

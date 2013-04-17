@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ImageStream* self= (osg::ImageStream*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -701,8 +698,7 @@ public:
 	// osg::ImageStream::ImageStream()
 	static osg::ImageStream* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ImageStream::ImageStream() function, expected prototype:\nosg::ImageStream::ImageStream()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ImageStream::ImageStream() function, expected prototype:\nosg::ImageStream::ImageStream()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -712,8 +708,7 @@ public:
 	// osg::ImageStream::ImageStream(const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::ImageStream* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ImageStream::ImageStream(const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::ImageStream::ImageStream(const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::ImageStream::ImageStream(const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::ImageStream::ImageStream(const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -735,8 +730,7 @@ public:
 	// osg::ImageStream::ImageStream(lua_Table * data)
 	static osg::ImageStream* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ImageStream::ImageStream(lua_Table * data) function, expected prototype:\nosg::ImageStream::ImageStream(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ImageStream::ImageStream(lua_Table * data) function, expected prototype:\nosg::ImageStream::ImageStream(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -746,8 +740,7 @@ public:
 	// osg::ImageStream::ImageStream(lua_Table * data, const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::ImageStream* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ImageStream::ImageStream(lua_Table * data, const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::ImageStream::ImageStream(lua_Table * data, const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::ImageStream::ImageStream(lua_Table * data, const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::ImageStream::ImageStream(lua_Table * data, const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -782,15 +775,13 @@ public:
 	// osg::Object * osg::ImageStream::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ImageStream::cloneType() const function, expected prototype:\nosg::Object * osg::ImageStream::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ImageStream::cloneType() const function, expected prototype:\nosg::Object * osg::ImageStream::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ImageStream::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ImageStream::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -803,8 +794,7 @@ public:
 	// osg::Object * osg::ImageStream::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ImageStream::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ImageStream::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ImageStream::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ImageStream::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -815,8 +805,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ImageStream::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ImageStream::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -829,16 +818,14 @@ public:
 	// bool osg::ImageStream::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ImageStream::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::ImageStream::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ImageStream::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::ImageStream::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ImageStream::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ImageStream::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -849,15 +836,13 @@ public:
 	// const char * osg::ImageStream::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::ImageStream::libraryName() const function, expected prototype:\nconst char * osg::ImageStream::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::ImageStream::libraryName() const function, expected prototype:\nconst char * osg::ImageStream::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ImageStream::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::ImageStream::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -868,15 +853,13 @@ public:
 	// const char * osg::ImageStream::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::ImageStream::className() const function, expected prototype:\nconst char * osg::ImageStream::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::ImageStream::className() const function, expected prototype:\nconst char * osg::ImageStream::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ImageStream::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::ImageStream::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -887,8 +870,7 @@ public:
 	// int osg::ImageStream::compare(const osg::Image & rhs) const
 	static int _bind_compare(lua_State *L) {
 		if (!_lg_typecheck_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::ImageStream::compare(const osg::Image & rhs) const function, expected prototype:\nint osg::ImageStream::compare(const osg::Image & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osg::ImageStream::compare(const osg::Image & rhs) const function, expected prototype:\nint osg::ImageStream::compare(const osg::Image & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Image* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2));
@@ -899,8 +881,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::ImageStream::compare(const osg::Image &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::ImageStream::compare(const osg::Image &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->compare(rhs);
 		lua_pushnumber(L,lret);
@@ -911,16 +892,14 @@ public:
 	// void osg::ImageStream::seek(double arg1)
 	static int _bind_seek(lua_State *L) {
 		if (!_lg_typecheck_seek(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::seek(double arg1) function, expected prototype:\nvoid osg::ImageStream::seek(double arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::seek(double arg1) function, expected prototype:\nvoid osg::ImageStream::seek(double arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::seek(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::seek(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->seek(_arg1);
 
@@ -930,15 +909,13 @@ public:
 	// void osg::ImageStream::play()
 	static int _bind_play(lua_State *L) {
 		if (!_lg_typecheck_play(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::play() function, expected prototype:\nvoid osg::ImageStream::play()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::play() function, expected prototype:\nvoid osg::ImageStream::play()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::play(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::play(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->play();
 
@@ -948,15 +925,13 @@ public:
 	// void osg::ImageStream::pause()
 	static int _bind_pause(lua_State *L) {
 		if (!_lg_typecheck_pause(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::pause() function, expected prototype:\nvoid osg::ImageStream::pause()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::pause() function, expected prototype:\nvoid osg::ImageStream::pause()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::pause(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::pause(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pause();
 
@@ -966,15 +941,13 @@ public:
 	// void osg::ImageStream::rewind()
 	static int _bind_rewind(lua_State *L) {
 		if (!_lg_typecheck_rewind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::rewind() function, expected prototype:\nvoid osg::ImageStream::rewind()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::rewind() function, expected prototype:\nvoid osg::ImageStream::rewind()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::rewind(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::rewind(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->rewind();
 
@@ -984,8 +957,7 @@ public:
 	// void osg::ImageStream::quit(bool arg1 = true)
 	static int _bind_quit(lua_State *L) {
 		if (!_lg_typecheck_quit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::quit(bool arg1 = true) function, expected prototype:\nvoid osg::ImageStream::quit(bool arg1 = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::quit(bool arg1 = true) function, expected prototype:\nvoid osg::ImageStream::quit(bool arg1 = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -994,8 +966,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::quit(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::quit(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->quit(_arg1);
 
@@ -1005,15 +976,13 @@ public:
 	// osg::ImageStream::StreamStatus osg::ImageStream::getStatus() const
 	static int _bind_getStatus(lua_State *L) {
 		if (!_lg_typecheck_getStatus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ImageStream::StreamStatus osg::ImageStream::getStatus() const function, expected prototype:\nosg::ImageStream::StreamStatus osg::ImageStream::getStatus() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ImageStream::StreamStatus osg::ImageStream::getStatus() const function, expected prototype:\nosg::ImageStream::StreamStatus osg::ImageStream::getStatus() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ImageStream::StreamStatus osg::ImageStream::getStatus() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ImageStream::StreamStatus osg::ImageStream::getStatus() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::ImageStream::StreamStatus lret = self->getStatus();
 		lua_pushnumber(L,lret);
@@ -1024,16 +993,14 @@ public:
 	// void osg::ImageStream::setLoopingMode(osg::ImageStream::LoopingMode mode)
 	static int _bind_setLoopingMode(lua_State *L) {
 		if (!_lg_typecheck_setLoopingMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setLoopingMode(osg::ImageStream::LoopingMode mode) function, expected prototype:\nvoid osg::ImageStream::setLoopingMode(osg::ImageStream::LoopingMode mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setLoopingMode(osg::ImageStream::LoopingMode mode) function, expected prototype:\nvoid osg::ImageStream::setLoopingMode(osg::ImageStream::LoopingMode mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ImageStream::LoopingMode mode=(osg::ImageStream::LoopingMode)lua_tointeger(L,2);
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::setLoopingMode(osg::ImageStream::LoopingMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::setLoopingMode(osg::ImageStream::LoopingMode). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLoopingMode(mode);
 
@@ -1043,15 +1010,13 @@ public:
 	// osg::ImageStream::LoopingMode osg::ImageStream::getLoopingMode() const
 	static int _bind_getLoopingMode(lua_State *L) {
 		if (!_lg_typecheck_getLoopingMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ImageStream::LoopingMode osg::ImageStream::getLoopingMode() const function, expected prototype:\nosg::ImageStream::LoopingMode osg::ImageStream::getLoopingMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ImageStream::LoopingMode osg::ImageStream::getLoopingMode() const function, expected prototype:\nosg::ImageStream::LoopingMode osg::ImageStream::getLoopingMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ImageStream::LoopingMode osg::ImageStream::getLoopingMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ImageStream::LoopingMode osg::ImageStream::getLoopingMode() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::ImageStream::LoopingMode lret = self->getLoopingMode();
 		lua_pushnumber(L,lret);
@@ -1062,15 +1027,13 @@ public:
 	// double osg::ImageStream::getCreationTime() const
 	static int _bind_getCreationTime(lua_State *L) {
 		if (!_lg_typecheck_getCreationTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ImageStream::getCreationTime() const function, expected prototype:\ndouble osg::ImageStream::getCreationTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ImageStream::getCreationTime() const function, expected prototype:\ndouble osg::ImageStream::getCreationTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ImageStream::getCreationTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ImageStream::getCreationTime() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getCreationTime();
 		lua_pushnumber(L,lret);
@@ -1081,15 +1044,13 @@ public:
 	// double osg::ImageStream::getLength() const
 	static int _bind_getLength(lua_State *L) {
 		if (!_lg_typecheck_getLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ImageStream::getLength() const function, expected prototype:\ndouble osg::ImageStream::getLength() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ImageStream::getLength() const function, expected prototype:\ndouble osg::ImageStream::getLength() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ImageStream::getLength() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ImageStream::getLength() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getLength();
 		lua_pushnumber(L,lret);
@@ -1100,15 +1061,13 @@ public:
 	// double osg::ImageStream::getFrameRate() const
 	static int _bind_getFrameRate(lua_State *L) {
 		if (!_lg_typecheck_getFrameRate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ImageStream::getFrameRate() const function, expected prototype:\ndouble osg::ImageStream::getFrameRate() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ImageStream::getFrameRate() const function, expected prototype:\ndouble osg::ImageStream::getFrameRate() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ImageStream::getFrameRate() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ImageStream::getFrameRate() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getFrameRate();
 		lua_pushnumber(L,lret);
@@ -1119,15 +1078,13 @@ public:
 	// double osg::ImageStream::getCurrentTime() const
 	static int _bind_getCurrentTime(lua_State *L) {
 		if (!_lg_typecheck_getCurrentTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ImageStream::getCurrentTime() const function, expected prototype:\ndouble osg::ImageStream::getCurrentTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ImageStream::getCurrentTime() const function, expected prototype:\ndouble osg::ImageStream::getCurrentTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ImageStream::getCurrentTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ImageStream::getCurrentTime() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getCurrentTime();
 		lua_pushnumber(L,lret);
@@ -1138,16 +1095,14 @@ public:
 	// void osg::ImageStream::setReferenceTime(double arg1)
 	static int _bind_setReferenceTime(lua_State *L) {
 		if (!_lg_typecheck_setReferenceTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setReferenceTime(double arg1) function, expected prototype:\nvoid osg::ImageStream::setReferenceTime(double arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setReferenceTime(double arg1) function, expected prototype:\nvoid osg::ImageStream::setReferenceTime(double arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::setReferenceTime(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::setReferenceTime(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setReferenceTime(_arg1);
 
@@ -1157,15 +1112,13 @@ public:
 	// double osg::ImageStream::getReferenceTime() const
 	static int _bind_getReferenceTime(lua_State *L) {
 		if (!_lg_typecheck_getReferenceTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ImageStream::getReferenceTime() const function, expected prototype:\ndouble osg::ImageStream::getReferenceTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ImageStream::getReferenceTime() const function, expected prototype:\ndouble osg::ImageStream::getReferenceTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ImageStream::getReferenceTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ImageStream::getReferenceTime() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getReferenceTime();
 		lua_pushnumber(L,lret);
@@ -1176,16 +1129,14 @@ public:
 	// void osg::ImageStream::setTimeMultiplier(double arg1)
 	static int _bind_setTimeMultiplier(lua_State *L) {
 		if (!_lg_typecheck_setTimeMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setTimeMultiplier(double arg1) function, expected prototype:\nvoid osg::ImageStream::setTimeMultiplier(double arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setTimeMultiplier(double arg1) function, expected prototype:\nvoid osg::ImageStream::setTimeMultiplier(double arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::setTimeMultiplier(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::setTimeMultiplier(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTimeMultiplier(_arg1);
 
@@ -1195,15 +1146,13 @@ public:
 	// double osg::ImageStream::getTimeMultiplier() const
 	static int _bind_getTimeMultiplier(lua_State *L) {
 		if (!_lg_typecheck_getTimeMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ImageStream::getTimeMultiplier() const function, expected prototype:\ndouble osg::ImageStream::getTimeMultiplier() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ImageStream::getTimeMultiplier() const function, expected prototype:\ndouble osg::ImageStream::getTimeMultiplier() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ImageStream::getTimeMultiplier() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ImageStream::getTimeMultiplier() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getTimeMultiplier();
 		lua_pushnumber(L,lret);
@@ -1214,16 +1163,14 @@ public:
 	// void osg::ImageStream::setVolume(float arg1)
 	static int _bind_setVolume(lua_State *L) {
 		if (!_lg_typecheck_setVolume(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setVolume(float arg1) function, expected prototype:\nvoid osg::ImageStream::setVolume(float arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setVolume(float arg1) function, expected prototype:\nvoid osg::ImageStream::setVolume(float arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float _arg1=(float)lua_tonumber(L,2);
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::setVolume(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::setVolume(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setVolume(_arg1);
 
@@ -1233,15 +1180,13 @@ public:
 	// float osg::ImageStream::getVolume() const
 	static int _bind_getVolume(lua_State *L) {
 		if (!_lg_typecheck_getVolume(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::ImageStream::getVolume() const function, expected prototype:\nfloat osg::ImageStream::getVolume() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::ImageStream::getVolume() const function, expected prototype:\nfloat osg::ImageStream::getVolume() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::ImageStream::getVolume() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::ImageStream::getVolume() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getVolume();
 		lua_pushnumber(L,lret);
@@ -1252,15 +1197,13 @@ public:
 	// float osg::ImageStream::getAudioBalance()
 	static int _bind_getAudioBalance(lua_State *L) {
 		if (!_lg_typecheck_getAudioBalance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::ImageStream::getAudioBalance() function, expected prototype:\nfloat osg::ImageStream::getAudioBalance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::ImageStream::getAudioBalance() function, expected prototype:\nfloat osg::ImageStream::getAudioBalance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::ImageStream::getAudioBalance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::ImageStream::getAudioBalance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getAudioBalance();
 		lua_pushnumber(L,lret);
@@ -1271,16 +1214,14 @@ public:
 	// void osg::ImageStream::setAudioBalance(float b)
 	static int _bind_setAudioBalance(lua_State *L) {
 		if (!_lg_typecheck_setAudioBalance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setAudioBalance(float b) function, expected prototype:\nvoid osg::ImageStream::setAudioBalance(float b)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setAudioBalance(float b) function, expected prototype:\nvoid osg::ImageStream::setAudioBalance(float b)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float b=(float)lua_tonumber(L,2);
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::setAudioBalance(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::setAudioBalance(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAudioBalance(b);
 
@@ -1290,8 +1231,7 @@ public:
 	// void osg::ImageStream::setAudioStreams(const osg::ImageStream::AudioStreams & asl)
 	static int _bind_setAudioStreams(lua_State *L) {
 		if (!_lg_typecheck_setAudioStreams(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setAudioStreams(const osg::ImageStream::AudioStreams & asl) function, expected prototype:\nvoid osg::ImageStream::setAudioStreams(const osg::ImageStream::AudioStreams & asl)\nClass arguments details:\narg 1 ID = 83757031\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setAudioStreams(const osg::ImageStream::AudioStreams & asl) function, expected prototype:\nvoid osg::ImageStream::setAudioStreams(const osg::ImageStream::AudioStreams & asl)\nClass arguments details:\narg 1 ID = 83757031\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::ImageStream::AudioStreams* asl_ptr=(Luna< std::vector< osg::ref_ptr< osg::AudioStream > > >::checkSubType< osg::ImageStream::AudioStreams >(L,2));
@@ -1302,8 +1242,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::setAudioStreams(const osg::ImageStream::AudioStreams &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::setAudioStreams(const osg::ImageStream::AudioStreams &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAudioStreams(asl);
 
@@ -1313,15 +1252,13 @@ public:
 	// osg::ImageStream::AudioStreams & osg::ImageStream::getAudioStreams()
 	static int _bind_getAudioStreams_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getAudioStreams_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ImageStream::AudioStreams & osg::ImageStream::getAudioStreams() function, expected prototype:\nosg::ImageStream::AudioStreams & osg::ImageStream::getAudioStreams()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ImageStream::AudioStreams & osg::ImageStream::getAudioStreams() function, expected prototype:\nosg::ImageStream::AudioStreams & osg::ImageStream::getAudioStreams()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ImageStream::AudioStreams & osg::ImageStream::getAudioStreams(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ImageStream::AudioStreams & osg::ImageStream::getAudioStreams(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ImageStream::AudioStreams* lret = &self->getAudioStreams();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1334,15 +1271,13 @@ public:
 	// const osg::ImageStream::AudioStreams & osg::ImageStream::getAudioStreams() const
 	static int _bind_getAudioStreams_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getAudioStreams_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::ImageStream::AudioStreams & osg::ImageStream::getAudioStreams() const function, expected prototype:\nconst osg::ImageStream::AudioStreams & osg::ImageStream::getAudioStreams() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::ImageStream::AudioStreams & osg::ImageStream::getAudioStreams() const function, expected prototype:\nconst osg::ImageStream::AudioStreams & osg::ImageStream::getAudioStreams() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ImageStream::AudioStreams & osg::ImageStream::getAudioStreams() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::ImageStream::AudioStreams & osg::ImageStream::getAudioStreams() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::ImageStream::AudioStreams* lret = &self->getAudioStreams();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1364,15 +1299,13 @@ public:
 	// osg::Texture * osg::ImageStream::createSuitableTexture()
 	static int _bind_createSuitableTexture(lua_State *L) {
 		if (!_lg_typecheck_createSuitableTexture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture * osg::ImageStream::createSuitableTexture() function, expected prototype:\nosg::Texture * osg::ImageStream::createSuitableTexture()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture * osg::ImageStream::createSuitableTexture() function, expected prototype:\nosg::Texture * osg::ImageStream::createSuitableTexture()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::ImageStream::createSuitableTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::ImageStream::createSuitableTexture(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture * lret = self->createSuitableTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1385,16 +1318,14 @@ public:
 	// void osg::ImageStream::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::ImageStream::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::ImageStream::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::setThreadSafeRefUnref(threadSafe);
 
@@ -1404,16 +1335,14 @@ public:
 	// void osg::ImageStream::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setName(const std::string & name) function, expected prototype:\nvoid osg::ImageStream::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setName(const std::string & name) function, expected prototype:\nvoid osg::ImageStream::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::setName(name);
 
@@ -1423,15 +1352,13 @@ public:
 	// void osg::ImageStream::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_computeDataVariance() function, expected prototype:\nvoid osg::ImageStream::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_computeDataVariance() function, expected prototype:\nvoid osg::ImageStream::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::computeDataVariance();
 
@@ -1441,16 +1368,14 @@ public:
 	// void osg::ImageStream::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::ImageStream::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::ImageStream::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::setUserData(obj);
 
@@ -1460,15 +1385,13 @@ public:
 	// osg::Referenced * osg::ImageStream::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::ImageStream::base_getUserData() function, expected prototype:\nosg::Referenced * osg::ImageStream::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::ImageStream::base_getUserData() function, expected prototype:\nosg::Referenced * osg::ImageStream::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ImageStream::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ImageStream::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->ImageStream::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1481,15 +1404,13 @@ public:
 	// const osg::Referenced * osg::ImageStream::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::ImageStream::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::ImageStream::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::ImageStream::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::ImageStream::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ImageStream::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ImageStream::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->ImageStream::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1511,15 +1432,13 @@ public:
 	// osg::Array * osg::ImageStream::base_asArray()
 	static int _bind_base_asArray_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asArray_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Array * osg::ImageStream::base_asArray() function, expected prototype:\nosg::Array * osg::ImageStream::base_asArray()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Array * osg::ImageStream::base_asArray() function, expected prototype:\nosg::Array * osg::ImageStream::base_asArray()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Array * osg::ImageStream::base_asArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Array * osg::ImageStream::base_asArray(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Array * lret = self->ImageStream::asArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1532,15 +1451,13 @@ public:
 	// const osg::Array * osg::ImageStream::base_asArray() const
 	static int _bind_base_asArray_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asArray_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Array * osg::ImageStream::base_asArray() const function, expected prototype:\nconst osg::Array * osg::ImageStream::base_asArray() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Array * osg::ImageStream::base_asArray() const function, expected prototype:\nconst osg::Array * osg::ImageStream::base_asArray() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Array * osg::ImageStream::base_asArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Array * osg::ImageStream::base_asArray() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Array * lret = self->ImageStream::asArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1562,15 +1479,13 @@ public:
 	// osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet()
 	static int _bind_base_asPrimitiveSet_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asPrimitiveSet_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet() function, expected prototype:\nosg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet() function, expected prototype:\nosg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::PrimitiveSet * lret = self->ImageStream::asPrimitiveSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1583,15 +1498,13 @@ public:
 	// const osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet() const
 	static int _bind_base_asPrimitiveSet_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asPrimitiveSet_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet() const function, expected prototype:\nconst osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet() const function, expected prototype:\nconst osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::PrimitiveSet * lret = self->ImageStream::asPrimitiveSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1613,8 +1526,7 @@ public:
 	// void osg::ImageStream::base_releaseGLObjects(osg::State * state = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osg::ImageStream::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osg::ImageStream::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1623,8 +1535,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::releaseGLObjects(state);
 
@@ -1634,15 +1545,13 @@ public:
 	// osg::Image * osg::ImageStream::base_asImage()
 	static int _bind_base_asImage_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asImage_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * osg::ImageStream::base_asImage() function, expected prototype:\nosg::Image * osg::ImageStream::base_asImage()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * osg::ImageStream::base_asImage() function, expected prototype:\nosg::Image * osg::ImageStream::base_asImage()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osg::ImageStream::base_asImage(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Image * osg::ImageStream::base_asImage(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Image * lret = self->ImageStream::asImage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1655,15 +1564,13 @@ public:
 	// const osg::Image * osg::ImageStream::base_asImage() const
 	static int _bind_base_asImage_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asImage_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Image * osg::ImageStream::base_asImage() const function, expected prototype:\nconst osg::Image * osg::ImageStream::base_asImage() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Image * osg::ImageStream::base_asImage() const function, expected prototype:\nconst osg::Image * osg::ImageStream::base_asImage() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Image * osg::ImageStream::base_asImage() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Image * osg::ImageStream::base_asImage() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Image * lret = self->ImageStream::asImage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1685,15 +1592,13 @@ public:
 	// const void * osg::ImageStream::base_getDataPointer() const
 	static int _bind_base_getDataPointer(lua_State *L) {
 		if (!_lg_typecheck_base_getDataPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const void * osg::ImageStream::base_getDataPointer() const function, expected prototype:\nconst void * osg::ImageStream::base_getDataPointer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const void * osg::ImageStream::base_getDataPointer() const function, expected prototype:\nconst void * osg::ImageStream::base_getDataPointer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * osg::ImageStream::base_getDataPointer() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const void * osg::ImageStream::base_getDataPointer() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const void * lret = self->ImageStream::getDataPointer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1706,15 +1611,13 @@ public:
 	// unsigned int osg::ImageStream::base_getTotalDataSize() const
 	static int _bind_base_getTotalDataSize(lua_State *L) {
 		if (!_lg_typecheck_base_getTotalDataSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::ImageStream::base_getTotalDataSize() const function, expected prototype:\nunsigned int osg::ImageStream::base_getTotalDataSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::ImageStream::base_getTotalDataSize() const function, expected prototype:\nunsigned int osg::ImageStream::base_getTotalDataSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::ImageStream::base_getTotalDataSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::ImageStream::base_getTotalDataSize() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->ImageStream::getTotalDataSize();
 		lua_pushnumber(L,lret);
@@ -1725,8 +1628,7 @@ public:
 	// void osg::ImageStream::base_allocateImage(int s, int t, int r, unsigned int pixelFormat, unsigned int type, int packing = 1)
 	static int _bind_base_allocateImage(lua_State *L) {
 		if (!_lg_typecheck_base_allocateImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_allocateImage(int s, int t, int r, unsigned int pixelFormat, unsigned int type, int packing = 1) function, expected prototype:\nvoid osg::ImageStream::base_allocateImage(int s, int t, int r, unsigned int pixelFormat, unsigned int type, int packing = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_allocateImage(int s, int t, int r, unsigned int pixelFormat, unsigned int type, int packing = 1) function, expected prototype:\nvoid osg::ImageStream::base_allocateImage(int s, int t, int r, unsigned int pixelFormat, unsigned int type, int packing = 1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1740,8 +1642,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_allocateImage(int, int, int, unsigned int, unsigned int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_allocateImage(int, int, int, unsigned int, unsigned int, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::allocateImage(s, t, r, pixelFormat, type, packing);
 
@@ -1751,8 +1652,7 @@ public:
 	// void osg::ImageStream::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1, int rowLength = 0)
 	static int _bind_base_setImage(lua_State *L) {
 		if (!_lg_typecheck_base_setImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1, int rowLength = 0) function, expected prototype:\nvoid osg::ImageStream::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1, int rowLength = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1, int rowLength = 0) function, expected prototype:\nvoid osg::ImageStream::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1, int rowLength = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1770,8 +1670,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setImage(int, int, int, int, unsigned int, unsigned int, unsigned char *, osg::Image::AllocationMode, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setImage(int, int, int, int, unsigned int, unsigned int, unsigned char *, osg::Image::AllocationMode, int, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::setImage(s, t, r, internalTextureformat, pixelFormat, type, &data, mode, packing, rowLength);
 
@@ -1781,8 +1680,7 @@ public:
 	// void osg::ImageStream::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type, int packing = 1)
 	static int _bind_base_readPixels(lua_State *L) {
 		if (!_lg_typecheck_base_readPixels(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type, int packing = 1) function, expected prototype:\nvoid osg::ImageStream::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type, int packing = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type, int packing = 1) function, expected prototype:\nvoid osg::ImageStream::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type, int packing = 1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1797,8 +1695,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_readPixels(int, int, int, int, unsigned int, unsigned int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_readPixels(int, int, int, int, unsigned int, unsigned int, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::readPixels(x, y, width, height, pixelFormat, type, packing);
 
@@ -1808,8 +1705,7 @@ public:
 	// void osg::ImageStream::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE, unsigned int face = 0)
 	static int _bind_base_readImageFromCurrentTexture(lua_State *L) {
 		if (!_lg_typecheck_base_readImageFromCurrentTexture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE, unsigned int face = 0) function, expected prototype:\nvoid osg::ImageStream::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE, unsigned int face = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE, unsigned int face = 0) function, expected prototype:\nvoid osg::ImageStream::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE, unsigned int face = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1821,8 +1717,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_readImageFromCurrentTexture(unsigned int, bool, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_readImageFromCurrentTexture(unsigned int, bool, unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::readImageFromCurrentTexture(contextID, copyMipMapsIfAvailable, type, face);
 
@@ -1832,8 +1727,7 @@ public:
 	// void osg::ImageStream::base_scaleImage(int s, int t, int r, unsigned int newDataType)
 	static int _bind_base_scaleImage(lua_State *L) {
 		if (!_lg_typecheck_base_scaleImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_scaleImage(int s, int t, int r, unsigned int newDataType) function, expected prototype:\nvoid osg::ImageStream::base_scaleImage(int s, int t, int r, unsigned int newDataType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_scaleImage(int s, int t, int r, unsigned int newDataType) function, expected prototype:\nvoid osg::ImageStream::base_scaleImage(int s, int t, int r, unsigned int newDataType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int s=(int)lua_tointeger(L,2);
@@ -1843,8 +1737,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_scaleImage(int, int, int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_scaleImage(int, int, int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::scaleImage(s, t, r, newDataType);
 
@@ -1854,8 +1747,7 @@ public:
 	// void osg::ImageStream::base_copySubImage(int s_offset, int t_offset, int r_offset, const osg::Image * source)
 	static int _bind_base_copySubImage(lua_State *L) {
 		if (!_lg_typecheck_base_copySubImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_copySubImage(int s_offset, int t_offset, int r_offset, const osg::Image * source) function, expected prototype:\nvoid osg::ImageStream::base_copySubImage(int s_offset, int t_offset, int r_offset, const osg::Image * source)\nClass arguments details:\narg 4 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_copySubImage(int s_offset, int t_offset, int r_offset, const osg::Image * source) function, expected prototype:\nvoid osg::ImageStream::base_copySubImage(int s_offset, int t_offset, int r_offset, const osg::Image * source)\nClass arguments details:\narg 4 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int s_offset=(int)lua_tointeger(L,2);
@@ -1865,8 +1757,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_copySubImage(int, int, int, const osg::Image *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_copySubImage(int, int, int, const osg::Image *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::copySubImage(s_offset, t_offset, r_offset, source);
 
@@ -1876,15 +1767,13 @@ public:
 	// bool osg::ImageStream::base_isImageTranslucent() const
 	static int _bind_base_isImageTranslucent(lua_State *L) {
 		if (!_lg_typecheck_base_isImageTranslucent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ImageStream::base_isImageTranslucent() const function, expected prototype:\nbool osg::ImageStream::base_isImageTranslucent() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ImageStream::base_isImageTranslucent() const function, expected prototype:\nbool osg::ImageStream::base_isImageTranslucent() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ImageStream::base_isImageTranslucent() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ImageStream::base_isImageTranslucent() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ImageStream::isImageTranslucent();
 		lua_pushboolean(L,lret?1:0);
@@ -1895,15 +1784,13 @@ public:
 	// bool osg::ImageStream::base_requiresUpdateCall() const
 	static int _bind_base_requiresUpdateCall(lua_State *L) {
 		if (!_lg_typecheck_base_requiresUpdateCall(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ImageStream::base_requiresUpdateCall() const function, expected prototype:\nbool osg::ImageStream::base_requiresUpdateCall() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ImageStream::base_requiresUpdateCall() const function, expected prototype:\nbool osg::ImageStream::base_requiresUpdateCall() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ImageStream::base_requiresUpdateCall() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ImageStream::base_requiresUpdateCall() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ImageStream::requiresUpdateCall();
 		lua_pushboolean(L,lret?1:0);
@@ -1914,16 +1801,14 @@ public:
 	// void osg::ImageStream::base_update(osg::NodeVisitor * arg1)
 	static int _bind_base_update(lua_State *L) {
 		if (!_lg_typecheck_base_update(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_update(osg::NodeVisitor * arg1) function, expected prototype:\nvoid osg::ImageStream::base_update(osg::NodeVisitor * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_update(osg::NodeVisitor * arg1) function, expected prototype:\nvoid osg::ImageStream::base_update(osg::NodeVisitor * arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* _arg1=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_update(osg::NodeVisitor *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_update(osg::NodeVisitor *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::update(_arg1);
 
@@ -1933,16 +1818,14 @@ public:
 	// bool osg::ImageStream::base_sendFocusHint(bool arg1)
 	static int _bind_base_sendFocusHint(lua_State *L) {
 		if (!_lg_typecheck_base_sendFocusHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ImageStream::base_sendFocusHint(bool arg1) function, expected prototype:\nbool osg::ImageStream::base_sendFocusHint(bool arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ImageStream::base_sendFocusHint(bool arg1) function, expected prototype:\nbool osg::ImageStream::base_sendFocusHint(bool arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool _arg1=(bool)(lua_toboolean(L,2)==1);
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ImageStream::base_sendFocusHint(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ImageStream::base_sendFocusHint(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ImageStream::sendFocusHint(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1953,8 +1836,7 @@ public:
 	// bool osg::ImageStream::base_sendPointerEvent(int arg1, int arg2, int arg3)
 	static int _bind_base_sendPointerEvent(lua_State *L) {
 		if (!_lg_typecheck_base_sendPointerEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ImageStream::base_sendPointerEvent(int arg1, int arg2, int arg3) function, expected prototype:\nbool osg::ImageStream::base_sendPointerEvent(int arg1, int arg2, int arg3)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ImageStream::base_sendPointerEvent(int arg1, int arg2, int arg3) function, expected prototype:\nbool osg::ImageStream::base_sendPointerEvent(int arg1, int arg2, int arg3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int _arg1=(int)lua_tointeger(L,2);
@@ -1963,8 +1845,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ImageStream::base_sendPointerEvent(int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ImageStream::base_sendPointerEvent(int, int, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ImageStream::sendPointerEvent(_arg1, _arg2, _arg3);
 		lua_pushboolean(L,lret?1:0);
@@ -1975,8 +1856,7 @@ public:
 	// bool osg::ImageStream::base_sendKeyEvent(int arg1, bool arg2)
 	static int _bind_base_sendKeyEvent(lua_State *L) {
 		if (!_lg_typecheck_base_sendKeyEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ImageStream::base_sendKeyEvent(int arg1, bool arg2) function, expected prototype:\nbool osg::ImageStream::base_sendKeyEvent(int arg1, bool arg2)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ImageStream::base_sendKeyEvent(int arg1, bool arg2) function, expected prototype:\nbool osg::ImageStream::base_sendKeyEvent(int arg1, bool arg2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int _arg1=(int)lua_tointeger(L,2);
@@ -1984,8 +1864,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ImageStream::base_sendKeyEvent(int, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ImageStream::base_sendKeyEvent(int, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ImageStream::sendKeyEvent(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -1996,16 +1875,14 @@ public:
 	// void osg::ImageStream::base_setFrameLastRendered(const osg::FrameStamp * arg1)
 	static int _bind_base_setFrameLastRendered(lua_State *L) {
 		if (!_lg_typecheck_base_setFrameLastRendered(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setFrameLastRendered(const osg::FrameStamp * arg1) function, expected prototype:\nvoid osg::ImageStream::base_setFrameLastRendered(const osg::FrameStamp * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setFrameLastRendered(const osg::FrameStamp * arg1) function, expected prototype:\nvoid osg::ImageStream::base_setFrameLastRendered(const osg::FrameStamp * arg1)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::FrameStamp* _arg1=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setFrameLastRendered(const osg::FrameStamp *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setFrameLastRendered(const osg::FrameStamp *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::setFrameLastRendered(_arg1);
 
@@ -2015,15 +1892,13 @@ public:
 	// osg::Object * osg::ImageStream::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ImageStream::base_cloneType() const function, expected prototype:\nosg::Object * osg::ImageStream::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ImageStream::base_cloneType() const function, expected prototype:\nosg::Object * osg::ImageStream::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ImageStream::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ImageStream::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->ImageStream::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2036,8 +1911,7 @@ public:
 	// osg::Object * osg::ImageStream::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ImageStream::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ImageStream::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ImageStream::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ImageStream::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -2048,8 +1922,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ImageStream::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ImageStream::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->ImageStream::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2062,16 +1935,14 @@ public:
 	// bool osg::ImageStream::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ImageStream::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::ImageStream::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ImageStream::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::ImageStream::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ImageStream::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::ImageStream::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ImageStream::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -2082,15 +1953,13 @@ public:
 	// const char * osg::ImageStream::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::ImageStream::base_libraryName() const function, expected prototype:\nconst char * osg::ImageStream::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::ImageStream::base_libraryName() const function, expected prototype:\nconst char * osg::ImageStream::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ImageStream::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::ImageStream::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->ImageStream::libraryName();
 		lua_pushstring(L,lret);
@@ -2101,15 +1970,13 @@ public:
 	// const char * osg::ImageStream::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::ImageStream::base_className() const function, expected prototype:\nconst char * osg::ImageStream::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::ImageStream::base_className() const function, expected prototype:\nconst char * osg::ImageStream::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ImageStream::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::ImageStream::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->ImageStream::className();
 		lua_pushstring(L,lret);
@@ -2120,8 +1987,7 @@ public:
 	// int osg::ImageStream::base_compare(const osg::Image & rhs) const
 	static int _bind_base_compare(lua_State *L) {
 		if (!_lg_typecheck_base_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::ImageStream::base_compare(const osg::Image & rhs) const function, expected prototype:\nint osg::ImageStream::base_compare(const osg::Image & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osg::ImageStream::base_compare(const osg::Image & rhs) const function, expected prototype:\nint osg::ImageStream::base_compare(const osg::Image & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Image* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2));
@@ -2132,8 +1998,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::ImageStream::base_compare(const osg::Image &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::ImageStream::base_compare(const osg::Image &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->ImageStream::compare(rhs);
 		lua_pushnumber(L,lret);
@@ -2144,16 +2009,14 @@ public:
 	// void osg::ImageStream::base_seek(double arg1)
 	static int _bind_base_seek(lua_State *L) {
 		if (!_lg_typecheck_base_seek(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_seek(double arg1) function, expected prototype:\nvoid osg::ImageStream::base_seek(double arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_seek(double arg1) function, expected prototype:\nvoid osg::ImageStream::base_seek(double arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_seek(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_seek(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::seek(_arg1);
 
@@ -2163,15 +2026,13 @@ public:
 	// void osg::ImageStream::base_play()
 	static int _bind_base_play(lua_State *L) {
 		if (!_lg_typecheck_base_play(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_play() function, expected prototype:\nvoid osg::ImageStream::base_play()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_play() function, expected prototype:\nvoid osg::ImageStream::base_play()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_play(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_play(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::play();
 
@@ -2181,15 +2042,13 @@ public:
 	// void osg::ImageStream::base_pause()
 	static int _bind_base_pause(lua_State *L) {
 		if (!_lg_typecheck_base_pause(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_pause() function, expected prototype:\nvoid osg::ImageStream::base_pause()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_pause() function, expected prototype:\nvoid osg::ImageStream::base_pause()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_pause(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_pause(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::pause();
 
@@ -2199,15 +2058,13 @@ public:
 	// void osg::ImageStream::base_rewind()
 	static int _bind_base_rewind(lua_State *L) {
 		if (!_lg_typecheck_base_rewind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_rewind() function, expected prototype:\nvoid osg::ImageStream::base_rewind()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_rewind() function, expected prototype:\nvoid osg::ImageStream::base_rewind()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_rewind(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_rewind(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::rewind();
 
@@ -2217,8 +2074,7 @@ public:
 	// void osg::ImageStream::base_quit(bool arg1 = true)
 	static int _bind_base_quit(lua_State *L) {
 		if (!_lg_typecheck_base_quit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_quit(bool arg1 = true) function, expected prototype:\nvoid osg::ImageStream::base_quit(bool arg1 = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_quit(bool arg1 = true) function, expected prototype:\nvoid osg::ImageStream::base_quit(bool arg1 = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2227,8 +2083,7 @@ public:
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_quit(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_quit(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::quit(_arg1);
 
@@ -2238,15 +2093,13 @@ public:
 	// double osg::ImageStream::base_getCreationTime() const
 	static int _bind_base_getCreationTime(lua_State *L) {
 		if (!_lg_typecheck_base_getCreationTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ImageStream::base_getCreationTime() const function, expected prototype:\ndouble osg::ImageStream::base_getCreationTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ImageStream::base_getCreationTime() const function, expected prototype:\ndouble osg::ImageStream::base_getCreationTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ImageStream::base_getCreationTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ImageStream::base_getCreationTime() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->ImageStream::getCreationTime();
 		lua_pushnumber(L,lret);
@@ -2257,15 +2110,13 @@ public:
 	// double osg::ImageStream::base_getLength() const
 	static int _bind_base_getLength(lua_State *L) {
 		if (!_lg_typecheck_base_getLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ImageStream::base_getLength() const function, expected prototype:\ndouble osg::ImageStream::base_getLength() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ImageStream::base_getLength() const function, expected prototype:\ndouble osg::ImageStream::base_getLength() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ImageStream::base_getLength() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ImageStream::base_getLength() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->ImageStream::getLength();
 		lua_pushnumber(L,lret);
@@ -2276,15 +2127,13 @@ public:
 	// double osg::ImageStream::base_getFrameRate() const
 	static int _bind_base_getFrameRate(lua_State *L) {
 		if (!_lg_typecheck_base_getFrameRate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ImageStream::base_getFrameRate() const function, expected prototype:\ndouble osg::ImageStream::base_getFrameRate() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ImageStream::base_getFrameRate() const function, expected prototype:\ndouble osg::ImageStream::base_getFrameRate() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ImageStream::base_getFrameRate() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ImageStream::base_getFrameRate() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->ImageStream::getFrameRate();
 		lua_pushnumber(L,lret);
@@ -2295,15 +2144,13 @@ public:
 	// double osg::ImageStream::base_getCurrentTime() const
 	static int _bind_base_getCurrentTime(lua_State *L) {
 		if (!_lg_typecheck_base_getCurrentTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ImageStream::base_getCurrentTime() const function, expected prototype:\ndouble osg::ImageStream::base_getCurrentTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ImageStream::base_getCurrentTime() const function, expected prototype:\ndouble osg::ImageStream::base_getCurrentTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ImageStream::base_getCurrentTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ImageStream::base_getCurrentTime() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->ImageStream::getCurrentTime();
 		lua_pushnumber(L,lret);
@@ -2314,16 +2161,14 @@ public:
 	// void osg::ImageStream::base_setReferenceTime(double arg1)
 	static int _bind_base_setReferenceTime(lua_State *L) {
 		if (!_lg_typecheck_base_setReferenceTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setReferenceTime(double arg1) function, expected prototype:\nvoid osg::ImageStream::base_setReferenceTime(double arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setReferenceTime(double arg1) function, expected prototype:\nvoid osg::ImageStream::base_setReferenceTime(double arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setReferenceTime(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setReferenceTime(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::setReferenceTime(_arg1);
 
@@ -2333,15 +2178,13 @@ public:
 	// double osg::ImageStream::base_getReferenceTime() const
 	static int _bind_base_getReferenceTime(lua_State *L) {
 		if (!_lg_typecheck_base_getReferenceTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ImageStream::base_getReferenceTime() const function, expected prototype:\ndouble osg::ImageStream::base_getReferenceTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ImageStream::base_getReferenceTime() const function, expected prototype:\ndouble osg::ImageStream::base_getReferenceTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ImageStream::base_getReferenceTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ImageStream::base_getReferenceTime() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->ImageStream::getReferenceTime();
 		lua_pushnumber(L,lret);
@@ -2352,16 +2195,14 @@ public:
 	// void osg::ImageStream::base_setTimeMultiplier(double arg1)
 	static int _bind_base_setTimeMultiplier(lua_State *L) {
 		if (!_lg_typecheck_base_setTimeMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setTimeMultiplier(double arg1) function, expected prototype:\nvoid osg::ImageStream::base_setTimeMultiplier(double arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setTimeMultiplier(double arg1) function, expected prototype:\nvoid osg::ImageStream::base_setTimeMultiplier(double arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setTimeMultiplier(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setTimeMultiplier(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::setTimeMultiplier(_arg1);
 
@@ -2371,15 +2212,13 @@ public:
 	// double osg::ImageStream::base_getTimeMultiplier() const
 	static int _bind_base_getTimeMultiplier(lua_State *L) {
 		if (!_lg_typecheck_base_getTimeMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::ImageStream::base_getTimeMultiplier() const function, expected prototype:\ndouble osg::ImageStream::base_getTimeMultiplier() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::ImageStream::base_getTimeMultiplier() const function, expected prototype:\ndouble osg::ImageStream::base_getTimeMultiplier() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ImageStream::base_getTimeMultiplier() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double osg::ImageStream::base_getTimeMultiplier() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->ImageStream::getTimeMultiplier();
 		lua_pushnumber(L,lret);
@@ -2390,16 +2229,14 @@ public:
 	// void osg::ImageStream::base_setVolume(float arg1)
 	static int _bind_base_setVolume(lua_State *L) {
 		if (!_lg_typecheck_base_setVolume(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setVolume(float arg1) function, expected prototype:\nvoid osg::ImageStream::base_setVolume(float arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setVolume(float arg1) function, expected prototype:\nvoid osg::ImageStream::base_setVolume(float arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float _arg1=(float)lua_tonumber(L,2);
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setVolume(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setVolume(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::setVolume(_arg1);
 
@@ -2409,15 +2246,13 @@ public:
 	// float osg::ImageStream::base_getVolume() const
 	static int _bind_base_getVolume(lua_State *L) {
 		if (!_lg_typecheck_base_getVolume(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::ImageStream::base_getVolume() const function, expected prototype:\nfloat osg::ImageStream::base_getVolume() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::ImageStream::base_getVolume() const function, expected prototype:\nfloat osg::ImageStream::base_getVolume() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::ImageStream::base_getVolume() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::ImageStream::base_getVolume() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->ImageStream::getVolume();
 		lua_pushnumber(L,lret);
@@ -2428,15 +2263,13 @@ public:
 	// float osg::ImageStream::base_getAudioBalance()
 	static int _bind_base_getAudioBalance(lua_State *L) {
 		if (!_lg_typecheck_base_getAudioBalance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::ImageStream::base_getAudioBalance() function, expected prototype:\nfloat osg::ImageStream::base_getAudioBalance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osg::ImageStream::base_getAudioBalance() function, expected prototype:\nfloat osg::ImageStream::base_getAudioBalance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::ImageStream::base_getAudioBalance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osg::ImageStream::base_getAudioBalance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->ImageStream::getAudioBalance();
 		lua_pushnumber(L,lret);
@@ -2447,16 +2280,14 @@ public:
 	// void osg::ImageStream::base_setAudioBalance(float b)
 	static int _bind_base_setAudioBalance(lua_State *L) {
 		if (!_lg_typecheck_base_setAudioBalance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setAudioBalance(float b) function, expected prototype:\nvoid osg::ImageStream::base_setAudioBalance(float b)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setAudioBalance(float b) function, expected prototype:\nvoid osg::ImageStream::base_setAudioBalance(float b)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float b=(float)lua_tonumber(L,2);
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setAudioBalance(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setAudioBalance(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImageStream::setAudioBalance(b);
 
@@ -2466,15 +2297,13 @@ public:
 	// osg::Texture * osg::ImageStream::base_createSuitableTexture()
 	static int _bind_base_createSuitableTexture(lua_State *L) {
 		if (!_lg_typecheck_base_createSuitableTexture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture * osg::ImageStream::base_createSuitableTexture() function, expected prototype:\nosg::Texture * osg::ImageStream::base_createSuitableTexture()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture * osg::ImageStream::base_createSuitableTexture() function, expected prototype:\nosg::Texture * osg::ImageStream::base_createSuitableTexture()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::ImageStream::base_createSuitableTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::ImageStream::base_createSuitableTexture(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture * lret = self->ImageStream::createSuitableTexture();
 		if(!lret) return 0; // Do not write NULL pointers.

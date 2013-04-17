@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::AtomicCounterBufferBinding* self= (osg::AtomicCounterBufferBinding*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -359,8 +356,7 @@ public:
 	// osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(unsigned int index = 0)
 	static osg::AtomicCounterBufferBinding* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(unsigned int index = 0) function, expected prototype:\nosg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(unsigned int index = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(unsigned int index = 0) function, expected prototype:\nosg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(unsigned int index = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -373,8 +369,7 @@ public:
 	// osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(unsigned int index, osg::BufferObject * bo, int offset, int size)
 	static osg::AtomicCounterBufferBinding* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(unsigned int index, osg::BufferObject * bo, int offset, int size) function, expected prototype:\nosg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(unsigned int index, osg::BufferObject * bo, int offset, int size)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(unsigned int index, osg::BufferObject * bo, int offset, int size) function, expected prototype:\nosg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(unsigned int index, osg::BufferObject * bo, int offset, int size)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -388,8 +383,7 @@ public:
 	// osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(const osg::AtomicCounterBufferBinding & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::AtomicCounterBufferBinding* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(const osg::AtomicCounterBufferBinding & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(const osg::AtomicCounterBufferBinding & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(const osg::AtomicCounterBufferBinding & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(const osg::AtomicCounterBufferBinding & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -411,8 +405,7 @@ public:
 	// osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(lua_Table * data, unsigned int index = 0)
 	static osg::AtomicCounterBufferBinding* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(lua_Table * data, unsigned int index = 0) function, expected prototype:\nosg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(lua_Table * data, unsigned int index = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(lua_Table * data, unsigned int index = 0) function, expected prototype:\nosg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(lua_Table * data, unsigned int index = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -425,8 +418,7 @@ public:
 	// osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(lua_Table * data, unsigned int index, osg::BufferObject * bo, int offset, int size)
 	static osg::AtomicCounterBufferBinding* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(lua_Table * data, unsigned int index, osg::BufferObject * bo, int offset, int size) function, expected prototype:\nosg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(lua_Table * data, unsigned int index, osg::BufferObject * bo, int offset, int size)\nClass arguments details:\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(lua_Table * data, unsigned int index, osg::BufferObject * bo, int offset, int size) function, expected prototype:\nosg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(lua_Table * data, unsigned int index, osg::BufferObject * bo, int offset, int size)\nClass arguments details:\narg 3 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
@@ -440,8 +432,7 @@ public:
 	// osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(lua_Table * data, const osg::AtomicCounterBufferBinding & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::AtomicCounterBufferBinding* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(lua_Table * data, const osg::AtomicCounterBufferBinding & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(lua_Table * data, const osg::AtomicCounterBufferBinding & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(lua_Table * data, const osg::AtomicCounterBufferBinding & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::AtomicCounterBufferBinding::AtomicCounterBufferBinding(lua_Table * data, const osg::AtomicCounterBufferBinding & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -478,15 +469,13 @@ public:
 	// osg::Object * osg::AtomicCounterBufferBinding::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::AtomicCounterBufferBinding::cloneType() const function, expected prototype:\nosg::Object * osg::AtomicCounterBufferBinding::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::AtomicCounterBufferBinding::cloneType() const function, expected prototype:\nosg::Object * osg::AtomicCounterBufferBinding::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::AtomicCounterBufferBinding::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::AtomicCounterBufferBinding::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -499,8 +488,7 @@ public:
 	// osg::Object * osg::AtomicCounterBufferBinding::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::AtomicCounterBufferBinding::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::AtomicCounterBufferBinding::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::AtomicCounterBufferBinding::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::AtomicCounterBufferBinding::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -511,8 +499,7 @@ public:
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::AtomicCounterBufferBinding::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::AtomicCounterBufferBinding::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -525,16 +512,14 @@ public:
 	// bool osg::AtomicCounterBufferBinding::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AtomicCounterBufferBinding::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::AtomicCounterBufferBinding::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AtomicCounterBufferBinding::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::AtomicCounterBufferBinding::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AtomicCounterBufferBinding::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AtomicCounterBufferBinding::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -545,15 +530,13 @@ public:
 	// const char * osg::AtomicCounterBufferBinding::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::AtomicCounterBufferBinding::libraryName() const function, expected prototype:\nconst char * osg::AtomicCounterBufferBinding::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::AtomicCounterBufferBinding::libraryName() const function, expected prototype:\nconst char * osg::AtomicCounterBufferBinding::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AtomicCounterBufferBinding::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::AtomicCounterBufferBinding::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -564,15 +547,13 @@ public:
 	// const char * osg::AtomicCounterBufferBinding::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::AtomicCounterBufferBinding::className() const function, expected prototype:\nconst char * osg::AtomicCounterBufferBinding::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::AtomicCounterBufferBinding::className() const function, expected prototype:\nconst char * osg::AtomicCounterBufferBinding::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AtomicCounterBufferBinding::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::AtomicCounterBufferBinding::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -583,15 +564,13 @@ public:
 	// osg::StateAttribute::Type osg::AtomicCounterBufferBinding::getType() const
 	static int _bind_getType(lua_State *L) {
 		if (!_lg_typecheck_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::AtomicCounterBufferBinding::getType() const function, expected prototype:\nosg::StateAttribute::Type osg::AtomicCounterBufferBinding::getType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::AtomicCounterBufferBinding::getType() const function, expected prototype:\nosg::StateAttribute::Type osg::AtomicCounterBufferBinding::getType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::AtomicCounterBufferBinding::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::AtomicCounterBufferBinding::getType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -602,8 +581,7 @@ public:
 	// void osg::AtomicCounterBufferBinding::readData(osg::State & state, osg::UIntArray & uintArray) const
 	static int _bind_readData(lua_State *L) {
 		if (!_lg_typecheck_readData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::readData(osg::State & state, osg::UIntArray & uintArray) const function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::readData(osg::State & state, osg::UIntArray & uintArray) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 86600648\n");
+			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::readData(osg::State & state, osg::UIntArray & uintArray) const function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::readData(osg::State & state, osg::UIntArray & uintArray) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 86600648\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -619,8 +597,7 @@ public:
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::readData(osg::State &, osg::UIntArray &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::readData(osg::State &, osg::UIntArray &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->readData(state, uintArray);
 
@@ -630,8 +607,7 @@ public:
 	// int osg::AtomicCounterBufferBinding::compare(const osg::StateAttribute & sa) const
 	static int _bind_compare(lua_State *L) {
 		if (!_lg_typecheck_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::AtomicCounterBufferBinding::compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::AtomicCounterBufferBinding::compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osg::AtomicCounterBufferBinding::compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::AtomicCounterBufferBinding::compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* sa_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
@@ -642,8 +618,7 @@ public:
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::AtomicCounterBufferBinding::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::AtomicCounterBufferBinding::compare(const osg::StateAttribute &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -654,16 +629,14 @@ public:
 	// void osg::AtomicCounterBufferBinding::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AtomicCounterBufferBinding::setThreadSafeRefUnref(threadSafe);
 
@@ -673,16 +646,14 @@ public:
 	// void osg::AtomicCounterBufferBinding::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::base_setName(const std::string & name) function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::base_setName(const std::string & name) function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AtomicCounterBufferBinding::setName(name);
 
@@ -692,15 +663,13 @@ public:
 	// void osg::AtomicCounterBufferBinding::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::base_computeDataVariance() function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::base_computeDataVariance() function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AtomicCounterBufferBinding::computeDataVariance();
 
@@ -710,16 +679,14 @@ public:
 	// void osg::AtomicCounterBufferBinding::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AtomicCounterBufferBinding::setUserData(obj);
 
@@ -729,15 +696,13 @@ public:
 	// osg::Referenced * osg::AtomicCounterBufferBinding::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::AtomicCounterBufferBinding::base_getUserData() function, expected prototype:\nosg::Referenced * osg::AtomicCounterBufferBinding::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::AtomicCounterBufferBinding::base_getUserData() function, expected prototype:\nosg::Referenced * osg::AtomicCounterBufferBinding::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::AtomicCounterBufferBinding::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::AtomicCounterBufferBinding::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->AtomicCounterBufferBinding::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -750,15 +715,13 @@ public:
 	// const osg::Referenced * osg::AtomicCounterBufferBinding::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::AtomicCounterBufferBinding::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::AtomicCounterBufferBinding::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::AtomicCounterBufferBinding::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::AtomicCounterBufferBinding::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::AtomicCounterBufferBinding::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::AtomicCounterBufferBinding::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->AtomicCounterBufferBinding::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -780,15 +743,13 @@ public:
 	// osg::Texture * osg::AtomicCounterBufferBinding::base_asTexture()
 	static int _bind_base_asTexture_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asTexture_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture * osg::AtomicCounterBufferBinding::base_asTexture() function, expected prototype:\nosg::Texture * osg::AtomicCounterBufferBinding::base_asTexture()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture * osg::AtomicCounterBufferBinding::base_asTexture() function, expected prototype:\nosg::Texture * osg::AtomicCounterBufferBinding::base_asTexture()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::AtomicCounterBufferBinding::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::AtomicCounterBufferBinding::base_asTexture(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture * lret = self->AtomicCounterBufferBinding::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -801,15 +762,13 @@ public:
 	// const osg::Texture * osg::AtomicCounterBufferBinding::base_asTexture() const
 	static int _bind_base_asTexture_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asTexture_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::AtomicCounterBufferBinding::base_asTexture() const function, expected prototype:\nconst osg::Texture * osg::AtomicCounterBufferBinding::base_asTexture() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::AtomicCounterBufferBinding::base_asTexture() const function, expected prototype:\nconst osg::Texture * osg::AtomicCounterBufferBinding::base_asTexture() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::AtomicCounterBufferBinding::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::AtomicCounterBufferBinding::base_asTexture() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Texture * lret = self->AtomicCounterBufferBinding::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -831,15 +790,13 @@ public:
 	// bool osg::AtomicCounterBufferBinding::base_isTextureAttribute() const
 	static int _bind_base_isTextureAttribute(lua_State *L) {
 		if (!_lg_typecheck_base_isTextureAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AtomicCounterBufferBinding::base_isTextureAttribute() const function, expected prototype:\nbool osg::AtomicCounterBufferBinding::base_isTextureAttribute() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AtomicCounterBufferBinding::base_isTextureAttribute() const function, expected prototype:\nbool osg::AtomicCounterBufferBinding::base_isTextureAttribute() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AtomicCounterBufferBinding::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AtomicCounterBufferBinding::base_isTextureAttribute() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AtomicCounterBufferBinding::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -850,8 +807,7 @@ public:
 	// bool osg::AtomicCounterBufferBinding::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
 	static int _bind_base_getModeUsage(lua_State *L) {
 		if (!_lg_typecheck_base_getModeUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AtomicCounterBufferBinding::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::AtomicCounterBufferBinding::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AtomicCounterBufferBinding::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::AtomicCounterBufferBinding::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateAttribute::ModeUsage* _arg1_ptr=(Luna< osg::StateAttribute::ModeUsage >::check(L,2));
@@ -862,8 +818,7 @@ public:
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AtomicCounterBufferBinding::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AtomicCounterBufferBinding::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AtomicCounterBufferBinding::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -874,8 +829,7 @@ public:
 	// bool osg::AtomicCounterBufferBinding::base_checkValidityOfAssociatedModes(osg::State & arg1) const
 	static int _bind_base_checkValidityOfAssociatedModes(lua_State *L) {
 		if (!_lg_typecheck_base_checkValidityOfAssociatedModes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AtomicCounterBufferBinding::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osg::AtomicCounterBufferBinding::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AtomicCounterBufferBinding::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osg::AtomicCounterBufferBinding::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -886,8 +840,7 @@ public:
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AtomicCounterBufferBinding::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AtomicCounterBufferBinding::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AtomicCounterBufferBinding::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -898,8 +851,7 @@ public:
 	// void osg::AtomicCounterBufferBinding::base_compileGLObjects(osg::State & arg1) const
 	static int _bind_base_compileGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_compileGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::base_compileGLObjects(osg::State & arg1) const function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::base_compileGLObjects(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::base_compileGLObjects(osg::State & arg1) const function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::base_compileGLObjects(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -910,8 +862,7 @@ public:
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::base_compileGLObjects(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AtomicCounterBufferBinding::compileGLObjects(_arg1);
 
@@ -921,8 +872,7 @@ public:
 	// void osg::AtomicCounterBufferBinding::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -931,8 +881,7 @@ public:
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AtomicCounterBufferBinding::releaseGLObjects(_arg1);
 
@@ -942,15 +891,13 @@ public:
 	// unsigned int osg::AtomicCounterBufferBinding::base_getMember() const
 	static int _bind_base_getMember(lua_State *L) {
 		if (!_lg_typecheck_base_getMember(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::AtomicCounterBufferBinding::base_getMember() const function, expected prototype:\nunsigned int osg::AtomicCounterBufferBinding::base_getMember() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::AtomicCounterBufferBinding::base_getMember() const function, expected prototype:\nunsigned int osg::AtomicCounterBufferBinding::base_getMember() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::AtomicCounterBufferBinding::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::AtomicCounterBufferBinding::base_getMember() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->AtomicCounterBufferBinding::getMember();
 		lua_pushnumber(L,lret);
@@ -961,8 +908,7 @@ public:
 	// void osg::AtomicCounterBufferBinding::base_apply(osg::State & arg1) const
 	static int _bind_base_apply(lua_State *L) {
 		if (!_lg_typecheck_base_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::base_apply(osg::State & arg1) const function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::base_apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AtomicCounterBufferBinding::base_apply(osg::State & arg1) const function, expected prototype:\nvoid osg::AtomicCounterBufferBinding::base_apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -973,8 +919,7 @@ public:
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::AtomicCounterBufferBinding::base_apply(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AtomicCounterBufferBinding::apply(_arg1);
 
@@ -984,15 +929,13 @@ public:
 	// osg::Object * osg::AtomicCounterBufferBinding::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::AtomicCounterBufferBinding::base_cloneType() const function, expected prototype:\nosg::Object * osg::AtomicCounterBufferBinding::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::AtomicCounterBufferBinding::base_cloneType() const function, expected prototype:\nosg::Object * osg::AtomicCounterBufferBinding::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::AtomicCounterBufferBinding::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::AtomicCounterBufferBinding::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->AtomicCounterBufferBinding::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1005,8 +948,7 @@ public:
 	// osg::Object * osg::AtomicCounterBufferBinding::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::AtomicCounterBufferBinding::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::AtomicCounterBufferBinding::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::AtomicCounterBufferBinding::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::AtomicCounterBufferBinding::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1017,8 +959,7 @@ public:
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::AtomicCounterBufferBinding::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::AtomicCounterBufferBinding::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->AtomicCounterBufferBinding::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1031,16 +972,14 @@ public:
 	// bool osg::AtomicCounterBufferBinding::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AtomicCounterBufferBinding::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::AtomicCounterBufferBinding::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::AtomicCounterBufferBinding::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::AtomicCounterBufferBinding::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AtomicCounterBufferBinding::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::AtomicCounterBufferBinding::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AtomicCounterBufferBinding::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1051,15 +990,13 @@ public:
 	// const char * osg::AtomicCounterBufferBinding::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::AtomicCounterBufferBinding::base_libraryName() const function, expected prototype:\nconst char * osg::AtomicCounterBufferBinding::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::AtomicCounterBufferBinding::base_libraryName() const function, expected prototype:\nconst char * osg::AtomicCounterBufferBinding::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AtomicCounterBufferBinding::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::AtomicCounterBufferBinding::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->AtomicCounterBufferBinding::libraryName();
 		lua_pushstring(L,lret);
@@ -1070,15 +1007,13 @@ public:
 	// const char * osg::AtomicCounterBufferBinding::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::AtomicCounterBufferBinding::base_className() const function, expected prototype:\nconst char * osg::AtomicCounterBufferBinding::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::AtomicCounterBufferBinding::base_className() const function, expected prototype:\nconst char * osg::AtomicCounterBufferBinding::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AtomicCounterBufferBinding::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::AtomicCounterBufferBinding::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->AtomicCounterBufferBinding::className();
 		lua_pushstring(L,lret);
@@ -1089,15 +1024,13 @@ public:
 	// osg::StateAttribute::Type osg::AtomicCounterBufferBinding::base_getType() const
 	static int _bind_base_getType(lua_State *L) {
 		if (!_lg_typecheck_base_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::AtomicCounterBufferBinding::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osg::AtomicCounterBufferBinding::base_getType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::AtomicCounterBufferBinding::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osg::AtomicCounterBufferBinding::base_getType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::AtomicCounterBufferBinding::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::AtomicCounterBufferBinding::base_getType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute::Type lret = self->AtomicCounterBufferBinding::getType();
 		lua_pushnumber(L,lret);
@@ -1108,8 +1041,7 @@ public:
 	// int osg::AtomicCounterBufferBinding::base_compare(const osg::StateAttribute & sa) const
 	static int _bind_base_compare(lua_State *L) {
 		if (!_lg_typecheck_base_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::AtomicCounterBufferBinding::base_compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::AtomicCounterBufferBinding::base_compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osg::AtomicCounterBufferBinding::base_compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::AtomicCounterBufferBinding::base_compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* sa_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
@@ -1120,8 +1052,7 @@ public:
 
 		osg::AtomicCounterBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::AtomicCounterBufferBinding >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::AtomicCounterBufferBinding::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::AtomicCounterBufferBinding::base_compare(const osg::StateAttribute &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->AtomicCounterBufferBinding::compare(sa);
 		lua_pushnumber(L,lret);

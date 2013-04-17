@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime* rhs =(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime* self= (osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -158,15 +154,13 @@ public:
 	// float osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::depth()
 	static int _bind_getDepth(lua_State *L) {
 		if (!_lg_typecheck_getDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::depth() function, expected prototype:\nfloat osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::depth()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::depth() function, expected prototype:\nfloat osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::depth()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime* self=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::depth(). Got : '%s'",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::depth(). Got : '%s'\n%s",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->depth;
 		lua_pushnumber(L,lret);
@@ -177,15 +171,13 @@ public:
 	// float osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::startTime()
 	static int _bind_getStartTime(lua_State *L) {
 		if (!_lg_typecheck_getStartTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::startTime() function, expected prototype:\nfloat osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::startTime()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::startTime() function, expected prototype:\nfloat osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::startTime()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime* self=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::startTime(). Got : '%s'",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::startTime(). Got : '%s'\n%s",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->startTime;
 		lua_pushnumber(L,lret);
@@ -196,15 +188,13 @@ public:
 	// osg::Matrixd osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::modelview()
 	static int _bind_getModelview(lua_State *L) {
 		if (!_lg_typecheck_getModelview(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrixd osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::modelview() function, expected prototype:\nosg::Matrixd osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::modelview()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::modelview() function, expected prototype:\nosg::Matrixd osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::modelview()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime* self=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::modelview(). Got : '%s'",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::modelview(). Got : '%s'\n%s",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Matrixd* lret = &self->modelview;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -217,16 +207,14 @@ public:
 	// void osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::depth(float value)
 	static int _bind_setDepth(lua_State *L) {
 		if (!_lg_typecheck_setDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::depth(float value) function, expected prototype:\nvoid osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::depth(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::depth(float value) function, expected prototype:\nvoid osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::depth(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime* self=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::depth(float). Got : '%s'",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::depth(float). Got : '%s'\n%s",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->depth = value;
 
@@ -236,16 +224,14 @@ public:
 	// void osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::startTime(float value)
 	static int _bind_setStartTime(lua_State *L) {
 		if (!_lg_typecheck_setStartTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::startTime(float value) function, expected prototype:\nvoid osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::startTime(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::startTime(float value) function, expected prototype:\nvoid osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::startTime(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime* self=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::startTime(float). Got : '%s'",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::startTime(float). Got : '%s'\n%s",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->startTime = value;
 
@@ -255,8 +241,7 @@ public:
 	// void osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::modelview(osg::Matrixd value)
 	static int _bind_setModelview(lua_State *L) {
 		if (!_lg_typecheck_setModelview(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::modelview(osg::Matrixd value) function, expected prototype:\nvoid osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::modelview(osg::Matrixd value)\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::modelview(osg::Matrixd value) function, expected prototype:\nvoid osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::modelview(osg::Matrixd value)\nClass arguments details:\narg 1 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Matrixd* value_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -267,8 +252,7 @@ public:
 
 		osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime* self=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::modelview(osg::Matrixd). Got : '%s'",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::modelview(osg::Matrixd). Got : '%s'\n%s",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->modelview = value;
 
@@ -280,8 +264,7 @@ public:
 	// bool osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::operator<(const osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime & rhs) const
 	static int _bind___lt(lua_State *L) {
 		if (!_lg_typecheck___lt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::operator<(const osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime & rhs) const function, expected prototype:\nbool osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::operator<(const osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime & rhs) const\nClass arguments details:\narg 1 ID = 87684634\n");
+			luaL_error(L, "luna typecheck failed in bool osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::operator<(const osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime & rhs) const function, expected prototype:\nbool osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::operator<(const osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime & rhs) const\nClass arguments details:\narg 1 ID = 87684634\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime* rhs_ptr=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,2));
@@ -292,8 +275,7 @@ public:
 
 		osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime* self=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::operator<(const osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime &) const. Got : '%s'",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::operator<(const osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime &) const. Got : '%s'\n%s",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);

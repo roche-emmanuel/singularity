@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::FragmentProgram* self= (osg::FragmentProgram*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -480,8 +477,7 @@ public:
 	// osg::FragmentProgram::FragmentProgram()
 	static osg::FragmentProgram* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FragmentProgram::FragmentProgram() function, expected prototype:\nosg::FragmentProgram::FragmentProgram()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::FragmentProgram::FragmentProgram() function, expected prototype:\nosg::FragmentProgram::FragmentProgram()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -491,8 +487,7 @@ public:
 	// osg::FragmentProgram::FragmentProgram(const osg::FragmentProgram & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::FragmentProgram* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FragmentProgram::FragmentProgram(const osg::FragmentProgram & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::FragmentProgram::FragmentProgram(const osg::FragmentProgram & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::FragmentProgram::FragmentProgram(const osg::FragmentProgram & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::FragmentProgram::FragmentProgram(const osg::FragmentProgram & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -514,8 +509,7 @@ public:
 	// osg::FragmentProgram::FragmentProgram(lua_Table * data)
 	static osg::FragmentProgram* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FragmentProgram::FragmentProgram(lua_Table * data) function, expected prototype:\nosg::FragmentProgram::FragmentProgram(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::FragmentProgram::FragmentProgram(lua_Table * data) function, expected prototype:\nosg::FragmentProgram::FragmentProgram(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -525,8 +519,7 @@ public:
 	// osg::FragmentProgram::FragmentProgram(lua_Table * data, const osg::FragmentProgram & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::FragmentProgram* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FragmentProgram::FragmentProgram(lua_Table * data, const osg::FragmentProgram & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::FragmentProgram::FragmentProgram(lua_Table * data, const osg::FragmentProgram & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::FragmentProgram::FragmentProgram(lua_Table * data, const osg::FragmentProgram & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::FragmentProgram::FragmentProgram(lua_Table * data, const osg::FragmentProgram & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -561,15 +554,13 @@ public:
 	// osg::Object * osg::FragmentProgram::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::FragmentProgram::cloneType() const function, expected prototype:\nosg::Object * osg::FragmentProgram::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::FragmentProgram::cloneType() const function, expected prototype:\nosg::Object * osg::FragmentProgram::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::FragmentProgram::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::FragmentProgram::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -582,8 +573,7 @@ public:
 	// osg::Object * osg::FragmentProgram::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::FragmentProgram::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::FragmentProgram::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::FragmentProgram::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::FragmentProgram::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -594,8 +584,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::FragmentProgram::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::FragmentProgram::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -608,16 +597,14 @@ public:
 	// bool osg::FragmentProgram::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::FragmentProgram::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::FragmentProgram::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::FragmentProgram::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::FragmentProgram::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FragmentProgram::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::FragmentProgram::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -628,15 +615,13 @@ public:
 	// const char * osg::FragmentProgram::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::FragmentProgram::libraryName() const function, expected prototype:\nconst char * osg::FragmentProgram::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::FragmentProgram::libraryName() const function, expected prototype:\nconst char * osg::FragmentProgram::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::FragmentProgram::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::FragmentProgram::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -647,15 +632,13 @@ public:
 	// const char * osg::FragmentProgram::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::FragmentProgram::className() const function, expected prototype:\nconst char * osg::FragmentProgram::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::FragmentProgram::className() const function, expected prototype:\nconst char * osg::FragmentProgram::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::FragmentProgram::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::FragmentProgram::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -666,15 +649,13 @@ public:
 	// osg::StateAttribute::Type osg::FragmentProgram::getType() const
 	static int _bind_getType(lua_State *L) {
 		if (!_lg_typecheck_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::FragmentProgram::getType() const function, expected prototype:\nosg::StateAttribute::Type osg::FragmentProgram::getType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::FragmentProgram::getType() const function, expected prototype:\nosg::StateAttribute::Type osg::FragmentProgram::getType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::FragmentProgram::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::FragmentProgram::getType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -685,8 +666,7 @@ public:
 	// int osg::FragmentProgram::compare(const osg::StateAttribute & sa) const
 	static int _bind_compare(lua_State *L) {
 		if (!_lg_typecheck_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::FragmentProgram::compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::FragmentProgram::compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osg::FragmentProgram::compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::FragmentProgram::compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* sa_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
@@ -697,8 +677,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::FragmentProgram::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::FragmentProgram::compare(const osg::StateAttribute &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -709,8 +688,7 @@ public:
 	// bool osg::FragmentProgram::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
 	static int _bind_getModeUsage(lua_State *L) {
 		if (!_lg_typecheck_getModeUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::FragmentProgram::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::FragmentProgram::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n");
+			luaL_error(L, "luna typecheck failed in bool osg::FragmentProgram::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::FragmentProgram::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateAttribute::ModeUsage* _arg1_ptr=(Luna< osg::StateAttribute::ModeUsage >::check(L,2));
@@ -721,8 +699,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FragmentProgram::getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::FragmentProgram::getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -733,16 +710,14 @@ public:
 	// unsigned int & osg::FragmentProgram::getFragmentProgramID(unsigned int contextID) const
 	static int _bind_getFragmentProgramID(lua_State *L) {
 		if (!_lg_typecheck_getFragmentProgramID(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int & osg::FragmentProgram::getFragmentProgramID(unsigned int contextID) const function, expected prototype:\nunsigned int & osg::FragmentProgram::getFragmentProgramID(unsigned int contextID) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int & osg::FragmentProgram::getFragmentProgramID(unsigned int contextID) const function, expected prototype:\nunsigned int & osg::FragmentProgram::getFragmentProgramID(unsigned int contextID) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int & osg::FragmentProgram::getFragmentProgramID(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int & osg::FragmentProgram::getFragmentProgramID(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int & lret = self->getFragmentProgramID(contextID);
 		lua_pushnumber(L,lret);
@@ -753,16 +728,14 @@ public:
 	// void osg::FragmentProgram::setFragmentProgram(const char * program)
 	static int _bind_setFragmentProgram_overload_1(lua_State *L) {
 		if (!_lg_typecheck_setFragmentProgram_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::setFragmentProgram(const char * program) function, expected prototype:\nvoid osg::FragmentProgram::setFragmentProgram(const char * program)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::setFragmentProgram(const char * program) function, expected prototype:\nvoid osg::FragmentProgram::setFragmentProgram(const char * program)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * program=(const char *)lua_tostring(L,2);
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::setFragmentProgram(const char *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::setFragmentProgram(const char *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFragmentProgram(program);
 
@@ -772,16 +745,14 @@ public:
 	// void osg::FragmentProgram::setFragmentProgram(const std::string & program)
 	static int _bind_setFragmentProgram_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setFragmentProgram_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::setFragmentProgram(const std::string & program) function, expected prototype:\nvoid osg::FragmentProgram::setFragmentProgram(const std::string & program)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::setFragmentProgram(const std::string & program) function, expected prototype:\nvoid osg::FragmentProgram::setFragmentProgram(const std::string & program)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string program(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::setFragmentProgram(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::setFragmentProgram(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFragmentProgram(program);
 
@@ -800,15 +771,13 @@ public:
 	// const std::string & osg::FragmentProgram::getFragmentProgram() const
 	static int _bind_getFragmentProgram(lua_State *L) {
 		if (!_lg_typecheck_getFragmentProgram(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const std::string & osg::FragmentProgram::getFragmentProgram() const function, expected prototype:\nconst std::string & osg::FragmentProgram::getFragmentProgram() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const std::string & osg::FragmentProgram::getFragmentProgram() const function, expected prototype:\nconst std::string & osg::FragmentProgram::getFragmentProgram() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::FragmentProgram::getFragmentProgram() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const std::string & osg::FragmentProgram::getFragmentProgram() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::string & lret = self->getFragmentProgram();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -819,8 +788,7 @@ public:
 	// void osg::FragmentProgram::setProgramLocalParameter(const unsigned int index, const osg::Vec4f & p)
 	static int _bind_setProgramLocalParameter(lua_State *L) {
 		if (!_lg_typecheck_setProgramLocalParameter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::setProgramLocalParameter(const unsigned int index, const osg::Vec4f & p) function, expected prototype:\nvoid osg::FragmentProgram::setProgramLocalParameter(const unsigned int index, const osg::Vec4f & p)\nClass arguments details:\narg 2 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::setProgramLocalParameter(const unsigned int index, const osg::Vec4f & p) function, expected prototype:\nvoid osg::FragmentProgram::setProgramLocalParameter(const unsigned int index, const osg::Vec4f & p)\nClass arguments details:\narg 2 ID = 92303235\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const unsigned int index=(const unsigned int)lua_tointeger(L,2);
@@ -832,8 +800,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::setProgramLocalParameter(const unsigned int, const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::setProgramLocalParameter(const unsigned int, const osg::Vec4f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setProgramLocalParameter(index, p);
 
@@ -843,8 +810,7 @@ public:
 	// void osg::FragmentProgram::setLocalParameters(const osg::FragmentProgram::LocalParamList & lpl)
 	static int _bind_setLocalParameters(lua_State *L) {
 		if (!_lg_typecheck_setLocalParameters(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::setLocalParameters(const osg::FragmentProgram::LocalParamList & lpl) function, expected prototype:\nvoid osg::FragmentProgram::setLocalParameters(const osg::FragmentProgram::LocalParamList & lpl)\nClass arguments details:\narg 1 ID = 13846292\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::setLocalParameters(const osg::FragmentProgram::LocalParamList & lpl) function, expected prototype:\nvoid osg::FragmentProgram::setLocalParameters(const osg::FragmentProgram::LocalParamList & lpl)\nClass arguments details:\narg 1 ID = 13846292\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::FragmentProgram::LocalParamList* lpl_ptr=(Luna< std::map< unsigned int, osg::Vec4f > >::checkSubType< osg::FragmentProgram::LocalParamList >(L,2));
@@ -855,8 +821,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::setLocalParameters(const osg::FragmentProgram::LocalParamList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::setLocalParameters(const osg::FragmentProgram::LocalParamList &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLocalParameters(lpl);
 
@@ -866,15 +831,13 @@ public:
 	// osg::FragmentProgram::LocalParamList & osg::FragmentProgram::getLocalParameters()
 	static int _bind_getLocalParameters_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getLocalParameters_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FragmentProgram::LocalParamList & osg::FragmentProgram::getLocalParameters() function, expected prototype:\nosg::FragmentProgram::LocalParamList & osg::FragmentProgram::getLocalParameters()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::FragmentProgram::LocalParamList & osg::FragmentProgram::getLocalParameters() function, expected prototype:\nosg::FragmentProgram::LocalParamList & osg::FragmentProgram::getLocalParameters()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::FragmentProgram::LocalParamList & osg::FragmentProgram::getLocalParameters(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::FragmentProgram::LocalParamList & osg::FragmentProgram::getLocalParameters(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::FragmentProgram::LocalParamList* lret = &self->getLocalParameters();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -887,15 +850,13 @@ public:
 	// const osg::FragmentProgram::LocalParamList & osg::FragmentProgram::getLocalParameters() const
 	static int _bind_getLocalParameters_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getLocalParameters_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::FragmentProgram::LocalParamList & osg::FragmentProgram::getLocalParameters() const function, expected prototype:\nconst osg::FragmentProgram::LocalParamList & osg::FragmentProgram::getLocalParameters() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::FragmentProgram::LocalParamList & osg::FragmentProgram::getLocalParameters() const function, expected prototype:\nconst osg::FragmentProgram::LocalParamList & osg::FragmentProgram::getLocalParameters() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::FragmentProgram::LocalParamList & osg::FragmentProgram::getLocalParameters() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::FragmentProgram::LocalParamList & osg::FragmentProgram::getLocalParameters() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::FragmentProgram::LocalParamList* lret = &self->getLocalParameters();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -917,8 +878,7 @@ public:
 	// void osg::FragmentProgram::setMatrix(const unsigned int mode, const osg::Matrixd & matrix)
 	static int _bind_setMatrix(lua_State *L) {
 		if (!_lg_typecheck_setMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::setMatrix(const unsigned int mode, const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::FragmentProgram::setMatrix(const unsigned int mode, const osg::Matrixd & matrix)\nClass arguments details:\narg 2 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::setMatrix(const unsigned int mode, const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::FragmentProgram::setMatrix(const unsigned int mode, const osg::Matrixd & matrix)\nClass arguments details:\narg 2 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const unsigned int mode=(const unsigned int)lua_tointeger(L,2);
@@ -930,8 +890,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::setMatrix(const unsigned int, const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::setMatrix(const unsigned int, const osg::Matrixd &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMatrix(mode, matrix);
 
@@ -941,8 +900,7 @@ public:
 	// void osg::FragmentProgram::setMatrices(const osg::FragmentProgram::MatrixList & matrices)
 	static int _bind_setMatrices(lua_State *L) {
 		if (!_lg_typecheck_setMatrices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::setMatrices(const osg::FragmentProgram::MatrixList & matrices) function, expected prototype:\nvoid osg::FragmentProgram::setMatrices(const osg::FragmentProgram::MatrixList & matrices)\nClass arguments details:\narg 1 ID = 4745759\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::setMatrices(const osg::FragmentProgram::MatrixList & matrices) function, expected prototype:\nvoid osg::FragmentProgram::setMatrices(const osg::FragmentProgram::MatrixList & matrices)\nClass arguments details:\narg 1 ID = 4745759\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::FragmentProgram::MatrixList* matrices_ptr=(Luna< std::map< unsigned int, osg::Matrixd > >::checkSubType< osg::FragmentProgram::MatrixList >(L,2));
@@ -953,8 +911,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::setMatrices(const osg::FragmentProgram::MatrixList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::setMatrices(const osg::FragmentProgram::MatrixList &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMatrices(matrices);
 
@@ -964,15 +921,13 @@ public:
 	// osg::FragmentProgram::MatrixList & osg::FragmentProgram::getMatrices()
 	static int _bind_getMatrices_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getMatrices_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::FragmentProgram::MatrixList & osg::FragmentProgram::getMatrices() function, expected prototype:\nosg::FragmentProgram::MatrixList & osg::FragmentProgram::getMatrices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::FragmentProgram::MatrixList & osg::FragmentProgram::getMatrices() function, expected prototype:\nosg::FragmentProgram::MatrixList & osg::FragmentProgram::getMatrices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::FragmentProgram::MatrixList & osg::FragmentProgram::getMatrices(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::FragmentProgram::MatrixList & osg::FragmentProgram::getMatrices(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::FragmentProgram::MatrixList* lret = &self->getMatrices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -985,15 +940,13 @@ public:
 	// const osg::FragmentProgram::MatrixList & osg::FragmentProgram::getMatrices() const
 	static int _bind_getMatrices_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getMatrices_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::FragmentProgram::MatrixList & osg::FragmentProgram::getMatrices() const function, expected prototype:\nconst osg::FragmentProgram::MatrixList & osg::FragmentProgram::getMatrices() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::FragmentProgram::MatrixList & osg::FragmentProgram::getMatrices() const function, expected prototype:\nconst osg::FragmentProgram::MatrixList & osg::FragmentProgram::getMatrices() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::FragmentProgram::MatrixList & osg::FragmentProgram::getMatrices() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::FragmentProgram::MatrixList & osg::FragmentProgram::getMatrices() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::FragmentProgram::MatrixList* lret = &self->getMatrices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1015,15 +968,13 @@ public:
 	// void osg::FragmentProgram::dirtyFragmentProgramObject()
 	static int _bind_dirtyFragmentProgramObject(lua_State *L) {
 		if (!_lg_typecheck_dirtyFragmentProgramObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::dirtyFragmentProgramObject() function, expected prototype:\nvoid osg::FragmentProgram::dirtyFragmentProgramObject()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::dirtyFragmentProgramObject() function, expected prototype:\nvoid osg::FragmentProgram::dirtyFragmentProgramObject()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::dirtyFragmentProgramObject(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::dirtyFragmentProgramObject(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->dirtyFragmentProgramObject();
 
@@ -1033,8 +984,7 @@ public:
 	// void osg::FragmentProgram::apply(osg::State & arg1) const
 	static int _bind_apply(lua_State *L) {
 		if (!_lg_typecheck_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::apply(osg::State & arg1) const function, expected prototype:\nvoid osg::FragmentProgram::apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::apply(osg::State & arg1) const function, expected prototype:\nvoid osg::FragmentProgram::apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1045,8 +995,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::apply(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->apply(_arg1);
 
@@ -1056,8 +1005,7 @@ public:
 	// void osg::FragmentProgram::compileGLObjects(osg::State & arg1) const
 	static int _bind_compileGLObjects(lua_State *L) {
 		if (!_lg_typecheck_compileGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::compileGLObjects(osg::State & arg1) const function, expected prototype:\nvoid osg::FragmentProgram::compileGLObjects(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::compileGLObjects(osg::State & arg1) const function, expected prototype:\nvoid osg::FragmentProgram::compileGLObjects(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1068,8 +1016,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::compileGLObjects(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->compileGLObjects(_arg1);
 
@@ -1079,8 +1026,7 @@ public:
 	// void osg::FragmentProgram::releaseGLObjects(osg::State * state = 0) const
 	static int _bind_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osg::FragmentProgram::releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osg::FragmentProgram::releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1089,8 +1035,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->releaseGLObjects(state);
 
@@ -1100,8 +1045,7 @@ public:
 	// static void osg::FragmentProgram::deleteFragmentProgramObject(unsigned int contextID, unsigned int handle)
 	static int _bind_deleteFragmentProgramObject(lua_State *L) {
 		if (!_lg_typecheck_deleteFragmentProgramObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osg::FragmentProgram::deleteFragmentProgramObject(unsigned int contextID, unsigned int handle) function, expected prototype:\nstatic void osg::FragmentProgram::deleteFragmentProgramObject(unsigned int contextID, unsigned int handle)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osg::FragmentProgram::deleteFragmentProgramObject(unsigned int contextID, unsigned int handle) function, expected prototype:\nstatic void osg::FragmentProgram::deleteFragmentProgramObject(unsigned int contextID, unsigned int handle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1115,8 +1059,7 @@ public:
 	// static void osg::FragmentProgram::flushDeletedFragmentProgramObjects(unsigned int contextID, double currentTime, double & availableTime)
 	static int _bind_flushDeletedFragmentProgramObjects(lua_State *L) {
 		if (!_lg_typecheck_flushDeletedFragmentProgramObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osg::FragmentProgram::flushDeletedFragmentProgramObjects(unsigned int contextID, double currentTime, double & availableTime) function, expected prototype:\nstatic void osg::FragmentProgram::flushDeletedFragmentProgramObjects(unsigned int contextID, double currentTime, double & availableTime)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osg::FragmentProgram::flushDeletedFragmentProgramObjects(unsigned int contextID, double currentTime, double & availableTime) function, expected prototype:\nstatic void osg::FragmentProgram::flushDeletedFragmentProgramObjects(unsigned int contextID, double currentTime, double & availableTime)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1132,8 +1075,7 @@ public:
 	// static void osg::FragmentProgram::discardDeletedFragmentProgramObjects(unsigned int contextID)
 	static int _bind_discardDeletedFragmentProgramObjects(lua_State *L) {
 		if (!_lg_typecheck_discardDeletedFragmentProgramObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osg::FragmentProgram::discardDeletedFragmentProgramObjects(unsigned int contextID) function, expected prototype:\nstatic void osg::FragmentProgram::discardDeletedFragmentProgramObjects(unsigned int contextID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void osg::FragmentProgram::discardDeletedFragmentProgramObjects(unsigned int contextID) function, expected prototype:\nstatic void osg::FragmentProgram::discardDeletedFragmentProgramObjects(unsigned int contextID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1146,8 +1088,7 @@ public:
 	// static osg::FragmentProgram::Extensions * osg::FragmentProgram::getExtensions(unsigned int contextID, bool createIfNotInitalized)
 	static int _bind_getExtensions(lua_State *L) {
 		if (!_lg_typecheck_getExtensions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::FragmentProgram::Extensions * osg::FragmentProgram::getExtensions(unsigned int contextID, bool createIfNotInitalized) function, expected prototype:\nstatic osg::FragmentProgram::Extensions * osg::FragmentProgram::getExtensions(unsigned int contextID, bool createIfNotInitalized)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::FragmentProgram::Extensions * osg::FragmentProgram::getExtensions(unsigned int contextID, bool createIfNotInitalized) function, expected prototype:\nstatic osg::FragmentProgram::Extensions * osg::FragmentProgram::getExtensions(unsigned int contextID, bool createIfNotInitalized)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1164,8 +1105,7 @@ public:
 	// static void osg::FragmentProgram::setExtensions(unsigned int contextID, osg::FragmentProgram::Extensions * extensions)
 	static int _bind_setExtensions(lua_State *L) {
 		if (!_lg_typecheck_setExtensions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osg::FragmentProgram::setExtensions(unsigned int contextID, osg::FragmentProgram::Extensions * extensions) function, expected prototype:\nstatic void osg::FragmentProgram::setExtensions(unsigned int contextID, osg::FragmentProgram::Extensions * extensions)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in static void osg::FragmentProgram::setExtensions(unsigned int contextID, osg::FragmentProgram::Extensions * extensions) function, expected prototype:\nstatic void osg::FragmentProgram::setExtensions(unsigned int contextID, osg::FragmentProgram::Extensions * extensions)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
@@ -1179,16 +1119,14 @@ public:
 	// void osg::FragmentProgram::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::FragmentProgram::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::FragmentProgram::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FragmentProgram::setThreadSafeRefUnref(threadSafe);
 
@@ -1198,16 +1136,14 @@ public:
 	// void osg::FragmentProgram::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::base_setName(const std::string & name) function, expected prototype:\nvoid osg::FragmentProgram::base_setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::base_setName(const std::string & name) function, expected prototype:\nvoid osg::FragmentProgram::base_setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::base_setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FragmentProgram::setName(name);
 
@@ -1217,15 +1153,13 @@ public:
 	// void osg::FragmentProgram::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::base_computeDataVariance() function, expected prototype:\nvoid osg::FragmentProgram::base_computeDataVariance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::base_computeDataVariance() function, expected prototype:\nvoid osg::FragmentProgram::base_computeDataVariance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::base_computeDataVariance(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FragmentProgram::computeDataVariance();
 
@@ -1235,16 +1169,14 @@ public:
 	// void osg::FragmentProgram::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::FragmentProgram::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::FragmentProgram::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::base_setUserData(osg::Referenced *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FragmentProgram::setUserData(obj);
 
@@ -1254,15 +1186,13 @@ public:
 	// osg::Referenced * osg::FragmentProgram::base_getUserData()
 	static int _bind_base_getUserData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::FragmentProgram::base_getUserData() function, expected prototype:\nosg::Referenced * osg::FragmentProgram::base_getUserData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::FragmentProgram::base_getUserData() function, expected prototype:\nosg::Referenced * osg::FragmentProgram::base_getUserData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::FragmentProgram::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::FragmentProgram::base_getUserData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Referenced * lret = self->FragmentProgram::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1275,15 +1205,13 @@ public:
 	// const osg::Referenced * osg::FragmentProgram::base_getUserData() const
 	static int _bind_base_getUserData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::FragmentProgram::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::FragmentProgram::base_getUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::FragmentProgram::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::FragmentProgram::base_getUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::FragmentProgram::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::FragmentProgram::base_getUserData() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Referenced * lret = self->FragmentProgram::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1305,15 +1233,13 @@ public:
 	// osg::Texture * osg::FragmentProgram::base_asTexture()
 	static int _bind_base_asTexture_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asTexture_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture * osg::FragmentProgram::base_asTexture() function, expected prototype:\nosg::Texture * osg::FragmentProgram::base_asTexture()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture * osg::FragmentProgram::base_asTexture() function, expected prototype:\nosg::Texture * osg::FragmentProgram::base_asTexture()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::FragmentProgram::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::FragmentProgram::base_asTexture(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture * lret = self->FragmentProgram::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1326,15 +1252,13 @@ public:
 	// const osg::Texture * osg::FragmentProgram::base_asTexture() const
 	static int _bind_base_asTexture_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_asTexture_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::FragmentProgram::base_asTexture() const function, expected prototype:\nconst osg::Texture * osg::FragmentProgram::base_asTexture() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::FragmentProgram::base_asTexture() const function, expected prototype:\nconst osg::Texture * osg::FragmentProgram::base_asTexture() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::FragmentProgram::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::FragmentProgram::base_asTexture() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Texture * lret = self->FragmentProgram::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1356,15 +1280,13 @@ public:
 	// unsigned int osg::FragmentProgram::base_getMember() const
 	static int _bind_base_getMember(lua_State *L) {
 		if (!_lg_typecheck_base_getMember(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::FragmentProgram::base_getMember() const function, expected prototype:\nunsigned int osg::FragmentProgram::base_getMember() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::FragmentProgram::base_getMember() const function, expected prototype:\nunsigned int osg::FragmentProgram::base_getMember() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::FragmentProgram::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int osg::FragmentProgram::base_getMember() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->FragmentProgram::getMember();
 		lua_pushnumber(L,lret);
@@ -1375,15 +1297,13 @@ public:
 	// bool osg::FragmentProgram::base_isTextureAttribute() const
 	static int _bind_base_isTextureAttribute(lua_State *L) {
 		if (!_lg_typecheck_base_isTextureAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::FragmentProgram::base_isTextureAttribute() const function, expected prototype:\nbool osg::FragmentProgram::base_isTextureAttribute() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::FragmentProgram::base_isTextureAttribute() const function, expected prototype:\nbool osg::FragmentProgram::base_isTextureAttribute() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FragmentProgram::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::FragmentProgram::base_isTextureAttribute() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->FragmentProgram::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -1394,8 +1314,7 @@ public:
 	// bool osg::FragmentProgram::base_checkValidityOfAssociatedModes(osg::State & arg1) const
 	static int _bind_base_checkValidityOfAssociatedModes(lua_State *L) {
 		if (!_lg_typecheck_base_checkValidityOfAssociatedModes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::FragmentProgram::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osg::FragmentProgram::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::FragmentProgram::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osg::FragmentProgram::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1406,8 +1325,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FragmentProgram::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::FragmentProgram::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->FragmentProgram::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1418,15 +1336,13 @@ public:
 	// osg::Object * osg::FragmentProgram::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::FragmentProgram::base_cloneType() const function, expected prototype:\nosg::Object * osg::FragmentProgram::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::FragmentProgram::base_cloneType() const function, expected prototype:\nosg::Object * osg::FragmentProgram::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::FragmentProgram::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::FragmentProgram::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->FragmentProgram::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1439,8 +1355,7 @@ public:
 	// osg::Object * osg::FragmentProgram::base_clone(const osg::CopyOp & arg1) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::FragmentProgram::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::FragmentProgram::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::FragmentProgram::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::FragmentProgram::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1451,8 +1366,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::FragmentProgram::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * osg::FragmentProgram::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->FragmentProgram::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1465,16 +1379,14 @@ public:
 	// bool osg::FragmentProgram::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::FragmentProgram::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::FragmentProgram::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::FragmentProgram::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::FragmentProgram::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FragmentProgram::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::FragmentProgram::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->FragmentProgram::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1485,15 +1397,13 @@ public:
 	// const char * osg::FragmentProgram::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::FragmentProgram::base_libraryName() const function, expected prototype:\nconst char * osg::FragmentProgram::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::FragmentProgram::base_libraryName() const function, expected prototype:\nconst char * osg::FragmentProgram::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::FragmentProgram::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::FragmentProgram::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->FragmentProgram::libraryName();
 		lua_pushstring(L,lret);
@@ -1504,15 +1414,13 @@ public:
 	// const char * osg::FragmentProgram::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * osg::FragmentProgram::base_className() const function, expected prototype:\nconst char * osg::FragmentProgram::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * osg::FragmentProgram::base_className() const function, expected prototype:\nconst char * osg::FragmentProgram::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::FragmentProgram::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * osg::FragmentProgram::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->FragmentProgram::className();
 		lua_pushstring(L,lret);
@@ -1523,15 +1431,13 @@ public:
 	// osg::StateAttribute::Type osg::FragmentProgram::base_getType() const
 	static int _bind_base_getType(lua_State *L) {
 		if (!_lg_typecheck_base_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::FragmentProgram::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osg::FragmentProgram::base_getType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::FragmentProgram::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osg::FragmentProgram::base_getType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::FragmentProgram::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::FragmentProgram::base_getType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::StateAttribute::Type lret = self->FragmentProgram::getType();
 		lua_pushnumber(L,lret);
@@ -1542,8 +1448,7 @@ public:
 	// int osg::FragmentProgram::base_compare(const osg::StateAttribute & sa) const
 	static int _bind_base_compare(lua_State *L) {
 		if (!_lg_typecheck_base_compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::FragmentProgram::base_compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::FragmentProgram::base_compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in int osg::FragmentProgram::base_compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::FragmentProgram::base_compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::StateAttribute* sa_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
@@ -1554,8 +1459,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::FragmentProgram::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int osg::FragmentProgram::base_compare(const osg::StateAttribute &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->FragmentProgram::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1566,8 +1470,7 @@ public:
 	// bool osg::FragmentProgram::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
 	static int _bind_base_getModeUsage(lua_State *L) {
 		if (!_lg_typecheck_base_getModeUsage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::FragmentProgram::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::FragmentProgram::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n");
+			luaL_error(L, "luna typecheck failed in bool osg::FragmentProgram::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::FragmentProgram::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::StateAttribute::ModeUsage* _arg1_ptr=(Luna< osg::StateAttribute::ModeUsage >::check(L,2));
@@ -1578,8 +1481,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FragmentProgram::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool osg::FragmentProgram::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->FragmentProgram::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1590,8 +1492,7 @@ public:
 	// void osg::FragmentProgram::base_apply(osg::State & arg1) const
 	static int _bind_base_apply(lua_State *L) {
 		if (!_lg_typecheck_base_apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::base_apply(osg::State & arg1) const function, expected prototype:\nvoid osg::FragmentProgram::base_apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::base_apply(osg::State & arg1) const function, expected prototype:\nvoid osg::FragmentProgram::base_apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1602,8 +1503,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::base_apply(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FragmentProgram::apply(_arg1);
 
@@ -1613,8 +1513,7 @@ public:
 	// void osg::FragmentProgram::base_compileGLObjects(osg::State & arg1) const
 	static int _bind_base_compileGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_compileGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::base_compileGLObjects(osg::State & arg1) const function, expected prototype:\nvoid osg::FragmentProgram::base_compileGLObjects(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::base_compileGLObjects(osg::State & arg1) const function, expected prototype:\nvoid osg::FragmentProgram::base_compileGLObjects(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
@@ -1625,8 +1524,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::base_compileGLObjects(osg::State &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FragmentProgram::compileGLObjects(_arg1);
 
@@ -1636,8 +1534,7 @@ public:
 	// void osg::FragmentProgram::base_releaseGLObjects(osg::State * state = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osg::FragmentProgram::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osg::FragmentProgram::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1646,8 +1543,7 @@ public:
 
 		osg::FragmentProgram* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::base_releaseGLObjects(osg::State *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FragmentProgram::releaseGLObjects(state);
 
