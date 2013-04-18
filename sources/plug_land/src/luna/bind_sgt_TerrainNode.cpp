@@ -136,6 +136,12 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getDeformedFrustumPlanes(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -172,6 +178,25 @@ public:
 
 
 	// Function binds:
+	// const osg::Polytope::PlaneList & sgt::TerrainNode::getDeformedFrustumPlanes() const
+	static int _bind_getDeformedFrustumPlanes(lua_State *L) {
+		if (!_lg_typecheck_getDeformedFrustumPlanes(L)) {
+			luaL_error(L, "luna typecheck failed in const osg::Polytope::PlaneList & sgt::TerrainNode::getDeformedFrustumPlanes() const function, expected prototype:\nconst osg::Polytope::PlaneList & sgt::TerrainNode::getDeformedFrustumPlanes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+
+		sgt::TerrainNode* self=(Luna< sgt::TerrainNode >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call const osg::Polytope::PlaneList & sgt::TerrainNode::getDeformedFrustumPlanes() const. Got : '%s'\n%s",typeid(Luna< sgt::TerrainNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		const osg::Polytope::PlaneList* lret = &self->getDeformedFrustumPlanes();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Polytope::PlaneList >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -193,6 +218,7 @@ const int LunaTraits< sgt::TerrainNode >::hash = 32276046;
 const int LunaTraits< sgt::TerrainNode >::uniqueIDs[] = {32276046,0};
 
 luna_RegType LunaTraits< sgt::TerrainNode >::methods[] = {
+	{"getDeformedFrustumPlanes", &luna_wrapper_sgt_TerrainNode::_bind_getDeformedFrustumPlanes},
 	{"dynCast", &luna_wrapper_sgt_TerrainNode::_bind_dynCast},
 	{"__eq", &luna_wrapper_sgt_TerrainNode::_bind___eq},
 	{"fromVoid", &luna_wrapper_sgt_TerrainNode::_bind_fromVoid},

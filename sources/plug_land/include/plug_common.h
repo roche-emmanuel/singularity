@@ -66,5 +66,12 @@ LUNA_BEGIN_GETTER(MyClass)
 	return MyClass(str);
 LUNA_END_GETTER(MyClass)
 */
+LUNA_BEGIN_GETTER(osg::Vec3d)
+	return *(Luna< osg::Vec3d >::check(L,index));
+LUNA_END_GETTER(osg::Vec3d)
+
+LUNA_BEGIN_GETTER(osg::Matrixd)
+	return *(Luna< osg::Matrixd >::check(L,index));
+LUNA_END_GETTER(osg::Matrixd)
 
 #endif

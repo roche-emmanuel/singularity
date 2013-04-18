@@ -17,6 +17,7 @@
 #include <taskgraph/Scheduler.h>
 #include <taskgraph/MultithreadScheduler.h>
 #include <taskgraph/TaskGraph.h>
+#include <scene/LandManager.h>
 #include <terrain/Deformation.h>
 #include <terrain/TerrainNode.h>
 
@@ -207,6 +208,25 @@ public:
 	static void _bind_dtor(sgt::SetIterator< sgtPtr< sgt::Task > >* obj);
 	typedef sgt::SetIterator< sgtPtr< sgt::Task > > parent_t;
 	typedef sgt::SetIterator< sgtPtr< sgt::Task > > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::LandManager
+template<>
+class LunaTraits< sgt::LandManager > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::LandManager* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::LandManager* obj);
+	typedef sgt::LandManager parent_t;
+	typedef sgt::LandManager base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -782,6 +802,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Referenced external: osg::Vec3d
+template<>
+class LunaTraits< osg::Vec3d > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec3d* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec3d* obj);
+	typedef osg::Vec3d parent_t;
+	typedef osg::Vec3d base_t;
+	static luna_ConverterType converters[];
+};
+
 // Referenced external: osg::Matrixd
 template<>
 class LunaTraits< osg::Matrixd > {
@@ -1064,6 +1103,13 @@ public:
 };
 
 template<>
+class LunaType< 70466920 > {
+public:
+	typedef sgt::LandManager type;
+	
+};
+
+template<>
 class LunaType< 32276046 > {
 public:
 	typedef sgt::TerrainNode type;
@@ -1102,6 +1148,13 @@ template<>
 class LunaType< 50169651 > {
 public:
 	typedef osg::Referenced type;
+	
+};
+
+template<>
+class LunaType< 92303202 > {
+public:
+	typedef osg::Vec3d type;
 	
 };
 

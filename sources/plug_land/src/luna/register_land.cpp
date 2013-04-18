@@ -23,6 +23,7 @@ int PLUG_EXPORT luaopen_land(lua_State* L) {
 	Luna< sgt::TaskListener >::Register(L);
 	Luna< sgt::TaskGraph >::Register(L);
 	Luna< sgt::SetIterator< sgtPtr< sgt::Task > > >::Register(L);
+	Luna< sgt::LandManager >::Register(L);
 	Luna< sgt::Deformation >::Register(L);
 	Luna< sgt::TerrainNode >::Register(L);
 	Luna< sgt::vec2h >::Register(L);

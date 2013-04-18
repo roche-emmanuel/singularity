@@ -18,6 +18,12 @@ const char LunaTraits< osg::Referenced >::moduleName[] = "osg";
 const int LunaTraits< osg::Referenced >::hash = 50169651;
 const int LunaTraits< osg::Referenced >::uniqueIDs[] = {50169651,0};
 
+const char LunaTraits< osg::Vec3d >::className[] = "Vec3d";
+const char LunaTraits< osg::Vec3d >::fullName[] = "osg::Vec3d";
+const char LunaTraits< osg::Vec3d >::moduleName[] = "osg";
+const int LunaTraits< osg::Vec3d >::hash = 92303202;
+const int LunaTraits< osg::Vec3d >::uniqueIDs[] = {92303202,0};
+
 const char LunaTraits< osg::Matrixd >::className[] = "Matrixd";
 const char LunaTraits< osg::Matrixd >::fullName[] = "osg::Matrixd";
 const char LunaTraits< osg::Matrixd >::moduleName[] = "osg";

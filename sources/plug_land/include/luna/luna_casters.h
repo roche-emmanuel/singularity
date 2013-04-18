@@ -39,6 +39,13 @@ struct luna_caster<sgt::SetIterator< sgtPtr< sgt::Task > >,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<sgt::LandManager,dstType> {
+	static inline dstType* cast(sgt::LandManager* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<sgt::vec2h,dstType> {
 	static inline dstType* cast(sgt::vec2h* ptr) {
 		return static_cast<dstType*>(ptr);

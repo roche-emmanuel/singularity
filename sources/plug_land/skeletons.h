@@ -158,6 +158,9 @@ namespace sgt {
 
 	};
 
+	class LandManager {
+	};
+
 	class Deformation: public sgt::Object {
 	};
 

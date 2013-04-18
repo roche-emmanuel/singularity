@@ -63,7 +63,7 @@ struct luna_boxed<double> {
 
 template <typename ArgType>
 void pushValue(lua_State* L, ArgType* arg) {
-	Luna< typename luna_boxed<ArgType>::Type >::push(L,(typename luna_boxed<ArgType>::Type *)arg,false);
+	Luna< typename luna_boxed<ArgType>::Type >::push(L,(const typename luna_boxed<ArgType>::Type *)arg,false);
 };
 
 template < typename ResultType>
