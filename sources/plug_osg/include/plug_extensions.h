@@ -18,6 +18,26 @@ namespace osg {
 
 };
 
+/** LUNA_CLASS_EXTENSION  LUNA_RENAME __mul */
+inline osg::Vec3d vec3d_premult(osg::Vec3d* vec, osg::Matrix4d* mat) {
+	return osg::Matrixd::preMult(*vec);
+}
+
+/** LUNA_CLASS_EXTENSION  LUNA_RENAME __mul */
+inline osg::Vec3f vec3f_premult(osg::Vec3f* vec, osg::Matrix4d* mat) {
+	return osg::Matrixd::preMult(*vec);
+}
+
+/** LUNA_CLASS_EXTENSION  LUNA_RENAME __mul */
+inline osg::Vec4d vec4d_premult(osg::Vec4d* vec, osg::Matrix4d* mat) {
+	return osg::Matrixd::preMult(*vec);
+}
+
+/** LUNA_CLASS_EXTENSION  LUNA_RENAME __mul */
+inline osg::Vec4f vec4f_premult(osg::Vec4f* vec, osg::Matrix4d* mat) {
+	return osg::Matrixd::preMult(*vec);
+}
+
 /** LUNA_CLASS_EXTENSION  LUNA_RENAME __eq */
 inline float matrix3f_eq(osg::Matrix3* mat, osg::Matrix3* rhs) {
 	if(mat == rhs)

@@ -183,15 +183,13 @@ public:
 	// void sgt::TaskGraph::public_cleanup()
 	static int _bind_public_cleanup(lua_State *L) {
 		if (!_lg_typecheck_public_cleanup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::TaskGraph::public_cleanup() function, expected prototype:\nvoid sgt::TaskGraph::public_cleanup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::TaskGraph::public_cleanup() function, expected prototype:\nvoid sgt::TaskGraph::public_cleanup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_sgt_TaskGraph* self=Luna< osg::Referenced >::checkSubType< wrapper_sgt_TaskGraph >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::TaskGraph::public_cleanup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::TaskGraph::public_cleanup(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_cleanup();
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::MultithreadScheduler* self= (sgt::MultithreadScheduler*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -195,8 +192,7 @@ public:
 	// sgt::MultithreadScheduler::MultithreadScheduler(int prefetchRate = 0, int prefetchQueue = 0, float frameRate = 0.0f, int nThreads = 0)
 	static sgt::MultithreadScheduler* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::MultithreadScheduler::MultithreadScheduler(int prefetchRate = 0, int prefetchQueue = 0, float frameRate = 0.0f, int nThreads = 0) function, expected prototype:\nsgt::MultithreadScheduler::MultithreadScheduler(int prefetchRate = 0, int prefetchQueue = 0, float frameRate = 0.0f, int nThreads = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::MultithreadScheduler::MultithreadScheduler(int prefetchRate = 0, int prefetchQueue = 0, float frameRate = 0.0f, int nThreads = 0) function, expected prototype:\nsgt::MultithreadScheduler::MultithreadScheduler(int prefetchRate = 0, int prefetchQueue = 0, float frameRate = 0.0f, int nThreads = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -212,8 +208,7 @@ public:
 	// sgt::MultithreadScheduler::MultithreadScheduler(lua_Table * data, int prefetchRate = 0, int prefetchQueue = 0, float frameRate = 0.0f, int nThreads = 0)
 	static sgt::MultithreadScheduler* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::MultithreadScheduler::MultithreadScheduler(lua_Table * data, int prefetchRate = 0, int prefetchQueue = 0, float frameRate = 0.0f, int nThreads = 0) function, expected prototype:\nsgt::MultithreadScheduler::MultithreadScheduler(lua_Table * data, int prefetchRate = 0, int prefetchQueue = 0, float frameRate = 0.0f, int nThreads = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::MultithreadScheduler::MultithreadScheduler(lua_Table * data, int prefetchRate = 0, int prefetchQueue = 0, float frameRate = 0.0f, int nThreads = 0) function, expected prototype:\nsgt::MultithreadScheduler::MultithreadScheduler(lua_Table * data, int prefetchRate = 0, int prefetchQueue = 0, float frameRate = 0.0f, int nThreads = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -240,16 +235,14 @@ public:
 	// bool sgt::MultithreadScheduler::supportsPrefetch(bool gpuTasks)
 	static int _bind_supportsPrefetch(lua_State *L) {
 		if (!_lg_typecheck_supportsPrefetch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::MultithreadScheduler::supportsPrefetch(bool gpuTasks) function, expected prototype:\nbool sgt::MultithreadScheduler::supportsPrefetch(bool gpuTasks)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::MultithreadScheduler::supportsPrefetch(bool gpuTasks) function, expected prototype:\nbool sgt::MultithreadScheduler::supportsPrefetch(bool gpuTasks)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool gpuTasks=(bool)(lua_toboolean(L,2)==1);
 
 		sgt::MultithreadScheduler* self=Luna< osg::Referenced >::checkSubType< sgt::MultithreadScheduler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::MultithreadScheduler::supportsPrefetch(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::MultithreadScheduler::supportsPrefetch(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->supportsPrefetch(gpuTasks);
 		lua_pushboolean(L,lret?1:0);
@@ -260,16 +253,14 @@ public:
 	// void sgt::MultithreadScheduler::schedule(sgt::Task * task)
 	static int _bind_schedule(lua_State *L) {
 		if (!_lg_typecheck_schedule(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::schedule(sgt::Task * task) function, expected prototype:\nvoid sgt::MultithreadScheduler::schedule(sgt::Task * task)\nClass arguments details:\narg 1 ID = 44367388\n");
+			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::schedule(sgt::Task * task) function, expected prototype:\nvoid sgt::MultithreadScheduler::schedule(sgt::Task * task)\nClass arguments details:\narg 1 ID = 44367388\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::Task* task=(Luna< osg::Referenced >::checkSubType< sgt::Task >(L,2));
 
 		sgt::MultithreadScheduler* self=Luna< osg::Referenced >::checkSubType< sgt::MultithreadScheduler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::schedule(sgt::Task *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::schedule(sgt::Task *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->schedule(task);
 
@@ -279,8 +270,7 @@ public:
 	// void sgt::MultithreadScheduler::reschedule(sgt::Task * task, sgt::Task::reason r, unsigned int deadline)
 	static int _bind_reschedule(lua_State *L) {
 		if (!_lg_typecheck_reschedule(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::reschedule(sgt::Task * task, sgt::Task::reason r, unsigned int deadline) function, expected prototype:\nvoid sgt::MultithreadScheduler::reschedule(sgt::Task * task, sgt::Task::reason r, unsigned int deadline)\nClass arguments details:\narg 1 ID = 44367388\n");
+			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::reschedule(sgt::Task * task, sgt::Task::reason r, unsigned int deadline) function, expected prototype:\nvoid sgt::MultithreadScheduler::reschedule(sgt::Task * task, sgt::Task::reason r, unsigned int deadline)\nClass arguments details:\narg 1 ID = 44367388\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::Task* task=(Luna< osg::Referenced >::checkSubType< sgt::Task >(L,2));
@@ -289,8 +279,7 @@ public:
 
 		sgt::MultithreadScheduler* self=Luna< osg::Referenced >::checkSubType< sgt::MultithreadScheduler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::reschedule(sgt::Task *, sgt::Task::reason, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::reschedule(sgt::Task *, sgt::Task::reason, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reschedule(task, r, deadline);
 
@@ -300,16 +289,14 @@ public:
 	// void sgt::MultithreadScheduler::run(sgt::Task * task)
 	static int _bind_run(lua_State *L) {
 		if (!_lg_typecheck_run(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::run(sgt::Task * task) function, expected prototype:\nvoid sgt::MultithreadScheduler::run(sgt::Task * task)\nClass arguments details:\narg 1 ID = 44367388\n");
+			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::run(sgt::Task * task) function, expected prototype:\nvoid sgt::MultithreadScheduler::run(sgt::Task * task)\nClass arguments details:\narg 1 ID = 44367388\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::Task* task=(Luna< osg::Referenced >::checkSubType< sgt::Task >(L,2));
 
 		sgt::MultithreadScheduler* self=Luna< osg::Referenced >::checkSubType< sgt::MultithreadScheduler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::run(sgt::Task *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::run(sgt::Task *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->run(task);
 
@@ -319,16 +306,14 @@ public:
 	// void sgt::MultithreadScheduler::monitorTask(const std::string & taskType)
 	static int _bind_monitorTask(lua_State *L) {
 		if (!_lg_typecheck_monitorTask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::monitorTask(const std::string & taskType) function, expected prototype:\nvoid sgt::MultithreadScheduler::monitorTask(const std::string & taskType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::monitorTask(const std::string & taskType) function, expected prototype:\nvoid sgt::MultithreadScheduler::monitorTask(const std::string & taskType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string taskType(lua_tostring(L,2),lua_objlen(L,2));
 
 		sgt::MultithreadScheduler* self=Luna< osg::Referenced >::checkSubType< sgt::MultithreadScheduler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::monitorTask(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::monitorTask(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->monitorTask(taskType);
 
@@ -338,15 +323,13 @@ public:
 	// void sgt::MultithreadScheduler::schedulerThread()
 	static int _bind_schedulerThread(lua_State *L) {
 		if (!_lg_typecheck_schedulerThread(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::schedulerThread() function, expected prototype:\nvoid sgt::MultithreadScheduler::schedulerThread()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::schedulerThread() function, expected prototype:\nvoid sgt::MultithreadScheduler::schedulerThread()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::MultithreadScheduler* self=Luna< osg::Referenced >::checkSubType< sgt::MultithreadScheduler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::schedulerThread(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::schedulerThread(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->schedulerThread();
 
@@ -356,16 +339,14 @@ public:
 	// bool sgt::MultithreadScheduler::base_supportsPrefetch(bool gpuTasks)
 	static int _bind_base_supportsPrefetch(lua_State *L) {
 		if (!_lg_typecheck_base_supportsPrefetch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::MultithreadScheduler::base_supportsPrefetch(bool gpuTasks) function, expected prototype:\nbool sgt::MultithreadScheduler::base_supportsPrefetch(bool gpuTasks)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::MultithreadScheduler::base_supportsPrefetch(bool gpuTasks) function, expected prototype:\nbool sgt::MultithreadScheduler::base_supportsPrefetch(bool gpuTasks)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool gpuTasks=(bool)(lua_toboolean(L,2)==1);
 
 		sgt::MultithreadScheduler* self=Luna< osg::Referenced >::checkSubType< sgt::MultithreadScheduler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::MultithreadScheduler::base_supportsPrefetch(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::MultithreadScheduler::base_supportsPrefetch(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->MultithreadScheduler::supportsPrefetch(gpuTasks);
 		lua_pushboolean(L,lret?1:0);
@@ -376,16 +357,14 @@ public:
 	// void sgt::MultithreadScheduler::base_schedule(sgt::Task * task)
 	static int _bind_base_schedule(lua_State *L) {
 		if (!_lg_typecheck_base_schedule(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::base_schedule(sgt::Task * task) function, expected prototype:\nvoid sgt::MultithreadScheduler::base_schedule(sgt::Task * task)\nClass arguments details:\narg 1 ID = 44367388\n");
+			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::base_schedule(sgt::Task * task) function, expected prototype:\nvoid sgt::MultithreadScheduler::base_schedule(sgt::Task * task)\nClass arguments details:\narg 1 ID = 44367388\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::Task* task=(Luna< osg::Referenced >::checkSubType< sgt::Task >(L,2));
 
 		sgt::MultithreadScheduler* self=Luna< osg::Referenced >::checkSubType< sgt::MultithreadScheduler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::base_schedule(sgt::Task *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::base_schedule(sgt::Task *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MultithreadScheduler::schedule(task);
 
@@ -395,8 +374,7 @@ public:
 	// void sgt::MultithreadScheduler::base_reschedule(sgt::Task * task, sgt::Task::reason r, unsigned int deadline)
 	static int _bind_base_reschedule(lua_State *L) {
 		if (!_lg_typecheck_base_reschedule(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::base_reschedule(sgt::Task * task, sgt::Task::reason r, unsigned int deadline) function, expected prototype:\nvoid sgt::MultithreadScheduler::base_reschedule(sgt::Task * task, sgt::Task::reason r, unsigned int deadline)\nClass arguments details:\narg 1 ID = 44367388\n");
+			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::base_reschedule(sgt::Task * task, sgt::Task::reason r, unsigned int deadline) function, expected prototype:\nvoid sgt::MultithreadScheduler::base_reschedule(sgt::Task * task, sgt::Task::reason r, unsigned int deadline)\nClass arguments details:\narg 1 ID = 44367388\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::Task* task=(Luna< osg::Referenced >::checkSubType< sgt::Task >(L,2));
@@ -405,8 +383,7 @@ public:
 
 		sgt::MultithreadScheduler* self=Luna< osg::Referenced >::checkSubType< sgt::MultithreadScheduler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::base_reschedule(sgt::Task *, sgt::Task::reason, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::base_reschedule(sgt::Task *, sgt::Task::reason, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MultithreadScheduler::reschedule(task, r, deadline);
 
@@ -416,16 +393,14 @@ public:
 	// void sgt::MultithreadScheduler::base_run(sgt::Task * task)
 	static int _bind_base_run(lua_State *L) {
 		if (!_lg_typecheck_base_run(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::base_run(sgt::Task * task) function, expected prototype:\nvoid sgt::MultithreadScheduler::base_run(sgt::Task * task)\nClass arguments details:\narg 1 ID = 44367388\n");
+			luaL_error(L, "luna typecheck failed in void sgt::MultithreadScheduler::base_run(sgt::Task * task) function, expected prototype:\nvoid sgt::MultithreadScheduler::base_run(sgt::Task * task)\nClass arguments details:\narg 1 ID = 44367388\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::Task* task=(Luna< osg::Referenced >::checkSubType< sgt::Task >(L,2));
 
 		sgt::MultithreadScheduler* self=Luna< osg::Referenced >::checkSubType< sgt::MultithreadScheduler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::base_run(sgt::Task *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::MultithreadScheduler::base_run(sgt::Task *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MultithreadScheduler::run(task);
 

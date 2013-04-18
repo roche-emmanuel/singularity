@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::Scheduler* self= (sgt::Scheduler*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -137,8 +134,7 @@ public:
 	// sgt::Scheduler::Scheduler(lua_Table * data, const char * type)
 	static sgt::Scheduler* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::Scheduler::Scheduler(lua_Table * data, const char * type) function, expected prototype:\nsgt::Scheduler::Scheduler(lua_Table * data, const char * type)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::Scheduler::Scheduler(lua_Table * data, const char * type) function, expected prototype:\nsgt::Scheduler::Scheduler(lua_Table * data, const char * type)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * type=(const char *)lua_tostring(L,2);
@@ -151,16 +147,14 @@ public:
 	// bool sgt::Scheduler::supportsPrefetch(bool gpuTasks)
 	static int _bind_supportsPrefetch(lua_State *L) {
 		if (!_lg_typecheck_supportsPrefetch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::Scheduler::supportsPrefetch(bool gpuTasks) function, expected prototype:\nbool sgt::Scheduler::supportsPrefetch(bool gpuTasks)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::Scheduler::supportsPrefetch(bool gpuTasks) function, expected prototype:\nbool sgt::Scheduler::supportsPrefetch(bool gpuTasks)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool gpuTasks=(bool)(lua_toboolean(L,2)==1);
 
 		sgt::Scheduler* self=Luna< osg::Referenced >::checkSubType< sgt::Scheduler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::Scheduler::supportsPrefetch(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::Scheduler::supportsPrefetch(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->supportsPrefetch(gpuTasks);
 		lua_pushboolean(L,lret?1:0);
@@ -171,16 +165,14 @@ public:
 	// void sgt::Scheduler::schedule(sgt::Task * task)
 	static int _bind_schedule(lua_State *L) {
 		if (!_lg_typecheck_schedule(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Scheduler::schedule(sgt::Task * task) function, expected prototype:\nvoid sgt::Scheduler::schedule(sgt::Task * task)\nClass arguments details:\narg 1 ID = 44367388\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Scheduler::schedule(sgt::Task * task) function, expected prototype:\nvoid sgt::Scheduler::schedule(sgt::Task * task)\nClass arguments details:\narg 1 ID = 44367388\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::Task* task=(Luna< osg::Referenced >::checkSubType< sgt::Task >(L,2));
 
 		sgt::Scheduler* self=Luna< osg::Referenced >::checkSubType< sgt::Scheduler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Scheduler::schedule(sgt::Task *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Scheduler::schedule(sgt::Task *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->schedule(task);
 
@@ -190,8 +182,7 @@ public:
 	// void sgt::Scheduler::reschedule(sgt::Task * task, sgt::Task::reason r, unsigned int deadline)
 	static int _bind_reschedule(lua_State *L) {
 		if (!_lg_typecheck_reschedule(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Scheduler::reschedule(sgt::Task * task, sgt::Task::reason r, unsigned int deadline) function, expected prototype:\nvoid sgt::Scheduler::reschedule(sgt::Task * task, sgt::Task::reason r, unsigned int deadline)\nClass arguments details:\narg 1 ID = 44367388\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Scheduler::reschedule(sgt::Task * task, sgt::Task::reason r, unsigned int deadline) function, expected prototype:\nvoid sgt::Scheduler::reschedule(sgt::Task * task, sgt::Task::reason r, unsigned int deadline)\nClass arguments details:\narg 1 ID = 44367388\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::Task* task=(Luna< osg::Referenced >::checkSubType< sgt::Task >(L,2));
@@ -200,8 +191,7 @@ public:
 
 		sgt::Scheduler* self=Luna< osg::Referenced >::checkSubType< sgt::Scheduler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Scheduler::reschedule(sgt::Task *, sgt::Task::reason, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Scheduler::reschedule(sgt::Task *, sgt::Task::reason, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reschedule(task, r, deadline);
 
@@ -211,16 +201,14 @@ public:
 	// void sgt::Scheduler::run(sgt::Task * task)
 	static int _bind_run(lua_State *L) {
 		if (!_lg_typecheck_run(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Scheduler::run(sgt::Task * task) function, expected prototype:\nvoid sgt::Scheduler::run(sgt::Task * task)\nClass arguments details:\narg 1 ID = 44367388\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Scheduler::run(sgt::Task * task) function, expected prototype:\nvoid sgt::Scheduler::run(sgt::Task * task)\nClass arguments details:\narg 1 ID = 44367388\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::Task* task=(Luna< osg::Referenced >::checkSubType< sgt::Task >(L,2));
 
 		sgt::Scheduler* self=Luna< osg::Referenced >::checkSubType< sgt::Scheduler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Scheduler::run(sgt::Task *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Scheduler::run(sgt::Task *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->run(task);
 

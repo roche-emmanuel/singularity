@@ -54,15 +54,25 @@ function Class:getRoot()
 end
 
 function Class:update()
-	local v = self._parent and self._parent:getVisibility() or SceneManager.PARTIALLY_VISIBLE
-	if v == SceneManager.PARTIALLY_VISIBLE then
+	local v = self._parent and self._parent:getVisibility() or sgt.PARTIALLY_VISIBLE
+	if v == sgt.PARTIALLY_VISIBLE then
 		local localBox = sgt.box3d(ox, ox + l, oy, oy + l, zmin, zmax);
 		self._visible = self._node:getVisibility(localBox)
 	else
 		self._visible = v
 	end
 	
-
+    -- here we reuse the occlusion test from the previous frame:
+    -- if the quad was found unoccluded in the previous frame, we suppose it is
+    -- still unoccluded at this frame. If it was found occluded, we perform
+    -- an occlusion test to check if it is still occluded.
+    if (self._visible != sgt.INVISIBLE end self._occluded) then
+        self._occluded = self._node:isOccluded(sgt.box3d(self._ox, self._ox + self._l, self._oy, self._oy + self._l, self._zmin, self._zmax));
+        if (occluded) then
+            visible = sgt.INVISIBLE;
+        end
+    end
+	
 end
 
 function Class:getVisibility()

@@ -89,11 +89,11 @@ function Class:initialize(options)
 
 		-- initializes data structures for horizon occlusion culling
 		if (self._horizonCulling and self._localCameraPos:z() <= self._quad:getZmax()) then
-			local deformedDir = mv_inv * osg.ZAXIS;
+			local deformedDir = mv_inv:preMult(osg.ZAXIS);
 			local localDir = (self._deform:deformedToLocal(deformedDir) - self._localCameraPos).xy()
 			localDir:normalize();
 			
-			self._localCameraDir = sgt.mat2f(localDir.y, -localDir.x, -localDir.x, -localDir.y);
+			self._localCameraDir = sgt.mat2f(localDir:getY(), -localDir:getX(), -localDir:getX(), -localDir:getY());
 			for i = 1,HORIZON_SIZE do
 				self._horizon[i] = -sgt.INFINITY;
 			end
@@ -130,6 +130,40 @@ end
 function Class:getLocalCamera()
 	self:check(self._localCameraPos,"Invalid localCameraPos vector")
 	return self._localCameraPos
+end
+
+function Class:isOccluded(box)
+    if (not self._horizonCulling or self._localCameraPos:z() > self._quad:getZmax()) then
+        return false;
+    end
+	
+    local corners = {};
+    local o = self._localCameraPos:xy();
+    corners[0] = self._localCameraDir * (sgt.vec2d(box:getXmin(), box:getYmin()) - o);
+    corners[1] = self._localCameraDir * (sgt.vec2d(box:getXmin(), box:getYmax()) - o);
+    corners[2] = self._localCameraDir * (sgt.vec2d(box:getXmax(), box:getYmin()) - o);
+    corners[3] = self._localCameraDir * (sgt.vec2d(box.getXmax(), box:getYmax()) - o);
+    if (corners[0]:getY() <= 0.0 or corners[1]:getY() <= 0.0 or corners[2]:getY() <= 0.0 or corners[3]:getY() <= 0.0) then
+        return false;
+    end
+	
+    local dz = float(box.getZmax() - self._localCameraPos:z());
+    corners[0] = sgt.vec2f(corners[0]:getX(), dz) / corners[0]:getY();
+    corners[1] = sgt.vec2f(corners[1]:getX(), dz) / corners[1]:getY();
+    corners[2] = sgt.vec2f(corners[2]:getX(), dz) / corners[2]:getY();
+    corners[3] = sgt.vec2f(corners[3]:getX(), dz) / corners[3]:getY();
+    local xmin = math.min(corners[0]:getX(), corners[1]:getX(), corners[2]:getX(), corners[3]:getX()) * 0.33f + 0.5f;
+    local xmax = math.max(corners[0]:getX(), corners[1]:getX(), corners[2]:getX(), corners[3]:getX()) * 0.33f + 0.5f;
+    local zmax = math.max(corners[0]:getY(), corners[1]:getY(), corners[2]:getY(), corners[3]:getY());
+    local imin = math.max(math.floor(xmin * HORIZON_SIZE), 0);
+    local imax = math.min(math.ceil(xmax * HORIZON_SIZE), HORIZON_SIZE - 1);
+    for i = imin,imax do
+        if (zmax > self._horizon[i+1]) then
+            return false;
+        end
+    end
+	
+    return imax >= imin;
 end
 
 function Class:getLocalToCamera()

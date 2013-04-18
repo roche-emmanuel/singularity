@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::TaskListener* self=(Luna< sgt::TaskListener >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(sgt::TaskListener*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(sgt::TaskListener*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::TaskListener* rhs =(Luna< sgt::TaskListener >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::TaskListener* self= (sgt::TaskListener*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< sgt::TaskListener >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -160,8 +155,7 @@ public:
 	// sgt::TaskListener::TaskListener(lua_Table * data)
 	static sgt::TaskListener* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::TaskListener::TaskListener(lua_Table * data) function, expected prototype:\nsgt::TaskListener::TaskListener(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::TaskListener::TaskListener(lua_Table * data) function, expected prototype:\nsgt::TaskListener::TaskListener(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -173,8 +167,7 @@ public:
 	// void sgt::TaskListener::taskStateChanged(sgt::Task * t, bool done, sgt::Task::reason r)
 	static int _bind_taskStateChanged(lua_State *L) {
 		if (!_lg_typecheck_taskStateChanged(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::TaskListener::taskStateChanged(sgt::Task * t, bool done, sgt::Task::reason r) function, expected prototype:\nvoid sgt::TaskListener::taskStateChanged(sgt::Task * t, bool done, sgt::Task::reason r)\nClass arguments details:\narg 1 ID = 44367388\n");
+			luaL_error(L, "luna typecheck failed in void sgt::TaskListener::taskStateChanged(sgt::Task * t, bool done, sgt::Task::reason r) function, expected prototype:\nvoid sgt::TaskListener::taskStateChanged(sgt::Task * t, bool done, sgt::Task::reason r)\nClass arguments details:\narg 1 ID = 44367388\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::Task* t=(Luna< osg::Referenced >::checkSubType< sgt::Task >(L,2));
@@ -183,8 +176,7 @@ public:
 
 		sgt::TaskListener* self=(Luna< sgt::TaskListener >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::TaskListener::taskStateChanged(sgt::Task *, bool, sgt::Task::reason). Got : '%s'",typeid(Luna< sgt::TaskListener >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::TaskListener::taskStateChanged(sgt::Task *, bool, sgt::Task::reason). Got : '%s'\n%s",typeid(Luna< sgt::TaskListener >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->taskStateChanged(t, done, r);
 
@@ -194,8 +186,7 @@ public:
 	// void sgt::TaskListener::completionDateChanged(sgt::Task * t, unsigned int date)
 	static int _bind_completionDateChanged(lua_State *L) {
 		if (!_lg_typecheck_completionDateChanged(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::TaskListener::completionDateChanged(sgt::Task * t, unsigned int date) function, expected prototype:\nvoid sgt::TaskListener::completionDateChanged(sgt::Task * t, unsigned int date)\nClass arguments details:\narg 1 ID = 44367388\n");
+			luaL_error(L, "luna typecheck failed in void sgt::TaskListener::completionDateChanged(sgt::Task * t, unsigned int date) function, expected prototype:\nvoid sgt::TaskListener::completionDateChanged(sgt::Task * t, unsigned int date)\nClass arguments details:\narg 1 ID = 44367388\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::Task* t=(Luna< osg::Referenced >::checkSubType< sgt::Task >(L,2));
@@ -203,8 +194,7 @@ public:
 
 		sgt::TaskListener* self=(Luna< sgt::TaskListener >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::TaskListener::completionDateChanged(sgt::Task *, unsigned int). Got : '%s'",typeid(Luna< sgt::TaskListener >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::TaskListener::completionDateChanged(sgt::Task *, unsigned int). Got : '%s'\n%s",typeid(Luna< sgt::TaskListener >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->completionDateChanged(t, date);
 

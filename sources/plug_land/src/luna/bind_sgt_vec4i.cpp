@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::vec4i* self= (sgt::vec4i*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< sgt::vec4i >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -274,7 +271,7 @@ public:
 	}
 
 	inline static bool _lg_typecheck___unm(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
+		if( lua_gettop(L)!=2 ) return false;
 
 		return true;
 	}
@@ -291,8 +288,7 @@ public:
 	// sgt::vec4i::vec4i()
 	static sgt::vec4i* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec4i::vec4i() function, expected prototype:\nsgt::vec4i::vec4i()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec4i::vec4i() function, expected prototype:\nsgt::vec4i::vec4i()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -302,8 +298,7 @@ public:
 	// sgt::vec4i::vec4i(int xi, int yi, int zi, int wi)
 	static sgt::vec4i* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec4i::vec4i(int xi, int yi, int zi, int wi) function, expected prototype:\nsgt::vec4i::vec4i(int xi, int yi, int zi, int wi)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec4i::vec4i(int xi, int yi, int zi, int wi) function, expected prototype:\nsgt::vec4i::vec4i(int xi, int yi, int zi, int wi)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int xi=(int)lua_tointeger(L,1);
@@ -317,8 +312,7 @@ public:
 	// sgt::vec4i::vec4i(const sgt::vec4i & v)
 	static sgt::vec4i* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec4i::vec4i(const sgt::vec4i & v) function, expected prototype:\nsgt::vec4i::vec4i(const sgt::vec4i & v)\nClass arguments details:\narg 1 ID = 76239336\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec4i::vec4i(const sgt::vec4i & v) function, expected prototype:\nsgt::vec4i::vec4i(const sgt::vec4i & v)\nClass arguments details:\narg 1 ID = 76239336\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::vec4i* v_ptr=(Luna< sgt::vec4i >::check(L,1));
@@ -333,8 +327,7 @@ public:
 	// sgt::vec4i::vec4i(const sgt::vec3i & v)
 	static sgt::vec4i* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec4i::vec4i(const sgt::vec3i & v) function, expected prototype:\nsgt::vec4i::vec4i(const sgt::vec3i & v)\nClass arguments details:\narg 1 ID = 76239305\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec4i::vec4i(const sgt::vec3i & v) function, expected prototype:\nsgt::vec4i::vec4i(const sgt::vec3i & v)\nClass arguments details:\narg 1 ID = 76239305\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::vec3i* v_ptr=(Luna< sgt::vec3i >::check(L,1));
@@ -349,8 +342,7 @@ public:
 	// sgt::vec4i::vec4i(const sgt::vec3i & v, int wi)
 	static sgt::vec4i* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec4i::vec4i(const sgt::vec3i & v, int wi) function, expected prototype:\nsgt::vec4i::vec4i(const sgt::vec3i & v, int wi)\nClass arguments details:\narg 1 ID = 76239305\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec4i::vec4i(const sgt::vec3i & v, int wi) function, expected prototype:\nsgt::vec4i::vec4i(const sgt::vec3i & v, int wi)\nClass arguments details:\narg 1 ID = 76239305\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::vec3i* v_ptr=(Luna< sgt::vec3i >::check(L,1));
@@ -380,8 +372,7 @@ public:
 	// int sgt::vec4i::dot(const sgt::vec4i & v) const
 	static int _bind_dot_overload_1(lua_State *L) {
 		if (!_lg_typecheck_dot_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::vec4i::dot(const sgt::vec4i & v) const function, expected prototype:\nint sgt::vec4i::dot(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n");
+			luaL_error(L, "luna typecheck failed in int sgt::vec4i::dot(const sgt::vec4i & v) const function, expected prototype:\nint sgt::vec4i::dot(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::vec4i* v_ptr=(Luna< sgt::vec4i >::check(L,2));
@@ -392,8 +383,7 @@ public:
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::vec4i::dot(const sgt::vec4i &) const. Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::vec4i::dot(const sgt::vec4i &) const. Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->dot(v);
 		lua_pushnumber(L,lret);
@@ -404,8 +394,7 @@ public:
 	// int sgt::vec4i::dot(const sgt::vec3i & v) const
 	static int _bind_dot_overload_2(lua_State *L) {
 		if (!_lg_typecheck_dot_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::vec4i::dot(const sgt::vec3i & v) const function, expected prototype:\nint sgt::vec4i::dot(const sgt::vec3i & v) const\nClass arguments details:\narg 1 ID = 76239305\n");
+			luaL_error(L, "luna typecheck failed in int sgt::vec4i::dot(const sgt::vec3i & v) const function, expected prototype:\nint sgt::vec4i::dot(const sgt::vec3i & v) const\nClass arguments details:\narg 1 ID = 76239305\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::vec3i* v_ptr=(Luna< sgt::vec3i >::check(L,2));
@@ -416,8 +405,7 @@ public:
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::vec4i::dot(const sgt::vec3i &) const. Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::vec4i::dot(const sgt::vec3i &) const. Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->dot(v);
 		lua_pushnumber(L,lret);
@@ -437,15 +425,13 @@ public:
 	// sgt::vec3i sgt::vec4i::xyzw() const
 	static int _bind_xyzw(lua_State *L) {
 		if (!_lg_typecheck_xyzw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec3i sgt::vec4i::xyzw() const function, expected prototype:\nsgt::vec3i sgt::vec4i::xyzw() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec3i sgt::vec4i::xyzw() const function, expected prototype:\nsgt::vec3i sgt::vec4i::xyzw() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::vec3i sgt::vec4i::xyzw() const. Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::vec3i sgt::vec4i::xyzw() const. Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::vec3i stack_lret = self->xyzw();
 		sgt::vec3i* lret = new sgt::vec3i(stack_lret);
@@ -459,15 +445,13 @@ public:
 	// sgt::vec3i sgt::vec4i::xyz() const
 	static int _bind_xyz(lua_State *L) {
 		if (!_lg_typecheck_xyz(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec3i sgt::vec4i::xyz() const function, expected prototype:\nsgt::vec3i sgt::vec4i::xyz() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec3i sgt::vec4i::xyz() const function, expected prototype:\nsgt::vec3i sgt::vec4i::xyz() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::vec3i sgt::vec4i::xyz() const. Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::vec3i sgt::vec4i::xyz() const. Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::vec3i stack_lret = self->xyz();
 		sgt::vec3i* lret = new sgt::vec3i(stack_lret);
@@ -481,15 +465,13 @@ public:
 	// sgt::vec2i sgt::vec4i::xy() const
 	static int _bind_xy(lua_State *L) {
 		if (!_lg_typecheck_xy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec2i sgt::vec4i::xy() const function, expected prototype:\nsgt::vec2i sgt::vec4i::xy() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec2i sgt::vec4i::xy() const function, expected prototype:\nsgt::vec2i sgt::vec4i::xy() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::vec2i sgt::vec4i::xy() const. Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::vec2i sgt::vec4i::xy() const. Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::vec2i stack_lret = self->xy();
 		sgt::vec2i* lret = new sgt::vec2i(stack_lret);
@@ -503,15 +485,13 @@ public:
 	// int sgt::vec4i::x()
 	static int _bind_getX(lua_State *L) {
 		if (!_lg_typecheck_getX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::vec4i::x() function, expected prototype:\nint sgt::vec4i::x()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int sgt::vec4i::x() function, expected prototype:\nint sgt::vec4i::x()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::vec4i::x(). Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::vec4i::x(). Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->x;
 		lua_pushnumber(L,lret);
@@ -522,15 +502,13 @@ public:
 	// int sgt::vec4i::y()
 	static int _bind_getY(lua_State *L) {
 		if (!_lg_typecheck_getY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::vec4i::y() function, expected prototype:\nint sgt::vec4i::y()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int sgt::vec4i::y() function, expected prototype:\nint sgt::vec4i::y()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::vec4i::y(). Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::vec4i::y(). Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->y;
 		lua_pushnumber(L,lret);
@@ -541,15 +519,13 @@ public:
 	// int sgt::vec4i::z()
 	static int _bind_getZ(lua_State *L) {
 		if (!_lg_typecheck_getZ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::vec4i::z() function, expected prototype:\nint sgt::vec4i::z()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int sgt::vec4i::z() function, expected prototype:\nint sgt::vec4i::z()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::vec4i::z(). Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::vec4i::z(). Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->z;
 		lua_pushnumber(L,lret);
@@ -560,15 +536,13 @@ public:
 	// int sgt::vec4i::w()
 	static int _bind_getW(lua_State *L) {
 		if (!_lg_typecheck_getW(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::vec4i::w() function, expected prototype:\nint sgt::vec4i::w()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int sgt::vec4i::w() function, expected prototype:\nint sgt::vec4i::w()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::vec4i::w(). Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::vec4i::w(). Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->w;
 		lua_pushnumber(L,lret);
@@ -579,16 +553,14 @@ public:
 	// void sgt::vec4i::x(int value)
 	static int _bind_setX(lua_State *L) {
 		if (!_lg_typecheck_setX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::vec4i::x(int value) function, expected prototype:\nvoid sgt::vec4i::x(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::vec4i::x(int value) function, expected prototype:\nvoid sgt::vec4i::x(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::vec4i::x(int). Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::vec4i::x(int). Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->x = value;
 
@@ -598,16 +570,14 @@ public:
 	// void sgt::vec4i::y(int value)
 	static int _bind_setY(lua_State *L) {
 		if (!_lg_typecheck_setY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::vec4i::y(int value) function, expected prototype:\nvoid sgt::vec4i::y(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::vec4i::y(int value) function, expected prototype:\nvoid sgt::vec4i::y(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::vec4i::y(int). Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::vec4i::y(int). Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->y = value;
 
@@ -617,16 +587,14 @@ public:
 	// void sgt::vec4i::z(int value)
 	static int _bind_setZ(lua_State *L) {
 		if (!_lg_typecheck_setZ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::vec4i::z(int value) function, expected prototype:\nvoid sgt::vec4i::z(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::vec4i::z(int value) function, expected prototype:\nvoid sgt::vec4i::z(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::vec4i::z(int). Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::vec4i::z(int). Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->z = value;
 
@@ -636,16 +604,14 @@ public:
 	// void sgt::vec4i::w(int value)
 	static int _bind_setW(lua_State *L) {
 		if (!_lg_typecheck_setW(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::vec4i::w(int value) function, expected prototype:\nvoid sgt::vec4i::w(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::vec4i::w(int value) function, expected prototype:\nvoid sgt::vec4i::w(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::vec4i::w(int). Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::vec4i::w(int). Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->w = value;
 
@@ -657,16 +623,14 @@ public:
 	// int & sgt::vec4i::operator[](const int i)
 	static int _bind_op_index(lua_State *L) {
 		if (!_lg_typecheck_op_index(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int & sgt::vec4i::operator[](const int i) function, expected prototype:\nint & sgt::vec4i::operator[](const int i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int & sgt::vec4i::operator[](const int i) function, expected prototype:\nint & sgt::vec4i::operator[](const int i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const int i=(const int)lua_tointeger(L,2);
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int & sgt::vec4i::operator[](const int). Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int & sgt::vec4i::operator[](const int). Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int & lret = self->operator[](i);
 		lua_pushnumber(L,lret);
@@ -677,8 +641,7 @@ public:
 	// bool sgt::vec4i::operator==(const sgt::vec4i & v) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::vec4i::operator==(const sgt::vec4i & v) const function, expected prototype:\nbool sgt::vec4i::operator==(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::vec4i::operator==(const sgt::vec4i & v) const function, expected prototype:\nbool sgt::vec4i::operator==(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::vec4i* v_ptr=(Luna< sgt::vec4i >::check(L,2));
@@ -689,8 +652,7 @@ public:
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::vec4i::operator==(const sgt::vec4i &) const. Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::vec4i::operator==(const sgt::vec4i &) const. Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(v);
 		lua_pushboolean(L,lret?1:0);
@@ -701,8 +663,7 @@ public:
 	// bool sgt::vec4i::operator!=(const sgt::vec4i & v) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::vec4i::operator!=(const sgt::vec4i & v) const function, expected prototype:\nbool sgt::vec4i::operator!=(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::vec4i::operator!=(const sgt::vec4i & v) const function, expected prototype:\nbool sgt::vec4i::operator!=(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::vec4i* v_ptr=(Luna< sgt::vec4i >::check(L,2));
@@ -713,8 +674,7 @@ public:
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::vec4i::operator!=(const sgt::vec4i &) const. Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::vec4i::operator!=(const sgt::vec4i &) const. Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(v);
 		lua_pushboolean(L,lret?1:0);
@@ -725,8 +685,7 @@ public:
 	// sgt::vec4i sgt::vec4i::operator+(const sgt::vec4i & v) const
 	static int _bind___add(lua_State *L) {
 		if (!_lg_typecheck___add(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec4i sgt::vec4i::operator+(const sgt::vec4i & v) const function, expected prototype:\nsgt::vec4i sgt::vec4i::operator+(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec4i sgt::vec4i::operator+(const sgt::vec4i & v) const function, expected prototype:\nsgt::vec4i sgt::vec4i::operator+(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::vec4i* v_ptr=(Luna< sgt::vec4i >::check(L,2));
@@ -737,8 +696,7 @@ public:
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::vec4i sgt::vec4i::operator+(const sgt::vec4i &) const. Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::vec4i sgt::vec4i::operator+(const sgt::vec4i &) const. Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::vec4i stack_lret = self->operator+(v);
 		sgt::vec4i* lret = new sgt::vec4i(stack_lret);
@@ -752,8 +710,7 @@ public:
 	// sgt::vec4i sgt::vec4i::operator-(const sgt::vec4i & v) const
 	static int _bind___sub(lua_State *L) {
 		if (!_lg_typecheck___sub(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec4i sgt::vec4i::operator-(const sgt::vec4i & v) const function, expected prototype:\nsgt::vec4i sgt::vec4i::operator-(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec4i sgt::vec4i::operator-(const sgt::vec4i & v) const function, expected prototype:\nsgt::vec4i sgt::vec4i::operator-(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::vec4i* v_ptr=(Luna< sgt::vec4i >::check(L,2));
@@ -764,8 +721,7 @@ public:
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::vec4i sgt::vec4i::operator-(const sgt::vec4i &) const. Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::vec4i sgt::vec4i::operator-(const sgt::vec4i &) const. Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::vec4i stack_lret = self->operator-(v);
 		sgt::vec4i* lret = new sgt::vec4i(stack_lret);
@@ -779,8 +735,7 @@ public:
 	// sgt::vec4i sgt::vec4i::operator*(const sgt::vec4i & v) const
 	static int _bind___mul_overload_1(lua_State *L) {
 		if (!_lg_typecheck___mul_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec4i sgt::vec4i::operator*(const sgt::vec4i & v) const function, expected prototype:\nsgt::vec4i sgt::vec4i::operator*(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec4i sgt::vec4i::operator*(const sgt::vec4i & v) const function, expected prototype:\nsgt::vec4i sgt::vec4i::operator*(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::vec4i* v_ptr=(Luna< sgt::vec4i >::check(L,2));
@@ -791,8 +746,7 @@ public:
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::vec4i sgt::vec4i::operator*(const sgt::vec4i &) const. Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::vec4i sgt::vec4i::operator*(const sgt::vec4i &) const. Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::vec4i stack_lret = self->operator*(v);
 		sgt::vec4i* lret = new sgt::vec4i(stack_lret);
@@ -806,16 +760,14 @@ public:
 	// sgt::vec4i sgt::vec4i::operator*(const int scalar) const
 	static int _bind___mul_overload_2(lua_State *L) {
 		if (!_lg_typecheck___mul_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec4i sgt::vec4i::operator*(const int scalar) const function, expected prototype:\nsgt::vec4i sgt::vec4i::operator*(const int scalar) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec4i sgt::vec4i::operator*(const int scalar) const function, expected prototype:\nsgt::vec4i sgt::vec4i::operator*(const int scalar) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const int scalar=(const int)lua_tointeger(L,2);
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::vec4i sgt::vec4i::operator*(const int) const. Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::vec4i sgt::vec4i::operator*(const int) const. Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::vec4i stack_lret = self->operator*(scalar);
 		sgt::vec4i* lret = new sgt::vec4i(stack_lret);
@@ -838,8 +790,7 @@ public:
 	// sgt::vec4i sgt::vec4i::operator/(const sgt::vec4i & v) const
 	static int _bind___div_overload_1(lua_State *L) {
 		if (!_lg_typecheck___div_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec4i sgt::vec4i::operator/(const sgt::vec4i & v) const function, expected prototype:\nsgt::vec4i sgt::vec4i::operator/(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec4i sgt::vec4i::operator/(const sgt::vec4i & v) const function, expected prototype:\nsgt::vec4i sgt::vec4i::operator/(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::vec4i* v_ptr=(Luna< sgt::vec4i >::check(L,2));
@@ -850,8 +801,7 @@ public:
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::vec4i sgt::vec4i::operator/(const sgt::vec4i &) const. Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::vec4i sgt::vec4i::operator/(const sgt::vec4i &) const. Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::vec4i stack_lret = self->operator/(v);
 		sgt::vec4i* lret = new sgt::vec4i(stack_lret);
@@ -865,16 +815,14 @@ public:
 	// sgt::vec4i sgt::vec4i::operator/(const int scalar) const
 	static int _bind___div_overload_2(lua_State *L) {
 		if (!_lg_typecheck___div_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec4i sgt::vec4i::operator/(const int scalar) const function, expected prototype:\nsgt::vec4i sgt::vec4i::operator/(const int scalar) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec4i sgt::vec4i::operator/(const int scalar) const function, expected prototype:\nsgt::vec4i sgt::vec4i::operator/(const int scalar) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const int scalar=(const int)lua_tointeger(L,2);
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::vec4i sgt::vec4i::operator/(const int) const. Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::vec4i sgt::vec4i::operator/(const int) const. Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::vec4i stack_lret = self->operator/(scalar);
 		sgt::vec4i* lret = new sgt::vec4i(stack_lret);
@@ -897,15 +845,13 @@ public:
 	// sgt::vec4i sgt::vec4i::operator-() const
 	static int _bind___unm(lua_State *L) {
 		if (!_lg_typecheck___unm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec4i sgt::vec4i::operator-() const function, expected prototype:\nsgt::vec4i sgt::vec4i::operator-() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec4i sgt::vec4i::operator-() const function, expected prototype:\nsgt::vec4i sgt::vec4i::operator-() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::vec4i sgt::vec4i::operator-() const. Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::vec4i sgt::vec4i::operator-() const. Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::vec4i stack_lret = self->operator-();
 		sgt::vec4i* lret = new sgt::vec4i(stack_lret);
@@ -919,8 +865,7 @@ public:
 	// bool sgt::vec4i::operator<(const sgt::vec4i & v) const
 	static int _bind___lt(lua_State *L) {
 		if (!_lg_typecheck___lt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::vec4i::operator<(const sgt::vec4i & v) const function, expected prototype:\nbool sgt::vec4i::operator<(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::vec4i::operator<(const sgt::vec4i & v) const function, expected prototype:\nbool sgt::vec4i::operator<(const sgt::vec4i & v) const\nClass arguments details:\narg 1 ID = 76239336\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::vec4i* v_ptr=(Luna< sgt::vec4i >::check(L,2));
@@ -931,8 +876,7 @@ public:
 
 		sgt::vec4i* self=(Luna< sgt::vec4i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::vec4i::operator<(const sgt::vec4i &) const. Got : '%s'",typeid(Luna< sgt::vec4i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::vec4i::operator<(const sgt::vec4i &) const. Got : '%s'\n%s",typeid(Luna< sgt::vec4i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator<(v);
 		lua_pushboolean(L,lret?1:0);

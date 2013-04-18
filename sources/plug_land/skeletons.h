@@ -158,6 +158,12 @@ namespace sgt {
 
 	};
 
+	class Deformation: public sgt::Object {
+	};
+
+	class TerrainNode {
+	};
+
 	class vec2h {
 	};
 

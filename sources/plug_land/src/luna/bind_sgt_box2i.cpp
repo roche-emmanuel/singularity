@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::box2i* self= (sgt::box2i*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< sgt::box2i >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -269,8 +266,7 @@ public:
 	// sgt::box2i::box2i()
 	static sgt::box2i* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::box2i::box2i() function, expected prototype:\nsgt::box2i::box2i()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::box2i::box2i() function, expected prototype:\nsgt::box2i::box2i()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -280,8 +276,7 @@ public:
 	// sgt::box2i::box2i(int xmin, int xmax, int ymin, int ymax)
 	static sgt::box2i* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::box2i::box2i(int xmin, int xmax, int ymin, int ymax) function, expected prototype:\nsgt::box2i::box2i(int xmin, int xmax, int ymin, int ymax)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::box2i::box2i(int xmin, int xmax, int ymin, int ymax) function, expected prototype:\nsgt::box2i::box2i(int xmin, int xmax, int ymin, int ymax)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int xmin=(int)lua_tointeger(L,1);
@@ -295,8 +290,7 @@ public:
 	// sgt::box2i::box2i(const sgt::vec2i & p, const sgt::vec2i & q)
 	static sgt::box2i* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::box2i::box2i(const sgt::vec2i & p, const sgt::vec2i & q) function, expected prototype:\nsgt::box2i::box2i(const sgt::vec2i & p, const sgt::vec2i & q)\nClass arguments details:\narg 1 ID = 76239274\narg 2 ID = 76239274\n");
+			luaL_error(L, "luna typecheck failed in sgt::box2i::box2i(const sgt::vec2i & p, const sgt::vec2i & q) function, expected prototype:\nsgt::box2i::box2i(const sgt::vec2i & p, const sgt::vec2i & q)\nClass arguments details:\narg 1 ID = 76239274\narg 2 ID = 76239274\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::vec2i* p_ptr=(Luna< sgt::vec2i >::check(L,1));
@@ -328,15 +322,13 @@ public:
 	// sgt::vec2i sgt::box2i::center() const
 	static int _bind_center(lua_State *L) {
 		if (!_lg_typecheck_center(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec2i sgt::box2i::center() const function, expected prototype:\nsgt::vec2i sgt::box2i::center() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec2i sgt::box2i::center() const function, expected prototype:\nsgt::vec2i sgt::box2i::center() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::vec2i sgt::box2i::center() const. Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::vec2i sgt::box2i::center() const. Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::vec2i stack_lret = self->center();
 		sgt::vec2i* lret = new sgt::vec2i(stack_lret);
@@ -350,15 +342,13 @@ public:
 	// int sgt::box2i::width() const
 	static int _bind_width(lua_State *L) {
 		if (!_lg_typecheck_width(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::box2i::width() const function, expected prototype:\nint sgt::box2i::width() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int sgt::box2i::width() const function, expected prototype:\nint sgt::box2i::width() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::box2i::width() const. Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::box2i::width() const. Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->width();
 		lua_pushnumber(L,lret);
@@ -369,15 +359,13 @@ public:
 	// int sgt::box2i::height() const
 	static int _bind_height(lua_State *L) {
 		if (!_lg_typecheck_height(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::box2i::height() const function, expected prototype:\nint sgt::box2i::height() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int sgt::box2i::height() const function, expected prototype:\nint sgt::box2i::height() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::box2i::height() const. Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::box2i::height() const. Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->height();
 		lua_pushnumber(L,lret);
@@ -388,15 +376,13 @@ public:
 	// int sgt::box2i::area() const
 	static int _bind_area(lua_State *L) {
 		if (!_lg_typecheck_area(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::box2i::area() const function, expected prototype:\nint sgt::box2i::area() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int sgt::box2i::area() const function, expected prototype:\nint sgt::box2i::area() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::box2i::area() const. Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::box2i::area() const. Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->area();
 		lua_pushnumber(L,lret);
@@ -407,16 +393,14 @@ public:
 	// sgt::box2i sgt::box2i::enlarge(int w) const
 	static int _bind_enlarge_overload_1(lua_State *L) {
 		if (!_lg_typecheck_enlarge_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::box2i sgt::box2i::enlarge(int w) const function, expected prototype:\nsgt::box2i sgt::box2i::enlarge(int w) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::box2i sgt::box2i::enlarge(int w) const function, expected prototype:\nsgt::box2i sgt::box2i::enlarge(int w) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int w=(int)lua_tointeger(L,2);
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::box2i sgt::box2i::enlarge(int) const. Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::box2i sgt::box2i::enlarge(int) const. Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::box2i stack_lret = self->enlarge(w);
 		sgt::box2i* lret = new sgt::box2i(stack_lret);
@@ -430,8 +414,7 @@ public:
 	// sgt::box2i sgt::box2i::enlarge(const sgt::vec2i & p) const
 	static int _bind_enlarge_overload_2(lua_State *L) {
 		if (!_lg_typecheck_enlarge_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::box2i sgt::box2i::enlarge(const sgt::vec2i & p) const function, expected prototype:\nsgt::box2i sgt::box2i::enlarge(const sgt::vec2i & p) const\nClass arguments details:\narg 1 ID = 76239274\n");
+			luaL_error(L, "luna typecheck failed in sgt::box2i sgt::box2i::enlarge(const sgt::vec2i & p) const function, expected prototype:\nsgt::box2i sgt::box2i::enlarge(const sgt::vec2i & p) const\nClass arguments details:\narg 1 ID = 76239274\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::vec2i* p_ptr=(Luna< sgt::vec2i >::check(L,2));
@@ -442,8 +425,7 @@ public:
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::box2i sgt::box2i::enlarge(const sgt::vec2i &) const. Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::box2i sgt::box2i::enlarge(const sgt::vec2i &) const. Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::box2i stack_lret = self->enlarge(p);
 		sgt::box2i* lret = new sgt::box2i(stack_lret);
@@ -457,8 +439,7 @@ public:
 	// sgt::box2i sgt::box2i::enlarge(const sgt::box2i & r) const
 	static int _bind_enlarge_overload_3(lua_State *L) {
 		if (!_lg_typecheck_enlarge_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::box2i sgt::box2i::enlarge(const sgt::box2i & r) const function, expected prototype:\nsgt::box2i sgt::box2i::enlarge(const sgt::box2i & r) const\nClass arguments details:\narg 1 ID = 58086945\n");
+			luaL_error(L, "luna typecheck failed in sgt::box2i sgt::box2i::enlarge(const sgt::box2i & r) const function, expected prototype:\nsgt::box2i sgt::box2i::enlarge(const sgt::box2i & r) const\nClass arguments details:\narg 1 ID = 58086945\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::box2i* r_ptr=(Luna< sgt::box2i >::check(L,2));
@@ -469,8 +450,7 @@ public:
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::box2i sgt::box2i::enlarge(const sgt::box2i &) const. Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::box2i sgt::box2i::enlarge(const sgt::box2i &) const. Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::box2i stack_lret = self->enlarge(r);
 		sgt::box2i* lret = new sgt::box2i(stack_lret);
@@ -494,8 +474,7 @@ public:
 	// bool sgt::box2i::contains(const sgt::vec2i & p) const
 	static int _bind_contains_overload_1(lua_State *L) {
 		if (!_lg_typecheck_contains_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::box2i::contains(const sgt::vec2i & p) const function, expected prototype:\nbool sgt::box2i::contains(const sgt::vec2i & p) const\nClass arguments details:\narg 1 ID = 76239274\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::box2i::contains(const sgt::vec2i & p) const function, expected prototype:\nbool sgt::box2i::contains(const sgt::vec2i & p) const\nClass arguments details:\narg 1 ID = 76239274\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::vec2i* p_ptr=(Luna< sgt::vec2i >::check(L,2));
@@ -506,8 +485,7 @@ public:
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::box2i::contains(const sgt::vec2i &) const. Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::box2i::contains(const sgt::vec2i &) const. Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->contains(p);
 		lua_pushboolean(L,lret?1:0);
@@ -518,8 +496,7 @@ public:
 	// bool sgt::box2i::contains(const sgt::box2i & bb) const
 	static int _bind_contains_overload_2(lua_State *L) {
 		if (!_lg_typecheck_contains_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::box2i::contains(const sgt::box2i & bb) const function, expected prototype:\nbool sgt::box2i::contains(const sgt::box2i & bb) const\nClass arguments details:\narg 1 ID = 58086945\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::box2i::contains(const sgt::box2i & bb) const function, expected prototype:\nbool sgt::box2i::contains(const sgt::box2i & bb) const\nClass arguments details:\narg 1 ID = 58086945\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::box2i* bb_ptr=(Luna< sgt::box2i >::check(L,2));
@@ -530,8 +507,7 @@ public:
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::box2i::contains(const sgt::box2i &) const. Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::box2i::contains(const sgt::box2i &) const. Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->contains(bb);
 		lua_pushboolean(L,lret?1:0);
@@ -551,8 +527,7 @@ public:
 	// bool sgt::box2i::intersects(const sgt::box2i & a) const
 	static int _bind_intersects(lua_State *L) {
 		if (!_lg_typecheck_intersects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::box2i::intersects(const sgt::box2i & a) const function, expected prototype:\nbool sgt::box2i::intersects(const sgt::box2i & a) const\nClass arguments details:\narg 1 ID = 58086945\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::box2i::intersects(const sgt::box2i & a) const function, expected prototype:\nbool sgt::box2i::intersects(const sgt::box2i & a) const\nClass arguments details:\narg 1 ID = 58086945\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::box2i* a_ptr=(Luna< sgt::box2i >::check(L,2));
@@ -563,8 +538,7 @@ public:
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::box2i::intersects(const sgt::box2i &) const. Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::box2i::intersects(const sgt::box2i &) const. Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->intersects(a);
 		lua_pushboolean(L,lret?1:0);
@@ -575,8 +549,7 @@ public:
 	// sgt::vec2i sgt::box2i::nearestInnerPoint(sgt::vec2i a) const
 	static int _bind_nearestInnerPoint(lua_State *L) {
 		if (!_lg_typecheck_nearestInnerPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::vec2i sgt::box2i::nearestInnerPoint(sgt::vec2i a) const function, expected prototype:\nsgt::vec2i sgt::box2i::nearestInnerPoint(sgt::vec2i a) const\nClass arguments details:\narg 1 ID = 76239274\n");
+			luaL_error(L, "luna typecheck failed in sgt::vec2i sgt::box2i::nearestInnerPoint(sgt::vec2i a) const function, expected prototype:\nsgt::vec2i sgt::box2i::nearestInnerPoint(sgt::vec2i a) const\nClass arguments details:\narg 1 ID = 76239274\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::vec2i* a_ptr=(Luna< sgt::vec2i >::check(L,2));
@@ -587,8 +560,7 @@ public:
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::vec2i sgt::box2i::nearestInnerPoint(sgt::vec2i) const. Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::vec2i sgt::box2i::nearestInnerPoint(sgt::vec2i) const. Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::vec2i stack_lret = self->nearestInnerPoint(a);
 		sgt::vec2i* lret = new sgt::vec2i(stack_lret);
@@ -602,8 +574,7 @@ public:
 	// int sgt::box2i::distanceTo(sgt::vec2i a) const
 	static int _bind_distanceTo(lua_State *L) {
 		if (!_lg_typecheck_distanceTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::box2i::distanceTo(sgt::vec2i a) const function, expected prototype:\nint sgt::box2i::distanceTo(sgt::vec2i a) const\nClass arguments details:\narg 1 ID = 76239274\n");
+			luaL_error(L, "luna typecheck failed in int sgt::box2i::distanceTo(sgt::vec2i a) const function, expected prototype:\nint sgt::box2i::distanceTo(sgt::vec2i a) const\nClass arguments details:\narg 1 ID = 76239274\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::vec2i* a_ptr=(Luna< sgt::vec2i >::check(L,2));
@@ -614,8 +585,7 @@ public:
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::box2i::distanceTo(sgt::vec2i) const. Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::box2i::distanceTo(sgt::vec2i) const. Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->distanceTo(a);
 		lua_pushnumber(L,lret);
@@ -626,8 +596,7 @@ public:
 	// int sgt::box2i::squaredDistanceTo(sgt::vec2i a) const
 	static int _bind_squaredDistanceTo(lua_State *L) {
 		if (!_lg_typecheck_squaredDistanceTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::box2i::squaredDistanceTo(sgt::vec2i a) const function, expected prototype:\nint sgt::box2i::squaredDistanceTo(sgt::vec2i a) const\nClass arguments details:\narg 1 ID = 76239274\n");
+			luaL_error(L, "luna typecheck failed in int sgt::box2i::squaredDistanceTo(sgt::vec2i a) const function, expected prototype:\nint sgt::box2i::squaredDistanceTo(sgt::vec2i a) const\nClass arguments details:\narg 1 ID = 76239274\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::vec2i* a_ptr=(Luna< sgt::vec2i >::check(L,2));
@@ -638,8 +607,7 @@ public:
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::box2i::squaredDistanceTo(sgt::vec2i) const. Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::box2i::squaredDistanceTo(sgt::vec2i) const. Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->squaredDistanceTo(a);
 		lua_pushnumber(L,lret);
@@ -650,15 +618,13 @@ public:
 	// int sgt::box2i::xmin()
 	static int _bind_getXmin(lua_State *L) {
 		if (!_lg_typecheck_getXmin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::box2i::xmin() function, expected prototype:\nint sgt::box2i::xmin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int sgt::box2i::xmin() function, expected prototype:\nint sgt::box2i::xmin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::box2i::xmin(). Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::box2i::xmin(). Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->xmin;
 		lua_pushnumber(L,lret);
@@ -669,15 +635,13 @@ public:
 	// int sgt::box2i::xmax()
 	static int _bind_getXmax(lua_State *L) {
 		if (!_lg_typecheck_getXmax(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::box2i::xmax() function, expected prototype:\nint sgt::box2i::xmax()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int sgt::box2i::xmax() function, expected prototype:\nint sgt::box2i::xmax()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::box2i::xmax(). Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::box2i::xmax(). Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->xmax;
 		lua_pushnumber(L,lret);
@@ -688,15 +652,13 @@ public:
 	// int sgt::box2i::ymin()
 	static int _bind_getYmin(lua_State *L) {
 		if (!_lg_typecheck_getYmin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::box2i::ymin() function, expected prototype:\nint sgt::box2i::ymin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int sgt::box2i::ymin() function, expected prototype:\nint sgt::box2i::ymin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::box2i::ymin(). Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::box2i::ymin(). Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->ymin;
 		lua_pushnumber(L,lret);
@@ -707,15 +669,13 @@ public:
 	// int sgt::box2i::ymax()
 	static int _bind_getYmax(lua_State *L) {
 		if (!_lg_typecheck_getYmax(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::box2i::ymax() function, expected prototype:\nint sgt::box2i::ymax()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int sgt::box2i::ymax() function, expected prototype:\nint sgt::box2i::ymax()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::box2i::ymax(). Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::box2i::ymax(). Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->ymax;
 		lua_pushnumber(L,lret);
@@ -726,16 +686,14 @@ public:
 	// void sgt::box2i::xmin(int value)
 	static int _bind_setXmin(lua_State *L) {
 		if (!_lg_typecheck_setXmin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::box2i::xmin(int value) function, expected prototype:\nvoid sgt::box2i::xmin(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::box2i::xmin(int value) function, expected prototype:\nvoid sgt::box2i::xmin(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::box2i::xmin(int). Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::box2i::xmin(int). Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->xmin = value;
 
@@ -745,16 +703,14 @@ public:
 	// void sgt::box2i::xmax(int value)
 	static int _bind_setXmax(lua_State *L) {
 		if (!_lg_typecheck_setXmax(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::box2i::xmax(int value) function, expected prototype:\nvoid sgt::box2i::xmax(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::box2i::xmax(int value) function, expected prototype:\nvoid sgt::box2i::xmax(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::box2i::xmax(int). Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::box2i::xmax(int). Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->xmax = value;
 
@@ -764,16 +720,14 @@ public:
 	// void sgt::box2i::ymin(int value)
 	static int _bind_setYmin(lua_State *L) {
 		if (!_lg_typecheck_setYmin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::box2i::ymin(int value) function, expected prototype:\nvoid sgt::box2i::ymin(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::box2i::ymin(int value) function, expected prototype:\nvoid sgt::box2i::ymin(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::box2i::ymin(int). Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::box2i::ymin(int). Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ymin = value;
 
@@ -783,16 +737,14 @@ public:
 	// void sgt::box2i::ymax(int value)
 	static int _bind_setYmax(lua_State *L) {
 		if (!_lg_typecheck_setYmax(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::box2i::ymax(int value) function, expected prototype:\nvoid sgt::box2i::ymax(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::box2i::ymax(int value) function, expected prototype:\nvoid sgt::box2i::ymax(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::box2i::ymax(int). Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::box2i::ymax(int). Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ymax = value;
 
@@ -804,8 +756,7 @@ public:
 	// bool sgt::box2i::operator==(const sgt::box2i & b) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::box2i::operator==(const sgt::box2i & b) const function, expected prototype:\nbool sgt::box2i::operator==(const sgt::box2i & b) const\nClass arguments details:\narg 1 ID = 58086945\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::box2i::operator==(const sgt::box2i & b) const function, expected prototype:\nbool sgt::box2i::operator==(const sgt::box2i & b) const\nClass arguments details:\narg 1 ID = 58086945\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::box2i* b_ptr=(Luna< sgt::box2i >::check(L,2));
@@ -816,8 +767,7 @@ public:
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::box2i::operator==(const sgt::box2i &) const. Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::box2i::operator==(const sgt::box2i &) const. Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(b);
 		lua_pushboolean(L,lret?1:0);
@@ -828,8 +778,7 @@ public:
 	// bool sgt::box2i::operator!=(const sgt::box2i & b) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::box2i::operator!=(const sgt::box2i & b) const function, expected prototype:\nbool sgt::box2i::operator!=(const sgt::box2i & b) const\nClass arguments details:\narg 1 ID = 58086945\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::box2i::operator!=(const sgt::box2i & b) const function, expected prototype:\nbool sgt::box2i::operator!=(const sgt::box2i & b) const\nClass arguments details:\narg 1 ID = 58086945\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::box2i* b_ptr=(Luna< sgt::box2i >::check(L,2));
@@ -840,8 +789,7 @@ public:
 
 		sgt::box2i* self=(Luna< sgt::box2i >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::box2i::operator!=(const sgt::box2i &) const. Got : '%s'",typeid(Luna< sgt::box2i >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::box2i::operator!=(const sgt::box2i &) const. Got : '%s'\n%s",typeid(Luna< sgt::box2i >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(b);
 		lua_pushboolean(L,lret?1:0);

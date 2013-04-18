@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::half* self= (sgt::half*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< sgt::half >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -171,8 +168,7 @@ public:
 	// sgt::half::half()
 	static sgt::half* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::half::half() function, expected prototype:\nsgt::half::half()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::half::half() function, expected prototype:\nsgt::half::half()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -182,8 +178,7 @@ public:
 	// sgt::half::half(float x)
 	static sgt::half* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::half::half(float x) function, expected prototype:\nsgt::half::half(float x)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::half::half(float x) function, expected prototype:\nsgt::half::half(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,1);
@@ -205,15 +200,13 @@ public:
 	// float sgt::half::toFloat() const
 	static int _bind_toFloat(lua_State *L) {
 		if (!_lg_typecheck_toFloat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float sgt::half::toFloat() const function, expected prototype:\nfloat sgt::half::toFloat() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float sgt::half::toFloat() const function, expected prototype:\nfloat sgt::half::toFloat() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::half* self=(Luna< sgt::half >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float sgt::half::toFloat() const. Got : '%s'",typeid(Luna< sgt::half >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float sgt::half::toFloat() const. Got : '%s'\n%s",typeid(Luna< sgt::half >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->toFloat();
 		lua_pushnumber(L,lret);
@@ -224,15 +217,13 @@ public:
 	// bool sgt::half::isNaN() const
 	static int _bind_isNaN(lua_State *L) {
 		if (!_lg_typecheck_isNaN(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::half::isNaN() const function, expected prototype:\nbool sgt::half::isNaN() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::half::isNaN() const function, expected prototype:\nbool sgt::half::isNaN() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::half* self=(Luna< sgt::half >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::half::isNaN() const. Got : '%s'",typeid(Luna< sgt::half >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::half::isNaN() const. Got : '%s'\n%s",typeid(Luna< sgt::half >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isNaN();
 		lua_pushboolean(L,lret?1:0);
@@ -243,15 +234,13 @@ public:
 	// bool sgt::half::isFinite() const
 	static int _bind_isFinite(lua_State *L) {
 		if (!_lg_typecheck_isFinite(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::half::isFinite() const function, expected prototype:\nbool sgt::half::isFinite() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::half::isFinite() const function, expected prototype:\nbool sgt::half::isFinite() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::half* self=(Luna< sgt::half >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::half::isFinite() const. Got : '%s'",typeid(Luna< sgt::half >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::half::isFinite() const. Got : '%s'\n%s",typeid(Luna< sgt::half >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isFinite();
 		lua_pushboolean(L,lret?1:0);
@@ -262,15 +251,13 @@ public:
 	// bool sgt::half::isInf() const
 	static int _bind_isInf(lua_State *L) {
 		if (!_lg_typecheck_isInf(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::half::isInf() const function, expected prototype:\nbool sgt::half::isInf() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::half::isInf() const function, expected prototype:\nbool sgt::half::isInf() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::half* self=(Luna< sgt::half >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::half::isInf() const. Got : '%s'",typeid(Luna< sgt::half >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::half::isInf() const. Got : '%s'\n%s",typeid(Luna< sgt::half >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isInf();
 		lua_pushboolean(L,lret?1:0);
@@ -281,15 +268,13 @@ public:
 	// bool sgt::half::isNormal() const
 	static int _bind_isNormal(lua_State *L) {
 		if (!_lg_typecheck_isNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::half::isNormal() const function, expected prototype:\nbool sgt::half::isNormal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::half::isNormal() const function, expected prototype:\nbool sgt::half::isNormal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::half* self=(Luna< sgt::half >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::half::isNormal() const. Got : '%s'",typeid(Luna< sgt::half >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::half::isNormal() const. Got : '%s'\n%s",typeid(Luna< sgt::half >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isNormal();
 		lua_pushboolean(L,lret?1:0);
@@ -302,8 +287,7 @@ public:
 	// sgt::half sgt::half::operator==(const sgt::half v) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::half sgt::half::operator==(const sgt::half v) const function, expected prototype:\nsgt::half sgt::half::operator==(const sgt::half v) const\nClass arguments details:\narg 1 ID = 31071002\n");
+			luaL_error(L, "luna typecheck failed in sgt::half sgt::half::operator==(const sgt::half v) const function, expected prototype:\nsgt::half sgt::half::operator==(const sgt::half v) const\nClass arguments details:\narg 1 ID = 31071002\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::half* v_ptr=(Luna< sgt::half >::check(L,2));
@@ -314,8 +298,7 @@ public:
 
 		sgt::half* self=(Luna< sgt::half >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::half sgt::half::operator==(const sgt::half) const. Got : '%s'",typeid(Luna< sgt::half >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::half sgt::half::operator==(const sgt::half) const. Got : '%s'\n%s",typeid(Luna< sgt::half >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::half stack_lret = self->operator==(v);
 		sgt::half* lret = new sgt::half(stack_lret);
@@ -329,8 +312,7 @@ public:
 	// bool sgt::half::operator!=(const sgt::half v) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::half::operator!=(const sgt::half v) const function, expected prototype:\nbool sgt::half::operator!=(const sgt::half v) const\nClass arguments details:\narg 1 ID = 31071002\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::half::operator!=(const sgt::half v) const function, expected prototype:\nbool sgt::half::operator!=(const sgt::half v) const\nClass arguments details:\narg 1 ID = 31071002\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::half* v_ptr=(Luna< sgt::half >::check(L,2));
@@ -341,8 +323,7 @@ public:
 
 		sgt::half* self=(Luna< sgt::half >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::half::operator!=(const sgt::half) const. Got : '%s'",typeid(Luna< sgt::half >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::half::operator!=(const sgt::half) const. Got : '%s'\n%s",typeid(Luna< sgt::half >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(v);
 		lua_pushboolean(L,lret?1:0);
@@ -353,8 +334,7 @@ public:
 	// sgt::half sgt::half::operator+(const sgt::half v) const
 	static int _bind___add(lua_State *L) {
 		if (!_lg_typecheck___add(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::half sgt::half::operator+(const sgt::half v) const function, expected prototype:\nsgt::half sgt::half::operator+(const sgt::half v) const\nClass arguments details:\narg 1 ID = 31071002\n");
+			luaL_error(L, "luna typecheck failed in sgt::half sgt::half::operator+(const sgt::half v) const function, expected prototype:\nsgt::half sgt::half::operator+(const sgt::half v) const\nClass arguments details:\narg 1 ID = 31071002\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::half* v_ptr=(Luna< sgt::half >::check(L,2));
@@ -365,8 +345,7 @@ public:
 
 		sgt::half* self=(Luna< sgt::half >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::half sgt::half::operator+(const sgt::half) const. Got : '%s'",typeid(Luna< sgt::half >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::half sgt::half::operator+(const sgt::half) const. Got : '%s'\n%s",typeid(Luna< sgt::half >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::half stack_lret = self->operator+(v);
 		sgt::half* lret = new sgt::half(stack_lret);
@@ -380,8 +359,7 @@ public:
 	// sgt::half sgt::half::operator-(const sgt::half v) const
 	static int _bind___sub(lua_State *L) {
 		if (!_lg_typecheck___sub(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::half sgt::half::operator-(const sgt::half v) const function, expected prototype:\nsgt::half sgt::half::operator-(const sgt::half v) const\nClass arguments details:\narg 1 ID = 31071002\n");
+			luaL_error(L, "luna typecheck failed in sgt::half sgt::half::operator-(const sgt::half v) const function, expected prototype:\nsgt::half sgt::half::operator-(const sgt::half v) const\nClass arguments details:\narg 1 ID = 31071002\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::half* v_ptr=(Luna< sgt::half >::check(L,2));
@@ -392,8 +370,7 @@ public:
 
 		sgt::half* self=(Luna< sgt::half >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::half sgt::half::operator-(const sgt::half) const. Got : '%s'",typeid(Luna< sgt::half >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::half sgt::half::operator-(const sgt::half) const. Got : '%s'\n%s",typeid(Luna< sgt::half >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::half stack_lret = self->operator-(v);
 		sgt::half* lret = new sgt::half(stack_lret);
@@ -407,8 +384,7 @@ public:
 	// sgt::half sgt::half::operator*(const sgt::half v) const
 	static int _bind___mul(lua_State *L) {
 		if (!_lg_typecheck___mul(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::half sgt::half::operator*(const sgt::half v) const function, expected prototype:\nsgt::half sgt::half::operator*(const sgt::half v) const\nClass arguments details:\narg 1 ID = 31071002\n");
+			luaL_error(L, "luna typecheck failed in sgt::half sgt::half::operator*(const sgt::half v) const function, expected prototype:\nsgt::half sgt::half::operator*(const sgt::half v) const\nClass arguments details:\narg 1 ID = 31071002\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::half* v_ptr=(Luna< sgt::half >::check(L,2));
@@ -419,8 +395,7 @@ public:
 
 		sgt::half* self=(Luna< sgt::half >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::half sgt::half::operator*(const sgt::half) const. Got : '%s'",typeid(Luna< sgt::half >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::half sgt::half::operator*(const sgt::half) const. Got : '%s'\n%s",typeid(Luna< sgt::half >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::half stack_lret = self->operator*(v);
 		sgt::half* lret = new sgt::half(stack_lret);
@@ -434,8 +409,7 @@ public:
 	// sgt::half sgt::half::operator/(const sgt::half v) const
 	static int _bind___div(lua_State *L) {
 		if (!_lg_typecheck___div(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::half sgt::half::operator/(const sgt::half v) const function, expected prototype:\nsgt::half sgt::half::operator/(const sgt::half v) const\nClass arguments details:\narg 1 ID = 31071002\n");
+			luaL_error(L, "luna typecheck failed in sgt::half sgt::half::operator/(const sgt::half v) const function, expected prototype:\nsgt::half sgt::half::operator/(const sgt::half v) const\nClass arguments details:\narg 1 ID = 31071002\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const sgt::half* v_ptr=(Luna< sgt::half >::check(L,2));
@@ -446,8 +420,7 @@ public:
 
 		sgt::half* self=(Luna< sgt::half >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::half sgt::half::operator/(const sgt::half) const. Got : '%s'",typeid(Luna< sgt::half >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call sgt::half sgt::half::operator/(const sgt::half) const. Got : '%s'\n%s",typeid(Luna< sgt::half >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::half stack_lret = self->operator/(v);
 		sgt::half* lret = new sgt::half(stack_lret);

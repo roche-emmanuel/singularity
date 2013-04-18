@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::Task* self= (sgt::Task*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -302,8 +299,7 @@ public:
 	// sgt::Task::Task(const char * type, bool gpuTask, unsigned int deadline)
 	static sgt::Task* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::Task::Task(const char * type, bool gpuTask, unsigned int deadline) function, expected prototype:\nsgt::Task::Task(const char * type, bool gpuTask, unsigned int deadline)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::Task::Task(const char * type, bool gpuTask, unsigned int deadline) function, expected prototype:\nsgt::Task::Task(const char * type, bool gpuTask, unsigned int deadline)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * type=(const char *)lua_tostring(L,1);
@@ -316,8 +312,7 @@ public:
 	// sgt::Task::Task(lua_Table * data, const char * type, bool gpuTask, unsigned int deadline)
 	static sgt::Task* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::Task::Task(lua_Table * data, const char * type, bool gpuTask, unsigned int deadline) function, expected prototype:\nsgt::Task::Task(lua_Table * data, const char * type, bool gpuTask, unsigned int deadline)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::Task::Task(lua_Table * data, const char * type, bool gpuTask, unsigned int deadline) function, expected prototype:\nsgt::Task::Task(lua_Table * data, const char * type, bool gpuTask, unsigned int deadline)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * type=(const char *)lua_tostring(L,2);
@@ -341,15 +336,13 @@ public:
 	// void * sgt::Task::getContext() const
 	static int _bind_getContext(lua_State *L) {
 		if (!_lg_typecheck_getContext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * sgt::Task::getContext() const function, expected prototype:\nvoid * sgt::Task::getContext() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * sgt::Task::getContext() const function, expected prototype:\nvoid * sgt::Task::getContext() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * sgt::Task::getContext() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * sgt::Task::getContext() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->getContext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -362,15 +355,13 @@ public:
 	// bool sgt::Task::isGpuTask() const
 	static int _bind_isGpuTask(lua_State *L) {
 		if (!_lg_typecheck_isGpuTask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::Task::isGpuTask() const function, expected prototype:\nbool sgt::Task::isGpuTask() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::Task::isGpuTask() const function, expected prototype:\nbool sgt::Task::isGpuTask() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::Task::isGpuTask() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::Task::isGpuTask() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isGpuTask();
 		lua_pushboolean(L,lret?1:0);
@@ -381,15 +372,13 @@ public:
 	// unsigned int sgt::Task::getDeadline() const
 	static int _bind_getDeadline(lua_State *L) {
 		if (!_lg_typecheck_getDeadline(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int sgt::Task::getDeadline() const function, expected prototype:\nunsigned int sgt::Task::getDeadline() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int sgt::Task::getDeadline() const function, expected prototype:\nunsigned int sgt::Task::getDeadline() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int sgt::Task::getDeadline() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int sgt::Task::getDeadline() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getDeadline();
 		lua_pushnumber(L,lret);
@@ -400,16 +389,14 @@ public:
 	// void sgt::Task::setDeadline(unsigned int deadline)
 	static int _bind_setDeadline(lua_State *L) {
 		if (!_lg_typecheck_setDeadline(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Task::setDeadline(unsigned int deadline) function, expected prototype:\nvoid sgt::Task::setDeadline(unsigned int deadline)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Task::setDeadline(unsigned int deadline) function, expected prototype:\nvoid sgt::Task::setDeadline(unsigned int deadline)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int deadline=(unsigned int)lua_tointeger(L,2);
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Task::setDeadline(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Task::setDeadline(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDeadline(deadline);
 
@@ -419,15 +406,13 @@ public:
 	// int sgt::Task::getComplexity() const
 	static int _bind_getComplexity(lua_State *L) {
 		if (!_lg_typecheck_getComplexity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::Task::getComplexity() const function, expected prototype:\nint sgt::Task::getComplexity() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int sgt::Task::getComplexity() const function, expected prototype:\nint sgt::Task::getComplexity() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::Task::getComplexity() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::Task::getComplexity() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getComplexity();
 		lua_pushnumber(L,lret);
@@ -438,8 +423,7 @@ public:
 	// void sgt::Task::init(std::set< sgtPtr< sgt::Task > > & initialized)
 	static int _bind_init(lua_State *L) {
 		if (!_lg_typecheck_init(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Task::init(std::set< sgtPtr< sgt::Task > > & initialized) function, expected prototype:\nvoid sgt::Task::init(std::set< sgtPtr< sgt::Task > > & initialized)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Task::init(std::set< sgtPtr< sgt::Task > > & initialized) function, expected prototype:\nvoid sgt::Task::init(std::set< sgtPtr< sgt::Task > > & initialized)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::set< sgtPtr< sgt::Task > >* initialized_ptr=(Luna< std::set< sgtPtr< sgt::Task > > >::check(L,2));
@@ -450,8 +434,7 @@ public:
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Task::init(std::set< sgtPtr< sgt::Task > > &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Task::init(std::set< sgtPtr< sgt::Task > > &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->init(initialized);
 
@@ -461,15 +444,13 @@ public:
 	// void sgt::Task::begin()
 	static int _bind_begin(lua_State *L) {
 		if (!_lg_typecheck_begin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Task::begin() function, expected prototype:\nvoid sgt::Task::begin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Task::begin() function, expected prototype:\nvoid sgt::Task::begin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Task::begin(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Task::begin(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->begin();
 
@@ -479,15 +460,13 @@ public:
 	// bool sgt::Task::run()
 	static int _bind_run(lua_State *L) {
 		if (!_lg_typecheck_run(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::Task::run() function, expected prototype:\nbool sgt::Task::run()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::Task::run() function, expected prototype:\nbool sgt::Task::run()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::Task::run(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::Task::run(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->run();
 		lua_pushboolean(L,lret?1:0);
@@ -498,15 +477,13 @@ public:
 	// void sgt::Task::end()
 	static int _bind_end(lua_State *L) {
 		if (!_lg_typecheck_end(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Task::end() function, expected prototype:\nvoid sgt::Task::end()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Task::end() function, expected prototype:\nvoid sgt::Task::end()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Task::end(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Task::end(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->end();
 
@@ -516,15 +493,13 @@ public:
 	// bool sgt::Task::isDone()
 	static int _bind_isDone(lua_State *L) {
 		if (!_lg_typecheck_isDone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::Task::isDone() function, expected prototype:\nbool sgt::Task::isDone()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::Task::isDone() function, expected prototype:\nbool sgt::Task::isDone()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::Task::isDone(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::Task::isDone(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isDone();
 		lua_pushboolean(L,lret?1:0);
@@ -535,8 +510,7 @@ public:
 	// void sgt::Task::setIsDone(bool done, unsigned int t, sgt::Task::reason r = sgt::Task::DATA_NEEDED)
 	static int _bind_setIsDone(lua_State *L) {
 		if (!_lg_typecheck_setIsDone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Task::setIsDone(bool done, unsigned int t, sgt::Task::reason r = sgt::Task::DATA_NEEDED) function, expected prototype:\nvoid sgt::Task::setIsDone(bool done, unsigned int t, sgt::Task::reason r = sgt::Task::DATA_NEEDED)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Task::setIsDone(bool done, unsigned int t, sgt::Task::reason r = sgt::Task::DATA_NEEDED) function, expected prototype:\nvoid sgt::Task::setIsDone(bool done, unsigned int t, sgt::Task::reason r = sgt::Task::DATA_NEEDED)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -547,8 +521,7 @@ public:
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Task::setIsDone(bool, unsigned int, sgt::Task::reason). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Task::setIsDone(bool, unsigned int, sgt::Task::reason). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setIsDone(done, t, r);
 
@@ -558,15 +531,13 @@ public:
 	// unsigned int sgt::Task::getCompletionDate()
 	static int _bind_getCompletionDate(lua_State *L) {
 		if (!_lg_typecheck_getCompletionDate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int sgt::Task::getCompletionDate() function, expected prototype:\nunsigned int sgt::Task::getCompletionDate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int sgt::Task::getCompletionDate() function, expected prototype:\nunsigned int sgt::Task::getCompletionDate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int sgt::Task::getCompletionDate(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int sgt::Task::getCompletionDate(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getCompletionDate();
 		lua_pushnumber(L,lret);
@@ -577,15 +548,13 @@ public:
 	// unsigned int sgt::Task::getPredecessorsCompletionDate()
 	static int _bind_getPredecessorsCompletionDate(lua_State *L) {
 		if (!_lg_typecheck_getPredecessorsCompletionDate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int sgt::Task::getPredecessorsCompletionDate() function, expected prototype:\nunsigned int sgt::Task::getPredecessorsCompletionDate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int sgt::Task::getPredecessorsCompletionDate() function, expected prototype:\nunsigned int sgt::Task::getPredecessorsCompletionDate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int sgt::Task::getPredecessorsCompletionDate(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int sgt::Task::getPredecessorsCompletionDate(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getPredecessorsCompletionDate();
 		lua_pushnumber(L,lret);
@@ -596,16 +565,14 @@ public:
 	// void sgt::Task::setPredecessorsCompletionDate(unsigned int t)
 	static int _bind_setPredecessorsCompletionDate(lua_State *L) {
 		if (!_lg_typecheck_setPredecessorsCompletionDate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Task::setPredecessorsCompletionDate(unsigned int t) function, expected prototype:\nvoid sgt::Task::setPredecessorsCompletionDate(unsigned int t)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Task::setPredecessorsCompletionDate(unsigned int t) function, expected prototype:\nvoid sgt::Task::setPredecessorsCompletionDate(unsigned int t)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int t=(unsigned int)lua_tointeger(L,2);
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Task::setPredecessorsCompletionDate(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Task::setPredecessorsCompletionDate(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPredecessorsCompletionDate(t);
 
@@ -615,15 +582,13 @@ public:
 	// float sgt::Task::getExpectedDuration()
 	static int _bind_getExpectedDuration(lua_State *L) {
 		if (!_lg_typecheck_getExpectedDuration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float sgt::Task::getExpectedDuration() function, expected prototype:\nfloat sgt::Task::getExpectedDuration()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float sgt::Task::getExpectedDuration() function, expected prototype:\nfloat sgt::Task::getExpectedDuration()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float sgt::Task::getExpectedDuration(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float sgt::Task::getExpectedDuration(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getExpectedDuration();
 		lua_pushnumber(L,lret);
@@ -634,16 +599,14 @@ public:
 	// void sgt::Task::setActualDuration(float duration)
 	static int _bind_setActualDuration(lua_State *L) {
 		if (!_lg_typecheck_setActualDuration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Task::setActualDuration(float duration) function, expected prototype:\nvoid sgt::Task::setActualDuration(float duration)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Task::setActualDuration(float duration) function, expected prototype:\nvoid sgt::Task::setActualDuration(float duration)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float duration=(float)lua_tonumber(L,2);
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Task::setActualDuration(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Task::setActualDuration(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setActualDuration(duration);
 
@@ -653,16 +616,14 @@ public:
 	// void sgt::Task::addListener(sgt::TaskListener * l)
 	static int _bind_addListener(lua_State *L) {
 		if (!_lg_typecheck_addListener(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Task::addListener(sgt::TaskListener * l) function, expected prototype:\nvoid sgt::Task::addListener(sgt::TaskListener * l)\nClass arguments details:\narg 1 ID = 16284073\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Task::addListener(sgt::TaskListener * l) function, expected prototype:\nvoid sgt::Task::addListener(sgt::TaskListener * l)\nClass arguments details:\narg 1 ID = 16284073\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::TaskListener* l=(Luna< sgt::TaskListener >::check(L,2));
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Task::addListener(sgt::TaskListener *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Task::addListener(sgt::TaskListener *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addListener(l);
 
@@ -672,16 +633,14 @@ public:
 	// void sgt::Task::removeListener(sgt::TaskListener * l)
 	static int _bind_removeListener(lua_State *L) {
 		if (!_lg_typecheck_removeListener(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Task::removeListener(sgt::TaskListener * l) function, expected prototype:\nvoid sgt::Task::removeListener(sgt::TaskListener * l)\nClass arguments details:\narg 1 ID = 16284073\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Task::removeListener(sgt::TaskListener * l) function, expected prototype:\nvoid sgt::Task::removeListener(sgt::TaskListener * l)\nClass arguments details:\narg 1 ID = 16284073\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::TaskListener* l=(Luna< sgt::TaskListener >::check(L,2));
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Task::removeListener(sgt::TaskListener *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Task::removeListener(sgt::TaskListener *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removeListener(l);
 
@@ -691,8 +650,7 @@ public:
 	// static void sgt::Task::logStatistics()
 	static int _bind_logStatistics(lua_State *L) {
 		if (!_lg_typecheck_logStatistics(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void sgt::Task::logStatistics() function, expected prototype:\nstatic void sgt::Task::logStatistics()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void sgt::Task::logStatistics() function, expected prototype:\nstatic void sgt::Task::logStatistics()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -704,15 +662,13 @@ public:
 	// void * sgt::Task::base_getContext() const
 	static int _bind_base_getContext(lua_State *L) {
 		if (!_lg_typecheck_base_getContext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * sgt::Task::base_getContext() const function, expected prototype:\nvoid * sgt::Task::base_getContext() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * sgt::Task::base_getContext() const function, expected prototype:\nvoid * sgt::Task::base_getContext() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * sgt::Task::base_getContext() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * sgt::Task::base_getContext() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->Task::getContext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -725,15 +681,13 @@ public:
 	// int sgt::Task::base_getComplexity() const
 	static int _bind_base_getComplexity(lua_State *L) {
 		if (!_lg_typecheck_base_getComplexity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::Task::base_getComplexity() const function, expected prototype:\nint sgt::Task::base_getComplexity() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int sgt::Task::base_getComplexity() const function, expected prototype:\nint sgt::Task::base_getComplexity() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::Task::base_getComplexity() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int sgt::Task::base_getComplexity() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Task::getComplexity();
 		lua_pushnumber(L,lret);
@@ -744,8 +698,7 @@ public:
 	// void sgt::Task::base_init(std::set< sgtPtr< sgt::Task > > & initialized)
 	static int _bind_base_init(lua_State *L) {
 		if (!_lg_typecheck_base_init(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Task::base_init(std::set< sgtPtr< sgt::Task > > & initialized) function, expected prototype:\nvoid sgt::Task::base_init(std::set< sgtPtr< sgt::Task > > & initialized)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Task::base_init(std::set< sgtPtr< sgt::Task > > & initialized) function, expected prototype:\nvoid sgt::Task::base_init(std::set< sgtPtr< sgt::Task > > & initialized)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::set< sgtPtr< sgt::Task > >* initialized_ptr=(Luna< std::set< sgtPtr< sgt::Task > > >::check(L,2));
@@ -756,8 +709,7 @@ public:
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Task::base_init(std::set< sgtPtr< sgt::Task > > &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Task::base_init(std::set< sgtPtr< sgt::Task > > &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Task::init(initialized);
 
@@ -767,15 +719,13 @@ public:
 	// void sgt::Task::base_begin()
 	static int _bind_base_begin(lua_State *L) {
 		if (!_lg_typecheck_base_begin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Task::base_begin() function, expected prototype:\nvoid sgt::Task::base_begin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Task::base_begin() function, expected prototype:\nvoid sgt::Task::base_begin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Task::base_begin(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Task::base_begin(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Task::begin();
 
@@ -785,15 +735,13 @@ public:
 	// bool sgt::Task::base_run()
 	static int _bind_base_run(lua_State *L) {
 		if (!_lg_typecheck_base_run(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::Task::base_run() function, expected prototype:\nbool sgt::Task::base_run()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::Task::base_run() function, expected prototype:\nbool sgt::Task::base_run()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::Task::base_run(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::Task::base_run(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Task::run();
 		lua_pushboolean(L,lret?1:0);
@@ -804,15 +752,13 @@ public:
 	// void sgt::Task::base_end()
 	static int _bind_base_end(lua_State *L) {
 		if (!_lg_typecheck_base_end(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Task::base_end() function, expected prototype:\nvoid sgt::Task::base_end()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Task::base_end() function, expected prototype:\nvoid sgt::Task::base_end()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Task::base_end(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Task::base_end(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Task::end();
 
@@ -822,15 +768,13 @@ public:
 	// bool sgt::Task::base_isDone()
 	static int _bind_base_isDone(lua_State *L) {
 		if (!_lg_typecheck_base_isDone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::Task::base_isDone() function, expected prototype:\nbool sgt::Task::base_isDone()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::Task::base_isDone() function, expected prototype:\nbool sgt::Task::base_isDone()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::Task::base_isDone(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::Task::base_isDone(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Task::isDone();
 		lua_pushboolean(L,lret?1:0);
@@ -841,8 +785,7 @@ public:
 	// void sgt::Task::base_setIsDone(bool done, unsigned int t, sgt::Task::reason r = sgt::Task::DATA_NEEDED)
 	static int _bind_base_setIsDone(lua_State *L) {
 		if (!_lg_typecheck_base_setIsDone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Task::base_setIsDone(bool done, unsigned int t, sgt::Task::reason r = sgt::Task::DATA_NEEDED) function, expected prototype:\nvoid sgt::Task::base_setIsDone(bool done, unsigned int t, sgt::Task::reason r = sgt::Task::DATA_NEEDED)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Task::base_setIsDone(bool done, unsigned int t, sgt::Task::reason r = sgt::Task::DATA_NEEDED) function, expected prototype:\nvoid sgt::Task::base_setIsDone(bool done, unsigned int t, sgt::Task::reason r = sgt::Task::DATA_NEEDED)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -853,8 +796,7 @@ public:
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Task::base_setIsDone(bool, unsigned int, sgt::Task::reason). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Task::base_setIsDone(bool, unsigned int, sgt::Task::reason). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Task::setIsDone(done, t, r);
 
@@ -864,16 +806,14 @@ public:
 	// void sgt::Task::base_setPredecessorsCompletionDate(unsigned int t)
 	static int _bind_base_setPredecessorsCompletionDate(lua_State *L) {
 		if (!_lg_typecheck_base_setPredecessorsCompletionDate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Task::base_setPredecessorsCompletionDate(unsigned int t) function, expected prototype:\nvoid sgt::Task::base_setPredecessorsCompletionDate(unsigned int t)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Task::base_setPredecessorsCompletionDate(unsigned int t) function, expected prototype:\nvoid sgt::Task::base_setPredecessorsCompletionDate(unsigned int t)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int t=(unsigned int)lua_tointeger(L,2);
 
 		sgt::Task* self=Luna< osg::Referenced >::checkSubType< sgt::Task >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Task::base_setPredecessorsCompletionDate(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Task::base_setPredecessorsCompletionDate(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Task::setPredecessorsCompletionDate(t);
 

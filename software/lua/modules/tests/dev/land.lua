@@ -252,6 +252,17 @@ function suite.test_frustum()
 	
 	assert_lt(1e-10,math.abs(fovy-fov),"Invalid fovy computation result.")
 	
+	-- compute expected fovx
+	local fovx = 2.0 * math.atan(aspect* math.tan(math.rad(fovy/2.0))); -- in radians.
+	
+	local left = planes:at(0):asVec4():xyz():normalized()
+	local right = planes:at(1):getNormal():normalized()
+	
+	local fov = math.acos(-left*right);
+
+	log:info("Tests","Testing frustum computation with fovx=",math.deg(fovx))
+	assert_lt(1e-10,math.abs(fovx-fov),"Invalid fovx computation result.")
+	
 	log:info("Done testing frustum computation")
 end
 

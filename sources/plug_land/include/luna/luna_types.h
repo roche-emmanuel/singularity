@@ -17,6 +17,8 @@
 #include <taskgraph/Scheduler.h>
 #include <taskgraph/MultithreadScheduler.h>
 #include <taskgraph/TaskGraph.h>
+#include <terrain/Deformation.h>
+#include <terrain/TerrainNode.h>
 
 // Class: std::set< sgtPtr< sgt::Task > >
 template<>
@@ -205,6 +207,44 @@ public:
 	static void _bind_dtor(sgt::SetIterator< sgtPtr< sgt::Task > >* obj);
 	typedef sgt::SetIterator< sgtPtr< sgt::Task > > parent_t;
 	typedef sgt::SetIterator< sgtPtr< sgt::Task > > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::Deformation
+template<>
+class LunaTraits< sgt::Deformation > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::Deformation* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::Deformation* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::Deformation base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::TerrainNode
+template<>
+class LunaTraits< sgt::TerrainNode > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::TerrainNode* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::TerrainNode* obj);
+	typedef sgt::TerrainNode parent_t;
+	typedef sgt::TerrainNode base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -1020,6 +1060,13 @@ template<>
 class LunaType< 76306638 > {
 public:
 	typedef sgt::TaskGraph::TaskIterator type;
+	
+};
+
+template<>
+class LunaType< 32276046 > {
+public:
+	typedef sgt::TerrainNode type;
 	
 };
 
