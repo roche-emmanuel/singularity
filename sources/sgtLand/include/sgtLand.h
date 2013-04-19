@@ -21,6 +21,9 @@
 #include <OpenThreads/Condition>
 #include <OpenThreads/Thread>
 
+#include "pmath.h"
+
 #define sgtCast(ptr,targetClass) (dynamic_cast<targetClass*>(ptr))
+
 
 #endif

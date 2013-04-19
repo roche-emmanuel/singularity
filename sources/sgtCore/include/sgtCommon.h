@@ -172,4 +172,28 @@ typedef sgt::RefPtr sgtRefPtr;
 		logERROR("Unknown exception " << msg << "."); \
 	}
 
+namespace sgt {
+
+inline std::ostream& operator<<(std::ostream& os, const osg::Vec4f& vec) {
+	os << "osg::Vec4f("<< vec.x() <<", " << vec.y() << ", " << vec.z() << ", " << vec.w() << ")";
+	return os;	
+}
+
+inline std::ostream& operator<<(std::ostream& os, const osg::Vec3f& vec) {
+	os << "osg::Vec3f("<< vec.x() <<", " << vec.y() << ", " << vec.z() << ")";
+	return os;	
+}
+
+inline std::ostream& operator<<(std::ostream& os, const osg::Vec4d& vec) {
+	os << "osg::Vec4d("<< vec.x() <<", " << vec.y() << ", " << vec.z() << ", " << vec.w() << ")";
+	return os;	
+}
+
+inline std::ostream& operator<<(std::ostream& os, const osg::Vec3d& vec) {
+	os << "osg::Vec3d("<< vec.x() <<", " << vec.y() << ", " << vec.z() << ")";
+	return os;	
+}
+
+};
+
 #endif

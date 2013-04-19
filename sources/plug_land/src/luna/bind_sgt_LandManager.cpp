@@ -121,7 +121,7 @@ public:
 	inline static bool _lg_typecheck_getFrustumPlanes(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,1,18903838) ) return false;
+		if( !Luna<void>::has_uniqueid(L,1,67824815) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,33161232) ) return false;
 		return true;
 	}
@@ -188,24 +188,24 @@ public:
 		return 0;
 	}
 
-	// static void sgt::LandManager::getFrustumPlanes(const osg::Matrixd & proj, osg::Polytope::PlaneList & planes)
+	// static void sgt::LandManager::getFrustumPlanes(const sgt::mat4d & toScreen, osg::Polytope::PlaneList & planes)
 	static int _bind_getFrustumPlanes(lua_State *L) {
 		if (!_lg_typecheck_getFrustumPlanes(L)) {
-			luaL_error(L, "luna typecheck failed in static void sgt::LandManager::getFrustumPlanes(const osg::Matrixd & proj, osg::Polytope::PlaneList & planes) function, expected prototype:\nstatic void sgt::LandManager::getFrustumPlanes(const osg::Matrixd & proj, osg::Polytope::PlaneList & planes)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in static void sgt::LandManager::getFrustumPlanes(const sgt::mat4d & toScreen, osg::Polytope::PlaneList & planes) function, expected prototype:\nstatic void sgt::LandManager::getFrustumPlanes(const sgt::mat4d & toScreen, osg::Polytope::PlaneList & planes)\nClass arguments details:\narg 1 ID = 67824815\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const osg::Matrixd* proj_ptr=(Luna< osg::Matrixd >::check(L,1));
-		if( !proj_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg proj in sgt::LandManager::getFrustumPlanes function");
+		const sgt::mat4d* toScreen_ptr=(Luna< sgt::mat4d >::check(L,1));
+		if( !toScreen_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg toScreen in sgt::LandManager::getFrustumPlanes function");
 		}
-		const osg::Matrixd & proj=*proj_ptr;
+		const sgt::mat4d & toScreen=*toScreen_ptr;
 		osg::Polytope::PlaneList* planes_ptr=(Luna< osg::Polytope::PlaneList >::check(L,2));
 		if( !planes_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg planes in sgt::LandManager::getFrustumPlanes function");
 		}
 		osg::Polytope::PlaneList & planes=*planes_ptr;
 
-		sgt::LandManager::getFrustumPlanes(proj, planes);
+		sgt::LandManager::getFrustumPlanes(toScreen, planes);
 
 		return 0;
 	}

@@ -13,6 +13,7 @@ out vec4 p;
 void main() {
     p = vec4(vertex.xy * deformation.offset.z + deformation.offset.xy, 0.0, 1.0);
     gl_Position = deformation.localToScreen * p;
+	//gl_Position = deformation.localToScreen * vec4(-500 + vertex.x*1000.0, -500 + vertex.y*1000.0,0.0,1.0);
 }
 
 #endif
@@ -25,6 +26,7 @@ layout(location=0) out vec4 data;
 void main() {
     data = vec4(vec3(0.2 + 0.2 * sin(0.1 * length(p.xy))), 1.0);
     data.r += mod(dot(floor(deformation.offset.xy / deformation.offset.z + 0.5), vec2(1.0)), 2.0);
+	//data = vec4(1.0,0.0,0.0,1.0);
 }
 
 #endif

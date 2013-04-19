@@ -50,7 +50,7 @@ function Class:applyCircleAnimation(model, radius, dur)
 end
 
 function Class:createBase(options)
-	local base = tools:createQuad()
+	local base = tools:createQuad(options)
 	self:getRoot():addChild(base)
 end
 

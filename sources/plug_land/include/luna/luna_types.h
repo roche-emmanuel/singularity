@@ -20,6 +20,45 @@
 #include <scene/LandManager.h>
 #include <terrain/Deformation.h>
 #include <terrain/TerrainNode.h>
+#include <terrain/TerrainQuad.h>
+
+// Class: osg::Uniform
+template<>
+class LunaTraits< osg::Uniform > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Uniform* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Uniform* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Uniform base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Node
+template<>
+class LunaTraits< osg::Node > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Node* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Node* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Node base_t;
+	static luna_ConverterType converters[];
+};
 
 // Class: std::set< sgtPtr< sgt::Task > >
 template<>
@@ -263,8 +302,27 @@ public:
 	static luna_RegEnumType enumValues[];
 	static sgt::TerrainNode* _bind_ctor(lua_State *L);
 	static void _bind_dtor(sgt::TerrainNode* obj);
-	typedef sgt::TerrainNode parent_t;
+	typedef osg::Referenced parent_t;
 	typedef sgt::TerrainNode base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::TerrainQuad
+template<>
+class LunaTraits< sgt::TerrainQuad > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::TerrainQuad* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::TerrainQuad* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::TerrainQuad base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -763,6 +821,82 @@ public:
 };
 
 
+// Mapped type: osg::BoundingSphere
+template<>
+class LunaTraits< osg::BoundingSphere > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::BoundingSphere* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::BoundingSphere* obj);
+	typedef osg::BoundingSphere parent_t;
+	typedef osg::BoundingSphere base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: sgtPtr< sgt::Deformation >
+template<>
+class LunaTraits< sgtPtr< sgt::Deformation > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgtPtr< sgt::Deformation >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgtPtr< sgt::Deformation >* obj);
+	typedef sgtPtr< sgt::Deformation > parent_t;
+	typedef sgtPtr< sgt::Deformation > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: sgtPtr< sgt::TerrainQuad >
+template<>
+class LunaTraits< sgtPtr< sgt::TerrainQuad > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgtPtr< sgt::TerrainQuad >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgtPtr< sgt::TerrainQuad >* obj);
+	typedef sgtPtr< sgt::TerrainQuad > parent_t;
+	typedef sgtPtr< sgt::TerrainQuad > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: sgtObserver< sgt::TerrainQuad >
+template<>
+class LunaTraits< sgtObserver< sgt::TerrainQuad > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgtObserver< sgt::TerrainQuad >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgtObserver< sgt::TerrainQuad >* obj);
+	typedef sgtObserver< sgt::TerrainQuad > parent_t;
+	typedef sgtObserver< sgt::TerrainQuad > base_t;
+	static luna_ConverterType converters[];
+};
+
 
 // Referenced external: void
 template<>
@@ -802,9 +936,9 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Referenced external: osg::Vec3d
+// Referenced external: osg::NodeVisitor
 template<>
-class LunaTraits< osg::Vec3d > {
+class LunaTraits< osg::NodeVisitor > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -814,29 +948,10 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static osg::Vec3d* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::Vec3d* obj);
-	typedef osg::Vec3d parent_t;
-	typedef osg::Vec3d base_t;
-	static luna_ConverterType converters[];
-};
-
-// Referenced external: osg::Matrixd
-template<>
-class LunaTraits< osg::Matrixd > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osg::Matrixd* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::Matrixd* obj);
-	typedef osg::Matrixd parent_t;
-	typedef osg::Matrixd base_t;
+	static osg::NodeVisitor* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::NodeVisitor* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::NodeVisitor base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -876,6 +991,77 @@ public:
 	typedef osg::Vec4d parent_t;
 	typedef osg::Vec4d base_t;
 	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Geode
+template<>
+class LunaTraits< osg::Geode > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Geode* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Geode* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Geode base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Viewport
+template<>
+class LunaTraits< osg::Viewport > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Viewport* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Viewport* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Viewport base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Matrixd
+template<>
+class LunaTraits< osg::Matrixd > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrixd* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrixd* obj);
+	typedef osg::Matrixd parent_t;
+	typedef osg::Matrixd base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaType< 80600789 > {
+public:
+	typedef osg::Uniform type;
+	
+};
+
+template<>
+class LunaType< 80168245 > {
+public:
+	typedef osg::Node type;
+	
 };
 
 template<>
@@ -1110,13 +1296,6 @@ public:
 };
 
 template<>
-class LunaType< 32276046 > {
-public:
-	typedef sgt::TerrainNode type;
-	
-};
-
-template<>
 class LunaType< 24456226 > {
 public:
 	typedef std::set< sgtPtr< sgt::Task > > type;
@@ -1138,6 +1317,34 @@ public:
 };
 
 template<>
+class LunaType< 4978620 > {
+public:
+	typedef osg::BoundingSphere type;
+	
+};
+
+template<>
+class LunaType< 6233128 > {
+public:
+	typedef sgtPtr< sgt::Deformation > type;
+	
+};
+
+template<>
+class LunaType< 59711174 > {
+public:
+	typedef sgtPtr< sgt::TerrainQuad > type;
+	
+};
+
+template<>
+class LunaType< 39952981 > {
+public:
+	typedef sgtObserver< sgt::TerrainQuad > type;
+	
+};
+
+template<>
 class LunaType< 3625364 > {
 public:
 	typedef void type;
@@ -1152,16 +1359,9 @@ public:
 };
 
 template<>
-class LunaType< 92303202 > {
+class LunaType< 49057446 > {
 public:
-	typedef osg::Vec3d type;
-	
-};
-
-template<>
-class LunaType< 18903838 > {
-public:
-	typedef osg::Matrixd type;
+	typedef osg::NodeVisitor type;
 	
 };
 
@@ -1176,6 +1376,27 @@ template<>
 class LunaType< 92303233 > {
 public:
 	typedef osg::Vec4d type;
+	
+};
+
+template<>
+class LunaType< 78463439 > {
+public:
+	typedef osg::Geode type;
+	
+};
+
+template<>
+class LunaType< 74927543 > {
+public:
+	typedef osg::Viewport type;
+	
+};
+
+template<>
+class LunaType< 18903838 > {
+public:
+	typedef osg::Matrixd type;
 	
 };
 

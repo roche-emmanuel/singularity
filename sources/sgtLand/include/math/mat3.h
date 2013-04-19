@@ -5,6 +5,7 @@
 #include "pmath.h"
 #include "math/vec3.h"
 #include "math/box3.h"
+#include <osg/Uniform>
 
 namespace sgt
 {
@@ -60,6 +61,10 @@ public:
      * Creates a new matrix as a copy of the given matrix.
      */
     mat3(const mat3& mat);
+
+	mat3(const osg::Matrix3& mat) {
+		fromMatrix3(mat);
+	}
 
     /**
      * Returns the coefficients of this matrix.
@@ -186,6 +191,24 @@ public:
             (t) m[2][0], (t)m[2][1], (t) m[2][2]
         );
     }
+
+	osg::Matrix3 toMatrix3() const {
+		return osg::Matrix3(m[0][0], m[1][0], m[2][0],
+							m[0][1], m[1][1], m[2][1],
+							m[0][2], m[1][2], m[2][2]);
+	}
+
+	void fromMatrix3(const osg::Matrix3& mat) {
+		m[0][0] = mat(0,0);
+		m[0][1] = mat(1,0);
+		m[0][2] = mat(2,0);
+		m[1][0] = mat(0,1);
+		m[1][1] = mat(1,1);
+		m[1][2] = mat(2,1);
+		m[2][0] = mat(0,2);
+		m[2][1] = mat(1,2);
+		m[2][2] = mat(2,2);
+	}
 
     /**
      * The null matrix.

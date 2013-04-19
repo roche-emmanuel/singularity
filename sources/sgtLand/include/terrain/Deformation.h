@@ -9,6 +9,7 @@
 namespace sgt {
 
 class TerrainNode;
+class TerrainQuad;
 
 class SGTLAND_EXPORT Deformation : public sgt::Object {
 public:
@@ -22,7 +23,7 @@ public:
      * @param localPt a point in the local (i.e., source) space.
      * @return the corresponding point in the deformed (i.e., destination) space.
      */
-	virtual osg::Vec3d localToDeformed(const osg::Vec3d &localPt) const;
+	virtual vec3d localToDeformed(const vec3d &localPt) const;
 
     /**
      * Returns the differential of the deformation function at the given local
@@ -36,7 +37,7 @@ public:
      * @return the differential of the deformation function at the given local
      *      point.
      */
-	virtual osg::Matrixd localToDeformedDifferential(const osg::Vec3d &localPt, bool clamp = false) const;
+	virtual mat4d localToDeformedDifferential(const vec3d &localPt, bool clamp = false) const;
 
     /**
      * Returns the local point corresponding to the given source point.
@@ -44,7 +45,7 @@ public:
      * @param deformedPt a point in the deformed (i.e., destination) space.
      * @return the corresponding point in the local (i.e., source) space.
      */
-    virtual osg::Vec3d deformedToLocal(const osg::Vec3d &deformedPt) const;
+    virtual vec3d deformedToLocal(const vec3d &deformedPt) const;
 
     /**
      * Returns the local bounding box corresponding to the given source disk.
@@ -53,7 +54,7 @@ public:
      * @param deformedRadius the source disk radius in deformed space.
      * @return the local bounding box corresponding to the given source disk.
      */
-    virtual box2f deformedToLocalBounds(const osg::Vec3d &deformedCenter, double deformedRadius) const;
+    virtual box2f deformedToLocalBounds(const vec3d &deformedCenter, double deformedRadius) const;
 
     /**
      * Returns an orthonormal reference frame of the tangent space at the given
@@ -68,7 +69,7 @@ public:
      * @param deformedPt a point in the deformed (i.e., destination) space.
      * @return the orthonormal reference frame at deformedPt defined above.
      */
-    virtual osg::Matrixd deformedToTangentFrame(const osg::Vec3d &deformedPt) const;
+    virtual mat4d deformedToTangentFrame(const vec3d &deformedPt) const;
 
     /**
      * Returns the distance in local (i.e., source) space between a point and a
@@ -77,7 +78,7 @@ public:
      * @param localPt a point in local space.
      * @param localBox a bounding box in local space.
      */
-    virtual float getLocalDist(const osg::Vec3d &localPt, const box3d &localBox) const;
+    virtual float getLocalDist(const vec3d &localPt, const box3d &localBox) const;
 
     /**
      * Returns the visibility of a bounding box in local space, in a view
@@ -91,6 +92,27 @@ public:
      * @return the visibility of the bounding box in the view frustum.
      */
     virtual LandManager::Visibility getVisibility(const TerrainNode *t, const box3d &localBox) const;
+
+	virtual void setUniforms(TerrainNode* n) const;
+	virtual void setUniforms(TerrainQuad* q) const;
+
+protected:
+    /**
+     * The transformation from camera space to screen space.
+     */
+    mutable mat4d cameraToScreen;
+
+    /**
+     * The transformation from local space to screen space.
+     */
+    mutable mat4d localToScreen;
+
+    /**
+     * The transformation from local space to tangent space (in z=0 plane).
+     */
+    mutable mat3f localToTangent;
+
+	virtual void setScreenUniforms(TerrainQuad* q) const;
 };
 
 };

@@ -74,4 +74,8 @@ LUNA_BEGIN_GETTER(osg::Matrixd)
 	return *(Luna< osg::Matrixd >::check(L,index));
 LUNA_END_GETTER(osg::Matrixd)
 
+LUNA_BEGIN_GETTER(osg::BoundingSphere)
+	return *(Luna< osg::BoundingSphere >::check(L,index));
+LUNA_END_GETTER(osg::BoundingSphere)
+
 #endif

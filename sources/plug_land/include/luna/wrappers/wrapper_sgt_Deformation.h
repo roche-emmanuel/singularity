@@ -31,46 +31,57 @@ public:
 
 
 	// Private virtual methods:
-
+protected:
 	// Protected virtual methods:
+	// void sgt::Deformation::setScreenUniforms(sgt::TerrainQuad * q) const
+	void setScreenUniforms(sgt::TerrainQuad * q) const {
+		if(_obj.pushFunction("setScreenUniforms")) {
+			_obj.pushArg((sgt::Deformation*)this);
+			_obj.pushArg(q);
+			return (_obj.callFunction<void>());
+		}
 
+		return Deformation::setScreenUniforms(q);
+	};
+
+public:
 	// Public virtual methods:
-	// osg::Vec3d sgt::Deformation::localToDeformed(const osg::Vec3d & localPt) const
-	osg::Vec3d localToDeformed(const osg::Vec3d & localPt) const {
+	// sgt::vec3d sgt::Deformation::localToDeformed(const sgt::vec3d & localPt) const
+	sgt::vec3d localToDeformed(const sgt::vec3d & localPt) const {
 		if(_obj.pushFunction("localToDeformed")) {
 			_obj.pushArg((sgt::Deformation*)this);
 			_obj.pushArg(&localPt);
-			return (_obj.callFunction<osg::Vec3d>());
+			return *(_obj.callFunction<sgt::vec3d*>());
 		}
 
 		return Deformation::localToDeformed(localPt);
 	};
 
-	// osg::Matrixd sgt::Deformation::localToDeformedDifferential(const osg::Vec3d & localPt, bool clamp = false) const
-	osg::Matrixd localToDeformedDifferential(const osg::Vec3d & localPt, bool clamp = false) const {
+	// sgt::mat4d sgt::Deformation::localToDeformedDifferential(const sgt::vec3d & localPt, bool clamp = false) const
+	sgt::mat4d localToDeformedDifferential(const sgt::vec3d & localPt, bool clamp = false) const {
 		if(_obj.pushFunction("localToDeformedDifferential")) {
 			_obj.pushArg((sgt::Deformation*)this);
 			_obj.pushArg(&localPt);
 			_obj.pushArg(clamp);
-			return (_obj.callFunction<osg::Matrixd>());
+			return *(_obj.callFunction<sgt::mat4d*>());
 		}
 
 		return Deformation::localToDeformedDifferential(localPt, clamp);
 	};
 
-	// osg::Vec3d sgt::Deformation::deformedToLocal(const osg::Vec3d & deformedPt) const
-	osg::Vec3d deformedToLocal(const osg::Vec3d & deformedPt) const {
+	// sgt::vec3d sgt::Deformation::deformedToLocal(const sgt::vec3d & deformedPt) const
+	sgt::vec3d deformedToLocal(const sgt::vec3d & deformedPt) const {
 		if(_obj.pushFunction("deformedToLocal")) {
 			_obj.pushArg((sgt::Deformation*)this);
 			_obj.pushArg(&deformedPt);
-			return (_obj.callFunction<osg::Vec3d>());
+			return *(_obj.callFunction<sgt::vec3d*>());
 		}
 
 		return Deformation::deformedToLocal(deformedPt);
 	};
 
-	// sgt::box2f sgt::Deformation::deformedToLocalBounds(const osg::Vec3d & deformedCenter, double deformedRadius) const
-	sgt::box2f deformedToLocalBounds(const osg::Vec3d & deformedCenter, double deformedRadius) const {
+	// sgt::box2f sgt::Deformation::deformedToLocalBounds(const sgt::vec3d & deformedCenter, double deformedRadius) const
+	sgt::box2f deformedToLocalBounds(const sgt::vec3d & deformedCenter, double deformedRadius) const {
 		if(_obj.pushFunction("deformedToLocalBounds")) {
 			_obj.pushArg((sgt::Deformation*)this);
 			_obj.pushArg(&deformedCenter);
@@ -81,19 +92,19 @@ public:
 		return Deformation::deformedToLocalBounds(deformedCenter, deformedRadius);
 	};
 
-	// osg::Matrixd sgt::Deformation::deformedToTangentFrame(const osg::Vec3d & deformedPt) const
-	osg::Matrixd deformedToTangentFrame(const osg::Vec3d & deformedPt) const {
+	// sgt::mat4d sgt::Deformation::deformedToTangentFrame(const sgt::vec3d & deformedPt) const
+	sgt::mat4d deformedToTangentFrame(const sgt::vec3d & deformedPt) const {
 		if(_obj.pushFunction("deformedToTangentFrame")) {
 			_obj.pushArg((sgt::Deformation*)this);
 			_obj.pushArg(&deformedPt);
-			return (_obj.callFunction<osg::Matrixd>());
+			return *(_obj.callFunction<sgt::mat4d*>());
 		}
 
 		return Deformation::deformedToTangentFrame(deformedPt);
 	};
 
-	// float sgt::Deformation::getLocalDist(const osg::Vec3d & localPt, const sgt::box3d & localBox) const
-	float getLocalDist(const osg::Vec3d & localPt, const sgt::box3d & localBox) const {
+	// float sgt::Deformation::getLocalDist(const sgt::vec3d & localPt, const sgt::box3d & localBox) const
+	float getLocalDist(const sgt::vec3d & localPt, const sgt::box3d & localBox) const {
 		if(_obj.pushFunction("getLocalDist")) {
 			_obj.pushArg((sgt::Deformation*)this);
 			_obj.pushArg(&localPt);
@@ -114,6 +125,28 @@ public:
 		}
 
 		return Deformation::getVisibility(t, localBox);
+	};
+
+	// void sgt::Deformation::setUniforms(sgt::TerrainNode * n) const
+	void setUniforms(sgt::TerrainNode * n) const {
+		if(_obj.pushFunction("setUniforms")) {
+			_obj.pushArg((sgt::Deformation*)this);
+			_obj.pushArg(n);
+			return (_obj.callFunction<void>());
+		}
+
+		return Deformation::setUniforms(n);
+	};
+
+	// void sgt::Deformation::setUniforms(sgt::TerrainQuad * q) const
+	void setUniforms(sgt::TerrainQuad * q) const {
+		if(_obj.pushFunction("setUniforms")) {
+			_obj.pushArg((sgt::Deformation*)this);
+			_obj.pushArg(q);
+			return (_obj.callFunction<void>());
+		}
+
+		return Deformation::setUniforms(q);
 	};
 
 

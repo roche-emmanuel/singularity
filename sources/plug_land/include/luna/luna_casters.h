@@ -4,6 +4,20 @@
 #include <plug_common.h>
 
 template <typename dstType>
+struct luna_caster<osg::Uniform,dstType> {
+	static inline dstType* cast(osg::Uniform* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Node,dstType> {
+	static inline dstType* cast(osg::Node* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<std::set< sgtPtr< sgt::Task > >,dstType> {
 	static inline dstType* cast(std::set< sgtPtr< sgt::Task > >* ptr) {
 		return static_cast<dstType*>(ptr);

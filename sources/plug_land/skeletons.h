@@ -13,6 +13,9 @@ class TaskStatistics {
 class TypeInfoSort {
 };
 
+namespace osg {
+};
+
 namespace sgt {
 	class box2i {
 	};
@@ -164,7 +167,10 @@ namespace sgt {
 	class Deformation: public sgt::Object {
 	};
 
-	class TerrainNode {
+	class TerrainNode: public osg::Node {
+	};
+
+	class TerrainQuad: public osg::Node {
 	};
 
 	class vec2h {

@@ -104,7 +104,7 @@ public:
 	inline static bool _lg_typecheck_localToDeformed(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76239300) ) return false;
 		return true;
 	}
 
@@ -112,7 +112,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76239300) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -120,14 +120,14 @@ public:
 	inline static bool _lg_typecheck_deformedToLocal(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76239300) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_deformedToLocalBounds(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76239300) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
@@ -135,14 +135,14 @@ public:
 	inline static bool _lg_typecheck_deformedToTangentFrame(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76239300) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getLocalDist(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76239300) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,58086971) ) return false;
 		return true;
 	}
@@ -150,15 +150,31 @@ public:
 	inline static bool _lg_typecheck_getVisibility(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,32276046)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,58086971) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUniforms_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< sgt::TerrainNode >(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUniforms_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< sgt::TerrainQuad >(L,2)) ) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_localToDeformed(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76239300) ) return false;
 		return true;
 	}
 
@@ -166,7 +182,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76239300) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -174,14 +190,14 @@ public:
 	inline static bool _lg_typecheck_base_deformedToLocal(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76239300) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_deformedToLocalBounds(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76239300) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
@@ -189,14 +205,14 @@ public:
 	inline static bool _lg_typecheck_base_deformedToTangentFrame(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76239300) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_getLocalDist(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76239300) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,58086971) ) return false;
 		return true;
 	}
@@ -204,8 +220,24 @@ public:
 	inline static bool _lg_typecheck_base_getVisibility(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,32276046)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,58086971) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setUniforms_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< sgt::TerrainNode >(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setUniforms_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< sgt::TerrainQuad >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -245,100 +277,100 @@ public:
 
 
 	// Function binds:
-	// osg::Vec3d sgt::Deformation::localToDeformed(const osg::Vec3d & localPt) const
+	// sgt::vec3d sgt::Deformation::localToDeformed(const sgt::vec3d & localPt) const
 	static int _bind_localToDeformed(lua_State *L) {
 		if (!_lg_typecheck_localToDeformed(L)) {
-			luaL_error(L, "luna typecheck failed in osg::Vec3d sgt::Deformation::localToDeformed(const osg::Vec3d & localPt) const function, expected prototype:\nosg::Vec3d sgt::Deformation::localToDeformed(const osg::Vec3d & localPt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in sgt::vec3d sgt::Deformation::localToDeformed(const sgt::vec3d & localPt) const function, expected prototype:\nsgt::vec3d sgt::Deformation::localToDeformed(const sgt::vec3d & localPt) const\nClass arguments details:\narg 1 ID = 76239300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const osg::Vec3d* localPt_ptr=(Luna< osg::Vec3d >::check(L,2));
+		const sgt::vec3d* localPt_ptr=(Luna< sgt::vec3d >::check(L,2));
 		if( !localPt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localPt in sgt::Deformation::localToDeformed function");
 		}
-		const osg::Vec3d & localPt=*localPt_ptr;
+		const sgt::vec3d & localPt=*localPt_ptr;
 
 		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call osg::Vec3d sgt::Deformation::localToDeformed(const osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call sgt::vec3d sgt::Deformation::localToDeformed(const sgt::vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		osg::Vec3d stack_lret = self->localToDeformed(localPt);
-		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
+		sgt::vec3d stack_lret = self->localToDeformed(localPt);
+		sgt::vec3d* lret = new sgt::vec3d(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::Vec3d >::push(L,lret,true);
+		Luna< sgt::vec3d >::push(L,lret,true);
 
 		return 1;
 	}
 
-	// osg::Matrixd sgt::Deformation::localToDeformedDifferential(const osg::Vec3d & localPt, bool clamp = false) const
+	// sgt::mat4d sgt::Deformation::localToDeformedDifferential(const sgt::vec3d & localPt, bool clamp = false) const
 	static int _bind_localToDeformedDifferential(lua_State *L) {
 		if (!_lg_typecheck_localToDeformedDifferential(L)) {
-			luaL_error(L, "luna typecheck failed in osg::Matrixd sgt::Deformation::localToDeformedDifferential(const osg::Vec3d & localPt, bool clamp = false) const function, expected prototype:\nosg::Matrixd sgt::Deformation::localToDeformedDifferential(const osg::Vec3d & localPt, bool clamp = false) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in sgt::mat4d sgt::Deformation::localToDeformedDifferential(const sgt::vec3d & localPt, bool clamp = false) const function, expected prototype:\nsgt::mat4d sgt::Deformation::localToDeformedDifferential(const sgt::vec3d & localPt, bool clamp = false) const\nClass arguments details:\narg 1 ID = 76239300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		const osg::Vec3d* localPt_ptr=(Luna< osg::Vec3d >::check(L,2));
+		const sgt::vec3d* localPt_ptr=(Luna< sgt::vec3d >::check(L,2));
 		if( !localPt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localPt in sgt::Deformation::localToDeformedDifferential function");
 		}
-		const osg::Vec3d & localPt=*localPt_ptr;
+		const sgt::vec3d & localPt=*localPt_ptr;
 		bool clamp=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call osg::Matrixd sgt::Deformation::localToDeformedDifferential(const osg::Vec3d &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call sgt::mat4d sgt::Deformation::localToDeformedDifferential(const sgt::vec3d &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		osg::Matrixd stack_lret = self->localToDeformedDifferential(localPt, clamp);
-		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
+		sgt::mat4d stack_lret = self->localToDeformedDifferential(localPt, clamp);
+		sgt::mat4d* lret = new sgt::mat4d(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::Matrixd >::push(L,lret,true);
+		Luna< sgt::mat4d >::push(L,lret,true);
 
 		return 1;
 	}
 
-	// osg::Vec3d sgt::Deformation::deformedToLocal(const osg::Vec3d & deformedPt) const
+	// sgt::vec3d sgt::Deformation::deformedToLocal(const sgt::vec3d & deformedPt) const
 	static int _bind_deformedToLocal(lua_State *L) {
 		if (!_lg_typecheck_deformedToLocal(L)) {
-			luaL_error(L, "luna typecheck failed in osg::Vec3d sgt::Deformation::deformedToLocal(const osg::Vec3d & deformedPt) const function, expected prototype:\nosg::Vec3d sgt::Deformation::deformedToLocal(const osg::Vec3d & deformedPt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in sgt::vec3d sgt::Deformation::deformedToLocal(const sgt::vec3d & deformedPt) const function, expected prototype:\nsgt::vec3d sgt::Deformation::deformedToLocal(const sgt::vec3d & deformedPt) const\nClass arguments details:\narg 1 ID = 76239300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const osg::Vec3d* deformedPt_ptr=(Luna< osg::Vec3d >::check(L,2));
+		const sgt::vec3d* deformedPt_ptr=(Luna< sgt::vec3d >::check(L,2));
 		if( !deformedPt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg deformedPt in sgt::Deformation::deformedToLocal function");
 		}
-		const osg::Vec3d & deformedPt=*deformedPt_ptr;
+		const sgt::vec3d & deformedPt=*deformedPt_ptr;
 
 		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call osg::Vec3d sgt::Deformation::deformedToLocal(const osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call sgt::vec3d sgt::Deformation::deformedToLocal(const sgt::vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		osg::Vec3d stack_lret = self->deformedToLocal(deformedPt);
-		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
+		sgt::vec3d stack_lret = self->deformedToLocal(deformedPt);
+		sgt::vec3d* lret = new sgt::vec3d(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::Vec3d >::push(L,lret,true);
+		Luna< sgt::vec3d >::push(L,lret,true);
 
 		return 1;
 	}
 
-	// sgt::box2f sgt::Deformation::deformedToLocalBounds(const osg::Vec3d & deformedCenter, double deformedRadius) const
+	// sgt::box2f sgt::Deformation::deformedToLocalBounds(const sgt::vec3d & deformedCenter, double deformedRadius) const
 	static int _bind_deformedToLocalBounds(lua_State *L) {
 		if (!_lg_typecheck_deformedToLocalBounds(L)) {
-			luaL_error(L, "luna typecheck failed in sgt::box2f sgt::Deformation::deformedToLocalBounds(const osg::Vec3d & deformedCenter, double deformedRadius) const function, expected prototype:\nsgt::box2f sgt::Deformation::deformedToLocalBounds(const osg::Vec3d & deformedCenter, double deformedRadius) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in sgt::box2f sgt::Deformation::deformedToLocalBounds(const sgt::vec3d & deformedCenter, double deformedRadius) const function, expected prototype:\nsgt::box2f sgt::Deformation::deformedToLocalBounds(const sgt::vec3d & deformedCenter, double deformedRadius) const\nClass arguments details:\narg 1 ID = 76239300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const osg::Vec3d* deformedCenter_ptr=(Luna< osg::Vec3d >::check(L,2));
+		const sgt::vec3d* deformedCenter_ptr=(Luna< sgt::vec3d >::check(L,2));
 		if( !deformedCenter_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg deformedCenter in sgt::Deformation::deformedToLocalBounds function");
 		}
-		const osg::Vec3d & deformedCenter=*deformedCenter_ptr;
+		const sgt::vec3d & deformedCenter=*deformedCenter_ptr;
 		double deformedRadius=(double)lua_tonumber(L,3);
 
 		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call sgt::box2f sgt::Deformation::deformedToLocalBounds(const osg::Vec3d &, double) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call sgt::box2f sgt::Deformation::deformedToLocalBounds(const sgt::vec3d &, double) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::box2f stack_lret = self->deformedToLocalBounds(deformedCenter, deformedRadius);
 		sgt::box2f* lret = new sgt::box2f(stack_lret);
@@ -349,42 +381,42 @@ public:
 		return 1;
 	}
 
-	// osg::Matrixd sgt::Deformation::deformedToTangentFrame(const osg::Vec3d & deformedPt) const
+	// sgt::mat4d sgt::Deformation::deformedToTangentFrame(const sgt::vec3d & deformedPt) const
 	static int _bind_deformedToTangentFrame(lua_State *L) {
 		if (!_lg_typecheck_deformedToTangentFrame(L)) {
-			luaL_error(L, "luna typecheck failed in osg::Matrixd sgt::Deformation::deformedToTangentFrame(const osg::Vec3d & deformedPt) const function, expected prototype:\nosg::Matrixd sgt::Deformation::deformedToTangentFrame(const osg::Vec3d & deformedPt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in sgt::mat4d sgt::Deformation::deformedToTangentFrame(const sgt::vec3d & deformedPt) const function, expected prototype:\nsgt::mat4d sgt::Deformation::deformedToTangentFrame(const sgt::vec3d & deformedPt) const\nClass arguments details:\narg 1 ID = 76239300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const osg::Vec3d* deformedPt_ptr=(Luna< osg::Vec3d >::check(L,2));
+		const sgt::vec3d* deformedPt_ptr=(Luna< sgt::vec3d >::check(L,2));
 		if( !deformedPt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg deformedPt in sgt::Deformation::deformedToTangentFrame function");
 		}
-		const osg::Vec3d & deformedPt=*deformedPt_ptr;
+		const sgt::vec3d & deformedPt=*deformedPt_ptr;
 
 		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call osg::Matrixd sgt::Deformation::deformedToTangentFrame(const osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call sgt::mat4d sgt::Deformation::deformedToTangentFrame(const sgt::vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		osg::Matrixd stack_lret = self->deformedToTangentFrame(deformedPt);
-		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
+		sgt::mat4d stack_lret = self->deformedToTangentFrame(deformedPt);
+		sgt::mat4d* lret = new sgt::mat4d(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::Matrixd >::push(L,lret,true);
+		Luna< sgt::mat4d >::push(L,lret,true);
 
 		return 1;
 	}
 
-	// float sgt::Deformation::getLocalDist(const osg::Vec3d & localPt, const sgt::box3d & localBox) const
+	// float sgt::Deformation::getLocalDist(const sgt::vec3d & localPt, const sgt::box3d & localBox) const
 	static int _bind_getLocalDist(lua_State *L) {
 		if (!_lg_typecheck_getLocalDist(L)) {
-			luaL_error(L, "luna typecheck failed in float sgt::Deformation::getLocalDist(const osg::Vec3d & localPt, const sgt::box3d & localBox) const function, expected prototype:\nfloat sgt::Deformation::getLocalDist(const osg::Vec3d & localPt, const sgt::box3d & localBox) const\nClass arguments details:\narg 2 ID = 58086971\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in float sgt::Deformation::getLocalDist(const sgt::vec3d & localPt, const sgt::box3d & localBox) const function, expected prototype:\nfloat sgt::Deformation::getLocalDist(const sgt::vec3d & localPt, const sgt::box3d & localBox) const\nClass arguments details:\narg 1 ID = 76239300\narg 2 ID = 58086971\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const osg::Vec3d* localPt_ptr=(Luna< osg::Vec3d >::check(L,2));
+		const sgt::vec3d* localPt_ptr=(Luna< sgt::vec3d >::check(L,2));
 		if( !localPt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localPt in sgt::Deformation::getLocalDist function");
 		}
-		const osg::Vec3d & localPt=*localPt_ptr;
+		const sgt::vec3d & localPt=*localPt_ptr;
 		const sgt::box3d* localBox_ptr=(Luna< sgt::box3d >::check(L,3));
 		if( !localBox_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localBox in sgt::Deformation::getLocalDist function");
@@ -393,7 +425,7 @@ public:
 
 		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call float sgt::Deformation::getLocalDist(const osg::Vec3d &, const sgt::box3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call float sgt::Deformation::getLocalDist(const sgt::vec3d &, const sgt::box3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getLocalDist(localPt, localBox);
 		lua_pushnumber(L,lret);
@@ -404,10 +436,10 @@ public:
 	// sgt::LandManager::Visibility sgt::Deformation::getVisibility(const sgt::TerrainNode * t, const sgt::box3d & localBox) const
 	static int _bind_getVisibility(lua_State *L) {
 		if (!_lg_typecheck_getVisibility(L)) {
-			luaL_error(L, "luna typecheck failed in sgt::LandManager::Visibility sgt::Deformation::getVisibility(const sgt::TerrainNode * t, const sgt::box3d & localBox) const function, expected prototype:\nsgt::LandManager::Visibility sgt::Deformation::getVisibility(const sgt::TerrainNode * t, const sgt::box3d & localBox) const\nClass arguments details:\narg 1 ID = 32276046\narg 2 ID = 58086971\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in sgt::LandManager::Visibility sgt::Deformation::getVisibility(const sgt::TerrainNode * t, const sgt::box3d & localBox) const function, expected prototype:\nsgt::LandManager::Visibility sgt::Deformation::getVisibility(const sgt::TerrainNode * t, const sgt::box3d & localBox) const\nClass arguments details:\narg 1 ID = 80168245\narg 2 ID = 58086971\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const sgt::TerrainNode* t=(Luna< sgt::TerrainNode >::check(L,2));
+		const sgt::TerrainNode* t=(Luna< osg::Referenced >::checkSubType< sgt::TerrainNode >(L,2));
 		const sgt::box3d* localBox_ptr=(Luna< sgt::box3d >::check(L,3));
 		if( !localBox_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localBox in sgt::Deformation::getVisibility function");
@@ -424,100 +456,143 @@ public:
 		return 1;
 	}
 
-	// osg::Vec3d sgt::Deformation::base_localToDeformed(const osg::Vec3d & localPt) const
-	static int _bind_base_localToDeformed(lua_State *L) {
-		if (!_lg_typecheck_base_localToDeformed(L)) {
-			luaL_error(L, "luna typecheck failed in osg::Vec3d sgt::Deformation::base_localToDeformed(const osg::Vec3d & localPt) const function, expected prototype:\nosg::Vec3d sgt::Deformation::base_localToDeformed(const osg::Vec3d & localPt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+	// void sgt::Deformation::setUniforms(sgt::TerrainNode * n) const
+	static int _bind_setUniforms_overload_1(lua_State *L) {
+		if (!_lg_typecheck_setUniforms_overload_1(L)) {
+			luaL_error(L, "luna typecheck failed in void sgt::Deformation::setUniforms(sgt::TerrainNode * n) const function, expected prototype:\nvoid sgt::Deformation::setUniforms(sgt::TerrainNode * n) const\nClass arguments details:\narg 1 ID = 80168245\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const osg::Vec3d* localPt_ptr=(Luna< osg::Vec3d >::check(L,2));
-		if( !localPt_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg localPt in sgt::Deformation::base_localToDeformed function");
-		}
-		const osg::Vec3d & localPt=*localPt_ptr;
+		sgt::TerrainNode* n=(Luna< osg::Referenced >::checkSubType< sgt::TerrainNode >(L,2));
 
 		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call osg::Vec3d sgt::Deformation::base_localToDeformed(const osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call void sgt::Deformation::setUniforms(sgt::TerrainNode *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		osg::Vec3d stack_lret = self->Deformation::localToDeformed(localPt);
-		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
+		self->setUniforms(n);
+
+		return 0;
+	}
+
+	// void sgt::Deformation::setUniforms(sgt::TerrainQuad * q) const
+	static int _bind_setUniforms_overload_2(lua_State *L) {
+		if (!_lg_typecheck_setUniforms_overload_2(L)) {
+			luaL_error(L, "luna typecheck failed in void sgt::Deformation::setUniforms(sgt::TerrainQuad * q) const function, expected prototype:\nvoid sgt::Deformation::setUniforms(sgt::TerrainQuad * q) const\nClass arguments details:\narg 1 ID = 80168245\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		sgt::TerrainQuad* q=(Luna< osg::Referenced >::checkSubType< sgt::TerrainQuad >(L,2));
+
+		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call void sgt::Deformation::setUniforms(sgt::TerrainQuad *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		self->setUniforms(q);
+
+		return 0;
+	}
+
+	// Overload binder for sgt::Deformation::setUniforms
+	static int _bind_setUniforms(lua_State *L) {
+		if (_lg_typecheck_setUniforms_overload_1(L)) return _bind_setUniforms_overload_1(L);
+		if (_lg_typecheck_setUniforms_overload_2(L)) return _bind_setUniforms_overload_2(L);
+
+		luaL_error(L, "error in function setUniforms, cannot match any of the overloads for function setUniforms:\n  setUniforms(sgt::TerrainNode *)\n  setUniforms(sgt::TerrainQuad *)\n");
+		return 0;
+	}
+
+	// sgt::vec3d sgt::Deformation::base_localToDeformed(const sgt::vec3d & localPt) const
+	static int _bind_base_localToDeformed(lua_State *L) {
+		if (!_lg_typecheck_base_localToDeformed(L)) {
+			luaL_error(L, "luna typecheck failed in sgt::vec3d sgt::Deformation::base_localToDeformed(const sgt::vec3d & localPt) const function, expected prototype:\nsgt::vec3d sgt::Deformation::base_localToDeformed(const sgt::vec3d & localPt) const\nClass arguments details:\narg 1 ID = 76239300\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		const sgt::vec3d* localPt_ptr=(Luna< sgt::vec3d >::check(L,2));
+		if( !localPt_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg localPt in sgt::Deformation::base_localToDeformed function");
+		}
+		const sgt::vec3d & localPt=*localPt_ptr;
+
+		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call sgt::vec3d sgt::Deformation::base_localToDeformed(const sgt::vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		sgt::vec3d stack_lret = self->Deformation::localToDeformed(localPt);
+		sgt::vec3d* lret = new sgt::vec3d(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::Vec3d >::push(L,lret,true);
+		Luna< sgt::vec3d >::push(L,lret,true);
 
 		return 1;
 	}
 
-	// osg::Matrixd sgt::Deformation::base_localToDeformedDifferential(const osg::Vec3d & localPt, bool clamp = false) const
+	// sgt::mat4d sgt::Deformation::base_localToDeformedDifferential(const sgt::vec3d & localPt, bool clamp = false) const
 	static int _bind_base_localToDeformedDifferential(lua_State *L) {
 		if (!_lg_typecheck_base_localToDeformedDifferential(L)) {
-			luaL_error(L, "luna typecheck failed in osg::Matrixd sgt::Deformation::base_localToDeformedDifferential(const osg::Vec3d & localPt, bool clamp = false) const function, expected prototype:\nosg::Matrixd sgt::Deformation::base_localToDeformedDifferential(const osg::Vec3d & localPt, bool clamp = false) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in sgt::mat4d sgt::Deformation::base_localToDeformedDifferential(const sgt::vec3d & localPt, bool clamp = false) const function, expected prototype:\nsgt::mat4d sgt::Deformation::base_localToDeformedDifferential(const sgt::vec3d & localPt, bool clamp = false) const\nClass arguments details:\narg 1 ID = 76239300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		const osg::Vec3d* localPt_ptr=(Luna< osg::Vec3d >::check(L,2));
+		const sgt::vec3d* localPt_ptr=(Luna< sgt::vec3d >::check(L,2));
 		if( !localPt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localPt in sgt::Deformation::base_localToDeformedDifferential function");
 		}
-		const osg::Vec3d & localPt=*localPt_ptr;
+		const sgt::vec3d & localPt=*localPt_ptr;
 		bool clamp=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call osg::Matrixd sgt::Deformation::base_localToDeformedDifferential(const osg::Vec3d &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call sgt::mat4d sgt::Deformation::base_localToDeformedDifferential(const sgt::vec3d &, bool) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		osg::Matrixd stack_lret = self->Deformation::localToDeformedDifferential(localPt, clamp);
-		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
+		sgt::mat4d stack_lret = self->Deformation::localToDeformedDifferential(localPt, clamp);
+		sgt::mat4d* lret = new sgt::mat4d(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::Matrixd >::push(L,lret,true);
+		Luna< sgt::mat4d >::push(L,lret,true);
 
 		return 1;
 	}
 
-	// osg::Vec3d sgt::Deformation::base_deformedToLocal(const osg::Vec3d & deformedPt) const
+	// sgt::vec3d sgt::Deformation::base_deformedToLocal(const sgt::vec3d & deformedPt) const
 	static int _bind_base_deformedToLocal(lua_State *L) {
 		if (!_lg_typecheck_base_deformedToLocal(L)) {
-			luaL_error(L, "luna typecheck failed in osg::Vec3d sgt::Deformation::base_deformedToLocal(const osg::Vec3d & deformedPt) const function, expected prototype:\nosg::Vec3d sgt::Deformation::base_deformedToLocal(const osg::Vec3d & deformedPt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in sgt::vec3d sgt::Deformation::base_deformedToLocal(const sgt::vec3d & deformedPt) const function, expected prototype:\nsgt::vec3d sgt::Deformation::base_deformedToLocal(const sgt::vec3d & deformedPt) const\nClass arguments details:\narg 1 ID = 76239300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const osg::Vec3d* deformedPt_ptr=(Luna< osg::Vec3d >::check(L,2));
+		const sgt::vec3d* deformedPt_ptr=(Luna< sgt::vec3d >::check(L,2));
 		if( !deformedPt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg deformedPt in sgt::Deformation::base_deformedToLocal function");
 		}
-		const osg::Vec3d & deformedPt=*deformedPt_ptr;
+		const sgt::vec3d & deformedPt=*deformedPt_ptr;
 
 		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call osg::Vec3d sgt::Deformation::base_deformedToLocal(const osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call sgt::vec3d sgt::Deformation::base_deformedToLocal(const sgt::vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		osg::Vec3d stack_lret = self->Deformation::deformedToLocal(deformedPt);
-		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
+		sgt::vec3d stack_lret = self->Deformation::deformedToLocal(deformedPt);
+		sgt::vec3d* lret = new sgt::vec3d(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::Vec3d >::push(L,lret,true);
+		Luna< sgt::vec3d >::push(L,lret,true);
 
 		return 1;
 	}
 
-	// sgt::box2f sgt::Deformation::base_deformedToLocalBounds(const osg::Vec3d & deformedCenter, double deformedRadius) const
+	// sgt::box2f sgt::Deformation::base_deformedToLocalBounds(const sgt::vec3d & deformedCenter, double deformedRadius) const
 	static int _bind_base_deformedToLocalBounds(lua_State *L) {
 		if (!_lg_typecheck_base_deformedToLocalBounds(L)) {
-			luaL_error(L, "luna typecheck failed in sgt::box2f sgt::Deformation::base_deformedToLocalBounds(const osg::Vec3d & deformedCenter, double deformedRadius) const function, expected prototype:\nsgt::box2f sgt::Deformation::base_deformedToLocalBounds(const osg::Vec3d & deformedCenter, double deformedRadius) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in sgt::box2f sgt::Deformation::base_deformedToLocalBounds(const sgt::vec3d & deformedCenter, double deformedRadius) const function, expected prototype:\nsgt::box2f sgt::Deformation::base_deformedToLocalBounds(const sgt::vec3d & deformedCenter, double deformedRadius) const\nClass arguments details:\narg 1 ID = 76239300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const osg::Vec3d* deformedCenter_ptr=(Luna< osg::Vec3d >::check(L,2));
+		const sgt::vec3d* deformedCenter_ptr=(Luna< sgt::vec3d >::check(L,2));
 		if( !deformedCenter_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg deformedCenter in sgt::Deformation::base_deformedToLocalBounds function");
 		}
-		const osg::Vec3d & deformedCenter=*deformedCenter_ptr;
+		const sgt::vec3d & deformedCenter=*deformedCenter_ptr;
 		double deformedRadius=(double)lua_tonumber(L,3);
 
 		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call sgt::box2f sgt::Deformation::base_deformedToLocalBounds(const osg::Vec3d &, double) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call sgt::box2f sgt::Deformation::base_deformedToLocalBounds(const sgt::vec3d &, double) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		sgt::box2f stack_lret = self->Deformation::deformedToLocalBounds(deformedCenter, deformedRadius);
 		sgt::box2f* lret = new sgt::box2f(stack_lret);
@@ -528,42 +603,42 @@ public:
 		return 1;
 	}
 
-	// osg::Matrixd sgt::Deformation::base_deformedToTangentFrame(const osg::Vec3d & deformedPt) const
+	// sgt::mat4d sgt::Deformation::base_deformedToTangentFrame(const sgt::vec3d & deformedPt) const
 	static int _bind_base_deformedToTangentFrame(lua_State *L) {
 		if (!_lg_typecheck_base_deformedToTangentFrame(L)) {
-			luaL_error(L, "luna typecheck failed in osg::Matrixd sgt::Deformation::base_deformedToTangentFrame(const osg::Vec3d & deformedPt) const function, expected prototype:\nosg::Matrixd sgt::Deformation::base_deformedToTangentFrame(const osg::Vec3d & deformedPt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in sgt::mat4d sgt::Deformation::base_deformedToTangentFrame(const sgt::vec3d & deformedPt) const function, expected prototype:\nsgt::mat4d sgt::Deformation::base_deformedToTangentFrame(const sgt::vec3d & deformedPt) const\nClass arguments details:\narg 1 ID = 76239300\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const osg::Vec3d* deformedPt_ptr=(Luna< osg::Vec3d >::check(L,2));
+		const sgt::vec3d* deformedPt_ptr=(Luna< sgt::vec3d >::check(L,2));
 		if( !deformedPt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg deformedPt in sgt::Deformation::base_deformedToTangentFrame function");
 		}
-		const osg::Vec3d & deformedPt=*deformedPt_ptr;
+		const sgt::vec3d & deformedPt=*deformedPt_ptr;
 
 		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call osg::Matrixd sgt::Deformation::base_deformedToTangentFrame(const osg::Vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call sgt::mat4d sgt::Deformation::base_deformedToTangentFrame(const sgt::vec3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		osg::Matrixd stack_lret = self->Deformation::deformedToTangentFrame(deformedPt);
-		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
+		sgt::mat4d stack_lret = self->Deformation::deformedToTangentFrame(deformedPt);
+		sgt::mat4d* lret = new sgt::mat4d(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::Matrixd >::push(L,lret,true);
+		Luna< sgt::mat4d >::push(L,lret,true);
 
 		return 1;
 	}
 
-	// float sgt::Deformation::base_getLocalDist(const osg::Vec3d & localPt, const sgt::box3d & localBox) const
+	// float sgt::Deformation::base_getLocalDist(const sgt::vec3d & localPt, const sgt::box3d & localBox) const
 	static int _bind_base_getLocalDist(lua_State *L) {
 		if (!_lg_typecheck_base_getLocalDist(L)) {
-			luaL_error(L, "luna typecheck failed in float sgt::Deformation::base_getLocalDist(const osg::Vec3d & localPt, const sgt::box3d & localBox) const function, expected prototype:\nfloat sgt::Deformation::base_getLocalDist(const osg::Vec3d & localPt, const sgt::box3d & localBox) const\nClass arguments details:\narg 2 ID = 58086971\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in float sgt::Deformation::base_getLocalDist(const sgt::vec3d & localPt, const sgt::box3d & localBox) const function, expected prototype:\nfloat sgt::Deformation::base_getLocalDist(const sgt::vec3d & localPt, const sgt::box3d & localBox) const\nClass arguments details:\narg 1 ID = 76239300\narg 2 ID = 58086971\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const osg::Vec3d* localPt_ptr=(Luna< osg::Vec3d >::check(L,2));
+		const sgt::vec3d* localPt_ptr=(Luna< sgt::vec3d >::check(L,2));
 		if( !localPt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localPt in sgt::Deformation::base_getLocalDist function");
 		}
-		const osg::Vec3d & localPt=*localPt_ptr;
+		const sgt::vec3d & localPt=*localPt_ptr;
 		const sgt::box3d* localBox_ptr=(Luna< sgt::box3d >::check(L,3));
 		if( !localBox_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localBox in sgt::Deformation::base_getLocalDist function");
@@ -572,7 +647,7 @@ public:
 
 		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call float sgt::Deformation::base_getLocalDist(const osg::Vec3d &, const sgt::box3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call float sgt::Deformation::base_getLocalDist(const sgt::vec3d &, const sgt::box3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->Deformation::getLocalDist(localPt, localBox);
 		lua_pushnumber(L,lret);
@@ -583,10 +658,10 @@ public:
 	// sgt::LandManager::Visibility sgt::Deformation::base_getVisibility(const sgt::TerrainNode * t, const sgt::box3d & localBox) const
 	static int _bind_base_getVisibility(lua_State *L) {
 		if (!_lg_typecheck_base_getVisibility(L)) {
-			luaL_error(L, "luna typecheck failed in sgt::LandManager::Visibility sgt::Deformation::base_getVisibility(const sgt::TerrainNode * t, const sgt::box3d & localBox) const function, expected prototype:\nsgt::LandManager::Visibility sgt::Deformation::base_getVisibility(const sgt::TerrainNode * t, const sgt::box3d & localBox) const\nClass arguments details:\narg 1 ID = 32276046\narg 2 ID = 58086971\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in sgt::LandManager::Visibility sgt::Deformation::base_getVisibility(const sgt::TerrainNode * t, const sgt::box3d & localBox) const function, expected prototype:\nsgt::LandManager::Visibility sgt::Deformation::base_getVisibility(const sgt::TerrainNode * t, const sgt::box3d & localBox) const\nClass arguments details:\narg 1 ID = 80168245\narg 2 ID = 58086971\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const sgt::TerrainNode* t=(Luna< sgt::TerrainNode >::check(L,2));
+		const sgt::TerrainNode* t=(Luna< osg::Referenced >::checkSubType< sgt::TerrainNode >(L,2));
 		const sgt::box3d* localBox_ptr=(Luna< sgt::box3d >::check(L,3));
 		if( !localBox_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localBox in sgt::Deformation::base_getVisibility function");
@@ -601,6 +676,49 @@ public:
 		lua_pushnumber(L,lret);
 
 		return 1;
+	}
+
+	// void sgt::Deformation::base_setUniforms(sgt::TerrainNode * n) const
+	static int _bind_base_setUniforms_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_setUniforms_overload_1(L)) {
+			luaL_error(L, "luna typecheck failed in void sgt::Deformation::base_setUniforms(sgt::TerrainNode * n) const function, expected prototype:\nvoid sgt::Deformation::base_setUniforms(sgt::TerrainNode * n) const\nClass arguments details:\narg 1 ID = 80168245\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		sgt::TerrainNode* n=(Luna< osg::Referenced >::checkSubType< sgt::TerrainNode >(L,2));
+
+		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call void sgt::Deformation::base_setUniforms(sgt::TerrainNode *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		self->Deformation::setUniforms(n);
+
+		return 0;
+	}
+
+	// void sgt::Deformation::base_setUniforms(sgt::TerrainQuad * q) const
+	static int _bind_base_setUniforms_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_setUniforms_overload_2(L)) {
+			luaL_error(L, "luna typecheck failed in void sgt::Deformation::base_setUniforms(sgt::TerrainQuad * q) const function, expected prototype:\nvoid sgt::Deformation::base_setUniforms(sgt::TerrainQuad * q) const\nClass arguments details:\narg 1 ID = 80168245\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		sgt::TerrainQuad* q=(Luna< osg::Referenced >::checkSubType< sgt::TerrainQuad >(L,2));
+
+		sgt::Deformation* self=Luna< osg::Referenced >::checkSubType< sgt::Deformation >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call void sgt::Deformation::base_setUniforms(sgt::TerrainQuad *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		self->Deformation::setUniforms(q);
+
+		return 0;
+	}
+
+	// Overload binder for sgt::Deformation::base_setUniforms
+	static int _bind_base_setUniforms(lua_State *L) {
+		if (_lg_typecheck_base_setUniforms_overload_1(L)) return _bind_base_setUniforms_overload_1(L);
+		if (_lg_typecheck_base_setUniforms_overload_2(L)) return _bind_base_setUniforms_overload_2(L);
+
+		luaL_error(L, "error in function base_setUniforms, cannot match any of the overloads for function base_setUniforms:\n  base_setUniforms(sgt::TerrainNode *)\n  base_setUniforms(sgt::TerrainQuad *)\n");
+		return 0;
 	}
 
 
@@ -631,6 +749,7 @@ luna_RegType LunaTraits< sgt::Deformation >::methods[] = {
 	{"deformedToTangentFrame", &luna_wrapper_sgt_Deformation::_bind_deformedToTangentFrame},
 	{"getLocalDist", &luna_wrapper_sgt_Deformation::_bind_getLocalDist},
 	{"getVisibility", &luna_wrapper_sgt_Deformation::_bind_getVisibility},
+	{"setUniforms", &luna_wrapper_sgt_Deformation::_bind_setUniforms},
 	{"base_localToDeformed", &luna_wrapper_sgt_Deformation::_bind_base_localToDeformed},
 	{"base_localToDeformedDifferential", &luna_wrapper_sgt_Deformation::_bind_base_localToDeformedDifferential},
 	{"base_deformedToLocal", &luna_wrapper_sgt_Deformation::_bind_base_deformedToLocal},
@@ -638,6 +757,7 @@ luna_RegType LunaTraits< sgt::Deformation >::methods[] = {
 	{"base_deformedToTangentFrame", &luna_wrapper_sgt_Deformation::_bind_base_deformedToTangentFrame},
 	{"base_getLocalDist", &luna_wrapper_sgt_Deformation::_bind_base_getLocalDist},
 	{"base_getVisibility", &luna_wrapper_sgt_Deformation::_bind_base_getVisibility},
+	{"base_setUniforms", &luna_wrapper_sgt_Deformation::_bind_base_setUniforms},
 	{"fromVoid", &luna_wrapper_sgt_Deformation::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_sgt_Deformation::_bind_asVoid},
 	{"getTable", &luna_wrapper_sgt_Deformation::_bind_getTable},

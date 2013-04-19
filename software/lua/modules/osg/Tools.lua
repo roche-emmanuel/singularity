@@ -326,6 +326,7 @@ function Class:createQuad(options)
 	local center = options.center or osg.Vec3(0.0,0.0,-3.0)
 	local width = options.width or 100.0
 	local height = options.height or 100.0
+	local offset = options.zoffset or 0.0
 	
 	local geode = osg.Geode()
 	if options.parent then
@@ -339,10 +340,10 @@ function Class:createQuad(options)
 	local vertices = osg.Vec3Array();
 	geom:setVertexArray(vertices);
 
-	vertices:push_back(center + osg.Vec3(-width/2.0,-height/2.0,0.0))
-	vertices:push_back(center + osg.Vec3(width/2.0,-height/2.0,0.0))
-	vertices:push_back(center + osg.Vec3(-width/2.0,height/2.0,0.0))
-	vertices:push_back(center + osg.Vec3(width/2.0,height/2.0,0.0))
+	vertices:push_back(center + osg.Vec3(-width/2.0,-height/2.0,offset))
+	vertices:push_back(center + osg.Vec3(width/2.0,-height/2.0,offset))
+	vertices:push_back(center + osg.Vec3(-width/2.0,height/2.0,offset))
+	vertices:push_back(center + osg.Vec3(width/2.0,height/2.0,offset))
 		
     local colors = osg.Vec4Array()
     colors:push_back(osg.Vec4f(0.0,0.0,1.0,1.0));

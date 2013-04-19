@@ -26,6 +26,7 @@ int PLUG_EXPORT luaopen_land(lua_State* L) {
 	Luna< sgt::LandManager >::Register(L);
 	Luna< sgt::Deformation >::Register(L);
 	Luna< sgt::TerrainNode >::Register(L);
+	Luna< sgt::TerrainQuad >::Register(L);
 	Luna< sgt::vec2h >::Register(L);
 	Luna< sgt::vec2f >::Register(L);
 	Luna< sgt::vec2d >::Register(L);
@@ -52,6 +53,12 @@ int PLUG_EXPORT luaopen_land(lua_State* L) {
 	Luna< sgt::mat4d >::Register(L);
 	Luna< sgt::quatf >::Register(L);
 	Luna< sgt::quatd >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"land");
+	Luna< osg::BoundingSphere >::Register(L);
+	Luna< sgtPtr< sgt::Deformation > >::Register(L);
+	Luna< sgtPtr< sgt::TerrainQuad > >::Register(L);
+	Luna< sgtObserver< sgt::TerrainQuad > >::Register(L);
 	luna_popModule(L);
 
 	luna_pushModule(L,"land");

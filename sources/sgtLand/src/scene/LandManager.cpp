@@ -66,9 +66,8 @@ LandManager::Visibility LandManager::getVisibility(const osg::Vec4d& clip, const
 	return PARTIALLY_VISIBLE;
 }
 
-void LandManager::getFrustumPlanes(const osg::Matrixd &proj, osg::Polytope::PlaneList& planes)
+void LandManager::getFrustumPlanes(const mat4d &toScreen, osg::Polytope::PlaneList& planes)
 {
-	mat4d toScreen(proj);
 	const double *m = toScreen.coefficients();
 	planes.clear();
 

@@ -269,6 +269,18 @@ public:
     static const mat4 IDENTITY;
 };
 
+
+template<typename type>
+std::ostream& operator<<(std::ostream& os, const mat4<type>& matrix) {
+	const type* c = matrix.coefficients();
+	os << "{\n";
+	os << "  " << c[0] <<", " << c[1] <<", " << c[2] <<", " << c[3] <<",\n";
+	os << "  " << c[4] <<", " << c[5] <<", " << c[6] <<", " << c[7] <<",\n";
+	os << "  " << c[8] <<", " << c[9] <<", " << c[10] <<", " << c[11] <<",\n";
+	os << "  " << c[12] <<", " << c[13] <<", " << c[14] <<", " << c[15] <<"}\n";
+	return os;	
+}
+
 /**
  * A 4x4 matrix with float components.
  * @ingroup math

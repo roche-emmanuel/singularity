@@ -313,3 +313,10 @@ QUAT_CLASS(quatf,float,vec3f,mat4f,mat3f);
 QUAT_CLASS(quatd,double,vec3d,mat4d,mat3d);
 
 };
+
+namespace osg {
+
+class Uniform {};
+class Node {};
+
+};
