@@ -19,6 +19,7 @@ ReflectionGenerator.generate{
 		land="sgt",
 	},
 	ignoreFunctions={
+		"CPUBuffer::CPUBuffer%(",
 	},
 	ignoreClasses={
 	},
@@ -49,6 +50,7 @@ ReflectionGenerator.generate{
 		"sgt::mat4< double >",		
 		"sgt::quat< float >",
 		"sgt::quat< double >",		
+		"std::pair< int, std::pair< int, std::pair< int, int > > >",		
 	},
 	ignoreConverters={},
 	ignoreHeaders = { "helpers%.h" },

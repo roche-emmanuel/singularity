@@ -48,6 +48,12 @@ const char LunaTraits< osg::Vec4d >::moduleName[] = "osg";
 const int LunaTraits< osg::Vec4d >::hash = 92303233;
 const int LunaTraits< osg::Vec4d >::uniqueIDs[] = {92303233,0};
 
+const char LunaTraits< osg::Texture2D >::className[] = "Texture2D";
+const char LunaTraits< osg::Texture2D >::fullName[] = "osg::Texture2D";
+const char LunaTraits< osg::Texture2D >::moduleName[] = "osg";
+const int LunaTraits< osg::Texture2D >::hash = 71812813;
+const int LunaTraits< osg::Texture2D >::uniqueIDs[] = {50169651,0};
+
 const char LunaTraits< osg::Geode >::className[] = "Geode";
 const char LunaTraits< osg::Geode >::fullName[] = "osg::Geode";
 const char LunaTraits< osg::Geode >::moduleName[] = "osg";
@@ -59,6 +65,12 @@ const char LunaTraits< osg::Viewport >::fullName[] = "osg::Viewport";
 const char LunaTraits< osg::Viewport >::moduleName[] = "osg";
 const int LunaTraits< osg::Viewport >::hash = 74927543;
 const int LunaTraits< osg::Viewport >::uniqueIDs[] = {50169651,0};
+
+const char LunaTraits< osg::Texture2DArray >::className[] = "Texture2DArray";
+const char LunaTraits< osg::Texture2DArray >::fullName[] = "osg::Texture2DArray";
+const char LunaTraits< osg::Texture2DArray >::moduleName[] = "osg";
+const int LunaTraits< osg::Texture2DArray >::hash = 22012271;
+const int LunaTraits< osg::Texture2DArray >::uniqueIDs[] = {50169651,0};
 
 const char LunaTraits< osg::Matrixd >::className[] = "Matrixd";
 const char LunaTraits< osg::Matrixd >::fullName[] = "osg::Matrixd";

@@ -3,6 +3,7 @@
 
 #include <plug_common.h>
 
+#include <core/Buffer.h>
 #include <math/box2.h>
 #include <math/box3.h>
 #include <math/mat2.h>
@@ -13,6 +14,8 @@
 #include <math/vec3.h>
 #include <math/vec4.h>
 #include <taskgraph/Task.h>
+#include <core/CPUBuffer.h>
+#include <core/Timer.h>
 #include <math/half.h>
 #include <taskgraph/Scheduler.h>
 #include <taskgraph/MultithreadScheduler.h>
@@ -21,6 +24,30 @@
 #include <terrain/Deformation.h>
 #include <terrain/TerrainNode.h>
 #include <terrain/TerrainQuad.h>
+#include <producer/TileStorage.h>
+#include <producer/GPUTileStorage.h>
+#include <producer/TileCache.h>
+#include <producer/TileLayer.h>
+#include <producer/TileProducer.h>
+
+// Class: sgt::Buffer::Parameters
+template<>
+class LunaTraits< sgt::Buffer::Parameters > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::Buffer::Parameters* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::Buffer::Parameters* obj);
+	typedef sgt::Buffer::Parameters parent_t;
+	typedef sgt::Buffer::Parameters base_t;
+	static luna_ConverterType converters[];
+};
 
 // Class: osg::Uniform
 template<>
@@ -98,25 +125,6 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Class: sgt::half
-template<>
-class LunaTraits< sgt::half > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static sgt::half* _bind_ctor(lua_State *L);
-	static void _bind_dtor(sgt::half* obj);
-	typedef sgt::half parent_t;
-	typedef sgt::half base_t;
-	static luna_ConverterType converters[];
-};
-
 // Class: sgt::Object
 template<>
 class LunaTraits< sgt::Object > {
@@ -133,6 +141,82 @@ public:
 	static void _bind_dtor(sgt::Object* obj);
 	typedef osg::Referenced parent_t;
 	typedef sgt::Object base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::Buffer
+template<>
+class LunaTraits< sgt::Buffer > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::Buffer* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::Buffer* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::Buffer base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::CPUBuffer
+template<>
+class LunaTraits< sgt::CPUBuffer > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::CPUBuffer* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::CPUBuffer* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::CPUBuffer base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::Timer
+template<>
+class LunaTraits< sgt::Timer > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::Timer* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::Timer* obj);
+	typedef sgt::Timer parent_t;
+	typedef sgt::Timer base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::half
+template<>
+class LunaTraits< sgt::half > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::half* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::half* obj);
+	typedef sgt::half parent_t;
+	typedef sgt::half base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -323,6 +407,196 @@ public:
 	static void _bind_dtor(sgt::TerrainQuad* obj);
 	typedef osg::Referenced parent_t;
 	typedef sgt::TerrainQuad base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::TileStorage
+template<>
+class LunaTraits< sgt::TileStorage > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::TileStorage* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::TileStorage* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::TileStorage base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::GPUTileStorage
+template<>
+class LunaTraits< sgt::GPUTileStorage > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::GPUTileStorage* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::GPUTileStorage* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::GPUTileStorage base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::GPUTileStorage::GPUSlot
+template<>
+class LunaTraits< sgt::GPUTileStorage::GPUSlot > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::GPUTileStorage::GPUSlot* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::GPUTileStorage::GPUSlot* obj);
+	typedef sgt::GPUTileStorage::GPUSlot parent_t;
+	typedef sgt::GPUTileStorage::GPUSlot base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::TileCache
+template<>
+class LunaTraits< sgt::TileCache > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::TileCache* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::TileCache* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::TileCache base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::TileCache::Tile
+template<>
+class LunaTraits< sgt::TileCache::Tile > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::TileCache::Tile* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::TileCache::Tile* obj);
+	typedef sgt::TileCache::Tile parent_t;
+	typedef sgt::TileCache::Tile base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: std::pair< int, std::pair< int, int > >
+template<>
+class LunaTraits< std::pair< int, std::pair< int, int > > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::pair< int, std::pair< int, int > >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::pair< int, std::pair< int, int > >* obj);
+	typedef std::pair< int, std::pair< int, int > > parent_t;
+	typedef std::pair< int, std::pair< int, int > > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: std::pair< int, sgt::TileCache::Tile::Id >
+template<>
+class LunaTraits< std::pair< int, sgt::TileCache::Tile::Id > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::pair< int, sgt::TileCache::Tile::Id >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::pair< int, sgt::TileCache::Tile::Id >* obj);
+	typedef std::pair< int, sgt::TileCache::Tile::Id > parent_t;
+	typedef std::pair< int, sgt::TileCache::Tile::Id > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::TileLayer
+template<>
+class LunaTraits< sgt::TileLayer > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::TileLayer* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::TileLayer* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::TileLayer base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::TileProducer
+template<>
+class LunaTraits< sgt::TileProducer > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::TileProducer* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::TileProducer* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::TileProducer base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::TileStorage::Slot
+template<>
+class LunaTraits< sgt::TileStorage::Slot > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::TileStorage::Slot* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::TileStorage::Slot* obj);
+	typedef sgt::TileStorage::Slot parent_t;
+	typedef sgt::TileStorage::Slot base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -821,6 +1095,44 @@ public:
 };
 
 
+// Mapped type: sgtPtr< sgt::Task >
+template<>
+class LunaTraits< sgtPtr< sgt::Task > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgtPtr< sgt::Task >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgtPtr< sgt::Task >* obj);
+	typedef sgtPtr< sgt::Task > parent_t;
+	typedef sgtPtr< sgt::Task > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: sgtPtr< sgt::TaskGraph >
+template<>
+class LunaTraits< sgtPtr< sgt::TaskGraph > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgtPtr< sgt::TaskGraph >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgtPtr< sgt::TaskGraph >* obj);
+	typedef sgtPtr< sgt::TaskGraph > parent_t;
+	typedef sgtPtr< sgt::TaskGraph > base_t;
+	static luna_ConverterType converters[];
+};
+
 // Mapped type: osg::BoundingSphere
 template<>
 class LunaTraits< osg::BoundingSphere > {
@@ -894,6 +1206,44 @@ public:
 	static void _bind_dtor(sgtObserver< sgt::TerrainQuad >* obj);
 	typedef sgtObserver< sgt::TerrainQuad > parent_t;
 	typedef sgtObserver< sgt::TerrainQuad > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: sgtPtr< osg::Texture2DArray >
+template<>
+class LunaTraits< sgtPtr< osg::Texture2DArray > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgtPtr< osg::Texture2DArray >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgtPtr< osg::Texture2DArray >* obj);
+	typedef sgtPtr< osg::Texture2DArray > parent_t;
+	typedef sgtPtr< osg::Texture2DArray > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: std::vector< sgtPtr< sgt::TileProducer > >
+template<>
+class LunaTraits< std::vector< sgtPtr< sgt::TileProducer > > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< sgtPtr< sgt::TileProducer > >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< sgtPtr< sgt::TileProducer > >* obj);
+	typedef std::vector< sgtPtr< sgt::TileProducer > > parent_t;
+	typedef std::vector< sgtPtr< sgt::TileProducer > > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -993,6 +1343,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Referenced external: osg::Texture2D
+template<>
+class LunaTraits< osg::Texture2D > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Texture2D* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Texture2D* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Texture2D base_t;
+	static luna_ConverterType converters[];
+};
+
 // Referenced external: osg::Geode
 template<>
 class LunaTraits< osg::Geode > {
@@ -1031,6 +1400,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Referenced external: osg::Texture2DArray
+template<>
+class LunaTraits< osg::Texture2DArray > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Texture2DArray* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Texture2DArray* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Texture2DArray base_t;
+	static luna_ConverterType converters[];
+};
+
 // Referenced external: osg::Matrixd
 template<>
 class LunaTraits< osg::Matrixd > {
@@ -1048,6 +1436,13 @@ public:
 	typedef osg::Matrixd parent_t;
 	typedef osg::Matrixd base_t;
 	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaType< 82342378 > {
+public:
+	typedef sgt::Buffer::Parameters type;
+	
 };
 
 template<>
@@ -1261,16 +1656,23 @@ public:
 };
 
 template<>
-class LunaType< 31071002 > {
+class LunaType< 44367388 > {
 public:
-	typedef sgt::half type;
+	typedef sgt::Object type;
 	
 };
 
 template<>
-class LunaType< 44367388 > {
+class LunaType< 44969924 > {
 public:
-	typedef sgt::Object type;
+	typedef sgt::Timer type;
+	
+};
+
+template<>
+class LunaType< 31071002 > {
+public:
+	typedef sgt::half type;
 	
 };
 
@@ -1296,6 +1698,41 @@ public:
 };
 
 template<>
+class LunaType< 34060158 > {
+public:
+	typedef sgt::GPUTileStorage::GPUSlot type;
+	
+};
+
+template<>
+class LunaType< 38575498 > {
+public:
+	typedef sgt::TileCache::Tile type;
+	
+};
+
+template<>
+class LunaType< 76763912 > {
+public:
+	typedef sgt::TileCache::Tile::Id type;
+	
+};
+
+template<>
+class LunaType< 79690531 > {
+public:
+	typedef sgt::TileCache::Tile::TId type;
+	
+};
+
+template<>
+class LunaType< 84645042 > {
+public:
+	typedef sgt::TileStorage::Slot type;
+	
+};
+
+template<>
 class LunaType< 24456226 > {
 public:
 	typedef std::set< sgtPtr< sgt::Task > > type;
@@ -1313,6 +1750,34 @@ template<>
 class LunaType< 25781455 > {
 public:
 	typedef sgt::SetIterator< sgtPtr< sgt::Task > > type;
+	
+};
+
+template<>
+class LunaType< 67383368 > {
+public:
+	typedef std::pair< int, std::pair< int, int > > type;
+	
+};
+
+template<>
+class LunaType< 29265223 > {
+public:
+	typedef std::pair< int, sgt::TileCache::Tile::Id > type;
+	
+};
+
+template<>
+class LunaType< 6988042 > {
+public:
+	typedef sgtPtr< sgt::Task > type;
+	
+};
+
+template<>
+class LunaType< 63812206 > {
+public:
+	typedef sgtPtr< sgt::TaskGraph > type;
 	
 };
 
@@ -1341,6 +1806,20 @@ template<>
 class LunaType< 39952981 > {
 public:
 	typedef sgtObserver< sgt::TerrainQuad > type;
+	
+};
+
+template<>
+class LunaType< 92078672 > {
+public:
+	typedef sgtPtr< osg::Texture2DArray > type;
+	
+};
+
+template<>
+class LunaType< 23986170 > {
+public:
+	typedef std::vector< sgtPtr< sgt::TileProducer > > type;
 	
 };
 
@@ -1380,6 +1859,13 @@ public:
 };
 
 template<>
+class LunaType< 71812813 > {
+public:
+	typedef osg::Texture2D type;
+	
+};
+
+template<>
 class LunaType< 78463439 > {
 public:
 	typedef osg::Geode type;
@@ -1390,6 +1876,13 @@ template<>
 class LunaType< 74927543 > {
 public:
 	typedef osg::Viewport type;
+	
+};
+
+template<>
+class LunaType< 22012271 > {
+public:
+	typedef osg::Texture2DArray type;
 	
 };
 

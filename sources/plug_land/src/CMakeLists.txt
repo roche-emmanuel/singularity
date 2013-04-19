@@ -9,6 +9,9 @@ INCLUDE_DIRECTORIES (../../sgtLand/include)
 #LINK_DIRECTORIES (${MYDEP_LIB_DIR})
 
 
+INCLUDE_DIRECTORIES(${GLEW_INC_DIR})
+LINK_DIRECTORIES (${GLEW_LIB_DIR})
+
 ADD_DEFINITIONS(-DPLUG_LIBRARY)
 ADD_DEFINITIONS(-DLUNA_BINDINGS)
 ADD_DEFINITIONS(-D_CRT_SECURE_NO_WARNINGS)
@@ -37,11 +40,12 @@ INSTALL(TARGETS ${TARGET_NAME}
 SET(INTF_FILES)
 
 # LIST(APPEND INTF_FILES "${CMAKE_CURRENT_SOURCE_DIR}/../../sgtLand/include")
-ADD_FILES(INTF_FILES "../../sgtLand/include/core/Iterator.h")
+ADD_FILES(INTF_FILES "../../sgtLand/include/core/*.h")
 ADD_FILES(INTF_FILES "../../sgtLand/include/math/*.h")
 ADD_FILES(INTF_FILES "../../sgtLand/include/taskgraph/*.h")
 ADD_FILES(INTF_FILES "../../sgtLand/include/scene/*.h")
 ADD_FILES(INTF_FILES "../../sgtLand/include/terrain/*.h")
+ADD_FILES(INTF_FILES "../../sgtLand/include/producer/*.h")
 ADD_FILES(INTF_FILES "../include/plug_extensions.h")
 ADD_FILES(INTF_FILES "../interface/helpers.h")
 

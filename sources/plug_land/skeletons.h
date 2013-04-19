@@ -1,6 +1,9 @@
 #ifndef _land_SKELETONS_H_
 #define _land_SKELETONS_H_
 
+class Parameters {
+};
+
 class taskKeySort {
 };
 
@@ -101,6 +104,13 @@ namespace sgt {
 	class TaskDependencyMap {
 	};
 
+	class Buffer: public sgt::Object {
+	public:
+	};
+
+	class CPUBuffer: public sgt::Buffer {
+	};
+
 	class SetIterator {
 	};
 
@@ -108,6 +118,9 @@ namespace sgt {
 	};
 
 	class MultiMapIterator {
+	};
+
+	class Timer {
 	};
 
 	class box2 {
@@ -171,6 +184,40 @@ namespace sgt {
 	};
 
 	class TerrainQuad: public osg::Node {
+	};
+
+	class GPUTileStorage: public sgt::TileStorage {
+	public:
+		class GPUSlot {
+		};
+
+	};
+
+	class TileCache: public sgt::Object {
+	public:
+		class Tile {
+		public:
+			class Id {
+			};
+
+			class TId {
+			};
+
+		};
+
+	};
+
+	class TileLayer: public sgt::Object {
+	};
+
+	class TileProducer: public sgt::Object {
+	};
+
+	class TileStorage: public sgt::Object {
+	public:
+		class Slot {
+		};
+
 	};
 
 	class vec2h {

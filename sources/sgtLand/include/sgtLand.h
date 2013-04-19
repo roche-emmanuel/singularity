@@ -13,6 +13,8 @@
     #  define SGTLAND_EXPORT
 #endif  
 
+#include <GL/glew.h>
+
 #include "sgtCommon.h"
 
 #include <OpenThreads/ScopedLock>
@@ -22,8 +24,9 @@
 #include <OpenThreads/Thread>
 
 #include "pmath.h"
+#include "core/Types.h"
 
-#define sgtCast(ptr,targetClass) (dynamic_cast<targetClass*>(ptr))
+#define sgtCast(point,targetClass) (dynamic_cast<targetClass*>(point))
 
 
 #endif

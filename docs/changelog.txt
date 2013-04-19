@@ -41,6 +41,7 @@
 - Adding Cpp version of deformation and TerrainNode classes.
 - Implementating cpp version of terrain node.
 - Implemented core terrain system for land module.
+- Preparing producer system.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

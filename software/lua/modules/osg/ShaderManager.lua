@@ -25,6 +25,8 @@ function Class:loadProgram(options)
 		return prog
 	end
 	
+	local version = options.version or 330
+	
 	-- create a new program
 	prog = osg.Program()
 	
@@ -32,6 +34,8 @@ function Class:loadProgram(options)
 	local f = io.open(file,"r")
 	local src = f:read("*a")
 	f:close()
+	
+	src = "#version ".. version .. "\n" .. src
 	
 	if src:find("#ifdef%s+_VERTEX_") then
 		self:info("Adding vertex shader from file ",file)

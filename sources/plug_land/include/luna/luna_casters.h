@@ -4,6 +4,13 @@
 #include <plug_common.h>
 
 template <typename dstType>
+struct luna_caster<sgt::Buffer::Parameters,dstType> {
+	static inline dstType* cast(sgt::Buffer::Parameters* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<osg::Uniform,dstType> {
 	static inline dstType* cast(osg::Uniform* ptr) {
 		return static_cast<dstType*>(ptr);
@@ -32,15 +39,15 @@ struct luna_caster<std::map< sgtPtr< sgt::Task >, sgt::TaskSet >,dstType> {
 };
 
 template <typename dstType>
-struct luna_caster<sgt::half,dstType> {
-	static inline dstType* cast(sgt::half* ptr) {
+struct luna_caster<sgt::Object,dstType> {
+	static inline dstType* cast(sgt::Object* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };
 
 template <typename dstType>
-struct luna_caster<sgt::Object,dstType> {
-	static inline dstType* cast(sgt::Object* ptr) {
+struct luna_caster<sgt::half,dstType> {
+	static inline dstType* cast(sgt::half* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };
@@ -55,6 +62,27 @@ struct luna_caster<sgt::SetIterator< sgtPtr< sgt::Task > >,dstType> {
 template <typename dstType>
 struct luna_caster<sgt::LandManager,dstType> {
 	static inline dstType* cast(sgt::LandManager* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::TileCache::Tile,dstType> {
+	static inline dstType* cast(sgt::TileCache::Tile* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<std::pair< int, std::pair< int, int > >,dstType> {
+	static inline dstType* cast(std::pair< int, std::pair< int, int > >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<std::pair< int, sgt::TileCache::Tile::Id >,dstType> {
+	static inline dstType* cast(std::pair< int, sgt::TileCache::Tile::Id >* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };

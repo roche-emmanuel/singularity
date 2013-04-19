@@ -1,6 +1,12 @@
 
 #include "scene/LandManager.h"
 
+#if defined( _WIN64 ) || defined( _WIN32 )
+#include <windows.h>
+#else
+#include <GL/glx.h>
+#endif
+
 namespace sgt {
 
 LandManager::Visibility LandManager::getVisibility(const osg::Polytope::PlaneList& frustumPlanes, const sgt::box3d& b)
@@ -88,6 +94,23 @@ void LandManager::getFrustumPlanes(const mat4d &toScreen, osg::Polytope::PlaneLi
 
 	// Extract the FAR plane
 	planes.push_back(osg::Plane(m[12] - m[8], m[13] - m[9], m[14] - m[10], m[15] - m[11]));
+}
+
+GLenum LandManager::getError()
+{
+	GLenum error = glGetError();
+	if ((error != GL_NO_ERROR)) {
+		trERROR("LandManager","OpenGL error " << error << ", returned string '" << gluErrorString(error) << "'";);
+	}
+	if (error != GL_NO_ERROR) {
+		printf("%s\n", gluErrorString(error));
+	}
+	return error;
+}
+
+void LandManager::setSubImage(osg::Texture2D* tex, int level, int x, int y, int w, int h, TextureFormat f, PixelType t, const Buffer::Parameters &s, const Buffer &pixels)
+{
+	trWARN("LandManager","Not implemented yet !");
 }
 
 };

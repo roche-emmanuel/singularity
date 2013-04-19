@@ -126,6 +126,28 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getError(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setSubImage(lua_State *L) {
+		if( lua_gettop(L)!=10 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,9,82342378) ) return false;
+		if( !Luna<void>::has_uniqueid(L,10,50169651) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -210,6 +232,49 @@ public:
 		return 0;
 	}
 
+	// static unsigned int sgt::LandManager::getError()
+	static int _bind_getError(lua_State *L) {
+		if (!_lg_typecheck_getError(L)) {
+			luaL_error(L, "luna typecheck failed in static unsigned int sgt::LandManager::getError() function, expected prototype:\nstatic unsigned int sgt::LandManager::getError()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+
+		unsigned int lret = sgt::LandManager::getError();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// static void sgt::LandManager::setSubImage(osg::Texture2D * tex, int level, int x, int y, int w, int h, sgt::TextureFormat f, sgt::PixelType t, const sgt::Buffer::Parameters & s, const sgt::Buffer & pixels)
+	static int _bind_setSubImage(lua_State *L) {
+		if (!_lg_typecheck_setSubImage(L)) {
+			luaL_error(L, "luna typecheck failed in static void sgt::LandManager::setSubImage(osg::Texture2D * tex, int level, int x, int y, int w, int h, sgt::TextureFormat f, sgt::PixelType t, const sgt::Buffer::Parameters & s, const sgt::Buffer & pixels) function, expected prototype:\nstatic void sgt::LandManager::setSubImage(osg::Texture2D * tex, int level, int x, int y, int w, int h, sgt::TextureFormat f, sgt::PixelType t, const sgt::Buffer::Parameters & s, const sgt::Buffer & pixels)\nClass arguments details:\narg 9 ID = 82342378\narg 10 ID = 44367388\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		osg::Texture2D* tex=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,1));
+		int level=(int)lua_tointeger(L,2);
+		int x=(int)lua_tointeger(L,3);
+		int y=(int)lua_tointeger(L,4);
+		int w=(int)lua_tointeger(L,5);
+		int h=(int)lua_tointeger(L,6);
+		sgt::TextureFormat f=(sgt::TextureFormat)lua_tointeger(L,7);
+		sgt::PixelType t=(sgt::PixelType)lua_tointeger(L,8);
+		const sgt::Buffer::Parameters* s_ptr=(Luna< sgt::Buffer::Parameters >::check(L,9));
+		if( !s_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg s in sgt::LandManager::setSubImage function");
+		}
+		const sgt::Buffer::Parameters & s=*s_ptr;
+		const sgt::Buffer* pixels_ptr=(Luna< osg::Referenced >::checkSubType< sgt::Buffer >(L,10));
+		if( !pixels_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pixels in sgt::LandManager::setSubImage function");
+		}
+		const sgt::Buffer & pixels=*pixels_ptr;
+
+		sgt::LandManager::setSubImage(tex, level, x, y, w, h, f, t, s, pixels);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -233,6 +298,8 @@ const int LunaTraits< sgt::LandManager >::uniqueIDs[] = {70466920,0};
 luna_RegType LunaTraits< sgt::LandManager >::methods[] = {
 	{"getVisibility", &luna_wrapper_sgt_LandManager::_bind_getVisibility},
 	{"getFrustumPlanes", &luna_wrapper_sgt_LandManager::_bind_getFrustumPlanes},
+	{"getError", &luna_wrapper_sgt_LandManager::_bind_getError},
+	{"setSubImage", &luna_wrapper_sgt_LandManager::_bind_setSubImage},
 	{"dynCast", &luna_wrapper_sgt_LandManager::_bind_dynCast},
 	{"__eq", &luna_wrapper_sgt_LandManager::_bind___eq},
 	{"fromVoid", &luna_wrapper_sgt_LandManager::_bind_fromVoid},

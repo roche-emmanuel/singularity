@@ -5,6 +5,8 @@
 #include "math/box3.h"
 #include "math/mat4.h"
 #include "osg/Polytope"
+#include "osg/Texture2D"
+#include "core/Buffer.h"
 
 namespace sgt
 {
@@ -20,6 +22,10 @@ public:
 	static Visibility getVisibility(const osg::Polytope::PlaneList& frustumPlanes, const box3d& b);
 	static Visibility getVisibility(const osg::Vec4d& clip, const box3d& b);
 	static void getFrustumPlanes(const mat4d &toScreen, osg::Polytope::PlaneList& planes);
+
+	static GLenum getError();
+
+	static void setSubImage(osg::Texture2D* tex, int level, int x, int y, int w, int h, TextureFormat f, PixelType t, const Buffer::Parameters &s, const Buffer &pixels);
 };
 
 };
