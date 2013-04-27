@@ -1343,9 +1343,9 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Referenced external: osg::Texture2D
+// Referenced external: osg::Texture
 template<>
-class LunaTraits< osg::Texture2D > {
+class LunaTraits< osg::Texture > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -1355,10 +1355,29 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static osg::Texture2D* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::Texture2D* obj);
+	static osg::Texture* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Texture* obj);
 	typedef osg::Referenced parent_t;
-	typedef osg::Texture2D base_t;
+	typedef osg::Texture base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Image
+template<>
+class LunaTraits< osg::Image > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Image* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Image* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Image base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -1397,6 +1416,25 @@ public:
 	static void _bind_dtor(osg::Viewport* obj);
 	typedef osg::Referenced parent_t;
 	typedef osg::Viewport base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Texture2D
+template<>
+class LunaTraits< osg::Texture2D > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Texture2D* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Texture2D* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Texture2D base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -1859,9 +1897,16 @@ public:
 };
 
 template<>
-class LunaType< 71812813 > {
+class LunaType< 49710528 > {
 public:
-	typedef osg::Texture2D type;
+	typedef osg::Texture type;
+	
+};
+
+template<>
+class LunaType< 80535448 > {
+public:
+	typedef osg::Image type;
 	
 };
 
@@ -1876,6 +1921,13 @@ template<>
 class LunaType< 74927543 > {
 public:
 	typedef osg::Viewport type;
+	
+};
+
+template<>
+class LunaType< 71812813 > {
+public:
+	typedef osg::Texture2D type;
 	
 };
 

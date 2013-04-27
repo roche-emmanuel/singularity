@@ -589,7 +589,7 @@ bool TileProducer::updateTileMap(float splitDistance, vec2f camera, int maxLevel
         if (collisions) {
             trWARN("TileProducer", "TILEMAP COLLISIONS DETECTED (NOT SUPPORTED YET)");
         }
-		LandManager::setSubImage(tileMapT,0, 0, id, tileMapT->getTextureWidth(), 1, RG, UNSIGNED_BYTE, Buffer::Parameters(), CPUBuffer(tileMap));
+		LandManager::setSubImage2D(tileMapT,0, 0, id, tileMapT->getTextureWidth(), 1, RG, UNSIGNED_BYTE, Buffer::Parameters(), CPUBuffer(tileMap));
         return true;
     }
 
@@ -629,7 +629,7 @@ bool TileProducer::updateTileMap(float splitDistance, vec2f camera, int maxLevel
             }
         }
     }
-	LandManager::setSubImage(tileMapT,0, 0, id, n, 1, RG, UNSIGNED_BYTE, Buffer::Parameters(), CPUBuffer(tileMap));
+	LandManager::setSubImage2D(tileMapT,0, 0, id, n, 1, RG, UNSIGNED_BYTE, Buffer::Parameters(), CPUBuffer(tileMap));
     return true;
 }
 

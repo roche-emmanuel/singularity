@@ -17,8 +17,7 @@ inline static bool _lg_typecheck_createGLCanvas(lua_State *L) {
 // wxGLCanvas * createGLCanvas(wxWindow * parent, int id, lua_Table * attribList, lua_State * L)
 static int _bind_createGLCanvas(lua_State *L) {
 	if (!_lg_typecheck_createGLCanvas(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxGLCanvas * createGLCanvas(wxWindow * parent, int id, lua_Table * attribList, lua_State * L) function, expected prototype:\nwxGLCanvas * createGLCanvas(wxWindow * parent, int id, lua_Table * attribList, lua_State * L)\nClass arguments details:\narg 1 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxGLCanvas * createGLCanvas(wxWindow * parent, int id, lua_Table * attribList, lua_State * L) function, expected prototype:\nwxGLCanvas * createGLCanvas(wxWindow * parent, int id, lua_Table * attribList, lua_State * L)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));

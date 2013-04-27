@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		GraphicsWindowWX* self= (GraphicsWindowWX*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -229,8 +226,7 @@ public:
 	// GraphicsWindowWX::GraphicsWindowWX(wxGLCanvas * canvas, wxGLContext * context)
 	static GraphicsWindowWX* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in GraphicsWindowWX::GraphicsWindowWX(wxGLCanvas * canvas, wxGLContext * context) function, expected prototype:\nGraphicsWindowWX::GraphicsWindowWX(wxGLCanvas * canvas, wxGLContext * context)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in GraphicsWindowWX::GraphicsWindowWX(wxGLCanvas * canvas, wxGLContext * context) function, expected prototype:\nGraphicsWindowWX::GraphicsWindowWX(wxGLCanvas * canvas, wxGLContext * context)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGLCanvas* canvas=(Luna< wxObject >::checkSubType< wxGLCanvas >(L,1));
@@ -242,8 +238,7 @@ public:
 	// GraphicsWindowWX::GraphicsWindowWX(lua_Table * data, wxGLCanvas * canvas, wxGLContext * context)
 	static GraphicsWindowWX* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in GraphicsWindowWX::GraphicsWindowWX(lua_Table * data, wxGLCanvas * canvas, wxGLContext * context) function, expected prototype:\nGraphicsWindowWX::GraphicsWindowWX(lua_Table * data, wxGLCanvas * canvas, wxGLContext * context)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in GraphicsWindowWX::GraphicsWindowWX(lua_Table * data, wxGLCanvas * canvas, wxGLContext * context) function, expected prototype:\nGraphicsWindowWX::GraphicsWindowWX(lua_Table * data, wxGLCanvas * canvas, wxGLContext * context)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGLCanvas* canvas=(Luna< wxObject >::checkSubType< wxGLCanvas >(L,2));
@@ -266,15 +261,13 @@ public:
 	// void GraphicsWindowWX::init()
 	static int _bind_init(lua_State *L) {
 		if (!_lg_typecheck_init(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::init() function, expected prototype:\nvoid GraphicsWindowWX::init()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::init() function, expected prototype:\nvoid GraphicsWindowWX::init()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::init(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::init(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->init();
 
@@ -284,15 +277,13 @@ public:
 	// void GraphicsWindowWX::grabFocus()
 	static int _bind_grabFocus(lua_State *L) {
 		if (!_lg_typecheck_grabFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::grabFocus() function, expected prototype:\nvoid GraphicsWindowWX::grabFocus()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::grabFocus() function, expected prototype:\nvoid GraphicsWindowWX::grabFocus()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::grabFocus(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::grabFocus(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->grabFocus();
 
@@ -302,15 +293,13 @@ public:
 	// void GraphicsWindowWX::grabFocusIfPointerInWindow()
 	static int _bind_grabFocusIfPointerInWindow(lua_State *L) {
 		if (!_lg_typecheck_grabFocusIfPointerInWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::grabFocusIfPointerInWindow() function, expected prototype:\nvoid GraphicsWindowWX::grabFocusIfPointerInWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::grabFocusIfPointerInWindow() function, expected prototype:\nvoid GraphicsWindowWX::grabFocusIfPointerInWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::grabFocusIfPointerInWindow(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::grabFocusIfPointerInWindow(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->grabFocusIfPointerInWindow();
 
@@ -320,16 +309,14 @@ public:
 	// void GraphicsWindowWX::useCursor(bool cursorOn)
 	static int _bind_useCursor(lua_State *L) {
 		if (!_lg_typecheck_useCursor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::useCursor(bool cursorOn) function, expected prototype:\nvoid GraphicsWindowWX::useCursor(bool cursorOn)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::useCursor(bool cursorOn) function, expected prototype:\nvoid GraphicsWindowWX::useCursor(bool cursorOn)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool cursorOn=(bool)(lua_toboolean(L,2)==1);
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::useCursor(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::useCursor(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->useCursor(cursorOn);
 
@@ -339,15 +326,13 @@ public:
 	// bool GraphicsWindowWX::makeCurrentImplementation()
 	static int _bind_makeCurrentImplementation(lua_State *L) {
 		if (!_lg_typecheck_makeCurrentImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::makeCurrentImplementation() function, expected prototype:\nbool GraphicsWindowWX::makeCurrentImplementation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::makeCurrentImplementation() function, expected prototype:\nbool GraphicsWindowWX::makeCurrentImplementation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::makeCurrentImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::makeCurrentImplementation(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->makeCurrentImplementation();
 		lua_pushboolean(L,lret?1:0);
@@ -358,15 +343,13 @@ public:
 	// void GraphicsWindowWX::swapBuffersImplementation()
 	static int _bind_swapBuffersImplementation(lua_State *L) {
 		if (!_lg_typecheck_swapBuffersImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::swapBuffersImplementation() function, expected prototype:\nvoid GraphicsWindowWX::swapBuffersImplementation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::swapBuffersImplementation() function, expected prototype:\nvoid GraphicsWindowWX::swapBuffersImplementation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::swapBuffersImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::swapBuffersImplementation(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->swapBuffersImplementation();
 
@@ -376,15 +359,13 @@ public:
 	// bool GraphicsWindowWX::valid() const
 	static int _bind_valid(lua_State *L) {
 		if (!_lg_typecheck_valid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::valid() const function, expected prototype:\nbool GraphicsWindowWX::valid() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::valid() const function, expected prototype:\nbool GraphicsWindowWX::valid() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::valid() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::valid() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->valid();
 		lua_pushboolean(L,lret?1:0);
@@ -395,15 +376,13 @@ public:
 	// bool GraphicsWindowWX::realizeImplementation()
 	static int _bind_realizeImplementation(lua_State *L) {
 		if (!_lg_typecheck_realizeImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::realizeImplementation() function, expected prototype:\nbool GraphicsWindowWX::realizeImplementation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::realizeImplementation() function, expected prototype:\nbool GraphicsWindowWX::realizeImplementation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::realizeImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::realizeImplementation(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->realizeImplementation();
 		lua_pushboolean(L,lret?1:0);
@@ -414,15 +393,13 @@ public:
 	// bool GraphicsWindowWX::isRealizedImplementation() const
 	static int _bind_isRealizedImplementation(lua_State *L) {
 		if (!_lg_typecheck_isRealizedImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::isRealizedImplementation() const function, expected prototype:\nbool GraphicsWindowWX::isRealizedImplementation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::isRealizedImplementation() const function, expected prototype:\nbool GraphicsWindowWX::isRealizedImplementation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::isRealizedImplementation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::isRealizedImplementation() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isRealizedImplementation();
 		lua_pushboolean(L,lret?1:0);
@@ -433,15 +410,13 @@ public:
 	// void GraphicsWindowWX::closeImplementation()
 	static int _bind_closeImplementation(lua_State *L) {
 		if (!_lg_typecheck_closeImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::closeImplementation() function, expected prototype:\nvoid GraphicsWindowWX::closeImplementation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::closeImplementation() function, expected prototype:\nvoid GraphicsWindowWX::closeImplementation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::closeImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::closeImplementation(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->closeImplementation();
 
@@ -451,15 +426,13 @@ public:
 	// bool GraphicsWindowWX::releaseContextImplementation()
 	static int _bind_releaseContextImplementation(lua_State *L) {
 		if (!_lg_typecheck_releaseContextImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::releaseContextImplementation() function, expected prototype:\nbool GraphicsWindowWX::releaseContextImplementation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::releaseContextImplementation() function, expected prototype:\nbool GraphicsWindowWX::releaseContextImplementation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::releaseContextImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::releaseContextImplementation(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->releaseContextImplementation();
 		lua_pushboolean(L,lret?1:0);
@@ -470,15 +443,13 @@ public:
 	// void GraphicsWindowWX::invalidate()
 	static int _bind_invalidate(lua_State *L) {
 		if (!_lg_typecheck_invalidate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::invalidate() function, expected prototype:\nvoid GraphicsWindowWX::invalidate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::invalidate() function, expected prototype:\nvoid GraphicsWindowWX::invalidate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::invalidate(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::invalidate(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->invalidate();
 
@@ -488,15 +459,13 @@ public:
 	// bool GraphicsWindowWX::base_valid() const
 	static int _bind_base_valid(lua_State *L) {
 		if (!_lg_typecheck_base_valid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::base_valid() const function, expected prototype:\nbool GraphicsWindowWX::base_valid() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::base_valid() const function, expected prototype:\nbool GraphicsWindowWX::base_valid() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::base_valid() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::base_valid() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GraphicsWindowWX::valid();
 		lua_pushboolean(L,lret?1:0);
@@ -507,15 +476,13 @@ public:
 	// bool GraphicsWindowWX::base_realizeImplementation()
 	static int _bind_base_realizeImplementation(lua_State *L) {
 		if (!_lg_typecheck_base_realizeImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::base_realizeImplementation() function, expected prototype:\nbool GraphicsWindowWX::base_realizeImplementation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::base_realizeImplementation() function, expected prototype:\nbool GraphicsWindowWX::base_realizeImplementation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::base_realizeImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::base_realizeImplementation(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GraphicsWindowWX::realizeImplementation();
 		lua_pushboolean(L,lret?1:0);
@@ -526,15 +493,13 @@ public:
 	// bool GraphicsWindowWX::base_isRealizedImplementation() const
 	static int _bind_base_isRealizedImplementation(lua_State *L) {
 		if (!_lg_typecheck_base_isRealizedImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::base_isRealizedImplementation() const function, expected prototype:\nbool GraphicsWindowWX::base_isRealizedImplementation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::base_isRealizedImplementation() const function, expected prototype:\nbool GraphicsWindowWX::base_isRealizedImplementation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::base_isRealizedImplementation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::base_isRealizedImplementation() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GraphicsWindowWX::isRealizedImplementation();
 		lua_pushboolean(L,lret?1:0);
@@ -545,15 +510,13 @@ public:
 	// void GraphicsWindowWX::base_closeImplementation()
 	static int _bind_base_closeImplementation(lua_State *L) {
 		if (!_lg_typecheck_base_closeImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::base_closeImplementation() function, expected prototype:\nvoid GraphicsWindowWX::base_closeImplementation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::base_closeImplementation() function, expected prototype:\nvoid GraphicsWindowWX::base_closeImplementation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::base_closeImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::base_closeImplementation(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GraphicsWindowWX::closeImplementation();
 
@@ -563,15 +526,13 @@ public:
 	// bool GraphicsWindowWX::base_releaseContextImplementation()
 	static int _bind_base_releaseContextImplementation(lua_State *L) {
 		if (!_lg_typecheck_base_releaseContextImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::base_releaseContextImplementation() function, expected prototype:\nbool GraphicsWindowWX::base_releaseContextImplementation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool GraphicsWindowWX::base_releaseContextImplementation() function, expected prototype:\nbool GraphicsWindowWX::base_releaseContextImplementation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::base_releaseContextImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool GraphicsWindowWX::base_releaseContextImplementation(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GraphicsWindowWX::releaseContextImplementation();
 		lua_pushboolean(L,lret?1:0);
@@ -582,15 +543,13 @@ public:
 	// void GraphicsWindowWX::base_invalidate()
 	static int _bind_base_invalidate(lua_State *L) {
 		if (!_lg_typecheck_base_invalidate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::base_invalidate() function, expected prototype:\nvoid GraphicsWindowWX::base_invalidate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::base_invalidate() function, expected prototype:\nvoid GraphicsWindowWX::base_invalidate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::base_invalidate(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::base_invalidate(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GraphicsWindowWX::invalidate();
 

@@ -142,27 +142,7 @@ public:
          */
         void unset() const;
 
-        friend class Texture1D;
-
-        friend class Texture1DArray;
-
-        friend class Texture2D;
-
-        friend class Texture2DArray;
-
-        friend class Texture2DMultisample;
-
-        friend class Texture2DMultisampleArray;
-
-        friend class Texture3D;
-
-        friend class TextureCube;
-
-        friend class TextureCubeArray;
-
-        friend class TextureRectangle;
-
-        friend class FrameBuffer;
+        friend class LandManager;
     };
 
     /**
@@ -204,31 +184,7 @@ private:
      */
     virtual void dirty() const = 0;
 
-    friend class MeshBuffers;
-
-    friend class FrameBuffer;
-
-    friend class Texture1D;
-
-    friend class Texture1DArray;
-
-    friend class Texture2D;
-
-    friend class Texture2DArray;
-
-    friend class Texture2DMultisample;
-
-    friend class Texture2DMultisampleArray;
-
-    friend class Texture3D;
-
-    friend class TextureCube;
-
-    friend class TextureCubeArray;
-
-    friend class TextureRectangle;
-
-    friend class TransformFeedback;
+    friend class LandManager;
 };
 
 }

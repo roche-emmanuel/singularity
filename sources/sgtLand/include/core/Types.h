@@ -605,6 +605,24 @@ enum QueryMode {
     REGION_NO_WAIT ///< &nbsp;
 };
 
+GLenum SGTLAND_EXPORT getTextureInternalFormat(TextureInternalFormat f);
+
+unsigned int SGTLAND_EXPORT getFormatSize(TextureFormat f, PixelType t);
+
+GLenum SGTLAND_EXPORT getTextureFormat(TextureFormat f);
+
+GLenum SGTLAND_EXPORT getPixelType(PixelType t);
+
+GLenum SGTLAND_EXPORT getTextureWrap(TextureWrap w);
+
+GLenum SGTLAND_EXPORT getTextureFilter(TextureFilter f);
+
+GLenum SGTLAND_EXPORT getFunction(Function f);
+
+GLenum SGTLAND_EXPORT getTextureSwizzle(char c);
+
+unsigned int SGTLAND_EXPORT getTextureComponents(TextureFormat f);
+
 }
 
 #endif

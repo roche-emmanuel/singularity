@@ -4,5 +4,14 @@ isFinite
 isInf
 isSubnormal
 getInfinity
+sgt::getTextureInternalFormat
+sgt::getFormatSize
+sgt::getTextureFormat
+sgt::getPixelType
+sgt::getTextureWrap
+sgt::getTextureFilter
+sgt::getFunction
+sgt::getTextureSwizzle
+sgt::getTextureComponents
 sgt::floatToHalf
 sgt::halfToFloat

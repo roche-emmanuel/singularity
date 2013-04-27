@@ -43,6 +43,8 @@ void GraphicsWindowWX::init()
         {
             getState()->setContextID( osg::GraphicsContext::createNewContextID() );
         }
+		
+		trDEBUG("GraphicsWindowWX","Using GL context ID: "<<getState()->getContextID());
     }
 }
 
