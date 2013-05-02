@@ -43,6 +43,7 @@
 - Implemented core terrain system for land module.
 - Preparing producer system.
 - Working on sub image loading process.
+- Now considering long as number instead of integer to avoid out of range integer values.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
