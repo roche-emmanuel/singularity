@@ -44,6 +44,7 @@
 - Preparing producer system.
 - Working on sub image loading process.
 - Now considering long as number instead of integer to avoid out of range integer values.
+- Tested support for texture 3D injection.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

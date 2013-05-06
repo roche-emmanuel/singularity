@@ -116,8 +116,12 @@ GLenum LandManager::getError()
 
 void LandManager::setCurrentContext(int id) {
 	contextId = id;
-	glewExperimental = GL_TRUE;
-	glewInit();
+	static bool initialized = false;
+	if(!initialized) {
+		initialized = true;
+		glewExperimental = GL_TRUE;
+		glewInit();
+	}
 }
 
 void LandManager::setSubImage2D(osg::Texture* tex, int level, int x, int y, int w, int h, TextureFormat f, PixelType t, const Buffer::Parameters &s, const Buffer &pixels)
@@ -136,50 +140,20 @@ void LandManager::setSubImage2D(osg::Texture* tex, int level, int x, int y, int 
 		tex->setTextureObject(contextId,obj);
 		obj->setAllocated(true);
 
-		glBindTexture(GL_TEXTURE_2D,obj->id());
-		glTexImage2D(GL_TEXTURE_2D,
-			0,
-			GL_RGBA,
-			tex->getTextureWidth(),
-			tex->getTextureHeight(),
-			0,
-			GL_RGBA,
-			GL_UNSIGNED_BYTE,
-			pixels.data(0));
+		// first initialization of the texture:
+		obj->bind();
+		glTexImage2D(tex->getTextureTarget(), level, tex->getInternalFormat(), tex->getTextureWidth(), tex->getTextureHeight(), 0, getTextureFormat(f), getPixelType(t), NULL);
 	}
 
-	//obj->bind();
-	trDEBUG("LandManager","Binding texture id "<<obj->id());
-	glBindTexture(GL_TEXTURE_2D,obj->id());
-	CHECK(getError() == GL_NO_ERROR,"Error in setSubImage2D step1.");
+	obj->bind();
 	pixels.bind(GL_PIXEL_UNPACK_BUFFER);
-	CHECK(getError() == GL_NO_ERROR,"Error in setSubImage2D step2.");
 	s.set();
-	CHECK(getError() == GL_NO_ERROR,"Error in setSubImage2D step3.");
-
-	//glTexSubImage2D(tex->getTextureTarget(), level, x, y, w, h, getTextureFormat(f), getPixelType(t), pixels.data(0));
-	/*glTexImage2D(GL_TEXTURE_2D,
-		0,
-		GL_RGBA,
-		tex->getTextureWidth(),
-		tex->getTextureHeight(),
-		0,
-		GL_RGBA,
-		GL_UNSIGNED_BYTE,
-		pixels.data(0));*/
-
-	glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 512, 256, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data(0));
-	CHECK(getError() == GL_NO_ERROR,"Error in setSubImage2D step4.");
-
+	glTexSubImage2D(tex->getTextureTarget(), level, x, y, w, h, getTextureFormat(f), getPixelType(t), pixels.data(0));
 	s.unset();
-	CHECK(getError() == GL_NO_ERROR,"Error in setSubImage2D step5.");
-
 	pixels.unbind(GL_PIXEL_UNPACK_BUFFER);
-	CHECK(getError() == GL_NO_ERROR,"Error in setSubImage2D step6.");
-
 
 	CHECK(getError() == GL_NO_ERROR,"Error in setSubImage2D.");
-	trDEBUG("LandManager","Done setting sub image 2D.")
+	//trDEBUG("LandManager","Done setting sub image 2D.")
 }
 
 void LandManager::setSubImage3D(osg::Texture* tex, int level, int x, int y, int l, int w, int h, int d, TextureFormat f, PixelType t, const Buffer::Parameters &s, const Buffer &pixels)
@@ -196,12 +170,21 @@ void LandManager::setSubImage3D(osg::Texture* tex, int level, int x, int y, int 
 			tex->getTextureTarget(),numMipmapLevels,tex->getInternalFormat(),
 			tex->getTextureWidth(),tex->getTextureHeight(),tex->getTextureDepth(),0);
 		tex->setTextureObject(contextId,obj);
+		obj->setAllocated(true);
+
+		// first initialization of the texture:
+		obj->bind();
+		CHECK(getError() == GL_NO_ERROR,"Step 1.");
+		glTexImage3D(tex->getTextureTarget(), level, tex->getInternalFormat(), tex->getTextureWidth(), tex->getTextureHeight(), tex->getTextureDepth(), 0, getTextureFormat(f), getPixelType(t), NULL);
+		CHECK(getError() == GL_NO_ERROR,"Step 2.");
 	}
 
 	obj->bind();
+	CHECK(getError() == GL_NO_ERROR,"Error binding Texture 3D.");
+
 	pixels.bind(GL_PIXEL_UNPACK_BUFFER);
 	s.set();
-	glTexSubImage2D(tex->getTextureTarget(), level, x, y, w, h, getTextureFormat(RGBA), getPixelType(UNSIGNED_BYTE), pixels.data(0));
+	glTexSubImage3D(tex->getTextureTarget(), level, x, y, l, w, h, d, getTextureFormat(f), getPixelType(t), pixels.data(0));
 	s.unset();
 	pixels.unbind(GL_PIXEL_UNPACK_BUFFER);
 
@@ -213,19 +196,19 @@ unsigned char randomByte()
 	return (unsigned char)(rand() % 256);
 };
 
-osg::Image* LandManager::createRGBAImage(unsigned int ww, unsigned int hh, float red, float green, float blue, float alpha)
+osg::Image* LandManager::createRGBAImage2D(unsigned int ww, unsigned int hh, float red, float green, float blue, float alpha)
 {
 	unsigned char* buffer = new unsigned char[4*ww*hh];
 
 	unsigned char* ptr = buffer;
 
-	for(unsigned int row = 0; row < hh; ++row) {
-		for(unsigned int col = 0; col < ww; ++col) {
-			*ptr++ = red < 0.0 ? randomByte() : (unsigned char)(red*255.0f);
-			*ptr++ = green < 0.0 ? randomByte() : (unsigned char)(green*255.0f);
-			*ptr++ = blue < 0.0 ? randomByte() : (unsigned char)(blue*255.0f);
-			*ptr++ = alpha < 0.0 ? randomByte() : (unsigned char)(alpha*255.0f);
-		}
+	unsigned int num = ww*hh;
+
+	for(unsigned int i = 0; i < num; ++i) {
+		*ptr++ = red < 0.0 ? randomByte() : (unsigned char)(red*255.0f);
+		*ptr++ = green < 0.0 ? randomByte() : (unsigned char)(green*255.0f);
+		*ptr++ = blue < 0.0 ? randomByte() : (unsigned char)(blue*255.0f);
+		*ptr++ = alpha < 0.0 ? randomByte() : (unsigned char)(alpha*255.0f);
 	}
 
 	// Now create the corresponding image:
@@ -235,9 +218,36 @@ osg::Image* LandManager::createRGBAImage(unsigned int ww, unsigned int hh, float
 	return res;
 }
 
+osg::Image* LandManager::createRGBAImage3D(unsigned int ww, unsigned int hh, unsigned int dd, float red, float green, float blue, float alpha)
+{
+	unsigned char* buffer = new unsigned char[4*ww*hh*dd];
+
+	unsigned char* ptr = buffer;
+
+	unsigned int num = ww*hh*dd;
+
+	for(unsigned int i = 0; i < num; ++i) {
+		*ptr++ = red < 0.0 ? randomByte() : (unsigned char)(red*255.0f);
+		*ptr++ = green < 0.0 ? randomByte() : (unsigned char)(green*255.0f);
+		*ptr++ = blue < 0.0 ? randomByte() : (unsigned char)(blue*255.0f);
+		*ptr++ = alpha < 0.0 ? randomByte() : (unsigned char)(alpha*255.0f);
+	}
+
+	// Now create the corresponding image:
+	osg::Image* res = new osg::Image();
+	res->setImage(ww,hh,dd,GL_RGBA,GL_RGBA,GL_UNSIGNED_BYTE,buffer,osg::Image::USE_NEW_DELETE);
+
+	return res;
+}
+
 void LandManager::setSubImage2D(osg::Texture* tex, int x, int y, osg::Image* img, TextureFormat f, PixelType t)
 {
-	setSubImage2D(tex,0,0,0,500,200,f,t,Buffer::Parameters(), CPUBuffer(img->data()));
+	setSubImage2D(tex,0,x,y,img->s(),img->t(),f,t,Buffer::Parameters(), CPUBuffer(img->data()));
+}
+
+void LandManager::setSubImage3D(osg::Texture* tex, int x, int y, int l, osg::Image* img, TextureFormat f, PixelType t)
+{
+	setSubImage3D(tex,0,x,y,l,img->s(),img->t(),img->r(),f,t,Buffer::Parameters(), CPUBuffer(img->data()));
 }
 
 };

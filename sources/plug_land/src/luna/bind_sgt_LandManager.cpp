@@ -172,10 +172,11 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setSubImage3D(lua_State *L) {
+	inline static bool _lg_typecheck_setSubImage3D_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=12 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Texture >(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
@@ -186,11 +187,28 @@ public:
 		if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 		if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,11,82342378) ) return false;
+		if( (!(Luna< sgt::Buffer::Parameters >::check(L,11))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,12,50169651) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< sgt::Buffer >(L,12))) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_createRGBAImage(lua_State *L) {
+	inline static bool _lg_typecheck_setSubImage3D_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=7 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Texture >(L,1)) ) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,50169651)) ) return false;
+		if( (lua_isnil(L,5)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Image >(L,5)) ) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_createRGBAImage2D(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>6 ) return false;
 
@@ -200,6 +218,20 @@ public:
 		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
 		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
 		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_createRGBAImage3D(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>7 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
+		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
+		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
 		return true;
 	}
 
@@ -371,8 +403,8 @@ public:
 	}
 
 	// static void sgt::LandManager::setSubImage3D(osg::Texture * tex, int level, int x, int y, int l, int w, int h, int d, sgt::TextureFormat f, sgt::PixelType t, const sgt::Buffer::Parameters & s, const sgt::Buffer & pixels)
-	static int _bind_setSubImage3D(lua_State *L) {
-		if (!_lg_typecheck_setSubImage3D(L)) {
+	static int _bind_setSubImage3D_overload_1(lua_State *L) {
+		if (!_lg_typecheck_setSubImage3D_overload_1(L)) {
 			luaL_error(L, "luna typecheck failed in static void sgt::LandManager::setSubImage3D(osg::Texture * tex, int level, int x, int y, int l, int w, int h, int d, sgt::TextureFormat f, sgt::PixelType t, const sgt::Buffer::Parameters & s, const sgt::Buffer & pixels) function, expected prototype:\nstatic void sgt::LandManager::setSubImage3D(osg::Texture * tex, int level, int x, int y, int l, int w, int h, int d, sgt::TextureFormat f, sgt::PixelType t, const sgt::Buffer::Parameters & s, const sgt::Buffer & pixels)\nClass arguments details:\narg 11 ID = 82342378\narg 12 ID = 44367388\n\n%s",luna_dumpStack(L).c_str());
 		}
 
@@ -402,10 +434,38 @@ public:
 		return 0;
 	}
 
-	// static osg::Image * sgt::LandManager::createRGBAImage(unsigned int ww, unsigned int hh, float red = -1.0f, float green = -1.0f, float blue = -1.0f, float alpha = 1.0f)
-	static int _bind_createRGBAImage(lua_State *L) {
-		if (!_lg_typecheck_createRGBAImage(L)) {
-			luaL_error(L, "luna typecheck failed in static osg::Image * sgt::LandManager::createRGBAImage(unsigned int ww, unsigned int hh, float red = -1.0f, float green = -1.0f, float blue = -1.0f, float alpha = 1.0f) function, expected prototype:\nstatic osg::Image * sgt::LandManager::createRGBAImage(unsigned int ww, unsigned int hh, float red = -1.0f, float green = -1.0f, float blue = -1.0f, float alpha = 1.0f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+	// static void sgt::LandManager::setSubImage3D(osg::Texture * tex, int x, int y, int l, osg::Image * img, sgt::TextureFormat f, sgt::PixelType t)
+	static int _bind_setSubImage3D_overload_2(lua_State *L) {
+		if (!_lg_typecheck_setSubImage3D_overload_2(L)) {
+			luaL_error(L, "luna typecheck failed in static void sgt::LandManager::setSubImage3D(osg::Texture * tex, int x, int y, int l, osg::Image * img, sgt::TextureFormat f, sgt::PixelType t) function, expected prototype:\nstatic void sgt::LandManager::setSubImage3D(osg::Texture * tex, int x, int y, int l, osg::Image * img, sgt::TextureFormat f, sgt::PixelType t)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		osg::Texture* tex=(Luna< osg::Referenced >::checkSubType< osg::Texture >(L,1));
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		int l=(int)lua_tointeger(L,4);
+		osg::Image* img=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,5));
+		sgt::TextureFormat f=(sgt::TextureFormat)lua_tointeger(L,6);
+		sgt::PixelType t=(sgt::PixelType)lua_tointeger(L,7);
+
+		sgt::LandManager::setSubImage3D(tex, x, y, l, img, f, t);
+
+		return 0;
+	}
+
+	// Overload binder for sgt::LandManager::setSubImage3D
+	static int _bind_setSubImage3D(lua_State *L) {
+		if (_lg_typecheck_setSubImage3D_overload_1(L)) return _bind_setSubImage3D_overload_1(L);
+		if (_lg_typecheck_setSubImage3D_overload_2(L)) return _bind_setSubImage3D_overload_2(L);
+
+		luaL_error(L, "error in function setSubImage3D, cannot match any of the overloads for function setSubImage3D:\n  setSubImage3D(osg::Texture *, int, int, int, int, int, int, int, sgt::TextureFormat, sgt::PixelType, const sgt::Buffer::Parameters &, const sgt::Buffer &)\n  setSubImage3D(osg::Texture *, int, int, int, osg::Image *, sgt::TextureFormat, sgt::PixelType)\n");
+		return 0;
+	}
+
+	// static osg::Image * sgt::LandManager::createRGBAImage2D(unsigned int ww, unsigned int hh, float red = -1.0f, float green = -1.0f, float blue = -1.0f, float alpha = 1.0f)
+	static int _bind_createRGBAImage2D(lua_State *L) {
+		if (!_lg_typecheck_createRGBAImage2D(L)) {
+			luaL_error(L, "luna typecheck failed in static osg::Image * sgt::LandManager::createRGBAImage2D(unsigned int ww, unsigned int hh, float red = -1.0f, float green = -1.0f, float blue = -1.0f, float alpha = 1.0f) function, expected prototype:\nstatic osg::Image * sgt::LandManager::createRGBAImage2D(unsigned int ww, unsigned int hh, float red = -1.0f, float green = -1.0f, float blue = -1.0f, float alpha = 1.0f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -417,7 +477,31 @@ public:
 		float blue=luatop>4 ? (float)lua_tonumber(L,5) : (float)-1.0f;
 		float alpha=luatop>5 ? (float)lua_tonumber(L,6) : (float)1.0f;
 
-		osg::Image * lret = sgt::LandManager::createRGBAImage(ww, hh, red, green, blue, alpha);
+		osg::Image * lret = sgt::LandManager::createRGBAImage2D(ww, hh, red, green, blue, alpha);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Image >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// static osg::Image * sgt::LandManager::createRGBAImage3D(unsigned int ww, unsigned int hh, unsigned int dd, float red = -1.0f, float green = -1.0f, float blue = -1.0f, float alpha = 1.0f)
+	static int _bind_createRGBAImage3D(lua_State *L) {
+		if (!_lg_typecheck_createRGBAImage3D(L)) {
+			luaL_error(L, "luna typecheck failed in static osg::Image * sgt::LandManager::createRGBAImage3D(unsigned int ww, unsigned int hh, unsigned int dd, float red = -1.0f, float green = -1.0f, float blue = -1.0f, float alpha = 1.0f) function, expected prototype:\nstatic osg::Image * sgt::LandManager::createRGBAImage3D(unsigned int ww, unsigned int hh, unsigned int dd, float red = -1.0f, float green = -1.0f, float blue = -1.0f, float alpha = 1.0f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned int ww=(unsigned int)lua_tointeger(L,1);
+		unsigned int hh=(unsigned int)lua_tointeger(L,2);
+		unsigned int dd=(unsigned int)lua_tointeger(L,3);
+		float red=luatop>3 ? (float)lua_tonumber(L,4) : (float)-1.0f;
+		float green=luatop>4 ? (float)lua_tonumber(L,5) : (float)-1.0f;
+		float blue=luatop>5 ? (float)lua_tonumber(L,6) : (float)-1.0f;
+		float alpha=luatop>6 ? (float)lua_tonumber(L,7) : (float)1.0f;
+
+		osg::Image * lret = sgt::LandManager::createRGBAImage3D(ww, hh, dd, red, green, blue, alpha);
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< osg::Image >::push(L,lret,false);
@@ -452,7 +536,8 @@ luna_RegType LunaTraits< sgt::LandManager >::methods[] = {
 	{"getError", &luna_wrapper_sgt_LandManager::_bind_getError},
 	{"setSubImage2D", &luna_wrapper_sgt_LandManager::_bind_setSubImage2D},
 	{"setSubImage3D", &luna_wrapper_sgt_LandManager::_bind_setSubImage3D},
-	{"createRGBAImage", &luna_wrapper_sgt_LandManager::_bind_createRGBAImage},
+	{"createRGBAImage2D", &luna_wrapper_sgt_LandManager::_bind_createRGBAImage2D},
+	{"createRGBAImage3D", &luna_wrapper_sgt_LandManager::_bind_createRGBAImage3D},
 	{"dynCast", &luna_wrapper_sgt_LandManager::_bind_dynCast},
 	{"__eq", &luna_wrapper_sgt_LandManager::_bind___eq},
 	{"fromVoid", &luna_wrapper_sgt_LandManager::_bind_fromVoid},

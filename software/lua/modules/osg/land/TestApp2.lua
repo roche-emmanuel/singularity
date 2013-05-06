@@ -9,7 +9,6 @@ function Class:initialize(options)
 		
 	self:createBase{width=1500,height=1500,zoffset=-60.0}
 		
-	--[[
 	local sb = tools:createSkyBox{
 		x_pos="skybox1/right.jpg",
 		x_neg="skybox1/left.jpg",
@@ -20,7 +19,6 @@ function Class:initialize(options)
 	}
 	
 	self:getRoot():addChild(sb)	
-	]]
 
 	local geode = self:createTileGeode()
 	self:getRoot():addChild(geode)
@@ -30,7 +28,7 @@ function Class:initialize(options)
 	
 	if false then
 		-- add a regular texture to the geode:
-		local img = sgt.LandManager.createRGBAImage(ww,hh)
+		local img = sgt.LandManager.createRGBAImage2D(ww,hh)
 		-- local img = tools:loadImage(fs:getRootPath("tests/data/tong.psd.freeimage"))
 		local tex = tools:createTexture{image=img}
 		
@@ -43,15 +41,22 @@ function Class:initialize(options)
 		local tex = tools:createTexture{width=ww,height=hh}
 		sgt.LandManager.setCurrentContext(0)
 		
-		local img = sgt.LandManager.createRGBAImage(ww,hh)
-		geode:setCullCB(function(node,nv)
+		if true then
+			local img = sgt.LandManager.createRGBAImage2D(ww,hh)
+			
 			self:info("Setting generated image.")
 			sgt.LandManager.setSubImage2D(tex,0,0,img, land.TextureFormat.RGBA, land.PixelType.UNSIGNED_BYTE)
-			self:info("Image set.")
-			
-			--geode:setCullCB(nil)
-		end)
-		
+			self:info("Image set.")		
+		else
+			geode:setCullCB(function(node,nv)
+				local img = sgt.LandManager.createRGBAImage2D(ww,hh)
+				self:info("Setting generated image.")
+				sgt.LandManager.setSubImage2D(tex,0,0,img, land.TextureFormat.RGBA, land.PixelType.UNSIGNED_BYTE)
+				self:info("Image set.")
+				
+				--geode:setCullCB(nil)
+			end)
+		end
 		
 		local ss = geode:getOrCreateStateSet()
 		ss:setTextureAttributeAndModes(0,tex);

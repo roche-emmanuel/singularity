@@ -87,10 +87,15 @@ function Class:createTexture(options)
 	local tex = nil
 	
 	if options.image then		
-		-- we only support texture 2D for the moment.
-		-- local tex = osg.TextureRectangle(options.image);
-		tex = osg.Texture2D(options.image);
-		tex:setTextureSize(options.image:s(),options.image:t());
+		local img = options.image
+		if img:r()==1 then
+			-- local tex = osg.TextureRectangle(options.image);
+			tex = osg.Texture2D(img);
+			tex:setTextureSize(img:s(),img:t());
+		else
+			tex = osg.Texture3D(img);
+			tex:setTextureSize(img:s(),img:t(),img:r());			
+		end
 	elseif options.cubemaps then
 		local maps = options.cubemaps
 		tex = osg.TextureCubeMap()
@@ -101,8 +106,13 @@ function Class:createTexture(options)
 		tex:setImage(osg.TextureCubeMap.POSITIVE_Z, maps.z_pos)
 		tex:setImage(osg.TextureCubeMap.NEGATIVE_Z, maps.z_neg)
 	elseif options.width and options.height then
-		tex = osg.Texture2D()
-		tex:setTextureSize(options.width,options.height)
+		if options.depth then
+			tex = osg.Texture3D()
+			tex:setTextureSize(options.width,options.height,options.depth)
+		else		
+			tex = osg.Texture2D()
+			tex:setTextureSize(options.width,options.height)
+		end
 		local fmt = options.format or "rgba"
 		if fmt=="rgba" then
 			tex:setInternalFormat( gl.RGBA )
