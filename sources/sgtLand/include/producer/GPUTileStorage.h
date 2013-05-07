@@ -4,6 +4,7 @@
 #include "producer/TileStorage.h"
 #include <osg/Texture2DArray>
 #include <osg/Texture2D>
+#include "core/Buffer.h"
 
 namespace sgt
 {
@@ -87,7 +88,7 @@ public:
          * @param t the type of each component in 'pixels'.
          * @param pixels the pixels to be copied into this slot.
          */
-        //virtual void setSubImage(int x, int y, int w, int h, TextureFormat f, PixelType t, const Buffer::Parameters &s, const Buffer &pixels);
+        virtual void setSubImage(int x, int y, int w, int h, TextureFormat f, PixelType t, const Buffer::Parameters &s, const Buffer &pixels);
 
     private:
         /**

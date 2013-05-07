@@ -166,6 +166,20 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setSubImage(lua_State *L) {
+		if( lua_gettop(L)!=9 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,8,82342378) ) return false;
+		if( !Luna<void>::has_uniqueid(L,9,50169651) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getT(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -182,6 +196,20 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92078672) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setSubImage(lua_State *L) {
+		if( lua_gettop(L)!=9 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,8,82342378) ) return false;
+		if( !Luna<void>::has_uniqueid(L,9,50169651) ) return false;
 		return true;
 	}
 
@@ -280,6 +308,38 @@ public:
 		return 1;
 	}
 
+	// void sgt::GPUTileStorage::GPUSlot::setSubImage(int x, int y, int w, int h, sgt::TextureFormat f, sgt::PixelType t, const sgt::Buffer::Parameters & s, const sgt::Buffer & pixels)
+	static int _bind_setSubImage(lua_State *L) {
+		if (!_lg_typecheck_setSubImage(L)) {
+			luaL_error(L, "luna typecheck failed in void sgt::GPUTileStorage::GPUSlot::setSubImage(int x, int y, int w, int h, sgt::TextureFormat f, sgt::PixelType t, const sgt::Buffer::Parameters & s, const sgt::Buffer & pixels) function, expected prototype:\nvoid sgt::GPUTileStorage::GPUSlot::setSubImage(int x, int y, int w, int h, sgt::TextureFormat f, sgt::PixelType t, const sgt::Buffer::Parameters & s, const sgt::Buffer & pixels)\nClass arguments details:\narg 7 ID = 82342378\narg 8 ID = 44367388\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		int w=(int)lua_tointeger(L,4);
+		int h=(int)lua_tointeger(L,5);
+		sgt::TextureFormat f=(sgt::TextureFormat)lua_tointeger(L,6);
+		sgt::PixelType t=(sgt::PixelType)lua_tointeger(L,7);
+		const sgt::Buffer::Parameters* s_ptr=(Luna< sgt::Buffer::Parameters >::check(L,8));
+		if( !s_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg s in sgt::GPUTileStorage::GPUSlot::setSubImage function");
+		}
+		const sgt::Buffer::Parameters & s=*s_ptr;
+		const sgt::Buffer* pixels_ptr=(Luna< osg::Referenced >::checkSubType< sgt::Buffer >(L,9));
+		if( !pixels_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pixels in sgt::GPUTileStorage::GPUSlot::setSubImage function");
+		}
+		const sgt::Buffer & pixels=*pixels_ptr;
+
+		sgt::GPUTileStorage::GPUSlot* self=(Luna< sgt::GPUTileStorage::GPUSlot >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call void sgt::GPUTileStorage::GPUSlot::setSubImage(int, int, int, int, sgt::TextureFormat, sgt::PixelType, const sgt::Buffer::Parameters &, const sgt::Buffer &). Got : '%s'\n%s",typeid(Luna< sgt::GPUTileStorage::GPUSlot >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		self->setSubImage(x, y, w, h, f, t, s, pixels);
+
+		return 0;
+	}
+
 	// sgtPtr< osg::Texture2DArray > sgt::GPUTileStorage::GPUSlot::t()
 	static int _bind_getT(lua_State *L) {
 		if (!_lg_typecheck_getT(L)) {
@@ -337,6 +397,38 @@ public:
 		return 0;
 	}
 
+	// void sgt::GPUTileStorage::GPUSlot::base_setSubImage(int x, int y, int w, int h, sgt::TextureFormat f, sgt::PixelType t, const sgt::Buffer::Parameters & s, const sgt::Buffer & pixels)
+	static int _bind_base_setSubImage(lua_State *L) {
+		if (!_lg_typecheck_base_setSubImage(L)) {
+			luaL_error(L, "luna typecheck failed in void sgt::GPUTileStorage::GPUSlot::base_setSubImage(int x, int y, int w, int h, sgt::TextureFormat f, sgt::PixelType t, const sgt::Buffer::Parameters & s, const sgt::Buffer & pixels) function, expected prototype:\nvoid sgt::GPUTileStorage::GPUSlot::base_setSubImage(int x, int y, int w, int h, sgt::TextureFormat f, sgt::PixelType t, const sgt::Buffer::Parameters & s, const sgt::Buffer & pixels)\nClass arguments details:\narg 7 ID = 82342378\narg 8 ID = 44367388\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		int w=(int)lua_tointeger(L,4);
+		int h=(int)lua_tointeger(L,5);
+		sgt::TextureFormat f=(sgt::TextureFormat)lua_tointeger(L,6);
+		sgt::PixelType t=(sgt::PixelType)lua_tointeger(L,7);
+		const sgt::Buffer::Parameters* s_ptr=(Luna< sgt::Buffer::Parameters >::check(L,8));
+		if( !s_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg s in sgt::GPUTileStorage::GPUSlot::base_setSubImage function");
+		}
+		const sgt::Buffer::Parameters & s=*s_ptr;
+		const sgt::Buffer* pixels_ptr=(Luna< osg::Referenced >::checkSubType< sgt::Buffer >(L,9));
+		if( !pixels_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pixels in sgt::GPUTileStorage::GPUSlot::base_setSubImage function");
+		}
+		const sgt::Buffer & pixels=*pixels_ptr;
+
+		sgt::GPUTileStorage::GPUSlot* self=(Luna< sgt::GPUTileStorage::GPUSlot >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call void sgt::GPUTileStorage::GPUSlot::base_setSubImage(int, int, int, int, sgt::TextureFormat, sgt::PixelType, const sgt::Buffer::Parameters &, const sgt::Buffer &). Got : '%s'\n%s",typeid(Luna< sgt::GPUTileStorage::GPUSlot >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		self->GPUSlot::setSubImage(x, y, w, h, f, t, s, pixels);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -361,9 +453,11 @@ luna_RegType LunaTraits< sgt::GPUTileStorage::GPUSlot >::methods[] = {
 	{"getIndex", &luna_wrapper_sgt_GPUTileStorage_GPUSlot::_bind_getIndex},
 	{"getWidth", &luna_wrapper_sgt_GPUTileStorage_GPUSlot::_bind_getWidth},
 	{"getHeight", &luna_wrapper_sgt_GPUTileStorage_GPUSlot::_bind_getHeight},
+	{"setSubImage", &luna_wrapper_sgt_GPUTileStorage_GPUSlot::_bind_setSubImage},
 	{"getT", &luna_wrapper_sgt_GPUTileStorage_GPUSlot::_bind_getT},
 	{"getL", &luna_wrapper_sgt_GPUTileStorage_GPUSlot::_bind_getL},
 	{"setT", &luna_wrapper_sgt_GPUTileStorage_GPUSlot::_bind_setT},
+	{"base_setSubImage", &luna_wrapper_sgt_GPUTileStorage_GPUSlot::_bind_base_setSubImage},
 	{"dynCast", &luna_wrapper_sgt_GPUTileStorage_GPUSlot::_bind_dynCast},
 	{"__eq", &luna_wrapper_sgt_GPUTileStorage_GPUSlot::_bind___eq},
 	{"fromVoid", &luna_wrapper_sgt_GPUTileStorage_GPUSlot::_bind_fromVoid},

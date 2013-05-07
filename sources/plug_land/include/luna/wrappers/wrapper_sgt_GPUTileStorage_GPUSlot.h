@@ -35,6 +35,24 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void sgt::GPUTileStorage::GPUSlot::setSubImage(int x, int y, int w, int h, sgt::TextureFormat f, sgt::PixelType t, const sgt::Buffer::Parameters & s, const sgt::Buffer & pixels)
+	void setSubImage(int x, int y, int w, int h, sgt::TextureFormat f, sgt::PixelType t, const sgt::Buffer::Parameters & s, const sgt::Buffer & pixels) {
+		if(_obj.pushFunction("setSubImage")) {
+			_obj.pushArg((sgt::GPUTileStorage::GPUSlot*)this);
+			_obj.pushArg(x);
+			_obj.pushArg(y);
+			_obj.pushArg(w);
+			_obj.pushArg(h);
+			_obj.pushArg((int)f);
+			_obj.pushArg((int)t);
+			_obj.pushArg(&s);
+			_obj.pushArg(&pixels);
+			return (_obj.callFunction<void>());
+		}
+
+		return GPUSlot::setSubImage(x, y, w, h, f, t, s, pixels);
+	};
+
 
 	// Protected non-virtual methods:
 

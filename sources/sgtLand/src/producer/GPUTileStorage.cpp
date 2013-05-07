@@ -1,4 +1,5 @@
 #include "producer/GPUTileStorage.h"
+#include "scene/LandManager.h"
 
 namespace sgt
 {
@@ -90,10 +91,10 @@ GPUTileStorage::GPUSlot::~GPUSlot()
     fb->copyPixels(0, 0, l, x, y, w, h, *t, 0);
 }*/
 
-/*void GPUTileStorage::GPUSlot::setSubImage(int x, int y, int w, int h, TextureFormat f, PixelType t, const Buffer::Parameters &s, const Buffer &pixels)
+void GPUTileStorage::GPUSlot::setSubImage(int x, int y, int w, int h, TextureFormat f, PixelType t, const Buffer::Parameters &s, const Buffer &pixels)
 {
-    this->t->setSubImage(0, x, y, l, w, h, 1, f, t, s, pixels);
-}*/
+	LandManager::setSubImage3D(this->t,0, x, y, l, w, h, 1, f, t, s, pixels);
+}
 
 GPUTileStorage::GPUTileStorage() : TileStorage()
 {
