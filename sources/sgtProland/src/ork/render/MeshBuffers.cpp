@@ -40,7 +40,7 @@ GLenum getAttributeType(AttributeType t);
 GLenum getMeshMode(MeshMode m);
 
 MeshBuffers::MeshBuffers() :
-    Object("MeshBuffers"), mode(POINTS), nvertices(0), nindices(0), primitiveRestart(-1), patchVertices(0)
+    Object("MeshBuffers"), mode(MESH_POINTS), nvertices(0), nindices(0), primitiveRestart(-1), patchVertices(0)
 {
 }
 
@@ -785,7 +785,7 @@ public:
             in >> buf;
 
             if (strcmp(buf, "points") == 0) {
-                mode = POINTS;
+                mode = MESH_POINTS;
             } else if (strcmp(buf, "lines") == 0) {
                 mode = LINES;
             } else if (strcmp(buf, "linesadjacency") == 0) {

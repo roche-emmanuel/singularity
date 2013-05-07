@@ -47,6 +47,7 @@
 - Tested support for texture 3D injection.
 - Now trying to build final proland module.
 - Rebuilding proland module.
+- Added core module for proland.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

@@ -13,9 +13,19 @@
     #  define SGTPROLAND_EXPORT
 #endif  
 
+#if defined(_MSC_VER)
+    #pragma warning( disable : 4251 )
+	#pragma warning( disable : 4091 )	
+	#pragma warning( disable : 4244 )	
+#endif
+
 #define ORK_API SGTPROLAND_EXPORT
+#define PROLAND_API SGTPROLAND_EXPORT
 
 #include <GL/glew.h>
+#undef GL_PATCHES
+
+#include "stdint.h"
 
 #include "sgtCommon.h"
 

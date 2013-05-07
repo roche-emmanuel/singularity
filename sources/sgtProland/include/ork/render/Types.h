@@ -203,7 +203,7 @@ enum AttributeType {
  * A mesh topology.
  */
 enum MeshMode {
-    POINTS, ///< &nbsp;
+    MESH_POINTS, ///< &nbsp;
     LINE_STRIP, ///< &nbsp;
     LINE_LOOP, ///< &nbsp;
     LINES, ///< &nbsp;
@@ -367,7 +367,7 @@ enum PixelType {
     UNSIGNED_INT, ///< &nbsp;
     INT, ///< &nbsp;
     HALF, ///< &nbsp;
-    FLOAT, ///< &nbsp;
+    PIXEL_FLOAT, ///< &nbsp;
     UNSIGNED_BYTE_3_3_2, ///< &nbsp;
     UNSIGNED_BYTE_2_3_3_REV, ///< &nbsp;
     UNSIGNED_SHORT_5_6_5, ///< &nbsp;

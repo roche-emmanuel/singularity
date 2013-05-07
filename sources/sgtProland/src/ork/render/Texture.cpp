@@ -290,7 +290,7 @@ ORK_API void getParameters(const ptr<ResourceDescriptor> desc, const TiXmlElemen
     } else if (strcmp(v, "INT") == 0) {
         t = INT;
     } else if (strcmp(v, "FLOAT") == 0) {
-        t = FLOAT;
+        t = PIXEL_FLOAT;
     } else if (strcmp(v, "HALF") == 0) {
         t = HALF;
     } else {
