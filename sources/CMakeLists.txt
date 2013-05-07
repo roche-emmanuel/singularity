@@ -21,7 +21,8 @@ ENDIF()
 # ADD_SUBDIRECTORY(osgdb_freeimage)
 
 ADD_SUBDIRECTORY(sgtCore)
-ADD_SUBDIRECTORY(sgtLand)
+# ADD_SUBDIRECTORY(sgtLand)
+ADD_SUBDIRECTORY(sgtProland)
 
 # ADD_SUBDIRECTORY(lua_core)
 # ADD_SUBDIRECTORY(lua_externals)
@@ -59,9 +60,9 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_bullet)
 # ADD_SUBDIRECTORY(plug_micropather)
 # ADD_SUBDIRECTORY(plug_mathgl)
-# ADD_SUBDIRECTORY(plug_proland)
+ADD_SUBDIRECTORY(plug_proland)
 # ADD_SUBDIRECTORY(plug_opengl)
-ADD_SUBDIRECTORY(plug_land)
+# ADD_SUBDIRECTORY(plug_land)
 
 # ToDo:
 # ADD_SUBDIRECTORY(plug_freenect)

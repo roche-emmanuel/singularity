@@ -1,3 +1,0 @@
-module=proland
-proland::ProlandDrawable => osg::Drawable
-proland::ProlandTest => proland::ProlandTest

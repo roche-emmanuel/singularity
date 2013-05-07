@@ -11,19 +11,21 @@ tm:registerExternalFunctions(sgt_path .. "sources/plug_osg/functions.luna")
 
 ReflectionGenerator.generate{
 	xmlpath=xml_path,
-	modName=project,
 	luaOpenName=project,
+	modName=project,
 	headers={"plug_common.h"},
 	destpath=dest_path,
+	mappedModules={
+	},
 	ignoreFunctions={
 	},
-	ignoreHeaders={"helpers%.h"},
-	ignoreClassDeclarations={},
-	locationPrefixes={
-		dest_path.."interface/",
-	}
+	ignoreClasses={
+	},
+	ignoreConverters={},
+	ignoreHeaders = { "helpers%.h" },
+	corrections = {
+		type_name = {
+		},
+	},
+	locationPrefixes={dest_path.."interface/"}
 }
-
-
-
-

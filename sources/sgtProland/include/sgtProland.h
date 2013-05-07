@@ -13,6 +13,8 @@
     #  define SGTPROLAND_EXPORT
 #endif  
 
+#define ORK_API SGTPROLAND_EXPORT
+
 #include <GL/glew.h>
 
 #include "sgtCommon.h"
@@ -23,7 +25,10 @@
 // #include <OpenThreads/Condition>
 // #include <OpenThreads/Thread>
 
-// #include "pmath.h"
+#include "pmath.h"
+
+#include <osg/Math>
+
 // #include "core/Types.h"
 
 // #define sgtCast(point,targetClass) (dynamic_cast<targetClass*>(point))

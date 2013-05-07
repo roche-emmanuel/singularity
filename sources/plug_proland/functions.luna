@@ -1,3 +1,0 @@
-module=proland
-proland::playProlandDemo
-proland::installDebugCallback
