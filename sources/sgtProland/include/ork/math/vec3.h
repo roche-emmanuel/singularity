@@ -204,6 +204,11 @@ public:
     vec3 crossProduct(const vec3& v) const;
 
     /**
+     * Returns he cross product of this vector and of the given vector.
+     */
+    vec3 cross(const vec3& v) const;
+	
+    /**
      * Returns the 2D vector defined by (x,y).
      */
     vec2<type> xy() const;
@@ -418,7 +423,7 @@ inline bool vec3<type>::operator<(const vec3<type>& v) const
 template <typename type>
 inline type vec3<type>::length() const
 {
-    return sqrt(x*x + y*y + z*z);
+    return sqrt((double)(x*x + y*y + z*z));
 }
 
 template <typename type>
@@ -436,7 +441,7 @@ inline type vec3<type>::dotproduct(const vec3<type>& v) const
 template <typename type>
 inline vec3<type> vec3<type>::normalize() const
 {
-    type length = sqrt(x * x + y * y + z * z);
+    type length = sqrt((double)(x * x + y * y + z * z));
     type invLength = (type)1.0 / length;
     return vec3(x * invLength, y * invLength, z * invLength);
 }
@@ -444,7 +449,7 @@ inline vec3<type> vec3<type>::normalize() const
 template <typename type>
 inline vec3<type> vec3<type>::normalize(type l) const
 {
-    type length = sqrt(x * x + y * y + z * z);
+    type length = sqrt((double)(x * x + y * y + z * z));
     type invLength = l / length;
     return vec3(x * invLength, y * invLength, z * invLength);
 }
@@ -467,6 +472,12 @@ inline vec3<type> vec3<type>::normalize(type l, type *previousLength)
 
 template <typename type>
 inline vec3<type> vec3<type>::crossProduct(const vec3<type>& v) const
+{
+    return vec3(y*v.z - z*v.y, z*v.x - x*v.z, x*v.y - y*v.x);
+}
+
+template <typename type>
+inline vec3<type> vec3<type>::cross(const vec3<type>& v) const
 {
     return vec3(y*v.z - z*v.y, z*v.x - x*v.z, x*v.y - y*v.x);
 }

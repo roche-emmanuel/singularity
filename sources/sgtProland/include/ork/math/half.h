@@ -220,6 +220,7 @@ inline int half::mantissa() const
 
 // faster isNaN without conversion
 // to be used by half vector templates
+/** LUNA_IGNORED */
 inline bool isNaN(half x)
 {
     return x.isNaN();

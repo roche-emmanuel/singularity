@@ -17,7 +17,24 @@
 
 #include <lua.hpp>
 
+#include "sgtProland.h"
+
 // Insert your includes here.
+#include <ork/math/vec2.h>
+#include <ork/math/vec3.h>
+#include <ork/math/vec4.h>
+
+#include <ork/math/box2.h>
+#include <ork/math/box3.h>
+
+#include <ork/math/mat2.h>
+#include <ork/math/mat3.h>
+#include <ork/math/mat4.h>
+
+#include <ork/math/quat.h>
+#include <ork/math/half.h>
+
+#include <ork/core/Object.h>
 
 // Insert your using namespace commands here.
 

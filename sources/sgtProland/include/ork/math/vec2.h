@@ -171,6 +171,10 @@ public:
      */
     type squaredLength() const;
 
+	type distanceTo(const vec2& v) const;
+	
+	type squaredDistanceTo(const vec2& v) const;
+	
     /**
      * Returns the dot product of this vector and of the given vector.
      */
@@ -405,6 +409,18 @@ inline type vec2<type>::squaredLength() const
 }
 
 template <typename type>
+inline type vec2<type>::distanceTo(const vec2<type>& v) const
+{
+	return (*this - v).length();
+}
+
+template <typename type>
+inline type vec2<type>::squaredDistanceTo(const vec2<type>& v) const
+{
+	return (*this - v).squaredLength();
+}
+
+template <typename type>
 inline type vec2<type>::dotproduct(const vec2<type>& v) const
 {
     return (x*v.x + y*v.y);
@@ -419,7 +435,7 @@ inline type vec2<type>::dot(const vec2<type>& v) const
 template <typename type>
 inline vec2<type> vec2<type>::normalize() const
 {
-    type length = sqrt(x * x + y * y);
+    type length = sqrt((double)(x * x + y * y));
     type invLength = 1.0 / length;
     return vec2(x * invLength, y * invLength);
 }
@@ -427,7 +443,7 @@ inline vec2<type> vec2<type>::normalize() const
 template <typename type>
 inline vec2<type> vec2<type>::normalize(type l) const
 {
-    type length = sqrt(x * x + y * y);
+    type length = sqrt((double)(x * x + y * y));
     type invLength = l / length;
     return vec2(x * invLength, y * invLength);
 }
