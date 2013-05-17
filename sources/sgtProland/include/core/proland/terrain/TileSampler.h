@@ -30,6 +30,7 @@
 
 #include "ork/taskgraph/TaskGraph.h"
 #include "ork/scenegraph/SceneManager.h"
+#include "ork/render/Uniform.h"
 #include "proland/producer/TileProducer.h"
 #include "proland/terrain/TerrainNode.h"
 

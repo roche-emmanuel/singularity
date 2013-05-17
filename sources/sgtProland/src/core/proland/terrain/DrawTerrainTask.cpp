@@ -131,7 +131,7 @@ bool DrawTerrainTask::Impl::run()
         }
 
         ptr<Program> p = SceneManager::getCurrentProgram();
-        t->deform->setUniforms(n, t, p);
+        //t->deform->setUniforms(n, t, p); // not applicable.
         if (async) {
             int k = 0;
             switch (m->mode) {
@@ -153,9 +153,9 @@ bool DrawTerrainTask::Impl::run()
             gridSize = (n / 2) * (n / 2) * k;
             assert(m->nindices >= gridSize * 32);
 
-            findDrawableQuads(t->root, uniforms);
+            findDrawableQuads(t->root.get(), uniforms);
         }
-        drawQuad(t->root, uniforms);
+        drawQuad(t->root.get(), uniforms);
     }
     return true;
 }
@@ -182,7 +182,7 @@ void DrawTerrainTask::Impl::findDrawableQuads(ptr<TerrainQuad> q, const vector< 
     } else {
         int nDrawable = 0;
         for (int i = 0; i < 4; ++i) {
-            findDrawableQuads(q->children[i], uniforms);
+            findDrawableQuads(q->children[i].get(), uniforms);
             if (q->children[i]->drawable) {
                 ++nDrawable;
             }
@@ -217,7 +217,7 @@ void DrawTerrainTask::Impl::drawQuad(ptr<TerrainQuad> q, const vector< ptr<TileS
         for (unsigned int i = 0; i < uniforms.size(); ++i) {
             uniforms[i]->setTile(q->level, q->tx, q->ty);
         }
-        t->deform->setUniforms(n, q, p);
+        //t->deform->setUniforms(n, q, p); // not applicable.
         if (async) {
             SceneManager::getCurrentFrameBuffer()->draw(p, *m, m->mode, 0, gridSize * 4);
         } else {
@@ -265,7 +265,7 @@ void DrawTerrainTask::Impl::drawQuad(ptr<TerrainQuad> q, const vector< ptr<TileS
             if (culling && q->children[order[i]]->visible == SceneManager::INVISIBLE) {
                 done |= (1 << order[i]);
             } else if (!async || q->children[order[i]]->drawable) {
-                drawQuad(q->children[order[i]], uniforms);
+                drawQuad(q->children[order[i]].get(), uniforms);
                 done |= (1 << order[i]);
             }
         }
@@ -274,7 +274,7 @@ void DrawTerrainTask::Impl::drawQuad(ptr<TerrainQuad> q, const vector< ptr<TileS
             for (unsigned int i = 0; i < uniforms.size(); ++i) {
                 uniforms[i]->setTile(q->level, q->tx, q->ty);
             }
-            t->deform->setUniforms(n, q, p);
+            //t->deform->setUniforms(n, q, p);
             SceneManager::getCurrentFrameBuffer()->draw(p, *m, m->mode, gridSize * sizes[done], gridSize * (sizes[done+1] - sizes[done]));
         }
     }

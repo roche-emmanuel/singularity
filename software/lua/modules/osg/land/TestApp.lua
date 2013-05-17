@@ -2,7 +2,7 @@ local Class = require("classBuilder"){name="LandTestApp",bases="osg.OSGTestApp"}
 
 local tools = require "osg.Tools"
 local fs = require "base.FileSystem"
-local land = require "land"
+local land = require "proland"
 
 function Class:initialize(options)
 	options = options or {}
@@ -26,12 +26,12 @@ function Class:initialize(options)
 	
 	-- now create the terrainnode:
 	self:info("Creating deformation...")
-	local deform = sgt.Deformation()
+	local deform = proland.Deformation()
 	self:info("Creating tile geode...")
 	local geode = self:createTileGeode()
 	
 	self:info("Creating terrain node...")
-	local tn = sgt.TerrainNode(deform,geode,500, -1, 1, 2.0, 7);
+	local tn = proland.TerrainNode(deform,geode,500, -1, 1, 2.0, 7);
 	
 	self:getRoot():addChild(tn);
 	

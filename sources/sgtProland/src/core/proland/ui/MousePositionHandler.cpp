@@ -29,6 +29,7 @@
 
 #include "ork/scenegraph/ShowInfoTask.h"
 #include "ork/resource/ResourceTemplate.h"
+#include "ork/render/FrameBuffer.h"
 
 using namespace ork;
 
@@ -117,7 +118,7 @@ ptr<TerrainQuad> MousePositionHandler::findTile(float x, float y, ptr<TerrainQua
                 c = 0;
             }
         }
-        child = findTile(x, y, quad->children[c]);
+        child = findTile(x, y, quad->children[c].get());
 
         return child == NULL ? quad : child;
     }
@@ -154,7 +155,7 @@ void MousePositionHandler::getWorldCoordinates(int x, int y)
             continue;
         }
         terrainPosition = it->second->deform->deformedToLocal(v);
-        ptr<TerrainQuad> quad = findTile(terrainPosition.x, terrainPosition.y, it->second->root);
+        ptr<TerrainQuad> quad = findTile(terrainPosition.x, terrainPosition.y, it->second->root.get());
         tile = vec3i(quad->level, quad->tx, quad->ty);
         return;
     }

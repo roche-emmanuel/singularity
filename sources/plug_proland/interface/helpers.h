@@ -325,15 +325,28 @@ QUAT_CLASS(quatd,double,vec3d,mat4d,mat3d);
 };
 
 
-namespace osg {
+namespace ork {
 
-class Matrixd {
-public:
-	Matrixd();
+class SceneManager {
+public 
+	typedef int visibility;
 };
 
-// class Uniform {};
-// class Node {};
+}
+
+namespace sgt {
+
+class Object {};
+
+}
+
+namespace osg {
+
+class Matrixd {};
+class Matrix3 {};
+
+class Uniform {};
+class Node {};
 
 };
 

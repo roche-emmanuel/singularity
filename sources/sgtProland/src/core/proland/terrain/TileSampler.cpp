@@ -408,7 +408,7 @@ void TileSampler::putTiles(Tree **t, ptr<TerrainQuad> q)
         }
     } else if (producer->hasChildren(q->level, q->tx, q->ty)) {
         for (int i = 0; i < 4; ++i) {
-            putTiles(&((*t)->children[i]), q->children[i]);
+            putTiles(&((*t)->children[i]), q->children[i].get());
         }
     }
 }
@@ -455,7 +455,7 @@ void TileSampler::getTiles(Tree *parent, Tree **t, ptr<TerrainQuad> q, ptr<TaskG
 
     if (q->children[0] != NULL && producer->hasChildren(q->level, q->tx, q->ty)) {
         for (int i = 0; i < 4; ++i) {
-            getTiles(*t, &((*t)->children[i]), q->children[i], result);
+            getTiles(*t, &((*t)->children[i]), q->children[i].get(), result);
         }
     }
 }
@@ -489,7 +489,7 @@ void TileSampler::prefetch(Tree *t, ptr<TerrainQuad> q, int &prefetchCount)
         }
     } else {
         for (int i = 0; i < 4; ++i) {
-            prefetch(t->children[i], q == NULL ? NULL : q->children[i], prefetchCount);
+            prefetch(t->children[i], q == NULL ? NULL : q->children[i].get(), prefetchCount);
         }
     }
     t->newTree = false;

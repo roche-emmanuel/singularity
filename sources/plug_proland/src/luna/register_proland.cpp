@@ -41,7 +41,16 @@ int PLUG_EXPORT luaopen_proland(lua_State* L) {
 	Luna< ork::mat4d >::Register(L);
 	Luna< ork::quatf >::Register(L);
 	Luna< ork::quatd >::Register(L);
+	Luna< ork::SceneManager >::Register(L);
 	Luna< ork::half >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"proland");
+	Luna< proland::Deformation >::Register(L);
+	Luna< proland::TerrainNode >::Register(L);
+	Luna< SceneManager::visibility >::Register(L);
+	Luna< osg::BoundingSphere >::Register(L);
+	Luna< sgtPtr< proland::Deformation > >::Register(L);
+	Luna< sgtPtr< proland::TerrainQuad > >::Register(L);
 	luna_popModule(L);
 
 	luna_pushModule(L,"proland");

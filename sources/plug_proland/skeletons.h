@@ -83,12 +83,27 @@ namespace ork {
 	class quatd {
 	};
 
+	class SceneManager {
+	};
+
 	class half {
 	};
 
 };
 
 namespace osg {
+};
+
+namespace proland {
+	class Deformation: public sgt::Object {
+	};
+
+	class TerrainNode: public osg::Node {
+	};
+
+};
+
+namespace sgt {
 };
 
 

@@ -1,81 +1,30 @@
-/*
- * Proland: a procedural landscape rendering library.
- * Copyright (c) 2008-2011 INRIA
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+#ifndef _TERRAIN_TERRAINNODE_H_
+#define _TERRAIN_TERRAINNODE_H_
 
-/*
- * Proland is distributed under a dual-license scheme.
- * You can obtain a specific license from Inria: proland-licensing@inria.fr.
- */
+#include "sgtProland.h"
 
-/*
- * Authors: Eric Bruneton, Antoine Begault, Guillaume Piolat.
- */
-
-#ifndef _PROLAND_TERRAIN_NODE_H_
-#define _PROLAND_TERRAIN_NODE_H_
-
-#include "ork/math/mat2.h"
-#include "ork/scenegraph/SceneNode.h"
+#include "osg/MatrixTransform"
+#include "osg/Polytope"
+#include "osg/Viewport"
+#include "osg/Geode"
 #include "proland/terrain/Deformation.h"
 #include "proland/terrain/TerrainQuad.h"
+#include "ork/math/mat2.h"
+#include "osg/Uniform"
 
 using namespace ork;
 
-namespace proland
-{
+namespace proland {
 
-/**
- * @defgroup terrain terrain
- * Provides a framework to draw and update view-dependent, quadtree based terrains.
- * This framework provides classes to represent the %terrain quadtree, classes to
- * associate data produced by proland::TileProducer to the quads of this
- * quadtree, as well as classes to update and draw such terrains (which can be
- * deformed to get spherical or cylindrical terrains).
- * @ingroup proland
- */
-
-/**
- * A view dependent, quadtree based %terrain. This class provides access to the
- * %terrain quadtree, defines the %terrain deformation (can be used to get planet
- * sized terrains), and defines how the %terrain quadtree must be subdivided based
- * on the viewer position. This class does not give any direct or indirect access
- * to the %terrain data (elevations, normals, texture, etc). The %terrain data must
- * be managed by proland::TileProducer, and stored in
- * proland::TileStorage. The link between with the %terrain quadtree is
- * provided by the TileSampler class.
- * @ingroup terrain
- * @authors Eric Bruneton, Antoine Begault, Guillaume Piolat
- */
-class PROLAND_API TerrainNode : public Object
-{
+class SGTPROLAND_EXPORT TerrainNode : public osg::Node {
 public:
-    /**
-     * The deformation of this %terrain. In the %terrain <i>local</i> space the
-     * %terrain sea level surface is flat. In the %terrain <i>deformed</i> space
-     * the sea level surface can be spherical or cylindrical (or flat if the
-     * identity deformation is used).
-     */
-    ptr<Deformation> deform;
+//#ifndef __DOXYGEN__
+	sgtPtr<Deformation> deform;
 
-    /**
-     * The root of the %terrain quadtree. This quadtree is subdivided based on the
-     * current viewer position by the #update method.
-     */
-    ptr<TerrainQuad> root;
+	sgtPtr<proland::TerrainQuad> root;
+
+	osg::ref_ptr<osg::Geode> tileGeode;
+//#endif
 
     /**
      * Describes how the %terrain quadtree must be subdivided based on the viewer
@@ -119,22 +68,55 @@ public:
      */
     static float nextGroundHeightAtCamera;
 
+	mat4d cameraToScreen; // The projection matrix
+
+	mat4d localToCamera; // the modelView matrix
+
+	mat4d localToWorld; // local to world matrix
+
+	vec3d cameraWorldPos; // position of the camera in the world frame.
+protected:
     /**
-     * Creates a new TerrainNode.
-     *
-     * @param deform the %terrain deformation.
-     * @param root the root of the %terrain quadtree.
-     * @param splitFactor how the %terrain quadtree must be subdivided (see
-     *      #splitFactor).
-     * @param maxLevel the maximum level at which the %terrain quadtree must be
-     *      subdivided (inclusive).
+     * The current viewer position in the deformed %terrain space (see #deform).
      */
-    TerrainNode(ptr<Deformation> deform, ptr<TerrainQuad> root, float splitFactor, int maxLevel);
+    vec3d deformedCameraPos;
 
     /**
-     * Deletes this TerrainNode.
+     * The current viewer frustum planes in the deformed #terrain space (see #deform).
      */
-    virtual ~TerrainNode();
+	osg::Polytope::PlaneList frustumPlanes;
+
+    /**
+     * The current viewer position in the local %terrain space (see #deform).
+     */
+    vec3d localCameraPos;
+
+    /**
+     * The viewer distance at which a quad is subdivided, relatively to the quad size.
+     */
+    float splitDist;
+
+    /**
+     * The ratio between local and deformed lengths at #localCameraPos.
+     */
+    float distFactor;
+
+    /**
+     * Local reference frame used to compute horizon occlusion culling.
+     */
+    mat2f localCameraDir;
+
+    /**
+     * Rasterized horizon elevation angle for each azimuth angle.
+     */
+    float* horizon;
+
+public:
+	TerrainNode() {};
+
+	TerrainNode(Deformation* deform, osg::Geode* tile, double half_size, double zmin, double zmax, float splitFactor, int maxLevel);
+	
+	virtual ~TerrainNode();
 
     /**
      * Returns the current viewer position in the deformed %terrain space
@@ -142,11 +124,11 @@ public:
      */
     vec3d getDeformedCamera() const;
 
-    /**
+	/**
      * Returns the current viewer frustum planes in the deformed #terrain
      * space (see #deform). These planes are updated by the #update method.
      */
-    const vec4d *getDeformedFrustumPlanes() const;
+	const osg::Polytope::PlaneList& getDeformedFrustumPlanes() const;
 
     /**
      * Returns the current viewer position in the local %terrain space
@@ -182,17 +164,7 @@ public:
      */
     float getDistFactor() const;
 
-    /**
-     * Updates the %terrain quadtree based on the current viewer position.
-     * The viewer position relatively to the local and deformed %terrain
-     * spaces is computed based on the given SceneNode, which represents
-     * the %terrain position in the scene graph (which also contains the
-     * current viewer position).
-     *
-     * @param owner the SceneNode representing the terrain position in
-     *      the global scene graph.
-     */
-    void update(ptr<SceneNode> owner);
+	void update(const mat4d& ltow, const mat4d& viewMatrix, const mat4d& proj, osg::Viewport* vp);
 
     /**
      * Adds the given bounding box as an occluder. <i>The bounding boxes must
@@ -214,63 +186,26 @@ public:
      **/
     bool isOccluded(const box3d &box);
 
-protected:
-    /**
-     * Creates an uninitialized TerrainNode.
-     */
-    TerrainNode();
+	virtual void traverse(osg::NodeVisitor& nv);
 
-    /**
-     * Initializes this TerrainNode.
-     *
-     * @param deform the %terrain deformation.
-     * @param root the root of the %terrain quadtree.
-     * @param splitFactor how the %terrain quadtree must be subdivided (see
-     *      #splitFactor).
-     * @param maxLevel the maximum level at which the %terrain quadtree must be
-     *      subdivided (inclusive).
-     */
-    void init(ptr<Deformation> deform, ptr<TerrainQuad> root, float splitFactor, int maxLevel);
+	virtual osg::BoundingSphere computeBound() const;
 
-    void swap(ptr<TerrainNode> node);
+	void release() {
+		unref();
+		if(referenceCount()==0) {
+			delete this;
+		}
+	}
 
-private:
-    /**
-     * The current viewer position in the deformed %terrain space (see #deform).
-     */
-    vec3d deformedCameraPos;
+	void acquire() {
+		ref();
+	}
 
-    /**
-     * The current viewer frustum planes in the deformed #terrain space (see #deform).
-     */
-    vec4d deformedFrustumPlanes[6];
-
-    /**
-     * The current viewer position in the local %terrain space (see #deform).
-     */
-    vec3d localCameraPos;
-
-    /**
-     * The viewer distance at which a quad is subdivided, relatively to the quad size.
-     */
-    float splitDist;
-
-    /**
-     * The ratio between local and deformed lengths at #localCameraPos.
-     */
-    float distFactor;
-
-    /**
-     * Local reference frame used to compute horizon occlusion culling.
-     */
-    mat2f localCameraDir;
-
-    /**
-     * Rasterized horizon elevation angle for each azimuth angle.
-     */
-    float *horizon;
+public:
+	osg::ref_ptr<osg::Uniform> blendingU;
+	osg::ref_ptr<osg::Uniform> localToScreenU;
 };
 
-}
+};
 
 #endif

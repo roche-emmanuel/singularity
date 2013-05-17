@@ -50,6 +50,7 @@
 - Added core module for proland.
 - Added terrain module for proland.
 - Rebuilt proland module.
+- Restored working land test one with complete proland library.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

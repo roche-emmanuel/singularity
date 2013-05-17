@@ -73,7 +73,7 @@ ptr<Task> UpdateTerrainTask::getTask(ptr<Object> context)
     if (Logger::DEBUG_LOGGER != NULL) {
         Logger::DEBUG_LOGGER->log("TERRAIN", "UpdateTerrain");
     }
-    t->update(n);
+    //t->update(n); // not needed here.
     return new TaskGraph();
 }
 

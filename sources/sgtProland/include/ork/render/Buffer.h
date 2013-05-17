@@ -137,6 +137,16 @@ public:
          */
         Parameters& subImage3D(GLint skipImages, GLint imageHeight);
 
+        /**
+         * Sets the OpenGL state corresponding to these parameters.
+         */
+        void set() const;
+
+        /**
+         * Sets the default OpenGL state corresponding to these parameters.
+         */
+        void unset() const;
+
     private:
         bool _swapBytes;
 
@@ -154,16 +164,6 @@ public:
          * True if the parameters are not equal to their default values.
          */
         bool modified;
-
-        /**
-         * Sets the OpenGL state corresponding to these parameters.
-         */
-        void set() const;
-
-        /**
-         * Sets the default OpenGL state corresponding to these parameters.
-         */
-        void unset() const;
 
         friend class Texture1D;
 
@@ -198,7 +198,6 @@ public:
      */
     virtual ~Buffer();
 
-private:
     /**
      * Binds this buffer to the given target.
      *
@@ -206,7 +205,7 @@ private:
      */
     virtual void bind(int target) const = 0;
 
-    /**
+	/**
      * Returns a pointer to the given offset in this data buffer.
      *
      * @param offset an offset from the start of this buffer, in bytes.
@@ -220,13 +219,15 @@ private:
      */
     virtual void unbind(int target) const = 0;
 
-    /**
+
+	/**
      * Notifies this buffer that it received new data on the GL side
      * (via readPixels, transformFeedback, etc). This is only possible
      * for a GPU buffer.
      */
     virtual void dirty() const = 0;
 
+private:
     friend class MeshBuffers;
 
     friend class FrameBuffer;

@@ -68,5 +68,20 @@ LUNA_BEGIN_GETTER(MyClass)
 	return MyClass(str);
 LUNA_END_GETTER(MyClass)
 */
+LUNA_BEGIN_GETTER(osg::Vec3d)
+	return *(Luna< osg::Vec3d >::check(L,index));
+LUNA_END_GETTER(osg::Vec3d)
+
+LUNA_BEGIN_GETTER(osg::Matrixd)
+	return *(Luna< osg::Matrixd >::check(L,index));
+LUNA_END_GETTER(osg::Matrixd)
+
+LUNA_BEGIN_GETTER(osg::BoundingSphere)
+	return *(Luna< osg::BoundingSphere >::check(L,index));
+LUNA_END_GETTER(osg::BoundingSphere)
+
+LUNA_BEGIN_GETTER(ork::SceneManager::visibility)
+	return (ork::SceneManager::visibility)lua_tointeger(L,index);
+LUNA_END_GETTER(ork::SceneManager::visibility)
 
 #endif

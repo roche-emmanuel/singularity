@@ -48,7 +48,6 @@ public:
      */
     virtual ~CPUBuffer();
 
-protected:
     virtual void bind(int target) const;
 
     virtual void *data(int offset) const;

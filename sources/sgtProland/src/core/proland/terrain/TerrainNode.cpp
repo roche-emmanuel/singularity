@@ -1,288 +1,242 @@
-/*
- * Proland: a procedural landscape rendering library.
- * Copyright (c) 2008-2011 INRIA
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
-/*
- * Proland is distributed under a dual-license scheme.
- * You can obtain a specific license from Inria: proland-licensing@inria.fr.
- */
-
-/*
- * Authors: Eric Bruneton, Antoine Begault, Guillaume Piolat.
- */
-
 #include "proland/terrain/TerrainNode.h"
-
-#include "ork/resource/ResourceTemplate.h"
-#include "ork/render/FrameBuffer.h"
-#include "proland/terrain/SphericalDeformation.h"
-#include "proland/terrain/CylindricalDeformation.h"
-
-#include "pmath.h"
+#include "osgUtil/CullVisitor"
 
 #define HORIZON_SIZE 256
 
-using namespace std;
-using namespace ork;
-
-namespace proland
-{
+namespace proland {
 
 float TerrainNode::groundHeightAtCamera = 0.0f;
-
 float TerrainNode::nextGroundHeightAtCamera = 0.0f;
 
-TerrainNode::TerrainNode(ptr<Deformation> deform, ptr<TerrainQuad> root, float splitFactor, int maxLevel) :
-    Object("TerrainNode")
-{
-    init(deform, root, splitFactor, maxLevel);
+class TerrainCullCB : public osg::NodeCallback {
+public:
+	virtual void operator() (osg::Node *node, osg::NodeVisitor *nv) {
+		TerrainNode* t = dynamic_cast<TerrainNode*>(node);
+		CHECK(t,"Invalid terrain node object");
+		
+		osgUtil::CullVisitor* cv = dynamic_cast<osgUtil::CullVisitor*>(nv);
+		CHECK(cv,"Invalid cull visitor object");
+
+		osg::Matrixd ltow = osg::computeLocalToWorld(nv->getNodePath());
+		osg::Matrixd viewMatrix = osg::Matrixd::inverse(ltow)*(*cv->getModelViewMatrix());
+		
+		t->update(ltow,viewMatrix,*cv->getProjectionMatrix(),cv->getViewport());
+		
+		traverse(node,nv);
+	}
+};
+
+TerrainNode::TerrainNode(Deformation* deform, osg::Geode* tile, double half_size, double zmin, double zmax, float splitFactor, int maxLevel) 
+: deform(deform), tileGeode(tile), splitFactor(splitFactor), maxLevel(maxLevel) {
+	THROW_IF(!deform,"Invalid deformation for terrain node.");
+	THROW_IF(!tile,"Invalid tile geode for terrain node.");
+	root = new TerrainQuad(this, NULL, 0, 0, -half_size, -half_size, 2.0 * half_size, zmin, zmax);
+	splitInvisibleQuads = false;
+	horizonCulling = true;
+	splitDist = 1.1f;
+	horizon = new float[HORIZON_SIZE];
+	
+	// Assign a cull callback to this node:
+	setCullCallback(new TerrainCullCB);
+	setCullingActive(false); // no culling for this node.
+
+	// Create the needed uniforms:
+	osg::StateSet* ss = getOrCreateStateSet();
+	blendingU = new osg::Uniform(osg::Uniform::FLOAT_VEC2,"deformation.blending");
+	ss->addUniform(blendingU);
+
+	localToScreenU = new osg::Uniform(osg::Uniform::FLOAT_MAT4,"deformation.localToScreen");
+	ss->addUniform(localToScreenU);
 }
 
-TerrainNode::TerrainNode() : Object("TerrainNode")
-{
-}
-
-void TerrainNode::init(ptr<Deformation> deform, ptr<TerrainQuad> root, float splitFactor, int maxLevel)
-{
-    this->deform = deform;
-    this->root = root;
-    this->splitFactor = splitFactor;
-    this->splitInvisibleQuads = false;
-    this->horizonCulling = true;
-    this->splitDist = 1.1f;
-    this->maxLevel = maxLevel;
-    root->owner = this;
-    horizon = new float[HORIZON_SIZE];
-}
-
-TerrainNode::~TerrainNode()
-{
-    delete[] horizon;
+TerrainNode::~TerrainNode() {
+	delete [] horizon;
 }
 
 vec3d TerrainNode::getDeformedCamera() const
 {
-    return deformedCameraPos;
+	return deformedCameraPos;
 }
 
-const vec4d *TerrainNode::getDeformedFrustumPlanes() const
+const osg::Polytope::PlaneList& TerrainNode::getDeformedFrustumPlanes() const
 {
-    return deformedFrustumPlanes;
+	return frustumPlanes;
 }
 
 vec3d TerrainNode::getLocalCamera() const
 {
-    return localCameraPos;
+	return localCameraPos;
 }
 
 float TerrainNode::getCameraDist(const box3d &localBox) const
 {
-    return (float) max(abs(localCameraPos.z - localBox.zmax) / distFactor,
-                   max(min(abs(localCameraPos.x - localBox.xmin), abs(localCameraPos.x - localBox.xmax)),
-                        min(abs(localCameraPos.y - localBox.ymin), abs(localCameraPos.y - localBox.ymax))));
+	return (float) osg::maximum(abs(localCameraPos.z - localBox.zmax) / distFactor,
+		osg::maximum(osg::minimum(abs(localCameraPos.x - localBox.xmin), abs(localCameraPos.x - localBox.xmax)),
+		osg::minimum(abs(localCameraPos.y - localBox.ymin), abs(localCameraPos.y - localBox.ymax))));
 }
 
 SceneManager::visibility TerrainNode::getVisibility(const box3d &localBox) const
 {
-    return deform->getVisibility(this, localBox);
+	return deform->getVisibility(this, localBox);
 }
 
 float TerrainNode::getSplitDistance() const
 {
-    assert(isFinite(splitDist));
-    assert(splitDist > 1.0f);
-    return splitDist;
+	CHECK_RET(isFinite(splitDist),0.0f,"Infinite splitDist.");
+	CHECK_RET(splitDist > 1.0f,0.0f,"SplitDist too small: "<<splitDist);
+	return splitDist;
 }
 
 float TerrainNode::getDistFactor() const
 {
-    return distFactor;
+	return distFactor;
 }
 
-void TerrainNode::update(ptr<SceneNode> owner)
+void TerrainNode::update(const mat4d& ltow, const mat4d& viewMatrix, const mat4d& proj, osg::Viewport* vp)
 {
-    deformedCameraPos = owner->getLocalToCamera().inverse() * vec3d::ZERO;
-    SceneManager::getFrustumPlanes(owner->getLocalToScreen(), deformedFrustumPlanes);
-    localCameraPos = deform->deformedToLocal(deformedCameraPos);
+	CHECK(vp,"Invalid viewport argument.");
 
-    mat4d m = deform->localToDeformedDifferential(localCameraPos, true);
-    distFactor = max(vec3d(m[0][0], m[1][0], m[2][0]).length(), vec3d(m[0][1], m[1][1], m[2][1]).length());
+	mat4d modelView = viewMatrix*ltow;
 
-    ptr<FrameBuffer> fb = SceneManager::getCurrentFrameBuffer();
-    vec3d left = deformedFrustumPlanes[0].xyz().normalize();
-    vec3d right = deformedFrustumPlanes[1].xyz().normalize();
-    float fov = (float) safe_acos(-left.dotproduct(right));
-    splitDist = splitFactor * fb->getViewport().z / 1024.0f * tan(40.0f / 180.0f * M_PI) / tan(fov / 2.0f);
-    if (splitDist < 1.1f || !(isFinite(splitDist))) {
-        splitDist = 1.1f;
-    }
+	localToCamera = modelView;
+	cameraToScreen = proj;
+	localToWorld = ltow;
+	cameraWorldPos = viewMatrix.inverse()*vec3d.ZERO;
 
-    // initializes data structures for horizon occlusion culling
-    if (horizonCulling && localCameraPos.z <= root->zmax) {
-        vec3d deformedDir = owner->getLocalToCamera().inverse() * vec3d::UNIT_Z;
-        vec2d localDir = (deform->deformedToLocal(deformedDir) - localCameraPos).xy().normalize();
-        localCameraDir = mat2f(localDir.y, -localDir.x, -localDir.x, -localDir.y);
-        for (int i = 0; i < HORIZON_SIZE; ++i) {
-            horizon[i] = -INFINITY;
-        }
-    }
+	mat4d mvp = proj*modelView;
+	mat4d modelViewInv = modelView.inverse();
 
-    root->update();
+	deformedCameraPos = modelViewInv*vec3d.ZERO;
+	LandManager::getFrustumPlanes(mvp, frustumPlanes);
+	localCameraPos = deform->deformedToLocal(deformedCameraPos);
+
+	mat4d m = deform->localToDeformedDifferential(localCameraPos, true);
+	distFactor = osg::maximum(vec3d(m[0][0], m[1][0], m[2][0]).length(), vec3d(m[0][1], m[1][1], m[2][1]).length());
+
+	osg::Vec3d left = frustumPlanes[0].getNormal();
+	osg::Vec3d right = frustumPlanes[1].getNormal();
+	left.normalize();
+	right.normalize();
+
+	float fov = (float) safe_acos(-left*right);
+	splitDist = splitFactor * vp->width() / 1024.0f * tan(osg::DegreesToRadians(40.0f)) / tan(fov / 2.0f);
+	if (splitDist < 1.1f || !(isFinite(splitDist))) {
+		splitDist = 1.1f;
+	}
+
+	// initializes data structures for horizon occlusion culling
+	if (horizonCulling && localCameraPos.z <= root->zmax) {
+		vec3d deformedDir = modelViewInv * vec3d.UNIT_Z;
+		vec2d localDir = (deform->deformedToLocal(deformedDir) - localCameraPos).xy().normalize();
+		localCameraDir = mat2f(localDir.y, -localDir.x, -localDir.x, -localDir.y);
+		for (int i = 0; i < HORIZON_SIZE; ++i) {
+			horizon[i] = -INFINITY;
+		}
+	}
+
+	// update the default uniforms:
+	deform->setUniforms(this);
+	
+	root->update();
 }
 
 bool TerrainNode::addOccluder(const box3d &occluder)
 {
-    if (!horizonCulling || localCameraPos.z > root->zmax) {
-        return false;
-    }
-    vec2f corners[4];
-    vec2d o = localCameraPos.xy();
-    corners[0] = localCameraDir * (vec2d(occluder.xmin, occluder.ymin) - o).cast<float>();
-    corners[1] = localCameraDir * (vec2d(occluder.xmin, occluder.ymax) - o).cast<float>();
-    corners[2] = localCameraDir * (vec2d(occluder.xmax, occluder.ymin) - o).cast<float>();
-    corners[3] = localCameraDir * (vec2d(occluder.xmax, occluder.ymax) - o).cast<float>();
-    if (corners[0].y <= 0.0f || corners[1].y <= 0.0f || corners[2].y <= 0.0f || corners[3].y <= 0.0f) {
-        // skips bounding boxes that are not fully behind the "near plane"
-        // of the reference frame used for horizon occlusion culling
-        return false;
-    }
-    float dzmin = float(occluder.zmin - localCameraPos.z);
-    float dzmax = float(occluder.zmax - localCameraPos.z);
-    vec3f bounds[4];
-    bounds[0] = vec3f(corners[0].x, dzmin, dzmax) / corners[0].y;
-    bounds[1] = vec3f(corners[1].x, dzmin, dzmax) / corners[1].y;
-    bounds[2] = vec3f(corners[2].x, dzmin, dzmax) / corners[2].y;
-    bounds[3] = vec3f(corners[3].x, dzmin, dzmax) / corners[3].y;
-    float xmin = min(min(bounds[0].x, bounds[1].x), min(bounds[2].x, bounds[3].x)) * 0.33f + 0.5f;
-    float xmax = max(max(bounds[0].x, bounds[1].x), max(bounds[2].x, bounds[3].x)) * 0.33f + 0.5f;
-    float zmin = min(min(bounds[0].y, bounds[1].y), min(bounds[2].y, bounds[3].y));
-    float zmax = max(max(bounds[0].z, bounds[1].z), max(bounds[2].z, bounds[3].z));
+	if (!horizonCulling || localCameraPos.z > root->zmax) {
+		return false;
+	}
+	vec2f corners[4];
+	vec2d o = vec2d(localCameraPos.x,localCameraPos.y);
+	corners[0] = localCameraDir * (vec2d(occluder.xmin, occluder.ymin) - o).cast<float>();
+	corners[1] = localCameraDir * (vec2d(occluder.xmin, occluder.ymax) - o).cast<float>();
+	corners[2] = localCameraDir * (vec2d(occluder.xmax, occluder.ymin) - o).cast<float>();
+	corners[3] = localCameraDir * (vec2d(occluder.xmax, occluder.ymax) - o).cast<float>();
+	if (corners[0].y <= 0.0f || corners[1].y <= 0.0f || corners[2].y <= 0.0f || corners[3].y <= 0.0f) {
+		// skips bounding boxes that are not fully behind the "near plane"
+		// of the reference frame used for horizon occlusion culling
+		return false;
+	}
+	float dzmin = float(occluder.zmin - localCameraPos.z);
+	float dzmax = float(occluder.zmax - localCameraPos.z);
+	vec3f bounds[4];
+	bounds[0] = vec3f(corners[0].x, dzmin, dzmax) / corners[0].y;
+	bounds[1] = vec3f(corners[1].x, dzmin, dzmax) / corners[1].y;
+	bounds[2] = vec3f(corners[2].x, dzmin, dzmax) / corners[2].y;
+	bounds[3] = vec3f(corners[3].x, dzmin, dzmax) / corners[3].y;
+	float xmin = osg::minimum(osg::minimum(bounds[0].x, bounds[1].x), osg::minimum(bounds[2].x, bounds[3].x)) * 0.33f + 0.5f;
+	float xmax = osg::maximum(osg::maximum(bounds[0].x, bounds[1].x), osg::maximum(bounds[2].x, bounds[3].x)) * 0.33f + 0.5f;
+	float zmin = osg::minimum(osg::minimum(bounds[0].y, bounds[1].y), osg::minimum(bounds[2].y, bounds[3].y));
+	float zmax = osg::maximum(osg::maximum(bounds[0].z, bounds[1].z), osg::maximum(bounds[2].z, bounds[3].z));
 
-    int imin = max(int(floor(xmin * HORIZON_SIZE)), 0);
-    int imax = min(int(ceil(xmax * HORIZON_SIZE)), HORIZON_SIZE - 1);
+	int imin = osg::maximum(int(floor(xmin * HORIZON_SIZE)), 0);
+	int imax = osg::minimum(int(ceil(xmax * HORIZON_SIZE)), HORIZON_SIZE - 1);
 
-    // first checks if the bounding box projection is below the current horizon line
-    bool occluded = imax >= imin;
-    for (int i = imin; i <= imax; ++i) {
-        if (zmax > horizon[i]) {
-            occluded = false;
-            break;
-        }
-    }
-    if (!occluded) {
-        // if it is not, updates the horizon line with the projection of this bounding box
-        imin = max(int(ceil(xmin * HORIZON_SIZE)), 0);
-        imax = min(int(floor(xmax * HORIZON_SIZE)), HORIZON_SIZE - 1);
-        for (int i = imin; i <= imax; ++i) {
-            horizon[i] = max(horizon[i], zmin);
-        }
-    }
-    return occluded;
+	// first checks if the bounding box projection is below the current horizon line
+	bool occluded = imax >= imin;
+	for (int i = imin; i <= imax; ++i) {
+		if (zmax > horizon[i]) {
+			occluded = false;
+			break;
+		}
+	}
+	if (!occluded) {
+		// if it is not, updates the horizon line with the projection of this bounding box
+		imin = osg::maximum(int(ceil(xmin * HORIZON_SIZE)), 0);
+		imax = osg::minimum(int(floor(xmax * HORIZON_SIZE)), HORIZON_SIZE - 1);
+		for (int i = imin; i <= imax; ++i) {
+			horizon[i] = osg::maximum(horizon[i], zmin);
+		}
+	}
+	return occluded;
 }
 
 bool TerrainNode::isOccluded(const box3d &box)
 {
-    if (!horizonCulling || localCameraPos.z > root->zmax) {
-        return false;
-    }
-    vec2f corners[4];
-    vec2d o = localCameraPos.xy();
-    corners[0] = localCameraDir * (vec2d(box.xmin, box.ymin) - o).cast<float>();
-    corners[1] = localCameraDir * (vec2d(box.xmin, box.ymax) - o).cast<float>();
-    corners[2] = localCameraDir * (vec2d(box.xmax, box.ymin) - o).cast<float>();
-    corners[3] = localCameraDir * (vec2d(box.xmax, box.ymax) - o).cast<float>();
-    if (corners[0].y <= 0.0f || corners[1].y <= 0.0f || corners[2].y <= 0.0f || corners[3].y <= 0.0f) {
-        return false;
-    }
-    float dz = float(box.zmax - localCameraPos.z);
-    corners[0] = vec2f(corners[0].x, dz) / corners[0].y;
-    corners[1] = vec2f(corners[1].x, dz) / corners[1].y;
-    corners[2] = vec2f(corners[2].x, dz) / corners[2].y;
-    corners[3] = vec2f(corners[3].x, dz) / corners[3].y;
-    float xmin = min(min(corners[0].x, corners[1].x), min(corners[2].x, corners[3].x)) * 0.33f + 0.5f;
-    float xmax = max(max(corners[0].x, corners[1].x), max(corners[2].x, corners[3].x)) * 0.33f + 0.5f;
-    float zmax = max(max(corners[0].y, corners[1].y), max(corners[2].y, corners[3].y));
-    int imin = max(int(floor(xmin * HORIZON_SIZE)), 0);
-    int imax = min(int(ceil(xmax * HORIZON_SIZE)), HORIZON_SIZE - 1);
-    for (int i = imin; i <= imax; ++i) {
-        if (zmax > horizon[i]) {
-            return false;
-        }
-    }
-    return imax >= imin;
+	if (!horizonCulling || localCameraPos.z > root->zmax) {
+		return false;
+	}
+	vec2f corners[4];
+	vec2d o = vec2d(localCameraPos.x,localCameraPos.y);
+	corners[0] = localCameraDir * (vec2d(box.xmin, box.ymin) - o).cast<float>();
+	corners[1] = localCameraDir * (vec2d(box.xmin, box.ymax) - o).cast<float>();
+	corners[2] = localCameraDir * (vec2d(box.xmax, box.ymin) - o).cast<float>();
+	corners[3] = localCameraDir * (vec2d(box.xmax, box.ymax) - o).cast<float>();
+	if (corners[0].y <= 0.0f || corners[1].y <= 0.0f || corners[2].y <= 0.0f || corners[3].y <= 0.0f) {
+		return false;
+	}
+	float dz = float(box.zmax - localCameraPos.z);
+	corners[0] = vec2f(corners[0].x, dz) / corners[0].y;
+	corners[1] = vec2f(corners[1].x, dz) / corners[1].y;
+	corners[2] = vec2f(corners[2].x, dz) / corners[2].y;
+	corners[3] = vec2f(corners[3].x, dz) / corners[3].y;
+	float xmin = osg::minimum(osg::minimum(corners[0].x, corners[1].x), osg::minimum(corners[2].x, corners[3].x)) * 0.33f + 0.5f;
+	float xmax = osg::maximum(osg::maximum(corners[0].x, corners[1].x), osg::maximum(corners[2].x, corners[3].x)) * 0.33f + 0.5f;
+	float zmax = osg::maximum(osg::maximum(corners[0].y, corners[1].y), osg::maximum(corners[2].y, corners[3].y));
+	int imin = osg::maximum(int(floor(xmin * HORIZON_SIZE)), 0);
+	int imax = osg::minimum(int(ceil(xmax * HORIZON_SIZE)), HORIZON_SIZE - 1);
+	for (int i = imin; i <= imax; ++i) {
+		if (zmax > horizon[i]) {
+			return false;
+		}
+	}
+	return imax >= imin;
 }
 
-void TerrainNode::swap(ptr<TerrainNode> t)
+void TerrainNode::traverse(osg::NodeVisitor& nv)
 {
-    std::swap(deform, t->deform);
-    std::swap(root, t->root);
-    std::swap(splitFactor, t->splitFactor);
-    std::swap(maxLevel, t->maxLevel);
-    std::swap(deformedCameraPos, t->deformedCameraPos);
-    std::swap(localCameraPos, t->localCameraPos);
-    std::swap(splitDist, t->splitDist);
-
-    for (int i = 0; i < 6; ++i) {
-        std::swap(deformedFrustumPlanes[i], t->deformedFrustumPlanes[i]);
-    }
+	// traverse the quad tree.
+	root->accept(nv);
 }
 
-class TerrainNodeResource : public ResourceTemplate<0, TerrainNode>
+osg::BoundingSphere TerrainNode::computeBound() const
 {
-public:
-    TerrainNodeResource(ptr<ResourceManager> manager, const string &name, ptr<ResourceDescriptor> desc, const TiXmlElement *e = NULL) :
-        ResourceTemplate<0, TerrainNode>(manager, name, desc)
-    {
-        e = e == NULL ? desc->descriptor : e;
-        float size;
-        float zmin;
-        float zmax;
-        ptr<Deformation> deform;
-        float splitFactor;
-        int maxLevel;
-        checkParameters(desc, e, "name,size,zmin,zmax,deform,radius,splitFactor,horizonCulling,maxLevel,");
-        getFloatParameter(desc, e, "size", &size);
-        getFloatParameter(desc, e, "zmin", &zmin);
-        getFloatParameter(desc, e, "zmax", &zmax);
-        if (e->Attribute("deform") != NULL && strcmp(e->Attribute("deform"), "sphere") == 0) {
-            deform = new SphericalDeformation(size);
-        }
-        if (e->Attribute("deform") != NULL && strcmp(e->Attribute("deform"), "cylinder") == 0) {
-            float radius;
-            getFloatParameter(desc, e, "radius", &radius);
-            deform = new CylindricalDeformation(radius);
-        }
-        if (deform == NULL) {
-            deform = new Deformation();
-        }
-        getFloatParameter(desc, e, "splitFactor", &splitFactor);
-        getIntParameter(desc, e, "maxLevel", &maxLevel);
+	// Compute the bounding sphere:
+	// we should take into account the deformation here.
+	osg::BoundingSphere bsphere;
+	//bsphere.radius() = max(root->l*sqrt(2.0),max(abs(root->zmax),abs(root->zmin)));
+	trWARN("TerrainNode","computeBound() is not implemented.");
+	return bsphere;
+}
 
-        ptr<TerrainQuad> root = new TerrainQuad(NULL, NULL, 0, 0, -size, -size, 2.0 * size, zmin, zmax);
-        init(deform, root, splitFactor, maxLevel);
-
-        if (e->Attribute("horizonCulling") != NULL && strcmp(e->Attribute("horizonCulling"), "false") == 0) {
-            horizonCulling = false;
-        }
-    }
 };
 
-extern const char terrainNode[] = "terrainNode";
-
-static ResourceFactory::Type<terrainNode, TerrainNodeResource> TerrainNodeType;
-
-}

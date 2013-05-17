@@ -106,7 +106,6 @@ public:
      */
     void unmap();
 
-protected:
     virtual void bind(int target) const;
 
     /**

@@ -193,6 +193,13 @@ struct luna_caster<ork::quatd,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<ork::SceneManager,dstType> {
+	static inline dstType* cast(ork::SceneManager* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<ork::half,dstType> {
 	static inline dstType* cast(ork::half* ptr) {
 		return static_cast<dstType*>(ptr);
@@ -202,6 +209,34 @@ struct luna_caster<ork::half,dstType> {
 template <typename dstType>
 struct luna_caster<osg::Matrixd,dstType> {
 	static inline dstType* cast(osg::Matrixd* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix3,dstType> {
+	static inline dstType* cast(osg::Matrix3* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Uniform,dstType> {
+	static inline dstType* cast(osg::Uniform* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Node,dstType> {
+	static inline dstType* cast(osg::Node* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::Object,dstType> {
+	static inline dstType* cast(sgt::Object* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };

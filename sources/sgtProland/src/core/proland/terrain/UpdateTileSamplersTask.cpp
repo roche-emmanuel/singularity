@@ -75,7 +75,7 @@ ptr<Task> UpdateTileSamplersTask::getTask(ptr<Object> context)
     while (i.hasNext()) {
         ptr<TileSampler> u = i.next().cast<TileSampler>();
         if (u != NULL) {
-            ptr<Task> ut = u->update(n->getOwner(), t->root);
+            ptr<Task> ut = u->update(n->getOwner(), t->root.get());
             if (ut.cast<TaskGraph>() == NULL || !ut.cast<TaskGraph>()->isEmpty()) {
                 result->addTask(ut);
             }

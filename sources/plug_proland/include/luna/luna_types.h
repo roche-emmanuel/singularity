@@ -4,6 +4,8 @@
 #include <plug_common.h>
 
 #include <ork/math/half.h>
+#include <core/proland/terrain/Deformation.h>
+#include <core/proland/terrain/TerrainNode.h>
 
 // Class: ork::Object
 template<>
@@ -518,6 +520,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: ork::SceneManager
+template<>
+class LunaTraits< ork::SceneManager > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::SceneManager* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::SceneManager* obj);
+	typedef ork::SceneManager parent_t;
+	typedef ork::SceneManager base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: ork::half
 template<>
 class LunaTraits< ork::half > {
@@ -556,6 +577,196 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::Matrix3
+template<>
+class LunaTraits< osg::Matrix3 > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix3* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix3* obj);
+	typedef osg::Matrix3 parent_t;
+	typedef osg::Matrix3 base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Uniform
+template<>
+class LunaTraits< osg::Uniform > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Uniform* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Uniform* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Uniform base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Node
+template<>
+class LunaTraits< osg::Node > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Node* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Node* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Node base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::Object
+template<>
+class LunaTraits< sgt::Object > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::Object* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::Object* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::Object base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: proland::Deformation
+template<>
+class LunaTraits< proland::Deformation > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static proland::Deformation* _bind_ctor(lua_State *L);
+	static void _bind_dtor(proland::Deformation* obj);
+	typedef osg::Referenced parent_t;
+	typedef proland::Deformation base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: proland::TerrainNode
+template<>
+class LunaTraits< proland::TerrainNode > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static proland::TerrainNode* _bind_ctor(lua_State *L);
+	static void _bind_dtor(proland::TerrainNode* obj);
+	typedef osg::Referenced parent_t;
+	typedef proland::TerrainNode base_t;
+	static luna_ConverterType converters[];
+};
+
+
+// Mapped type: SceneManager::visibility
+template<>
+class LunaTraits< SceneManager::visibility > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static SceneManager::visibility* _bind_ctor(lua_State *L);
+	static void _bind_dtor(SceneManager::visibility* obj);
+	typedef SceneManager::visibility parent_t;
+	typedef SceneManager::visibility base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: osg::BoundingSphere
+template<>
+class LunaTraits< osg::BoundingSphere > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::BoundingSphere* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::BoundingSphere* obj);
+	typedef osg::BoundingSphere parent_t;
+	typedef osg::BoundingSphere base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: sgtPtr< proland::Deformation >
+template<>
+class LunaTraits< sgtPtr< proland::Deformation > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgtPtr< proland::Deformation >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgtPtr< proland::Deformation >* obj);
+	typedef sgtPtr< proland::Deformation > parent_t;
+	typedef sgtPtr< proland::Deformation > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: sgtPtr< proland::TerrainQuad >
+template<>
+class LunaTraits< sgtPtr< proland::TerrainQuad > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgtPtr< proland::TerrainQuad >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgtPtr< proland::TerrainQuad >* obj);
+	typedef sgtPtr< proland::TerrainQuad > parent_t;
+	typedef sgtPtr< proland::TerrainQuad > base_t;
+	static luna_ConverterType converters[];
+};
 
 
 // Referenced external: void
@@ -574,6 +785,101 @@ public:
 	static void _bind_dtor(void* obj);
 	typedef void parent_t;
 	typedef void base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Referenced
+template<>
+class LunaTraits< osg::Referenced > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Referenced* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Referenced* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Referenced base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::NodeVisitor
+template<>
+class LunaTraits< osg::NodeVisitor > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::NodeVisitor* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::NodeVisitor* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::NodeVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Geode
+template<>
+class LunaTraits< osg::Geode > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Geode* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Geode* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Geode base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Viewport
+template<>
+class LunaTraits< osg::Viewport > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Viewport* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Viewport* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Viewport base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Polytope::PlaneList
+template<>
+class LunaTraits< osg::Polytope::PlaneList > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Polytope::PlaneList* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Polytope::PlaneList* obj);
+	typedef osg::Polytope::PlaneList parent_t;
+	typedef osg::Polytope::PlaneList base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -767,6 +1073,13 @@ public:
 };
 
 template<>
+class LunaType< 53477594 > {
+public:
+	typedef ork::SceneManager type;
+	
+};
+
+template<>
 class LunaType< 18331161 > {
 public:
 	typedef ork::half type;
@@ -781,9 +1094,100 @@ public:
 };
 
 template<>
+class LunaType< 18903789 > {
+public:
+	typedef osg::Matrix3 type;
+	
+};
+
+template<>
+class LunaType< 80600789 > {
+public:
+	typedef osg::Uniform type;
+	
+};
+
+template<>
+class LunaType< 80168245 > {
+public:
+	typedef osg::Node type;
+	
+};
+
+template<>
+class LunaType< 44367388 > {
+public:
+	typedef sgt::Object type;
+	
+};
+
+template<>
+class LunaType< 39027497 > {
+public:
+	typedef SceneManager::visibility type;
+	
+};
+
+template<>
+class LunaType< 4978620 > {
+public:
+	typedef osg::BoundingSphere type;
+	
+};
+
+template<>
+class LunaType< 38901418 > {
+public:
+	typedef sgtPtr< proland::Deformation > type;
+	
+};
+
+template<>
+class LunaType< 41173863 > {
+public:
+	typedef sgtPtr< proland::TerrainQuad > type;
+	
+};
+
+template<>
 class LunaType< 3625364 > {
 public:
 	typedef void type;
+	
+};
+
+template<>
+class LunaType< 50169651 > {
+public:
+	typedef osg::Referenced type;
+	
+};
+
+template<>
+class LunaType< 49057446 > {
+public:
+	typedef osg::NodeVisitor type;
+	
+};
+
+template<>
+class LunaType< 78463439 > {
+public:
+	typedef osg::Geode type;
+	
+};
+
+template<>
+class LunaType< 74927543 > {
+public:
+	typedef osg::Viewport type;
+	
+};
+
+template<>
+class LunaType< 33161232 > {
+public:
+	typedef osg::Polytope::PlaneList type;
 	
 };
 

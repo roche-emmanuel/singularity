@@ -35,6 +35,8 @@ using namespace ork;
 namespace proland
 {
 
+class TerrainNode;
+
 /**
  * @defgroup proland_util util
  * Provides utility classes to control camera movements.

@@ -27,6 +27,7 @@
 
 #include "proland/util/TerrainViewController.h"
 
+#include "ork/scenegraph/SceneManager.h"
 #include "ork/render/FrameBuffer.h"
 #include "proland/terrain/TerrainNode.h"
 
@@ -156,7 +157,7 @@ void TerrainViewController::setProjection(float znear, float zfar, vec4f viewpor
     float height = (float) vp.w;
     float vfov = degrees(2 * atan(height / width * tan(radians(fov / 2))));
 
-    float h = (float) (getHeight() - TerrainNode::groundHeightAtCamera);
+	float h = (float) (getHeight() - TerrainNode::groundHeightAtCamera);
     if (znear == 0.0f) {
         znear = 0.1f * h;
     }
