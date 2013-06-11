@@ -200,6 +200,20 @@ struct luna_caster<ork::SceneManager,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<ork::Scheduler,dstType> {
+	static inline dstType* cast(ork::Scheduler* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::MultithreadScheduler,dstType> {
+	static inline dstType* cast(ork::MultithreadScheduler* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<ork::half,dstType> {
 	static inline dstType* cast(ork::half* ptr) {
 		return static_cast<dstType*>(ptr);
@@ -230,6 +244,27 @@ struct luna_caster<osg::Uniform,dstType> {
 template <typename dstType>
 struct luna_caster<osg::Node,dstType> {
 	static inline dstType* cast(osg::Node* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<proland::TileStorage,dstType> {
+	static inline dstType* cast(proland::TileStorage* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<proland::GPUTileStorage,dstType> {
+	static inline dstType* cast(proland::GPUTileStorage* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<proland::TileCache,dstType> {
+	static inline dstType* cast(proland::TileCache* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };

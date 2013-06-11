@@ -4,6 +4,7 @@
 #include <plug_common.h>
 
 #include <ork/math/half.h>
+#include <ork/render/Texture.h>
 #include <core/proland/terrain/Deformation.h>
 #include <core/proland/terrain/TerrainNode.h>
 
@@ -539,6 +540,44 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: ork::Scheduler
+template<>
+class LunaTraits< ork::Scheduler > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Scheduler* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Scheduler* obj);
+	typedef ork::Object parent_t;
+	typedef ork::Scheduler base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::MultithreadScheduler
+template<>
+class LunaTraits< ork::MultithreadScheduler > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::MultithreadScheduler* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::MultithreadScheduler* obj);
+	typedef ork::Object parent_t;
+	typedef ork::MultithreadScheduler base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: ork::half
 template<>
 class LunaTraits< ork::half > {
@@ -555,6 +594,44 @@ public:
 	static void _bind_dtor(ork::half* obj);
 	typedef ork::half parent_t;
 	typedef ork::half base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Texture
+template<>
+class LunaTraits< ork::Texture > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Texture* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Texture* obj);
+	typedef ork::Object parent_t;
+	typedef ork::Texture base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Texture::Parameters
+template<>
+class LunaTraits< ork::Texture::Parameters > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Texture::Parameters* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Texture::Parameters* obj);
+	typedef ork::Texture::Parameters parent_t;
+	typedef ork::Texture::Parameters base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -634,6 +711,63 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: proland::TileStorage
+template<>
+class LunaTraits< proland::TileStorage > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static proland::TileStorage* _bind_ctor(lua_State *L);
+	static void _bind_dtor(proland::TileStorage* obj);
+	typedef ork::Object parent_t;
+	typedef proland::TileStorage base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: proland::GPUTileStorage
+template<>
+class LunaTraits< proland::GPUTileStorage > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static proland::GPUTileStorage* _bind_ctor(lua_State *L);
+	static void _bind_dtor(proland::GPUTileStorage* obj);
+	typedef ork::Object parent_t;
+	typedef proland::GPUTileStorage base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: proland::TileCache
+template<>
+class LunaTraits< proland::TileCache > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static proland::TileCache* _bind_ctor(lua_State *L);
+	static void _bind_dtor(proland::TileCache* obj);
+	typedef ork::Object parent_t;
+	typedef proland::TileCache base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: sgt::Object
 template<>
 class LunaTraits< sgt::Object > {
@@ -691,6 +825,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+
+// Mapped type: ptr< Sampler >
+template<>
+class LunaTraits< ptr< Sampler > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ptr< Sampler >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ptr< Sampler >* obj);
+	typedef ptr< Sampler > parent_t;
+	typedef ptr< Sampler > base_t;
+	static luna_ConverterType converters[];
+};
 
 // Mapped type: SceneManager::visibility
 template<>
@@ -785,6 +938,25 @@ public:
 	static void _bind_dtor(void* obj);
 	typedef void parent_t;
 	typedef void base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: std::vector< unsigned int >
+template<>
+class LunaTraits< std::vector< unsigned int > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< unsigned int >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< unsigned int >* obj);
+	typedef std::vector< unsigned int > parent_t;
+	typedef std::vector< unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -1087,6 +1259,13 @@ public:
 };
 
 template<>
+class LunaType< 11747408 > {
+public:
+	typedef ork::Texture::Parameters type;
+	
+};
+
+template<>
 class LunaType< 18903838 > {
 public:
 	typedef osg::Matrixd type;
@@ -1122,6 +1301,13 @@ public:
 };
 
 template<>
+class LunaType< 46184206 > {
+public:
+	typedef ptr< Sampler > type;
+	
+};
+
+template<>
 class LunaType< 39027497 > {
 public:
 	typedef SceneManager::visibility type;
@@ -1153,6 +1339,13 @@ template<>
 class LunaType< 3625364 > {
 public:
 	typedef void type;
+	
+};
+
+template<>
+class LunaType< 27834872 > {
+public:
+	typedef std::vector< unsigned int > type;
 	
 };
 

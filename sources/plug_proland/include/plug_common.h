@@ -35,6 +35,13 @@
 #include <ork/math/half.h>
 
 #include <ork/core/Object.h>
+#include <ork/render/Types.h>
+#include <ork/render/Texture.h>
+
+#include <ork/taskgraph/MultithreadScheduler.h>
+
+#include <core/proland/producer/TileCache.h>
+#include <core/proland/producer/GPUTileStorage.h>
 
 // Insert your using namespace commands here.
 

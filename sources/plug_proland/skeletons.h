@@ -86,7 +86,20 @@ namespace ork {
 	class SceneManager {
 	};
 
+	class Scheduler: public ork::Object {
+	};
+
+	class MultithreadScheduler: public ork::Scheduler {
+	};
+
 	class half {
+	};
+
+	class Texture: public ork::Object {
+	public:
+		class Parameters {
+		};
+
 	};
 
 };
@@ -95,6 +108,15 @@ namespace osg {
 };
 
 namespace proland {
+	class TileStorage: public ork::Object {
+	};
+
+	class GPUTileStorage: public proland::TileStorage {
+	};
+
+	class TileCache: public ork::Object {
+	};
+
 	class Deformation: public sgt::Object {
 	};
 

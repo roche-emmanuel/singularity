@@ -70,12 +70,16 @@ public:
 
         unsigned int borderType() const;
 
+		/** LUNA_IGNORED */
         const GLint* borderi() const;
 
+		/** LUNA_IGNORED */
         const GLfloat* borderf() const;
 
+		/** LUNA_IGNORED */
         const GLint* borderIi() const;
 
+		/** LUNA_IGNORED */
         const GLuint* borderIui() const;
 
         GLfloat lodMin() const;

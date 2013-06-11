@@ -350,4 +350,35 @@ class Node {};
 
 };
 
+namespace ork {
+
+class Scheduler : public ork::Object {
+};
+
+class MultithreadScheduler : public ork::Scheduler {
+public:
+	MultithreadScheduler(int prefetchRate = 0, int prefetchQueue = 0, float frameRate = 0.0f, int nThreads = 0);
+};
+
+}
+
+namespace proland {
+
+class TileStorage : public ork::Object {
+public:
+	TileStorage(int tileSize, int capacity);
+};
+
+class GPUTileStorage : public TileStorage {
+public:
+	GPUTileStorage(int tileSize, int nTiles,
+        ork::TextureInternalFormat internalf, ork::TextureFormat f, ork::PixelType t,
+        const ork::Texture::Parameters &params, bool useTileMap = false);
+};
+
+class TileCache : public ork::Object {
+public:
+	TileCache(TileStorage* storage, std::string name, ork::Scheduler* scheduler = NULL);
+}
+}
 

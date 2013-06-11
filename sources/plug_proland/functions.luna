@@ -6,3 +6,12 @@ isSubnormal
 module=ork
 ork::floatToHalf
 ork::halfToFloat
+ork::getTextureInternalFormat
+ork::getFormatSize
+ork::getTextureFormat
+ork::getPixelType
+ork::getTextureWrap
+ork::getTextureFilter
+ork::getFunction
+ork::getTextureSwizzle
+ork::getTextureComponents

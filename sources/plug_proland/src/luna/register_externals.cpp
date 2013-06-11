@@ -36,6 +36,12 @@ const char LunaTraits< void >::moduleName[] = "sgt";
 const int LunaTraits< void >::hash = 3625364;
 const int LunaTraits< void >::uniqueIDs[] = {3625364,0};
 
+const char LunaTraits< std::vector< unsigned int > >::className[] = "std_vector_unsigned_int";
+const char LunaTraits< std::vector< unsigned int > >::fullName[] = "std::vector< unsigned int >";
+const char LunaTraits< std::vector< unsigned int > >::moduleName[] = "osg";
+const int LunaTraits< std::vector< unsigned int > >::hash = 27834872;
+const int LunaTraits< std::vector< unsigned int > >::uniqueIDs[] = {27834872,0};
+
 const char LunaTraits< osg::Referenced >::className[] = "Referenced";
 const char LunaTraits< osg::Referenced >::fullName[] = "osg::Referenced";
 const char LunaTraits< osg::Referenced >::moduleName[] = "osg";

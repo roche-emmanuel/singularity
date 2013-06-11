@@ -13,7 +13,6 @@ LINK_DIRECTORIES (${GLEW_LIB_DIR})
 INCLUDE_DIRECTORIES(${PTHREADS_INC_DIR})
 LINK_DIRECTORIES (${PTHREADS_LIB_DIR})
 
-
 INCLUDE_DIRECTORIES(${GLUT_INC_DIR})
 LINK_DIRECTORIES (${GLUT_LIB_DIR})
 
@@ -53,6 +52,8 @@ SET(INTF_FILES)
 ADD_FILES(INTF_FILES "../include/plug_extensions.h")
 ADD_FILES(INTF_FILES "../interface/helpers.h")
 ADD_FILES(INTF_FILES "../../sgtProland/include/ork/math/half.h")
+ADD_FILES(INTF_FILES "../../sgtProland/include/ork/render/Types.h")
+ADD_FILES(INTF_FILES "../../sgtProland/include/ork/render/Texture.h")
 ADD_FILES(INTF_FILES "../../sgtProland/include/core/proland/terrain/Deformation.h")
 ADD_FILES(INTF_FILES "../../sgtProland/include/core/proland/terrain/TerrainNode.h")
 #ADD_FILES(INTF_FILES "../../sgtProland/include/core/proland/terrain/TerrainQuad.h")
@@ -62,7 +63,7 @@ SET_TARGET_PROPERTIES(${TARGET_NAME} PROPERTIES
 	IMPORT_PREFIX "plug_"
 	SUFFIX ".sgp")
 
-SET(DOXY_PREDEFINED ORK_API= ) 
+SET(DOXY_PREDEFINED ORK_API= SGTPROLAND_EXPORT= PROLAND_API= ) 
 SET(FILE_PATTERNS )
 SET(INCLUDE_PATH )
 
