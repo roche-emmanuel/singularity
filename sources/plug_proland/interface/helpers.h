@@ -380,5 +380,20 @@ class TileCache : public ork::Object {
 public:
 	TileCache(TileStorage* storage, std::string name, ork::Scheduler* scheduler = NULL);
 }
+
+class TileProducer : public ork::Object {
+public:
+	TileProducer(const char* type, const char *taskType, TileCache* cache, bool gpuProducer);
+}
+
+// class ElevationProducer : public TileProducer {
+// public:
+	// ElevationProducer(TileCache* cache, TileProducer* residualTiles,
+			// ork::Texture2D* demTexture, ork::Texture2D* layerTexture, ork::Texture2D* residualTexture,
+			// ork::Program* upsample, ork::Program* blend, int gridMeshSize,
+			// std::vector<float> &noiseAmp, bool flipDiagonals = false)	
+// };
+
+
 }
 

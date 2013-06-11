@@ -54,7 +54,7 @@ namespace proland
  * @ingroup producer
  * @authors Eric Bruneton, Antoine Begault, Guillaume Piolat
  */
-PROLAND_API class TileProducer : public Object
+class PROLAND_API TileProducer : public Object
 {
 public:
     /**
