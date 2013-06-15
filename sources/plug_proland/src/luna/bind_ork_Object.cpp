@@ -115,7 +115,7 @@ ork::Object* LunaTraits< ork::Object >::_bind_ctor(lua_State *L) {
 }
 
 void LunaTraits< ork::Object >::_bind_dtor(ork::Object* obj) {
-	delete obj;
+	ork::ptr<ork::Object> refptr = obj;
 }
 
 const char LunaTraits< ork::Object >::className[] = "Object";

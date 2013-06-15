@@ -107,7 +107,7 @@ ork::MultithreadScheduler* LunaTraits< ork::MultithreadScheduler >::_bind_ctor(l
 }
 
 void LunaTraits< ork::MultithreadScheduler >::_bind_dtor(ork::MultithreadScheduler* obj) {
-	delete obj;
+	ork::ptr<ork::Object> refptr = obj;
 }
 
 const char LunaTraits< ork::MultithreadScheduler >::className[] = "MultithreadScheduler";

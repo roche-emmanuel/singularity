@@ -3,6 +3,7 @@ dofile(sgt_path .. "scripts/generate_common.lua")
 local ReflectionGenerator = require "bindings.LunaReflectionGenerator"
 
 local tm = require "bindings.TypeManager"
+tm:registerDeleter("ork::Object","ork::ptr<ork::Object> refptr = ${1};")
 tm:registerDeleter("osg::Referenced","osg::ref_ptr<osg::Referenced> refptr = ${1};")
 tm:registerExternals(sgt_path .. "sources/plug_core/classes.luna")
 tm:registerExternalFunctions(sgt_path .. "sources/plug_core/functions.luna")
@@ -20,6 +21,10 @@ ReflectionGenerator.generate{
 	ignoreFunctions={
 	},
 	ignoreClasses={
+	},
+	ignoreClassDeclarations={
+		"vec3< int >",
+		"vec2< int >",
 	},
 	ignoreConverters={},
 	ignoreHeaders = { "helpers%.h" },

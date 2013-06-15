@@ -53,6 +53,7 @@
 - Restored working land test one with complete proland library.
 - Added minimal reflection for some of proland/ork classes (TileCache, TileStorage, etc).
 - Adding TileProducer and ElevationProducer reflection: in progress.
+- Working on Terrain1 sample implementation in lua.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

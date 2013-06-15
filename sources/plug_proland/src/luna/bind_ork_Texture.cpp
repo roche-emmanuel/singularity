@@ -369,7 +369,7 @@ ork::Texture* LunaTraits< ork::Texture >::_bind_ctor(lua_State *L) {
 }
 
 void LunaTraits< ork::Texture >::_bind_dtor(ork::Texture* obj) {
-	delete obj;
+	ork::ptr<ork::Object> refptr = obj;
 }
 
 const char LunaTraits< ork::Texture >::className[] = "Texture";

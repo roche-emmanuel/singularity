@@ -80,7 +80,7 @@ ork::Scheduler* LunaTraits< ork::Scheduler >::_bind_ctor(lua_State *L) {
 }
 
 void LunaTraits< ork::Scheduler >::_bind_dtor(ork::Scheduler* obj) {
-	delete obj;
+	ork::ptr<ork::Object> refptr = obj;
 }
 
 const char LunaTraits< ork::Scheduler >::className[] = "Scheduler";

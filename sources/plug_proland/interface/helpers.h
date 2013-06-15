@@ -352,6 +352,9 @@ class Node {};
 
 namespace ork {
 
+class ptr<ork::Texture> {
+};
+
 class Scheduler : public ork::Object {
 };
 
@@ -363,6 +366,11 @@ public:
 }
 
 namespace proland {
+
+class LandManager {
+public:
+	static void setCurrentContext(int contextId);
+};
 
 class TileStorage : public ork::Object {
 public:
@@ -379,21 +387,31 @@ public:
 class TileCache : public ork::Object {
 public:
 	TileCache(TileStorage* storage, std::string name, ork::Scheduler* scheduler = NULL);
-}
+};
 
 class TileProducer : public ork::Object {
 public:
 	TileProducer(const char* type, const char *taskType, TileCache* cache, bool gpuProducer);
+};
+
+class ElevationProducer : public TileProducer {
+public:
+	ElevationProducer(TileCache* cache, TileProducer* residualTiles,
+			ork::Texture2D* demTexture, ork::Texture2D* layerTexture, ork::Texture2D* residualTexture,
+			ork::Program* upsample, ork::Program* blend, int gridMeshSize,
+			std::vector<float> &noiseAmp, bool flipDiagonals = false)	
+};
+
+class NormalProducer : public TileProducer {
+public:
+	NormalProducer(TileCache* cache, TileProducer* elevationTiles,
+        ork::Texture2D* normalTexture, ork::Program* normals, int gridMeshSize, bool deform = false);
+};
+
 }
 
-// class ElevationProducer : public TileProducer {
-// public:
-	// ElevationProducer(TileCache* cache, TileProducer* residualTiles,
-			// ork::Texture2D* demTexture, ork::Texture2D* layerTexture, ork::Texture2D* residualTexture,
-			// ork::Program* upsample, ork::Program* blend, int gridMeshSize,
-			// std::vector<float> &noiseAmp, bool flipDiagonals = false)	
-// };
+namespace ork {
 
+class ptr<proland::TileSampler> {};
 
 }
-

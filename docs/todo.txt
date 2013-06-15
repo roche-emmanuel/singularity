@@ -1,3 +1,26 @@
+in XMLResourceLoader.cpp (for mapping to "renderbuffer-X-Y" resources)
+
+TiXmlElement *XMLResourceLoader::buildTextureDescriptor(const string &name)
+{
+    string::size_type index1 = name.find('-', 0);
+    string::size_type index2 = name.find('-', index1 + 1);
+    string size = name.substr(index1 + 1, index2 - index1 - 1);
+    string::size_type index3 = name.find('-', index2 + 1);
+    string internalformat = name.substr(index2 + 1, index3 == string::npos ? index3 : index3 - index2 - 1);
+
+    TiXmlElement *p = new TiXmlElement("texture2D");
+    p->SetAttribute("name", name);
+    p->SetAttribute("internalformat", internalformat.c_str());
+    p->SetAttribute("width", size.c_str());
+    p->SetAttribute("height", size.c_str());
+    p->SetAttribute("format", "RED");
+    p->SetAttribute("type", "FLOAT");
+    p->SetAttribute("min", "NEAREST");
+    p->SetAttribute("mag", "NEAREST");
+    return p;
+}
+
+
 - In progress:
   * Retrieve fovX angle in osg/land/TerrainNode.lua, line 53.
 

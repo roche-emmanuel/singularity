@@ -100,7 +100,7 @@ proland::TileStorage* LunaTraits< proland::TileStorage >::_bind_ctor(lua_State *
 }
 
 void LunaTraits< proland::TileStorage >::_bind_dtor(proland::TileStorage* obj) {
-	delete obj;
+	ork::ptr<ork::Object> refptr = obj;
 }
 
 const char LunaTraits< proland::TileStorage >::className[] = "TileStorage";

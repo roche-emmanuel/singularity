@@ -105,7 +105,7 @@ proland::TileCache* LunaTraits< proland::TileCache >::_bind_ctor(lua_State *L) {
 }
 
 void LunaTraits< proland::TileCache >::_bind_dtor(proland::TileCache* obj) {
-	delete obj;
+	ork::ptr<ork::Object> refptr = obj;
 }
 
 const char LunaTraits< proland::TileCache >::className[] = "TileCache";

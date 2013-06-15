@@ -41,7 +41,14 @@
 #include <ork/taskgraph/MultithreadScheduler.h>
 
 #include <core/proland/producer/TileCache.h>
+#include <core/proland/producer/TileProducer.h>
 #include <core/proland/producer/GPUTileStorage.h>
+#include <terrain/proland/dem/ElevationProducer.h>
+#include <terrain/proland/dem/NormalProducer.h>
+#include <core/proland/terrain/TerrainNode.h>
+#include <core/proland/terrain/TerrainQuad.h>
+
+using namespace proland;
 
 // Insert your using namespace commands here.
 

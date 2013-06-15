@@ -117,7 +117,7 @@ proland::GPUTileStorage* LunaTraits< proland::GPUTileStorage >::_bind_ctor(lua_S
 }
 
 void LunaTraits< proland::GPUTileStorage >::_bind_dtor(proland::GPUTileStorage* obj) {
-	delete obj;
+	ork::ptr<ork::Object> refptr = obj;
 }
 
 const char LunaTraits< proland::GPUTileStorage >::className[] = "GPUTileStorage";

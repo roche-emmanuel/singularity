@@ -127,7 +127,7 @@ function Class:writeArgument(v,k)
 	elseif pt:isVoid() and pt:isPointer() then
 		-- We may consider void as a base class:
 		--local bhash = utils.getHash("void")
-		self:writeSubLine("void* ${1}=${3}(Luna< void >::check(L,${2}))${4};",argname,index,defStrPre,defStrPost)
+		self:writeSubLine("${5}void* ${1}=${3}(Luna< void >::check(L,${2}))${4};",argname,index,defStrPre,defStrPost,constPre)
 		isPointer=true			
 	else
 		
