@@ -4,6 +4,7 @@ local rm = require "bindings.ReflectionManager"
 local corr = require "bindings.TextCorrector"
 local snippets = require "bindings.SnippetManager"
 local tm = require "bindings.TypeManager"
+local tc = require "bindings.TypeConverter"
 
 local utils = require "utils"
 
@@ -49,7 +50,11 @@ function Class:pushParam(param,k)
 	local rtname = rt:getName()
 	local external = tm:getExternalBase(rt:getBaseName(true))
 	
-	if rt:isString() then
+	local conv = tc:getWrapperConverter(rt:getBaseName())
+	
+	if conv then
+		name = conv(rt,name)
+	elseif rt:isString() then
 		-- do nothing.
 	elseif rtname == "unsigned char *" 
 		or rtname == "const unsigned char *" 
@@ -81,6 +86,12 @@ function Class:writeFunctionCall2(func)
 	
 	local rt = func:getReturnType()
 	self:check(rt,"Invalid return type for function: ",func:getFullName())
+	
+	local conv = tc:getWrapperConverter(rt:getBaseName())
+	if conv then
+		self:writeSubLine(conv(rt))
+		return;
+	end
 	
 	local external = tm:getExternalBase(rt:getBaseName(true))
 	

@@ -99,22 +99,22 @@ public:
         unsigned int borderType() const;
 
         /**
-         * Returns the border color as integers.
+         * Returns the border color as integers. LUNA_IGNORED
          */
         const GLint* borderi() const;
 
         /**
-         * Returns the border color as floats.
+         * Returns the border color as floats. LUNA_IGNORED
          */
         const GLfloat* borderf() const;
 
         /**
-         * Returns the border color as Iintegers.
+         * Returns the border color as Iintegers. LUNA_IGNORED
          */
         const GLint* borderIi() const;
 
         /**
-         * Returns the border color as unsigned integers.
+         * Returns the border color as unsigned integers. LUNA_IGNORED
          */
         const GLuint* borderIui() const;
 

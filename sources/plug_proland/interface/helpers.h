@@ -363,6 +363,15 @@ public:
 	MultithreadScheduler(int prefetchRate = 0, int prefetchQueue = 0, float frameRate = 0.0f, int nThreads = 0);
 };
 
+class SceneManager : public ork::Object {
+public:
+    enum visibility {
+        FULLY_VISIBLE, //!< The bounding box is fully visible
+        PARTIALLY_VISIBLE, //!< The bounding box is partially visible
+        INVISIBLE //!< The bounding box is invisible
+    };	
+};
+
 }
 
 namespace proland {
@@ -399,7 +408,7 @@ public:
 	ElevationProducer(TileCache* cache, TileProducer* residualTiles,
 			ork::Texture2D* demTexture, ork::Texture2D* layerTexture, ork::Texture2D* residualTexture,
 			ork::Program* upsample, ork::Program* blend, int gridMeshSize,
-			std::vector<float> &noiseAmp, bool flipDiagonals = false)	
+			std::vector<float> &noiseAmp, bool flipDiagonals = false);
 };
 
 class NormalProducer : public TileProducer {

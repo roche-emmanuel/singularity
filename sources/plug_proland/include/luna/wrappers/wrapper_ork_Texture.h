@@ -37,7 +37,7 @@ protected:
 	void swap(ptr< ork::Texture > t) {
 		if(_obj.pushFunction("swap")) {
 			_obj.pushArg((ork::Texture*)this);
-			_obj.pushArg(&t);
+			_obj.pushArg((ork::Texture*)t.get());
 			return (_obj.callFunction<void>());
 		}
 
@@ -53,8 +53,8 @@ public:
 		return ork::Texture::init(tf, params);
 	};
 
-	// int ork::Texture::bindToTextureUnit(ptr< Sampler > s, const std::vector< unsigned int > & programIds) const
-	int public_bindToTextureUnit(ptr< Sampler > s, const std::vector< unsigned int > & programIds) const {
+	// int ork::Texture::bindToTextureUnit(ptr< ork::Sampler > s, const std::vector< unsigned int > & programIds) const
+	int public_bindToTextureUnit(ptr< ork::Sampler > s, const std::vector< unsigned int > & programIds) const {
 		return ork::Texture::bindToTextureUnit(s, programIds);
 	};
 
@@ -64,14 +64,15 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,11747408) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,84580371) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_bindToTextureUnit(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,46184206) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< ork::Sampler >(L,2) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,27834872) ) return false;
 		return true;
 	}
@@ -81,11 +82,11 @@ public:
 	// void ork::Texture::public_init(ork::TextureInternalFormat tf, const ork::Texture::Parameters & params)
 	static int _bind_public_init(lua_State *L) {
 		if (!_lg_typecheck_public_init(L)) {
-			luaL_error(L, "luna typecheck failed in void ork::Texture::public_init(ork::TextureInternalFormat tf, const ork::Texture::Parameters & params) function, expected prototype:\nvoid ork::Texture::public_init(ork::TextureInternalFormat tf, const ork::Texture::Parameters & params)\nClass arguments details:\narg 2 ID = 11747408\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in void ork::Texture::public_init(ork::TextureInternalFormat tf, const ork::Texture::Parameters & params) function, expected prototype:\nvoid ork::Texture::public_init(ork::TextureInternalFormat tf, const ork::Texture::Parameters & params)\nClass arguments details:\narg 2 ID = 84580371\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ork::TextureInternalFormat tf=(ork::TextureInternalFormat)lua_tointeger(L,2);
-		const ork::Texture::Parameters* params_ptr=(Luna< ork::Texture::Parameters >::check(L,3));
+		const ork::Texture::Parameters* params_ptr=(Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,3));
 		if( !params_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg params in ork::Texture::public_init function");
 		}
@@ -100,17 +101,13 @@ public:
 		return 0;
 	}
 
-	// int ork::Texture::public_bindToTextureUnit(ptr< Sampler > s, const std::vector< unsigned int > & programIds) const
+	// int ork::Texture::public_bindToTextureUnit(ptr< ork::Sampler > s, const std::vector< unsigned int > & programIds) const
 	static int _bind_public_bindToTextureUnit(lua_State *L) {
 		if (!_lg_typecheck_public_bindToTextureUnit(L)) {
-			luaL_error(L, "luna typecheck failed in int ork::Texture::public_bindToTextureUnit(ptr< Sampler > s, const std::vector< unsigned int > & programIds) const function, expected prototype:\nint ork::Texture::public_bindToTextureUnit(ptr< Sampler > s, const std::vector< unsigned int > & programIds) const\nClass arguments details:\narg 1 ID = [unknown]\narg 2 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in int ork::Texture::public_bindToTextureUnit(ptr< ork::Sampler > s, const std::vector< unsigned int > & programIds) const function, expected prototype:\nint ork::Texture::public_bindToTextureUnit(ptr< ork::Sampler > s, const std::vector< unsigned int > & programIds) const\nClass arguments details:\narg 1 ID = [unknown]\narg 2 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		ptr< Sampler >* s_ptr=(Luna< ptr< Sampler > >::check(L,2));
-		if( !s_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg s in ork::Texture::public_bindToTextureUnit function");
-		}
-		ptr< Sampler > s=*s_ptr;
+		ptr< ork::Sampler > s = Luna< ork::Object >::checkSubType< ork::Sampler >(L,2);
 		const std::vector< unsigned int >* programIds_ptr=(Luna< std::vector< unsigned int > >::check(L,3));
 		if( !programIds_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg programIds in ork::Texture::public_bindToTextureUnit function");
@@ -119,7 +116,7 @@ public:
 
 		wrapper_ork_Texture* self=Luna< ork::Object >::checkSubType< wrapper_ork_Texture >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call int ork::Texture::public_bindToTextureUnit(ptr< Sampler >, const std::vector< unsigned int > &) const. Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call int ork::Texture::public_bindToTextureUnit(ptr< ork::Sampler >, const std::vector< unsigned int > &) const. Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_bindToTextureUnit(s, programIds);
 		lua_pushnumber(L,lret);

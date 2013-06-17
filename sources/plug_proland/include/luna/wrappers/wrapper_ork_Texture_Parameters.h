@@ -35,6 +35,17 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// bool ork::Sampler::Parameters::operator<(const ork::Sampler::Parameters & v) const
+	bool operator<(const ork::Sampler::Parameters & v) const {
+		if(_obj.pushFunction("__lt")) {
+			_obj.pushArg((ork::Texture::Parameters*)this);
+			_obj.pushArg(&v);
+			return (_obj.callFunction<bool>());
+		}
+
+		return Parameters::operator<(v);
+	};
+
 	// ork::Texture::Parameters & ork::Texture::Parameters::wrapS(ork::TextureWrap wrapS)
 	ork::Texture::Parameters & wrapS(ork::TextureWrap wrapS) {
 		if(_obj.pushFunction("wrapS")) {

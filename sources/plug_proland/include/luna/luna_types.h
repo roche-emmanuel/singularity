@@ -4,16 +4,21 @@
 #include <plug_common.h>
 
 #include <ork/render/Buffer.h>
+#include <ork/render/Uniform.h>
 #include <ork/math/half.h>
 #include <ork/render/CPUBuffer.h>
+#include <ork/render/GPUBuffer.h>
+#include <ork/render/Sampler.h>
 #include <ork/render/Texture.h>
 #include <ork/render/Texture2D.h>
 #include <ork/render/Module.h>
 #include <ork/render/Program.h>
+#include <ork/taskgraph/Task.h>
 #include <core/proland/terrain/Deformation.h>
 #include <core/proland/terrain/TerrainNode.h>
 #include <core/proland/terrain/TileSampler.h>
 #include <core/proland/terrain/TileSamplerZ.h>
+#include <core/proland/terrain/TerrainQuad.h>
 
 // Class: ork::Buffer::Parameters
 template<>
@@ -31,6 +36,728 @@ public:
 	static void _bind_dtor(ork::Buffer::Parameters* obj);
 	typedef ork::Buffer::Parameters parent_t;
 	typedef ork::Buffer::Parameters base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform1< ork::VEC1F, float, float, ork::uniform1f, value1f >
+template<>
+class LunaTraits< ork::Uniform1< ork::VEC1F, float, float, ork::uniform1f, value1f > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform1< ork::VEC1F, float, float, ork::uniform1f, value1f >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform1< ork::VEC1F, float, float, ork::uniform1f, value1f >* obj);
+	typedef ork::Uniform1< ork::VEC1F, float, float, ork::uniform1f, value1f > parent_t;
+	typedef ork::Uniform1< ork::VEC1F, float, float, ork::uniform1f, value1f > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform1< ork::VEC1D, double, double, ork::uniform1d, value1d >
+template<>
+class LunaTraits< ork::Uniform1< ork::VEC1D, double, double, ork::uniform1d, value1d > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform1< ork::VEC1D, double, double, ork::uniform1d, value1d >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform1< ork::VEC1D, double, double, ork::uniform1d, value1d >* obj);
+	typedef ork::Uniform1< ork::VEC1D, double, double, ork::uniform1d, value1d > parent_t;
+	typedef ork::Uniform1< ork::VEC1D, double, double, ork::uniform1d, value1d > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform1< ork::VEC1I, int, int, ork::uniform1i, value1i >
+template<>
+class LunaTraits< ork::Uniform1< ork::VEC1I, int, int, ork::uniform1i, value1i > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform1< ork::VEC1I, int, int, ork::uniform1i, value1i >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform1< ork::VEC1I, int, int, ork::uniform1i, value1i >* obj);
+	typedef ork::Uniform1< ork::VEC1I, int, int, ork::uniform1i, value1i > parent_t;
+	typedef ork::Uniform1< ork::VEC1I, int, int, ork::uniform1i, value1i > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform1< ork::VEC1UI, unsigned int, unsigned int, ork::uniform1ui, value1ui >
+template<>
+class LunaTraits< ork::Uniform1< ork::VEC1UI, unsigned int, unsigned int, ork::uniform1ui, value1ui > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform1< ork::VEC1UI, unsigned int, unsigned int, ork::uniform1ui, value1ui >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform1< ork::VEC1UI, unsigned int, unsigned int, ork::uniform1ui, value1ui >* obj);
+	typedef ork::Uniform1< ork::VEC1UI, unsigned int, unsigned int, ork::uniform1ui, value1ui > parent_t;
+	typedef ork::Uniform1< ork::VEC1UI, unsigned int, unsigned int, ork::uniform1ui, value1ui > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform1< ork::VEC1B, bool, unsigned int, ork::uniform1b, value1b >
+template<>
+class LunaTraits< ork::Uniform1< ork::VEC1B, bool, unsigned int, ork::uniform1b, value1b > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform1< ork::VEC1B, bool, unsigned int, ork::uniform1b, value1b >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform1< ork::VEC1B, bool, unsigned int, ork::uniform1b, value1b >* obj);
+	typedef ork::Uniform1< ork::VEC1B, bool, unsigned int, ork::uniform1b, value1b > parent_t;
+	typedef ork::Uniform1< ork::VEC1B, bool, unsigned int, ork::uniform1b, value1b > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform2< ork::VEC2F, float, float, ork::uniform2f, value2f >
+template<>
+class LunaTraits< ork::Uniform2< ork::VEC2F, float, float, ork::uniform2f, value2f > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform2< ork::VEC2F, float, float, ork::uniform2f, value2f >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform2< ork::VEC2F, float, float, ork::uniform2f, value2f >* obj);
+	typedef ork::Uniform2< ork::VEC2F, float, float, ork::uniform2f, value2f > parent_t;
+	typedef ork::Uniform2< ork::VEC2F, float, float, ork::uniform2f, value2f > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform2< ork::VEC2B, double, double, ork::uniform2d, value2d >
+template<>
+class LunaTraits< ork::Uniform2< ork::VEC2B, double, double, ork::uniform2d, value2d > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform2< ork::VEC2B, double, double, ork::uniform2d, value2d >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform2< ork::VEC2B, double, double, ork::uniform2d, value2d >* obj);
+	typedef ork::Uniform2< ork::VEC2B, double, double, ork::uniform2d, value2d > parent_t;
+	typedef ork::Uniform2< ork::VEC2B, double, double, ork::uniform2d, value2d > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform2< ork::VEC2I, int, int, ork::uniform2i, value2i >
+template<>
+class LunaTraits< ork::Uniform2< ork::VEC2I, int, int, ork::uniform2i, value2i > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform2< ork::VEC2I, int, int, ork::uniform2i, value2i >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform2< ork::VEC2I, int, int, ork::uniform2i, value2i >* obj);
+	typedef ork::Uniform2< ork::VEC2I, int, int, ork::uniform2i, value2i > parent_t;
+	typedef ork::Uniform2< ork::VEC2I, int, int, ork::uniform2i, value2i > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform2< ork::VEC2UI, unsigned int, unsigned int, ork::uniform2ui, value2ui >
+template<>
+class LunaTraits< ork::Uniform2< ork::VEC2UI, unsigned int, unsigned int, ork::uniform2ui, value2ui > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform2< ork::VEC2UI, unsigned int, unsigned int, ork::uniform2ui, value2ui >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform2< ork::VEC2UI, unsigned int, unsigned int, ork::uniform2ui, value2ui >* obj);
+	typedef ork::Uniform2< ork::VEC2UI, unsigned int, unsigned int, ork::uniform2ui, value2ui > parent_t;
+	typedef ork::Uniform2< ork::VEC2UI, unsigned int, unsigned int, ork::uniform2ui, value2ui > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform2< ork::VEC2B, bool, unsigned int, ork::uniform2b, value2b >
+template<>
+class LunaTraits< ork::Uniform2< ork::VEC2B, bool, unsigned int, ork::uniform2b, value2b > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform2< ork::VEC2B, bool, unsigned int, ork::uniform2b, value2b >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform2< ork::VEC2B, bool, unsigned int, ork::uniform2b, value2b >* obj);
+	typedef ork::Uniform2< ork::VEC2B, bool, unsigned int, ork::uniform2b, value2b > parent_t;
+	typedef ork::Uniform2< ork::VEC2B, bool, unsigned int, ork::uniform2b, value2b > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform3< ork::VEC3F, float, float, ork::uniform3f, value3f >
+template<>
+class LunaTraits< ork::Uniform3< ork::VEC3F, float, float, ork::uniform3f, value3f > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform3< ork::VEC3F, float, float, ork::uniform3f, value3f >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform3< ork::VEC3F, float, float, ork::uniform3f, value3f >* obj);
+	typedef ork::Uniform3< ork::VEC3F, float, float, ork::uniform3f, value3f > parent_t;
+	typedef ork::Uniform3< ork::VEC3F, float, float, ork::uniform3f, value3f > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform3< ork::VEC3D, double, double, ork::uniform3d, value3d >
+template<>
+class LunaTraits< ork::Uniform3< ork::VEC3D, double, double, ork::uniform3d, value3d > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform3< ork::VEC3D, double, double, ork::uniform3d, value3d >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform3< ork::VEC3D, double, double, ork::uniform3d, value3d >* obj);
+	typedef ork::Uniform3< ork::VEC3D, double, double, ork::uniform3d, value3d > parent_t;
+	typedef ork::Uniform3< ork::VEC3D, double, double, ork::uniform3d, value3d > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform3< ork::VEC3I, int, int, ork::uniform3i, value3i >
+template<>
+class LunaTraits< ork::Uniform3< ork::VEC3I, int, int, ork::uniform3i, value3i > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform3< ork::VEC3I, int, int, ork::uniform3i, value3i >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform3< ork::VEC3I, int, int, ork::uniform3i, value3i >* obj);
+	typedef ork::Uniform3< ork::VEC3I, int, int, ork::uniform3i, value3i > parent_t;
+	typedef ork::Uniform3< ork::VEC3I, int, int, ork::uniform3i, value3i > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform3< ork::VEC3UI, unsigned int, unsigned int, ork::uniform3ui, value3ui >
+template<>
+class LunaTraits< ork::Uniform3< ork::VEC3UI, unsigned int, unsigned int, ork::uniform3ui, value3ui > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform3< ork::VEC3UI, unsigned int, unsigned int, ork::uniform3ui, value3ui >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform3< ork::VEC3UI, unsigned int, unsigned int, ork::uniform3ui, value3ui >* obj);
+	typedef ork::Uniform3< ork::VEC3UI, unsigned int, unsigned int, ork::uniform3ui, value3ui > parent_t;
+	typedef ork::Uniform3< ork::VEC3UI, unsigned int, unsigned int, ork::uniform3ui, value3ui > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform3< ork::VEC3B, bool, unsigned int, ork::uniform3b, value3b >
+template<>
+class LunaTraits< ork::Uniform3< ork::VEC3B, bool, unsigned int, ork::uniform3b, value3b > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform3< ork::VEC3B, bool, unsigned int, ork::uniform3b, value3b >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform3< ork::VEC3B, bool, unsigned int, ork::uniform3b, value3b >* obj);
+	typedef ork::Uniform3< ork::VEC3B, bool, unsigned int, ork::uniform3b, value3b > parent_t;
+	typedef ork::Uniform3< ork::VEC3B, bool, unsigned int, ork::uniform3b, value3b > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform4< ork::VEC4F, float, float, ork::uniform4f, value4f >
+template<>
+class LunaTraits< ork::Uniform4< ork::VEC4F, float, float, ork::uniform4f, value4f > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform4< ork::VEC4F, float, float, ork::uniform4f, value4f >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform4< ork::VEC4F, float, float, ork::uniform4f, value4f >* obj);
+	typedef ork::Uniform4< ork::VEC4F, float, float, ork::uniform4f, value4f > parent_t;
+	typedef ork::Uniform4< ork::VEC4F, float, float, ork::uniform4f, value4f > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform4< ork::VEC4D, double, double, ork::uniform4d, value4d >
+template<>
+class LunaTraits< ork::Uniform4< ork::VEC4D, double, double, ork::uniform4d, value4d > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform4< ork::VEC4D, double, double, ork::uniform4d, value4d >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform4< ork::VEC4D, double, double, ork::uniform4d, value4d >* obj);
+	typedef ork::Uniform4< ork::VEC4D, double, double, ork::uniform4d, value4d > parent_t;
+	typedef ork::Uniform4< ork::VEC4D, double, double, ork::uniform4d, value4d > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform4< ork::VEC4I, int, int, ork::uniform4i, value4i >
+template<>
+class LunaTraits< ork::Uniform4< ork::VEC4I, int, int, ork::uniform4i, value4i > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform4< ork::VEC4I, int, int, ork::uniform4i, value4i >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform4< ork::VEC4I, int, int, ork::uniform4i, value4i >* obj);
+	typedef ork::Uniform4< ork::VEC4I, int, int, ork::uniform4i, value4i > parent_t;
+	typedef ork::Uniform4< ork::VEC4I, int, int, ork::uniform4i, value4i > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform4< ork::VEC4UI, unsigned int, unsigned int, ork::uniform4ui, value4ui >
+template<>
+class LunaTraits< ork::Uniform4< ork::VEC4UI, unsigned int, unsigned int, ork::uniform4ui, value4ui > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform4< ork::VEC4UI, unsigned int, unsigned int, ork::uniform4ui, value4ui >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform4< ork::VEC4UI, unsigned int, unsigned int, ork::uniform4ui, value4ui >* obj);
+	typedef ork::Uniform4< ork::VEC4UI, unsigned int, unsigned int, ork::uniform4ui, value4ui > parent_t;
+	typedef ork::Uniform4< ork::VEC4UI, unsigned int, unsigned int, ork::uniform4ui, value4ui > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform4< ork::VEC4B, bool, unsigned int, ork::uniform4b, value4b >
+template<>
+class LunaTraits< ork::Uniform4< ork::VEC4B, bool, unsigned int, ork::uniform4b, value4b > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform4< ork::VEC4B, bool, unsigned int, ork::uniform4b, value4b >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform4< ork::VEC4B, bool, unsigned int, ork::uniform4b, value4b >* obj);
+	typedef ork::Uniform4< ork::VEC4B, bool, unsigned int, ork::uniform4b, value4b > parent_t;
+	typedef ork::Uniform4< ork::VEC4B, bool, unsigned int, ork::uniform4b, value4b > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix< ork::MAT2F, float, 2, 2, ork::uniformMatrix2f, valueMatrix2f >
+template<>
+class LunaTraits< ork::UniformMatrix< ork::MAT2F, float, 2, 2, ork::uniformMatrix2f, valueMatrix2f > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix< ork::MAT2F, float, 2, 2, ork::uniformMatrix2f, valueMatrix2f >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix< ork::MAT2F, float, 2, 2, ork::uniformMatrix2f, valueMatrix2f >* obj);
+	typedef ork::UniformMatrix< ork::MAT2F, float, 2, 2, ork::uniformMatrix2f, valueMatrix2f > parent_t;
+	typedef ork::UniformMatrix< ork::MAT2F, float, 2, 2, ork::uniformMatrix2f, valueMatrix2f > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix3< ork::MAT3F, float, ork::uniformMatrix3f, valueMatrix3f >
+template<>
+class LunaTraits< ork::UniformMatrix3< ork::MAT3F, float, ork::uniformMatrix3f, valueMatrix3f > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix3< ork::MAT3F, float, ork::uniformMatrix3f, valueMatrix3f >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix3< ork::MAT3F, float, ork::uniformMatrix3f, valueMatrix3f >* obj);
+	typedef ork::UniformMatrix3< ork::MAT3F, float, ork::uniformMatrix3f, valueMatrix3f > parent_t;
+	typedef ork::UniformMatrix3< ork::MAT3F, float, ork::uniformMatrix3f, valueMatrix3f > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix4< ork::MAT4F, float, ork::uniformMatrix4f, valueMatrix4f >
+template<>
+class LunaTraits< ork::UniformMatrix4< ork::MAT4F, float, ork::uniformMatrix4f, valueMatrix4f > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix4< ork::MAT4F, float, ork::uniformMatrix4f, valueMatrix4f >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix4< ork::MAT4F, float, ork::uniformMatrix4f, valueMatrix4f >* obj);
+	typedef ork::UniformMatrix4< ork::MAT4F, float, ork::uniformMatrix4f, valueMatrix4f > parent_t;
+	typedef ork::UniformMatrix4< ork::MAT4F, float, ork::uniformMatrix4f, valueMatrix4f > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix< ork::MAT2x3F, float, 2, 3, ork::uniformMatrix2x3f, valueMatrix2x3f >
+template<>
+class LunaTraits< ork::UniformMatrix< ork::MAT2x3F, float, 2, 3, ork::uniformMatrix2x3f, valueMatrix2x3f > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix< ork::MAT2x3F, float, 2, 3, ork::uniformMatrix2x3f, valueMatrix2x3f >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix< ork::MAT2x3F, float, 2, 3, ork::uniformMatrix2x3f, valueMatrix2x3f >* obj);
+	typedef ork::UniformMatrix< ork::MAT2x3F, float, 2, 3, ork::uniformMatrix2x3f, valueMatrix2x3f > parent_t;
+	typedef ork::UniformMatrix< ork::MAT2x3F, float, 2, 3, ork::uniformMatrix2x3f, valueMatrix2x3f > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix< ork::MAT2x4F, float, 2, 4, ork::uniformMatrix2x4f, valueMatrix2x4f >
+template<>
+class LunaTraits< ork::UniformMatrix< ork::MAT2x4F, float, 2, 4, ork::uniformMatrix2x4f, valueMatrix2x4f > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix< ork::MAT2x4F, float, 2, 4, ork::uniformMatrix2x4f, valueMatrix2x4f >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix< ork::MAT2x4F, float, 2, 4, ork::uniformMatrix2x4f, valueMatrix2x4f >* obj);
+	typedef ork::UniformMatrix< ork::MAT2x4F, float, 2, 4, ork::uniformMatrix2x4f, valueMatrix2x4f > parent_t;
+	typedef ork::UniformMatrix< ork::MAT2x4F, float, 2, 4, ork::uniformMatrix2x4f, valueMatrix2x4f > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix< ork::MAT3x2F, float, 3, 2, ork::uniformMatrix3x2f, valueMatrix3x2f >
+template<>
+class LunaTraits< ork::UniformMatrix< ork::MAT3x2F, float, 3, 2, ork::uniformMatrix3x2f, valueMatrix3x2f > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix< ork::MAT3x2F, float, 3, 2, ork::uniformMatrix3x2f, valueMatrix3x2f >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix< ork::MAT3x2F, float, 3, 2, ork::uniformMatrix3x2f, valueMatrix3x2f >* obj);
+	typedef ork::UniformMatrix< ork::MAT3x2F, float, 3, 2, ork::uniformMatrix3x2f, valueMatrix3x2f > parent_t;
+	typedef ork::UniformMatrix< ork::MAT3x2F, float, 3, 2, ork::uniformMatrix3x2f, valueMatrix3x2f > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix< ork::MAT3x4F, float, 3, 4, ork::uniformMatrix3x4f, valueMatrix3x4f >
+template<>
+class LunaTraits< ork::UniformMatrix< ork::MAT3x4F, float, 3, 4, ork::uniformMatrix3x4f, valueMatrix3x4f > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix< ork::MAT3x4F, float, 3, 4, ork::uniformMatrix3x4f, valueMatrix3x4f >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix< ork::MAT3x4F, float, 3, 4, ork::uniformMatrix3x4f, valueMatrix3x4f >* obj);
+	typedef ork::UniformMatrix< ork::MAT3x4F, float, 3, 4, ork::uniformMatrix3x4f, valueMatrix3x4f > parent_t;
+	typedef ork::UniformMatrix< ork::MAT3x4F, float, 3, 4, ork::uniformMatrix3x4f, valueMatrix3x4f > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix< ork::MAT4x2F, float, 4, 2, ork::uniformMatrix4x2f, valueMatrix4x2f >
+template<>
+class LunaTraits< ork::UniformMatrix< ork::MAT4x2F, float, 4, 2, ork::uniformMatrix4x2f, valueMatrix4x2f > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix< ork::MAT4x2F, float, 4, 2, ork::uniformMatrix4x2f, valueMatrix4x2f >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix< ork::MAT4x2F, float, 4, 2, ork::uniformMatrix4x2f, valueMatrix4x2f >* obj);
+	typedef ork::UniformMatrix< ork::MAT4x2F, float, 4, 2, ork::uniformMatrix4x2f, valueMatrix4x2f > parent_t;
+	typedef ork::UniformMatrix< ork::MAT4x2F, float, 4, 2, ork::uniformMatrix4x2f, valueMatrix4x2f > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix< ork::MAT4x3F, float, 4, 3, ork::uniformMatrix4x3f, valueMatrix4x3f >
+template<>
+class LunaTraits< ork::UniformMatrix< ork::MAT4x3F, float, 4, 3, ork::uniformMatrix4x3f, valueMatrix4x3f > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix< ork::MAT4x3F, float, 4, 3, ork::uniformMatrix4x3f, valueMatrix4x3f >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix< ork::MAT4x3F, float, 4, 3, ork::uniformMatrix4x3f, valueMatrix4x3f >* obj);
+	typedef ork::UniformMatrix< ork::MAT4x3F, float, 4, 3, ork::uniformMatrix4x3f, valueMatrix4x3f > parent_t;
+	typedef ork::UniformMatrix< ork::MAT4x3F, float, 4, 3, ork::uniformMatrix4x3f, valueMatrix4x3f > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix< ork::MAT2D, double, 2, 2, ork::uniformMatrix2d, valueMatrix2d >
+template<>
+class LunaTraits< ork::UniformMatrix< ork::MAT2D, double, 2, 2, ork::uniformMatrix2d, valueMatrix2d > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix< ork::MAT2D, double, 2, 2, ork::uniformMatrix2d, valueMatrix2d >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix< ork::MAT2D, double, 2, 2, ork::uniformMatrix2d, valueMatrix2d >* obj);
+	typedef ork::UniformMatrix< ork::MAT2D, double, 2, 2, ork::uniformMatrix2d, valueMatrix2d > parent_t;
+	typedef ork::UniformMatrix< ork::MAT2D, double, 2, 2, ork::uniformMatrix2d, valueMatrix2d > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix3< ork::MAT3D, double, ork::uniformMatrix3d, valueMatrix3d >
+template<>
+class LunaTraits< ork::UniformMatrix3< ork::MAT3D, double, ork::uniformMatrix3d, valueMatrix3d > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix3< ork::MAT3D, double, ork::uniformMatrix3d, valueMatrix3d >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix3< ork::MAT3D, double, ork::uniformMatrix3d, valueMatrix3d >* obj);
+	typedef ork::UniformMatrix3< ork::MAT3D, double, ork::uniformMatrix3d, valueMatrix3d > parent_t;
+	typedef ork::UniformMatrix3< ork::MAT3D, double, ork::uniformMatrix3d, valueMatrix3d > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix4< ork::MAT4D, double, ork::uniformMatrix4d, valueMatrix4d >
+template<>
+class LunaTraits< ork::UniformMatrix4< ork::MAT4D, double, ork::uniformMatrix4d, valueMatrix4d > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix4< ork::MAT4D, double, ork::uniformMatrix4d, valueMatrix4d >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix4< ork::MAT4D, double, ork::uniformMatrix4d, valueMatrix4d >* obj);
+	typedef ork::UniformMatrix4< ork::MAT4D, double, ork::uniformMatrix4d, valueMatrix4d > parent_t;
+	typedef ork::UniformMatrix4< ork::MAT4D, double, ork::uniformMatrix4d, valueMatrix4d > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix< ork::MAT2x3D, double, 2, 3, ork::uniformMatrix2x3d, valueMatrix2x3d >
+template<>
+class LunaTraits< ork::UniformMatrix< ork::MAT2x3D, double, 2, 3, ork::uniformMatrix2x3d, valueMatrix2x3d > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix< ork::MAT2x3D, double, 2, 3, ork::uniformMatrix2x3d, valueMatrix2x3d >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix< ork::MAT2x3D, double, 2, 3, ork::uniformMatrix2x3d, valueMatrix2x3d >* obj);
+	typedef ork::UniformMatrix< ork::MAT2x3D, double, 2, 3, ork::uniformMatrix2x3d, valueMatrix2x3d > parent_t;
+	typedef ork::UniformMatrix< ork::MAT2x3D, double, 2, 3, ork::uniformMatrix2x3d, valueMatrix2x3d > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix< ork::MAT2x4D, double, 2, 4, ork::uniformMatrix2x4d, valueMatrix2x4d >
+template<>
+class LunaTraits< ork::UniformMatrix< ork::MAT2x4D, double, 2, 4, ork::uniformMatrix2x4d, valueMatrix2x4d > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix< ork::MAT2x4D, double, 2, 4, ork::uniformMatrix2x4d, valueMatrix2x4d >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix< ork::MAT2x4D, double, 2, 4, ork::uniformMatrix2x4d, valueMatrix2x4d >* obj);
+	typedef ork::UniformMatrix< ork::MAT2x4D, double, 2, 4, ork::uniformMatrix2x4d, valueMatrix2x4d > parent_t;
+	typedef ork::UniformMatrix< ork::MAT2x4D, double, 2, 4, ork::uniformMatrix2x4d, valueMatrix2x4d > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix< ork::MAT3x2D, double, 3, 2, ork::uniformMatrix3x2d, valueMatrix3x2d >
+template<>
+class LunaTraits< ork::UniformMatrix< ork::MAT3x2D, double, 3, 2, ork::uniformMatrix3x2d, valueMatrix3x2d > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix< ork::MAT3x2D, double, 3, 2, ork::uniformMatrix3x2d, valueMatrix3x2d >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix< ork::MAT3x2D, double, 3, 2, ork::uniformMatrix3x2d, valueMatrix3x2d >* obj);
+	typedef ork::UniformMatrix< ork::MAT3x2D, double, 3, 2, ork::uniformMatrix3x2d, valueMatrix3x2d > parent_t;
+	typedef ork::UniformMatrix< ork::MAT3x2D, double, 3, 2, ork::uniformMatrix3x2d, valueMatrix3x2d > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix< ork::MAT3x4D, double, 3, 4, ork::uniformMatrix3x4d, valueMatrix3x4d >
+template<>
+class LunaTraits< ork::UniformMatrix< ork::MAT3x4D, double, 3, 4, ork::uniformMatrix3x4d, valueMatrix3x4d > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix< ork::MAT3x4D, double, 3, 4, ork::uniformMatrix3x4d, valueMatrix3x4d >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix< ork::MAT3x4D, double, 3, 4, ork::uniformMatrix3x4d, valueMatrix3x4d >* obj);
+	typedef ork::UniformMatrix< ork::MAT3x4D, double, 3, 4, ork::uniformMatrix3x4d, valueMatrix3x4d > parent_t;
+	typedef ork::UniformMatrix< ork::MAT3x4D, double, 3, 4, ork::uniformMatrix3x4d, valueMatrix3x4d > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix< ork::MAT4x2D, double, 4, 2, ork::uniformMatrix4x2d, valueMatrix4x2d >
+template<>
+class LunaTraits< ork::UniformMatrix< ork::MAT4x2D, double, 4, 2, ork::uniformMatrix4x2d, valueMatrix4x2d > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix< ork::MAT4x2D, double, 4, 2, ork::uniformMatrix4x2d, valueMatrix4x2d >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix< ork::MAT4x2D, double, 4, 2, ork::uniformMatrix4x2d, valueMatrix4x2d >* obj);
+	typedef ork::UniformMatrix< ork::MAT4x2D, double, 4, 2, ork::uniformMatrix4x2d, valueMatrix4x2d > parent_t;
+	typedef ork::UniformMatrix< ork::MAT4x2D, double, 4, 2, ork::uniformMatrix4x2d, valueMatrix4x2d > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformMatrix< ork::MAT4x3D, double, 4, 3, ork::uniformMatrix4x3d, valueMatrix4x3d >
+template<>
+class LunaTraits< ork::UniformMatrix< ork::MAT4x3D, double, 4, 3, ork::uniformMatrix4x3d, valueMatrix4x3d > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformMatrix< ork::MAT4x3D, double, 4, 3, ork::uniformMatrix4x3d, valueMatrix4x3d >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformMatrix< ork::MAT4x3D, double, 4, 3, ork::uniformMatrix4x3d, valueMatrix4x3d >* obj);
+	typedef ork::UniformMatrix< ork::MAT4x3D, double, 4, 3, ork::uniformMatrix4x3d, valueMatrix4x3d > parent_t;
+	typedef ork::UniformMatrix< ork::MAT4x3D, double, 4, 3, ork::uniformMatrix4x3d, valueMatrix4x3d > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -561,7 +1288,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static ork::SceneManager* _bind_ctor(lua_State *L);
 	static void _bind_dtor(ork::SceneManager* obj);
-	typedef ork::SceneManager parent_t;
+	typedef ork::Object parent_t;
 	typedef ork::SceneManager base_t;
 	static luna_ConverterType converters[];
 };
@@ -699,6 +1426,63 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: ork::GPUBuffer
+template<>
+class LunaTraits< ork::GPUBuffer > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::GPUBuffer* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::GPUBuffer* obj);
+	typedef ork::Object parent_t;
+	typedef ork::GPUBuffer base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Sampler
+template<>
+class LunaTraits< ork::Sampler > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Sampler* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Sampler* obj);
+	typedef ork::Object parent_t;
+	typedef ork::Sampler base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Sampler::Parameters
+template<>
+class LunaTraits< ork::Sampler::Parameters > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Sampler::Parameters* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Sampler::Parameters* obj);
+	typedef ork::Sampler::Parameters parent_t;
+	typedef ork::Sampler::Parameters base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: ork::Texture
 template<>
 class LunaTraits< ork::Texture > {
@@ -732,7 +1516,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static ork::Texture::Parameters* _bind_ctor(lua_State *L);
 	static void _bind_dtor(ork::Texture::Parameters* obj);
-	typedef ork::Texture::Parameters parent_t;
+	typedef ork::Sampler::Parameters parent_t;
 	typedef ork::Texture::Parameters base_t;
 	static luna_ConverterType converters[];
 };
@@ -791,6 +1575,120 @@ public:
 	static void _bind_dtor(ork::Program* obj);
 	typedef ork::Object parent_t;
 	typedef ork::Program base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Uniform
+template<>
+class LunaTraits< ork::Uniform > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Uniform* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Uniform* obj);
+	typedef ork::Object parent_t;
+	typedef ork::Uniform base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformSampler
+template<>
+class LunaTraits< ork::UniformSampler > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformSampler* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformSampler* obj);
+	typedef ork::Object parent_t;
+	typedef ork::UniformSampler base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformSubroutine
+template<>
+class LunaTraits< ork::UniformSubroutine > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformSubroutine* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformSubroutine* obj);
+	typedef ork::Object parent_t;
+	typedef ork::UniformSubroutine base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::UniformBlock
+template<>
+class LunaTraits< ork::UniformBlock > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::UniformBlock* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::UniformBlock* obj);
+	typedef ork::Object parent_t;
+	typedef ork::UniformBlock base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::Task
+template<>
+class LunaTraits< ork::Task > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::Task* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::Task* obj);
+	typedef ork::Object parent_t;
+	typedef ork::Task base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: ork::TaskListener
+template<>
+class LunaTraits< ork::TaskListener > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static ork::TaskListener* _bind_ctor(lua_State *L);
+	static void _bind_dtor(ork::TaskListener* obj);
+	typedef ork::TaskListener parent_t;
+	typedef ork::TaskListener base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -1117,10 +2015,9 @@ public:
 	static luna_ConverterType converters[];
 };
 
-
-// Mapped type: ptr< Sampler >
+// Class: proland::TerrainQuad
 template<>
-class LunaTraits< ptr< Sampler > > {
+class LunaTraits< proland::TerrainQuad > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -1130,12 +2027,13 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static ptr< Sampler >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Sampler >* obj);
-	typedef ptr< Sampler > parent_t;
-	typedef ptr< Sampler > base_t;
+	static proland::TerrainQuad* _bind_ctor(lua_State *L);
+	static void _bind_dtor(proland::TerrainQuad* obj);
+	typedef osg::Referenced parent_t;
+	typedef proland::TerrainQuad base_t;
 	static luna_ConverterType converters[];
 };
+
 
 // Mapped type: std::vector< ptr< ork::Module > >
 template<>
@@ -1175,9 +2073,9 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Mapped type: ptr< Value >
+// Mapped type: std::vector< ptr< ork::Uniform > >
 template<>
-class LunaTraits< ptr< Value > > {
+class LunaTraits< std::vector< ptr< ork::Uniform > > > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -1187,16 +2085,16 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static ptr< Value >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Value >* obj);
-	typedef ptr< Value > parent_t;
-	typedef ptr< Value > base_t;
+	static std::vector< ptr< ork::Uniform > >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< ptr< ork::Uniform > >* obj);
+	typedef std::vector< ptr< ork::Uniform > > parent_t;
+	typedef std::vector< ptr< ork::Uniform > > base_t;
 	static luna_ConverterType converters[];
 };
 
-// Mapped type: ptr< ork::Module >
+// Mapped type: std::set< ork::Task * >
 template<>
-class LunaTraits< ptr< ork::Module > > {
+class LunaTraits< std::set< ork::Task * > > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -1206,865 +2104,10 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static ptr< ork::Module >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< ork::Module >* obj);
-	typedef ptr< ork::Module > parent_t;
-	typedef ptr< ork::Module > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< ork::Program >
-template<>
-class LunaTraits< ptr< ork::Program > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< ork::Program >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< ork::Program >* obj);
-	typedef ptr< ork::Program > parent_t;
-	typedef ptr< ork::Program > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: std::vector< ptr< Uniform > >
-template<>
-class LunaTraits< std::vector< ptr< Uniform > > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::vector< ptr< Uniform > >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::vector< ptr< Uniform > >* obj);
-	typedef std::vector< ptr< Uniform > > parent_t;
-	typedef std::vector< ptr< Uniform > > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform >
-template<>
-class LunaTraits< ptr< Uniform > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform >* obj);
-	typedef ptr< Uniform > parent_t;
-	typedef ptr< Uniform > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform1f >
-template<>
-class LunaTraits< ptr< Uniform1f > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform1f >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform1f >* obj);
-	typedef ptr< Uniform1f > parent_t;
-	typedef ptr< Uniform1f > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform1d >
-template<>
-class LunaTraits< ptr< Uniform1d > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform1d >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform1d >* obj);
-	typedef ptr< Uniform1d > parent_t;
-	typedef ptr< Uniform1d > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform1i >
-template<>
-class LunaTraits< ptr< Uniform1i > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform1i >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform1i >* obj);
-	typedef ptr< Uniform1i > parent_t;
-	typedef ptr< Uniform1i > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform1ui >
-template<>
-class LunaTraits< ptr< Uniform1ui > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform1ui >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform1ui >* obj);
-	typedef ptr< Uniform1ui > parent_t;
-	typedef ptr< Uniform1ui > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform1b >
-template<>
-class LunaTraits< ptr< Uniform1b > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform1b >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform1b >* obj);
-	typedef ptr< Uniform1b > parent_t;
-	typedef ptr< Uniform1b > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform2f >
-template<>
-class LunaTraits< ptr< Uniform2f > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform2f >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform2f >* obj);
-	typedef ptr< Uniform2f > parent_t;
-	typedef ptr< Uniform2f > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform2d >
-template<>
-class LunaTraits< ptr< Uniform2d > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform2d >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform2d >* obj);
-	typedef ptr< Uniform2d > parent_t;
-	typedef ptr< Uniform2d > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform2i >
-template<>
-class LunaTraits< ptr< Uniform2i > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform2i >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform2i >* obj);
-	typedef ptr< Uniform2i > parent_t;
-	typedef ptr< Uniform2i > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform2ui >
-template<>
-class LunaTraits< ptr< Uniform2ui > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform2ui >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform2ui >* obj);
-	typedef ptr< Uniform2ui > parent_t;
-	typedef ptr< Uniform2ui > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform2b >
-template<>
-class LunaTraits< ptr< Uniform2b > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform2b >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform2b >* obj);
-	typedef ptr< Uniform2b > parent_t;
-	typedef ptr< Uniform2b > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform3f >
-template<>
-class LunaTraits< ptr< Uniform3f > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform3f >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform3f >* obj);
-	typedef ptr< Uniform3f > parent_t;
-	typedef ptr< Uniform3f > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform3d >
-template<>
-class LunaTraits< ptr< Uniform3d > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform3d >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform3d >* obj);
-	typedef ptr< Uniform3d > parent_t;
-	typedef ptr< Uniform3d > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform3i >
-template<>
-class LunaTraits< ptr< Uniform3i > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform3i >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform3i >* obj);
-	typedef ptr< Uniform3i > parent_t;
-	typedef ptr< Uniform3i > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform3ui >
-template<>
-class LunaTraits< ptr< Uniform3ui > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform3ui >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform3ui >* obj);
-	typedef ptr< Uniform3ui > parent_t;
-	typedef ptr< Uniform3ui > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform3b >
-template<>
-class LunaTraits< ptr< Uniform3b > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform3b >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform3b >* obj);
-	typedef ptr< Uniform3b > parent_t;
-	typedef ptr< Uniform3b > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform4f >
-template<>
-class LunaTraits< ptr< Uniform4f > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform4f >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform4f >* obj);
-	typedef ptr< Uniform4f > parent_t;
-	typedef ptr< Uniform4f > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform4d >
-template<>
-class LunaTraits< ptr< Uniform4d > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform4d >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform4d >* obj);
-	typedef ptr< Uniform4d > parent_t;
-	typedef ptr< Uniform4d > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform4i >
-template<>
-class LunaTraits< ptr< Uniform4i > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform4i >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform4i >* obj);
-	typedef ptr< Uniform4i > parent_t;
-	typedef ptr< Uniform4i > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform4ui >
-template<>
-class LunaTraits< ptr< Uniform4ui > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform4ui >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform4ui >* obj);
-	typedef ptr< Uniform4ui > parent_t;
-	typedef ptr< Uniform4ui > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Uniform4b >
-template<>
-class LunaTraits< ptr< Uniform4b > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Uniform4b >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Uniform4b >* obj);
-	typedef ptr< Uniform4b > parent_t;
-	typedef ptr< Uniform4b > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix2f >
-template<>
-class LunaTraits< ptr< UniformMatrix2f > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix2f >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix2f >* obj);
-	typedef ptr< UniformMatrix2f > parent_t;
-	typedef ptr< UniformMatrix2f > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix2d >
-template<>
-class LunaTraits< ptr< UniformMatrix2d > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix2d >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix2d >* obj);
-	typedef ptr< UniformMatrix2d > parent_t;
-	typedef ptr< UniformMatrix2d > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix3f >
-template<>
-class LunaTraits< ptr< UniformMatrix3f > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix3f >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix3f >* obj);
-	typedef ptr< UniformMatrix3f > parent_t;
-	typedef ptr< UniformMatrix3f > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix3d >
-template<>
-class LunaTraits< ptr< UniformMatrix3d > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix3d >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix3d >* obj);
-	typedef ptr< UniformMatrix3d > parent_t;
-	typedef ptr< UniformMatrix3d > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix4f >
-template<>
-class LunaTraits< ptr< UniformMatrix4f > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix4f >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix4f >* obj);
-	typedef ptr< UniformMatrix4f > parent_t;
-	typedef ptr< UniformMatrix4f > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix4d >
-template<>
-class LunaTraits< ptr< UniformMatrix4d > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix4d >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix4d >* obj);
-	typedef ptr< UniformMatrix4d > parent_t;
-	typedef ptr< UniformMatrix4d > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix2x3f >
-template<>
-class LunaTraits< ptr< UniformMatrix2x3f > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix2x3f >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix2x3f >* obj);
-	typedef ptr< UniformMatrix2x3f > parent_t;
-	typedef ptr< UniformMatrix2x3f > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix2x3d >
-template<>
-class LunaTraits< ptr< UniformMatrix2x3d > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix2x3d >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix2x3d >* obj);
-	typedef ptr< UniformMatrix2x3d > parent_t;
-	typedef ptr< UniformMatrix2x3d > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix2x4f >
-template<>
-class LunaTraits< ptr< UniformMatrix2x4f > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix2x4f >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix2x4f >* obj);
-	typedef ptr< UniformMatrix2x4f > parent_t;
-	typedef ptr< UniformMatrix2x4f > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix2x4d >
-template<>
-class LunaTraits< ptr< UniformMatrix2x4d > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix2x4d >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix2x4d >* obj);
-	typedef ptr< UniformMatrix2x4d > parent_t;
-	typedef ptr< UniformMatrix2x4d > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix3x2f >
-template<>
-class LunaTraits< ptr< UniformMatrix3x2f > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix3x2f >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix3x2f >* obj);
-	typedef ptr< UniformMatrix3x2f > parent_t;
-	typedef ptr< UniformMatrix3x2f > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix3x2d >
-template<>
-class LunaTraits< ptr< UniformMatrix3x2d > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix3x2d >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix3x2d >* obj);
-	typedef ptr< UniformMatrix3x2d > parent_t;
-	typedef ptr< UniformMatrix3x2d > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix3x4f >
-template<>
-class LunaTraits< ptr< UniformMatrix3x4f > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix3x4f >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix3x4f >* obj);
-	typedef ptr< UniformMatrix3x4f > parent_t;
-	typedef ptr< UniformMatrix3x4f > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix3x4d >
-template<>
-class LunaTraits< ptr< UniformMatrix3x4d > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix3x4d >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix3x4d >* obj);
-	typedef ptr< UniformMatrix3x4d > parent_t;
-	typedef ptr< UniformMatrix3x4d > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix4x2f >
-template<>
-class LunaTraits< ptr< UniformMatrix4x2f > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix4x2f >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix4x2f >* obj);
-	typedef ptr< UniformMatrix4x2f > parent_t;
-	typedef ptr< UniformMatrix4x2f > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix4x2d >
-template<>
-class LunaTraits< ptr< UniformMatrix4x2d > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix4x2d >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix4x2d >* obj);
-	typedef ptr< UniformMatrix4x2d > parent_t;
-	typedef ptr< UniformMatrix4x2d > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix4x3f >
-template<>
-class LunaTraits< ptr< UniformMatrix4x3f > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix4x3f >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix4x3f >* obj);
-	typedef ptr< UniformMatrix4x3f > parent_t;
-	typedef ptr< UniformMatrix4x3f > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformMatrix4x3d >
-template<>
-class LunaTraits< ptr< UniformMatrix4x3d > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformMatrix4x3d >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformMatrix4x3d >* obj);
-	typedef ptr< UniformMatrix4x3d > parent_t;
-	typedef ptr< UniformMatrix4x3d > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformSampler >
-template<>
-class LunaTraits< ptr< UniformSampler > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformSampler >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformSampler >* obj);
-	typedef ptr< UniformSampler > parent_t;
-	typedef ptr< UniformSampler > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformSubroutine >
-template<>
-class LunaTraits< ptr< UniformSubroutine > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformSubroutine >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformSubroutine >* obj);
-	typedef ptr< UniformSubroutine > parent_t;
-	typedef ptr< UniformSubroutine > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< UniformBlock >
-template<>
-class LunaTraits< ptr< UniformBlock > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< UniformBlock >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< UniformBlock >* obj);
-	typedef ptr< UniformBlock > parent_t;
-	typedef ptr< UniformBlock > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: SceneManager::visibility
-template<>
-class LunaTraits< SceneManager::visibility > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static SceneManager::visibility* _bind_ctor(lua_State *L);
-	static void _bind_dtor(SceneManager::visibility* obj);
-	typedef SceneManager::visibility parent_t;
-	typedef SceneManager::visibility base_t;
+	static std::set< ork::Task * >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::set< ork::Task * >* obj);
+	typedef std::set< ork::Task * > parent_t;
+	typedef std::set< ork::Task * > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -2125,9 +2168,9 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Mapped type: ptr< proland::TileProducer >
+// Mapped type: sgtObserver< proland::TerrainQuad >
 template<>
-class LunaTraits< ptr< proland::TileProducer > > {
+class LunaTraits< sgtObserver< proland::TerrainQuad > > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -2137,86 +2180,10 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static ptr< proland::TileProducer >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< proland::TileProducer >* obj);
-	typedef ptr< proland::TileProducer > parent_t;
-	typedef ptr< proland::TileProducer > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< proland::TerrainNode >
-template<>
-class LunaTraits< ptr< proland::TerrainNode > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< proland::TerrainNode >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< proland::TerrainNode >* obj);
-	typedef ptr< proland::TerrainNode > parent_t;
-	typedef ptr< proland::TerrainNode > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< ork::SceneManager >
-template<>
-class LunaTraits< ptr< ork::SceneManager > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< ork::SceneManager >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< ork::SceneManager >* obj);
-	typedef ptr< ork::SceneManager > parent_t;
-	typedef ptr< ork::SceneManager > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< TerrainQuad >
-template<>
-class LunaTraits< ptr< TerrainQuad > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< TerrainQuad >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< TerrainQuad >* obj);
-	typedef ptr< TerrainQuad > parent_t;
-	typedef ptr< TerrainQuad > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Mapped type: ptr< Task >
-template<>
-class LunaTraits< ptr< Task > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static ptr< Task >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(ptr< Task >* obj);
-	typedef ptr< Task > parent_t;
-	typedef ptr< Task > base_t;
+	static sgtObserver< proland::TerrainQuad >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgtObserver< proland::TerrainQuad >* obj);
+	typedef sgtObserver< proland::TerrainQuad > parent_t;
+	typedef sgtObserver< proland::TerrainQuad > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -2297,6 +2264,44 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Referenced external: std::vector< std::string >
+template<>
+class LunaTraits< std::vector< std::string > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< std::string >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< std::string >* obj);
+	typedef std::vector< std::string > parent_t;
+	typedef std::vector< std::string > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: std::vector< float >
+template<>
+class LunaTraits< std::vector< float > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< float >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< float >* obj);
+	typedef std::vector< float > parent_t;
+	typedef std::vector< float > base_t;
+	static luna_ConverterType converters[];
+};
+
 // Referenced external: osg::Geode
 template<>
 class LunaTraits< osg::Geode > {
@@ -2358,6 +2363,272 @@ template<>
 class LunaType< 85004853 > {
 public:
 	typedef ork::Buffer::Parameters type;
+	
+};
+
+template<>
+class LunaType< 2655989 > {
+public:
+	typedef ork::Uniform1f type;
+	
+};
+
+template<>
+class LunaType< 2655987 > {
+public:
+	typedef ork::Uniform1d type;
+	
+};
+
+template<>
+class LunaType< 2655992 > {
+public:
+	typedef ork::Uniform1i type;
+	
+};
+
+template<>
+class LunaType< 82336229 > {
+public:
+	typedef ork::Uniform1ui type;
+	
+};
+
+template<>
+class LunaType< 2655985 > {
+public:
+	typedef ork::Uniform1b type;
+	
+};
+
+template<>
+class LunaType< 2656020 > {
+public:
+	typedef ork::Uniform2f type;
+	
+};
+
+template<>
+class LunaType< 2656018 > {
+public:
+	typedef ork::Uniform2d type;
+	
+};
+
+template<>
+class LunaType< 2656023 > {
+public:
+	typedef ork::Uniform2i type;
+	
+};
+
+template<>
+class LunaType< 82337190 > {
+public:
+	typedef ork::Uniform2ui type;
+	
+};
+
+template<>
+class LunaType< 2656016 > {
+public:
+	typedef ork::Uniform2b type;
+	
+};
+
+template<>
+class LunaType< 2656051 > {
+public:
+	typedef ork::Uniform3f type;
+	
+};
+
+template<>
+class LunaType< 2656049 > {
+public:
+	typedef ork::Uniform3d type;
+	
+};
+
+template<>
+class LunaType< 2656054 > {
+public:
+	typedef ork::Uniform3i type;
+	
+};
+
+template<>
+class LunaType< 82338151 > {
+public:
+	typedef ork::Uniform3ui type;
+	
+};
+
+template<>
+class LunaType< 2656047 > {
+public:
+	typedef ork::Uniform3b type;
+	
+};
+
+template<>
+class LunaType< 2656082 > {
+public:
+	typedef ork::Uniform4f type;
+	
+};
+
+template<>
+class LunaType< 2656080 > {
+public:
+	typedef ork::Uniform4d type;
+	
+};
+
+template<>
+class LunaType< 2656085 > {
+public:
+	typedef ork::Uniform4i type;
+	
+};
+
+template<>
+class LunaType< 82339112 > {
+public:
+	typedef ork::Uniform4ui type;
+	
+};
+
+template<>
+class LunaType< 2656078 > {
+public:
+	typedef ork::Uniform4b type;
+	
+};
+
+template<>
+class LunaType< 81597856 > {
+public:
+	typedef ork::UniformMatrix2f type;
+	
+};
+
+template<>
+class LunaType< 81597887 > {
+public:
+	typedef ork::UniformMatrix3f type;
+	
+};
+
+template<>
+class LunaType< 81597918 > {
+public:
+	typedef ork::UniformMatrix4f type;
+	
+};
+
+template<>
+class LunaType< 15542124 > {
+public:
+	typedef ork::UniformMatrix2x3f type;
+	
+};
+
+template<>
+class LunaType< 15542155 > {
+public:
+	typedef ork::UniformMatrix2x4f type;
+	
+};
+
+template<>
+class LunaType< 15571884 > {
+public:
+	typedef ork::UniformMatrix3x2f type;
+	
+};
+
+template<>
+class LunaType< 15571946 > {
+public:
+	typedef ork::UniformMatrix3x4f type;
+	
+};
+
+template<>
+class LunaType< 15601675 > {
+public:
+	typedef ork::UniformMatrix4x2f type;
+	
+};
+
+template<>
+class LunaType< 15601706 > {
+public:
+	typedef ork::UniformMatrix4x3f type;
+	
+};
+
+template<>
+class LunaType< 81597854 > {
+public:
+	typedef ork::UniformMatrix2d type;
+	
+};
+
+template<>
+class LunaType< 81597885 > {
+public:
+	typedef ork::UniformMatrix3d type;
+	
+};
+
+template<>
+class LunaType< 81597916 > {
+public:
+	typedef ork::UniformMatrix4d type;
+	
+};
+
+template<>
+class LunaType< 15542122 > {
+public:
+	typedef ork::UniformMatrix2x3d type;
+	
+};
+
+template<>
+class LunaType< 15542153 > {
+public:
+	typedef ork::UniformMatrix2x4d type;
+	
+};
+
+template<>
+class LunaType< 15571882 > {
+public:
+	typedef ork::UniformMatrix3x2d type;
+	
+};
+
+template<>
+class LunaType< 15571944 > {
+public:
+	typedef ork::UniformMatrix3x4d type;
+	
+};
+
+template<>
+class LunaType< 15601673 > {
+public:
+	typedef ork::UniformMatrix4x2d type;
+	
+};
+
+template<>
+class LunaType< 15601704 > {
+public:
+	typedef ork::UniformMatrix4x3d type;
 	
 };
 
@@ -2551,13 +2822,6 @@ public:
 };
 
 template<>
-class LunaType< 53477594 > {
-public:
-	typedef ork::SceneManager type;
-	
-};
-
-template<>
 class LunaType< 7995598 > {
 public:
 	typedef ork::ptr< ork::Texture > type;
@@ -2579,9 +2843,16 @@ public:
 };
 
 template<>
-class LunaType< 11747408 > {
+class LunaType< 84580371 > {
 public:
-	typedef ork::Texture::Parameters type;
+	typedef ork::Sampler::Parameters type;
+	
+};
+
+template<>
+class LunaType< 59816505 > {
+public:
+	typedef ork::TaskListener type;
 	
 };
 
@@ -2635,9 +2906,268 @@ public:
 };
 
 template<>
-class LunaType< 46184206 > {
+class LunaType< 62396700 > {
 public:
-	typedef ptr< Sampler > type;
+	typedef ork::Uniform1< ork::VEC1F, float, float, ork::uniform1f, value1f > type;
+	
+};
+
+template<>
+class LunaType< 41802394 > {
+public:
+	typedef ork::Uniform1< ork::VEC1D, double, double, ork::uniform1d, value1d > type;
+	
+};
+
+template<>
+class LunaType< 66245173 > {
+public:
+	typedef ork::Uniform1< ork::VEC1I, int, int, ork::uniform1i, value1i > type;
+	
+};
+
+template<>
+class LunaType< 35814474 > {
+public:
+	typedef ork::Uniform1< ork::VEC1UI, unsigned int, unsigned int, ork::uniform1ui, value1ui > type;
+	
+};
+
+template<>
+class LunaType< 87533460 > {
+public:
+	typedef ork::Uniform1< ork::VEC1B, bool, unsigned int, ork::uniform1b, value1b > type;
+	
+};
+
+template<>
+class LunaType< 68045811 > {
+public:
+	typedef ork::Uniform2< ork::VEC2F, float, float, ork::uniform2f, value2f > type;
+	
+};
+
+template<>
+class LunaType< 45543824 > {
+public:
+	typedef ork::Uniform2< ork::VEC2B, double, double, ork::uniform2d, value2d > type;
+	
+};
+
+template<>
+class LunaType< 18999108 > {
+public:
+	typedef ork::Uniform2< ork::VEC2I, int, int, ork::uniform2i, value2i > type;
+	
+};
+
+template<>
+class LunaType< 28506115 > {
+public:
+	typedef ork::Uniform2< ork::VEC2UI, unsigned int, unsigned int, ork::uniform2ui, value2ui > type;
+	
+};
+
+template<>
+class LunaType< 98042603 > {
+public:
+	typedef ork::Uniform2< ork::VEC2B, bool, unsigned int, ork::uniform2b, value2b > type;
+	
+};
+
+template<>
+class LunaType< 67663799 > {
+public:
+	typedef ork::Uniform3< ork::VEC3F, float, float, ork::uniform3f, value3f > type;
+	
+};
+
+template<>
+class LunaType< 42604694 > {
+public:
+	typedef ork::Uniform3< ork::VEC3D, double, double, ork::uniform3d, value3d > type;
+	
+};
+
+template<>
+class LunaType< 34625537 > {
+public:
+	typedef ork::Uniform3< ork::VEC3I, int, int, ork::uniform3i, value3i > type;
+	
+};
+
+template<>
+class LunaType< 17560642 > {
+public:
+	typedef ork::Uniform3< ork::VEC3UI, unsigned int, unsigned int, ork::uniform3ui, value3ui > type;
+	
+};
+
+template<>
+class LunaType< 81807342 > {
+public:
+	typedef ork::Uniform3< ork::VEC3B, bool, unsigned int, ork::uniform3b, value3b > type;
+	
+};
+
+template<>
+class LunaType< 51505983 > {
+public:
+	typedef ork::Uniform4< ork::VEC4F, float, float, ork::uniform4f, value4f > type;
+	
+};
+
+template<>
+class LunaType< 25232354 > {
+public:
+	typedef ork::Uniform4< ork::VEC4D, double, double, ork::uniform4d, value4d > type;
+	
+};
+
+template<>
+class LunaType< 60834338 > {
+public:
+	typedef ork::Uniform4< ork::VEC4I, int, int, ork::uniform4i, value4i > type;
+	
+};
+
+template<>
+class LunaType< 68999146 > {
+public:
+	typedef ork::Uniform4< ork::VEC4UI, unsigned int, unsigned int, ork::uniform4ui, value4ui > type;
+	
+};
+
+template<>
+class LunaType< 58696464 > {
+public:
+	typedef ork::Uniform4< ork::VEC4B, bool, unsigned int, ork::uniform4b, value4b > type;
+	
+};
+
+template<>
+class LunaType< 70521752 > {
+public:
+	typedef ork::UniformMatrix< ork::MAT2F, float, 2, 2, ork::uniformMatrix2f, valueMatrix2f > type;
+	
+};
+
+template<>
+class LunaType< 83168142 > {
+public:
+	typedef ork::UniformMatrix3< ork::MAT3F, float, ork::uniformMatrix3f, valueMatrix3f > type;
+	
+};
+
+template<>
+class LunaType< 24302492 > {
+public:
+	typedef ork::UniformMatrix4< ork::MAT4F, float, ork::uniformMatrix4f, valueMatrix4f > type;
+	
+};
+
+template<>
+class LunaType< 41425156 > {
+public:
+	typedef ork::UniformMatrix< ork::MAT2x3F, float, 2, 3, ork::uniformMatrix2x3f, valueMatrix2x3f > type;
+	
+};
+
+template<>
+class LunaType< 17831149 > {
+public:
+	typedef ork::UniformMatrix< ork::MAT2x4F, float, 2, 4, ork::uniformMatrix2x4f, valueMatrix2x4f > type;
+	
+};
+
+template<>
+class LunaType< 88566241 > {
+public:
+	typedef ork::UniformMatrix< ork::MAT3x2F, float, 3, 2, ork::uniformMatrix3x2f, valueMatrix3x2f > type;
+	
+};
+
+template<>
+class LunaType< 59033452 > {
+public:
+	typedef ork::UniformMatrix< ork::MAT3x4F, float, 3, 4, ork::uniformMatrix3x4f, valueMatrix3x4f > type;
+	
+};
+
+template<>
+class LunaType< 47037192 > {
+public:
+	typedef ork::UniformMatrix< ork::MAT4x2F, float, 4, 2, ork::uniformMatrix4x2f, valueMatrix4x2f > type;
+	
+};
+
+template<>
+class LunaType< 77939336 > {
+public:
+	typedef ork::UniformMatrix< ork::MAT4x3F, float, 4, 3, ork::uniformMatrix4x3f, valueMatrix4x3f > type;
+	
+};
+
+template<>
+class LunaType< 20431084 > {
+public:
+	typedef ork::UniformMatrix< ork::MAT2D, double, 2, 2, ork::uniformMatrix2d, valueMatrix2d > type;
+	
+};
+
+template<>
+class LunaType< 14604861 > {
+public:
+	typedef ork::UniformMatrix3< ork::MAT3D, double, ork::uniformMatrix3d, valueMatrix3d > type;
+	
+};
+
+template<>
+class LunaType< 86419929 > {
+public:
+	typedef ork::UniformMatrix4< ork::MAT4D, double, ork::uniformMatrix4d, valueMatrix4d > type;
+	
+};
+
+template<>
+class LunaType< 27841661 > {
+public:
+	typedef ork::UniformMatrix< ork::MAT2x3D, double, 2, 3, ork::uniformMatrix2x3d, valueMatrix2x3d > type;
+	
+};
+
+template<>
+class LunaType< 2187379 > {
+public:
+	typedef ork::UniformMatrix< ork::MAT2x4D, double, 2, 4, ork::uniformMatrix2x4d, valueMatrix2x4d > type;
+	
+};
+
+template<>
+class LunaType< 30100986 > {
+public:
+	typedef ork::UniformMatrix< ork::MAT3x2D, double, 3, 2, ork::uniformMatrix3x2d, valueMatrix3x2d > type;
+	
+};
+
+template<>
+class LunaType< 42553402 > {
+public:
+	typedef ork::UniformMatrix< ork::MAT3x4D, double, 3, 4, ork::uniformMatrix3x4d, valueMatrix3x4d > type;
+	
+};
+
+template<>
+class LunaType< 39625065 > {
+public:
+	typedef ork::UniformMatrix< ork::MAT4x2D, double, 4, 2, ork::uniformMatrix4x2d, valueMatrix4x2d > type;
+	
+};
+
+template<>
+class LunaType< 74560307 > {
+public:
+	typedef ork::UniformMatrix< ork::MAT4x3D, double, 4, 3, ork::uniformMatrix4x3d, valueMatrix4x3d > type;
 	
 };
 
@@ -2656,331 +3186,16 @@ public:
 };
 
 template<>
-class LunaType< 3814840 > {
+class LunaType< 94583345 > {
 public:
-	typedef ptr< Value > type;
+	typedef std::vector< ptr< ork::Uniform > > type;
 	
 };
 
 template<>
-class LunaType< 98748177 > {
+class LunaType< 86321452 > {
 public:
-	typedef ptr< ork::Module > type;
-	
-};
-
-template<>
-class LunaType< 38954662 > {
-public:
-	typedef ptr< ork::Program > type;
-	
-};
-
-template<>
-class LunaType< 79520723 > {
-public:
-	typedef std::vector< ptr< Uniform > > type;
-	
-};
-
-template<>
-class LunaType< 58841759 > {
-public:
-	typedef ptr< Uniform > type;
-	
-};
-
-template<>
-class LunaType< 47467858 > {
-public:
-	typedef ptr< Uniform1f > type;
-	
-};
-
-template<>
-class LunaType< 47465936 > {
-public:
-	typedef ptr< Uniform1d > type;
-	
-};
-
-template<>
-class LunaType< 47470741 > {
-public:
-	typedef ptr< Uniform1i > type;
-	
-};
-
-template<>
-class LunaType< 72019510 > {
-public:
-	typedef ptr< Uniform1ui > type;
-	
-};
-
-template<>
-class LunaType< 47464014 > {
-public:
-	typedef ptr< Uniform1b > type;
-	
-};
-
-template<>
-class LunaType< 47497649 > {
-public:
-	typedef ptr< Uniform2f > type;
-	
-};
-
-template<>
-class LunaType< 47495727 > {
-public:
-	typedef ptr< Uniform2d > type;
-	
-};
-
-template<>
-class LunaType< 47500532 > {
-public:
-	typedef ptr< Uniform2i > type;
-	
-};
-
-template<>
-class LunaType< 72943031 > {
-public:
-	typedef ptr< Uniform2ui > type;
-	
-};
-
-template<>
-class LunaType< 47493805 > {
-public:
-	typedef ptr< Uniform2b > type;
-	
-};
-
-template<>
-class LunaType< 47527440 > {
-public:
-	typedef ptr< Uniform3f > type;
-	
-};
-
-template<>
-class LunaType< 47525518 > {
-public:
-	typedef ptr< Uniform3d > type;
-	
-};
-
-template<>
-class LunaType< 47530323 > {
-public:
-	typedef ptr< Uniform3i > type;
-	
-};
-
-template<>
-class LunaType< 73866552 > {
-public:
-	typedef ptr< Uniform3ui > type;
-	
-};
-
-template<>
-class LunaType< 47523596 > {
-public:
-	typedef ptr< Uniform3b > type;
-	
-};
-
-template<>
-class LunaType< 47557231 > {
-public:
-	typedef ptr< Uniform4f > type;
-	
-};
-
-template<>
-class LunaType< 47555309 > {
-public:
-	typedef ptr< Uniform4d > type;
-	
-};
-
-template<>
-class LunaType< 47560114 > {
-public:
-	typedef ptr< Uniform4i > type;
-	
-};
-
-template<>
-class LunaType< 74790073 > {
-public:
-	typedef ptr< Uniform4ui > type;
-	
-};
-
-template<>
-class LunaType< 47553387 > {
-public:
-	typedef ptr< Uniform4b > type;
-	
-};
-
-template<>
-class LunaType< 82470569 > {
-public:
-	typedef ptr< UniformMatrix2f > type;
-	
-};
-
-template<>
-class LunaType< 82468647 > {
-public:
-	typedef ptr< UniformMatrix2d > type;
-	
-};
-
-template<>
-class LunaType< 82500360 > {
-public:
-	typedef ptr< UniformMatrix3f > type;
-	
-};
-
-template<>
-class LunaType< 82498438 > {
-public:
-	typedef ptr< UniformMatrix3d > type;
-	
-};
-
-template<>
-class LunaType< 82530151 > {
-public:
-	typedef ptr< UniformMatrix4f > type;
-	
-};
-
-template<>
-class LunaType< 82528229 > {
-public:
-	typedef ptr< UniformMatrix4d > type;
-	
-};
-
-template<>
-class LunaType< 71427477 > {
-public:
-	typedef ptr< UniformMatrix2x3f > type;
-	
-};
-
-template<>
-class LunaType< 71425555 > {
-public:
-	typedef ptr< UniformMatrix2x3d > type;
-	
-};
-
-template<>
-class LunaType< 71457268 > {
-public:
-	typedef ptr< UniformMatrix2x4f > type;
-	
-};
-
-template<>
-class LunaType< 71455346 > {
-public:
-	typedef ptr< UniformMatrix2x4d > type;
-	
-};
-
-template<>
-class LunaType< 26813 > {
-public:
-	typedef ptr< UniformMatrix3x2f > type;
-	
-};
-
-template<>
-class LunaType< 24891 > {
-public:
-	typedef ptr< UniformMatrix3x2d > type;
-	
-};
-
-template<>
-class LunaType< 86395 > {
-public:
-	typedef ptr< UniformMatrix3x4f > type;
-	
-};
-
-template<>
-class LunaType< 84473 > {
-public:
-	typedef ptr< UniformMatrix3x4d > type;
-	
-};
-
-template<>
-class LunaType< 28655964 > {
-public:
-	typedef ptr< UniformMatrix4x2f > type;
-	
-};
-
-template<>
-class LunaType< 28654042 > {
-public:
-	typedef ptr< UniformMatrix4x2d > type;
-	
-};
-
-template<>
-class LunaType< 28685755 > {
-public:
-	typedef ptr< UniformMatrix4x3f > type;
-	
-};
-
-template<>
-class LunaType< 28683833 > {
-public:
-	typedef ptr< UniformMatrix4x3d > type;
-	
-};
-
-template<>
-class LunaType< 42637183 > {
-public:
-	typedef ptr< UniformSampler > type;
-	
-};
-
-template<>
-class LunaType< 55652485 > {
-public:
-	typedef ptr< UniformSubroutine > type;
-	
-};
-
-template<>
-class LunaType< 48215627 > {
-public:
-	typedef ptr< UniformBlock > type;
-	
-};
-
-template<>
-class LunaType< 39027497 > {
-public:
-	typedef SceneManager::visibility type;
+	typedef std::set< ork::Task * > type;
 	
 };
 
@@ -3006,37 +3221,9 @@ public:
 };
 
 template<>
-class LunaType< 45761065 > {
+class LunaType< 929176 > {
 public:
-	typedef ptr< proland::TileProducer > type;
-	
-};
-
-template<>
-class LunaType< 9465964 > {
-public:
-	typedef ptr< proland::TerrainNode > type;
-	
-};
-
-template<>
-class LunaType< 47272914 > {
-public:
-	typedef ptr< ork::SceneManager > type;
-	
-};
-
-template<>
-class LunaType< 12456143 > {
-public:
-	typedef ptr< TerrainQuad > type;
-	
-};
-
-template<>
-class LunaType< 30158358 > {
-public:
-	typedef ptr< Task > type;
+	typedef sgtObserver< proland::TerrainQuad > type;
 	
 };
 
@@ -3065,6 +3252,20 @@ template<>
 class LunaType< 49057446 > {
 public:
 	typedef osg::NodeVisitor type;
+	
+};
+
+template<>
+class LunaType< 95416160 > {
+public:
+	typedef std::vector< std::string > type;
+	
+};
+
+template<>
+class LunaType< 77249888 > {
+public:
+	typedef std::vector< float > type;
 	
 };
 

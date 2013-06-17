@@ -126,6 +126,8 @@ ptr<Texture2DArray> createDemNoise(int tileWidth)
             }
         }
     }
+	THROW_IF(FrameBuffer::getError()!=0,"Checkpoint0")
+
     ptr<Texture2DArray> noiseTexture = new Texture2DArray(tileWidth, tileWidth, 6, R16F,
         RED, PIXEL_FLOAT, Texture::Parameters().wrapS(REPEAT).wrapT(REPEAT).min(NEAREST).mag(NEAREST), Buffer::Parameters(), CPUBuffer(noiseArray));
     delete[] noiseArray;
@@ -138,6 +140,8 @@ ptr<FrameBuffer> createDemFramebuffer(pair< ptr<Texture2D> , ptr<Texture2D> > te
 {
     int tileWidth = textures.first->getWidth();
     ptr<FrameBuffer> frameBuffer(new FrameBuffer());
+	THROW_IF(FrameBuffer::getError()!=0,"Checkpointm1")
+
     frameBuffer->setReadBuffer(COLOR0);
     frameBuffer->setDrawBuffer(COLOR0);
     frameBuffer->setViewport(vec4<GLint>(0, 0, tileWidth, tileWidth));
@@ -151,6 +155,8 @@ ptr<FrameBuffer> createDemFramebuffer(pair< ptr<Texture2D> , ptr<Texture2D> > te
         frameBuffer->setDepthTest(false);
     }
     frameBuffer->setPolygonMode(FILL, FILL);
+
+	THROW_IF(FrameBuffer::getError()!=0,"Checkpointm2")
     return frameBuffer;
 }
 

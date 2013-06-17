@@ -223,7 +223,8 @@ public:
 	inline static bool _lg_typecheck_addInitialValue(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,3814840) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< Value >(L,2) ) return false;
 		return true;
 	}
 
@@ -503,11 +504,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void ork::Module::addInitialValue(ptr< Value > value) function, expected prototype:\nvoid ork::Module::addInitialValue(ptr< Value > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		ptr< Value >* value_ptr=(Luna< ptr< Value > >::check(L,2));
-		if( !value_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg value in ork::Module::addInitialValue function");
-		}
-		ptr< Value > value=*value_ptr;
+		ptr< Value > value = Luna< ork::Object >::checkSubType< Value >(L,2);
 
 		ork::Module* self=Luna< ork::Object >::checkSubType< ork::Module >(L,1);
 		if(!self) {

@@ -133,7 +133,8 @@ public:
 	inline static bool _lg_typecheck_storeTile(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,12456143) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< proland::TerrainQuad >(L,2) ) return false;
 		return true;
 	}
 
@@ -154,21 +155,17 @@ public:
 
 
 	// Function binds:
-	// bool proland::TileSampler::TileFilter::storeTile(ptr< TerrainQuad > q)
+	// bool proland::TileSampler::TileFilter::storeTile(ptr< proland::TerrainQuad > q)
 	static int _bind_storeTile(lua_State *L) {
 		if (!_lg_typecheck_storeTile(L)) {
-			luaL_error(L, "luna typecheck failed in bool proland::TileSampler::TileFilter::storeTile(ptr< TerrainQuad > q) function, expected prototype:\nbool proland::TileSampler::TileFilter::storeTile(ptr< TerrainQuad > q)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in bool proland::TileSampler::TileFilter::storeTile(ptr< proland::TerrainQuad > q) function, expected prototype:\nbool proland::TileSampler::TileFilter::storeTile(ptr< proland::TerrainQuad > q)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		ptr< TerrainQuad >* q_ptr=(Luna< ptr< TerrainQuad > >::check(L,2));
-		if( !q_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg q in proland::TileSampler::TileFilter::storeTile function");
-		}
-		ptr< TerrainQuad > q=*q_ptr;
+		ptr< proland::TerrainQuad > q = Luna< ork::Object >::checkSubType< proland::TerrainQuad >(L,2);
 
 		proland::TileSampler::TileFilter* self=(Luna< proland::TileSampler::TileFilter >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call bool proland::TileSampler::TileFilter::storeTile(ptr< TerrainQuad >). Got : '%s'\n%s",typeid(Luna< proland::TileSampler::TileFilter >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call bool proland::TileSampler::TileFilter::storeTile(ptr< proland::TerrainQuad >). Got : '%s'\n%s",typeid(Luna< proland::TileSampler::TileFilter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->storeTile(q);
 		lua_pushboolean(L,lret?1:0);
@@ -185,7 +182,7 @@ proland::TileSampler::TileFilter* LunaTraits< proland::TileSampler::TileFilter >
 	return luna_wrapper_proland_TileSampler_TileFilter::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
-	// bool proland::TileSampler::TileFilter::storeTile(ptr< TerrainQuad > q)
+	// bool proland::TileSampler::TileFilter::storeTile(ptr< proland::TerrainQuad > q)
 }
 
 void LunaTraits< proland::TileSampler::TileFilter >::_bind_dtor(proland::TileSampler::TileFilter* obj) {

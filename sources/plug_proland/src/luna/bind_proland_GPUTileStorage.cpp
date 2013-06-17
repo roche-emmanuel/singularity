@@ -70,7 +70,7 @@ public:
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( !Luna<void>::has_uniqueid(L,6,11747408) ) return false;
+		if( !Luna<void>::has_uniqueid(L,6,84580371) ) return false;
 		if( luatop>6 && lua_isboolean(L,7)==0 ) return false;
 		return true;
 	}
@@ -85,7 +85,7 @@ public:
 	// proland::GPUTileStorage::GPUTileStorage(int tileSize, int nTiles, ork::TextureInternalFormat internalf, ork::TextureFormat f, ork::PixelType t, const ork::Texture::Parameters & params, bool useTileMap = false)
 	static proland::GPUTileStorage* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luaL_error(L, "luna typecheck failed in proland::GPUTileStorage::GPUTileStorage(int tileSize, int nTiles, ork::TextureInternalFormat internalf, ork::TextureFormat f, ork::PixelType t, const ork::Texture::Parameters & params, bool useTileMap = false) function, expected prototype:\nproland::GPUTileStorage::GPUTileStorage(int tileSize, int nTiles, ork::TextureInternalFormat internalf, ork::TextureFormat f, ork::PixelType t, const ork::Texture::Parameters & params, bool useTileMap = false)\nClass arguments details:\narg 6 ID = 11747408\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in proland::GPUTileStorage::GPUTileStorage(int tileSize, int nTiles, ork::TextureInternalFormat internalf, ork::TextureFormat f, ork::PixelType t, const ork::Texture::Parameters & params, bool useTileMap = false) function, expected prototype:\nproland::GPUTileStorage::GPUTileStorage(int tileSize, int nTiles, ork::TextureInternalFormat internalf, ork::TextureFormat f, ork::PixelType t, const ork::Texture::Parameters & params, bool useTileMap = false)\nClass arguments details:\narg 6 ID = 84580371\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -95,7 +95,7 @@ public:
 		ork::TextureInternalFormat internalf=(ork::TextureInternalFormat)lua_tointeger(L,3);
 		ork::TextureFormat f=(ork::TextureFormat)lua_tointeger(L,4);
 		ork::PixelType t=(ork::PixelType)lua_tointeger(L,5);
-		const ork::Texture::Parameters* params_ptr=(Luna< ork::Texture::Parameters >::check(L,6));
+		const ork::Texture::Parameters* params_ptr=(Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,6));
 		if( !params_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg params in proland::GPUTileStorage::GPUTileStorage function");
 		}

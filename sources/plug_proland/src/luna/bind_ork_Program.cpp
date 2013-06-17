@@ -100,8 +100,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,1,98748177) ) return false;
-		if( (!(Luna< ptr< ork::Module > >::check(L,1))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,1,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< ork::Module >(L,1) ) return false;
 		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
@@ -120,16 +120,16 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,1,38954662) ) return false;
-		if( (!(Luna< ptr< ork::Program > >::check(L,1))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,2,38954662) ) return false;
-		if( (!(Luna< ptr< ork::Program > >::check(L,2))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,38954662) ) return false;
-		if( (!(Luna< ptr< ork::Program > >::check(L,3))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,38954662) ) return false;
-		if( (!(Luna< ptr< ork::Program > >::check(L,4))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,5,38954662) ) return false;
-		if( (!(Luna< ptr< ork::Program > >::check(L,5))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,1,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< ork::Program >(L,1) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< ork::Program >(L,2) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< ork::Program >(L,3) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< ork::Program >(L,4) ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< ork::Program >(L,5) ) return false;
 		return true;
 	}
 
@@ -149,8 +149,8 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,2,98748177) ) return false;
-		if( (!(Luna< ptr< ork::Module > >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< ork::Module >(L,2) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -171,16 +171,16 @@ public:
 		if( lua_gettop(L)!=6 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,2,38954662) ) return false;
-		if( (!(Luna< ptr< ork::Program > >::check(L,2))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,38954662) ) return false;
-		if( (!(Luna< ptr< ork::Program > >::check(L,3))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,38954662) ) return false;
-		if( (!(Luna< ptr< ork::Program > >::check(L,4))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,5,38954662) ) return false;
-		if( (!(Luna< ptr< ork::Program > >::check(L,5))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,6,38954662) ) return false;
-		if( (!(Luna< ptr< ork::Program > >::check(L,6))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< ork::Program >(L,2) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< ork::Program >(L,3) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< ork::Program >(L,4) ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< ork::Program >(L,5) ) return false;
+		if( !Luna<void>::has_uniqueid(L,6,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< ork::Program >(L,6) ) return false;
 		return true;
 	}
 
@@ -551,11 +551,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		ptr< ork::Module >* module_ptr=(Luna< ptr< ork::Module > >::check(L,1));
-		if( !module_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg module in ork::Program::Program function");
-		}
-		ptr< ork::Module > module=*module_ptr;
+		ptr< ork::Module > module = Luna< ork::Object >::checkSubType< ork::Module >(L,1);
 		bool separable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		return new ork::Program(module, separable);
@@ -583,31 +579,11 @@ public:
 			luaL_error(L, "luna typecheck failed in ork::Program::Program(ptr< ork::Program > vertex, ptr< ork::Program > tessControl, ptr< ork::Program > tessEval, ptr< ork::Program > geometry, ptr< ork::Program > fragment) function, expected prototype:\nork::Program::Program(ptr< ork::Program > vertex, ptr< ork::Program > tessControl, ptr< ork::Program > tessEval, ptr< ork::Program > geometry, ptr< ork::Program > fragment)\nClass arguments details:\narg 1 ID = [unknown]\narg 2 ID = [unknown]\narg 3 ID = [unknown]\narg 4 ID = [unknown]\narg 5 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		ptr< ork::Program >* vertex_ptr=(Luna< ptr< ork::Program > >::check(L,1));
-		if( !vertex_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg vertex in ork::Program::Program function");
-		}
-		ptr< ork::Program > vertex=*vertex_ptr;
-		ptr< ork::Program >* tessControl_ptr=(Luna< ptr< ork::Program > >::check(L,2));
-		if( !tessControl_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg tessControl in ork::Program::Program function");
-		}
-		ptr< ork::Program > tessControl=*tessControl_ptr;
-		ptr< ork::Program >* tessEval_ptr=(Luna< ptr< ork::Program > >::check(L,3));
-		if( !tessEval_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg tessEval in ork::Program::Program function");
-		}
-		ptr< ork::Program > tessEval=*tessEval_ptr;
-		ptr< ork::Program >* geometry_ptr=(Luna< ptr< ork::Program > >::check(L,4));
-		if( !geometry_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg geometry in ork::Program::Program function");
-		}
-		ptr< ork::Program > geometry=*geometry_ptr;
-		ptr< ork::Program >* fragment_ptr=(Luna< ptr< ork::Program > >::check(L,5));
-		if( !fragment_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg fragment in ork::Program::Program function");
-		}
-		ptr< ork::Program > fragment=*fragment_ptr;
+		ptr< ork::Program > vertex = Luna< ork::Object >::checkSubType< ork::Program >(L,1);
+		ptr< ork::Program > tessControl = Luna< ork::Object >::checkSubType< ork::Program >(L,2);
+		ptr< ork::Program > tessEval = Luna< ork::Object >::checkSubType< ork::Program >(L,3);
+		ptr< ork::Program > geometry = Luna< ork::Object >::checkSubType< ork::Program >(L,4);
+		ptr< ork::Program > fragment = Luna< ork::Object >::checkSubType< ork::Program >(L,5);
 
 		return new ork::Program(vertex, tessControl, tessEval, geometry, fragment);
 	}
@@ -638,11 +614,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		ptr< ork::Module >* module_ptr=(Luna< ptr< ork::Module > >::check(L,2));
-		if( !module_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg module in ork::Program::Program function");
-		}
-		ptr< ork::Module > module=*module_ptr;
+		ptr< ork::Module > module = Luna< ork::Object >::checkSubType< ork::Module >(L,2);
 		bool separable=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		return new wrapper_ork_Program(L,NULL, module, separable);
@@ -670,31 +642,11 @@ public:
 			luaL_error(L, "luna typecheck failed in ork::Program::Program(lua_Table * data, ptr< ork::Program > vertex, ptr< ork::Program > tessControl, ptr< ork::Program > tessEval, ptr< ork::Program > geometry, ptr< ork::Program > fragment) function, expected prototype:\nork::Program::Program(lua_Table * data, ptr< ork::Program > vertex, ptr< ork::Program > tessControl, ptr< ork::Program > tessEval, ptr< ork::Program > geometry, ptr< ork::Program > fragment)\nClass arguments details:\narg 2 ID = [unknown]\narg 3 ID = [unknown]\narg 4 ID = [unknown]\narg 5 ID = [unknown]\narg 6 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		ptr< ork::Program >* vertex_ptr=(Luna< ptr< ork::Program > >::check(L,2));
-		if( !vertex_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg vertex in ork::Program::Program function");
-		}
-		ptr< ork::Program > vertex=*vertex_ptr;
-		ptr< ork::Program >* tessControl_ptr=(Luna< ptr< ork::Program > >::check(L,3));
-		if( !tessControl_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg tessControl in ork::Program::Program function");
-		}
-		ptr< ork::Program > tessControl=*tessControl_ptr;
-		ptr< ork::Program >* tessEval_ptr=(Luna< ptr< ork::Program > >::check(L,4));
-		if( !tessEval_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg tessEval in ork::Program::Program function");
-		}
-		ptr< ork::Program > tessEval=*tessEval_ptr;
-		ptr< ork::Program >* geometry_ptr=(Luna< ptr< ork::Program > >::check(L,5));
-		if( !geometry_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg geometry in ork::Program::Program function");
-		}
-		ptr< ork::Program > geometry=*geometry_ptr;
-		ptr< ork::Program >* fragment_ptr=(Luna< ptr< ork::Program > >::check(L,6));
-		if( !fragment_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg fragment in ork::Program::Program function");
-		}
-		ptr< ork::Program > fragment=*fragment_ptr;
+		ptr< ork::Program > vertex = Luna< ork::Object >::checkSubType< ork::Program >(L,2);
+		ptr< ork::Program > tessControl = Luna< ork::Object >::checkSubType< ork::Program >(L,3);
+		ptr< ork::Program > tessEval = Luna< ork::Object >::checkSubType< ork::Program >(L,4);
+		ptr< ork::Program > geometry = Luna< ork::Object >::checkSubType< ork::Program >(L,5);
+		ptr< ork::Program > fragment = Luna< ork::Object >::checkSubType< ork::Program >(L,6);
 
 		return new wrapper_ork_Program(L,NULL, vertex, tessControl, tessEval, geometry, fragment);
 	}
@@ -762,879 +714,756 @@ public:
 		if(!self) {
 			luaL_error(L, "Invalid object in function call ptr< ork::Module > ork::Program::getModule(int) const. Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< ork::Module > stack_lret = self->getModule(index);
-		ptr< ork::Module >* lret = new ptr< ork::Module >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< ork::Module > >::push(L,lret,true);
+		ptr< ork::Module > lret = self->getModule(index);
+		Luna< ork::Module >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// std::vector< ptr< Uniform > > ork::Program::getUniforms() const
+	// std::vector< ptr< ork::Uniform > > ork::Program::getUniforms() const
 	static int _bind_getUniforms(lua_State *L) {
 		if (!_lg_typecheck_getUniforms(L)) {
-			luaL_error(L, "luna typecheck failed in std::vector< ptr< Uniform > > ork::Program::getUniforms() const function, expected prototype:\nstd::vector< ptr< Uniform > > ork::Program::getUniforms() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in std::vector< ptr< ork::Uniform > > ork::Program::getUniforms() const function, expected prototype:\nstd::vector< ptr< ork::Uniform > > ork::Program::getUniforms() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call std::vector< ptr< Uniform > > ork::Program::getUniforms() const. Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call std::vector< ptr< ork::Uniform > > ork::Program::getUniforms() const. Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		std::vector< ptr< Uniform > > stack_lret = self->getUniforms();
-		std::vector< ptr< Uniform > >* lret = new std::vector< ptr< Uniform > >(stack_lret);
+		std::vector< ptr< ork::Uniform > > stack_lret = self->getUniforms();
+		std::vector< ptr< ork::Uniform > >* lret = new std::vector< ptr< ork::Uniform > >(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< std::vector< ptr< Uniform > > >::push(L,lret,true);
+		Luna< std::vector< ptr< ork::Uniform > > >::push(L,lret,true);
 
 		return 1;
 	}
 
-	// ptr< Uniform > ork::Program::getUniform(const std::string & name)
+	// ptr< ork::Uniform > ork::Program::getUniform(const std::string & name)
 	static int _bind_getUniform(lua_State *L) {
 		if (!_lg_typecheck_getUniform(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform > ork::Program::getUniform(const std::string & name) function, expected prototype:\nptr< Uniform > ork::Program::getUniform(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform > ork::Program::getUniform(const std::string & name) function, expected prototype:\nptr< ork::Uniform > ork::Program::getUniform(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform > ork::Program::getUniform(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform > ork::Program::getUniform(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform > stack_lret = self->getUniform(name);
-		ptr< Uniform >* lret = new ptr< Uniform >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform > >::push(L,lret,true);
+		ptr< ork::Uniform > lret = self->getUniform(name);
+		Luna< ork::Uniform >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform1f > ork::Program::getUniform1f(const std::string & name)
+	// ptr< ork::Uniform1f > ork::Program::getUniform1f(const std::string & name)
 	static int _bind_getUniform1f(lua_State *L) {
 		if (!_lg_typecheck_getUniform1f(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform1f > ork::Program::getUniform1f(const std::string & name) function, expected prototype:\nptr< Uniform1f > ork::Program::getUniform1f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform1f > ork::Program::getUniform1f(const std::string & name) function, expected prototype:\nptr< ork::Uniform1f > ork::Program::getUniform1f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform1f > ork::Program::getUniform1f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform1f > ork::Program::getUniform1f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform1f > stack_lret = self->getUniform1f(name);
-		ptr< Uniform1f >* lret = new ptr< Uniform1f >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform1f > >::push(L,lret,true);
+		ptr< ork::Uniform1f > lret = self->getUniform1f(name);
+		Luna< ork::Uniform1f >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform1d > ork::Program::getUniform1d(const std::string & name)
+	// ptr< ork::Uniform1d > ork::Program::getUniform1d(const std::string & name)
 	static int _bind_getUniform1d(lua_State *L) {
 		if (!_lg_typecheck_getUniform1d(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform1d > ork::Program::getUniform1d(const std::string & name) function, expected prototype:\nptr< Uniform1d > ork::Program::getUniform1d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform1d > ork::Program::getUniform1d(const std::string & name) function, expected prototype:\nptr< ork::Uniform1d > ork::Program::getUniform1d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform1d > ork::Program::getUniform1d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform1d > ork::Program::getUniform1d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform1d > stack_lret = self->getUniform1d(name);
-		ptr< Uniform1d >* lret = new ptr< Uniform1d >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform1d > >::push(L,lret,true);
+		ptr< ork::Uniform1d > lret = self->getUniform1d(name);
+		Luna< ork::Uniform1d >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform1i > ork::Program::getUniform1i(const std::string & name)
+	// ptr< ork::Uniform1i > ork::Program::getUniform1i(const std::string & name)
 	static int _bind_getUniform1i(lua_State *L) {
 		if (!_lg_typecheck_getUniform1i(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform1i > ork::Program::getUniform1i(const std::string & name) function, expected prototype:\nptr< Uniform1i > ork::Program::getUniform1i(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform1i > ork::Program::getUniform1i(const std::string & name) function, expected prototype:\nptr< ork::Uniform1i > ork::Program::getUniform1i(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform1i > ork::Program::getUniform1i(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform1i > ork::Program::getUniform1i(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform1i > stack_lret = self->getUniform1i(name);
-		ptr< Uniform1i >* lret = new ptr< Uniform1i >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform1i > >::push(L,lret,true);
+		ptr< ork::Uniform1i > lret = self->getUniform1i(name);
+		Luna< ork::Uniform1i >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform1ui > ork::Program::getUniform1ui(const std::string & name)
+	// ptr< ork::Uniform1ui > ork::Program::getUniform1ui(const std::string & name)
 	static int _bind_getUniform1ui(lua_State *L) {
 		if (!_lg_typecheck_getUniform1ui(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform1ui > ork::Program::getUniform1ui(const std::string & name) function, expected prototype:\nptr< Uniform1ui > ork::Program::getUniform1ui(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform1ui > ork::Program::getUniform1ui(const std::string & name) function, expected prototype:\nptr< ork::Uniform1ui > ork::Program::getUniform1ui(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform1ui > ork::Program::getUniform1ui(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform1ui > ork::Program::getUniform1ui(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform1ui > stack_lret = self->getUniform1ui(name);
-		ptr< Uniform1ui >* lret = new ptr< Uniform1ui >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform1ui > >::push(L,lret,true);
+		ptr< ork::Uniform1ui > lret = self->getUniform1ui(name);
+		Luna< ork::Uniform1ui >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform1b > ork::Program::getUniform1b(const std::string & name)
+	// ptr< ork::Uniform1b > ork::Program::getUniform1b(const std::string & name)
 	static int _bind_getUniform1b(lua_State *L) {
 		if (!_lg_typecheck_getUniform1b(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform1b > ork::Program::getUniform1b(const std::string & name) function, expected prototype:\nptr< Uniform1b > ork::Program::getUniform1b(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform1b > ork::Program::getUniform1b(const std::string & name) function, expected prototype:\nptr< ork::Uniform1b > ork::Program::getUniform1b(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform1b > ork::Program::getUniform1b(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform1b > ork::Program::getUniform1b(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform1b > stack_lret = self->getUniform1b(name);
-		ptr< Uniform1b >* lret = new ptr< Uniform1b >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform1b > >::push(L,lret,true);
+		ptr< ork::Uniform1b > lret = self->getUniform1b(name);
+		Luna< ork::Uniform1b >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform2f > ork::Program::getUniform2f(const std::string & name)
+	// ptr< ork::Uniform2f > ork::Program::getUniform2f(const std::string & name)
 	static int _bind_getUniform2f(lua_State *L) {
 		if (!_lg_typecheck_getUniform2f(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform2f > ork::Program::getUniform2f(const std::string & name) function, expected prototype:\nptr< Uniform2f > ork::Program::getUniform2f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform2f > ork::Program::getUniform2f(const std::string & name) function, expected prototype:\nptr< ork::Uniform2f > ork::Program::getUniform2f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform2f > ork::Program::getUniform2f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform2f > ork::Program::getUniform2f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform2f > stack_lret = self->getUniform2f(name);
-		ptr< Uniform2f >* lret = new ptr< Uniform2f >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform2f > >::push(L,lret,true);
+		ptr< ork::Uniform2f > lret = self->getUniform2f(name);
+		Luna< ork::Uniform2f >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform2d > ork::Program::getUniform2d(const std::string & name)
+	// ptr< ork::Uniform2d > ork::Program::getUniform2d(const std::string & name)
 	static int _bind_getUniform2d(lua_State *L) {
 		if (!_lg_typecheck_getUniform2d(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform2d > ork::Program::getUniform2d(const std::string & name) function, expected prototype:\nptr< Uniform2d > ork::Program::getUniform2d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform2d > ork::Program::getUniform2d(const std::string & name) function, expected prototype:\nptr< ork::Uniform2d > ork::Program::getUniform2d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform2d > ork::Program::getUniform2d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform2d > ork::Program::getUniform2d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform2d > stack_lret = self->getUniform2d(name);
-		ptr< Uniform2d >* lret = new ptr< Uniform2d >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform2d > >::push(L,lret,true);
+		ptr< ork::Uniform2d > lret = self->getUniform2d(name);
+		Luna< ork::Uniform2d >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform2i > ork::Program::getUniform2i(const std::string & name)
+	// ptr< ork::Uniform2i > ork::Program::getUniform2i(const std::string & name)
 	static int _bind_getUniform2i(lua_State *L) {
 		if (!_lg_typecheck_getUniform2i(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform2i > ork::Program::getUniform2i(const std::string & name) function, expected prototype:\nptr< Uniform2i > ork::Program::getUniform2i(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform2i > ork::Program::getUniform2i(const std::string & name) function, expected prototype:\nptr< ork::Uniform2i > ork::Program::getUniform2i(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform2i > ork::Program::getUniform2i(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform2i > ork::Program::getUniform2i(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform2i > stack_lret = self->getUniform2i(name);
-		ptr< Uniform2i >* lret = new ptr< Uniform2i >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform2i > >::push(L,lret,true);
+		ptr< ork::Uniform2i > lret = self->getUniform2i(name);
+		Luna< ork::Uniform2i >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform2ui > ork::Program::getUniform2ui(const std::string & name)
+	// ptr< ork::Uniform2ui > ork::Program::getUniform2ui(const std::string & name)
 	static int _bind_getUniform2ui(lua_State *L) {
 		if (!_lg_typecheck_getUniform2ui(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform2ui > ork::Program::getUniform2ui(const std::string & name) function, expected prototype:\nptr< Uniform2ui > ork::Program::getUniform2ui(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform2ui > ork::Program::getUniform2ui(const std::string & name) function, expected prototype:\nptr< ork::Uniform2ui > ork::Program::getUniform2ui(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform2ui > ork::Program::getUniform2ui(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform2ui > ork::Program::getUniform2ui(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform2ui > stack_lret = self->getUniform2ui(name);
-		ptr< Uniform2ui >* lret = new ptr< Uniform2ui >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform2ui > >::push(L,lret,true);
+		ptr< ork::Uniform2ui > lret = self->getUniform2ui(name);
+		Luna< ork::Uniform2ui >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform2b > ork::Program::getUniform2b(const std::string & name)
+	// ptr< ork::Uniform2b > ork::Program::getUniform2b(const std::string & name)
 	static int _bind_getUniform2b(lua_State *L) {
 		if (!_lg_typecheck_getUniform2b(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform2b > ork::Program::getUniform2b(const std::string & name) function, expected prototype:\nptr< Uniform2b > ork::Program::getUniform2b(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform2b > ork::Program::getUniform2b(const std::string & name) function, expected prototype:\nptr< ork::Uniform2b > ork::Program::getUniform2b(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform2b > ork::Program::getUniform2b(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform2b > ork::Program::getUniform2b(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform2b > stack_lret = self->getUniform2b(name);
-		ptr< Uniform2b >* lret = new ptr< Uniform2b >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform2b > >::push(L,lret,true);
+		ptr< ork::Uniform2b > lret = self->getUniform2b(name);
+		Luna< ork::Uniform2b >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform3f > ork::Program::getUniform3f(const std::string & name)
+	// ptr< ork::Uniform3f > ork::Program::getUniform3f(const std::string & name)
 	static int _bind_getUniform3f(lua_State *L) {
 		if (!_lg_typecheck_getUniform3f(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform3f > ork::Program::getUniform3f(const std::string & name) function, expected prototype:\nptr< Uniform3f > ork::Program::getUniform3f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform3f > ork::Program::getUniform3f(const std::string & name) function, expected prototype:\nptr< ork::Uniform3f > ork::Program::getUniform3f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform3f > ork::Program::getUniform3f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform3f > ork::Program::getUniform3f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform3f > stack_lret = self->getUniform3f(name);
-		ptr< Uniform3f >* lret = new ptr< Uniform3f >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform3f > >::push(L,lret,true);
+		ptr< ork::Uniform3f > lret = self->getUniform3f(name);
+		Luna< ork::Uniform3f >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform3d > ork::Program::getUniform3d(const std::string & name)
+	// ptr< ork::Uniform3d > ork::Program::getUniform3d(const std::string & name)
 	static int _bind_getUniform3d(lua_State *L) {
 		if (!_lg_typecheck_getUniform3d(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform3d > ork::Program::getUniform3d(const std::string & name) function, expected prototype:\nptr< Uniform3d > ork::Program::getUniform3d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform3d > ork::Program::getUniform3d(const std::string & name) function, expected prototype:\nptr< ork::Uniform3d > ork::Program::getUniform3d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform3d > ork::Program::getUniform3d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform3d > ork::Program::getUniform3d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform3d > stack_lret = self->getUniform3d(name);
-		ptr< Uniform3d >* lret = new ptr< Uniform3d >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform3d > >::push(L,lret,true);
+		ptr< ork::Uniform3d > lret = self->getUniform3d(name);
+		Luna< ork::Uniform3d >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform3i > ork::Program::getUniform3i(const std::string & name)
+	// ptr< ork::Uniform3i > ork::Program::getUniform3i(const std::string & name)
 	static int _bind_getUniform3i(lua_State *L) {
 		if (!_lg_typecheck_getUniform3i(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform3i > ork::Program::getUniform3i(const std::string & name) function, expected prototype:\nptr< Uniform3i > ork::Program::getUniform3i(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform3i > ork::Program::getUniform3i(const std::string & name) function, expected prototype:\nptr< ork::Uniform3i > ork::Program::getUniform3i(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform3i > ork::Program::getUniform3i(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform3i > ork::Program::getUniform3i(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform3i > stack_lret = self->getUniform3i(name);
-		ptr< Uniform3i >* lret = new ptr< Uniform3i >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform3i > >::push(L,lret,true);
+		ptr< ork::Uniform3i > lret = self->getUniform3i(name);
+		Luna< ork::Uniform3i >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform3ui > ork::Program::getUniform3ui(const std::string & name)
+	// ptr< ork::Uniform3ui > ork::Program::getUniform3ui(const std::string & name)
 	static int _bind_getUniform3ui(lua_State *L) {
 		if (!_lg_typecheck_getUniform3ui(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform3ui > ork::Program::getUniform3ui(const std::string & name) function, expected prototype:\nptr< Uniform3ui > ork::Program::getUniform3ui(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform3ui > ork::Program::getUniform3ui(const std::string & name) function, expected prototype:\nptr< ork::Uniform3ui > ork::Program::getUniform3ui(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform3ui > ork::Program::getUniform3ui(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform3ui > ork::Program::getUniform3ui(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform3ui > stack_lret = self->getUniform3ui(name);
-		ptr< Uniform3ui >* lret = new ptr< Uniform3ui >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform3ui > >::push(L,lret,true);
+		ptr< ork::Uniform3ui > lret = self->getUniform3ui(name);
+		Luna< ork::Uniform3ui >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform3b > ork::Program::getUniform3b(const std::string & name)
+	// ptr< ork::Uniform3b > ork::Program::getUniform3b(const std::string & name)
 	static int _bind_getUniform3b(lua_State *L) {
 		if (!_lg_typecheck_getUniform3b(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform3b > ork::Program::getUniform3b(const std::string & name) function, expected prototype:\nptr< Uniform3b > ork::Program::getUniform3b(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform3b > ork::Program::getUniform3b(const std::string & name) function, expected prototype:\nptr< ork::Uniform3b > ork::Program::getUniform3b(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform3b > ork::Program::getUniform3b(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform3b > ork::Program::getUniform3b(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform3b > stack_lret = self->getUniform3b(name);
-		ptr< Uniform3b >* lret = new ptr< Uniform3b >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform3b > >::push(L,lret,true);
+		ptr< ork::Uniform3b > lret = self->getUniform3b(name);
+		Luna< ork::Uniform3b >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform4f > ork::Program::getUniform4f(const std::string & name)
+	// ptr< ork::Uniform4f > ork::Program::getUniform4f(const std::string & name)
 	static int _bind_getUniform4f(lua_State *L) {
 		if (!_lg_typecheck_getUniform4f(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform4f > ork::Program::getUniform4f(const std::string & name) function, expected prototype:\nptr< Uniform4f > ork::Program::getUniform4f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform4f > ork::Program::getUniform4f(const std::string & name) function, expected prototype:\nptr< ork::Uniform4f > ork::Program::getUniform4f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform4f > ork::Program::getUniform4f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform4f > ork::Program::getUniform4f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform4f > stack_lret = self->getUniform4f(name);
-		ptr< Uniform4f >* lret = new ptr< Uniform4f >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform4f > >::push(L,lret,true);
+		ptr< ork::Uniform4f > lret = self->getUniform4f(name);
+		Luna< ork::Uniform4f >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform4d > ork::Program::getUniform4d(const std::string & name)
+	// ptr< ork::Uniform4d > ork::Program::getUniform4d(const std::string & name)
 	static int _bind_getUniform4d(lua_State *L) {
 		if (!_lg_typecheck_getUniform4d(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform4d > ork::Program::getUniform4d(const std::string & name) function, expected prototype:\nptr< Uniform4d > ork::Program::getUniform4d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform4d > ork::Program::getUniform4d(const std::string & name) function, expected prototype:\nptr< ork::Uniform4d > ork::Program::getUniform4d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform4d > ork::Program::getUniform4d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform4d > ork::Program::getUniform4d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform4d > stack_lret = self->getUniform4d(name);
-		ptr< Uniform4d >* lret = new ptr< Uniform4d >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform4d > >::push(L,lret,true);
+		ptr< ork::Uniform4d > lret = self->getUniform4d(name);
+		Luna< ork::Uniform4d >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform4i > ork::Program::getUniform4i(const std::string & name)
+	// ptr< ork::Uniform4i > ork::Program::getUniform4i(const std::string & name)
 	static int _bind_getUniform4i(lua_State *L) {
 		if (!_lg_typecheck_getUniform4i(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform4i > ork::Program::getUniform4i(const std::string & name) function, expected prototype:\nptr< Uniform4i > ork::Program::getUniform4i(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform4i > ork::Program::getUniform4i(const std::string & name) function, expected prototype:\nptr< ork::Uniform4i > ork::Program::getUniform4i(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform4i > ork::Program::getUniform4i(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform4i > ork::Program::getUniform4i(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform4i > stack_lret = self->getUniform4i(name);
-		ptr< Uniform4i >* lret = new ptr< Uniform4i >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform4i > >::push(L,lret,true);
+		ptr< ork::Uniform4i > lret = self->getUniform4i(name);
+		Luna< ork::Uniform4i >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform4ui > ork::Program::getUniform4ui(const std::string & name)
+	// ptr< ork::Uniform4ui > ork::Program::getUniform4ui(const std::string & name)
 	static int _bind_getUniform4ui(lua_State *L) {
 		if (!_lg_typecheck_getUniform4ui(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform4ui > ork::Program::getUniform4ui(const std::string & name) function, expected prototype:\nptr< Uniform4ui > ork::Program::getUniform4ui(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform4ui > ork::Program::getUniform4ui(const std::string & name) function, expected prototype:\nptr< ork::Uniform4ui > ork::Program::getUniform4ui(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform4ui > ork::Program::getUniform4ui(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform4ui > ork::Program::getUniform4ui(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform4ui > stack_lret = self->getUniform4ui(name);
-		ptr< Uniform4ui >* lret = new ptr< Uniform4ui >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform4ui > >::push(L,lret,true);
+		ptr< ork::Uniform4ui > lret = self->getUniform4ui(name);
+		Luna< ork::Uniform4ui >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Uniform4b > ork::Program::getUniform4b(const std::string & name)
+	// ptr< ork::Uniform4b > ork::Program::getUniform4b(const std::string & name)
 	static int _bind_getUniform4b(lua_State *L) {
 		if (!_lg_typecheck_getUniform4b(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Uniform4b > ork::Program::getUniform4b(const std::string & name) function, expected prototype:\nptr< Uniform4b > ork::Program::getUniform4b(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Uniform4b > ork::Program::getUniform4b(const std::string & name) function, expected prototype:\nptr< ork::Uniform4b > ork::Program::getUniform4b(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Uniform4b > ork::Program::getUniform4b(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Uniform4b > ork::Program::getUniform4b(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Uniform4b > stack_lret = self->getUniform4b(name);
-		ptr< Uniform4b >* lret = new ptr< Uniform4b >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Uniform4b > >::push(L,lret,true);
+		ptr< ork::Uniform4b > lret = self->getUniform4b(name);
+		Luna< ork::Uniform4b >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix2f > ork::Program::getUniformMatrix2f(const std::string & name)
+	// ptr< ork::UniformMatrix2f > ork::Program::getUniformMatrix2f(const std::string & name)
 	static int _bind_getUniformMatrix2f(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix2f(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix2f > ork::Program::getUniformMatrix2f(const std::string & name) function, expected prototype:\nptr< UniformMatrix2f > ork::Program::getUniformMatrix2f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix2f > ork::Program::getUniformMatrix2f(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix2f > ork::Program::getUniformMatrix2f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix2f > ork::Program::getUniformMatrix2f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix2f > ork::Program::getUniformMatrix2f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix2f > stack_lret = self->getUniformMatrix2f(name);
-		ptr< UniformMatrix2f >* lret = new ptr< UniformMatrix2f >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix2f > >::push(L,lret,true);
+		ptr< ork::UniformMatrix2f > lret = self->getUniformMatrix2f(name);
+		Luna< ork::UniformMatrix2f >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix2d > ork::Program::getUniformMatrix2d(const std::string & name)
+	// ptr< ork::UniformMatrix2d > ork::Program::getUniformMatrix2d(const std::string & name)
 	static int _bind_getUniformMatrix2d(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix2d(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix2d > ork::Program::getUniformMatrix2d(const std::string & name) function, expected prototype:\nptr< UniformMatrix2d > ork::Program::getUniformMatrix2d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix2d > ork::Program::getUniformMatrix2d(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix2d > ork::Program::getUniformMatrix2d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix2d > ork::Program::getUniformMatrix2d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix2d > ork::Program::getUniformMatrix2d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix2d > stack_lret = self->getUniformMatrix2d(name);
-		ptr< UniformMatrix2d >* lret = new ptr< UniformMatrix2d >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix2d > >::push(L,lret,true);
+		ptr< ork::UniformMatrix2d > lret = self->getUniformMatrix2d(name);
+		Luna< ork::UniformMatrix2d >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix3f > ork::Program::getUniformMatrix3f(const std::string & name)
+	// ptr< ork::UniformMatrix3f > ork::Program::getUniformMatrix3f(const std::string & name)
 	static int _bind_getUniformMatrix3f(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix3f(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix3f > ork::Program::getUniformMatrix3f(const std::string & name) function, expected prototype:\nptr< UniformMatrix3f > ork::Program::getUniformMatrix3f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix3f > ork::Program::getUniformMatrix3f(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix3f > ork::Program::getUniformMatrix3f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix3f > ork::Program::getUniformMatrix3f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix3f > ork::Program::getUniformMatrix3f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix3f > stack_lret = self->getUniformMatrix3f(name);
-		ptr< UniformMatrix3f >* lret = new ptr< UniformMatrix3f >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix3f > >::push(L,lret,true);
+		ptr< ork::UniformMatrix3f > lret = self->getUniformMatrix3f(name);
+		Luna< ork::UniformMatrix3f >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix3d > ork::Program::getUniformMatrix3d(const std::string & name)
+	// ptr< ork::UniformMatrix3d > ork::Program::getUniformMatrix3d(const std::string & name)
 	static int _bind_getUniformMatrix3d(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix3d(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix3d > ork::Program::getUniformMatrix3d(const std::string & name) function, expected prototype:\nptr< UniformMatrix3d > ork::Program::getUniformMatrix3d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix3d > ork::Program::getUniformMatrix3d(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix3d > ork::Program::getUniformMatrix3d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix3d > ork::Program::getUniformMatrix3d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix3d > ork::Program::getUniformMatrix3d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix3d > stack_lret = self->getUniformMatrix3d(name);
-		ptr< UniformMatrix3d >* lret = new ptr< UniformMatrix3d >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix3d > >::push(L,lret,true);
+		ptr< ork::UniformMatrix3d > lret = self->getUniformMatrix3d(name);
+		Luna< ork::UniformMatrix3d >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix4f > ork::Program::getUniformMatrix4f(const std::string & name)
+	// ptr< ork::UniformMatrix4f > ork::Program::getUniformMatrix4f(const std::string & name)
 	static int _bind_getUniformMatrix4f(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix4f(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix4f > ork::Program::getUniformMatrix4f(const std::string & name) function, expected prototype:\nptr< UniformMatrix4f > ork::Program::getUniformMatrix4f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix4f > ork::Program::getUniformMatrix4f(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix4f > ork::Program::getUniformMatrix4f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix4f > ork::Program::getUniformMatrix4f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix4f > ork::Program::getUniformMatrix4f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix4f > stack_lret = self->getUniformMatrix4f(name);
-		ptr< UniformMatrix4f >* lret = new ptr< UniformMatrix4f >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix4f > >::push(L,lret,true);
+		ptr< ork::UniformMatrix4f > lret = self->getUniformMatrix4f(name);
+		Luna< ork::UniformMatrix4f >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix4d > ork::Program::getUniformMatrix4d(const std::string & name)
+	// ptr< ork::UniformMatrix4d > ork::Program::getUniformMatrix4d(const std::string & name)
 	static int _bind_getUniformMatrix4d(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix4d(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix4d > ork::Program::getUniformMatrix4d(const std::string & name) function, expected prototype:\nptr< UniformMatrix4d > ork::Program::getUniformMatrix4d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix4d > ork::Program::getUniformMatrix4d(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix4d > ork::Program::getUniformMatrix4d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix4d > ork::Program::getUniformMatrix4d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix4d > ork::Program::getUniformMatrix4d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix4d > stack_lret = self->getUniformMatrix4d(name);
-		ptr< UniformMatrix4d >* lret = new ptr< UniformMatrix4d >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix4d > >::push(L,lret,true);
+		ptr< ork::UniformMatrix4d > lret = self->getUniformMatrix4d(name);
+		Luna< ork::UniformMatrix4d >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix2x3f > ork::Program::getUniformMatrix2x3f(const std::string & name)
+	// ptr< ork::UniformMatrix2x3f > ork::Program::getUniformMatrix2x3f(const std::string & name)
 	static int _bind_getUniformMatrix2x3f(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix2x3f(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix2x3f > ork::Program::getUniformMatrix2x3f(const std::string & name) function, expected prototype:\nptr< UniformMatrix2x3f > ork::Program::getUniformMatrix2x3f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix2x3f > ork::Program::getUniformMatrix2x3f(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix2x3f > ork::Program::getUniformMatrix2x3f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix2x3f > ork::Program::getUniformMatrix2x3f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix2x3f > ork::Program::getUniformMatrix2x3f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix2x3f > stack_lret = self->getUniformMatrix2x3f(name);
-		ptr< UniformMatrix2x3f >* lret = new ptr< UniformMatrix2x3f >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix2x3f > >::push(L,lret,true);
+		ptr< ork::UniformMatrix2x3f > lret = self->getUniformMatrix2x3f(name);
+		Luna< ork::UniformMatrix2x3f >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix2x3d > ork::Program::getUniformMatrix2x3d(const std::string & name)
+	// ptr< ork::UniformMatrix2x3d > ork::Program::getUniformMatrix2x3d(const std::string & name)
 	static int _bind_getUniformMatrix2x3d(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix2x3d(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix2x3d > ork::Program::getUniformMatrix2x3d(const std::string & name) function, expected prototype:\nptr< UniformMatrix2x3d > ork::Program::getUniformMatrix2x3d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix2x3d > ork::Program::getUniformMatrix2x3d(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix2x3d > ork::Program::getUniformMatrix2x3d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix2x3d > ork::Program::getUniformMatrix2x3d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix2x3d > ork::Program::getUniformMatrix2x3d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix2x3d > stack_lret = self->getUniformMatrix2x3d(name);
-		ptr< UniformMatrix2x3d >* lret = new ptr< UniformMatrix2x3d >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix2x3d > >::push(L,lret,true);
+		ptr< ork::UniformMatrix2x3d > lret = self->getUniformMatrix2x3d(name);
+		Luna< ork::UniformMatrix2x3d >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix2x4f > ork::Program::getUniformMatrix2x4f(const std::string & name)
+	// ptr< ork::UniformMatrix2x4f > ork::Program::getUniformMatrix2x4f(const std::string & name)
 	static int _bind_getUniformMatrix2x4f(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix2x4f(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix2x4f > ork::Program::getUniformMatrix2x4f(const std::string & name) function, expected prototype:\nptr< UniformMatrix2x4f > ork::Program::getUniformMatrix2x4f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix2x4f > ork::Program::getUniformMatrix2x4f(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix2x4f > ork::Program::getUniformMatrix2x4f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix2x4f > ork::Program::getUniformMatrix2x4f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix2x4f > ork::Program::getUniformMatrix2x4f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix2x4f > stack_lret = self->getUniformMatrix2x4f(name);
-		ptr< UniformMatrix2x4f >* lret = new ptr< UniformMatrix2x4f >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix2x4f > >::push(L,lret,true);
+		ptr< ork::UniformMatrix2x4f > lret = self->getUniformMatrix2x4f(name);
+		Luna< ork::UniformMatrix2x4f >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix2x4d > ork::Program::getUniformMatrix2x4d(const std::string & name)
+	// ptr< ork::UniformMatrix2x4d > ork::Program::getUniformMatrix2x4d(const std::string & name)
 	static int _bind_getUniformMatrix2x4d(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix2x4d(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix2x4d > ork::Program::getUniformMatrix2x4d(const std::string & name) function, expected prototype:\nptr< UniformMatrix2x4d > ork::Program::getUniformMatrix2x4d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix2x4d > ork::Program::getUniformMatrix2x4d(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix2x4d > ork::Program::getUniformMatrix2x4d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix2x4d > ork::Program::getUniformMatrix2x4d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix2x4d > ork::Program::getUniformMatrix2x4d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix2x4d > stack_lret = self->getUniformMatrix2x4d(name);
-		ptr< UniformMatrix2x4d >* lret = new ptr< UniformMatrix2x4d >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix2x4d > >::push(L,lret,true);
+		ptr< ork::UniformMatrix2x4d > lret = self->getUniformMatrix2x4d(name);
+		Luna< ork::UniformMatrix2x4d >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix3x2f > ork::Program::getUniformMatrix3x2f(const std::string & name)
+	// ptr< ork::UniformMatrix3x2f > ork::Program::getUniformMatrix3x2f(const std::string & name)
 	static int _bind_getUniformMatrix3x2f(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix3x2f(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix3x2f > ork::Program::getUniformMatrix3x2f(const std::string & name) function, expected prototype:\nptr< UniformMatrix3x2f > ork::Program::getUniformMatrix3x2f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix3x2f > ork::Program::getUniformMatrix3x2f(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix3x2f > ork::Program::getUniformMatrix3x2f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix3x2f > ork::Program::getUniformMatrix3x2f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix3x2f > ork::Program::getUniformMatrix3x2f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix3x2f > stack_lret = self->getUniformMatrix3x2f(name);
-		ptr< UniformMatrix3x2f >* lret = new ptr< UniformMatrix3x2f >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix3x2f > >::push(L,lret,true);
+		ptr< ork::UniformMatrix3x2f > lret = self->getUniformMatrix3x2f(name);
+		Luna< ork::UniformMatrix3x2f >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix3x2d > ork::Program::getUniformMatrix3x2d(const std::string & name)
+	// ptr< ork::UniformMatrix3x2d > ork::Program::getUniformMatrix3x2d(const std::string & name)
 	static int _bind_getUniformMatrix3x2d(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix3x2d(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix3x2d > ork::Program::getUniformMatrix3x2d(const std::string & name) function, expected prototype:\nptr< UniformMatrix3x2d > ork::Program::getUniformMatrix3x2d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix3x2d > ork::Program::getUniformMatrix3x2d(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix3x2d > ork::Program::getUniformMatrix3x2d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix3x2d > ork::Program::getUniformMatrix3x2d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix3x2d > ork::Program::getUniformMatrix3x2d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix3x2d > stack_lret = self->getUniformMatrix3x2d(name);
-		ptr< UniformMatrix3x2d >* lret = new ptr< UniformMatrix3x2d >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix3x2d > >::push(L,lret,true);
+		ptr< ork::UniformMatrix3x2d > lret = self->getUniformMatrix3x2d(name);
+		Luna< ork::UniformMatrix3x2d >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix3x4f > ork::Program::getUniformMatrix3x4f(const std::string & name)
+	// ptr< ork::UniformMatrix3x4f > ork::Program::getUniformMatrix3x4f(const std::string & name)
 	static int _bind_getUniformMatrix3x4f(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix3x4f(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix3x4f > ork::Program::getUniformMatrix3x4f(const std::string & name) function, expected prototype:\nptr< UniformMatrix3x4f > ork::Program::getUniformMatrix3x4f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix3x4f > ork::Program::getUniformMatrix3x4f(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix3x4f > ork::Program::getUniformMatrix3x4f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix3x4f > ork::Program::getUniformMatrix3x4f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix3x4f > ork::Program::getUniformMatrix3x4f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix3x4f > stack_lret = self->getUniformMatrix3x4f(name);
-		ptr< UniformMatrix3x4f >* lret = new ptr< UniformMatrix3x4f >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix3x4f > >::push(L,lret,true);
+		ptr< ork::UniformMatrix3x4f > lret = self->getUniformMatrix3x4f(name);
+		Luna< ork::UniformMatrix3x4f >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix3x4d > ork::Program::getUniformMatrix3x4d(const std::string & name)
+	// ptr< ork::UniformMatrix3x4d > ork::Program::getUniformMatrix3x4d(const std::string & name)
 	static int _bind_getUniformMatrix3x4d(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix3x4d(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix3x4d > ork::Program::getUniformMatrix3x4d(const std::string & name) function, expected prototype:\nptr< UniformMatrix3x4d > ork::Program::getUniformMatrix3x4d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix3x4d > ork::Program::getUniformMatrix3x4d(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix3x4d > ork::Program::getUniformMatrix3x4d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix3x4d > ork::Program::getUniformMatrix3x4d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix3x4d > ork::Program::getUniformMatrix3x4d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix3x4d > stack_lret = self->getUniformMatrix3x4d(name);
-		ptr< UniformMatrix3x4d >* lret = new ptr< UniformMatrix3x4d >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix3x4d > >::push(L,lret,true);
+		ptr< ork::UniformMatrix3x4d > lret = self->getUniformMatrix3x4d(name);
+		Luna< ork::UniformMatrix3x4d >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix4x2f > ork::Program::getUniformMatrix4x2f(const std::string & name)
+	// ptr< ork::UniformMatrix4x2f > ork::Program::getUniformMatrix4x2f(const std::string & name)
 	static int _bind_getUniformMatrix4x2f(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix4x2f(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix4x2f > ork::Program::getUniformMatrix4x2f(const std::string & name) function, expected prototype:\nptr< UniformMatrix4x2f > ork::Program::getUniformMatrix4x2f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix4x2f > ork::Program::getUniformMatrix4x2f(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix4x2f > ork::Program::getUniformMatrix4x2f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix4x2f > ork::Program::getUniformMatrix4x2f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix4x2f > ork::Program::getUniformMatrix4x2f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix4x2f > stack_lret = self->getUniformMatrix4x2f(name);
-		ptr< UniformMatrix4x2f >* lret = new ptr< UniformMatrix4x2f >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix4x2f > >::push(L,lret,true);
+		ptr< ork::UniformMatrix4x2f > lret = self->getUniformMatrix4x2f(name);
+		Luna< ork::UniformMatrix4x2f >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix4x2d > ork::Program::getUniformMatrix4x2d(const std::string & name)
+	// ptr< ork::UniformMatrix4x2d > ork::Program::getUniformMatrix4x2d(const std::string & name)
 	static int _bind_getUniformMatrix4x2d(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix4x2d(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix4x2d > ork::Program::getUniformMatrix4x2d(const std::string & name) function, expected prototype:\nptr< UniformMatrix4x2d > ork::Program::getUniformMatrix4x2d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix4x2d > ork::Program::getUniformMatrix4x2d(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix4x2d > ork::Program::getUniformMatrix4x2d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix4x2d > ork::Program::getUniformMatrix4x2d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix4x2d > ork::Program::getUniformMatrix4x2d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix4x2d > stack_lret = self->getUniformMatrix4x2d(name);
-		ptr< UniformMatrix4x2d >* lret = new ptr< UniformMatrix4x2d >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix4x2d > >::push(L,lret,true);
+		ptr< ork::UniformMatrix4x2d > lret = self->getUniformMatrix4x2d(name);
+		Luna< ork::UniformMatrix4x2d >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix4x3f > ork::Program::getUniformMatrix4x3f(const std::string & name)
+	// ptr< ork::UniformMatrix4x3f > ork::Program::getUniformMatrix4x3f(const std::string & name)
 	static int _bind_getUniformMatrix4x3f(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix4x3f(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix4x3f > ork::Program::getUniformMatrix4x3f(const std::string & name) function, expected prototype:\nptr< UniformMatrix4x3f > ork::Program::getUniformMatrix4x3f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix4x3f > ork::Program::getUniformMatrix4x3f(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix4x3f > ork::Program::getUniformMatrix4x3f(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix4x3f > ork::Program::getUniformMatrix4x3f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix4x3f > ork::Program::getUniformMatrix4x3f(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix4x3f > stack_lret = self->getUniformMatrix4x3f(name);
-		ptr< UniformMatrix4x3f >* lret = new ptr< UniformMatrix4x3f >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix4x3f > >::push(L,lret,true);
+		ptr< ork::UniformMatrix4x3f > lret = self->getUniformMatrix4x3f(name);
+		Luna< ork::UniformMatrix4x3f >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformMatrix4x3d > ork::Program::getUniformMatrix4x3d(const std::string & name)
+	// ptr< ork::UniformMatrix4x3d > ork::Program::getUniformMatrix4x3d(const std::string & name)
 	static int _bind_getUniformMatrix4x3d(lua_State *L) {
 		if (!_lg_typecheck_getUniformMatrix4x3d(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformMatrix4x3d > ork::Program::getUniformMatrix4x3d(const std::string & name) function, expected prototype:\nptr< UniformMatrix4x3d > ork::Program::getUniformMatrix4x3d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformMatrix4x3d > ork::Program::getUniformMatrix4x3d(const std::string & name) function, expected prototype:\nptr< ork::UniformMatrix4x3d > ork::Program::getUniformMatrix4x3d(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformMatrix4x3d > ork::Program::getUniformMatrix4x3d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformMatrix4x3d > ork::Program::getUniformMatrix4x3d(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformMatrix4x3d > stack_lret = self->getUniformMatrix4x3d(name);
-		ptr< UniformMatrix4x3d >* lret = new ptr< UniformMatrix4x3d >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformMatrix4x3d > >::push(L,lret,true);
+		ptr< ork::UniformMatrix4x3d > lret = self->getUniformMatrix4x3d(name);
+		Luna< ork::UniformMatrix4x3d >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformSampler > ork::Program::getUniformSampler(const std::string & name)
+	// ptr< ork::UniformSampler > ork::Program::getUniformSampler(const std::string & name)
 	static int _bind_getUniformSampler(lua_State *L) {
 		if (!_lg_typecheck_getUniformSampler(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformSampler > ork::Program::getUniformSampler(const std::string & name) function, expected prototype:\nptr< UniformSampler > ork::Program::getUniformSampler(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformSampler > ork::Program::getUniformSampler(const std::string & name) function, expected prototype:\nptr< ork::UniformSampler > ork::Program::getUniformSampler(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformSampler > ork::Program::getUniformSampler(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformSampler > ork::Program::getUniformSampler(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformSampler > stack_lret = self->getUniformSampler(name);
-		ptr< UniformSampler >* lret = new ptr< UniformSampler >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformSampler > >::push(L,lret,true);
+		ptr< ork::UniformSampler > lret = self->getUniformSampler(name);
+		Luna< ork::UniformSampler >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformSubroutine > ork::Program::getUniformSubroutine(ork::Stage stage, const std::string & name)
+	// ptr< ork::UniformSubroutine > ork::Program::getUniformSubroutine(ork::Stage stage, const std::string & name)
 	static int _bind_getUniformSubroutine(lua_State *L) {
 		if (!_lg_typecheck_getUniformSubroutine(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformSubroutine > ork::Program::getUniformSubroutine(ork::Stage stage, const std::string & name) function, expected prototype:\nptr< UniformSubroutine > ork::Program::getUniformSubroutine(ork::Stage stage, const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformSubroutine > ork::Program::getUniformSubroutine(ork::Stage stage, const std::string & name) function, expected prototype:\nptr< ork::UniformSubroutine > ork::Program::getUniformSubroutine(ork::Stage stage, const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ork::Stage stage=(ork::Stage)lua_tointeger(L,2);
@@ -1642,34 +1471,28 @@ public:
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformSubroutine > ork::Program::getUniformSubroutine(ork::Stage, const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformSubroutine > ork::Program::getUniformSubroutine(ork::Stage, const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformSubroutine > stack_lret = self->getUniformSubroutine(stage, name);
-		ptr< UniformSubroutine >* lret = new ptr< UniformSubroutine >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformSubroutine > >::push(L,lret,true);
+		ptr< ork::UniformSubroutine > lret = self->getUniformSubroutine(stage, name);
+		Luna< ork::UniformSubroutine >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< UniformBlock > ork::Program::getUniformBlock(const std::string & name)
+	// ptr< ork::UniformBlock > ork::Program::getUniformBlock(const std::string & name)
 	static int _bind_getUniformBlock(lua_State *L) {
 		if (!_lg_typecheck_getUniformBlock(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< UniformBlock > ork::Program::getUniformBlock(const std::string & name) function, expected prototype:\nptr< UniformBlock > ork::Program::getUniformBlock(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::UniformBlock > ork::Program::getUniformBlock(const std::string & name) function, expected prototype:\nptr< ork::UniformBlock > ork::Program::getUniformBlock(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		ork::Program* self=Luna< ork::Object >::checkSubType< ork::Program >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< UniformBlock > ork::Program::getUniformBlock(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::UniformBlock > ork::Program::getUniformBlock(const std::string &). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< UniformBlock > stack_lret = self->getUniformBlock(name);
-		ptr< UniformBlock >* lret = new ptr< UniformBlock >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< UniformBlock > >::push(L,lret,true);
+		ptr< ork::UniformBlock > lret = self->getUniformBlock(name);
+		Luna< ork::UniformBlock >::push(L,lret.get(),false);
 
 		return 1;
 	}

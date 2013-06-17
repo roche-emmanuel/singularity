@@ -7,7 +7,6 @@ INCLUDE_DIRECTORIES (../../sgtProland/include)
 INCLUDE_DIRECTORIES (../../sgtProland/include/core)
 INCLUDE_DIRECTORIES (../../sgtProland/include/terrain)
 
-
 INCLUDE_DIRECTORIES(${GLEW_INC_DIR})
 LINK_DIRECTORIES (${GLEW_LIB_DIR})
 
@@ -49,23 +48,29 @@ INSTALL(TARGETS ${TARGET_NAME}
 # reflection settings:	
 SET(INTF_FILES)
 
+
 #LIST(APPEND INTF_FILES "${MYDEP_INC_DIR}")
+# LIST(APPEND INTF_FILES "${MYDEP_INC_DIR}")
 ADD_FILES(INTF_FILES "../include/plug_extensions.h")
 ADD_FILES(INTF_FILES "../interface/helpers.h")
 ADD_FILES(INTF_FILES "../../sgtProland/include/ork/math/half.h")
 ADD_FILES(INTF_FILES "../../sgtProland/include/ork/render/Types.h")
 ADD_FILES(INTF_FILES "../../sgtProland/include/ork/render/Buffer.h")
 ADD_FILES(INTF_FILES "../../sgtProland/include/ork/render/CPUBuffer.h")
+ADD_FILES(INTF_FILES "../../sgtProland/include/ork/render/GPUBuffer.h")
+ADD_FILES(INTF_FILES "../../sgtProland/include/ork/render/Sampler.h")
 ADD_FILES(INTF_FILES "../../sgtProland/include/ork/render/Texture.h")
 ADD_FILES(INTF_FILES "../../sgtProland/include/ork/render/Texture2D.h")
 ADD_FILES(INTF_FILES "../../sgtProland/include/ork/render/Module.h")
 ADD_FILES(INTF_FILES "../../sgtProland/include/ork/render/Program.h")
+ADD_FILES(INTF_FILES "../../sgtProland/include/ork/render/Uniform.h")
+ADD_FILES(INTF_FILES "../../sgtProland/include/ork/taskgraph/Task.h")
+# ADD_FILES(INTF_FILES "../../sgtProland/include/ork/scenegraph/SceneManager.h")
 ADD_FILES(INTF_FILES "../../sgtProland/include/core/proland/terrain/Deformation.h")
 ADD_FILES(INTF_FILES "../../sgtProland/include/core/proland/terrain/TerrainNode.h")
 ADD_FILES(INTF_FILES "../../sgtProland/include/core/proland/terrain/TileSampler.h")
 ADD_FILES(INTF_FILES "../../sgtProland/include/core/proland/terrain/TileSamplerZ.h")
-#ADD_FILES(INTF_FILES "../../sgtProland/include/core/proland/terrain/TerrainQuad.h")
-
+ADD_FILES(INTF_FILES "../../sgtProland/include/core/proland/terrain/TerrainQuad.h")
 
 SET_TARGET_PROPERTIES(${TARGET_NAME} PROPERTIES 
 	PREFIX ""

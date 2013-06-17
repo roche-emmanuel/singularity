@@ -91,8 +91,8 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
-		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,45761065) ) return false;
-		if( luatop>1 && (!(Luna< ptr< proland::TileProducer > >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< proland::TileProducer >(L,2) ) return false;
 		return true;
 	}
 
@@ -102,8 +102,8 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,45761065) ) return false;
-		if( luatop>2 && (!(Luna< ptr< proland::TileProducer > >::check(L,3))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< proland::TileProducer >(L,3) ) return false;
 		return true;
 	}
 
@@ -143,14 +143,16 @@ public:
 	inline static bool _lg_typecheck_set(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,45761065) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< proland::TileProducer >(L,2) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_addTerrain(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,9465964) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< proland::TerrainNode >(L,2) ) return false;
 		return true;
 	}
 
@@ -214,16 +216,20 @@ public:
 	inline static bool _lg_typecheck_update(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,47272914) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,12456143) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< ork::SceneManager >(L,2) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< proland::TerrainQuad >(L,3) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_update(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,47272914) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,12456143) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< ork::SceneManager >(L,2) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,1381405) ) return false;
+		if( !Luna< ork::Object >::checkSubType< proland::TerrainQuad >(L,3) ) return false;
 		return true;
 	}
 
@@ -241,11 +247,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		std::string name(lua_tostring(L,1),lua_objlen(L,1));
-		ptr< proland::TileProducer >* producer_ptr=luatop>1 ? (Luna< ptr< proland::TileProducer > >::check(L,2)) : NULL;
-		if( luatop>1 && !producer_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg producer in proland::TileSampler::TileSampler function");
-		}
-		ptr< proland::TileProducer > producer=luatop>1 ? *producer_ptr : (ptr< proland::TileProducer >)NULL;
+		ptr< proland::TileProducer > producer = Luna< ork::Object >::checkSubType< proland::TileProducer >(L,2);
 
 		return new proland::TileSampler(name, producer);
 	}
@@ -259,11 +261,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
-		ptr< proland::TileProducer >* producer_ptr=luatop>2 ? (Luna< ptr< proland::TileProducer > >::check(L,3)) : NULL;
-		if( luatop>2 && !producer_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg producer in proland::TileSampler::TileSampler function");
-		}
-		ptr< proland::TileProducer > producer=luatop>2 ? *producer_ptr : (ptr< proland::TileProducer >)NULL;
+		ptr< proland::TileProducer > producer = Luna< ork::Object >::checkSubType< proland::TileProducer >(L,3);
 
 		return new wrapper_proland_TileSampler(L,NULL, name, producer);
 	}
@@ -290,11 +288,8 @@ public:
 		if(!self) {
 			luaL_error(L, "Invalid object in function call ptr< proland::TileProducer > proland::TileSampler::get(). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< proland::TileProducer > stack_lret = self->get();
-		ptr< proland::TileProducer >* lret = new ptr< proland::TileProducer >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< proland::TileProducer > >::push(L,lret,true);
+		ptr< proland::TileProducer > lret = self->get();
+		Luna< proland::TileProducer >::push(L,lret.get(),false);
 
 		return 1;
 	}
@@ -311,11 +306,8 @@ public:
 		if(!self) {
 			luaL_error(L, "Invalid object in function call ptr< proland::TerrainNode > proland::TileSampler::getTerrain(int). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< proland::TerrainNode > stack_lret = self->getTerrain(i);
-		ptr< proland::TerrainNode >* lret = new ptr< proland::TerrainNode >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< proland::TerrainNode > >::push(L,lret,true);
+		ptr< proland::TerrainNode > lret = self->getTerrain(i);
+		Luna< proland::TerrainNode >::push(L,lret.get(),false);
 
 		return 1;
 	}
@@ -377,11 +369,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void proland::TileSampler::set(ptr< proland::TileProducer > producer) function, expected prototype:\nvoid proland::TileSampler::set(ptr< proland::TileProducer > producer)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		ptr< proland::TileProducer >* producer_ptr=(Luna< ptr< proland::TileProducer > >::check(L,2));
-		if( !producer_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg producer in proland::TileSampler::set function");
-		}
-		ptr< proland::TileProducer > producer=*producer_ptr;
+		ptr< proland::TileProducer > producer = Luna< ork::Object >::checkSubType< proland::TileProducer >(L,2);
 
 		proland::TileSampler* self=Luna< ork::Object >::checkSubType< proland::TileSampler >(L,1);
 		if(!self) {
@@ -398,11 +386,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void proland::TileSampler::addTerrain(ptr< proland::TerrainNode > terrain) function, expected prototype:\nvoid proland::TileSampler::addTerrain(ptr< proland::TerrainNode > terrain)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		ptr< proland::TerrainNode >* terrain_ptr=(Luna< ptr< proland::TerrainNode > >::check(L,2));
-		if( !terrain_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg terrain in proland::TileSampler::addTerrain function");
-		}
-		ptr< proland::TerrainNode > terrain=*terrain_ptr;
+		ptr< proland::TerrainNode > terrain = Luna< ork::Object >::checkSubType< proland::TerrainNode >(L,2);
 
 		proland::TileSampler* self=Luna< ork::Object >::checkSubType< proland::TileSampler >(L,1);
 		if(!self) {
@@ -550,62 +534,40 @@ public:
 		return 0;
 	}
 
-	// ptr< Task > proland::TileSampler::update(ptr< ork::SceneManager > scene, ptr< TerrainQuad > root)
+	// ptr< ork::Task > proland::TileSampler::update(ptr< ork::SceneManager > scene, ptr< proland::TerrainQuad > root)
 	static int _bind_update(lua_State *L) {
 		if (!_lg_typecheck_update(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Task > proland::TileSampler::update(ptr< ork::SceneManager > scene, ptr< TerrainQuad > root) function, expected prototype:\nptr< Task > proland::TileSampler::update(ptr< ork::SceneManager > scene, ptr< TerrainQuad > root)\nClass arguments details:\narg 1 ID = [unknown]\narg 2 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Task > proland::TileSampler::update(ptr< ork::SceneManager > scene, ptr< proland::TerrainQuad > root) function, expected prototype:\nptr< ork::Task > proland::TileSampler::update(ptr< ork::SceneManager > scene, ptr< proland::TerrainQuad > root)\nClass arguments details:\narg 1 ID = [unknown]\narg 2 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		ptr< ork::SceneManager >* scene_ptr=(Luna< ptr< ork::SceneManager > >::check(L,2));
-		if( !scene_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg scene in proland::TileSampler::update function");
-		}
-		ptr< ork::SceneManager > scene=*scene_ptr;
-		ptr< TerrainQuad >* root_ptr=(Luna< ptr< TerrainQuad > >::check(L,3));
-		if( !root_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg root in proland::TileSampler::update function");
-		}
-		ptr< TerrainQuad > root=*root_ptr;
+		ptr< ork::SceneManager > scene = Luna< ork::Object >::checkSubType< ork::SceneManager >(L,2);
+		ptr< proland::TerrainQuad > root = Luna< ork::Object >::checkSubType< proland::TerrainQuad >(L,3);
 
 		proland::TileSampler* self=Luna< ork::Object >::checkSubType< proland::TileSampler >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Task > proland::TileSampler::update(ptr< ork::SceneManager >, ptr< TerrainQuad >). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Task > proland::TileSampler::update(ptr< ork::SceneManager >, ptr< proland::TerrainQuad >). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Task > stack_lret = self->update(scene, root);
-		ptr< Task >* lret = new ptr< Task >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Task > >::push(L,lret,true);
+		ptr< ork::Task > lret = self->update(scene, root);
+		Luna< ork::Task >::push(L,lret.get(),false);
 
 		return 1;
 	}
 
-	// ptr< Task > proland::TileSampler::base_update(ptr< ork::SceneManager > scene, ptr< TerrainQuad > root)
+	// ptr< ork::Task > proland::TileSampler::base_update(ptr< ork::SceneManager > scene, ptr< proland::TerrainQuad > root)
 	static int _bind_base_update(lua_State *L) {
 		if (!_lg_typecheck_base_update(L)) {
-			luaL_error(L, "luna typecheck failed in ptr< Task > proland::TileSampler::base_update(ptr< ork::SceneManager > scene, ptr< TerrainQuad > root) function, expected prototype:\nptr< Task > proland::TileSampler::base_update(ptr< ork::SceneManager > scene, ptr< TerrainQuad > root)\nClass arguments details:\narg 1 ID = [unknown]\narg 2 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ptr< ork::Task > proland::TileSampler::base_update(ptr< ork::SceneManager > scene, ptr< proland::TerrainQuad > root) function, expected prototype:\nptr< ork::Task > proland::TileSampler::base_update(ptr< ork::SceneManager > scene, ptr< proland::TerrainQuad > root)\nClass arguments details:\narg 1 ID = [unknown]\narg 2 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		ptr< ork::SceneManager >* scene_ptr=(Luna< ptr< ork::SceneManager > >::check(L,2));
-		if( !scene_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg scene in proland::TileSampler::base_update function");
-		}
-		ptr< ork::SceneManager > scene=*scene_ptr;
-		ptr< TerrainQuad >* root_ptr=(Luna< ptr< TerrainQuad > >::check(L,3));
-		if( !root_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg root in proland::TileSampler::base_update function");
-		}
-		ptr< TerrainQuad > root=*root_ptr;
+		ptr< ork::SceneManager > scene = Luna< ork::Object >::checkSubType< ork::SceneManager >(L,2);
+		ptr< proland::TerrainQuad > root = Luna< ork::Object >::checkSubType< proland::TerrainQuad >(L,3);
 
 		proland::TileSampler* self=Luna< ork::Object >::checkSubType< proland::TileSampler >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ptr< Task > proland::TileSampler::base_update(ptr< ork::SceneManager >, ptr< TerrainQuad >). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ptr< ork::Task > proland::TileSampler::base_update(ptr< ork::SceneManager >, ptr< proland::TerrainQuad >). Got : '%s'\n%s",typeid(Luna< ork::Object >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		ptr< Task > stack_lret = self->TileSampler::update(scene, root);
-		ptr< Task >* lret = new ptr< Task >(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< ptr< Task > >::push(L,lret,true);
+		ptr< ork::Task > lret = self->TileSampler::update(scene, root);
+		Luna< ork::Task >::push(L,lret.get(),false);
 
 		return 1;
 	}

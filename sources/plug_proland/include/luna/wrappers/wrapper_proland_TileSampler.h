@@ -46,18 +46,18 @@ protected:
 		if(_obj.pushFunction("init")) {
 			_obj.pushArg((proland::TileSampler*)this);
 			_obj.pushArg(name);
-			_obj.pushArg(&producer);
+			_obj.pushArg((proland::TileProducer*)producer.get());
 			return (_obj.callFunction<void>());
 		}
 
 		return TileSampler::init(name, producer);
 	};
 
-	// bool proland::TileSampler::needTile(ptr< TerrainQuad > q)
-	bool needTile(ptr< TerrainQuad > q) {
+	// bool proland::TileSampler::needTile(ptr< proland::TerrainQuad > q)
+	bool needTile(ptr< proland::TerrainQuad > q) {
 		if(_obj.pushFunction("needTile")) {
 			_obj.pushArg((proland::TileSampler*)this);
-			_obj.pushArg(&q);
+			_obj.pushArg((proland::TerrainQuad*)q.get());
 			return (_obj.callFunction<bool>());
 		}
 
@@ -68,7 +68,7 @@ protected:
 	void swap(ptr< proland::TileSampler > p) {
 		if(_obj.pushFunction("swap")) {
 			_obj.pushArg((proland::TileSampler*)this);
-			_obj.pushArg(&p);
+			_obj.pushArg((proland::TileSampler*)p.get());
 			return (_obj.callFunction<void>());
 		}
 
@@ -77,13 +77,13 @@ protected:
 
 public:
 	// Public virtual methods:
-	// ptr< Task > proland::TileSampler::update(ptr< ork::SceneManager > scene, ptr< TerrainQuad > root)
-	ptr< Task > update(ptr< ork::SceneManager > scene, ptr< TerrainQuad > root) {
+	// ptr< ork::Task > proland::TileSampler::update(ptr< ork::SceneManager > scene, ptr< proland::TerrainQuad > root)
+	ptr< ork::Task > update(ptr< ork::SceneManager > scene, ptr< proland::TerrainQuad > root) {
 		if(_obj.pushFunction("update")) {
 			_obj.pushArg((proland::TileSampler*)this);
-			_obj.pushArg(&scene);
-			_obj.pushArg(&root);
-			return *(_obj.callFunction<ptr< Task >*>());
+			_obj.pushArg((ork::SceneManager*)scene.get());
+			_obj.pushArg((proland::TerrainQuad*)root.get());
+			return _obj.callFunction< ork::Task* >();
 		}
 
 		return TileSampler::update(scene, root);

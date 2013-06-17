@@ -16,40 +16,17 @@ public:
 			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Sampler::Parameters* self=(Luna< ork::Sampler::Parameters >::check(L,1));
 		if(!self) {
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = luna_caster<ork::Texture::Parameters,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<ork::Sampler::Parameters,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
 		}
 		return 0;
-	}
-
-	inline static bool _lg_typecheck___eq(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,11747408) ) return false;
-		return true;
-	}
-	
-	static int _bind___eq(lua_State *L) {
-		if (!_lg_typecheck___eq(L)) {
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(ork::Texture::Parameters*). Got arguments:\n%s",luna_dumpStack(L).c_str());
-		}
-
-		ork::Texture::Parameters* rhs =(Luna< ork::Texture::Parameters >::check(L,2));
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call __eq(...)");
-		}
-		
-		lua_pushboolean(L,self==rhs?1:0);
-
-		return 1;
 	}
 
 	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
@@ -76,7 +53,7 @@ public:
 	inline static bool _lg_typecheck_asVoid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,1,11747408) ) return false;
+		if( !Luna<void>::has_uniqueid(L,1,84580371) ) return false;
 		return true;
 	}
 	
@@ -85,7 +62,7 @@ public:
 			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
-		void* self= (void*)(Luna< ork::Texture::Parameters >::check(L,1));
+		void* self= (void*)(Luna< ork::Sampler::Parameters >::check(L,1));
 		if(!self) {
 			luaL_error(L, "Invalid object in function call asVoid(...)");
 		}
@@ -94,30 +71,18 @@ public:
 		return 1;
 	}	
 
-	// Base class dynamic cast support:
-	inline static bool _lg_typecheck_dynCast(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isstring(L,2)==0 ) return false;
-		return true;
-	}
-	
-	static int _bind_dynCast(lua_State *L) {
-		if (!_lg_typecheck_dynCast(L)) {
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
-		}
-
-		std::string name(lua_tostring(L,2),lua_objlen(L,2));
-
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call dynCast(...)");
-		}
+	// Derived class converters:
+	static int _cast_from_Parameters(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		//ork::Texture::Parameters* ptr= dynamic_cast< ork::Texture::Parameters* >(Luna< ork::Sampler::Parameters >::check(L,1));
+		ork::Texture::Parameters* ptr= luna_caster< ork::Sampler::Parameters, ork::Texture::Parameters >::cast(Luna< ork::Sampler::Parameters >::check(L,1));
+		if(!ptr)
+			return 0;
 		
-		static LunaConverterMap& converters = luna_getConverterMap("ork::Texture::Parameters");
-		
-		return luna_dynamicCast(L,converters,"ork::Texture::Parameters",name);
-	}
+		// Otherwise push the pointer:
+		Luna< ork::Texture::Parameters >::push(L,ptr,false);
+		return 1;
+	};
 
 
 	// Constructor checkers:
@@ -539,9 +504,9 @@ public:
 		}
 
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::TextureWrap ork::Texture::Parameters::wrapS() const. Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::TextureWrap ork::Texture::Parameters::wrapS() const. Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ork::TextureWrap lret = self->wrapS();
 		lua_pushnumber(L,lret);
@@ -557,9 +522,9 @@ public:
 
 		ork::TextureWrap wrapS=(ork::TextureWrap)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::wrapS(ork::TextureWrap). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::wrapS(ork::TextureWrap). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->wrapS(wrapS);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -585,9 +550,9 @@ public:
 		}
 
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::TextureWrap ork::Texture::Parameters::wrapT() const. Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::TextureWrap ork::Texture::Parameters::wrapT() const. Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ork::TextureWrap lret = self->wrapT();
 		lua_pushnumber(L,lret);
@@ -603,9 +568,9 @@ public:
 
 		ork::TextureWrap wrapT=(ork::TextureWrap)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::wrapT(ork::TextureWrap). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::wrapT(ork::TextureWrap). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->wrapT(wrapT);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -631,9 +596,9 @@ public:
 		}
 
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::TextureWrap ork::Texture::Parameters::wrapR() const. Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::TextureWrap ork::Texture::Parameters::wrapR() const. Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ork::TextureWrap lret = self->wrapR();
 		lua_pushnumber(L,lret);
@@ -649,9 +614,9 @@ public:
 
 		ork::TextureWrap wrapR=(ork::TextureWrap)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::wrapR(ork::TextureWrap). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::wrapR(ork::TextureWrap). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->wrapR(wrapR);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -677,9 +642,9 @@ public:
 		}
 
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::TextureFilter ork::Texture::Parameters::min() const. Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::TextureFilter ork::Texture::Parameters::min() const. Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ork::TextureFilter lret = self->min();
 		lua_pushnumber(L,lret);
@@ -695,9 +660,9 @@ public:
 
 		ork::TextureFilter min=(ork::TextureFilter)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::min(ork::TextureFilter). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::min(ork::TextureFilter). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->min(min);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -723,9 +688,9 @@ public:
 		}
 
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::TextureFilter ork::Texture::Parameters::mag() const. Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::TextureFilter ork::Texture::Parameters::mag() const. Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ork::TextureFilter lret = self->mag();
 		lua_pushnumber(L,lret);
@@ -741,9 +706,9 @@ public:
 
 		ork::TextureFilter mag=(ork::TextureFilter)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::mag(ork::TextureFilter). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::mag(ork::TextureFilter). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->mag(mag);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -769,9 +734,9 @@ public:
 		}
 
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call unsigned int ork::Texture::Parameters::borderType() const. Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call unsigned int ork::Texture::Parameters::borderType() const. Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->borderType();
 		lua_pushnumber(L,lret);
@@ -786,9 +751,9 @@ public:
 		}
 
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call float ork::Texture::Parameters::lodMin() const. Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call float ork::Texture::Parameters::lodMin() const. Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->lodMin();
 		lua_pushnumber(L,lret);
@@ -804,9 +769,9 @@ public:
 
 		float lodMin=(float)lua_tonumber(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::lodMin(float). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::lodMin(float). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->lodMin(lodMin);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -832,9 +797,9 @@ public:
 		}
 
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call float ork::Texture::Parameters::lodMax() const. Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call float ork::Texture::Parameters::lodMax() const. Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->lodMax();
 		lua_pushnumber(L,lret);
@@ -850,9 +815,9 @@ public:
 
 		float lodMax=(float)lua_tonumber(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::lodMax(float). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::lodMax(float). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->lodMax(lodMax);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -878,9 +843,9 @@ public:
 		}
 
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call float ork::Texture::Parameters::lodBias() const. Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call float ork::Texture::Parameters::lodBias() const. Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->lodBias();
 		lua_pushnumber(L,lret);
@@ -896,9 +861,9 @@ public:
 
 		float lodBias=(float)lua_tonumber(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::lodBias(float). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::lodBias(float). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->lodBias(lodBias);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -924,9 +889,9 @@ public:
 		}
 
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Function ork::Texture::Parameters::compareFunc() const. Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Function ork::Texture::Parameters::compareFunc() const. Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ork::Function lret = self->compareFunc();
 		lua_pushnumber(L,lret);
@@ -942,9 +907,9 @@ public:
 
 		ork::Function compareFunc=(ork::Function)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::compareFunc(ork::Function). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::compareFunc(ork::Function). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->compareFunc(compareFunc);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -970,9 +935,9 @@ public:
 		}
 
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call float ork::Texture::Parameters::maxAnisotropyEXT() const. Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call float ork::Texture::Parameters::maxAnisotropyEXT() const. Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->maxAnisotropyEXT();
 		lua_pushnumber(L,lret);
@@ -988,9 +953,9 @@ public:
 
 		float maxAnisotropy=(float)lua_tonumber(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::maxAnisotropyEXT(float). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::maxAnisotropyEXT(float). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->maxAnisotropyEXT(maxAnisotropy);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1016,9 +981,9 @@ public:
 		}
 
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call const char * ork::Texture::Parameters::swizzle() const. Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call const char * ork::Texture::Parameters::swizzle() const. Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->swizzle();
 		lua_pushstring(L,lret);
@@ -1037,9 +1002,9 @@ public:
 		char b=(char)lua_tointeger(L,4);
 		char a=(char)lua_tointeger(L,5);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::swizzle(char, char, char, char). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::swizzle(char, char, char, char). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->swizzle(r, g, b, a);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1065,9 +1030,9 @@ public:
 		}
 
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call int ork::Texture::Parameters::minLevel() const. Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call int ork::Texture::Parameters::minLevel() const. Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->minLevel();
 		lua_pushnumber(L,lret);
@@ -1083,9 +1048,9 @@ public:
 
 		int minLevel=(int)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::minLevel(int). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::minLevel(int). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->minLevel(minLevel);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1111,9 +1076,9 @@ public:
 		}
 
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call int ork::Texture::Parameters::maxLevel() const. Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call int ork::Texture::Parameters::maxLevel() const. Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->maxLevel();
 		lua_pushnumber(L,lret);
@@ -1129,9 +1094,9 @@ public:
 
 		int maxLevel=(int)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::maxLevel(int). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::maxLevel(int). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->maxLevel(maxLevel);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1163,9 +1128,9 @@ public:
 		int b=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 		int a=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::borderi(int, int, int, int). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::borderi(int, int, int, int). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->borderi(r, g, b, a);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1188,9 +1153,9 @@ public:
 		float b=luatop>3 ? (float)lua_tonumber(L,4) : (float)0.0f;
 		float a=luatop>4 ? (float)lua_tonumber(L,5) : (float)0.0f;
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::borderf(float, float, float, float). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::borderf(float, float, float, float). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->borderf(r, g, b, a);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1213,9 +1178,9 @@ public:
 		int b=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 		int a=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::borderIi(int, int, int, int). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::borderIi(int, int, int, int). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->borderIi(r, g, b, a);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1238,9 +1203,9 @@ public:
 		unsigned int b=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
 		unsigned int a=luatop>4 ? (unsigned int)lua_tointeger(L,5) : (unsigned int)0;
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::borderIui(unsigned int, unsigned int, unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::borderIui(unsigned int, unsigned int, unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->borderIui(r, g, b, a);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1258,9 +1223,9 @@ public:
 
 		ork::TextureWrap wrapS=(ork::TextureWrap)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_wrapS(ork::TextureWrap). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_wrapS(ork::TextureWrap). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::wrapS(wrapS);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1278,9 +1243,9 @@ public:
 
 		ork::TextureWrap wrapT=(ork::TextureWrap)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_wrapT(ork::TextureWrap). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_wrapT(ork::TextureWrap). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::wrapT(wrapT);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1298,9 +1263,9 @@ public:
 
 		ork::TextureWrap wrapR=(ork::TextureWrap)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_wrapR(ork::TextureWrap). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_wrapR(ork::TextureWrap). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::wrapR(wrapR);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1318,9 +1283,9 @@ public:
 
 		ork::TextureFilter min=(ork::TextureFilter)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_min(ork::TextureFilter). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_min(ork::TextureFilter). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::min(min);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1338,9 +1303,9 @@ public:
 
 		ork::TextureFilter mag=(ork::TextureFilter)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_mag(ork::TextureFilter). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_mag(ork::TextureFilter). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::mag(mag);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1363,9 +1328,9 @@ public:
 		int b=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 		int a=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_borderi(int, int, int, int). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_borderi(int, int, int, int). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::borderi(r, g, b, a);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1388,9 +1353,9 @@ public:
 		float b=luatop>3 ? (float)lua_tonumber(L,4) : (float)0.0f;
 		float a=luatop>4 ? (float)lua_tonumber(L,5) : (float)0.0f;
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_borderf(float, float, float, float). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_borderf(float, float, float, float). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::borderf(r, g, b, a);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1413,9 +1378,9 @@ public:
 		int b=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 		int a=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_borderIi(int, int, int, int). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_borderIi(int, int, int, int). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::borderIi(r, g, b, a);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1438,9 +1403,9 @@ public:
 		unsigned int b=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
 		unsigned int a=luatop>4 ? (unsigned int)lua_tointeger(L,5) : (unsigned int)0;
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_borderIui(unsigned int, unsigned int, unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_borderIui(unsigned int, unsigned int, unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::borderIui(r, g, b, a);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1458,9 +1423,9 @@ public:
 
 		float lodMin=(float)lua_tonumber(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_lodMin(float). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_lodMin(float). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::lodMin(lodMin);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1478,9 +1443,9 @@ public:
 
 		float lodMax=(float)lua_tonumber(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_lodMax(float). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_lodMax(float). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::lodMax(lodMax);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1498,9 +1463,9 @@ public:
 
 		float lodBias=(float)lua_tonumber(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_lodBias(float). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_lodBias(float). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::lodBias(lodBias);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1518,9 +1483,9 @@ public:
 
 		ork::Function compareFunc=(ork::Function)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_compareFunc(ork::Function). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_compareFunc(ork::Function). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::compareFunc(compareFunc);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1538,9 +1503,9 @@ public:
 
 		float maxAnisotropy=(float)lua_tonumber(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_maxAnisotropyEXT(float). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_maxAnisotropyEXT(float). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::maxAnisotropyEXT(maxAnisotropy);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1561,9 +1526,9 @@ public:
 		char b=(char)lua_tointeger(L,4);
 		char a=(char)lua_tointeger(L,5);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_swizzle(char, char, char, char). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_swizzle(char, char, char, char). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::swizzle(r, g, b, a);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1581,9 +1546,9 @@ public:
 
 		int minLevel=(int)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_minLevel(int). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_minLevel(int). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::minLevel(minLevel);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1601,9 +1566,9 @@ public:
 
 		int maxLevel=(int)lua_tointeger(L,2);
 
-		ork::Texture::Parameters* self=(Luna< ork::Texture::Parameters >::check(L,1));
+		ork::Texture::Parameters* self=Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_maxLevel(int). Got : '%s'\n%s",typeid(Luna< ork::Texture::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::Texture::Parameters & ork::Texture::Parameters::base_maxLevel(int). Got : '%s'\n%s",typeid(Luna< ork::Sampler::Parameters >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const ork::Texture::Parameters* lret = &self->Parameters::maxLevel(maxLevel);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1629,9 +1594,9 @@ void LunaTraits< ork::Texture::Parameters >::_bind_dtor(ork::Texture::Parameters
 const char LunaTraits< ork::Texture::Parameters >::className[] = "Texture_Parameters";
 const char LunaTraits< ork::Texture::Parameters >::fullName[] = "ork::Texture::Parameters";
 const char LunaTraits< ork::Texture::Parameters >::moduleName[] = "ork";
-const char* LunaTraits< ork::Texture::Parameters >::parents[] = {0};
+const char* LunaTraits< ork::Texture::Parameters >::parents[] = {"ork.Sampler_Parameters", 0};
 const int LunaTraits< ork::Texture::Parameters >::hash = 11747408;
-const int LunaTraits< ork::Texture::Parameters >::uniqueIDs[] = {11747408,0};
+const int LunaTraits< ork::Texture::Parameters >::uniqueIDs[] = {84580371,0};
 
 luna_RegType LunaTraits< ork::Texture::Parameters >::methods[] = {
 	{"wrapS", &luna_wrapper_ork_Texture_Parameters::_bind_wrapS},
@@ -1669,8 +1634,6 @@ luna_RegType LunaTraits< ork::Texture::Parameters >::methods[] = {
 	{"base_swizzle", &luna_wrapper_ork_Texture_Parameters::_bind_base_swizzle},
 	{"base_minLevel", &luna_wrapper_ork_Texture_Parameters::_bind_base_minLevel},
 	{"base_maxLevel", &luna_wrapper_ork_Texture_Parameters::_bind_base_maxLevel},
-	{"dynCast", &luna_wrapper_ork_Texture_Parameters::_bind_dynCast},
-	{"__eq", &luna_wrapper_ork_Texture_Parameters::_bind___eq},
 	{"fromVoid", &luna_wrapper_ork_Texture_Parameters::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_ork_Texture_Parameters::_bind_asVoid},
 	{"getTable", &luna_wrapper_ork_Texture_Parameters::_bind_getTable},
@@ -1678,6 +1641,7 @@ luna_RegType LunaTraits< ork::Texture::Parameters >::methods[] = {
 };
 
 luna_ConverterType LunaTraits< ork::Texture::Parameters >::converters[] = {
+	{"ork::Sampler::Parameters", &luna_wrapper_ork_Texture_Parameters::_cast_from_Parameters},
 	{0,0}
 };
 

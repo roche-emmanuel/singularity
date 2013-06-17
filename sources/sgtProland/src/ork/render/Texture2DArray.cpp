@@ -59,21 +59,33 @@ Texture2DArray::Texture2DArray(int w, int h, int l, TextureInternalFormat tf, Te
 void Texture2DArray::init(int w, int h, int l, TextureInternalFormat tf, TextureFormat f, PixelType t,
     const Parameters &params, const Buffer::Parameters &s, const Buffer &pixels)
 {
+	THROW_IF(FrameBuffer::getError()!=0,"Checkpoint1");
     Texture::init(tf, params);
     this->w = w;
     this->h = h;
     this->l = l;
+	THROW_IF(FrameBuffer::getError()!=0,"Checkpoint2");
     pixels.bind(GL_PIXEL_UNPACK_BUFFER);
+	THROW_IF(FrameBuffer::getError()!=0,"Checkpoint3");
+
     if (isCompressed() && s.compressedSize() > 0) {
         glCompressedTexImage3D(GL_TEXTURE_2D_ARRAY, 0, getTextureInternalFormat(internalFormat), w, h, l, 0, s.compressedSize(), pixels.data(0));
     } else {
         s.set();
+		THROW_IF(FrameBuffer::getError()!=0,"Checkpoint4");
+
         glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, getTextureInternalFormat(internalFormat), w, h, l, 0, getTextureFormat(f), getPixelType(t), pixels.data(0));
+		THROW_IF(FrameBuffer::getError()!=0,"Checkpoint5");
+
         s.unset();
+		THROW_IF(FrameBuffer::getError()!=0,"Checkpoint6");
+
     }
     pixels.unbind(GL_PIXEL_UNPACK_BUFFER);
+	THROW_IF(FrameBuffer::getError()!=0,"Checkpoint7");
 
     generateMipMap();
+	THROW_IF(FrameBuffer::getError()!=0,"Checkpoint8");
 
     if (FrameBuffer::getError() != 0) {
         throw exception();

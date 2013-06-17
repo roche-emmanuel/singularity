@@ -1,6 +1,7 @@
 #ifndef PLUG_COMMON_
 #define PLUG_COMMON_
 
+
 #if defined(_MSC_VER) || defined(__CYGWIN__) || defined(__MINGW32__) || defined( __BCPLUSPLUS__)  || defined( __MWERKS__)
 #  if defined( PLUG_LIBRARY_STATIC )
 #    define PLUG_EXPORT
@@ -59,6 +60,23 @@ using namespace proland;
 #include <luna/luna_types.h>
 #endif
 
+// container specialization for ork::Object:
+template <>
+struct luna_container<ork::Object> {
+	typedef ork::ptr<ork::Object> container_type;
+	
+	static inline ork::Object* get(const container_type& cont) {
+		return cont.get();
+	};
+
+	static inline void set(container_type& cont, ork::Object* ptr) {
+		cont = ptr;
+	};
+	
+	static inline void release(container_type& cont) {
+		cont = NULL;		
+	};		
+};
 
 // Insert your specific caster definition here.
 // example: 

@@ -219,8 +219,8 @@ void Program::initUniforms()
         throw exception();
     }
 
-    GLint maxNameLength;
-    GLint maxLength;
+    GLint maxNameLength = 0;
+    GLint maxLength = 0;
     glGetProgramiv(programId, GL_ACTIVE_UNIFORM_MAX_LENGTH, &maxNameLength);
     glGetProgramiv(programId, GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH, &maxLength);
     maxNameLength = max(maxNameLength, maxLength);
@@ -232,6 +232,10 @@ void Program::initUniforms()
             maxNameLength = max(maxNameLength, maxLength);
         }
     }
+
+	THROW_IF(GL_INVALID_VALUE == maxNameLength,"Received invalid value.");
+	THROW_IF(GL_INVALID_OPERATION == maxNameLength,"Received invalid operation.");
+	THROW_IF(GL_INVALID_ENUM == maxNameLength,"Received invalid enum.");
 
     char* buf = new char[maxNameLength];
 

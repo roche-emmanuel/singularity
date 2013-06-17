@@ -16,8 +16,14 @@ function TypeConverter:__init()
 	object.fromLuaConverters = OrderedMap()
 	object.toLuaConverters = OrderedMap() 
 	object.typeCheckers = OrderedMap()   
+	object.wrapperConverters = OrderedMap()   
 	object._TRACE_ = "TypeConverter"
     return object
+end
+
+function TypeConverter:setWrapperConverter(typename,converter)
+	dbg:assert(type(converter)=="function", "Invalid function as towrapper converter.")
+	self.wrapperConverters:set(typename,converter)
 end
 
 function TypeConverter:setTypeChecker(typename,checker)
@@ -65,6 +71,18 @@ function TypeConverter:getToLuaConverter(typename)
 	end
 	
 	for k,v in self.toLuaConverters:sequence() do
+		if typename:find(k) then
+			return v
+		end
+	end
+end
+
+function TypeConverter:getWrapperConverter(typename)
+	if not typename then
+		return
+	end
+	
+	for k,v in self.wrapperConverters:sequence() do
 		if typename:find(k) then
 			return v
 		end

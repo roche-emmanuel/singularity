@@ -11,6 +11,272 @@ struct luna_caster<ork::Buffer::Parameters,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<ork::Uniform1< ork::VEC1F, float, float, ork::uniform1f, value1f >,dstType> {
+	static inline dstType* cast(ork::Uniform1< ork::VEC1F, float, float, ork::uniform1f, value1f >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform1< ork::VEC1D, double, double, ork::uniform1d, value1d >,dstType> {
+	static inline dstType* cast(ork::Uniform1< ork::VEC1D, double, double, ork::uniform1d, value1d >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform1< ork::VEC1I, int, int, ork::uniform1i, value1i >,dstType> {
+	static inline dstType* cast(ork::Uniform1< ork::VEC1I, int, int, ork::uniform1i, value1i >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform1< ork::VEC1UI, unsigned int, unsigned int, ork::uniform1ui, value1ui >,dstType> {
+	static inline dstType* cast(ork::Uniform1< ork::VEC1UI, unsigned int, unsigned int, ork::uniform1ui, value1ui >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform1< ork::VEC1B, bool, unsigned int, ork::uniform1b, value1b >,dstType> {
+	static inline dstType* cast(ork::Uniform1< ork::VEC1B, bool, unsigned int, ork::uniform1b, value1b >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform2< ork::VEC2F, float, float, ork::uniform2f, value2f >,dstType> {
+	static inline dstType* cast(ork::Uniform2< ork::VEC2F, float, float, ork::uniform2f, value2f >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform2< ork::VEC2B, double, double, ork::uniform2d, value2d >,dstType> {
+	static inline dstType* cast(ork::Uniform2< ork::VEC2B, double, double, ork::uniform2d, value2d >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform2< ork::VEC2I, int, int, ork::uniform2i, value2i >,dstType> {
+	static inline dstType* cast(ork::Uniform2< ork::VEC2I, int, int, ork::uniform2i, value2i >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform2< ork::VEC2UI, unsigned int, unsigned int, ork::uniform2ui, value2ui >,dstType> {
+	static inline dstType* cast(ork::Uniform2< ork::VEC2UI, unsigned int, unsigned int, ork::uniform2ui, value2ui >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform2< ork::VEC2B, bool, unsigned int, ork::uniform2b, value2b >,dstType> {
+	static inline dstType* cast(ork::Uniform2< ork::VEC2B, bool, unsigned int, ork::uniform2b, value2b >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform3< ork::VEC3F, float, float, ork::uniform3f, value3f >,dstType> {
+	static inline dstType* cast(ork::Uniform3< ork::VEC3F, float, float, ork::uniform3f, value3f >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform3< ork::VEC3D, double, double, ork::uniform3d, value3d >,dstType> {
+	static inline dstType* cast(ork::Uniform3< ork::VEC3D, double, double, ork::uniform3d, value3d >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform3< ork::VEC3I, int, int, ork::uniform3i, value3i >,dstType> {
+	static inline dstType* cast(ork::Uniform3< ork::VEC3I, int, int, ork::uniform3i, value3i >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform3< ork::VEC3UI, unsigned int, unsigned int, ork::uniform3ui, value3ui >,dstType> {
+	static inline dstType* cast(ork::Uniform3< ork::VEC3UI, unsigned int, unsigned int, ork::uniform3ui, value3ui >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform3< ork::VEC3B, bool, unsigned int, ork::uniform3b, value3b >,dstType> {
+	static inline dstType* cast(ork::Uniform3< ork::VEC3B, bool, unsigned int, ork::uniform3b, value3b >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform4< ork::VEC4F, float, float, ork::uniform4f, value4f >,dstType> {
+	static inline dstType* cast(ork::Uniform4< ork::VEC4F, float, float, ork::uniform4f, value4f >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform4< ork::VEC4D, double, double, ork::uniform4d, value4d >,dstType> {
+	static inline dstType* cast(ork::Uniform4< ork::VEC4D, double, double, ork::uniform4d, value4d >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform4< ork::VEC4I, int, int, ork::uniform4i, value4i >,dstType> {
+	static inline dstType* cast(ork::Uniform4< ork::VEC4I, int, int, ork::uniform4i, value4i >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform4< ork::VEC4UI, unsigned int, unsigned int, ork::uniform4ui, value4ui >,dstType> {
+	static inline dstType* cast(ork::Uniform4< ork::VEC4UI, unsigned int, unsigned int, ork::uniform4ui, value4ui >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Uniform4< ork::VEC4B, bool, unsigned int, ork::uniform4b, value4b >,dstType> {
+	static inline dstType* cast(ork::Uniform4< ork::VEC4B, bool, unsigned int, ork::uniform4b, value4b >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix< ork::MAT2F, float, 2, 2, ork::uniformMatrix2f, valueMatrix2f >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix< ork::MAT2F, float, 2, 2, ork::uniformMatrix2f, valueMatrix2f >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix3< ork::MAT3F, float, ork::uniformMatrix3f, valueMatrix3f >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix3< ork::MAT3F, float, ork::uniformMatrix3f, valueMatrix3f >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix4< ork::MAT4F, float, ork::uniformMatrix4f, valueMatrix4f >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix4< ork::MAT4F, float, ork::uniformMatrix4f, valueMatrix4f >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix< ork::MAT2x3F, float, 2, 3, ork::uniformMatrix2x3f, valueMatrix2x3f >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix< ork::MAT2x3F, float, 2, 3, ork::uniformMatrix2x3f, valueMatrix2x3f >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix< ork::MAT2x4F, float, 2, 4, ork::uniformMatrix2x4f, valueMatrix2x4f >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix< ork::MAT2x4F, float, 2, 4, ork::uniformMatrix2x4f, valueMatrix2x4f >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix< ork::MAT3x2F, float, 3, 2, ork::uniformMatrix3x2f, valueMatrix3x2f >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix< ork::MAT3x2F, float, 3, 2, ork::uniformMatrix3x2f, valueMatrix3x2f >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix< ork::MAT3x4F, float, 3, 4, ork::uniformMatrix3x4f, valueMatrix3x4f >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix< ork::MAT3x4F, float, 3, 4, ork::uniformMatrix3x4f, valueMatrix3x4f >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix< ork::MAT4x2F, float, 4, 2, ork::uniformMatrix4x2f, valueMatrix4x2f >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix< ork::MAT4x2F, float, 4, 2, ork::uniformMatrix4x2f, valueMatrix4x2f >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix< ork::MAT4x3F, float, 4, 3, ork::uniformMatrix4x3f, valueMatrix4x3f >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix< ork::MAT4x3F, float, 4, 3, ork::uniformMatrix4x3f, valueMatrix4x3f >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix< ork::MAT2D, double, 2, 2, ork::uniformMatrix2d, valueMatrix2d >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix< ork::MAT2D, double, 2, 2, ork::uniformMatrix2d, valueMatrix2d >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix3< ork::MAT3D, double, ork::uniformMatrix3d, valueMatrix3d >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix3< ork::MAT3D, double, ork::uniformMatrix3d, valueMatrix3d >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix4< ork::MAT4D, double, ork::uniformMatrix4d, valueMatrix4d >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix4< ork::MAT4D, double, ork::uniformMatrix4d, valueMatrix4d >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix< ork::MAT2x3D, double, 2, 3, ork::uniformMatrix2x3d, valueMatrix2x3d >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix< ork::MAT2x3D, double, 2, 3, ork::uniformMatrix2x3d, valueMatrix2x3d >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix< ork::MAT2x4D, double, 2, 4, ork::uniformMatrix2x4d, valueMatrix2x4d >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix< ork::MAT2x4D, double, 2, 4, ork::uniformMatrix2x4d, valueMatrix2x4d >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix< ork::MAT3x2D, double, 3, 2, ork::uniformMatrix3x2d, valueMatrix3x2d >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix< ork::MAT3x2D, double, 3, 2, ork::uniformMatrix3x2d, valueMatrix3x2d >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix< ork::MAT3x4D, double, 3, 4, ork::uniformMatrix3x4d, valueMatrix3x4d >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix< ork::MAT3x4D, double, 3, 4, ork::uniformMatrix3x4d, valueMatrix3x4d >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix< ork::MAT4x2D, double, 4, 2, ork::uniformMatrix4x2d, valueMatrix4x2d >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix< ork::MAT4x2D, double, 4, 2, ork::uniformMatrix4x2d, valueMatrix4x2d >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::UniformMatrix< ork::MAT4x3D, double, 4, 3, ork::uniformMatrix4x3d, valueMatrix4x3d >,dstType> {
+	static inline dstType* cast(ork::UniformMatrix< ork::MAT4x3D, double, 4, 3, ork::uniformMatrix4x3d, valueMatrix4x3d >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<ork::Object,dstType> {
 	static inline dstType* cast(ork::Object* ptr) {
 		return static_cast<dstType*>(ptr);
@@ -237,6 +503,13 @@ struct luna_caster<ork::ptr< proland::TileSampler >,dstType> {
 template <typename dstType>
 struct luna_caster<ork::half,dstType> {
 	static inline dstType* cast(ork::half* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<ork::Sampler,dstType> {
+	static inline dstType* cast(ork::Sampler* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };

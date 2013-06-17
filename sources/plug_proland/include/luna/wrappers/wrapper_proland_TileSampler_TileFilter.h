@@ -35,11 +35,11 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
-	// bool proland::TileSampler::TileFilter::storeTile(ptr< TerrainQuad > q)
-	bool storeTile(ptr< TerrainQuad > q) {
+	// bool proland::TileSampler::TileFilter::storeTile(ptr< proland::TerrainQuad > q)
+	bool storeTile(ptr< proland::TerrainQuad > q) {
 		THROW_IF(!_obj.pushFunction("storeTile"),"No implementation for abstract function proland::TileSampler::TileFilter::storeTile");
 		_obj.pushArg((proland::TileSampler::TileFilter*)this);
-		_obj.pushArg(&q);
+		_obj.pushArg((proland::TerrainQuad*)q.get());
 		return (_obj.callFunction<bool>());
 	};
 

@@ -94,8 +94,8 @@ public:
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( !Luna<void>::has_uniqueid(L,6,11747408) ) return false;
-		if( (!(Luna< ork::Texture::Parameters >::check(L,6))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,6,84580371) ) return false;
+		if( (!(Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,85004853) ) return false;
 		if( (!(Luna< ork::Buffer::Parameters >::check(L,7))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,1381405) ) return false;
@@ -112,8 +112,8 @@ public:
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-		if( !Luna<void>::has_uniqueid(L,7,11747408) ) return false;
-		if( (!(Luna< ork::Texture::Parameters >::check(L,7))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,7,84580371) ) return false;
+		if( (!(Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,7))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,85004853) ) return false;
 		if( (!(Luna< ork::Buffer::Parameters >::check(L,8))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,9,1381405) ) return false;
@@ -182,7 +182,7 @@ public:
 	// ork::Texture2D::Texture2D(int w, int h, ork::TextureInternalFormat tf, ork::TextureFormat f, ork::PixelType t, const ork::Texture::Parameters & params, const ork::Buffer::Parameters & s, const ork::Buffer & pixels)
 	static ork::Texture2D* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luaL_error(L, "luna typecheck failed in ork::Texture2D::Texture2D(int w, int h, ork::TextureInternalFormat tf, ork::TextureFormat f, ork::PixelType t, const ork::Texture::Parameters & params, const ork::Buffer::Parameters & s, const ork::Buffer & pixels) function, expected prototype:\nork::Texture2D::Texture2D(int w, int h, ork::TextureInternalFormat tf, ork::TextureFormat f, ork::PixelType t, const ork::Texture::Parameters & params, const ork::Buffer::Parameters & s, const ork::Buffer & pixels)\nClass arguments details:\narg 6 ID = 11747408\narg 7 ID = 85004853\narg 8 ID = 1381405\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ork::Texture2D::Texture2D(int w, int h, ork::TextureInternalFormat tf, ork::TextureFormat f, ork::PixelType t, const ork::Texture::Parameters & params, const ork::Buffer::Parameters & s, const ork::Buffer & pixels) function, expected prototype:\nork::Texture2D::Texture2D(int w, int h, ork::TextureInternalFormat tf, ork::TextureFormat f, ork::PixelType t, const ork::Texture::Parameters & params, const ork::Buffer::Parameters & s, const ork::Buffer & pixels)\nClass arguments details:\narg 6 ID = 84580371\narg 7 ID = 85004853\narg 8 ID = 1381405\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int w=(int)lua_tointeger(L,1);
@@ -190,7 +190,7 @@ public:
 		ork::TextureInternalFormat tf=(ork::TextureInternalFormat)lua_tointeger(L,3);
 		ork::TextureFormat f=(ork::TextureFormat)lua_tointeger(L,4);
 		ork::PixelType t=(ork::PixelType)lua_tointeger(L,5);
-		const ork::Texture::Parameters* params_ptr=(Luna< ork::Texture::Parameters >::check(L,6));
+		const ork::Texture::Parameters* params_ptr=(Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,6));
 		if( !params_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg params in ork::Texture2D::Texture2D function");
 		}
@@ -212,7 +212,7 @@ public:
 	// ork::Texture2D::Texture2D(lua_Table * data, int w, int h, ork::TextureInternalFormat tf, ork::TextureFormat f, ork::PixelType t, const ork::Texture::Parameters & params, const ork::Buffer::Parameters & s, const ork::Buffer & pixels)
 	static ork::Texture2D* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luaL_error(L, "luna typecheck failed in ork::Texture2D::Texture2D(lua_Table * data, int w, int h, ork::TextureInternalFormat tf, ork::TextureFormat f, ork::PixelType t, const ork::Texture::Parameters & params, const ork::Buffer::Parameters & s, const ork::Buffer & pixels) function, expected prototype:\nork::Texture2D::Texture2D(lua_Table * data, int w, int h, ork::TextureInternalFormat tf, ork::TextureFormat f, ork::PixelType t, const ork::Texture::Parameters & params, const ork::Buffer::Parameters & s, const ork::Buffer & pixels)\nClass arguments details:\narg 7 ID = 11747408\narg 8 ID = 85004853\narg 9 ID = 1381405\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ork::Texture2D::Texture2D(lua_Table * data, int w, int h, ork::TextureInternalFormat tf, ork::TextureFormat f, ork::PixelType t, const ork::Texture::Parameters & params, const ork::Buffer::Parameters & s, const ork::Buffer & pixels) function, expected prototype:\nork::Texture2D::Texture2D(lua_Table * data, int w, int h, ork::TextureInternalFormat tf, ork::TextureFormat f, ork::PixelType t, const ork::Texture::Parameters & params, const ork::Buffer::Parameters & s, const ork::Buffer & pixels)\nClass arguments details:\narg 7 ID = 84580371\narg 8 ID = 85004853\narg 9 ID = 1381405\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int w=(int)lua_tointeger(L,2);
@@ -220,7 +220,7 @@ public:
 		ork::TextureInternalFormat tf=(ork::TextureInternalFormat)lua_tointeger(L,4);
 		ork::TextureFormat f=(ork::TextureFormat)lua_tointeger(L,5);
 		ork::PixelType t=(ork::PixelType)lua_tointeger(L,6);
-		const ork::Texture::Parameters* params_ptr=(Luna< ork::Texture::Parameters >::check(L,7));
+		const ork::Texture::Parameters* params_ptr=(Luna< ork::Sampler::Parameters >::checkSubType< ork::Texture::Parameters >(L,7));
 		if( !params_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg params in ork::Texture2D::Texture2D function");
 		}

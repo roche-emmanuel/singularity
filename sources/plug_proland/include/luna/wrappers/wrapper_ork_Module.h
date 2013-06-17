@@ -69,7 +69,7 @@ protected:
 	void swap(ptr< ork::Module > s) {
 		if(_obj.pushFunction("swap")) {
 			_obj.pushArg((ork::Module*)this);
-			_obj.pushArg(&s);
+			_obj.pushArg((ork::Module*)s.get());
 			return (_obj.callFunction<void>());
 		}
 

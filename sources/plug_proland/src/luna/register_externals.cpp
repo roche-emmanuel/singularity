@@ -54,6 +54,18 @@ const char LunaTraits< osg::NodeVisitor >::moduleName[] = "osg";
 const int LunaTraits< osg::NodeVisitor >::hash = 49057446;
 const int LunaTraits< osg::NodeVisitor >::uniqueIDs[] = {50169651,0};
 
+const char LunaTraits< std::vector< std::string > >::className[] = "std_vector_std_string";
+const char LunaTraits< std::vector< std::string > >::fullName[] = "std::vector< std::string >";
+const char LunaTraits< std::vector< std::string > >::moduleName[] = "osg";
+const int LunaTraits< std::vector< std::string > >::hash = 95416160;
+const int LunaTraits< std::vector< std::string > >::uniqueIDs[] = {95416160,0};
+
+const char LunaTraits< std::vector< float > >::className[] = "std_vector_float";
+const char LunaTraits< std::vector< float > >::fullName[] = "std::vector< float >";
+const char LunaTraits< std::vector< float > >::moduleName[] = "sgt";
+const int LunaTraits< std::vector< float > >::hash = 77249888;
+const int LunaTraits< std::vector< float > >::uniqueIDs[] = {77249888,0};
+
 const char LunaTraits< osg::Geode >::className[] = "Geode";
 const char LunaTraits< osg::Geode >::fullName[] = "osg::Geode";
 const char LunaTraits< osg::Geode >::moduleName[] = "osg";

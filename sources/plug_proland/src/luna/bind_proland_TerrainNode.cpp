@@ -586,10 +586,10 @@ public:
 		return 1;
 	}
 
-	// SceneManager::visibility proland::TerrainNode::getVisibility(const ork::box3d & localBox) const
+	// ork::SceneManager::visibility proland::TerrainNode::getVisibility(const ork::box3d & localBox) const
 	static int _bind_getVisibility(lua_State *L) {
 		if (!_lg_typecheck_getVisibility(L)) {
-			luaL_error(L, "luna typecheck failed in SceneManager::visibility proland::TerrainNode::getVisibility(const ork::box3d & localBox) const function, expected prototype:\nSceneManager::visibility proland::TerrainNode::getVisibility(const ork::box3d & localBox) const\nClass arguments details:\narg 1 ID = 63151940\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in ork::SceneManager::visibility proland::TerrainNode::getVisibility(const ork::box3d & localBox) const function, expected prototype:\nork::SceneManager::visibility proland::TerrainNode::getVisibility(const ork::box3d & localBox) const\nClass arguments details:\narg 1 ID = 63151940\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const ork::box3d* localBox_ptr=(Luna< ork::box3d >::check(L,2));
@@ -600,13 +600,10 @@ public:
 
 		proland::TerrainNode* self=Luna< osg::Referenced >::checkSubType< proland::TerrainNode >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call SceneManager::visibility proland::TerrainNode::getVisibility(const ork::box3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call ork::SceneManager::visibility proland::TerrainNode::getVisibility(const ork::box3d &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
-		SceneManager::visibility stack_lret = self->getVisibility(localBox);
-		SceneManager::visibility* lret = new SceneManager::visibility(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< SceneManager::visibility >::push(L,lret,true);
+		ork::SceneManager::visibility lret = self->getVisibility(localBox);
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}

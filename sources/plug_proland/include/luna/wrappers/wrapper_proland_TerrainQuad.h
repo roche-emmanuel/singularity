@@ -80,9 +80,9 @@ public:
 		}
 
 
-		wrapper_proland_TerrainQuad* self=Luna< proland::TerrainQuad >::checkSubType< wrapper_proland_TerrainQuad >(L,1);
+		wrapper_proland_TerrainQuad* self=Luna< osg::Referenced >::checkSubType< wrapper_proland_TerrainQuad >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call void proland::TerrainQuad::public_subdivide(). Got : '%s'\n%s",typeid(Luna< proland::TerrainQuad >::check(L,1)).name(),luna_dumpStack(L).c_str());
+			luaL_error(L, "Invalid object in function call void proland::TerrainQuad::public_subdivide(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_subdivide();
 

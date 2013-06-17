@@ -104,13 +104,13 @@ public:
 		return Deformation::getLocalDist(localPt, localBox);
 	};
 
-	// SceneManager::visibility proland::Deformation::getVisibility(const proland::TerrainNode * t, const ork::box3d & localBox) const
-	SceneManager::visibility getVisibility(const proland::TerrainNode * t, const ork::box3d & localBox) const {
+	// ork::SceneManager::visibility proland::Deformation::getVisibility(const proland::TerrainNode * t, const ork::box3d & localBox) const
+	ork::SceneManager::visibility getVisibility(const proland::TerrainNode * t, const ork::box3d & localBox) const {
 		if(_obj.pushFunction("getVisibility")) {
 			_obj.pushArg((proland::Deformation*)this);
 			_obj.pushArg(t);
 			_obj.pushArg(&localBox);
-			return (_obj.callFunction<SceneManager::visibility>());
+			return (ork::SceneManager::visibility)(_obj.callFunction<int>());
 		}
 
 		return Deformation::getVisibility(t, localBox);

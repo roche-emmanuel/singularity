@@ -41,12 +41,12 @@ function Class:initialize(options)
 	
 	self:setupProgram(tn)
 	
+
 	-- Here we try to create the needed elements to build the terrain1 example:
 	
 	-- create the multithreadScheduler:
 	-- MultithreadScheduler(int prefetchRate = 0, int prefetchQueue = 0, float frameRate = 0.0f, int nThreads = 0)
 	local scheduler = ork.MultithreadScheduler(0,0,0,3)
-	--self._scheduler = scheduler
 	self:info("Scheduler created.")
 	
 	-- Create the gpu storage for the elevation cache:
@@ -65,15 +65,14 @@ function Class:initialize(options)
 											   proland.PixelType.PIXEL_FLOAT, 
 											   params, false)
 	self:info("Elevation GPU storage created.")
-	
+		
 	-- Create the tilecache for elevation:
 	-- TileCache(ptr<TileStorage> storage, std::string name, ptr<Scheduler> scheduler = NULL);
 	-- local elevCache = proland.TileCache(elevStorage,"groundElevations",scheduler);
 	-- Note: we need to keep a ref on this because it must not destroy the scheduler before leaving this scope!
 	-- otherwise, the scheduler variable will be a dandling pointer.
-	self._elevCache = proland.TileCache(elevStorage,"groundElevations",scheduler);
+	local elevCache = proland.TileCache(elevStorage,"groundElevations",scheduler);
 	self:info("Elevation cache created.")
-	
 	
 	-- Now Prepare the elevation producer:
 	-- 1. prepare the dem texture:
@@ -81,6 +80,22 @@ function Class:initialize(options)
 	local demTex = self:createTexture(tileWidth,proland.TextureInternalFormat.RGBA32F);
 	self:info("Created dem texture for elevation.")
 	
+	-- 2. Prepare the residual texture:
+	local residualTex = self:createTexture(tileWidth,proland.TextureInternalFormat.R32F);
+	self:info("Created residual texture for elevation.")
+	
+	-- 3. Create the upsample program:
+	local upsampleProg = self:createProgram("land_upsample");
+	self:info("Created upsample program for elevation.")
+	
+	-- 4. Create the noise vector:
+	local noiseVec = sgt.std_vector_float();
+	for _,v in ipairs{-140,-100,-15,-8,5,2.5,1.5,1,0.5,0.25,0.1,0.05} do
+		noiseVec:push_back(v)
+	end
+	self:info("Created noise vector for elevation.")
+	
+	-- 5. Create the producer itself:
 	-- <elevationProducer name="groundElevations1" cache="groundElevations" noise="-140,-100,-15,-8,5,2.5,1.5,1,0.5,0.25,0.1,0.05"/>
     -- ElevationProducer(ptr<TileCache> cache, ptr<TileProducer> residualTiles,
         -- ptr<Texture2D> demTexture, ptr<Texture2D> layerTexture, ptr<Texture2D> residualTexture,
@@ -88,12 +103,28 @@ function Class:initialize(options)
         -- std::vector<float> &noiseAmp, bool flipDiagonals = false);
 
 	
-	-- self._elevProd = proland.ElevationProducer(self._elevCache,nil,demTex,nil,residualTex,
-						-- upsample,blend,24,noiseVec,false);						
-	-- self:info("Elevation producer created.")
-	
+	local elevProd = proland.ElevationProducer(elevCache,nil,demTex,nil,residualTex,
+											   upsampleProg,nil,24,noiseVec,false);						
+	-- local elevProd = proland.ElevationProducer(elevCache,nil,nil,nil,nil,
+											   -- nil,nil,24,noiseVec,false);						
+	self:info("Elevation producer created.")
 	
 	self:home()
+end
+
+-- create an ork module from a file:
+function Class:createModule(shader,version)
+	local file = fs:getShaderPath(shader)..".glsl"
+	local f = io.open(file,"r")
+	local src = f:read("*a")
+	f:close()
+	version = version or 330
+	
+	return ork.Module(version,src)
+end
+
+function Class:createProgram(shader,version)
+	return ork.Program(self:createModule(shader,version))
 end
 
 function Class:createTexture(size,internalFormat)
