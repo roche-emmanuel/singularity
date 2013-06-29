@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(sgt::ModuleManager*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(sgt::ModuleManager*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::ModuleManager* rhs =(Luna< sgt::ModuleManager >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::ModuleManager* self= (sgt::ModuleManager*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< sgt::ModuleManager >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -130,8 +126,7 @@ public:
 	// static sgt::ModuleProvider & sgt::ModuleManager::instance()
 	static int _bind_instance(lua_State *L) {
 		if (!_lg_typecheck_instance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static sgt::ModuleProvider & sgt::ModuleManager::instance() function, expected prototype:\nstatic sgt::ModuleProvider & sgt::ModuleManager::instance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static sgt::ModuleProvider & sgt::ModuleManager::instance() function, expected prototype:\nstatic sgt::ModuleProvider & sgt::ModuleManager::instance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -146,8 +141,7 @@ public:
 	// static void sgt::ModuleManager::destroy()
 	static int _bind_destroy(lua_State *L) {
 		if (!_lg_typecheck_destroy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void sgt::ModuleManager::destroy() function, expected prototype:\nstatic void sgt::ModuleManager::destroy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void sgt::ModuleManager::destroy() function, expected prototype:\nstatic void sgt::ModuleManager::destroy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -159,8 +153,7 @@ public:
 	// static bool sgt::ModuleManager::isInstanciated()
 	static int _bind_isInstanciated(lua_State *L) {
 		if (!_lg_typecheck_isInstanciated(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool sgt::ModuleManager::isInstanciated() function, expected prototype:\nstatic bool sgt::ModuleManager::isInstanciated()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool sgt::ModuleManager::isInstanciated() function, expected prototype:\nstatic bool sgt::ModuleManager::isInstanciated()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 

@@ -5,6 +5,17 @@
 
 using namespace sgt;
 
+std::string getLuaID(lua_Any* dum, lua_State* L) {
+	const void *ptr = lua_topointer (L, 1);
+	if(!ptr)
+		return "";
+		
+	// Convert the pointer to a string:
+	std::ostringstream os;
+	os << (const void*)ptr;
+	return os.str();
+}
+
 sgt::Any luaToAny(lua_State* L, int index) {
 	int ltype = lua_type(L,index);
 

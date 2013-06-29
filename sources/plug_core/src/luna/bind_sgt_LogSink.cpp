@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::LogSink* self= (sgt::LogSink*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -178,8 +175,7 @@ public:
 	// sgt::LogSink::LogSink(lua_Table * data, const std::string & name = "")
 	static sgt::LogSink* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::LogSink::LogSink(lua_Table * data, const std::string & name = \"\") function, expected prototype:\nsgt::LogSink::LogSink(lua_Table * data, const std::string & name = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::LogSink::LogSink(lua_Table * data, const std::string & name = \"\") function, expected prototype:\nsgt::LogSink::LogSink(lua_Table * data, const std::string & name = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -194,16 +190,14 @@ public:
 	// void sgt::LogSink::setEnabled(bool enabled)
 	static int _bind_setEnabled(lua_State *L) {
 		if (!_lg_typecheck_setEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::LogSink::setEnabled(bool enabled) function, expected prototype:\nvoid sgt::LogSink::setEnabled(bool enabled)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::LogSink::setEnabled(bool enabled) function, expected prototype:\nvoid sgt::LogSink::setEnabled(bool enabled)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enabled=(bool)(lua_toboolean(L,2)==1);
 
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::setEnabled(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::setEnabled(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setEnabled(enabled);
 
@@ -213,8 +207,7 @@ public:
 	// void sgt::LogSink::output(int level, std::string trace, std::string msg)
 	static int _bind_output(lua_State *L) {
 		if (!_lg_typecheck_output(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::LogSink::output(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::LogSink::output(int level, std::string trace, std::string msg)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::LogSink::output(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::LogSink::output(int level, std::string trace, std::string msg)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int level=(int)lua_tointeger(L,2);
@@ -223,8 +216,7 @@ public:
 
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::output(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::output(int, std::string, std::string). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->output(level, trace, msg);
 
@@ -234,8 +226,7 @@ public:
 	// void sgt::LogSink::setLevelRange(int mini, int maxi)
 	static int _bind_setLevelRange(lua_State *L) {
 		if (!_lg_typecheck_setLevelRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::LogSink::setLevelRange(int mini, int maxi) function, expected prototype:\nvoid sgt::LogSink::setLevelRange(int mini, int maxi)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::LogSink::setLevelRange(int mini, int maxi) function, expected prototype:\nvoid sgt::LogSink::setLevelRange(int mini, int maxi)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int mini=(int)lua_tointeger(L,2);
@@ -243,8 +234,7 @@ public:
 
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::setLevelRange(int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::setLevelRange(int, int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLevelRange(mini, maxi);
 
@@ -254,16 +244,14 @@ public:
 	// void sgt::LogSink::addTrace(std::string trace)
 	static int _bind_addTrace(lua_State *L) {
 		if (!_lg_typecheck_addTrace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::LogSink::addTrace(std::string trace) function, expected prototype:\nvoid sgt::LogSink::addTrace(std::string trace)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::LogSink::addTrace(std::string trace) function, expected prototype:\nvoid sgt::LogSink::addTrace(std::string trace)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string trace(lua_tostring(L,2),lua_objlen(L,2));
 
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::addTrace(std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::addTrace(std::string). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addTrace(trace);
 
@@ -273,16 +261,14 @@ public:
 	// void sgt::LogSink::removeTrace(std::string trace)
 	static int _bind_removeTrace(lua_State *L) {
 		if (!_lg_typecheck_removeTrace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::LogSink::removeTrace(std::string trace) function, expected prototype:\nvoid sgt::LogSink::removeTrace(std::string trace)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::LogSink::removeTrace(std::string trace) function, expected prototype:\nvoid sgt::LogSink::removeTrace(std::string trace)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string trace(lua_tostring(L,2),lua_objlen(L,2));
 
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::removeTrace(std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::removeTrace(std::string). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removeTrace(trace);
 
@@ -292,16 +278,14 @@ public:
 	// void sgt::LogSink::setLogTraceList(bool enabled)
 	static int _bind_setLogTraceList(lua_State *L) {
 		if (!_lg_typecheck_setLogTraceList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::LogSink::setLogTraceList(bool enabled) function, expected prototype:\nvoid sgt::LogSink::setLogTraceList(bool enabled)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::LogSink::setLogTraceList(bool enabled) function, expected prototype:\nvoid sgt::LogSink::setLogTraceList(bool enabled)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enabled=(bool)(lua_toboolean(L,2)==1);
 
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::setLogTraceList(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::setLogTraceList(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLogTraceList(enabled);
 
@@ -311,8 +295,7 @@ public:
 	// void sgt::LogSink::process(int level, std::string trace, std::string msg)
 	static int _bind_process(lua_State *L) {
 		if (!_lg_typecheck_process(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::LogSink::process(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::LogSink::process(int level, std::string trace, std::string msg)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::LogSink::process(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::LogSink::process(int level, std::string trace, std::string msg)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int level=(int)lua_tointeger(L,2);
@@ -321,8 +304,7 @@ public:
 
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::process(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::process(int, std::string, std::string). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->process(level, trace, msg);
 
@@ -332,16 +314,14 @@ public:
 	// void sgt::LogSink::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::LogSink::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid sgt::LogSink::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::LogSink::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid sgt::LogSink::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LogSink::setThreadSafeRefUnref(threadSafe);
 
@@ -351,8 +331,7 @@ public:
 	// void sgt::LogSink::base_process(int level, std::string trace, std::string msg)
 	static int _bind_base_process(lua_State *L) {
 		if (!_lg_typecheck_base_process(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::LogSink::base_process(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::LogSink::base_process(int level, std::string trace, std::string msg)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::LogSink::base_process(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::LogSink::base_process(int level, std::string trace, std::string msg)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int level=(int)lua_tointeger(L,2);
@@ -361,8 +340,7 @@ public:
 
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::base_process(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::base_process(int, std::string, std::string). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LogSink::process(level, trace, msg);
 

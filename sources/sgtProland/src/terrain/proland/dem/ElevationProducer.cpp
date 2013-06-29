@@ -138,6 +138,7 @@ static_ptr< Factory< int, ptr<Texture2DArray> > > demNoiseFactory(new Factory< i
 
 ptr<FrameBuffer> createDemFramebuffer(pair< ptr<Texture2D> , ptr<Texture2D> > textures)
 {
+	THROW_IF(FrameBuffer::getError()!=0,"Error before createDemFramebuffer.")
     int tileWidth = textures.first->getWidth();
     ptr<FrameBuffer> frameBuffer(new FrameBuffer());
 	THROW_IF(FrameBuffer::getError()!=0,"Checkpointm1")
@@ -183,8 +184,10 @@ void ElevationProducer::init(ptr<TileCache> cache, ptr<TileProducer> residualTil
     vector<float> &noiseAmp, bool flipDiagonals)
 {
     int tileWidth = cache->getStorage()->getTileSize();
-    TileProducer::init(cache, true);
+    THROW_IF(FrameBuffer::getError()!=0,"Error in Elevation producer init().");
+	TileProducer::init(cache, true);
     this->frameBuffer = demFramebufferFactory->get(make_pair(demTexture, layerTexture));
+	THROW_IF(FrameBuffer::getError()!=0,"Error after demFramebufferFactory->get().");
     this->residualTiles = residualTiles;
     this->demTexture = demTexture;
     this->layerTexture = layerTexture;

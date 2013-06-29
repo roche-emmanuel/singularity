@@ -38,6 +38,12 @@ inline static bool _lg_typecheck_doTraceV(lua_State *L) {
 	return true;
 }
 
+inline static bool _lg_typecheck_getLuaID(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	return true;
+}
+
 inline static bool _lg_typecheck_setEnv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
@@ -64,8 +70,7 @@ inline static bool _lg_typecheck_toLightUserdata(lua_State *L) {
 // void doLog(int level, const std::string & msg)
 static int _bind_doLog(lua_State *L) {
 	if (!_lg_typecheck_doLog(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void doLog(int level, const std::string & msg) function, expected prototype:\nvoid doLog(int level, const std::string & msg)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void doLog(int level, const std::string & msg) function, expected prototype:\nvoid doLog(int level, const std::string & msg)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int level=(int)lua_tointeger(L,1);
@@ -79,8 +84,7 @@ static int _bind_doLog(lua_State *L) {
 // void doLogV(int level, const std::string & msg)
 static int _bind_doLogV(lua_State *L) {
 	if (!_lg_typecheck_doLogV(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void doLogV(int level, const std::string & msg) function, expected prototype:\nvoid doLogV(int level, const std::string & msg)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void doLogV(int level, const std::string & msg) function, expected prototype:\nvoid doLogV(int level, const std::string & msg)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int level=(int)lua_tointeger(L,1);
@@ -94,8 +98,7 @@ static int _bind_doLogV(lua_State *L) {
 // void doTrace(int level, const std::string & trace, const std::string & msg)
 static int _bind_doTrace(lua_State *L) {
 	if (!_lg_typecheck_doTrace(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void doTrace(int level, const std::string & trace, const std::string & msg) function, expected prototype:\nvoid doTrace(int level, const std::string & trace, const std::string & msg)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void doTrace(int level, const std::string & trace, const std::string & msg) function, expected prototype:\nvoid doTrace(int level, const std::string & trace, const std::string & msg)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int level=(int)lua_tointeger(L,1);
@@ -110,8 +113,7 @@ static int _bind_doTrace(lua_State *L) {
 // void doTraceV(int level, const std::string & trace, const std::string & msg)
 static int _bind_doTraceV(lua_State *L) {
 	if (!_lg_typecheck_doTraceV(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void doTraceV(int level, const std::string & trace, const std::string & msg) function, expected prototype:\nvoid doTraceV(int level, const std::string & trace, const std::string & msg)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void doTraceV(int level, const std::string & trace, const std::string & msg) function, expected prototype:\nvoid doTraceV(int level, const std::string & trace, const std::string & msg)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int level=(int)lua_tointeger(L,1);
@@ -123,11 +125,23 @@ static int _bind_doTraceV(lua_State *L) {
 	return 0;
 }
 
+// std::string getLuaID(lua_Any * dum, lua_State * L)
+static int _bind_getLuaID(lua_State *L) {
+	if (!_lg_typecheck_getLuaID(L)) {
+		luaL_error(L, "luna typecheck failed in std::string getLuaID(lua_Any * dum, lua_State * L) function, expected prototype:\nstd::string getLuaID(lua_Any * dum, lua_State * L)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+	}
+
+
+	std::string lret = ::getLuaID(NULL, L);
+	lua_pushlstring(L,lret.data(),lret.size());
+
+	return 1;
+}
+
 // void setEnv(const std::string & var, const std::string & value)
 static int _bind_setEnv(lua_State *L) {
 	if (!_lg_typecheck_setEnv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void setEnv(const std::string & var, const std::string & value) function, expected prototype:\nvoid setEnv(const std::string & var, const std::string & value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void setEnv(const std::string & var, const std::string & value) function, expected prototype:\nvoid setEnv(const std::string & var, const std::string & value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string var(lua_tostring(L,1),lua_objlen(L,1));
@@ -141,8 +155,7 @@ static int _bind_setEnv(lua_State *L) {
 // void * fromLightUserdata(lua_Any * dum, lua_State * L)
 static int _bind_fromLightUserdata(lua_State *L) {
 	if (!_lg_typecheck_fromLightUserdata(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void * fromLightUserdata(lua_Any * dum, lua_State * L) function, expected prototype:\nvoid * fromLightUserdata(lua_Any * dum, lua_State * L)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void * fromLightUserdata(lua_Any * dum, lua_State * L) function, expected prototype:\nvoid * fromLightUserdata(lua_Any * dum, lua_State * L)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -157,8 +170,7 @@ static int _bind_fromLightUserdata(lua_State *L) {
 // int toLightUserdata(void * obj, lua_State * L)
 static int _bind_toLightUserdata(lua_State *L) {
 	if (!_lg_typecheck_toLightUserdata(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int toLightUserdata(void * obj, lua_State * L) function, expected prototype:\nint toLightUserdata(void * obj, lua_State * L)\nClass arguments details:\narg 1 ID = 3625364\n");
+		luaL_error(L, "luna typecheck failed in int toLightUserdata(void * obj, lua_State * L) function, expected prototype:\nint toLightUserdata(void * obj, lua_State * L)\nClass arguments details:\narg 1 ID = 3625364\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	void* obj=(Luna< void >::check(L,1));
@@ -215,8 +227,7 @@ inline static bool _lg_typecheck_date_to_iso_extended_string(lua_State *L) {
 // std::string boost::gregorian::to_simple_string(boost::gregorian::date_period & dp)
 static int _bind_date_period_to_simple_string(lua_State *L) {
 	if (!_lg_typecheck_date_period_to_simple_string(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string boost::gregorian::to_simple_string(boost::gregorian::date_period & dp) function, expected prototype:\nstd::string boost::gregorian::to_simple_string(boost::gregorian::date_period & dp)\nClass arguments details:\narg 1 ID = 8854841\n");
+		luaL_error(L, "luna typecheck failed in std::string boost::gregorian::to_simple_string(boost::gregorian::date_period & dp) function, expected prototype:\nstd::string boost::gregorian::to_simple_string(boost::gregorian::date_period & dp)\nClass arguments details:\narg 1 ID = 8854841\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	boost::gregorian::date_period* dp_ptr=(Luna< boost::gregorian::date_period >::check(L,1));
@@ -234,8 +245,7 @@ static int _bind_date_period_to_simple_string(lua_State *L) {
 // boost::gregorian::date boost::gregorian::from_string(std::string arg1)
 static int _bind_from_string(lua_State *L) {
 	if (!_lg_typecheck_from_string(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::gregorian::from_string(std::string arg1) function, expected prototype:\nboost::gregorian::date boost::gregorian::from_string(std::string arg1)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::gregorian::from_string(std::string arg1) function, expected prototype:\nboost::gregorian::date boost::gregorian::from_string(std::string arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string _arg1(lua_tostring(L,1),lua_objlen(L,1));
@@ -252,8 +262,7 @@ static int _bind_from_string(lua_State *L) {
 // boost::gregorian::date boost::gregorian::from_undelimited_string(std::string arg1)
 static int _bind_from_undelimited_string(lua_State *L) {
 	if (!_lg_typecheck_from_undelimited_string(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::gregorian::from_undelimited_string(std::string arg1) function, expected prototype:\nboost::gregorian::date boost::gregorian::from_undelimited_string(std::string arg1)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::gregorian::from_undelimited_string(std::string arg1) function, expected prototype:\nboost::gregorian::date boost::gregorian::from_undelimited_string(std::string arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string _arg1(lua_tostring(L,1),lua_objlen(L,1));
@@ -270,8 +279,7 @@ static int _bind_from_undelimited_string(lua_State *L) {
 // std::string boost::gregorian::to_simple_string(boost::gregorian::date & d)
 static int _bind_date_to_simple_string(lua_State *L) {
 	if (!_lg_typecheck_date_to_simple_string(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string boost::gregorian::to_simple_string(boost::gregorian::date & d) function, expected prototype:\nstd::string boost::gregorian::to_simple_string(boost::gregorian::date & d)\nClass arguments details:\narg 1 ID = 50186404\n");
+		luaL_error(L, "luna typecheck failed in std::string boost::gregorian::to_simple_string(boost::gregorian::date & d) function, expected prototype:\nstd::string boost::gregorian::to_simple_string(boost::gregorian::date & d)\nClass arguments details:\narg 1 ID = 50186404\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	boost::gregorian::date* d_ptr=(Luna< boost::gregorian::date >::check(L,1));
@@ -289,8 +297,7 @@ static int _bind_date_to_simple_string(lua_State *L) {
 // std::string boost::gregorian::to_iso_string(boost::gregorian::date & d)
 static int _bind_date_to_iso_string(lua_State *L) {
 	if (!_lg_typecheck_date_to_iso_string(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string boost::gregorian::to_iso_string(boost::gregorian::date & d) function, expected prototype:\nstd::string boost::gregorian::to_iso_string(boost::gregorian::date & d)\nClass arguments details:\narg 1 ID = 50186404\n");
+		luaL_error(L, "luna typecheck failed in std::string boost::gregorian::to_iso_string(boost::gregorian::date & d) function, expected prototype:\nstd::string boost::gregorian::to_iso_string(boost::gregorian::date & d)\nClass arguments details:\narg 1 ID = 50186404\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	boost::gregorian::date* d_ptr=(Luna< boost::gregorian::date >::check(L,1));
@@ -308,8 +315,7 @@ static int _bind_date_to_iso_string(lua_State *L) {
 // std::string boost::gregorian::to_iso_extended_string(boost::gregorian::date & d)
 static int _bind_date_to_iso_extended_string(lua_State *L) {
 	if (!_lg_typecheck_date_to_iso_extended_string(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string boost::gregorian::to_iso_extended_string(boost::gregorian::date & d) function, expected prototype:\nstd::string boost::gregorian::to_iso_extended_string(boost::gregorian::date & d)\nClass arguments details:\narg 1 ID = 50186404\n");
+		luaL_error(L, "luna typecheck failed in std::string boost::gregorian::to_iso_extended_string(boost::gregorian::date & d) function, expected prototype:\nstd::string boost::gregorian::to_iso_extended_string(boost::gregorian::date & d)\nClass arguments details:\narg 1 ID = 50186404\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	boost::gregorian::date* d_ptr=(Luna< boost::gregorian::date >::check(L,1));
@@ -343,8 +349,7 @@ inline static bool _lg_typecheck_universal_day(lua_State *L) {
 // boost::gregorian::date boost::gregorian::day_clock::local_day()
 static int _bind_local_day(lua_State *L) {
 	if (!_lg_typecheck_local_day(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::gregorian::day_clock::local_day() function, expected prototype:\nboost::gregorian::date boost::gregorian::day_clock::local_day()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::gregorian::day_clock::local_day() function, expected prototype:\nboost::gregorian::date boost::gregorian::day_clock::local_day()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -360,8 +365,7 @@ static int _bind_local_day(lua_State *L) {
 // boost::gregorian::date boost::gregorian::day_clock::universal_day()
 static int _bind_universal_day(lua_State *L) {
 	if (!_lg_typecheck_universal_day(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::gregorian::day_clock::universal_day() function, expected prototype:\nboost::gregorian::date boost::gregorian::day_clock::universal_day()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::gregorian::day_clock::universal_day() function, expected prototype:\nboost::gregorian::date boost::gregorian::day_clock::universal_day()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -449,8 +453,7 @@ inline static bool _lg_typecheck_to_iso_extended_string(lua_State *L) {
 // boost::posix_time::time_duration boost::posix_time::duration_from_string(std::string arg1)
 static int _bind_duration_from_string(lua_State *L) {
 	if (!_lg_typecheck_duration_from_string(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in boost::posix_time::time_duration boost::posix_time::duration_from_string(std::string arg1) function, expected prototype:\nboost::posix_time::time_duration boost::posix_time::duration_from_string(std::string arg1)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in boost::posix_time::time_duration boost::posix_time::duration_from_string(std::string arg1) function, expected prototype:\nboost::posix_time::time_duration boost::posix_time::duration_from_string(std::string arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string _arg1(lua_tostring(L,1),lua_objlen(L,1));
@@ -467,8 +470,7 @@ static int _bind_duration_from_string(lua_State *L) {
 // std::string boost::posix_time::to_simple_string(boost::posix_time::time_duration & arg1)
 static int _bind_to_simple_string_overload_1(lua_State *L) {
 	if (!_lg_typecheck_to_simple_string_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string boost::posix_time::to_simple_string(boost::posix_time::time_duration & arg1) function, expected prototype:\nstd::string boost::posix_time::to_simple_string(boost::posix_time::time_duration & arg1)\nClass arguments details:\narg 1 ID = 3585892\n");
+		luaL_error(L, "luna typecheck failed in std::string boost::posix_time::to_simple_string(boost::posix_time::time_duration & arg1) function, expected prototype:\nstd::string boost::posix_time::to_simple_string(boost::posix_time::time_duration & arg1)\nClass arguments details:\narg 1 ID = 3585892\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	boost::posix_time::time_duration* _arg1_ptr=(Luna< boost::posix_time::time_duration >::check(L,1));
@@ -486,8 +488,7 @@ static int _bind_to_simple_string_overload_1(lua_State *L) {
 // std::string boost::posix_time::to_simple_string(boost::posix_time::ptime & arg1)
 static int _bind_to_simple_string_overload_2(lua_State *L) {
 	if (!_lg_typecheck_to_simple_string_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string boost::posix_time::to_simple_string(boost::posix_time::ptime & arg1) function, expected prototype:\nstd::string boost::posix_time::to_simple_string(boost::posix_time::ptime & arg1)\nClass arguments details:\narg 1 ID = 16567808\n");
+		luaL_error(L, "luna typecheck failed in std::string boost::posix_time::to_simple_string(boost::posix_time::ptime & arg1) function, expected prototype:\nstd::string boost::posix_time::to_simple_string(boost::posix_time::ptime & arg1)\nClass arguments details:\narg 1 ID = 16567808\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	boost::posix_time::ptime* _arg1_ptr=(Luna< boost::posix_time::ptime >::check(L,1));
@@ -505,8 +506,7 @@ static int _bind_to_simple_string_overload_2(lua_State *L) {
 // std::string boost::posix_time::to_simple_string(boost::posix_time::time_period & dp)
 static int _bind_to_simple_string_overload_3(lua_State *L) {
 	if (!_lg_typecheck_to_simple_string_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string boost::posix_time::to_simple_string(boost::posix_time::time_period & dp) function, expected prototype:\nstd::string boost::posix_time::to_simple_string(boost::posix_time::time_period & dp)\nClass arguments details:\narg 1 ID = 2249806\n");
+		luaL_error(L, "luna typecheck failed in std::string boost::posix_time::to_simple_string(boost::posix_time::time_period & dp) function, expected prototype:\nstd::string boost::posix_time::to_simple_string(boost::posix_time::time_period & dp)\nClass arguments details:\narg 1 ID = 2249806\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	boost::posix_time::time_period* dp_ptr=(Luna< boost::posix_time::time_period >::check(L,1));
@@ -534,8 +534,7 @@ static int _bind_to_simple_string(lua_State *L) {
 // std::string boost::posix_time::to_iso_string(boost::posix_time::time_duration arg1)
 static int _bind_to_iso_string_overload_1(lua_State *L) {
 	if (!_lg_typecheck_to_iso_string_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string boost::posix_time::to_iso_string(boost::posix_time::time_duration arg1) function, expected prototype:\nstd::string boost::posix_time::to_iso_string(boost::posix_time::time_duration arg1)\nClass arguments details:\narg 1 ID = 3585892\n");
+		luaL_error(L, "luna typecheck failed in std::string boost::posix_time::to_iso_string(boost::posix_time::time_duration arg1) function, expected prototype:\nstd::string boost::posix_time::to_iso_string(boost::posix_time::time_duration arg1)\nClass arguments details:\narg 1 ID = 3585892\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	boost::posix_time::time_duration* _arg1_ptr=(Luna< boost::posix_time::time_duration >::check(L,1));
@@ -553,8 +552,7 @@ static int _bind_to_iso_string_overload_1(lua_State *L) {
 // std::string boost::posix_time::to_iso_string(boost::posix_time::ptime & arg1)
 static int _bind_to_iso_string_overload_2(lua_State *L) {
 	if (!_lg_typecheck_to_iso_string_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string boost::posix_time::to_iso_string(boost::posix_time::ptime & arg1) function, expected prototype:\nstd::string boost::posix_time::to_iso_string(boost::posix_time::ptime & arg1)\nClass arguments details:\narg 1 ID = 16567808\n");
+		luaL_error(L, "luna typecheck failed in std::string boost::posix_time::to_iso_string(boost::posix_time::ptime & arg1) function, expected prototype:\nstd::string boost::posix_time::to_iso_string(boost::posix_time::ptime & arg1)\nClass arguments details:\narg 1 ID = 16567808\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	boost::posix_time::ptime* _arg1_ptr=(Luna< boost::posix_time::ptime >::check(L,1));
@@ -581,8 +579,7 @@ static int _bind_to_iso_string(lua_State *L) {
 // boost::posix_time::ptime boost::posix_time::time_from_string(std::string arg1)
 static int _bind_time_from_string(lua_State *L) {
 	if (!_lg_typecheck_time_from_string(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::time_from_string(std::string arg1) function, expected prototype:\nboost::posix_time::ptime boost::posix_time::time_from_string(std::string arg1)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::time_from_string(std::string arg1) function, expected prototype:\nboost::posix_time::ptime boost::posix_time::time_from_string(std::string arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string _arg1(lua_tostring(L,1),lua_objlen(L,1));
@@ -599,8 +596,7 @@ static int _bind_time_from_string(lua_State *L) {
 // boost::posix_time::ptime boost::posix_time::from_iso_string(std::string arg1)
 static int _bind_from_iso_string(lua_State *L) {
 	if (!_lg_typecheck_from_iso_string(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::from_iso_string(std::string arg1) function, expected prototype:\nboost::posix_time::ptime boost::posix_time::from_iso_string(std::string arg1)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::from_iso_string(std::string arg1) function, expected prototype:\nboost::posix_time::ptime boost::posix_time::from_iso_string(std::string arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string _arg1(lua_tostring(L,1),lua_objlen(L,1));
@@ -617,8 +613,7 @@ static int _bind_from_iso_string(lua_State *L) {
 // std::string boost::posix_time::to_iso_extended_string(boost::posix_time::ptime & arg1)
 static int _bind_to_iso_extended_string(lua_State *L) {
 	if (!_lg_typecheck_to_iso_extended_string(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string boost::posix_time::to_iso_extended_string(boost::posix_time::ptime & arg1) function, expected prototype:\nstd::string boost::posix_time::to_iso_extended_string(boost::posix_time::ptime & arg1)\nClass arguments details:\narg 1 ID = 16567808\n");
+		luaL_error(L, "luna typecheck failed in std::string boost::posix_time::to_iso_extended_string(boost::posix_time::ptime & arg1) function, expected prototype:\nstd::string boost::posix_time::to_iso_extended_string(boost::posix_time::ptime & arg1)\nClass arguments details:\narg 1 ID = 16567808\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	boost::posix_time::ptime* _arg1_ptr=(Luna< boost::posix_time::ptime >::check(L,1));
@@ -652,8 +647,7 @@ inline static bool _lg_typecheck_microsec_universal_time(lua_State *L) {
 // boost::posix_time::ptime boost::posix_time::microsec_clock::local_time()
 static int _bind_microsec_local_time(lua_State *L) {
 	if (!_lg_typecheck_microsec_local_time(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::microsec_clock::local_time() function, expected prototype:\nboost::posix_time::ptime boost::posix_time::microsec_clock::local_time()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::microsec_clock::local_time() function, expected prototype:\nboost::posix_time::ptime boost::posix_time::microsec_clock::local_time()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -669,8 +663,7 @@ static int _bind_microsec_local_time(lua_State *L) {
 // boost::posix_time::ptime boost::posix_time::microsec_clock::universal_time()
 static int _bind_microsec_universal_time(lua_State *L) {
 	if (!_lg_typecheck_microsec_universal_time(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::microsec_clock::universal_time() function, expected prototype:\nboost::posix_time::ptime boost::posix_time::microsec_clock::universal_time()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::microsec_clock::universal_time() function, expected prototype:\nboost::posix_time::ptime boost::posix_time::microsec_clock::universal_time()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -702,8 +695,7 @@ inline static bool _lg_typecheck_second_universal_time(lua_State *L) {
 // boost::posix_time::ptime boost::posix_time::second_clock::local_time()
 static int _bind_second_local_time(lua_State *L) {
 	if (!_lg_typecheck_second_local_time(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::second_clock::local_time() function, expected prototype:\nboost::posix_time::ptime boost::posix_time::second_clock::local_time()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::second_clock::local_time() function, expected prototype:\nboost::posix_time::ptime boost::posix_time::second_clock::local_time()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -719,8 +711,7 @@ static int _bind_second_local_time(lua_State *L) {
 // boost::posix_time::ptime boost::posix_time::second_clock::universal_time()
 static int _bind_second_universal_time(lua_State *L) {
 	if (!_lg_typecheck_second_universal_time(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::second_clock::universal_time() function, expected prototype:\nboost::posix_time::ptime boost::posix_time::second_clock::universal_time()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::second_clock::universal_time() function, expected prototype:\nboost::posix_time::ptime boost::posix_time::second_clock::universal_time()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -754,8 +745,7 @@ inline static bool _lg_typecheck_intrusive_ptr_release(lua_State *L) {
 // void osg::intrusive_ptr_add_ref(osg::Referenced * p)
 static int _bind_intrusive_ptr_add_ref(lua_State *L) {
 	if (!_lg_typecheck_intrusive_ptr_add_ref(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::intrusive_ptr_add_ref(osg::Referenced * p) function, expected prototype:\nvoid osg::intrusive_ptr_add_ref(osg::Referenced * p)\nClass arguments details:\narg 1 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in void osg::intrusive_ptr_add_ref(osg::Referenced * p) function, expected prototype:\nvoid osg::intrusive_ptr_add_ref(osg::Referenced * p)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osg::Referenced* p=(Luna< osg::Referenced >::check(L,1));
@@ -768,8 +758,7 @@ static int _bind_intrusive_ptr_add_ref(lua_State *L) {
 // void osg::intrusive_ptr_release(osg::Referenced * p)
 static int _bind_intrusive_ptr_release(lua_State *L) {
 	if (!_lg_typecheck_intrusive_ptr_release(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void osg::intrusive_ptr_release(osg::Referenced * p) function, expected prototype:\nvoid osg::intrusive_ptr_release(osg::Referenced * p)\nClass arguments details:\narg 1 ID = 50169651\n");
+		luaL_error(L, "luna typecheck failed in void osg::intrusive_ptr_release(osg::Referenced * p) function, expected prototype:\nvoid osg::intrusive_ptr_release(osg::Referenced * p)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	osg::Referenced* p=(Luna< osg::Referenced >::check(L,1));
@@ -779,6 +768,10 @@ static int _bind_intrusive_ptr_release(lua_State *L) {
 	return 0;
 }
 
+
+// Function checkers:
+
+// Function binds:
 
 #ifdef __cplusplus
 extern "C" {
@@ -790,6 +783,7 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_doLogV); lua_setfield(L,-2,"doLogV");
 	lua_pushcfunction(L, _bind_doTrace); lua_setfield(L,-2,"doTrace");
 	lua_pushcfunction(L, _bind_doTraceV); lua_setfield(L,-2,"doTraceV");
+	lua_pushcfunction(L, _bind_getLuaID); lua_setfield(L,-2,"getLuaID");
 	lua_pushcfunction(L, _bind_setEnv); lua_setfield(L,-2,"setEnv");
 	lua_pushcfunction(L, _bind_fromLightUserdata); lua_setfield(L,-2,"fromLightUserdata");
 	lua_pushcfunction(L, _bind_toLightUserdata); lua_setfield(L,-2,"toLightUserdata");

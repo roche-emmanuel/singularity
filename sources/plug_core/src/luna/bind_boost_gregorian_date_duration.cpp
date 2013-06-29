@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date_duration* self= (boost::gregorian::date_duration*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< boost::gregorian::date_duration >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -79,7 +76,7 @@ public:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( lua_isnumber(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -119,11 +116,10 @@ public:
 	// boost::gregorian::date_duration::date_duration(long arg1)
 	static boost::gregorian::date_duration* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::gregorian::date_duration::date_duration(long arg1) function, expected prototype:\nboost::gregorian::date_duration::date_duration(long arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in boost::gregorian::date_duration::date_duration(long arg1) function, expected prototype:\nboost::gregorian::date_duration::date_duration(long arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long _arg1=(long)lua_tointeger(L,1);
+		long _arg1=(long)lua_tonumber(L,1);
 
 		return new boost::gregorian::date_duration(_arg1);
 	}
@@ -133,15 +129,13 @@ public:
 	// long boost::gregorian::date_duration::days() const
 	static int _bind_days(lua_State *L) {
 		if (!_lg_typecheck_days(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long boost::gregorian::date_duration::days() const function, expected prototype:\nlong boost::gregorian::date_duration::days() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long boost::gregorian::date_duration::days() const function, expected prototype:\nlong boost::gregorian::date_duration::days() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		boost::gregorian::date_duration* self=(Luna< boost::gregorian::date_duration >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long boost::gregorian::date_duration::days() const. Got : '%s'",typeid(Luna< boost::gregorian::date_duration >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long boost::gregorian::date_duration::days() const. Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_duration >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->days();
 		lua_pushnumber(L,lret);
@@ -152,15 +146,13 @@ public:
 	// bool boost::gregorian::date_duration::is_negative() const
 	static int _bind_is_negative(lua_State *L) {
 		if (!_lg_typecheck_is_negative(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_duration::is_negative() const function, expected prototype:\nbool boost::gregorian::date_duration::is_negative() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_duration::is_negative() const function, expected prototype:\nbool boost::gregorian::date_duration::is_negative() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		boost::gregorian::date_duration* self=(Luna< boost::gregorian::date_duration >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_duration::is_negative() const. Got : '%s'",typeid(Luna< boost::gregorian::date_duration >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_duration::is_negative() const. Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_duration >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_negative();
 		lua_pushboolean(L,lret?1:0);
@@ -173,8 +165,7 @@ public:
 	// bool boost::gregorian::date_duration::operator==(const boost::gregorian::date_duration & rhs)
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_duration::operator==(const boost::gregorian::date_duration & rhs) function, expected prototype:\nbool boost::gregorian::date_duration::operator==(const boost::gregorian::date_duration & rhs)\nClass arguments details:\narg 1 ID = 51049289\n");
+			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_duration::operator==(const boost::gregorian::date_duration & rhs) function, expected prototype:\nbool boost::gregorian::date_duration::operator==(const boost::gregorian::date_duration & rhs)\nClass arguments details:\narg 1 ID = 51049289\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const boost::gregorian::date_duration* rhs_ptr=(Luna< boost::gregorian::date_duration >::check(L,2));
@@ -185,8 +176,7 @@ public:
 
 		boost::gregorian::date_duration* self=(Luna< boost::gregorian::date_duration >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_duration::operator==(const boost::gregorian::date_duration &). Got : '%s'",typeid(Luna< boost::gregorian::date_duration >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_duration::operator==(const boost::gregorian::date_duration &). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_duration >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -197,8 +187,7 @@ public:
 	// bool boost::gregorian::date_duration::operator<(const boost::gregorian::date_duration & rhs)
 	static int _bind___lt(lua_State *L) {
 		if (!_lg_typecheck___lt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_duration::operator<(const boost::gregorian::date_duration & rhs) function, expected prototype:\nbool boost::gregorian::date_duration::operator<(const boost::gregorian::date_duration & rhs)\nClass arguments details:\narg 1 ID = 51049289\n");
+			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_duration::operator<(const boost::gregorian::date_duration & rhs) function, expected prototype:\nbool boost::gregorian::date_duration::operator<(const boost::gregorian::date_duration & rhs)\nClass arguments details:\narg 1 ID = 51049289\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const boost::gregorian::date_duration* rhs_ptr=(Luna< boost::gregorian::date_duration >::check(L,2));
@@ -209,8 +198,7 @@ public:
 
 		boost::gregorian::date_duration* self=(Luna< boost::gregorian::date_duration >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_duration::operator<(const boost::gregorian::date_duration &). Got : '%s'",typeid(Luna< boost::gregorian::date_duration >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_duration::operator<(const boost::gregorian::date_duration &). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_duration >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);

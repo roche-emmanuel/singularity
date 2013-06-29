@@ -1,3 +1,8 @@
+--[[
+Class: base.Object
+
+This is the absolute base object.
+]]
 local className = "base.Object"
 
 local oo = require "loop.cached"
@@ -14,7 +19,7 @@ require("logger"):debug0_v("Generating class ",className)
 local Object = oo.class{}
 Object.CLASS_NAME = className
 
---- Additional data to support i18n:
+-- Additional data to support i18n:
 Object.i18n = require "i18n"
 
 function Object:__init(options,instance)

@@ -55,6 +55,7 @@
 - Adding TileProducer and ElevationProducer reflection: in progress.
 - Working on Terrain1 sample implementation in lua.
 - Working on error on framebuffer with elevation producer instantiation.
+- Refactoring some code.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

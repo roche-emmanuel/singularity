@@ -3,6 +3,7 @@ doLog
 doLogV
 doTrace
 doTraceV
+getLuaID
 setEnv
 fromLightUserdata
 toLightUserdata

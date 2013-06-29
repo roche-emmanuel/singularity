@@ -42,6 +42,7 @@ Module::Module() : Object("Module")
 Module::Module(int version, const char *source) : Object("Module")
 {
     init(version, source);
+	THROW_IF(ork::FrameBuffer::getError()!=0,"GL Error detected after Module::init().");
 }
 
 Module::Module(int version, const char* vertex, const char* fragment) : Object("Module")

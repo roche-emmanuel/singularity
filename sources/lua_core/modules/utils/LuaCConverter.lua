@@ -18,6 +18,7 @@ function Class:initialize(options)
 	
 	self._packageName = options and options.package or "[no name]";
 	
+	-- handle regular lua files:
 	local func = function(data)
 		local modName = data.sub_path .. data.file
 		modName = modName:sub(1,-5):gsub("/",".")
@@ -31,6 +32,21 @@ function Class:initialize(options)
 		fs:traverse{path=folder,func=func,pattern="%.lua$",recursive=true}
 	end
 	
+	
+	-- handle compiled lua files:
+	local func = function(data)
+		local modName = data.sub_path .. data.file
+		modName = modName:sub(1,-6):gsub("/",".")
+		
+		--self:info("Found module: ", modName, " in file: ",data.fullpath)
+		self:processFile(data.fullpath, modName, true) -- file is already compiled.
+	end
+
+	for v, folder in pairs(src_folders) do
+		self:info("Traversing folder: ", folder)
+		fs:traverse{path=folder,func=func,pattern="%.luac$",recursive=true}
+	end
+
 	self:writeBindings()
 end
 
@@ -38,14 +54,23 @@ function Class:append(str)
 	table.insert(self._data,str)
 end
 
-function Class:processFile(file,modName)
+function Class:processFile(file,modName,compiled)
 	-- self:info("Processing module: ", modName, " in file: ",file)
 	self:info("Processing module: ", modName)
 	
-	local func, msg = loadfile(file)
-	self:check(func,"Invalid loadfile result: ",msg)
+	local data = nil
 	
-	local data = string.dump(func)
+	if compiled then
+		-- just read the content of the file:
+		local f = io.open(file)
+		data = f:read("*a")
+		f:close()
+	else
+		local func, msg = loadfile(file)
+		self:check(func,"Invalid loadfile result: ",msg)
+		
+		data = string.dump(func)
+	end
 	
 	self:append("\n")
 

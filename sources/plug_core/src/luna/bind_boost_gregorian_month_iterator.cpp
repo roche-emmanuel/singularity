@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(boost::gregorian::month_iterator*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(boost::gregorian::month_iterator*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::month_iterator* rhs =(Luna< boost::gregorian::month_iterator >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::month_iterator* self= (boost::gregorian::month_iterator*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< boost::gregorian::month_iterator >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -119,8 +115,7 @@ public:
 	// boost::gregorian::month_iterator::month_iterator(boost::gregorian::date & start_date, int month_count = 1)
 	static boost::gregorian::month_iterator* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::gregorian::month_iterator::month_iterator(boost::gregorian::date & start_date, int month_count = 1) function, expected prototype:\nboost::gregorian::month_iterator::month_iterator(boost::gregorian::date & start_date, int month_count = 1)\nClass arguments details:\narg 1 ID = 50186404\n");
+			luaL_error(L, "luna typecheck failed in boost::gregorian::month_iterator::month_iterator(boost::gregorian::date & start_date, int month_count = 1) function, expected prototype:\nboost::gregorian::month_iterator::month_iterator(boost::gregorian::date & start_date, int month_count = 1)\nClass arguments details:\narg 1 ID = 50186404\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);

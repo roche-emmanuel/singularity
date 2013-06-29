@@ -54,6 +54,7 @@ Texture2D::Texture2D(int w, int h, TextureInternalFormat tf, TextureFormat f, Pi
     const Parameters &params, const Buffer::Parameters &s, const Buffer &pixels) : Texture("Texture2D", GL_TEXTURE_2D)
 {
     init(w, h, tf, f, t, params, s, pixels);
+	THROW_IF(ork::FrameBuffer::getError()!=0,"GL Error detected after Texture2D::init().");
 }
 
 void Texture2D::init(int w, int h, TextureInternalFormat tf, TextureFormat f, PixelType t,

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date_period* self= (boost::gregorian::date_period*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< boost::gregorian::date_period >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -237,8 +234,7 @@ public:
 	// boost::gregorian::date_period::date_period(boost::gregorian::date & arg1, boost::gregorian::date & arg2)
 	static boost::gregorian::date_period* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::gregorian::date_period::date_period(boost::gregorian::date & arg1, boost::gregorian::date & arg2) function, expected prototype:\nboost::gregorian::date_period::date_period(boost::gregorian::date & arg1, boost::gregorian::date & arg2)\nClass arguments details:\narg 1 ID = 50186404\narg 2 ID = 50186404\n");
+			luaL_error(L, "luna typecheck failed in boost::gregorian::date_period::date_period(boost::gregorian::date & arg1, boost::gregorian::date & arg2) function, expected prototype:\nboost::gregorian::date_period::date_period(boost::gregorian::date & arg1, boost::gregorian::date & arg2)\nClass arguments details:\narg 1 ID = 50186404\narg 2 ID = 50186404\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date* _arg1_ptr=(Luna< boost::gregorian::date >::check(L,1));
@@ -258,8 +254,7 @@ public:
 	// boost::gregorian::date_period::date_period(boost::gregorian::date & arg1, boost::gregorian::date_duration & arg2)
 	static boost::gregorian::date_period* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::gregorian::date_period::date_period(boost::gregorian::date & arg1, boost::gregorian::date_duration & arg2) function, expected prototype:\nboost::gregorian::date_period::date_period(boost::gregorian::date & arg1, boost::gregorian::date_duration & arg2)\nClass arguments details:\narg 1 ID = 50186404\narg 2 ID = 51049289\n");
+			luaL_error(L, "luna typecheck failed in boost::gregorian::date_period::date_period(boost::gregorian::date & arg1, boost::gregorian::date_duration & arg2) function, expected prototype:\nboost::gregorian::date_period::date_period(boost::gregorian::date & arg1, boost::gregorian::date_duration & arg2)\nClass arguments details:\narg 1 ID = 50186404\narg 2 ID = 51049289\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date* _arg1_ptr=(Luna< boost::gregorian::date >::check(L,1));
@@ -279,8 +274,7 @@ public:
 	// boost::gregorian::date_period::date_period(const boost::gregorian::date_period & arg1)
 	static boost::gregorian::date_period* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::gregorian::date_period::date_period(const boost::gregorian::date_period & arg1) function, expected prototype:\nboost::gregorian::date_period::date_period(const boost::gregorian::date_period & arg1)\nClass arguments details:\narg 1 ID = 8854841\n");
+			luaL_error(L, "luna typecheck failed in boost::gregorian::date_period::date_period(const boost::gregorian::date_period & arg1) function, expected prototype:\nboost::gregorian::date_period::date_period(const boost::gregorian::date_period & arg1)\nClass arguments details:\narg 1 ID = 8854841\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const boost::gregorian::date_period* _arg1_ptr=(Luna< boost::gregorian::date_period >::check(L,1));
@@ -307,8 +301,7 @@ public:
 	// void boost::gregorian::date_period::shift(const boost::gregorian::date_duration & arg1)
 	static int _bind_shift(lua_State *L) {
 		if (!_lg_typecheck_shift(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void boost::gregorian::date_period::shift(const boost::gregorian::date_duration & arg1) function, expected prototype:\nvoid boost::gregorian::date_period::shift(const boost::gregorian::date_duration & arg1)\nClass arguments details:\narg 1 ID = 51049289\n");
+			luaL_error(L, "luna typecheck failed in void boost::gregorian::date_period::shift(const boost::gregorian::date_duration & arg1) function, expected prototype:\nvoid boost::gregorian::date_period::shift(const boost::gregorian::date_duration & arg1)\nClass arguments details:\narg 1 ID = 51049289\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const boost::gregorian::date_duration* _arg1_ptr=(Luna< boost::gregorian::date_duration >::check(L,2));
@@ -319,8 +312,7 @@ public:
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void boost::gregorian::date_period::shift(const boost::gregorian::date_duration &). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void boost::gregorian::date_period::shift(const boost::gregorian::date_duration &). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->shift(_arg1);
 
@@ -330,8 +322,7 @@ public:
 	// void boost::gregorian::date_period::expand(const boost::gregorian::date_duration & arg1)
 	static int _bind_expand(lua_State *L) {
 		if (!_lg_typecheck_expand(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void boost::gregorian::date_period::expand(const boost::gregorian::date_duration & arg1) function, expected prototype:\nvoid boost::gregorian::date_period::expand(const boost::gregorian::date_duration & arg1)\nClass arguments details:\narg 1 ID = 51049289\n");
+			luaL_error(L, "luna typecheck failed in void boost::gregorian::date_period::expand(const boost::gregorian::date_duration & arg1) function, expected prototype:\nvoid boost::gregorian::date_period::expand(const boost::gregorian::date_duration & arg1)\nClass arguments details:\narg 1 ID = 51049289\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const boost::gregorian::date_duration* _arg1_ptr=(Luna< boost::gregorian::date_duration >::check(L,2));
@@ -342,8 +333,7 @@ public:
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void boost::gregorian::date_period::expand(const boost::gregorian::date_duration &). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void boost::gregorian::date_period::expand(const boost::gregorian::date_duration &). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->expand(_arg1);
 
@@ -353,15 +343,13 @@ public:
 	// boost::gregorian::date boost::gregorian::date_period::begin()
 	static int _bind_begin(lua_State *L) {
 		if (!_lg_typecheck_begin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::gregorian::date_period::begin() function, expected prototype:\nboost::gregorian::date boost::gregorian::date_period::begin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::gregorian::date_period::begin() function, expected prototype:\nboost::gregorian::date boost::gregorian::date_period::begin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call boost::gregorian::date boost::gregorian::date_period::begin(). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call boost::gregorian::date boost::gregorian::date_period::begin(). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		boost::gregorian::date stack_lret = self->begin();
 		boost::gregorian::date* lret = new boost::gregorian::date(stack_lret);
@@ -375,15 +363,13 @@ public:
 	// boost::gregorian::date boost::gregorian::date_period::last()
 	static int _bind_last(lua_State *L) {
 		if (!_lg_typecheck_last(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::gregorian::date_period::last() function, expected prototype:\nboost::gregorian::date boost::gregorian::date_period::last()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::gregorian::date_period::last() function, expected prototype:\nboost::gregorian::date boost::gregorian::date_period::last()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call boost::gregorian::date boost::gregorian::date_period::last(). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call boost::gregorian::date boost::gregorian::date_period::last(). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		boost::gregorian::date stack_lret = self->last();
 		boost::gregorian::date* lret = new boost::gregorian::date(stack_lret);
@@ -397,15 +383,13 @@ public:
 	// boost::gregorian::date boost::gregorian::date_period::end()
 	static int _bind_end(lua_State *L) {
 		if (!_lg_typecheck_end(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::gregorian::date_period::end() function, expected prototype:\nboost::gregorian::date boost::gregorian::date_period::end()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::gregorian::date_period::end() function, expected prototype:\nboost::gregorian::date boost::gregorian::date_period::end()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call boost::gregorian::date boost::gregorian::date_period::end(). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call boost::gregorian::date boost::gregorian::date_period::end(). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		boost::gregorian::date stack_lret = self->end();
 		boost::gregorian::date* lret = new boost::gregorian::date(stack_lret);
@@ -419,15 +403,13 @@ public:
 	// boost::gregorian::date_duration boost::gregorian::date_period::length()
 	static int _bind_length(lua_State *L) {
 		if (!_lg_typecheck_length(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::gregorian::date_duration boost::gregorian::date_period::length() function, expected prototype:\nboost::gregorian::date_duration boost::gregorian::date_period::length()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in boost::gregorian::date_duration boost::gregorian::date_period::length() function, expected prototype:\nboost::gregorian::date_duration boost::gregorian::date_period::length()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call boost::gregorian::date_duration boost::gregorian::date_period::length(). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call boost::gregorian::date_duration boost::gregorian::date_period::length(). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		boost::gregorian::date_duration stack_lret = self->length();
 		boost::gregorian::date_duration* lret = new boost::gregorian::date_duration(stack_lret);
@@ -441,15 +423,13 @@ public:
 	// bool boost::gregorian::date_period::is_null()
 	static int _bind_is_null(lua_State *L) {
 		if (!_lg_typecheck_is_null(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::is_null() function, expected prototype:\nbool boost::gregorian::date_period::is_null()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::is_null() function, expected prototype:\nbool boost::gregorian::date_period::is_null()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::is_null(). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::is_null(). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_null();
 		lua_pushboolean(L,lret?1:0);
@@ -460,8 +440,7 @@ public:
 	// bool boost::gregorian::date_period::contains(const boost::gregorian::date & arg1)
 	static int _bind_contains_overload_1(lua_State *L) {
 		if (!_lg_typecheck_contains_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::contains(const boost::gregorian::date & arg1) function, expected prototype:\nbool boost::gregorian::date_period::contains(const boost::gregorian::date & arg1)\nClass arguments details:\narg 1 ID = 50186404\n");
+			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::contains(const boost::gregorian::date & arg1) function, expected prototype:\nbool boost::gregorian::date_period::contains(const boost::gregorian::date & arg1)\nClass arguments details:\narg 1 ID = 50186404\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const boost::gregorian::date* _arg1_ptr=(Luna< boost::gregorian::date >::check(L,2));
@@ -472,8 +451,7 @@ public:
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::contains(const boost::gregorian::date &). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::contains(const boost::gregorian::date &). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->contains(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -484,8 +462,7 @@ public:
 	// bool boost::gregorian::date_period::contains(boost::gregorian::date_period & arg1)
 	static int _bind_contains_overload_2(lua_State *L) {
 		if (!_lg_typecheck_contains_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::contains(boost::gregorian::date_period & arg1) function, expected prototype:\nbool boost::gregorian::date_period::contains(boost::gregorian::date_period & arg1)\nClass arguments details:\narg 1 ID = 8854841\n");
+			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::contains(boost::gregorian::date_period & arg1) function, expected prototype:\nbool boost::gregorian::date_period::contains(boost::gregorian::date_period & arg1)\nClass arguments details:\narg 1 ID = 8854841\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date_period* _arg1_ptr=(Luna< boost::gregorian::date_period >::check(L,2));
@@ -496,8 +473,7 @@ public:
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::contains(boost::gregorian::date_period &). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::contains(boost::gregorian::date_period &). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->contains(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -517,8 +493,7 @@ public:
 	// bool boost::gregorian::date_period::intersects(boost::gregorian::date_period & arg1)
 	static int _bind_intersects(lua_State *L) {
 		if (!_lg_typecheck_intersects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::intersects(boost::gregorian::date_period & arg1) function, expected prototype:\nbool boost::gregorian::date_period::intersects(boost::gregorian::date_period & arg1)\nClass arguments details:\narg 1 ID = 8854841\n");
+			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::intersects(boost::gregorian::date_period & arg1) function, expected prototype:\nbool boost::gregorian::date_period::intersects(boost::gregorian::date_period & arg1)\nClass arguments details:\narg 1 ID = 8854841\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date_period* _arg1_ptr=(Luna< boost::gregorian::date_period >::check(L,2));
@@ -529,8 +504,7 @@ public:
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::intersects(boost::gregorian::date_period &). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::intersects(boost::gregorian::date_period &). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->intersects(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -541,8 +515,7 @@ public:
 	// boost::gregorian::date_period boost::gregorian::date_period::intersection(boost::gregorian::date_period & arg1)
 	static int _bind_intersection(lua_State *L) {
 		if (!_lg_typecheck_intersection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::gregorian::date_period boost::gregorian::date_period::intersection(boost::gregorian::date_period & arg1) function, expected prototype:\nboost::gregorian::date_period boost::gregorian::date_period::intersection(boost::gregorian::date_period & arg1)\nClass arguments details:\narg 1 ID = 8854841\n");
+			luaL_error(L, "luna typecheck failed in boost::gregorian::date_period boost::gregorian::date_period::intersection(boost::gregorian::date_period & arg1) function, expected prototype:\nboost::gregorian::date_period boost::gregorian::date_period::intersection(boost::gregorian::date_period & arg1)\nClass arguments details:\narg 1 ID = 8854841\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date_period* _arg1_ptr=(Luna< boost::gregorian::date_period >::check(L,2));
@@ -553,8 +526,7 @@ public:
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call boost::gregorian::date_period boost::gregorian::date_period::intersection(boost::gregorian::date_period &). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call boost::gregorian::date_period boost::gregorian::date_period::intersection(boost::gregorian::date_period &). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		boost::gregorian::date_period stack_lret = self->intersection(_arg1);
 		boost::gregorian::date_period* lret = new boost::gregorian::date_period(stack_lret);
@@ -568,8 +540,7 @@ public:
 	// bool boost::gregorian::date_period::is_adjacent(boost::gregorian::date_period & arg1)
 	static int _bind_is_adjacent(lua_State *L) {
 		if (!_lg_typecheck_is_adjacent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::is_adjacent(boost::gregorian::date_period & arg1) function, expected prototype:\nbool boost::gregorian::date_period::is_adjacent(boost::gregorian::date_period & arg1)\nClass arguments details:\narg 1 ID = 8854841\n");
+			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::is_adjacent(boost::gregorian::date_period & arg1) function, expected prototype:\nbool boost::gregorian::date_period::is_adjacent(boost::gregorian::date_period & arg1)\nClass arguments details:\narg 1 ID = 8854841\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date_period* _arg1_ptr=(Luna< boost::gregorian::date_period >::check(L,2));
@@ -580,8 +551,7 @@ public:
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::is_adjacent(boost::gregorian::date_period &). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::is_adjacent(boost::gregorian::date_period &). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_adjacent(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -592,8 +562,7 @@ public:
 	// bool boost::gregorian::date_period::is_after(boost::gregorian::date & arg1)
 	static int _bind_is_after(lua_State *L) {
 		if (!_lg_typecheck_is_after(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::is_after(boost::gregorian::date & arg1) function, expected prototype:\nbool boost::gregorian::date_period::is_after(boost::gregorian::date & arg1)\nClass arguments details:\narg 1 ID = 50186404\n");
+			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::is_after(boost::gregorian::date & arg1) function, expected prototype:\nbool boost::gregorian::date_period::is_after(boost::gregorian::date & arg1)\nClass arguments details:\narg 1 ID = 50186404\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date* _arg1_ptr=(Luna< boost::gregorian::date >::check(L,2));
@@ -604,8 +573,7 @@ public:
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::is_after(boost::gregorian::date &). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::is_after(boost::gregorian::date &). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_after(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -616,8 +584,7 @@ public:
 	// bool boost::gregorian::date_period::is_before(boost::gregorian::date & arg1)
 	static int _bind_is_before(lua_State *L) {
 		if (!_lg_typecheck_is_before(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::is_before(boost::gregorian::date & arg1) function, expected prototype:\nbool boost::gregorian::date_period::is_before(boost::gregorian::date & arg1)\nClass arguments details:\narg 1 ID = 50186404\n");
+			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::is_before(boost::gregorian::date & arg1) function, expected prototype:\nbool boost::gregorian::date_period::is_before(boost::gregorian::date & arg1)\nClass arguments details:\narg 1 ID = 50186404\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date* _arg1_ptr=(Luna< boost::gregorian::date >::check(L,2));
@@ -628,8 +595,7 @@ public:
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::is_before(boost::gregorian::date &). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::is_before(boost::gregorian::date &). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_before(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -640,8 +606,7 @@ public:
 	// boost::gregorian::date_period boost::gregorian::date_period::merge(boost::gregorian::date_period & arg1)
 	static int _bind_merge(lua_State *L) {
 		if (!_lg_typecheck_merge(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::gregorian::date_period boost::gregorian::date_period::merge(boost::gregorian::date_period & arg1) function, expected prototype:\nboost::gregorian::date_period boost::gregorian::date_period::merge(boost::gregorian::date_period & arg1)\nClass arguments details:\narg 1 ID = 8854841\n");
+			luaL_error(L, "luna typecheck failed in boost::gregorian::date_period boost::gregorian::date_period::merge(boost::gregorian::date_period & arg1) function, expected prototype:\nboost::gregorian::date_period boost::gregorian::date_period::merge(boost::gregorian::date_period & arg1)\nClass arguments details:\narg 1 ID = 8854841\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date_period* _arg1_ptr=(Luna< boost::gregorian::date_period >::check(L,2));
@@ -652,8 +617,7 @@ public:
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call boost::gregorian::date_period boost::gregorian::date_period::merge(boost::gregorian::date_period &). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call boost::gregorian::date_period boost::gregorian::date_period::merge(boost::gregorian::date_period &). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		boost::gregorian::date_period stack_lret = self->merge(_arg1);
 		boost::gregorian::date_period* lret = new boost::gregorian::date_period(stack_lret);
@@ -667,8 +631,7 @@ public:
 	// boost::gregorian::date_period boost::gregorian::date_period::span(boost::gregorian::date_period & arg1)
 	static int _bind_span(lua_State *L) {
 		if (!_lg_typecheck_span(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::gregorian::date_period boost::gregorian::date_period::span(boost::gregorian::date_period & arg1) function, expected prototype:\nboost::gregorian::date_period boost::gregorian::date_period::span(boost::gregorian::date_period & arg1)\nClass arguments details:\narg 1 ID = 8854841\n");
+			luaL_error(L, "luna typecheck failed in boost::gregorian::date_period boost::gregorian::date_period::span(boost::gregorian::date_period & arg1) function, expected prototype:\nboost::gregorian::date_period boost::gregorian::date_period::span(boost::gregorian::date_period & arg1)\nClass arguments details:\narg 1 ID = 8854841\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date_period* _arg1_ptr=(Luna< boost::gregorian::date_period >::check(L,2));
@@ -679,8 +642,7 @@ public:
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call boost::gregorian::date_period boost::gregorian::date_period::span(boost::gregorian::date_period &). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call boost::gregorian::date_period boost::gregorian::date_period::span(boost::gregorian::date_period &). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		boost::gregorian::date_period stack_lret = self->span(_arg1);
 		boost::gregorian::date_period* lret = new boost::gregorian::date_period(stack_lret);
@@ -696,8 +658,7 @@ public:
 	// bool boost::gregorian::date_period::operator==(const boost::gregorian::date_period & rhs)
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::operator==(const boost::gregorian::date_period & rhs) function, expected prototype:\nbool boost::gregorian::date_period::operator==(const boost::gregorian::date_period & rhs)\nClass arguments details:\narg 1 ID = 8854841\n");
+			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::operator==(const boost::gregorian::date_period & rhs) function, expected prototype:\nbool boost::gregorian::date_period::operator==(const boost::gregorian::date_period & rhs)\nClass arguments details:\narg 1 ID = 8854841\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const boost::gregorian::date_period* rhs_ptr=(Luna< boost::gregorian::date_period >::check(L,2));
@@ -708,8 +669,7 @@ public:
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::operator==(const boost::gregorian::date_period &). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::operator==(const boost::gregorian::date_period &). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -720,8 +680,7 @@ public:
 	// bool boost::gregorian::date_period::operator<(const boost::gregorian::date_period & rhs)
 	static int _bind___lt(lua_State *L) {
 		if (!_lg_typecheck___lt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::operator<(const boost::gregorian::date_period & rhs) function, expected prototype:\nbool boost::gregorian::date_period::operator<(const boost::gregorian::date_period & rhs)\nClass arguments details:\narg 1 ID = 8854841\n");
+			luaL_error(L, "luna typecheck failed in bool boost::gregorian::date_period::operator<(const boost::gregorian::date_period & rhs) function, expected prototype:\nbool boost::gregorian::date_period::operator<(const boost::gregorian::date_period & rhs)\nClass arguments details:\narg 1 ID = 8854841\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const boost::gregorian::date_period* rhs_ptr=(Luna< boost::gregorian::date_period >::check(L,2));
@@ -732,8 +691,7 @@ public:
 
 		boost::gregorian::date_period* self=(Luna< boost::gregorian::date_period >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::operator<(const boost::gregorian::date_period &). Got : '%s'",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::gregorian::date_period::operator<(const boost::gregorian::date_period &). Got : '%s'\n%s",typeid(Luna< boost::gregorian::date_period >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);

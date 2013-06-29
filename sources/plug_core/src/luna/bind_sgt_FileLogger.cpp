@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::FileLogger* self= (sgt::FileLogger*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -188,8 +185,7 @@ public:
 	// sgt::FileLogger::FileLogger()
 	static sgt::FileLogger* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::FileLogger::FileLogger() function, expected prototype:\nsgt::FileLogger::FileLogger()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::FileLogger::FileLogger() function, expected prototype:\nsgt::FileLogger::FileLogger()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -199,8 +195,7 @@ public:
 	// sgt::FileLogger::FileLogger(const std::string & filename, bool append = false, const std::string & name = "")
 	static sgt::FileLogger* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::FileLogger::FileLogger(const std::string & filename, bool append = false, const std::string & name = \"\") function, expected prototype:\nsgt::FileLogger::FileLogger(const std::string & filename, bool append = false, const std::string & name = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::FileLogger::FileLogger(const std::string & filename, bool append = false, const std::string & name = \"\") function, expected prototype:\nsgt::FileLogger::FileLogger(const std::string & filename, bool append = false, const std::string & name = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -215,8 +210,7 @@ public:
 	// sgt::FileLogger::FileLogger(lua_Table * data)
 	static sgt::FileLogger* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::FileLogger::FileLogger(lua_Table * data) function, expected prototype:\nsgt::FileLogger::FileLogger(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::FileLogger::FileLogger(lua_Table * data) function, expected prototype:\nsgt::FileLogger::FileLogger(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -226,8 +220,7 @@ public:
 	// sgt::FileLogger::FileLogger(lua_Table * data, const std::string & filename, bool append = false, const std::string & name = "")
 	static sgt::FileLogger* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::FileLogger::FileLogger(lua_Table * data, const std::string & filename, bool append = false, const std::string & name = \"\") function, expected prototype:\nsgt::FileLogger::FileLogger(lua_Table * data, const std::string & filename, bool append = false, const std::string & name = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::FileLogger::FileLogger(lua_Table * data, const std::string & filename, bool append = false, const std::string & name = \"\") function, expected prototype:\nsgt::FileLogger::FileLogger(lua_Table * data, const std::string & filename, bool append = false, const std::string & name = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -255,8 +248,7 @@ public:
 	// void sgt::FileLogger::output(int level, std::string trace, std::string msg)
 	static int _bind_output(lua_State *L) {
 		if (!_lg_typecheck_output(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::FileLogger::output(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::FileLogger::output(int level, std::string trace, std::string msg)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::FileLogger::output(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::FileLogger::output(int level, std::string trace, std::string msg)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int level=(int)lua_tointeger(L,2);
@@ -265,8 +257,7 @@ public:
 
 		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::FileLogger::output(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::FileLogger::output(int, std::string, std::string). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->output(level, trace, msg);
 
@@ -276,8 +267,7 @@ public:
 	// bool sgt::FileLogger::init(const std::string & filename, bool append = false)
 	static int _bind_init(lua_State *L) {
 		if (!_lg_typecheck_init(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::FileLogger::init(const std::string & filename, bool append = false) function, expected prototype:\nbool sgt::FileLogger::init(const std::string & filename, bool append = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::FileLogger::init(const std::string & filename, bool append = false) function, expected prototype:\nbool sgt::FileLogger::init(const std::string & filename, bool append = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -287,8 +277,7 @@ public:
 
 		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::init(const std::string &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::init(const std::string &, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->init(filename, append);
 		lua_pushboolean(L,lret?1:0);
@@ -299,15 +288,13 @@ public:
 	// std::string sgt::FileLogger::getFilename()
 	static int _bind_getFilename(lua_State *L) {
 		if (!_lg_typecheck_getFilename(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string sgt::FileLogger::getFilename() function, expected prototype:\nstd::string sgt::FileLogger::getFilename()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string sgt::FileLogger::getFilename() function, expected prototype:\nstd::string sgt::FileLogger::getFilename()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string sgt::FileLogger::getFilename(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string sgt::FileLogger::getFilename(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->getFilename();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -318,15 +305,13 @@ public:
 	// bool sgt::FileLogger::getAppending()
 	static int _bind_getAppending(lua_State *L) {
 		if (!_lg_typecheck_getAppending(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::FileLogger::getAppending() function, expected prototype:\nbool sgt::FileLogger::getAppending()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::FileLogger::getAppending() function, expected prototype:\nbool sgt::FileLogger::getAppending()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::getAppending(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::getAppending(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getAppending();
 		lua_pushboolean(L,lret?1:0);
@@ -337,16 +322,14 @@ public:
 	// void sgt::FileLogger::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::FileLogger::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid sgt::FileLogger::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::FileLogger::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid sgt::FileLogger::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::FileLogger::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::FileLogger::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FileLogger::setThreadSafeRefUnref(threadSafe);
 
@@ -356,8 +339,7 @@ public:
 	// void sgt::FileLogger::base_process(int level, std::string trace, std::string msg)
 	static int _bind_base_process(lua_State *L) {
 		if (!_lg_typecheck_base_process(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::FileLogger::base_process(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::FileLogger::base_process(int level, std::string trace, std::string msg)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::FileLogger::base_process(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::FileLogger::base_process(int level, std::string trace, std::string msg)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int level=(int)lua_tointeger(L,2);
@@ -366,8 +348,7 @@ public:
 
 		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::FileLogger::base_process(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::FileLogger::base_process(int, std::string, std::string). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FileLogger::process(level, trace, msg);
 
@@ -377,8 +358,7 @@ public:
 	// void sgt::FileLogger::base_output(int level, std::string trace, std::string msg)
 	static int _bind_base_output(lua_State *L) {
 		if (!_lg_typecheck_base_output(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::FileLogger::base_output(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::FileLogger::base_output(int level, std::string trace, std::string msg)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::FileLogger::base_output(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::FileLogger::base_output(int level, std::string trace, std::string msg)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int level=(int)lua_tointeger(L,2);
@@ -387,8 +367,7 @@ public:
 
 		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::FileLogger::base_output(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::FileLogger::base_output(int, std::string, std::string). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FileLogger::output(level, trace, msg);
 

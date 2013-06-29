@@ -4,6 +4,7 @@
 #include "osg/Image"
 #include "ork/render/Types.h"
 #include "ork/render/CPUBuffer.h"
+#include "ork/render/Framebuffer.h"
 
 #if defined( _WIN64 ) || defined( _WIN32 )
 #include <windows.h>
@@ -121,6 +122,7 @@ void LandManager::setCurrentContext(int id) {
 		initialized = true;
 		glewExperimental = GL_TRUE;
 		glewInit();
+		THROW_IF(ork::FrameBuffer::getError()!=0,"GL Error detected.");
 	}
 }
 

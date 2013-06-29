@@ -15,8 +15,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(std::vector< float >*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(std::vector< float >*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::vector< float >* rhs =(Luna< std::vector< float > >::check(L,2));
@@ -38,8 +37,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -130,8 +128,7 @@ public:
 	// void std::vector< float >::assign(unsigned int arg1, float arg2)
 	static int _bind_assign(lua_State *L) {
 		if (!_lg_typecheck_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void std::vector< float >::assign(unsigned int arg1, float arg2) function, expected prototype:\nvoid std::vector< float >::assign(unsigned int arg1, float arg2)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void std::vector< float >::assign(unsigned int arg1, float arg2) function, expected prototype:\nvoid std::vector< float >::assign(unsigned int arg1, float arg2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
@@ -139,8 +136,7 @@ public:
 
 		std::vector< float >* self=(Luna< std::vector< float > >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void std::vector< float >::assign(unsigned int, float). Got : '%s'",typeid(Luna< std::vector< float > >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void std::vector< float >::assign(unsigned int, float). Got : '%s'\n%s",typeid(Luna< std::vector< float > >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->assign(arg1, arg2);
 
@@ -150,16 +146,14 @@ public:
 	// float std::vector< float >::at(unsigned int arg1)
 	static int _bind_at(lua_State *L) {
 		if (!_lg_typecheck_at(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float std::vector< float >::at(unsigned int arg1) function, expected prototype:\nfloat std::vector< float >::at(unsigned int arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float std::vector< float >::at(unsigned int arg1) function, expected prototype:\nfloat std::vector< float >::at(unsigned int arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
 
 		std::vector< float >* self=(Luna< std::vector< float > >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float std::vector< float >::at(unsigned int). Got : '%s'",typeid(Luna< std::vector< float > >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float std::vector< float >::at(unsigned int). Got : '%s'\n%s",typeid(Luna< std::vector< float > >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->at(arg1);
 		lua_pushnumber(L,lret);
@@ -170,15 +164,13 @@ public:
 	// float std::vector< float >::back()
 	static int _bind_back(lua_State *L) {
 		if (!_lg_typecheck_back(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float std::vector< float >::back() function, expected prototype:\nfloat std::vector< float >::back()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float std::vector< float >::back() function, expected prototype:\nfloat std::vector< float >::back()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		std::vector< float >* self=(Luna< std::vector< float > >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float std::vector< float >::back(). Got : '%s'",typeid(Luna< std::vector< float > >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float std::vector< float >::back(). Got : '%s'\n%s",typeid(Luna< std::vector< float > >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->back();
 		lua_pushnumber(L,lret);
@@ -189,15 +181,13 @@ public:
 	// float std::vector< float >::front()
 	static int _bind_front(lua_State *L) {
 		if (!_lg_typecheck_front(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float std::vector< float >::front() function, expected prototype:\nfloat std::vector< float >::front()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float std::vector< float >::front() function, expected prototype:\nfloat std::vector< float >::front()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		std::vector< float >* self=(Luna< std::vector< float > >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float std::vector< float >::front(). Got : '%s'",typeid(Luna< std::vector< float > >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float std::vector< float >::front(). Got : '%s'\n%s",typeid(Luna< std::vector< float > >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->front();
 		lua_pushnumber(L,lret);
@@ -208,15 +198,13 @@ public:
 	// void std::vector< float >::clear()
 	static int _bind_clear(lua_State *L) {
 		if (!_lg_typecheck_clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void std::vector< float >::clear() function, expected prototype:\nvoid std::vector< float >::clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void std::vector< float >::clear() function, expected prototype:\nvoid std::vector< float >::clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		std::vector< float >* self=(Luna< std::vector< float > >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void std::vector< float >::clear(). Got : '%s'",typeid(Luna< std::vector< float > >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void std::vector< float >::clear(). Got : '%s'\n%s",typeid(Luna< std::vector< float > >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->clear();
 
@@ -226,15 +214,13 @@ public:
 	// bool std::vector< float >::empty()
 	static int _bind_empty(lua_State *L) {
 		if (!_lg_typecheck_empty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool std::vector< float >::empty() function, expected prototype:\nbool std::vector< float >::empty()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool std::vector< float >::empty() function, expected prototype:\nbool std::vector< float >::empty()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		std::vector< float >* self=(Luna< std::vector< float > >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool std::vector< float >::empty(). Got : '%s'",typeid(Luna< std::vector< float > >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool std::vector< float >::empty(). Got : '%s'\n%s",typeid(Luna< std::vector< float > >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->empty();
 		lua_pushboolean(L,lret?1:0);
@@ -245,15 +231,13 @@ public:
 	// unsigned int std::vector< float >::size()
 	static int _bind_size(lua_State *L) {
 		if (!_lg_typecheck_size(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int std::vector< float >::size() function, expected prototype:\nunsigned int std::vector< float >::size()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int std::vector< float >::size() function, expected prototype:\nunsigned int std::vector< float >::size()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		std::vector< float >* self=(Luna< std::vector< float > >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int std::vector< float >::size(). Got : '%s'",typeid(Luna< std::vector< float > >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int std::vector< float >::size(). Got : '%s'\n%s",typeid(Luna< std::vector< float > >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->size();
 		lua_pushnumber(L,lret);
@@ -264,16 +248,14 @@ public:
 	// void std::vector< float >::resize(unsigned int arg1)
 	static int _bind_resize(lua_State *L) {
 		if (!_lg_typecheck_resize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void std::vector< float >::resize(unsigned int arg1) function, expected prototype:\nvoid std::vector< float >::resize(unsigned int arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void std::vector< float >::resize(unsigned int arg1) function, expected prototype:\nvoid std::vector< float >::resize(unsigned int arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
 
 		std::vector< float >* self=(Luna< std::vector< float > >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void std::vector< float >::resize(unsigned int). Got : '%s'",typeid(Luna< std::vector< float > >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void std::vector< float >::resize(unsigned int). Got : '%s'\n%s",typeid(Luna< std::vector< float > >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->resize(arg1);
 
@@ -283,15 +265,13 @@ public:
 	// void std::vector< float >::pop_back()
 	static int _bind_pop_back(lua_State *L) {
 		if (!_lg_typecheck_pop_back(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void std::vector< float >::pop_back() function, expected prototype:\nvoid std::vector< float >::pop_back()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void std::vector< float >::pop_back() function, expected prototype:\nvoid std::vector< float >::pop_back()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		std::vector< float >* self=(Luna< std::vector< float > >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void std::vector< float >::pop_back(). Got : '%s'",typeid(Luna< std::vector< float > >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void std::vector< float >::pop_back(). Got : '%s'\n%s",typeid(Luna< std::vector< float > >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pop_back();
 
@@ -301,16 +281,14 @@ public:
 	// void std::vector< float >::push_back(float arg1)
 	static int _bind_push_back(lua_State *L) {
 		if (!_lg_typecheck_push_back(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void std::vector< float >::push_back(float arg1) function, expected prototype:\nvoid std::vector< float >::push_back(float arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void std::vector< float >::push_back(float arg1) function, expected prototype:\nvoid std::vector< float >::push_back(float arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float arg1=(float)lua_tonumber(L,2);
 
 		std::vector< float >* self=(Luna< std::vector< float > >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void std::vector< float >::push_back(float). Got : '%s'",typeid(Luna< std::vector< float > >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void std::vector< float >::push_back(float). Got : '%s'\n%s",typeid(Luna< std::vector< float > >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->push_back(arg1);
 
@@ -320,16 +298,14 @@ public:
 	// float std::vector< float >::operator[](unsigned int arg1)
 	static int _bind_op_index(lua_State *L) {
 		if (!_lg_typecheck_op_index(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float std::vector< float >::operator[](unsigned int arg1) function, expected prototype:\nfloat std::vector< float >::operator[](unsigned int arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float std::vector< float >::operator[](unsigned int arg1) function, expected prototype:\nfloat std::vector< float >::operator[](unsigned int arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
 
 		std::vector< float >* self=(Luna< std::vector< float > >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float std::vector< float >::operator[](unsigned int). Got : '%s'",typeid(Luna< std::vector< float > >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float std::vector< float >::operator[](unsigned int). Got : '%s'\n%s",typeid(Luna< std::vector< float > >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->operator[](arg1);
 		lua_pushnumber(L,lret);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::posix_time::ptime* self= (boost::posix_time::ptime*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< boost::posix_time::ptime >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -221,8 +218,7 @@ public:
 	// boost::posix_time::ptime::ptime()
 	static boost::posix_time::ptime* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime::ptime() function, expected prototype:\nboost::posix_time::ptime::ptime()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime::ptime() function, expected prototype:\nboost::posix_time::ptime::ptime()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -232,8 +228,7 @@ public:
 	// boost::posix_time::ptime::ptime(boost::gregorian::date & arg1)
 	static boost::posix_time::ptime* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime::ptime(boost::gregorian::date & arg1) function, expected prototype:\nboost::posix_time::ptime::ptime(boost::gregorian::date & arg1)\nClass arguments details:\narg 1 ID = 50186404\n");
+			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime::ptime(boost::gregorian::date & arg1) function, expected prototype:\nboost::posix_time::ptime::ptime(boost::gregorian::date & arg1)\nClass arguments details:\narg 1 ID = 50186404\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date* _arg1_ptr=(Luna< boost::gregorian::date >::check(L,1));
@@ -248,8 +243,7 @@ public:
 	// boost::posix_time::ptime::ptime(boost::gregorian::date & arg1, boost::posix_time::time_duration & arg2)
 	static boost::posix_time::ptime* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime::ptime(boost::gregorian::date & arg1, boost::posix_time::time_duration & arg2) function, expected prototype:\nboost::posix_time::ptime::ptime(boost::gregorian::date & arg1, boost::posix_time::time_duration & arg2)\nClass arguments details:\narg 1 ID = 50186404\narg 2 ID = 3585892\n");
+			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime::ptime(boost::gregorian::date & arg1, boost::posix_time::time_duration & arg2) function, expected prototype:\nboost::posix_time::ptime::ptime(boost::gregorian::date & arg1, boost::posix_time::time_duration & arg2)\nClass arguments details:\narg 1 ID = 50186404\narg 2 ID = 3585892\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date* _arg1_ptr=(Luna< boost::gregorian::date >::check(L,1));
@@ -269,8 +263,7 @@ public:
 	// boost::posix_time::ptime::ptime(boost::posix_time::ptime & arg1)
 	static boost::posix_time::ptime* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime::ptime(boost::posix_time::ptime & arg1) function, expected prototype:\nboost::posix_time::ptime::ptime(boost::posix_time::ptime & arg1)\nClass arguments details:\narg 1 ID = 16567808\n");
+			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime::ptime(boost::posix_time::ptime & arg1) function, expected prototype:\nboost::posix_time::ptime::ptime(boost::posix_time::ptime & arg1)\nClass arguments details:\narg 1 ID = 16567808\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::posix_time::ptime* _arg1_ptr=(Luna< boost::posix_time::ptime >::check(L,1));
@@ -298,15 +291,13 @@ public:
 	// boost::gregorian::date boost::posix_time::ptime::date()
 	static int _bind_date(lua_State *L) {
 		if (!_lg_typecheck_date(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::posix_time::ptime::date() function, expected prototype:\nboost::gregorian::date boost::posix_time::ptime::date()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in boost::gregorian::date boost::posix_time::ptime::date() function, expected prototype:\nboost::gregorian::date boost::posix_time::ptime::date()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		boost::posix_time::ptime* self=(Luna< boost::posix_time::ptime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call boost::gregorian::date boost::posix_time::ptime::date(). Got : '%s'",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call boost::gregorian::date boost::posix_time::ptime::date(). Got : '%s'\n%s",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		boost::gregorian::date stack_lret = self->date();
 		boost::gregorian::date* lret = new boost::gregorian::date(stack_lret);
@@ -320,15 +311,13 @@ public:
 	// boost::posix_time::time_duration boost::posix_time::ptime::time_of_day()
 	static int _bind_time_of_day(lua_State *L) {
 		if (!_lg_typecheck_time_of_day(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::posix_time::time_duration boost::posix_time::ptime::time_of_day() function, expected prototype:\nboost::posix_time::time_duration boost::posix_time::ptime::time_of_day()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in boost::posix_time::time_duration boost::posix_time::ptime::time_of_day() function, expected prototype:\nboost::posix_time::time_duration boost::posix_time::ptime::time_of_day()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		boost::posix_time::ptime* self=(Luna< boost::posix_time::ptime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call boost::posix_time::time_duration boost::posix_time::ptime::time_of_day(). Got : '%s'",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call boost::posix_time::time_duration boost::posix_time::ptime::time_of_day(). Got : '%s'\n%s",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		boost::posix_time::time_duration stack_lret = self->time_of_day();
 		boost::posix_time::time_duration* lret = new boost::posix_time::time_duration(stack_lret);
@@ -342,15 +331,13 @@ public:
 	// bool boost::posix_time::ptime::is_infinity() const
 	static int _bind_is_infinity(lua_State *L) {
 		if (!_lg_typecheck_is_infinity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::posix_time::ptime::is_infinity() const function, expected prototype:\nbool boost::posix_time::ptime::is_infinity() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool boost::posix_time::ptime::is_infinity() const function, expected prototype:\nbool boost::posix_time::ptime::is_infinity() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		boost::posix_time::ptime* self=(Luna< boost::posix_time::ptime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::posix_time::ptime::is_infinity() const. Got : '%s'",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::posix_time::ptime::is_infinity() const. Got : '%s'\n%s",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_infinity();
 		lua_pushboolean(L,lret?1:0);
@@ -361,15 +348,13 @@ public:
 	// bool boost::posix_time::ptime::is_neg_infinity() const
 	static int _bind_is_neg_infinity(lua_State *L) {
 		if (!_lg_typecheck_is_neg_infinity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::posix_time::ptime::is_neg_infinity() const function, expected prototype:\nbool boost::posix_time::ptime::is_neg_infinity() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool boost::posix_time::ptime::is_neg_infinity() const function, expected prototype:\nbool boost::posix_time::ptime::is_neg_infinity() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		boost::posix_time::ptime* self=(Luna< boost::posix_time::ptime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::posix_time::ptime::is_neg_infinity() const. Got : '%s'",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::posix_time::ptime::is_neg_infinity() const. Got : '%s'\n%s",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_neg_infinity();
 		lua_pushboolean(L,lret?1:0);
@@ -380,15 +365,13 @@ public:
 	// bool boost::posix_time::ptime::is_pos_infinity() const
 	static int _bind_is_pos_infinity(lua_State *L) {
 		if (!_lg_typecheck_is_pos_infinity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::posix_time::ptime::is_pos_infinity() const function, expected prototype:\nbool boost::posix_time::ptime::is_pos_infinity() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool boost::posix_time::ptime::is_pos_infinity() const function, expected prototype:\nbool boost::posix_time::ptime::is_pos_infinity() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		boost::posix_time::ptime* self=(Luna< boost::posix_time::ptime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::posix_time::ptime::is_pos_infinity() const. Got : '%s'",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::posix_time::ptime::is_pos_infinity() const. Got : '%s'\n%s",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_pos_infinity();
 		lua_pushboolean(L,lret?1:0);
@@ -399,15 +382,13 @@ public:
 	// bool boost::posix_time::ptime::is_not_a_date_time() const
 	static int _bind_is_not_a_date_time(lua_State *L) {
 		if (!_lg_typecheck_is_not_a_date_time(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::posix_time::ptime::is_not_a_date_time() const function, expected prototype:\nbool boost::posix_time::ptime::is_not_a_date_time() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool boost::posix_time::ptime::is_not_a_date_time() const function, expected prototype:\nbool boost::posix_time::ptime::is_not_a_date_time() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		boost::posix_time::ptime* self=(Luna< boost::posix_time::ptime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::posix_time::ptime::is_not_a_date_time() const. Got : '%s'",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::posix_time::ptime::is_not_a_date_time() const. Got : '%s'\n%s",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_not_a_date_time();
 		lua_pushboolean(L,lret?1:0);
@@ -418,15 +399,13 @@ public:
 	// bool boost::posix_time::ptime::is_special() const
 	static int _bind_is_special(lua_State *L) {
 		if (!_lg_typecheck_is_special(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::posix_time::ptime::is_special() const function, expected prototype:\nbool boost::posix_time::ptime::is_special() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool boost::posix_time::ptime::is_special() const function, expected prototype:\nbool boost::posix_time::ptime::is_special() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		boost::posix_time::ptime* self=(Luna< boost::posix_time::ptime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::posix_time::ptime::is_special() const. Got : '%s'",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::posix_time::ptime::is_special() const. Got : '%s'\n%s",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_special();
 		lua_pushboolean(L,lret?1:0);
@@ -437,8 +416,7 @@ public:
 	// int boost::posix_time::ptime::ptime_tostring(boost::posix_time::ptime * val, lua_State * L)
 	static int _bind___tostring(lua_State *L) {
 		if (!_lg_typecheck___tostring(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int boost::posix_time::ptime::ptime_tostring(boost::posix_time::ptime * val, lua_State * L) function, expected prototype:\nint boost::posix_time::ptime::ptime_tostring(boost::posix_time::ptime * val, lua_State * L)\nClass arguments details:\narg 1 ID = 16567808\n");
+			luaL_error(L, "luna typecheck failed in int boost::posix_time::ptime::ptime_tostring(boost::posix_time::ptime * val, lua_State * L) function, expected prototype:\nint boost::posix_time::ptime::ptime_tostring(boost::posix_time::ptime * val, lua_State * L)\nClass arguments details:\narg 1 ID = 16567808\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::posix_time::ptime* val=(Luna< boost::posix_time::ptime >::check(L,1));
@@ -451,8 +429,7 @@ public:
 	// bool boost::posix_time::ptime::operator==(const boost::posix_time::ptime & rhs)
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::posix_time::ptime::operator==(const boost::posix_time::ptime & rhs) function, expected prototype:\nbool boost::posix_time::ptime::operator==(const boost::posix_time::ptime & rhs)\nClass arguments details:\narg 1 ID = 16567808\n");
+			luaL_error(L, "luna typecheck failed in bool boost::posix_time::ptime::operator==(const boost::posix_time::ptime & rhs) function, expected prototype:\nbool boost::posix_time::ptime::operator==(const boost::posix_time::ptime & rhs)\nClass arguments details:\narg 1 ID = 16567808\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const boost::posix_time::ptime* rhs_ptr=(Luna< boost::posix_time::ptime >::check(L,2));
@@ -463,8 +440,7 @@ public:
 
 		boost::posix_time::ptime* self=(Luna< boost::posix_time::ptime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::posix_time::ptime::operator==(const boost::posix_time::ptime &). Got : '%s'",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::posix_time::ptime::operator==(const boost::posix_time::ptime &). Got : '%s'\n%s",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -475,8 +451,7 @@ public:
 	// bool boost::posix_time::ptime::operator<(const boost::posix_time::ptime & rhs)
 	static int _bind___lt(lua_State *L) {
 		if (!_lg_typecheck___lt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool boost::posix_time::ptime::operator<(const boost::posix_time::ptime & rhs) function, expected prototype:\nbool boost::posix_time::ptime::operator<(const boost::posix_time::ptime & rhs)\nClass arguments details:\narg 1 ID = 16567808\n");
+			luaL_error(L, "luna typecheck failed in bool boost::posix_time::ptime::operator<(const boost::posix_time::ptime & rhs) function, expected prototype:\nbool boost::posix_time::ptime::operator<(const boost::posix_time::ptime & rhs)\nClass arguments details:\narg 1 ID = 16567808\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const boost::posix_time::ptime* rhs_ptr=(Luna< boost::posix_time::ptime >::check(L,2));
@@ -487,8 +462,7 @@ public:
 
 		boost::posix_time::ptime* self=(Luna< boost::posix_time::ptime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool boost::posix_time::ptime::operator<(const boost::posix_time::ptime &). Got : '%s'",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool boost::posix_time::ptime::operator<(const boost::posix_time::ptime &). Got : '%s'\n%s",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -499,8 +473,7 @@ public:
 	// boost::posix_time::ptime boost::posix_time::ptime::operator+(boost::gregorian::date_duration & arg1) const
 	static int _bind___add_overload_1(lua_State *L) {
 		if (!_lg_typecheck___add_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::ptime::operator+(boost::gregorian::date_duration & arg1) const function, expected prototype:\nboost::posix_time::ptime boost::posix_time::ptime::operator+(boost::gregorian::date_duration & arg1) const\nClass arguments details:\narg 1 ID = 51049289\n");
+			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::ptime::operator+(boost::gregorian::date_duration & arg1) const function, expected prototype:\nboost::posix_time::ptime boost::posix_time::ptime::operator+(boost::gregorian::date_duration & arg1) const\nClass arguments details:\narg 1 ID = 51049289\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date_duration* _arg1_ptr=(Luna< boost::gregorian::date_duration >::check(L,2));
@@ -511,8 +484,7 @@ public:
 
 		boost::posix_time::ptime* self=(Luna< boost::posix_time::ptime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call boost::posix_time::ptime boost::posix_time::ptime::operator+(boost::gregorian::date_duration &) const. Got : '%s'",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call boost::posix_time::ptime boost::posix_time::ptime::operator+(boost::gregorian::date_duration &) const. Got : '%s'\n%s",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		boost::posix_time::ptime stack_lret = self->operator+(_arg1);
 		boost::posix_time::ptime* lret = new boost::posix_time::ptime(stack_lret);
@@ -526,8 +498,7 @@ public:
 	// boost::posix_time::ptime boost::posix_time::ptime::operator+(boost::posix_time::time_duration & arg1) const
 	static int _bind___add_overload_2(lua_State *L) {
 		if (!_lg_typecheck___add_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::ptime::operator+(boost::posix_time::time_duration & arg1) const function, expected prototype:\nboost::posix_time::ptime boost::posix_time::ptime::operator+(boost::posix_time::time_duration & arg1) const\nClass arguments details:\narg 1 ID = 3585892\n");
+			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::ptime::operator+(boost::posix_time::time_duration & arg1) const function, expected prototype:\nboost::posix_time::ptime boost::posix_time::ptime::operator+(boost::posix_time::time_duration & arg1) const\nClass arguments details:\narg 1 ID = 3585892\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::posix_time::time_duration* _arg1_ptr=(Luna< boost::posix_time::time_duration >::check(L,2));
@@ -538,8 +509,7 @@ public:
 
 		boost::posix_time::ptime* self=(Luna< boost::posix_time::ptime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call boost::posix_time::ptime boost::posix_time::ptime::operator+(boost::posix_time::time_duration &) const. Got : '%s'",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call boost::posix_time::ptime boost::posix_time::ptime::operator+(boost::posix_time::time_duration &) const. Got : '%s'\n%s",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		boost::posix_time::ptime stack_lret = self->operator+(_arg1);
 		boost::posix_time::ptime* lret = new boost::posix_time::ptime(stack_lret);
@@ -562,8 +532,7 @@ public:
 	// boost::posix_time::ptime boost::posix_time::ptime::operator-(boost::gregorian::date_duration & arg1) const
 	static int _bind___sub_overload_1(lua_State *L) {
 		if (!_lg_typecheck___sub_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::ptime::operator-(boost::gregorian::date_duration & arg1) const function, expected prototype:\nboost::posix_time::ptime boost::posix_time::ptime::operator-(boost::gregorian::date_duration & arg1) const\nClass arguments details:\narg 1 ID = 51049289\n");
+			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::ptime::operator-(boost::gregorian::date_duration & arg1) const function, expected prototype:\nboost::posix_time::ptime boost::posix_time::ptime::operator-(boost::gregorian::date_duration & arg1) const\nClass arguments details:\narg 1 ID = 51049289\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::gregorian::date_duration* _arg1_ptr=(Luna< boost::gregorian::date_duration >::check(L,2));
@@ -574,8 +543,7 @@ public:
 
 		boost::posix_time::ptime* self=(Luna< boost::posix_time::ptime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call boost::posix_time::ptime boost::posix_time::ptime::operator-(boost::gregorian::date_duration &) const. Got : '%s'",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call boost::posix_time::ptime boost::posix_time::ptime::operator-(boost::gregorian::date_duration &) const. Got : '%s'\n%s",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		boost::posix_time::ptime stack_lret = self->operator-(_arg1);
 		boost::posix_time::ptime* lret = new boost::posix_time::ptime(stack_lret);
@@ -589,8 +557,7 @@ public:
 	// boost::posix_time::ptime boost::posix_time::ptime::operator-(boost::posix_time::time_duration & arg1) const
 	static int _bind___sub_overload_2(lua_State *L) {
 		if (!_lg_typecheck___sub_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::ptime::operator-(boost::posix_time::time_duration & arg1) const function, expected prototype:\nboost::posix_time::ptime boost::posix_time::ptime::operator-(boost::posix_time::time_duration & arg1) const\nClass arguments details:\narg 1 ID = 3585892\n");
+			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime boost::posix_time::ptime::operator-(boost::posix_time::time_duration & arg1) const function, expected prototype:\nboost::posix_time::ptime boost::posix_time::ptime::operator-(boost::posix_time::time_duration & arg1) const\nClass arguments details:\narg 1 ID = 3585892\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::posix_time::time_duration* _arg1_ptr=(Luna< boost::posix_time::time_duration >::check(L,2));
@@ -601,8 +568,7 @@ public:
 
 		boost::posix_time::ptime* self=(Luna< boost::posix_time::ptime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call boost::posix_time::ptime boost::posix_time::ptime::operator-(boost::posix_time::time_duration &) const. Got : '%s'",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call boost::posix_time::ptime boost::posix_time::ptime::operator-(boost::posix_time::time_duration &) const. Got : '%s'\n%s",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		boost::posix_time::ptime stack_lret = self->operator-(_arg1);
 		boost::posix_time::ptime* lret = new boost::posix_time::ptime(stack_lret);
@@ -616,8 +582,7 @@ public:
 	// boost::posix_time::time_duration boost::posix_time::ptime::operator-(boost::posix_time::ptime & arg1)
 	static int _bind___sub_overload_3(lua_State *L) {
 		if (!_lg_typecheck___sub_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::posix_time::time_duration boost::posix_time::ptime::operator-(boost::posix_time::ptime & arg1) function, expected prototype:\nboost::posix_time::time_duration boost::posix_time::ptime::operator-(boost::posix_time::ptime & arg1)\nClass arguments details:\narg 1 ID = 16567808\n");
+			luaL_error(L, "luna typecheck failed in boost::posix_time::time_duration boost::posix_time::ptime::operator-(boost::posix_time::ptime & arg1) function, expected prototype:\nboost::posix_time::time_duration boost::posix_time::ptime::operator-(boost::posix_time::ptime & arg1)\nClass arguments details:\narg 1 ID = 16567808\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::posix_time::ptime* _arg1_ptr=(Luna< boost::posix_time::ptime >::check(L,2));
@@ -628,8 +593,7 @@ public:
 
 		boost::posix_time::ptime* self=(Luna< boost::posix_time::ptime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call boost::posix_time::time_duration boost::posix_time::ptime::operator-(boost::posix_time::ptime &). Got : '%s'",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call boost::posix_time::time_duration boost::posix_time::ptime::operator-(boost::posix_time::ptime &). Got : '%s'\n%s",typeid(Luna< boost::posix_time::ptime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		boost::posix_time::time_duration stack_lret = self->operator-(_arg1);
 		boost::posix_time::time_duration* lret = new boost::posix_time::time_duration(stack_lret);

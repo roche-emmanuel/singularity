@@ -58,7 +58,9 @@ Program::Program(ptr<Module> module, bool separable) : Object("Program")
 {
     vector< ptr<Module> > modules;
     modules.push_back(module);
+	THROW_IF(ork::FrameBuffer::getError()!=0,"GL Error detected before Program::init().");
     init(modules, separable);
+	THROW_IF(ork::FrameBuffer::getError()!=0,"GL Error detected after Program::init().");
 }
 
 Program::Program(GLenum format, GLsizei length, unsigned char *binary, bool separable) : Object("Program")
@@ -165,7 +167,9 @@ void Program::init(const vector< ptr<Module> > &modules, bool separable)
     }
     glLinkProgram(programId);
 
+	THROW_IF(ork::FrameBuffer::getError()!=0,"GL Error detected before Program::initUniforms().");
     initUniforms();
+	THROW_IF(ork::FrameBuffer::getError()!=0,"GL Error detected after Program::initUniforms().");
 }
 
 void Program::init(GLenum format, GLsizei length, unsigned char *binary, bool separable)
@@ -219,11 +223,23 @@ void Program::initUniforms()
         throw exception();
     }
 
+	THROW_IF(ork::FrameBuffer::getError()!=0,"GL Error detected in Program::initUniforms() after link test.");
+
     GLint maxNameLength = 0;
     GLint maxLength = 0;
     glGetProgramiv(programId, GL_ACTIVE_UNIFORM_MAX_LENGTH, &maxNameLength);
+	THROW_IF(ork::FrameBuffer::getError()!=0,"GL Error detected in Program::initUniforms() after get GL_ACTIVE_UNIFORM_MAX_LENGTH.");
     glGetProgramiv(programId, GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH, &maxLength);
-    maxNameLength = max(maxNameLength, maxLength);
+	
+	GLint err = ork::FrameBuffer::getError();
+	THROW_IF(GL_INVALID_VALUE == err,"Received invalid value.");
+	THROW_IF(GL_INVALID_OPERATION == err,"Received invalid operation.");
+	THROW_IF(GL_INVALID_ENUM == err,"Received invalid enum.");
+
+	THROW_IF(ork::FrameBuffer::getError()!=0,"GL Error detected in Program::initUniforms() after get GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH.");
+    
+	maxNameLength = max(maxNameLength, maxLength);
+
     if (FrameBuffer::getMajorVersion() >= 4) {
         for (Stage s = VERTEX; s <= FRAGMENT; s = Stage(s + 1)) {
             glGetProgramStageiv(programId, getStage(s), GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH, &maxLength);
@@ -233,14 +249,16 @@ void Program::initUniforms()
         }
     }
 
-	THROW_IF(GL_INVALID_VALUE == maxNameLength,"Received invalid value.");
-	THROW_IF(GL_INVALID_OPERATION == maxNameLength,"Received invalid operation.");
-	THROW_IF(GL_INVALID_ENUM == maxNameLength,"Received invalid enum.");
+	THROW_IF(ork::FrameBuffer::getError()!=0,"GL Error detected in Program::initUniforms() after max length computation.");
+
+
 
     char* buf = new char[maxNameLength];
 
     GLint nUniforms;
     glGetProgramiv(programId, GL_ACTIVE_UNIFORMS, &nUniforms);
+
+	THROW_IF(ork::FrameBuffer::getError()!=0,"GL Error detected in Program::initUniforms() after get active uniforms.");
 
     std::set<string> newBlocks;
 
@@ -661,7 +679,7 @@ void Program::initUniforms()
         }
     }
 
-    assert(FrameBuffer::getError() == 0);
+	THROW_IF(ork::FrameBuffer::getError()!=0,"GL Error detected at end of Program::initUniforms().");
 }
 
 Program::~Program()

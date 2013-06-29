@@ -392,9 +392,10 @@ void FrameBuffer::Parameters::set(const Parameters &p)
 FrameBuffer::FrameBuffer() : Object("FrameBuffer"),
     attachmentsChanged(false), readDrawChanged(false), parametersChanged(false)
 {
-    checkExtensions();
+	THROW_IF(getError() != 0,"Error before FrameBuffer constructor.");
+	checkExtensions();
     glGenFramebuffers(1, &framebufferId);
-    assert(getError() == 0);
+    THROW_IF(getError() != 0,"Cannot call glGenFramebuffers().");
 
     for (int i = 0; i < 10; ++i) {
         textures[i] = NULL;

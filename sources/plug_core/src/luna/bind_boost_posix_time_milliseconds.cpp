@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		boost::posix_time::milliseconds* self= (boost::posix_time::milliseconds*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< boost::posix_time::time_duration >::check(L,1));
@@ -66,7 +64,7 @@ public:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( lua_isnumber(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -80,11 +78,10 @@ public:
 	// boost::posix_time::milliseconds::milliseconds(long arg1)
 	static boost::posix_time::milliseconds* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in boost::posix_time::milliseconds::milliseconds(long arg1) function, expected prototype:\nboost::posix_time::milliseconds::milliseconds(long arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in boost::posix_time::milliseconds::milliseconds(long arg1) function, expected prototype:\nboost::posix_time::milliseconds::milliseconds(long arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long _arg1=(long)lua_tointeger(L,1);
+		long _arg1=(long)lua_tonumber(L,1);
 
 		return new boost::posix_time::milliseconds(_arg1);
 	}

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		sgt::Referenced* self= (sgt::Referenced*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -132,8 +129,7 @@ public:
 	// sgt::Referenced::Referenced()
 	static sgt::Referenced* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::Referenced::Referenced() function, expected prototype:\nsgt::Referenced::Referenced()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::Referenced::Referenced() function, expected prototype:\nsgt::Referenced::Referenced()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -143,8 +139,7 @@ public:
 	// sgt::Referenced::Referenced(lua_Table * data)
 	static sgt::Referenced* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::Referenced::Referenced(lua_Table * data) function, expected prototype:\nsgt::Referenced::Referenced(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in sgt::Referenced::Referenced(lua_Table * data) function, expected prototype:\nsgt::Referenced::Referenced(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -165,16 +160,14 @@ public:
 	// void sgt::Referenced::setName(const std::string & name)
 	static int _bind_setName(lua_State *L) {
 		if (!_lg_typecheck_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Referenced::setName(const std::string & name) function, expected prototype:\nvoid sgt::Referenced::setName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Referenced::setName(const std::string & name) function, expected prototype:\nvoid sgt::Referenced::setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		sgt::Referenced* self=Luna< osg::Referenced >::checkSubType< sgt::Referenced >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Referenced::setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Referenced::setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setName(name);
 
@@ -184,15 +177,13 @@ public:
 	// std::string sgt::Referenced::getName()
 	static int _bind_getName(lua_State *L) {
 		if (!_lg_typecheck_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string sgt::Referenced::getName() function, expected prototype:\nstd::string sgt::Referenced::getName()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string sgt::Referenced::getName() function, expected prototype:\nstd::string sgt::Referenced::getName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		sgt::Referenced* self=Luna< osg::Referenced >::checkSubType< sgt::Referenced >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string sgt::Referenced::getName(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string sgt::Referenced::getName(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->getName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -203,16 +194,14 @@ public:
 	// void sgt::Referenced::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::Referenced::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid sgt::Referenced::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void sgt::Referenced::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid sgt::Referenced::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
 		sgt::Referenced* self=Luna< osg::Referenced >::checkSubType< sgt::Referenced >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Referenced::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::Referenced::base_setThreadSafeRefUnref(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Referenced::setThreadSafeRefUnref(threadSafe);
 

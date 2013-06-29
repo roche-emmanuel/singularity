@@ -30,6 +30,7 @@
 #include <sstream>
 
 #include "ork/core/Logger.h"
+#include "ork/render/FrameBuffer.h"
 #include "ork/resource/ResourceTemplate.h"
 #include "proland/producer/TileProducer.h"
 
@@ -83,6 +84,7 @@ TileCache::Tile::TId TileCache::Tile::getTId(int producerId, int level, int tx, 
 TileCache::TileCache(ptr<TileStorage> storage,  std::string name, ptr<Scheduler> scheduler) : Object("TileCache")
 {
     init(storage, name, scheduler);
+	THROW_IF(ork::FrameBuffer::getError()!=0,"GL Error detected after TileCache::init().");
 }
 
 TileCache::TileCache() : Object("TileCache")

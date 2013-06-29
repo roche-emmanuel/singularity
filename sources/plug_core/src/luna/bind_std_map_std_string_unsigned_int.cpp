@@ -15,8 +15,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(std::map< std::string, unsigned int >*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(std::map< std::string, unsigned int >*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::map< std::string, unsigned int >* rhs =(Luna< std::map< std::string, unsigned int > >::check(L,2));
@@ -38,8 +37,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -66,8 +64,7 @@ public:
 	// unsigned int std::map< std::string, unsigned int > *::map_uint_get(std::map< std::string, unsigned int > * data, const std::string & id)
 	static int _bind_get(lua_State *L) {
 		if (!_lg_typecheck_get(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int std::map< std::string, unsigned int > *::map_uint_get(std::map< std::string, unsigned int > * data, const std::string & id) function, expected prototype:\nunsigned int std::map< std::string, unsigned int > *::map_uint_get(std::map< std::string, unsigned int > * data, const std::string & id)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in unsigned int std::map< std::string, unsigned int > *::map_uint_get(std::map< std::string, unsigned int > * data, const std::string & id) function, expected prototype:\nunsigned int std::map< std::string, unsigned int > *::map_uint_get(std::map< std::string, unsigned int > * data, const std::string & id)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::map< std::string, unsigned int >* data=(Luna< std::map< std::string, unsigned int > >::check(L,1));

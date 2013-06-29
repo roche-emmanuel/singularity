@@ -146,6 +146,7 @@ GPUTileStorage::GPUTileStorage(int tileSize, int nTiles,
         TileStorage(tileSize, nTiles)
 {
     init(tileSize, nTiles, internalf, f, t, params, useTileMap);
+	THROW_IF(ork::FrameBuffer::getError()!=0,"GL Error detected after GPUTileStorage::init()");
 }
 
 void GPUTileStorage::init(int tileSize, int nTiles,

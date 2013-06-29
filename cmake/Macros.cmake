@@ -239,7 +239,10 @@ MACRO(GENERATE_LUA_PACKAGE STUB_NAME)
 	IF(MSVC)
 		ADD_CUSTOM_TARGET(
 			${TARGET_NAME}_package
-			COMMAND echo "Generating lua package..."
+			# COMMAND ${ECHO} "Generating metalua files..."
+			# COMMAND ${SH} metalua_to_lua.sh "${CMAKE_CURRENT_SOURCE_DIR}/../modules" "${CMAKE_CURRENT_SOURCE_DIR}/../modules"			
+			# COMMAND ${SH} metalua_to_lua.sh "${CMAKE_CURRENT_SOURCE_DIR}/../metalua" "${CMAKE_CURRENT_SOURCE_DIR}/../modules"			
+			COMMAND echo "Generating lua package MSVC..."
 			# COMMAND ${ECHO} "Calling lua from: ${LUA}"
 			COMMAND ${LUA} -e "project='${TARGET_NAME}'; src_path='${CMAKE_CURRENT_SOURCE_DIR}/../modules/'; sgt_path='${SGT_DIR}/';" ${SGT_DIR}/scripts/generate_package.lua
 			COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/../CMakeLists.txt # touch the calling file.
@@ -250,6 +253,9 @@ MACRO(GENERATE_LUA_PACKAGE STUB_NAME)
 		
 		ADD_CUSTOM_TARGET(
 			${TARGET_NAME}_package
+			# COMMAND ${ECHO} "Generating metalua files..."
+			# COMMAND /bin/sh metalua_to_lua.sh "${CMAKE_CURRENT_SOURCE_DIR}/../modules" "${CMAKE_CURRENT_SOURCE_DIR}/../modules"
+			# COMMAND /bin/sh metalua_to_lua.sh "${CMAKE_CURRENT_SOURCE_DIR}/../metalua" "${CMAKE_CURRENT_SOURCE_DIR}/../modules"
 			COMMAND ${ECHO} "Generating lua package..."
 			COMMAND ${ECHO} "project=\\'${TARGET_NAME}\\'" > ${LUAFILE}
 			COMMAND ${ECHO} -n "src_path=\\'" >> ${LUAFILE}

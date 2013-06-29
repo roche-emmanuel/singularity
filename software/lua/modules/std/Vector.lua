@@ -199,6 +199,13 @@ function Class:toTable()
     return newdata;
 end
 
+function Class:foreach(func)
+	for _,v in ipairs(self._data) do
+        func(v)
+    end
+end
+
+
 Class.last = Class.back
 Class.first = Class.front
 Class.remove = Class.erase
