@@ -38,11 +38,22 @@ local onError1 = function(val,reason,...)
 	throw("Assertion failed: [value=",val,"] (=> ",reason,"): ",...)
 end
 
+local onError2 = function(val1,val2,reason,...)
+	throw("Assertion failed: [value1=",val1,", value2=",val2,"] (=> ",reason,"): ",...)
+end
+
 local doTest1 = function(result,val,reason,...)
 	if result then
 		return val
 	end
 	onError1(val,reason,...)
+end
+
+local doTest2 = function(result,val1,val2,reason,...)
+	if result then
+		return
+	end
+	onError2(val1,val2,reason,...)
 end
 
 --- Meta method to handle the calls assert(val,msg,...)
@@ -63,11 +74,11 @@ Parameters:
 Returns:
 	The value itself if it is true, an error is triggered otherwise.
 ]]
-function Class.True(val,...)
+function Class.isTrue(val,...)
 	return doTest1(val==true,val,"is not true",...)
 end
 
-function Class.False(val,...)
+function Class.isFalse(val,...)
 	return doTest1(val==false,val,"is not true",...)
 end
 
@@ -75,6 +86,22 @@ function Class.isString(val,...)
 	return doTest1(type(val)=="string",val,"is not a string",...)
 end
 
-Class.isTrue = Class.True
+function Class.areEquals(val1,val2,...)
+	return doTest2(val1==val2,val1,val2,"are not equals",...)
+end
+
+function Class.areNotEquals(val1,val2,...)
+	return doTest2(val1~=val2,val1,val2,"are equals",...)
+end
+
+function Class.isNil(val,...)
+	return doTest1(val==nil,val,"is not nil",...)
+end
+
+Class.True = Class.isTrue
+Class.False = Class.isFalse
+Class.Nil = Class.isNil
+Class.equals = Class.areEquals
+Class.notEquals = Class.areNotEquals
 
 return setmetatable(Class,Meta)

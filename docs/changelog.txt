@@ -56,6 +56,7 @@
 - Working on Terrain1 sample implementation in lua.
 - Working on error on framebuffer with elevation producer instantiation.
 - Refactoring some code.
+- minor changes in the seed tests.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

@@ -100,7 +100,7 @@ function suite.test_assert()
 	assert.False(false,"This test should fail.")
 	
 	assert.isString("hello")
-	assert.isString(12)
+	-- assert.isString(12)
 end
 
 function suite.test_stacktrace()
