@@ -55,6 +55,18 @@ local printStacktrace = function(...)
 	log.debug(stacktrace(...))
 end
 
+--[[
+Function: throwObject
+
+Throw a single object. The object can be anything.
+
+Parameters:
+	object - The object to throw
+]]
+local throwObject = function(object)
+	error(object,errorlevel())
+end
+
 --[=[
 --[[
 Function: throw
@@ -67,9 +79,8 @@ Parameters:
 function base.throw()
 ]=]
 local throw = function(...)
-	-- retrieve the stacktrace:
-	local msg = stacktrace(...) 
-	error(msg,errorlevel())
+	local Exception = require "core.Exception"
+	throwObject(Exception{write(...),stack=stacktrace()})
 end
 
 --[=[
@@ -98,6 +109,7 @@ local Class = {}
 Class.stacktrace = stacktrace
 Class.printStacktrace = printStacktrace
 Class.throw = throw
+Class.throwObject = throwObject
 Class.deprecated = deprecated
 
 return Class;

@@ -131,4 +131,37 @@ function suite.test_deprecated()
 	func()
 end
 
+function suite.test_testmanager()
+	local tman = require "test.Manager"
+	local assert = require "utils.assert"
+	
+	local suite = tman:addSuite("My suite")
+	suite:addTest("Testing basic functions",function()
+		assert.True(true)
+	end)
+
+	suite:addTest("Testing Something else",function()
+		assert.True(false)
+	end)
+	tman:run(options)
+end
+
+function suite.test_xpcall()
+	local Exception = require "core.Exception"
+	local log = require "log"
+	
+	local err_handler = function(e)
+		return e
+	end
+	
+	local status, msg = pcall(function()
+		error(Exception{"Hello Manu!"})
+	end) --,err_handler)
+	
+	
+	if not status then
+		log.error("Error occured in : ", msg,", msg type=", type(msg))
+	end
+end
+
 return suite
