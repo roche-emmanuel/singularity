@@ -46,11 +46,29 @@ Parameters:
 Returns:
 	The newly created <test.Suite> object.
 ]]
-function Class:addSuite(name)
+function Class:addSuite(name,func)
 	self.assert.nonEmptyString(name,"A valid name is required for a test suite.")
 	local Suite = require "test.Suite"
 	local suite = Suite{name=name}
 	self._suites:push_back(suite)
+
+	if func then
+		self.assert.Function(func)
+
+		-- prepare the populate of this suite by setting up the func environment properly:
+		local env = getfenv(func);
+		local newenv = {} -- new environment
+		setmetatable(newenv, {__index = env}) -- keep access to the previous function env.
+		setfenv(func, newenv)
+		newenv.Test = function(name,func)
+			suite:addTest(name,func)
+		end
+		
+		-- populate suite:
+		func()
+	end
+	
+	-- return the newly created suite.
 	return suite
 end
 

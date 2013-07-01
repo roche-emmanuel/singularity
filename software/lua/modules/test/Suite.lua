@@ -42,8 +42,19 @@ function Class:addTest(name,func)
 	self.assert.Function(func)
 	
 	self.assert.False(self._tests:has(name),"The suite already contains a test with the name ",name)
-	
+
+	-- update the environment for the test function.
+	-- we perform this operation here to ensure it is done only once.
+	local env = getfenv(func);
+	local newenv = {} -- new environment
+	setmetatable(newenv, {__index = env}) -- keep access to the previous function env.
+	setfenv(func, newenv)
+	newenv.assert = require "utils.assert"
+	newenv.log = require "log"
+		
 	self._tests:set(name,func)
+	
+	return self -- for chaining calls.
 end
 
 --[[
@@ -55,7 +66,7 @@ function Class:run()
 	
 	local man = require "test.Manager"
 	
-	self:info("Entering test suite ",self._name,"...")
+	self:info("Entering test suite '",self._name,"'...")
 	
 	local total = man:getNumTests()
 	
@@ -67,9 +78,12 @@ function Class:run()
 		res.index = index
 		res.name = name .. " (in ".. self._name..")"
 		
-		self:debug("Performing test: ",name)
+		-- self:info_f("  Test %d/%d: %s starting...",index,total,name)
 
-		local status, msg = pcall(test)
+		-- update the function environment to include some default objects:
+		
+		-- we pass the asser library as a first argument.
+		local status, msg = pcall(test) 
 		if not status then
 			res.status = man.STATUS_FAILED
 			res.message = msg
@@ -78,12 +92,12 @@ function Class:run()
 			res.status = man.STATUS_PASSED
 		end
 		
-		self:info_f("Test %d/%d: %s => %s",index,total,name,res.status==man.STATUS_PASSED and "OK" or "FAILED")
+		self:info_f("  Test %d/%d: %s => %s",index,total,name,res.status==man.STATUS_PASSED and "OK" or "FAILED")
 		
 		man:addResult(res)
 	end
 	
-	self:info("Leaving test suite ",self._name,"...")
+	self:info("Leaving test suite '",self._name,"'.")
 
 end
 
