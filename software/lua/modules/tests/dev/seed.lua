@@ -3,6 +3,8 @@
 
 local man = require("test.Manager")
 
+local dummyVar = true
+
 man:addSuite("Core new system tests",function()
 
 	Test("Testing assert",function()
@@ -35,5 +37,4 @@ man:addSuite("Core new system tests",function()
 		
 		func()
 	end)
-	
 end)

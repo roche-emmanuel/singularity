@@ -98,12 +98,32 @@ function Class.isFunction(val,...)
 	return doTest1(type(val)=="function",val,"is not a function",...)
 end
 
+function Class.isBoolean(val,...)
+	return doTest1(type(val)=="boolean",val,"is not a boolean",...)
+end
+
 function Class.isNonEmptyString(val,...)
 	return doTest1(type(val)=="string" and #val>0,val,"is not a string or is the empty string",...)
 end
 
 function Class.areEquals(val1,val2,...)
 	return doTest2(val1==val2,val1,val2,"are not equals",...)
+end
+
+function Class.isGreaterThan(val1,val2,...)
+	return doTest2(val1 and val2 and val1<val2,val1,val2,"value2 is less or equal to value1",...)
+end
+
+function Class.isGreaterOrEqualTo(val1,val2,...)
+	return doTest2(val1 and val2 and val1<=val2,val1,val2,"value2 is less than value1",...)
+end
+
+function Class.isLessThan(val1,val2,...)
+	return doTest2(val1 and val2 and val1>val2,val1,val2,"value2 is greater or equal to value1",...)
+end
+
+function Class.isLessOrEqualTo(val1,val2,...)
+	return doTest2(val1 and val2 and val1>=val2,val1,val2,"value2 is greater than value1",...)
 end
 
 function Class.areNotEquals(val1,val2,...)
@@ -114,11 +134,22 @@ function Class.isNil(val,...)
 	return doTest1(val==nil,val,"is not nil",...)
 end
 
+function Class.isNotNil(val,...)
+	return doTest1(val~=nil,val,"is nil",...)
+end
+
 Class.True = Class.isTrue
 Class.False = Class.isFalse
 Class.Nil = Class.isNil
+Class.notNil = Class.isNotNil
 Class.String = Class.isString
 Class.Function = Class.isFunction
+Class.Bool = Class.isBoolean
+Class.Boolean = Class.isBoolean
+Class.gt = Class.isGreaterThan
+Class.gte = Class.isGreaterOrEqualTo
+Class.lt = Class.islessThan
+Class.lte = Class.islessOrEqualTo
 Class.equals = Class.areEquals
 Class.notEquals = Class.areNotEquals
 Class.nonEmptyString = Class.isNonEmptyString

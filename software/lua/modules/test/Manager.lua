@@ -13,6 +13,8 @@ This class inherits from <core.Object>.
 Class.STATUS_PASSED = 0
 Class.STATUS_FAILED = 1
 
+Class._testEnv = _G
+
 --[=[
 --[[
 Constructor: Manager
@@ -33,6 +35,19 @@ function Class:initialize(options)
 	
 	-- List of results from the tests:
 	self._results = Set()
+end
+
+--[[
+Function: getTestEnv
+
+Retrieve the default test environment to use
+for not local test functions.
+
+Returns:
+	The environment table.
+]]
+function Class:getTestEnv()
+	return Class._testEnv
 end
 
 --[[

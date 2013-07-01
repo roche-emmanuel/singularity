@@ -59,6 +59,7 @@
 - minor changes in the seed tests.
 - Adding new test system.
 - Preparint basic support for sgt test system.
+- Implementing path support.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

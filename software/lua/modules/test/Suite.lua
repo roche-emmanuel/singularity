@@ -27,11 +27,12 @@ function Class:initialize(options)
 	self._env = {}
 end
 
-
 --[[
 Function: addTest
 
-Added a new test to the suite.
+Added a new test to the suite. This test will have its environment replaced
+with the lua global environment, plus minor additions like the assert package
+and the log package.
 
 Parameters:
 	name - The name of test
@@ -45,17 +46,40 @@ function Class:addTest(name,func)
 
 	-- update the environment for the test function.
 	-- we perform this operation here to ensure it is done only once.
-	local env = getfenv(func);
+	-- local env = getfenv(func);
+	local man = require "test.Manager"
 	local newenv = {} -- new environment
-	setmetatable(newenv, {__index = env}) -- keep access to the previous function env.
+	setmetatable(newenv, {__index = man:getTestEnv()}) -- discard access to the previous function env.
 	setfenv(func, newenv)
 	newenv.assert = require "utils.assert"
 	newenv.log = require "log"
-		
+	
+	-- remove the upvalues for this function:
+	-- local index = 1
+	-- local uname = true
+	-- while uname do
+		-- uname = debug.getupvalue(func,index)		
+		-- replace the upvalue with anything matching in the new environment of nil.
+		-- uname = debug.setupvalue(func,index,uname and newenv[uname])
+		-- self:info("Removed upvalue: ",uname)
+		-- index=index+1
+	-- end
+	
 	self._tests:set(name,func)
 	
 	return self -- for chaining calls.
 end
+
+--[=[
+--[[
+Function: Test
+
+Alias for <addTest>
+Convinient alias for the <addTest> method.
+]]
+function Class:Test()
+]=]
+Class.Test = Class.addTest
 
 --[[
 Function: run
