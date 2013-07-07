@@ -100,6 +100,46 @@ local deprecated = function(...)
 end
 
 
+--[=[
+--[[
+Function: getOSName
+
+Retrieve the name of the OS.
+
+Returns:
+	The name of the current OS.
+]]
+function base.getOSName()
+]=]
+local getOSName = function()
+	return require('ffi').os
+end
+
+--[=[
+--[[
+Function: isWindows
+
+Check if the current OS is a windows OS.
+  
+Returns:
+	True is the OS is Windows, false otherwise.
+]]
+function base.isWindows()
+]=]
+local isWindows = function()
+	return getOSName():find('^Windows')~=nil
+end
+
+--[=[
+--[[
+variable: is_windows
+
+Check if the current OS is a windows OS.
+True is the OS is Windows, false otherwise.
+]]
+boolean base.is_windows
+]=]
+
 ----------------------------------------------------------------------------
 -- Public interface:
 
@@ -111,5 +151,8 @@ Class.printStacktrace = printStacktrace
 Class.throw = throw
 Class.throwObject = throwObject
 Class.deprecated = deprecated
+Class.getOSName = getOSName
+Class.isWindows = isWindows
+Class.is_windows = isWindows()
 
 return Class;
