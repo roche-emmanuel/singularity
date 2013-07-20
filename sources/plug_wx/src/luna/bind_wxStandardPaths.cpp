@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxStandardPaths*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxStandardPaths*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStandardPaths* rhs =(Luna< wxStandardPaths >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStandardPaths* self= (wxStandardPaths*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxStandardPaths >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -339,15 +334,13 @@ public:
 	// void wxStandardPaths::DontIgnoreAppSubDir()
 	static int _bind_DontIgnoreAppSubDir(lua_State *L) {
 		if (!_lg_typecheck_DontIgnoreAppSubDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStandardPaths::DontIgnoreAppSubDir() function, expected prototype:\nvoid wxStandardPaths::DontIgnoreAppSubDir()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStandardPaths::DontIgnoreAppSubDir() function, expected prototype:\nvoid wxStandardPaths::DontIgnoreAppSubDir()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStandardPaths::DontIgnoreAppSubDir(). Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStandardPaths::DontIgnoreAppSubDir(). Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DontIgnoreAppSubDir();
 
@@ -357,15 +350,13 @@ public:
 	// wxString wxStandardPaths::GetAppDocumentsDir() const
 	static int _bind_GetAppDocumentsDir(lua_State *L) {
 		if (!_lg_typecheck_GetAppDocumentsDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetAppDocumentsDir() const function, expected prototype:\nwxString wxStandardPaths::GetAppDocumentsDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetAppDocumentsDir() const function, expected prototype:\nwxString wxStandardPaths::GetAppDocumentsDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetAppDocumentsDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetAppDocumentsDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetAppDocumentsDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -376,15 +367,13 @@ public:
 	// wxString wxStandardPaths::GetConfigDir() const
 	static int _bind_GetConfigDir(lua_State *L) {
 		if (!_lg_typecheck_GetConfigDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetConfigDir() const function, expected prototype:\nwxString wxStandardPaths::GetConfigDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetConfigDir() const function, expected prototype:\nwxString wxStandardPaths::GetConfigDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetConfigDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetConfigDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetConfigDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -395,15 +384,13 @@ public:
 	// wxString wxStandardPaths::GetDataDir() const
 	static int _bind_GetDataDir(lua_State *L) {
 		if (!_lg_typecheck_GetDataDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetDataDir() const function, expected prototype:\nwxString wxStandardPaths::GetDataDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetDataDir() const function, expected prototype:\nwxString wxStandardPaths::GetDataDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetDataDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetDataDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetDataDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -414,15 +401,13 @@ public:
 	// wxString wxStandardPaths::GetDocumentsDir() const
 	static int _bind_GetDocumentsDir(lua_State *L) {
 		if (!_lg_typecheck_GetDocumentsDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetDocumentsDir() const function, expected prototype:\nwxString wxStandardPaths::GetDocumentsDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetDocumentsDir() const function, expected prototype:\nwxString wxStandardPaths::GetDocumentsDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetDocumentsDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetDocumentsDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetDocumentsDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -433,15 +418,13 @@ public:
 	// wxString wxStandardPaths::GetExecutablePath() const
 	static int _bind_GetExecutablePath(lua_State *L) {
 		if (!_lg_typecheck_GetExecutablePath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetExecutablePath() const function, expected prototype:\nwxString wxStandardPaths::GetExecutablePath() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetExecutablePath() const function, expected prototype:\nwxString wxStandardPaths::GetExecutablePath() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetExecutablePath() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetExecutablePath() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetExecutablePath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -452,15 +435,13 @@ public:
 	// wxString wxStandardPaths::GetLocalDataDir() const
 	static int _bind_GetLocalDataDir(lua_State *L) {
 		if (!_lg_typecheck_GetLocalDataDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetLocalDataDir() const function, expected prototype:\nwxString wxStandardPaths::GetLocalDataDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetLocalDataDir() const function, expected prototype:\nwxString wxStandardPaths::GetLocalDataDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetLocalDataDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetLocalDataDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetLocalDataDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -471,8 +452,7 @@ public:
 	// wxString wxStandardPaths::GetLocalizedResourcesDir(const wxString & lang, wxStandardPaths::ResourceCat category = wxStandardPaths::ResourceCat_None) const
 	static int _bind_GetLocalizedResourcesDir(lua_State *L) {
 		if (!_lg_typecheck_GetLocalizedResourcesDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetLocalizedResourcesDir(const wxString & lang, wxStandardPaths::ResourceCat category = wxStandardPaths::ResourceCat_None) const function, expected prototype:\nwxString wxStandardPaths::GetLocalizedResourcesDir(const wxString & lang, wxStandardPaths::ResourceCat category = wxStandardPaths::ResourceCat_None) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetLocalizedResourcesDir(const wxString & lang, wxStandardPaths::ResourceCat category = wxStandardPaths::ResourceCat_None) const function, expected prototype:\nwxString wxStandardPaths::GetLocalizedResourcesDir(const wxString & lang, wxStandardPaths::ResourceCat category = wxStandardPaths::ResourceCat_None) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -482,8 +462,7 @@ public:
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetLocalizedResourcesDir(const wxString &, wxStandardPaths::ResourceCat) const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetLocalizedResourcesDir(const wxString &, wxStandardPaths::ResourceCat) const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetLocalizedResourcesDir(lang, category);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -494,15 +473,13 @@ public:
 	// wxString wxStandardPaths::GetPluginsDir() const
 	static int _bind_GetPluginsDir(lua_State *L) {
 		if (!_lg_typecheck_GetPluginsDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetPluginsDir() const function, expected prototype:\nwxString wxStandardPaths::GetPluginsDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetPluginsDir() const function, expected prototype:\nwxString wxStandardPaths::GetPluginsDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetPluginsDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetPluginsDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetPluginsDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -513,15 +490,13 @@ public:
 	// wxString wxStandardPaths::GetResourcesDir() const
 	static int _bind_GetResourcesDir(lua_State *L) {
 		if (!_lg_typecheck_GetResourcesDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetResourcesDir() const function, expected prototype:\nwxString wxStandardPaths::GetResourcesDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetResourcesDir() const function, expected prototype:\nwxString wxStandardPaths::GetResourcesDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetResourcesDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetResourcesDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetResourcesDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -532,15 +507,13 @@ public:
 	// wxString wxStandardPaths::GetTempDir() const
 	static int _bind_GetTempDir(lua_State *L) {
 		if (!_lg_typecheck_GetTempDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetTempDir() const function, expected prototype:\nwxString wxStandardPaths::GetTempDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetTempDir() const function, expected prototype:\nwxString wxStandardPaths::GetTempDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetTempDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetTempDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetTempDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -551,15 +524,13 @@ public:
 	// wxString wxStandardPaths::GetUserConfigDir() const
 	static int _bind_GetUserConfigDir(lua_State *L) {
 		if (!_lg_typecheck_GetUserConfigDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetUserConfigDir() const function, expected prototype:\nwxString wxStandardPaths::GetUserConfigDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetUserConfigDir() const function, expected prototype:\nwxString wxStandardPaths::GetUserConfigDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetUserConfigDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetUserConfigDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetUserConfigDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -570,15 +541,13 @@ public:
 	// wxString wxStandardPaths::GetUserDataDir() const
 	static int _bind_GetUserDataDir(lua_State *L) {
 		if (!_lg_typecheck_GetUserDataDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetUserDataDir() const function, expected prototype:\nwxString wxStandardPaths::GetUserDataDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetUserDataDir() const function, expected prototype:\nwxString wxStandardPaths::GetUserDataDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetUserDataDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetUserDataDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetUserDataDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -589,15 +558,13 @@ public:
 	// wxString wxStandardPaths::GetUserLocalDataDir() const
 	static int _bind_GetUserLocalDataDir(lua_State *L) {
 		if (!_lg_typecheck_GetUserLocalDataDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetUserLocalDataDir() const function, expected prototype:\nwxString wxStandardPaths::GetUserLocalDataDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::GetUserLocalDataDir() const function, expected prototype:\nwxString wxStandardPaths::GetUserLocalDataDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetUserLocalDataDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::GetUserLocalDataDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetUserLocalDataDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -608,16 +575,14 @@ public:
 	// void wxStandardPaths::IgnoreAppSubDir(const wxString & subdirPattern)
 	static int _bind_IgnoreAppSubDir(lua_State *L) {
 		if (!_lg_typecheck_IgnoreAppSubDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStandardPaths::IgnoreAppSubDir(const wxString & subdirPattern) function, expected prototype:\nvoid wxStandardPaths::IgnoreAppSubDir(const wxString & subdirPattern)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStandardPaths::IgnoreAppSubDir(const wxString & subdirPattern) function, expected prototype:\nvoid wxStandardPaths::IgnoreAppSubDir(const wxString & subdirPattern)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString subdirPattern(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStandardPaths::IgnoreAppSubDir(const wxString &). Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStandardPaths::IgnoreAppSubDir(const wxString &). Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->IgnoreAppSubDir(subdirPattern);
 
@@ -627,15 +592,13 @@ public:
 	// void wxStandardPaths::IgnoreAppBuildSubDirs()
 	static int _bind_IgnoreAppBuildSubDirs(lua_State *L) {
 		if (!_lg_typecheck_IgnoreAppBuildSubDirs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStandardPaths::IgnoreAppBuildSubDirs() function, expected prototype:\nvoid wxStandardPaths::IgnoreAppBuildSubDirs()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStandardPaths::IgnoreAppBuildSubDirs() function, expected prototype:\nvoid wxStandardPaths::IgnoreAppBuildSubDirs()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStandardPaths::IgnoreAppBuildSubDirs(). Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStandardPaths::IgnoreAppBuildSubDirs(). Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->IgnoreAppBuildSubDirs();
 
@@ -645,16 +608,14 @@ public:
 	// void wxStandardPaths::UseAppInfo(int info)
 	static int _bind_UseAppInfo(lua_State *L) {
 		if (!_lg_typecheck_UseAppInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStandardPaths::UseAppInfo(int info) function, expected prototype:\nvoid wxStandardPaths::UseAppInfo(int info)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStandardPaths::UseAppInfo(int info) function, expected prototype:\nvoid wxStandardPaths::UseAppInfo(int info)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int info=(int)lua_tointeger(L,2);
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStandardPaths::UseAppInfo(int). Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStandardPaths::UseAppInfo(int). Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->UseAppInfo(info);
 
@@ -664,8 +625,7 @@ public:
 	// static wxStandardPaths & wxStandardPaths::Get()
 	static int _bind_Get(lua_State *L) {
 		if (!_lg_typecheck_Get(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxStandardPaths & wxStandardPaths::Get() function, expected prototype:\nstatic wxStandardPaths & wxStandardPaths::Get()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxStandardPaths & wxStandardPaths::Get() function, expected prototype:\nstatic wxStandardPaths & wxStandardPaths::Get()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -680,8 +640,7 @@ public:
 	// static wxString wxStandardPaths::MSWGetShellDir(int csidl)
 	static int _bind_MSWGetShellDir(lua_State *L) {
 		if (!_lg_typecheck_MSWGetShellDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxStandardPaths::MSWGetShellDir(int csidl) function, expected prototype:\nstatic wxString wxStandardPaths::MSWGetShellDir(int csidl)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxStandardPaths::MSWGetShellDir(int csidl) function, expected prototype:\nstatic wxString wxStandardPaths::MSWGetShellDir(int csidl)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int csidl=(int)lua_tointeger(L,1);
@@ -695,15 +654,13 @@ public:
 	// wxString wxStandardPaths::base_GetAppDocumentsDir() const
 	static int _bind_base_GetAppDocumentsDir(lua_State *L) {
 		if (!_lg_typecheck_base_GetAppDocumentsDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetAppDocumentsDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetAppDocumentsDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetAppDocumentsDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetAppDocumentsDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetAppDocumentsDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetAppDocumentsDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStandardPaths::GetAppDocumentsDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -714,15 +671,13 @@ public:
 	// wxString wxStandardPaths::base_GetConfigDir() const
 	static int _bind_base_GetConfigDir(lua_State *L) {
 		if (!_lg_typecheck_base_GetConfigDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetConfigDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetConfigDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetConfigDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetConfigDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetConfigDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetConfigDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStandardPaths::GetConfigDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -733,15 +688,13 @@ public:
 	// wxString wxStandardPaths::base_GetDataDir() const
 	static int _bind_base_GetDataDir(lua_State *L) {
 		if (!_lg_typecheck_base_GetDataDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetDataDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetDataDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetDataDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetDataDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetDataDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetDataDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStandardPaths::GetDataDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -752,15 +705,13 @@ public:
 	// wxString wxStandardPaths::base_GetDocumentsDir() const
 	static int _bind_base_GetDocumentsDir(lua_State *L) {
 		if (!_lg_typecheck_base_GetDocumentsDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetDocumentsDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetDocumentsDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetDocumentsDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetDocumentsDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetDocumentsDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetDocumentsDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStandardPaths::GetDocumentsDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -771,15 +722,13 @@ public:
 	// wxString wxStandardPaths::base_GetExecutablePath() const
 	static int _bind_base_GetExecutablePath(lua_State *L) {
 		if (!_lg_typecheck_base_GetExecutablePath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetExecutablePath() const function, expected prototype:\nwxString wxStandardPaths::base_GetExecutablePath() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetExecutablePath() const function, expected prototype:\nwxString wxStandardPaths::base_GetExecutablePath() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetExecutablePath() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetExecutablePath() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStandardPaths::GetExecutablePath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -790,15 +739,13 @@ public:
 	// wxString wxStandardPaths::base_GetLocalDataDir() const
 	static int _bind_base_GetLocalDataDir(lua_State *L) {
 		if (!_lg_typecheck_base_GetLocalDataDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetLocalDataDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetLocalDataDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetLocalDataDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetLocalDataDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetLocalDataDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetLocalDataDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStandardPaths::GetLocalDataDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -809,8 +756,7 @@ public:
 	// wxString wxStandardPaths::base_GetLocalizedResourcesDir(const wxString & lang, wxStandardPaths::ResourceCat category = wxStandardPaths::ResourceCat_None) const
 	static int _bind_base_GetLocalizedResourcesDir(lua_State *L) {
 		if (!_lg_typecheck_base_GetLocalizedResourcesDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetLocalizedResourcesDir(const wxString & lang, wxStandardPaths::ResourceCat category = wxStandardPaths::ResourceCat_None) const function, expected prototype:\nwxString wxStandardPaths::base_GetLocalizedResourcesDir(const wxString & lang, wxStandardPaths::ResourceCat category = wxStandardPaths::ResourceCat_None) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetLocalizedResourcesDir(const wxString & lang, wxStandardPaths::ResourceCat category = wxStandardPaths::ResourceCat_None) const function, expected prototype:\nwxString wxStandardPaths::base_GetLocalizedResourcesDir(const wxString & lang, wxStandardPaths::ResourceCat category = wxStandardPaths::ResourceCat_None) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -820,8 +766,7 @@ public:
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetLocalizedResourcesDir(const wxString &, wxStandardPaths::ResourceCat) const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetLocalizedResourcesDir(const wxString &, wxStandardPaths::ResourceCat) const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStandardPaths::GetLocalizedResourcesDir(lang, category);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -832,15 +777,13 @@ public:
 	// wxString wxStandardPaths::base_GetPluginsDir() const
 	static int _bind_base_GetPluginsDir(lua_State *L) {
 		if (!_lg_typecheck_base_GetPluginsDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetPluginsDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetPluginsDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetPluginsDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetPluginsDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetPluginsDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetPluginsDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStandardPaths::GetPluginsDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -851,15 +794,13 @@ public:
 	// wxString wxStandardPaths::base_GetResourcesDir() const
 	static int _bind_base_GetResourcesDir(lua_State *L) {
 		if (!_lg_typecheck_base_GetResourcesDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetResourcesDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetResourcesDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetResourcesDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetResourcesDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetResourcesDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetResourcesDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStandardPaths::GetResourcesDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -870,15 +811,13 @@ public:
 	// wxString wxStandardPaths::base_GetTempDir() const
 	static int _bind_base_GetTempDir(lua_State *L) {
 		if (!_lg_typecheck_base_GetTempDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetTempDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetTempDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetTempDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetTempDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetTempDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetTempDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStandardPaths::GetTempDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -889,15 +828,13 @@ public:
 	// wxString wxStandardPaths::base_GetUserConfigDir() const
 	static int _bind_base_GetUserConfigDir(lua_State *L) {
 		if (!_lg_typecheck_base_GetUserConfigDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetUserConfigDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetUserConfigDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetUserConfigDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetUserConfigDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetUserConfigDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetUserConfigDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStandardPaths::GetUserConfigDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -908,15 +845,13 @@ public:
 	// wxString wxStandardPaths::base_GetUserDataDir() const
 	static int _bind_base_GetUserDataDir(lua_State *L) {
 		if (!_lg_typecheck_base_GetUserDataDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetUserDataDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetUserDataDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetUserDataDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetUserDataDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetUserDataDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetUserDataDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStandardPaths::GetUserDataDir();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -927,15 +862,13 @@ public:
 	// wxString wxStandardPaths::base_GetUserLocalDataDir() const
 	static int _bind_base_GetUserLocalDataDir(lua_State *L) {
 		if (!_lg_typecheck_base_GetUserLocalDataDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetUserLocalDataDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetUserLocalDataDir() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetUserLocalDataDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetUserLocalDataDir() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetUserLocalDataDir() const. Got : '%s'",typeid(Luna< wxStandardPaths >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetUserLocalDataDir() const. Got : '%s'\n%s",typeid(Luna< wxStandardPaths >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStandardPaths::GetUserLocalDataDir();
 		lua_pushlstring(L,lret.data(),lret.size());

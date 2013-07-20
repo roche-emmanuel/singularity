@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRect2DDouble* self= (wxRect2DDouble*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxRect2DDouble >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -534,8 +531,7 @@ public:
 	// wxRect2DDouble::wxRect2DDouble()
 	static wxRect2DDouble* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRect2DDouble::wxRect2DDouble() function, expected prototype:\nwxRect2DDouble::wxRect2DDouble()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRect2DDouble::wxRect2DDouble() function, expected prototype:\nwxRect2DDouble::wxRect2DDouble()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -545,8 +541,7 @@ public:
 	// wxRect2DDouble::wxRect2DDouble(double x, double y, double w, double h)
 	static wxRect2DDouble* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRect2DDouble::wxRect2DDouble(double x, double y, double w, double h) function, expected prototype:\nwxRect2DDouble::wxRect2DDouble(double x, double y, double w, double h)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRect2DDouble::wxRect2DDouble(double x, double y, double w, double h) function, expected prototype:\nwxRect2DDouble::wxRect2DDouble(double x, double y, double w, double h)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double x=(double)lua_tonumber(L,1);
@@ -571,15 +566,13 @@ public:
 	// wxPoint2DDouble wxRect2DDouble::GetPosition()
 	static int _bind_GetPosition(lua_State *L) {
 		if (!_lg_typecheck_GetPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint2DDouble wxRect2DDouble::GetPosition() function, expected prototype:\nwxPoint2DDouble wxRect2DDouble::GetPosition()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint2DDouble wxRect2DDouble::GetPosition() function, expected prototype:\nwxPoint2DDouble wxRect2DDouble::GetPosition()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxRect2DDouble::GetPosition(). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxRect2DDouble::GetPosition(). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint2DDouble stack_lret = self->GetPosition();
 		wxPoint2DDouble* lret = new wxPoint2DDouble(stack_lret);
@@ -593,15 +586,13 @@ public:
 	// wxSize wxRect2DDouble::GetSize()
 	static int _bind_GetSize(lua_State *L) {
 		if (!_lg_typecheck_GetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxRect2DDouble::GetSize() function, expected prototype:\nwxSize wxRect2DDouble::GetSize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxRect2DDouble::GetSize() function, expected prototype:\nwxSize wxRect2DDouble::GetSize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRect2DDouble::GetSize(). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxRect2DDouble::GetSize(). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->GetSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -615,15 +606,13 @@ public:
 	// double wxRect2DDouble::GetLeft() const
 	static int _bind_GetLeft(lua_State *L) {
 		if (!_lg_typecheck_GetLeft(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::GetLeft() const function, expected prototype:\ndouble wxRect2DDouble::GetLeft() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::GetLeft() const function, expected prototype:\ndouble wxRect2DDouble::GetLeft() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxRect2DDouble::GetLeft() const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxRect2DDouble::GetLeft() const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->GetLeft();
 		lua_pushnumber(L,lret);
@@ -634,16 +623,14 @@ public:
 	// void wxRect2DDouble::SetLeft(double n)
 	static int _bind_SetLeft(lua_State *L) {
 		if (!_lg_typecheck_SetLeft(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetLeft(double n) function, expected prototype:\nvoid wxRect2DDouble::SetLeft(double n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetLeft(double n) function, expected prototype:\nvoid wxRect2DDouble::SetLeft(double n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double n=(double)lua_tonumber(L,2);
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetLeft(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetLeft(double). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetLeft(n);
 
@@ -653,16 +640,14 @@ public:
 	// void wxRect2DDouble::MoveLeftTo(double n)
 	static int _bind_MoveLeftTo(lua_State *L) {
 		if (!_lg_typecheck_MoveLeftTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveLeftTo(double n) function, expected prototype:\nvoid wxRect2DDouble::MoveLeftTo(double n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveLeftTo(double n) function, expected prototype:\nvoid wxRect2DDouble::MoveLeftTo(double n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double n=(double)lua_tonumber(L,2);
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveLeftTo(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveLeftTo(double). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MoveLeftTo(n);
 
@@ -672,15 +657,13 @@ public:
 	// double wxRect2DDouble::GetTop() const
 	static int _bind_GetTop(lua_State *L) {
 		if (!_lg_typecheck_GetTop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::GetTop() const function, expected prototype:\ndouble wxRect2DDouble::GetTop() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::GetTop() const function, expected prototype:\ndouble wxRect2DDouble::GetTop() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxRect2DDouble::GetTop() const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxRect2DDouble::GetTop() const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->GetTop();
 		lua_pushnumber(L,lret);
@@ -691,16 +674,14 @@ public:
 	// void wxRect2DDouble::SetTop(double n)
 	static int _bind_SetTop(lua_State *L) {
 		if (!_lg_typecheck_SetTop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetTop(double n) function, expected prototype:\nvoid wxRect2DDouble::SetTop(double n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetTop(double n) function, expected prototype:\nvoid wxRect2DDouble::SetTop(double n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double n=(double)lua_tonumber(L,2);
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetTop(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetTop(double). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTop(n);
 
@@ -710,16 +691,14 @@ public:
 	// void wxRect2DDouble::MoveTopTo(double n)
 	static int _bind_MoveTopTo(lua_State *L) {
 		if (!_lg_typecheck_MoveTopTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveTopTo(double n) function, expected prototype:\nvoid wxRect2DDouble::MoveTopTo(double n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveTopTo(double n) function, expected prototype:\nvoid wxRect2DDouble::MoveTopTo(double n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double n=(double)lua_tonumber(L,2);
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveTopTo(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveTopTo(double). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MoveTopTo(n);
 
@@ -729,15 +708,13 @@ public:
 	// double wxRect2DDouble::GetBottom() const
 	static int _bind_GetBottom(lua_State *L) {
 		if (!_lg_typecheck_GetBottom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::GetBottom() const function, expected prototype:\ndouble wxRect2DDouble::GetBottom() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::GetBottom() const function, expected prototype:\ndouble wxRect2DDouble::GetBottom() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxRect2DDouble::GetBottom() const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxRect2DDouble::GetBottom() const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->GetBottom();
 		lua_pushnumber(L,lret);
@@ -748,16 +725,14 @@ public:
 	// void wxRect2DDouble::SetBottom(double n)
 	static int _bind_SetBottom(lua_State *L) {
 		if (!_lg_typecheck_SetBottom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetBottom(double n) function, expected prototype:\nvoid wxRect2DDouble::SetBottom(double n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetBottom(double n) function, expected prototype:\nvoid wxRect2DDouble::SetBottom(double n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double n=(double)lua_tonumber(L,2);
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetBottom(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetBottom(double). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetBottom(n);
 
@@ -767,16 +742,14 @@ public:
 	// void wxRect2DDouble::MoveBottomTo(double n)
 	static int _bind_MoveBottomTo(lua_State *L) {
 		if (!_lg_typecheck_MoveBottomTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveBottomTo(double n) function, expected prototype:\nvoid wxRect2DDouble::MoveBottomTo(double n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveBottomTo(double n) function, expected prototype:\nvoid wxRect2DDouble::MoveBottomTo(double n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double n=(double)lua_tonumber(L,2);
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveBottomTo(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveBottomTo(double). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MoveBottomTo(n);
 
@@ -786,15 +759,13 @@ public:
 	// double wxRect2DDouble::GetRight() const
 	static int _bind_GetRight(lua_State *L) {
 		if (!_lg_typecheck_GetRight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::GetRight() const function, expected prototype:\ndouble wxRect2DDouble::GetRight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::GetRight() const function, expected prototype:\ndouble wxRect2DDouble::GetRight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxRect2DDouble::GetRight() const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxRect2DDouble::GetRight() const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->GetRight();
 		lua_pushnumber(L,lret);
@@ -805,16 +776,14 @@ public:
 	// void wxRect2DDouble::SetRight(double n)
 	static int _bind_SetRight(lua_State *L) {
 		if (!_lg_typecheck_SetRight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetRight(double n) function, expected prototype:\nvoid wxRect2DDouble::SetRight(double n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetRight(double n) function, expected prototype:\nvoid wxRect2DDouble::SetRight(double n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double n=(double)lua_tonumber(L,2);
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetRight(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetRight(double). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRight(n);
 
@@ -824,16 +793,14 @@ public:
 	// void wxRect2DDouble::MoveRightTo(double n)
 	static int _bind_MoveRightTo(lua_State *L) {
 		if (!_lg_typecheck_MoveRightTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveRightTo(double n) function, expected prototype:\nvoid wxRect2DDouble::MoveRightTo(double n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveRightTo(double n) function, expected prototype:\nvoid wxRect2DDouble::MoveRightTo(double n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double n=(double)lua_tonumber(L,2);
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveRightTo(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveRightTo(double). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MoveRightTo(n);
 
@@ -843,15 +810,13 @@ public:
 	// wxPoint2DDouble wxRect2DDouble::GetLeftTop() const
 	static int _bind_GetLeftTop(lua_State *L) {
 		if (!_lg_typecheck_GetLeftTop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint2DDouble wxRect2DDouble::GetLeftTop() const function, expected prototype:\nwxPoint2DDouble wxRect2DDouble::GetLeftTop() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint2DDouble wxRect2DDouble::GetLeftTop() const function, expected prototype:\nwxPoint2DDouble wxRect2DDouble::GetLeftTop() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxRect2DDouble::GetLeftTop() const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxRect2DDouble::GetLeftTop() const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint2DDouble stack_lret = self->GetLeftTop();
 		wxPoint2DDouble* lret = new wxPoint2DDouble(stack_lret);
@@ -865,8 +830,7 @@ public:
 	// void wxRect2DDouble::SetLeftTop(const wxPoint2DDouble & pt)
 	static int _bind_SetLeftTop(lua_State *L) {
 		if (!_lg_typecheck_SetLeftTop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetLeftTop(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::SetLeftTop(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetLeftTop(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::SetLeftTop(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
@@ -877,8 +841,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetLeftTop(const wxPoint2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetLeftTop(const wxPoint2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetLeftTop(pt);
 
@@ -888,8 +851,7 @@ public:
 	// void wxRect2DDouble::MoveLeftTopTo(const wxPoint2DDouble & pt)
 	static int _bind_MoveLeftTopTo(lua_State *L) {
 		if (!_lg_typecheck_MoveLeftTopTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveLeftTopTo(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::MoveLeftTopTo(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveLeftTopTo(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::MoveLeftTopTo(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
@@ -900,8 +862,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveLeftTopTo(const wxPoint2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveLeftTopTo(const wxPoint2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MoveLeftTopTo(pt);
 
@@ -911,15 +872,13 @@ public:
 	// wxPoint2DDouble wxRect2DDouble::GetLeftBottom() const
 	static int _bind_GetLeftBottom(lua_State *L) {
 		if (!_lg_typecheck_GetLeftBottom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint2DDouble wxRect2DDouble::GetLeftBottom() const function, expected prototype:\nwxPoint2DDouble wxRect2DDouble::GetLeftBottom() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint2DDouble wxRect2DDouble::GetLeftBottom() const function, expected prototype:\nwxPoint2DDouble wxRect2DDouble::GetLeftBottom() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxRect2DDouble::GetLeftBottom() const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxRect2DDouble::GetLeftBottom() const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint2DDouble stack_lret = self->GetLeftBottom();
 		wxPoint2DDouble* lret = new wxPoint2DDouble(stack_lret);
@@ -933,8 +892,7 @@ public:
 	// void wxRect2DDouble::SetLeftBottom(const wxPoint2DDouble & pt)
 	static int _bind_SetLeftBottom(lua_State *L) {
 		if (!_lg_typecheck_SetLeftBottom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetLeftBottom(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::SetLeftBottom(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetLeftBottom(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::SetLeftBottom(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
@@ -945,8 +903,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetLeftBottom(const wxPoint2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetLeftBottom(const wxPoint2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetLeftBottom(pt);
 
@@ -956,8 +913,7 @@ public:
 	// void wxRect2DDouble::MoveLeftBottomTo(const wxPoint2DDouble & pt)
 	static int _bind_MoveLeftBottomTo(lua_State *L) {
 		if (!_lg_typecheck_MoveLeftBottomTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveLeftBottomTo(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::MoveLeftBottomTo(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveLeftBottomTo(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::MoveLeftBottomTo(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
@@ -968,8 +924,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveLeftBottomTo(const wxPoint2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveLeftBottomTo(const wxPoint2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MoveLeftBottomTo(pt);
 
@@ -979,15 +934,13 @@ public:
 	// wxPoint2DDouble wxRect2DDouble::GetRightTop() const
 	static int _bind_GetRightTop(lua_State *L) {
 		if (!_lg_typecheck_GetRightTop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint2DDouble wxRect2DDouble::GetRightTop() const function, expected prototype:\nwxPoint2DDouble wxRect2DDouble::GetRightTop() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint2DDouble wxRect2DDouble::GetRightTop() const function, expected prototype:\nwxPoint2DDouble wxRect2DDouble::GetRightTop() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxRect2DDouble::GetRightTop() const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxRect2DDouble::GetRightTop() const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint2DDouble stack_lret = self->GetRightTop();
 		wxPoint2DDouble* lret = new wxPoint2DDouble(stack_lret);
@@ -1001,8 +954,7 @@ public:
 	// void wxRect2DDouble::SetRightTop(const wxPoint2DDouble & pt)
 	static int _bind_SetRightTop(lua_State *L) {
 		if (!_lg_typecheck_SetRightTop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetRightTop(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::SetRightTop(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetRightTop(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::SetRightTop(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
@@ -1013,8 +965,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetRightTop(const wxPoint2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetRightTop(const wxPoint2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRightTop(pt);
 
@@ -1024,8 +975,7 @@ public:
 	// void wxRect2DDouble::MoveRightTopTo(const wxPoint2DDouble & pt)
 	static int _bind_MoveRightTopTo(lua_State *L) {
 		if (!_lg_typecheck_MoveRightTopTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveRightTopTo(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::MoveRightTopTo(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveRightTopTo(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::MoveRightTopTo(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
@@ -1036,8 +986,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveRightTopTo(const wxPoint2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveRightTopTo(const wxPoint2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MoveRightTopTo(pt);
 
@@ -1047,15 +996,13 @@ public:
 	// wxPoint2DDouble wxRect2DDouble::GetRightBottom() const
 	static int _bind_GetRightBottom(lua_State *L) {
 		if (!_lg_typecheck_GetRightBottom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint2DDouble wxRect2DDouble::GetRightBottom() const function, expected prototype:\nwxPoint2DDouble wxRect2DDouble::GetRightBottom() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint2DDouble wxRect2DDouble::GetRightBottom() const function, expected prototype:\nwxPoint2DDouble wxRect2DDouble::GetRightBottom() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxRect2DDouble::GetRightBottom() const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxRect2DDouble::GetRightBottom() const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint2DDouble stack_lret = self->GetRightBottom();
 		wxPoint2DDouble* lret = new wxPoint2DDouble(stack_lret);
@@ -1069,8 +1016,7 @@ public:
 	// void wxRect2DDouble::SetRightBottom(const wxPoint2DDouble & pt)
 	static int _bind_SetRightBottom(lua_State *L) {
 		if (!_lg_typecheck_SetRightBottom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetRightBottom(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::SetRightBottom(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetRightBottom(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::SetRightBottom(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
@@ -1081,8 +1027,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetRightBottom(const wxPoint2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetRightBottom(const wxPoint2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRightBottom(pt);
 
@@ -1092,8 +1037,7 @@ public:
 	// void wxRect2DDouble::MoveRightBottomTo(const wxPoint2DDouble & pt)
 	static int _bind_MoveRightBottomTo(lua_State *L) {
 		if (!_lg_typecheck_MoveRightBottomTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveRightBottomTo(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::MoveRightBottomTo(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveRightBottomTo(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::MoveRightBottomTo(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
@@ -1104,8 +1048,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveRightBottomTo(const wxPoint2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveRightBottomTo(const wxPoint2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MoveRightBottomTo(pt);
 
@@ -1115,15 +1058,13 @@ public:
 	// wxPoint2DDouble wxRect2DDouble::GetCentre() const
 	static int _bind_GetCentre(lua_State *L) {
 		if (!_lg_typecheck_GetCentre(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint2DDouble wxRect2DDouble::GetCentre() const function, expected prototype:\nwxPoint2DDouble wxRect2DDouble::GetCentre() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint2DDouble wxRect2DDouble::GetCentre() const function, expected prototype:\nwxPoint2DDouble wxRect2DDouble::GetCentre() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxRect2DDouble::GetCentre() const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxRect2DDouble::GetCentre() const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint2DDouble stack_lret = self->GetCentre();
 		wxPoint2DDouble* lret = new wxPoint2DDouble(stack_lret);
@@ -1137,8 +1078,7 @@ public:
 	// void wxRect2DDouble::SetCentre(const wxPoint2DDouble & pt)
 	static int _bind_SetCentre(lua_State *L) {
 		if (!_lg_typecheck_SetCentre(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetCentre(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::SetCentre(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::SetCentre(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::SetCentre(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
@@ -1149,8 +1089,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetCentre(const wxPoint2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::SetCentre(const wxPoint2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCentre(pt);
 
@@ -1160,8 +1099,7 @@ public:
 	// void wxRect2DDouble::MoveCentreTo(const wxPoint2DDouble & pt)
 	static int _bind_MoveCentreTo(lua_State *L) {
 		if (!_lg_typecheck_MoveCentreTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveCentreTo(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::MoveCentreTo(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::MoveCentreTo(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::MoveCentreTo(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
@@ -1172,8 +1110,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveCentreTo(const wxPoint2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::MoveCentreTo(const wxPoint2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MoveCentreTo(pt);
 
@@ -1183,8 +1120,7 @@ public:
 	// wxOutCode wxRect2DDouble::GetOutCode(const wxPoint2DDouble & pt) const
 	static int _bind_GetOutCode(lua_State *L) {
 		if (!_lg_typecheck_GetOutCode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxOutCode wxRect2DDouble::GetOutCode(const wxPoint2DDouble & pt) const function, expected prototype:\nwxOutCode wxRect2DDouble::GetOutCode(const wxPoint2DDouble & pt) const\nClass arguments details:\narg 1 ID = 87062627\n");
+			luaL_error(L, "luna typecheck failed in wxOutCode wxRect2DDouble::GetOutCode(const wxPoint2DDouble & pt) const function, expected prototype:\nwxOutCode wxRect2DDouble::GetOutCode(const wxPoint2DDouble & pt) const\nClass arguments details:\narg 1 ID = 87062627\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
@@ -1195,8 +1131,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxOutCode wxRect2DDouble::GetOutCode(const wxPoint2DDouble &) const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxOutCode wxRect2DDouble::GetOutCode(const wxPoint2DDouble &) const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxOutCode lret = self->GetOutCode(pt);
 		lua_pushnumber(L,lret);
@@ -1207,8 +1142,7 @@ public:
 	// wxOutCode wxRect2DDouble::GetOutcode(const wxPoint2DDouble & pt) const
 	static int _bind_GetOutcode(lua_State *L) {
 		if (!_lg_typecheck_GetOutcode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxOutCode wxRect2DDouble::GetOutcode(const wxPoint2DDouble & pt) const function, expected prototype:\nwxOutCode wxRect2DDouble::GetOutcode(const wxPoint2DDouble & pt) const\nClass arguments details:\narg 1 ID = 87062627\n");
+			luaL_error(L, "luna typecheck failed in wxOutCode wxRect2DDouble::GetOutcode(const wxPoint2DDouble & pt) const function, expected prototype:\nwxOutCode wxRect2DDouble::GetOutcode(const wxPoint2DDouble & pt) const\nClass arguments details:\narg 1 ID = 87062627\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
@@ -1219,8 +1153,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxOutCode wxRect2DDouble::GetOutcode(const wxPoint2DDouble &) const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxOutCode wxRect2DDouble::GetOutcode(const wxPoint2DDouble &) const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxOutCode lret = self->GetOutcode(pt);
 		lua_pushnumber(L,lret);
@@ -1231,8 +1164,7 @@ public:
 	// bool wxRect2DDouble::Contains(const wxPoint2DDouble & pt) const
 	static int _bind_Contains_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Contains_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRect2DDouble::Contains(const wxPoint2DDouble & pt) const function, expected prototype:\nbool wxRect2DDouble::Contains(const wxPoint2DDouble & pt) const\nClass arguments details:\narg 1 ID = 87062627\n");
+			luaL_error(L, "luna typecheck failed in bool wxRect2DDouble::Contains(const wxPoint2DDouble & pt) const function, expected prototype:\nbool wxRect2DDouble::Contains(const wxPoint2DDouble & pt) const\nClass arguments details:\narg 1 ID = 87062627\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
@@ -1243,8 +1175,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRect2DDouble::Contains(const wxPoint2DDouble &) const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRect2DDouble::Contains(const wxPoint2DDouble &) const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Contains(pt);
 		lua_pushboolean(L,lret?1:0);
@@ -1255,8 +1186,7 @@ public:
 	// bool wxRect2DDouble::Contains(const wxRect2DDouble & rect) const
 	static int _bind_Contains_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Contains_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRect2DDouble::Contains(const wxRect2DDouble & rect) const function, expected prototype:\nbool wxRect2DDouble::Contains(const wxRect2DDouble & rect) const\nClass arguments details:\narg 1 ID = 21099623\n");
+			luaL_error(L, "luna typecheck failed in bool wxRect2DDouble::Contains(const wxRect2DDouble & rect) const function, expected prototype:\nbool wxRect2DDouble::Contains(const wxRect2DDouble & rect) const\nClass arguments details:\narg 1 ID = 21099623\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect2DDouble* rect_ptr=(Luna< wxRect2DDouble >::check(L,2));
@@ -1267,8 +1197,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRect2DDouble::Contains(const wxRect2DDouble &) const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRect2DDouble::Contains(const wxRect2DDouble &) const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Contains(rect);
 		lua_pushboolean(L,lret?1:0);
@@ -1288,15 +1217,13 @@ public:
 	// bool wxRect2DDouble::IsEmpty() const
 	static int _bind_IsEmpty(lua_State *L) {
 		if (!_lg_typecheck_IsEmpty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRect2DDouble::IsEmpty() const function, expected prototype:\nbool wxRect2DDouble::IsEmpty() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRect2DDouble::IsEmpty() const function, expected prototype:\nbool wxRect2DDouble::IsEmpty() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRect2DDouble::IsEmpty() const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRect2DDouble::IsEmpty() const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -1307,8 +1234,7 @@ public:
 	// bool wxRect2DDouble::HaveEqualSize(const wxRect2DDouble & rect) const
 	static int _bind_HaveEqualSize(lua_State *L) {
 		if (!_lg_typecheck_HaveEqualSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRect2DDouble::HaveEqualSize(const wxRect2DDouble & rect) const function, expected prototype:\nbool wxRect2DDouble::HaveEqualSize(const wxRect2DDouble & rect) const\nClass arguments details:\narg 1 ID = 21099623\n");
+			luaL_error(L, "luna typecheck failed in bool wxRect2DDouble::HaveEqualSize(const wxRect2DDouble & rect) const function, expected prototype:\nbool wxRect2DDouble::HaveEqualSize(const wxRect2DDouble & rect) const\nClass arguments details:\narg 1 ID = 21099623\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect2DDouble* rect_ptr=(Luna< wxRect2DDouble >::check(L,2));
@@ -1319,8 +1245,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRect2DDouble::HaveEqualSize(const wxRect2DDouble &) const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRect2DDouble::HaveEqualSize(const wxRect2DDouble &) const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HaveEqualSize(rect);
 		lua_pushboolean(L,lret?1:0);
@@ -1331,8 +1256,7 @@ public:
 	// void wxRect2DDouble::Inset(double x, double y)
 	static int _bind_Inset_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Inset_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Inset(double x, double y) function, expected prototype:\nvoid wxRect2DDouble::Inset(double x, double y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Inset(double x, double y) function, expected prototype:\nvoid wxRect2DDouble::Inset(double x, double y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double x=(double)lua_tonumber(L,2);
@@ -1340,8 +1264,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Inset(double, double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Inset(double, double). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Inset(x, y);
 
@@ -1351,8 +1274,7 @@ public:
 	// void wxRect2DDouble::Inset(double left, double top, double right, double bottom)
 	static int _bind_Inset_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Inset_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Inset(double left, double top, double right, double bottom) function, expected prototype:\nvoid wxRect2DDouble::Inset(double left, double top, double right, double bottom)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Inset(double left, double top, double right, double bottom) function, expected prototype:\nvoid wxRect2DDouble::Inset(double left, double top, double right, double bottom)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double left=(double)lua_tonumber(L,2);
@@ -1362,8 +1284,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Inset(double, double, double, double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Inset(double, double, double, double). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Inset(left, top, right, bottom);
 
@@ -1382,8 +1303,7 @@ public:
 	// void wxRect2DDouble::Offset(const wxPoint2DDouble & pt)
 	static int _bind_Offset(lua_State *L) {
 		if (!_lg_typecheck_Offset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Offset(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::Offset(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Offset(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::Offset(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
@@ -1394,8 +1314,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Offset(const wxPoint2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Offset(const wxPoint2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Offset(pt);
 
@@ -1405,8 +1324,7 @@ public:
 	// void wxRect2DDouble::ConstrainTo(const wxRect2DDouble & rect)
 	static int _bind_ConstrainTo(lua_State *L) {
 		if (!_lg_typecheck_ConstrainTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::ConstrainTo(const wxRect2DDouble & rect) function, expected prototype:\nvoid wxRect2DDouble::ConstrainTo(const wxRect2DDouble & rect)\nClass arguments details:\narg 1 ID = 21099623\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::ConstrainTo(const wxRect2DDouble & rect) function, expected prototype:\nvoid wxRect2DDouble::ConstrainTo(const wxRect2DDouble & rect)\nClass arguments details:\narg 1 ID = 21099623\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect2DDouble* rect_ptr=(Luna< wxRect2DDouble >::check(L,2));
@@ -1417,8 +1335,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::ConstrainTo(const wxRect2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::ConstrainTo(const wxRect2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConstrainTo(rect);
 
@@ -1428,8 +1345,7 @@ public:
 	// wxPoint2DDouble wxRect2DDouble::Interpolate(int widthfactor, int heightfactor)
 	static int _bind_Interpolate(lua_State *L) {
 		if (!_lg_typecheck_Interpolate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint2DDouble wxRect2DDouble::Interpolate(int widthfactor, int heightfactor) function, expected prototype:\nwxPoint2DDouble wxRect2DDouble::Interpolate(int widthfactor, int heightfactor)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint2DDouble wxRect2DDouble::Interpolate(int widthfactor, int heightfactor) function, expected prototype:\nwxPoint2DDouble wxRect2DDouble::Interpolate(int widthfactor, int heightfactor)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int widthfactor=(int)lua_tointeger(L,2);
@@ -1437,8 +1353,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxRect2DDouble::Interpolate(int, int). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxRect2DDouble::Interpolate(int, int). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint2DDouble stack_lret = self->Interpolate(widthfactor, heightfactor);
 		wxPoint2DDouble* lret = new wxPoint2DDouble(stack_lret);
@@ -1452,8 +1367,7 @@ public:
 	// void wxRect2DDouble::Intersect(const wxRect2DDouble & otherRect)
 	static int _bind_Intersect_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Intersect_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Intersect(const wxRect2DDouble & otherRect) function, expected prototype:\nvoid wxRect2DDouble::Intersect(const wxRect2DDouble & otherRect)\nClass arguments details:\narg 1 ID = 21099623\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Intersect(const wxRect2DDouble & otherRect) function, expected prototype:\nvoid wxRect2DDouble::Intersect(const wxRect2DDouble & otherRect)\nClass arguments details:\narg 1 ID = 21099623\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect2DDouble* otherRect_ptr=(Luna< wxRect2DDouble >::check(L,2));
@@ -1464,8 +1378,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Intersect(const wxRect2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Intersect(const wxRect2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Intersect(otherRect);
 
@@ -1475,8 +1388,7 @@ public:
 	// static void wxRect2DDouble::Intersect(const wxRect2DDouble & src1, const wxRect2DDouble & src2, wxRect2DDouble * dest)
 	static int _bind_Intersect_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Intersect_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxRect2DDouble::Intersect(const wxRect2DDouble & src1, const wxRect2DDouble & src2, wxRect2DDouble * dest) function, expected prototype:\nstatic void wxRect2DDouble::Intersect(const wxRect2DDouble & src1, const wxRect2DDouble & src2, wxRect2DDouble * dest)\nClass arguments details:\narg 1 ID = 21099623\narg 2 ID = 21099623\narg 3 ID = 21099623\n");
+			luaL_error(L, "luna typecheck failed in static void wxRect2DDouble::Intersect(const wxRect2DDouble & src1, const wxRect2DDouble & src2, wxRect2DDouble * dest) function, expected prototype:\nstatic void wxRect2DDouble::Intersect(const wxRect2DDouble & src1, const wxRect2DDouble & src2, wxRect2DDouble * dest)\nClass arguments details:\narg 1 ID = 21099623\narg 2 ID = 21099623\narg 3 ID = 21099623\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect2DDouble* src1_ptr=(Luna< wxRect2DDouble >::check(L,1));
@@ -1508,8 +1420,7 @@ public:
 	// wxRect2DDouble wxRect2DDouble::CreateIntersection(const wxRect2DDouble & otherRect) const
 	static int _bind_CreateIntersection(lua_State *L) {
 		if (!_lg_typecheck_CreateIntersection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRect2DDouble wxRect2DDouble::CreateIntersection(const wxRect2DDouble & otherRect) const function, expected prototype:\nwxRect2DDouble wxRect2DDouble::CreateIntersection(const wxRect2DDouble & otherRect) const\nClass arguments details:\narg 1 ID = 21099623\n");
+			luaL_error(L, "luna typecheck failed in wxRect2DDouble wxRect2DDouble::CreateIntersection(const wxRect2DDouble & otherRect) const function, expected prototype:\nwxRect2DDouble wxRect2DDouble::CreateIntersection(const wxRect2DDouble & otherRect) const\nClass arguments details:\narg 1 ID = 21099623\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect2DDouble* otherRect_ptr=(Luna< wxRect2DDouble >::check(L,2));
@@ -1520,8 +1431,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect2DDouble wxRect2DDouble::CreateIntersection(const wxRect2DDouble &) const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRect2DDouble wxRect2DDouble::CreateIntersection(const wxRect2DDouble &) const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxRect2DDouble stack_lret = self->CreateIntersection(otherRect);
 		wxRect2DDouble* lret = new wxRect2DDouble(stack_lret);
@@ -1535,8 +1445,7 @@ public:
 	// bool wxRect2DDouble::Intersects(const wxRect2DDouble & rect) const
 	static int _bind_Intersects(lua_State *L) {
 		if (!_lg_typecheck_Intersects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRect2DDouble::Intersects(const wxRect2DDouble & rect) const function, expected prototype:\nbool wxRect2DDouble::Intersects(const wxRect2DDouble & rect) const\nClass arguments details:\narg 1 ID = 21099623\n");
+			luaL_error(L, "luna typecheck failed in bool wxRect2DDouble::Intersects(const wxRect2DDouble & rect) const function, expected prototype:\nbool wxRect2DDouble::Intersects(const wxRect2DDouble & rect) const\nClass arguments details:\narg 1 ID = 21099623\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect2DDouble* rect_ptr=(Luna< wxRect2DDouble >::check(L,2));
@@ -1547,8 +1456,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRect2DDouble::Intersects(const wxRect2DDouble &) const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRect2DDouble::Intersects(const wxRect2DDouble &) const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Intersects(rect);
 		lua_pushboolean(L,lret?1:0);
@@ -1559,8 +1467,7 @@ public:
 	// void wxRect2DDouble::Union(const wxRect2DDouble & otherRect)
 	static int _bind_Union_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Union_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Union(const wxRect2DDouble & otherRect) function, expected prototype:\nvoid wxRect2DDouble::Union(const wxRect2DDouble & otherRect)\nClass arguments details:\narg 1 ID = 21099623\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Union(const wxRect2DDouble & otherRect) function, expected prototype:\nvoid wxRect2DDouble::Union(const wxRect2DDouble & otherRect)\nClass arguments details:\narg 1 ID = 21099623\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect2DDouble* otherRect_ptr=(Luna< wxRect2DDouble >::check(L,2));
@@ -1571,8 +1478,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Union(const wxRect2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Union(const wxRect2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Union(otherRect);
 
@@ -1582,8 +1488,7 @@ public:
 	// void wxRect2DDouble::Union(const wxPoint2DDouble & pt)
 	static int _bind_Union_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Union_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Union(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::Union(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Union(const wxPoint2DDouble & pt) function, expected prototype:\nvoid wxRect2DDouble::Union(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
@@ -1594,8 +1499,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Union(const wxPoint2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Union(const wxPoint2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Union(pt);
 
@@ -1605,8 +1509,7 @@ public:
 	// static void wxRect2DDouble::Union(const wxRect2DDouble & src1, const wxRect2DDouble & src2, wxRect2DDouble * dest)
 	static int _bind_Union_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Union_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxRect2DDouble::Union(const wxRect2DDouble & src1, const wxRect2DDouble & src2, wxRect2DDouble * dest) function, expected prototype:\nstatic void wxRect2DDouble::Union(const wxRect2DDouble & src1, const wxRect2DDouble & src2, wxRect2DDouble * dest)\nClass arguments details:\narg 1 ID = 21099623\narg 2 ID = 21099623\narg 3 ID = 21099623\n");
+			luaL_error(L, "luna typecheck failed in static void wxRect2DDouble::Union(const wxRect2DDouble & src1, const wxRect2DDouble & src2, wxRect2DDouble * dest) function, expected prototype:\nstatic void wxRect2DDouble::Union(const wxRect2DDouble & src1, const wxRect2DDouble & src2, wxRect2DDouble * dest)\nClass arguments details:\narg 1 ID = 21099623\narg 2 ID = 21099623\narg 3 ID = 21099623\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect2DDouble* src1_ptr=(Luna< wxRect2DDouble >::check(L,1));
@@ -1639,8 +1542,7 @@ public:
 	// wxRect2DDouble wxRect2DDouble::CreateUnion(const wxRect2DDouble & otherRect) const
 	static int _bind_CreateUnion(lua_State *L) {
 		if (!_lg_typecheck_CreateUnion(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRect2DDouble wxRect2DDouble::CreateUnion(const wxRect2DDouble & otherRect) const function, expected prototype:\nwxRect2DDouble wxRect2DDouble::CreateUnion(const wxRect2DDouble & otherRect) const\nClass arguments details:\narg 1 ID = 21099623\n");
+			luaL_error(L, "luna typecheck failed in wxRect2DDouble wxRect2DDouble::CreateUnion(const wxRect2DDouble & otherRect) const function, expected prototype:\nwxRect2DDouble wxRect2DDouble::CreateUnion(const wxRect2DDouble & otherRect) const\nClass arguments details:\narg 1 ID = 21099623\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect2DDouble* otherRect_ptr=(Luna< wxRect2DDouble >::check(L,2));
@@ -1651,8 +1553,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect2DDouble wxRect2DDouble::CreateUnion(const wxRect2DDouble &) const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRect2DDouble wxRect2DDouble::CreateUnion(const wxRect2DDouble &) const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxRect2DDouble stack_lret = self->CreateUnion(otherRect);
 		wxRect2DDouble* lret = new wxRect2DDouble(stack_lret);
@@ -1666,16 +1567,14 @@ public:
 	// void wxRect2DDouble::Scale(double f)
 	static int _bind_Scale_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Scale_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Scale(double f) function, expected prototype:\nvoid wxRect2DDouble::Scale(double f)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Scale(double f) function, expected prototype:\nvoid wxRect2DDouble::Scale(double f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double f=(double)lua_tonumber(L,2);
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Scale(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Scale(double). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Scale(f);
 
@@ -1685,8 +1584,7 @@ public:
 	// void wxRect2DDouble::Scale(int num, int denum)
 	static int _bind_Scale_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Scale_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Scale(int num, int denum) function, expected prototype:\nvoid wxRect2DDouble::Scale(int num, int denum)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::Scale(int num, int denum) function, expected prototype:\nvoid wxRect2DDouble::Scale(int num, int denum)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int num=(int)lua_tointeger(L,2);
@@ -1694,8 +1592,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Scale(int, int). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::Scale(int, int). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Scale(num, denum);
 
@@ -1714,15 +1611,13 @@ public:
 	// double wxRect2DDouble::m_x()
 	static int _bind_getX(lua_State *L) {
 		if (!_lg_typecheck_getX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_x() function, expected prototype:\ndouble wxRect2DDouble::m_x()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_x() function, expected prototype:\ndouble wxRect2DDouble::m_x()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxRect2DDouble::m_x(). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxRect2DDouble::m_x(). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->m_x;
 		lua_pushnumber(L,lret);
@@ -1733,15 +1628,13 @@ public:
 	// double wxRect2DDouble::m_y()
 	static int _bind_getY(lua_State *L) {
 		if (!_lg_typecheck_getY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_y() function, expected prototype:\ndouble wxRect2DDouble::m_y()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_y() function, expected prototype:\ndouble wxRect2DDouble::m_y()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxRect2DDouble::m_y(). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxRect2DDouble::m_y(). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->m_y;
 		lua_pushnumber(L,lret);
@@ -1752,15 +1645,13 @@ public:
 	// double wxRect2DDouble::m_width()
 	static int _bind_getWidth(lua_State *L) {
 		if (!_lg_typecheck_getWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_width() function, expected prototype:\ndouble wxRect2DDouble::m_width()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_width() function, expected prototype:\ndouble wxRect2DDouble::m_width()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxRect2DDouble::m_width(). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxRect2DDouble::m_width(). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->m_width;
 		lua_pushnumber(L,lret);
@@ -1771,15 +1662,13 @@ public:
 	// double wxRect2DDouble::m_height()
 	static int _bind_getHeight(lua_State *L) {
 		if (!_lg_typecheck_getHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_height() function, expected prototype:\ndouble wxRect2DDouble::m_height()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_height() function, expected prototype:\ndouble wxRect2DDouble::m_height()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxRect2DDouble::m_height(). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxRect2DDouble::m_height(). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->m_height;
 		lua_pushnumber(L,lret);
@@ -1790,16 +1679,14 @@ public:
 	// void wxRect2DDouble::m_x(double value)
 	static int _bind_setX(lua_State *L) {
 		if (!_lg_typecheck_setX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_x(double value) function, expected prototype:\nvoid wxRect2DDouble::m_x(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_x(double value) function, expected prototype:\nvoid wxRect2DDouble::m_x(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::m_x(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::m_x(double). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_x = value;
 
@@ -1809,16 +1696,14 @@ public:
 	// void wxRect2DDouble::m_y(double value)
 	static int _bind_setY(lua_State *L) {
 		if (!_lg_typecheck_setY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_y(double value) function, expected prototype:\nvoid wxRect2DDouble::m_y(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_y(double value) function, expected prototype:\nvoid wxRect2DDouble::m_y(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::m_y(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::m_y(double). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_y = value;
 
@@ -1828,16 +1713,14 @@ public:
 	// void wxRect2DDouble::m_width(double value)
 	static int _bind_setWidth(lua_State *L) {
 		if (!_lg_typecheck_setWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_width(double value) function, expected prototype:\nvoid wxRect2DDouble::m_width(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_width(double value) function, expected prototype:\nvoid wxRect2DDouble::m_width(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::m_width(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::m_width(double). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_width = value;
 
@@ -1847,16 +1730,14 @@ public:
 	// void wxRect2DDouble::m_height(double value)
 	static int _bind_setHeight(lua_State *L) {
 		if (!_lg_typecheck_setHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_height(double value) function, expected prototype:\nvoid wxRect2DDouble::m_height(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_height(double value) function, expected prototype:\nvoid wxRect2DDouble::m_height(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect2DDouble::m_height(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::m_height(double). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_height = value;
 
@@ -1868,8 +1749,7 @@ public:
 	// wxRect2DDouble & wxRect2DDouble::operator=(const wxRect2DDouble & rect)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRect2DDouble & wxRect2DDouble::operator=(const wxRect2DDouble & rect) function, expected prototype:\nwxRect2DDouble & wxRect2DDouble::operator=(const wxRect2DDouble & rect)\nClass arguments details:\narg 1 ID = 21099623\n");
+			luaL_error(L, "luna typecheck failed in wxRect2DDouble & wxRect2DDouble::operator=(const wxRect2DDouble & rect) function, expected prototype:\nwxRect2DDouble & wxRect2DDouble::operator=(const wxRect2DDouble & rect)\nClass arguments details:\narg 1 ID = 21099623\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect2DDouble* rect_ptr=(Luna< wxRect2DDouble >::check(L,2));
@@ -1880,8 +1760,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect2DDouble & wxRect2DDouble::operator=(const wxRect2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRect2DDouble & wxRect2DDouble::operator=(const wxRect2DDouble &). Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxRect2DDouble* lret = &self->operator=(rect);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1894,8 +1773,7 @@ public:
 	// bool wxRect2DDouble::operator==(const wxRect2DDouble & rect) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRect2DDouble::operator==(const wxRect2DDouble & rect) const function, expected prototype:\nbool wxRect2DDouble::operator==(const wxRect2DDouble & rect) const\nClass arguments details:\narg 1 ID = 21099623\n");
+			luaL_error(L, "luna typecheck failed in bool wxRect2DDouble::operator==(const wxRect2DDouble & rect) const function, expected prototype:\nbool wxRect2DDouble::operator==(const wxRect2DDouble & rect) const\nClass arguments details:\narg 1 ID = 21099623\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect2DDouble* rect_ptr=(Luna< wxRect2DDouble >::check(L,2));
@@ -1906,8 +1784,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRect2DDouble::operator==(const wxRect2DDouble &) const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRect2DDouble::operator==(const wxRect2DDouble &) const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(rect);
 		lua_pushboolean(L,lret?1:0);
@@ -1918,8 +1795,7 @@ public:
 	// bool wxRect2DDouble::operator!=(const wxRect2DDouble & rect) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRect2DDouble::operator!=(const wxRect2DDouble & rect) const function, expected prototype:\nbool wxRect2DDouble::operator!=(const wxRect2DDouble & rect) const\nClass arguments details:\narg 1 ID = 21099623\n");
+			luaL_error(L, "luna typecheck failed in bool wxRect2DDouble::operator!=(const wxRect2DDouble & rect) const function, expected prototype:\nbool wxRect2DDouble::operator!=(const wxRect2DDouble & rect) const\nClass arguments details:\narg 1 ID = 21099623\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect2DDouble* rect_ptr=(Luna< wxRect2DDouble >::check(L,2));
@@ -1930,8 +1806,7 @@ public:
 
 		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRect2DDouble::operator!=(const wxRect2DDouble &) const. Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRect2DDouble::operator!=(const wxRect2DDouble &) const. Got : '%s'\n%s",typeid(Luna< wxRect2DDouble >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(rect);
 		lua_pushboolean(L,lret?1:0);

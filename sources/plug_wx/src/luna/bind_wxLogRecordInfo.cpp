@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxLogRecordInfo*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxLogRecordInfo*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLogRecordInfo* rhs =(Luna< wxLogRecordInfo >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLogRecordInfo* self= (wxLogRecordInfo*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxLogRecordInfo >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -137,15 +133,13 @@ public:
 	// const char * wxLogRecordInfo::filename()
 	static int _bind_getFilename(lua_State *L) {
 		if (!_lg_typecheck_getFilename(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * wxLogRecordInfo::filename() function, expected prototype:\nconst char * wxLogRecordInfo::filename()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * wxLogRecordInfo::filename() function, expected prototype:\nconst char * wxLogRecordInfo::filename()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLogRecordInfo* self=(Luna< wxLogRecordInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * wxLogRecordInfo::filename(). Got : '%s'",typeid(Luna< wxLogRecordInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * wxLogRecordInfo::filename(). Got : '%s'\n%s",typeid(Luna< wxLogRecordInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->filename;
 		lua_pushstring(L,lret);
@@ -156,15 +150,13 @@ public:
 	// int wxLogRecordInfo::line()
 	static int _bind_getLine(lua_State *L) {
 		if (!_lg_typecheck_getLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxLogRecordInfo::line() function, expected prototype:\nint wxLogRecordInfo::line()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxLogRecordInfo::line() function, expected prototype:\nint wxLogRecordInfo::line()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLogRecordInfo* self=(Luna< wxLogRecordInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxLogRecordInfo::line(). Got : '%s'",typeid(Luna< wxLogRecordInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxLogRecordInfo::line(). Got : '%s'\n%s",typeid(Luna< wxLogRecordInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->line;
 		lua_pushnumber(L,lret);
@@ -175,15 +167,13 @@ public:
 	// const char * wxLogRecordInfo::func()
 	static int _bind_getFunc(lua_State *L) {
 		if (!_lg_typecheck_getFunc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * wxLogRecordInfo::func() function, expected prototype:\nconst char * wxLogRecordInfo::func()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * wxLogRecordInfo::func() function, expected prototype:\nconst char * wxLogRecordInfo::func()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLogRecordInfo* self=(Luna< wxLogRecordInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * wxLogRecordInfo::func(). Got : '%s'",typeid(Luna< wxLogRecordInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * wxLogRecordInfo::func(). Got : '%s'\n%s",typeid(Luna< wxLogRecordInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->func;
 		lua_pushstring(L,lret);
@@ -194,16 +184,14 @@ public:
 	// void wxLogRecordInfo::line(int value)
 	static int _bind_setLine(lua_State *L) {
 		if (!_lg_typecheck_setLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLogRecordInfo::line(int value) function, expected prototype:\nvoid wxLogRecordInfo::line(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxLogRecordInfo::line(int value) function, expected prototype:\nvoid wxLogRecordInfo::line(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		wxLogRecordInfo* self=(Luna< wxLogRecordInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogRecordInfo::line(int). Got : '%s'",typeid(Luna< wxLogRecordInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLogRecordInfo::line(int). Got : '%s'\n%s",typeid(Luna< wxLogRecordInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->line = value;
 

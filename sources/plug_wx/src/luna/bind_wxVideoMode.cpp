@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxVideoMode* self= (wxVideoMode*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxVideoMode >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -194,8 +191,7 @@ public:
 	// wxVideoMode::wxVideoMode(int width = 0, int height = 0, int depth = 0, int freq = 0)
 	static wxVideoMode* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxVideoMode::wxVideoMode(int width = 0, int height = 0, int depth = 0, int freq = 0) function, expected prototype:\nwxVideoMode::wxVideoMode(int width = 0, int height = 0, int depth = 0, int freq = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxVideoMode::wxVideoMode(int width = 0, int height = 0, int depth = 0, int freq = 0) function, expected prototype:\nwxVideoMode::wxVideoMode(int width = 0, int height = 0, int depth = 0, int freq = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -213,8 +209,7 @@ public:
 	// bool wxVideoMode::Matches(const wxVideoMode & other) const
 	static int _bind_Matches(lua_State *L) {
 		if (!_lg_typecheck_Matches(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxVideoMode::Matches(const wxVideoMode & other) const function, expected prototype:\nbool wxVideoMode::Matches(const wxVideoMode & other) const\nClass arguments details:\narg 1 ID = 44802589\n");
+			luaL_error(L, "luna typecheck failed in bool wxVideoMode::Matches(const wxVideoMode & other) const function, expected prototype:\nbool wxVideoMode::Matches(const wxVideoMode & other) const\nClass arguments details:\narg 1 ID = 44802589\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxVideoMode* other_ptr=(Luna< wxVideoMode >::check(L,2));
@@ -225,8 +220,7 @@ public:
 
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVideoMode::Matches(const wxVideoMode &) const. Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxVideoMode::Matches(const wxVideoMode &) const. Got : '%s'\n%s",typeid(Luna< wxVideoMode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Matches(other);
 		lua_pushboolean(L,lret?1:0);
@@ -237,15 +231,13 @@ public:
 	// int wxVideoMode::GetWidth() const
 	static int _bind_GetWidth(lua_State *L) {
 		if (!_lg_typecheck_GetWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxVideoMode::GetWidth() const function, expected prototype:\nint wxVideoMode::GetWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxVideoMode::GetWidth() const function, expected prototype:\nint wxVideoMode::GetWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVideoMode::GetWidth() const. Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxVideoMode::GetWidth() const. Got : '%s'\n%s",typeid(Luna< wxVideoMode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetWidth();
 		lua_pushnumber(L,lret);
@@ -256,15 +248,13 @@ public:
 	// int wxVideoMode::GetHeight() const
 	static int _bind_GetHeight(lua_State *L) {
 		if (!_lg_typecheck_GetHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxVideoMode::GetHeight() const function, expected prototype:\nint wxVideoMode::GetHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxVideoMode::GetHeight() const function, expected prototype:\nint wxVideoMode::GetHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVideoMode::GetHeight() const. Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxVideoMode::GetHeight() const. Got : '%s'\n%s",typeid(Luna< wxVideoMode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetHeight();
 		lua_pushnumber(L,lret);
@@ -275,15 +265,13 @@ public:
 	// int wxVideoMode::GetDepth() const
 	static int _bind_GetDepth(lua_State *L) {
 		if (!_lg_typecheck_GetDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxVideoMode::GetDepth() const function, expected prototype:\nint wxVideoMode::GetDepth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxVideoMode::GetDepth() const function, expected prototype:\nint wxVideoMode::GetDepth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVideoMode::GetDepth() const. Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxVideoMode::GetDepth() const. Got : '%s'\n%s",typeid(Luna< wxVideoMode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetDepth();
 		lua_pushnumber(L,lret);
@@ -294,15 +282,13 @@ public:
 	// bool wxVideoMode::IsOk() const
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxVideoMode::IsOk() const function, expected prototype:\nbool wxVideoMode::IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxVideoMode::IsOk() const function, expected prototype:\nbool wxVideoMode::IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVideoMode::IsOk() const. Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxVideoMode::IsOk() const. Got : '%s'\n%s",typeid(Luna< wxVideoMode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -313,15 +299,13 @@ public:
 	// int wxVideoMode::w()
 	static int _bind_getW(lua_State *L) {
 		if (!_lg_typecheck_getW(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxVideoMode::w() function, expected prototype:\nint wxVideoMode::w()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxVideoMode::w() function, expected prototype:\nint wxVideoMode::w()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVideoMode::w(). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxVideoMode::w(). Got : '%s'\n%s",typeid(Luna< wxVideoMode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->w;
 		lua_pushnumber(L,lret);
@@ -332,15 +316,13 @@ public:
 	// int wxVideoMode::h()
 	static int _bind_getH(lua_State *L) {
 		if (!_lg_typecheck_getH(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxVideoMode::h() function, expected prototype:\nint wxVideoMode::h()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxVideoMode::h() function, expected prototype:\nint wxVideoMode::h()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVideoMode::h(). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxVideoMode::h(). Got : '%s'\n%s",typeid(Luna< wxVideoMode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->h;
 		lua_pushnumber(L,lret);
@@ -351,15 +333,13 @@ public:
 	// int wxVideoMode::bpp()
 	static int _bind_getBpp(lua_State *L) {
 		if (!_lg_typecheck_getBpp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxVideoMode::bpp() function, expected prototype:\nint wxVideoMode::bpp()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxVideoMode::bpp() function, expected prototype:\nint wxVideoMode::bpp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVideoMode::bpp(). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxVideoMode::bpp(). Got : '%s'\n%s",typeid(Luna< wxVideoMode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->bpp;
 		lua_pushnumber(L,lret);
@@ -370,15 +350,13 @@ public:
 	// int wxVideoMode::refresh()
 	static int _bind_getRefresh(lua_State *L) {
 		if (!_lg_typecheck_getRefresh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxVideoMode::refresh() function, expected prototype:\nint wxVideoMode::refresh()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxVideoMode::refresh() function, expected prototype:\nint wxVideoMode::refresh()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVideoMode::refresh(). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxVideoMode::refresh(). Got : '%s'\n%s",typeid(Luna< wxVideoMode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->refresh;
 		lua_pushnumber(L,lret);
@@ -389,16 +367,14 @@ public:
 	// void wxVideoMode::w(int value)
 	static int _bind_setW(lua_State *L) {
 		if (!_lg_typecheck_setW(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxVideoMode::w(int value) function, expected prototype:\nvoid wxVideoMode::w(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxVideoMode::w(int value) function, expected prototype:\nvoid wxVideoMode::w(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVideoMode::w(int). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxVideoMode::w(int). Got : '%s'\n%s",typeid(Luna< wxVideoMode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->w = value;
 
@@ -408,16 +384,14 @@ public:
 	// void wxVideoMode::h(int value)
 	static int _bind_setH(lua_State *L) {
 		if (!_lg_typecheck_setH(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxVideoMode::h(int value) function, expected prototype:\nvoid wxVideoMode::h(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxVideoMode::h(int value) function, expected prototype:\nvoid wxVideoMode::h(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVideoMode::h(int). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxVideoMode::h(int). Got : '%s'\n%s",typeid(Luna< wxVideoMode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->h = value;
 
@@ -427,16 +401,14 @@ public:
 	// void wxVideoMode::bpp(int value)
 	static int _bind_setBpp(lua_State *L) {
 		if (!_lg_typecheck_setBpp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxVideoMode::bpp(int value) function, expected prototype:\nvoid wxVideoMode::bpp(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxVideoMode::bpp(int value) function, expected prototype:\nvoid wxVideoMode::bpp(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVideoMode::bpp(int). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxVideoMode::bpp(int). Got : '%s'\n%s",typeid(Luna< wxVideoMode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->bpp = value;
 
@@ -446,16 +418,14 @@ public:
 	// void wxVideoMode::refresh(int value)
 	static int _bind_setRefresh(lua_State *L) {
 		if (!_lg_typecheck_setRefresh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxVideoMode::refresh(int value) function, expected prototype:\nvoid wxVideoMode::refresh(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxVideoMode::refresh(int value) function, expected prototype:\nvoid wxVideoMode::refresh(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVideoMode::refresh(int). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxVideoMode::refresh(int). Got : '%s'\n%s",typeid(Luna< wxVideoMode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->refresh = value;
 
@@ -467,8 +437,7 @@ public:
 	// bool wxVideoMode::operator==(const wxVideoMode & m) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxVideoMode::operator==(const wxVideoMode & m) const function, expected prototype:\nbool wxVideoMode::operator==(const wxVideoMode & m) const\nClass arguments details:\narg 1 ID = 44802589\n");
+			luaL_error(L, "luna typecheck failed in bool wxVideoMode::operator==(const wxVideoMode & m) const function, expected prototype:\nbool wxVideoMode::operator==(const wxVideoMode & m) const\nClass arguments details:\narg 1 ID = 44802589\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxVideoMode* m_ptr=(Luna< wxVideoMode >::check(L,2));
@@ -479,8 +448,7 @@ public:
 
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVideoMode::operator==(const wxVideoMode &) const. Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxVideoMode::operator==(const wxVideoMode &) const. Got : '%s'\n%s",typeid(Luna< wxVideoMode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(m);
 		lua_pushboolean(L,lret?1:0);
@@ -491,8 +459,7 @@ public:
 	// bool wxVideoMode::operator!=(const wxVideoMode & mode) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxVideoMode::operator!=(const wxVideoMode & mode) const function, expected prototype:\nbool wxVideoMode::operator!=(const wxVideoMode & mode) const\nClass arguments details:\narg 1 ID = 44802589\n");
+			luaL_error(L, "luna typecheck failed in bool wxVideoMode::operator!=(const wxVideoMode & mode) const function, expected prototype:\nbool wxVideoMode::operator!=(const wxVideoMode & mode) const\nClass arguments details:\narg 1 ID = 44802589\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxVideoMode* mode_ptr=(Luna< wxVideoMode >::check(L,2));
@@ -503,8 +470,7 @@ public:
 
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVideoMode::operator!=(const wxVideoMode &) const. Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxVideoMode::operator!=(const wxVideoMode &) const. Got : '%s'\n%s",typeid(Luna< wxVideoMode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(mode);
 		lua_pushboolean(L,lret?1:0);

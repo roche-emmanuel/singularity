@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxSemaphore*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxSemaphore*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSemaphore* rhs =(Luna< wxSemaphore >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSemaphore* self= (wxSemaphore*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxSemaphore >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -132,7 +128,7 @@ public:
 	inline static bool _lg_typecheck_WaitTimeout(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -144,8 +140,7 @@ public:
 	// wxSemaphore::wxSemaphore(int initialcount = 0, int maxcount = 0)
 	static wxSemaphore* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSemaphore::wxSemaphore(int initialcount = 0, int maxcount = 0) function, expected prototype:\nwxSemaphore::wxSemaphore(int initialcount = 0, int maxcount = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSemaphore::wxSemaphore(int initialcount = 0, int maxcount = 0) function, expected prototype:\nwxSemaphore::wxSemaphore(int initialcount = 0, int maxcount = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -161,15 +156,13 @@ public:
 	// wxSemaError wxSemaphore::Post()
 	static int _bind_Post(lua_State *L) {
 		if (!_lg_typecheck_Post(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSemaError wxSemaphore::Post() function, expected prototype:\nwxSemaError wxSemaphore::Post()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSemaError wxSemaphore::Post() function, expected prototype:\nwxSemaError wxSemaphore::Post()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSemaphore* self=(Luna< wxSemaphore >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::Post(). Got : '%s'",typeid(Luna< wxSemaphore >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::Post(). Got : '%s'\n%s",typeid(Luna< wxSemaphore >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSemaError lret = self->Post();
 		lua_pushnumber(L,lret);
@@ -180,15 +173,13 @@ public:
 	// wxSemaError wxSemaphore::TryWait()
 	static int _bind_TryWait(lua_State *L) {
 		if (!_lg_typecheck_TryWait(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSemaError wxSemaphore::TryWait() function, expected prototype:\nwxSemaError wxSemaphore::TryWait()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSemaError wxSemaphore::TryWait() function, expected prototype:\nwxSemaError wxSemaphore::TryWait()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSemaphore* self=(Luna< wxSemaphore >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::TryWait(). Got : '%s'",typeid(Luna< wxSemaphore >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::TryWait(). Got : '%s'\n%s",typeid(Luna< wxSemaphore >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSemaError lret = self->TryWait();
 		lua_pushnumber(L,lret);
@@ -199,15 +190,13 @@ public:
 	// wxSemaError wxSemaphore::Wait()
 	static int _bind_Wait(lua_State *L) {
 		if (!_lg_typecheck_Wait(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSemaError wxSemaphore::Wait() function, expected prototype:\nwxSemaError wxSemaphore::Wait()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSemaError wxSemaphore::Wait() function, expected prototype:\nwxSemaError wxSemaphore::Wait()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSemaphore* self=(Luna< wxSemaphore >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::Wait(). Got : '%s'",typeid(Luna< wxSemaphore >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::Wait(). Got : '%s'\n%s",typeid(Luna< wxSemaphore >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSemaError lret = self->Wait();
 		lua_pushnumber(L,lret);
@@ -218,16 +207,14 @@ public:
 	// wxSemaError wxSemaphore::WaitTimeout(unsigned long timeout_millis)
 	static int _bind_WaitTimeout(lua_State *L) {
 		if (!_lg_typecheck_WaitTimeout(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSemaError wxSemaphore::WaitTimeout(unsigned long timeout_millis) function, expected prototype:\nwxSemaError wxSemaphore::WaitTimeout(unsigned long timeout_millis)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSemaError wxSemaphore::WaitTimeout(unsigned long timeout_millis) function, expected prototype:\nwxSemaError wxSemaphore::WaitTimeout(unsigned long timeout_millis)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long timeout_millis=(unsigned long)lua_tointeger(L,2);
+		unsigned long timeout_millis=(unsigned long)lua_tonumber(L,2);
 
 		wxSemaphore* self=(Luna< wxSemaphore >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::WaitTimeout(unsigned long). Got : '%s'",typeid(Luna< wxSemaphore >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::WaitTimeout(unsigned long). Got : '%s'\n%s",typeid(Luna< wxSemaphore >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSemaError lret = self->WaitTimeout(timeout_millis);
 		lua_pushnumber(L,lret);

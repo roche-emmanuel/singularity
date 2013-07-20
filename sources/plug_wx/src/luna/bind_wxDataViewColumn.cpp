@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataViewColumn* self= (wxDataViewColumn*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxHeaderColumn >::check(L,1));
@@ -200,8 +197,7 @@ public:
 	// wxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxString & title, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)
 	static wxDataViewColumn* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxString & title, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxString & title, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxString & title, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxString & title, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -219,8 +215,7 @@ public:
 	// wxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxBitmap & bitmap, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)
 	static wxDataViewColumn* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxBitmap & bitmap, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxBitmap & bitmap, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxBitmap & bitmap, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxBitmap & bitmap, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -253,15 +248,13 @@ public:
 	// unsigned int wxDataViewColumn::GetModelColumn() const
 	static int _bind_GetModelColumn(lua_State *L) {
 		if (!_lg_typecheck_GetModelColumn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int wxDataViewColumn::GetModelColumn() const function, expected prototype:\nunsigned int wxDataViewColumn::GetModelColumn() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int wxDataViewColumn::GetModelColumn() const function, expected prototype:\nunsigned int wxDataViewColumn::GetModelColumn() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxDataViewColumn::GetModelColumn() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int wxDataViewColumn::GetModelColumn() const. Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->GetModelColumn();
 		lua_pushnumber(L,lret);
@@ -272,15 +265,13 @@ public:
 	// wxDataViewCtrl * wxDataViewColumn::GetOwner() const
 	static int _bind_GetOwner(lua_State *L) {
 		if (!_lg_typecheck_GetOwner(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewCtrl * wxDataViewColumn::GetOwner() const function, expected prototype:\nwxDataViewCtrl * wxDataViewColumn::GetOwner() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewCtrl * wxDataViewColumn::GetOwner() const function, expected prototype:\nwxDataViewCtrl * wxDataViewColumn::GetOwner() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewCtrl * wxDataViewColumn::GetOwner() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDataViewCtrl * wxDataViewColumn::GetOwner() const. Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDataViewCtrl * lret = self->GetOwner();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -293,15 +284,13 @@ public:
 	// wxDataViewRenderer * wxDataViewColumn::GetRenderer() const
 	static int _bind_GetRenderer(lua_State *L) {
 		if (!_lg_typecheck_GetRenderer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewRenderer * wxDataViewColumn::GetRenderer() const function, expected prototype:\nwxDataViewRenderer * wxDataViewColumn::GetRenderer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewRenderer * wxDataViewColumn::GetRenderer() const function, expected prototype:\nwxDataViewRenderer * wxDataViewColumn::GetRenderer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewRenderer * wxDataViewColumn::GetRenderer() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDataViewRenderer * wxDataViewColumn::GetRenderer() const. Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDataViewRenderer * lret = self->GetRenderer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -314,15 +303,13 @@ public:
 	// bool wxDataViewColumn::base_IsResizeable() const
 	static int _bind_base_IsResizeable(lua_State *L) {
 		if (!_lg_typecheck_base_IsResizeable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewColumn::base_IsResizeable() const function, expected prototype:\nbool wxDataViewColumn::base_IsResizeable() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewColumn::base_IsResizeable() const function, expected prototype:\nbool wxDataViewColumn::base_IsResizeable() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsResizeable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsResizeable() const. Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewColumn::IsResizeable();
 		lua_pushboolean(L,lret?1:0);
@@ -333,15 +320,13 @@ public:
 	// bool wxDataViewColumn::base_IsSortable() const
 	static int _bind_base_IsSortable(lua_State *L) {
 		if (!_lg_typecheck_base_IsSortable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewColumn::base_IsSortable() const function, expected prototype:\nbool wxDataViewColumn::base_IsSortable() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewColumn::base_IsSortable() const function, expected prototype:\nbool wxDataViewColumn::base_IsSortable() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsSortable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsSortable() const. Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewColumn::IsSortable();
 		lua_pushboolean(L,lret?1:0);
@@ -352,15 +337,13 @@ public:
 	// bool wxDataViewColumn::base_IsReorderable() const
 	static int _bind_base_IsReorderable(lua_State *L) {
 		if (!_lg_typecheck_base_IsReorderable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewColumn::base_IsReorderable() const function, expected prototype:\nbool wxDataViewColumn::base_IsReorderable() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewColumn::base_IsReorderable() const function, expected prototype:\nbool wxDataViewColumn::base_IsReorderable() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsReorderable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsReorderable() const. Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewColumn::IsReorderable();
 		lua_pushboolean(L,lret?1:0);
@@ -371,15 +354,13 @@ public:
 	// bool wxDataViewColumn::base_IsHidden() const
 	static int _bind_base_IsHidden(lua_State *L) {
 		if (!_lg_typecheck_base_IsHidden(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewColumn::base_IsHidden() const function, expected prototype:\nbool wxDataViewColumn::base_IsHidden() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewColumn::base_IsHidden() const function, expected prototype:\nbool wxDataViewColumn::base_IsHidden() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsHidden() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsHidden() const. Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewColumn::IsHidden();
 		lua_pushboolean(L,lret?1:0);
@@ -390,16 +371,14 @@ public:
 	// void wxDataViewColumn::base_SetResizeable(bool resizable)
 	static int _bind_base_SetResizeable(lua_State *L) {
 		if (!_lg_typecheck_base_SetResizeable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewColumn::base_SetResizeable(bool resizable) function, expected prototype:\nvoid wxDataViewColumn::base_SetResizeable(bool resizable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewColumn::base_SetResizeable(bool resizable) function, expected prototype:\nvoid wxDataViewColumn::base_SetResizeable(bool resizable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool resizable=(bool)(lua_toboolean(L,2)==1);
 
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetResizeable(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetResizeable(bool). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDataViewColumn::SetResizeable(resizable);
 
@@ -409,16 +388,14 @@ public:
 	// void wxDataViewColumn::base_SetSortable(bool sortable)
 	static int _bind_base_SetSortable(lua_State *L) {
 		if (!_lg_typecheck_base_SetSortable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewColumn::base_SetSortable(bool sortable) function, expected prototype:\nvoid wxDataViewColumn::base_SetSortable(bool sortable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewColumn::base_SetSortable(bool sortable) function, expected prototype:\nvoid wxDataViewColumn::base_SetSortable(bool sortable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool sortable=(bool)(lua_toboolean(L,2)==1);
 
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetSortable(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetSortable(bool). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDataViewColumn::SetSortable(sortable);
 
@@ -428,16 +405,14 @@ public:
 	// void wxDataViewColumn::base_SetReorderable(bool reorderable)
 	static int _bind_base_SetReorderable(lua_State *L) {
 		if (!_lg_typecheck_base_SetReorderable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewColumn::base_SetReorderable(bool reorderable) function, expected prototype:\nvoid wxDataViewColumn::base_SetReorderable(bool reorderable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewColumn::base_SetReorderable(bool reorderable) function, expected prototype:\nvoid wxDataViewColumn::base_SetReorderable(bool reorderable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool reorderable=(bool)(lua_toboolean(L,2)==1);
 
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetReorderable(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetReorderable(bool). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDataViewColumn::SetReorderable(reorderable);
 
@@ -447,16 +422,14 @@ public:
 	// void wxDataViewColumn::base_SetHidden(bool hidden)
 	static int _bind_base_SetHidden(lua_State *L) {
 		if (!_lg_typecheck_base_SetHidden(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewColumn::base_SetHidden(bool hidden) function, expected prototype:\nvoid wxDataViewColumn::base_SetHidden(bool hidden)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewColumn::base_SetHidden(bool hidden) function, expected prototype:\nvoid wxDataViewColumn::base_SetHidden(bool hidden)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool hidden=(bool)(lua_toboolean(L,2)==1);
 
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetHidden(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetHidden(bool). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDataViewColumn::SetHidden(hidden);
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxComboBox* self= (wxComboBox*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -114,13 +111,40 @@ public:
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<6 || luatop>9 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,1)) ) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( (!(Luna< wxPoint >::check(L,4))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
+		if( (!(Luna< wxSize >::check(L,5))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,6,59507769) ) return false;
+		if( (!(Luna< wxArrayString >::check(L,6))) ) return false;
+		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
+		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,56813631) ) return false;
+		if( luatop>7 && (!(Luna< wxObject >::checkSubType< wxValidator >(L,8))) ) return false;
+		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<7 || luatop>10 ) return false;
 
@@ -135,7 +159,7 @@ public:
 		if( (!(Luna< wxSize >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,59507769) ) return false;
 		if( (!(Luna< wxArrayString >::check(L,7))) ) return false;
-		if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( luatop>7 && lua_isnumber(L,8)==0 ) return false;
 		if( luatop>8 && !Luna<void>::has_uniqueid(L,9,56813631) ) return false;
 		if( luatop>8 && (!(Luna< wxObject >::checkSubType< wxValidator >(L,9))) ) return false;
 		if( luatop>9 && lua_isstring(L,10)==0 ) return false;
@@ -154,7 +178,7 @@ public:
 		if( !Luna<void>::has_uniqueid(L,5,25723480) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,20268751) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,59507769) ) return false;
-		if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( luatop>7 && lua_isnumber(L,8)==0 ) return false;
 		if( luatop>8 && !Luna<void>::has_uniqueid(L,9,56813631) ) return false;
 		if( luatop>9 && lua_isstring(L,10)==0 ) return false;
 		return true;
@@ -187,8 +211,8 @@ public:
 	inline static bool _lg_typecheck_SetSelection_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -680,14 +704,14 @@ public:
 	inline static bool _lg_typecheck_base_SetExtraStyle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_SetWindowStyleFlag(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -945,7 +969,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -1034,8 +1058,8 @@ public:
 	inline static bool _lg_typecheck_base_GetRange(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -1066,16 +1090,16 @@ public:
 	inline static bool _lg_typecheck_base_Remove(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_Replace(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
 		return true;
 	}
@@ -1090,7 +1114,7 @@ public:
 	inline static bool _lg_typecheck_base_SetInsertionPoint(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -1103,7 +1127,7 @@ public:
 	inline static bool _lg_typecheck_base_SetMaxLength(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -1154,8 +1178,8 @@ public:
 	inline static bool _lg_typecheck_base_SetSelection_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -1240,11 +1264,57 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxComboBox::wxComboBox(lua_Table * data)
+	// wxComboBox::wxComboBox()
 	static wxComboBox* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxComboBox::wxComboBox(lua_Table * data) function, expected prototype:\nwxComboBox::wxComboBox(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxComboBox::wxComboBox() function, expected prototype:\nwxComboBox::wxComboBox()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+
+		return new wxComboBox();
+	}
+
+	// wxComboBox::wxComboBox(wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr)
+	static wxComboBox* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luaL_error(L, "luna typecheck failed in wxComboBox::wxComboBox(wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr) function, expected prototype:\nwxComboBox::wxComboBox(wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 6 ID = 59507769\narg 8 ID = 56813631\narg 9 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
+		int id=(int)lua_tointeger(L,2);
+		wxString value(lua_tostring(L,3),lua_objlen(L,3));
+		const wxPoint* pos_ptr=(Luna< wxPoint >::check(L,4));
+		if( !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxComboBox::wxComboBox function");
+		}
+		const wxPoint & pos=*pos_ptr;
+		const wxSize* size_ptr=(Luna< wxSize >::check(L,5));
+		if( !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxComboBox::wxComboBox function");
+		}
+		const wxSize & size=*size_ptr;
+		const wxArrayString* choices_ptr=(Luna< wxArrayString >::check(L,6));
+		if( !choices_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxComboBox::wxComboBox function");
+		}
+		const wxArrayString & choices=*choices_ptr;
+		long style=luatop>6 ? (long)lua_tonumber(L,7) : (long)0;
+		const wxValidator* validator_ptr=luatop>7 ? (Luna< wxObject >::checkSubType< wxValidator >(L,8)) : NULL;
+		if( luatop>7 && !validator_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxComboBox::wxComboBox function");
+		}
+		const wxValidator & validator=luatop>7 ? *validator_ptr : (const wxValidator&)wxDefaultValidator;
+		wxString name(lua_tostring(L,9),lua_objlen(L,9));
+
+		return new wxComboBox(parent, id, value, pos, size, choices, style, validator, name);
+	}
+
+	// wxComboBox::wxComboBox(lua_Table * data)
+	static wxComboBox* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luaL_error(L, "luna typecheck failed in wxComboBox::wxComboBox(lua_Table * data) function, expected prototype:\nwxComboBox::wxComboBox(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -1252,10 +1322,9 @@ public:
 	}
 
 	// wxComboBox::wxComboBox(lua_Table * data, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr)
-	static wxComboBox* _bind_ctor_overload_2(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxComboBox::wxComboBox(lua_Table * data, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr) function, expected prototype:\nwxComboBox::wxComboBox(lua_Table * data, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\narg 5 ID = 25723480\narg 6 ID = 20268751\narg 7 ID = 59507769\narg 9 ID = 56813631\narg 10 ID = 88196105\n");
+	static wxComboBox* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luaL_error(L, "luna typecheck failed in wxComboBox::wxComboBox(lua_Table * data, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr) function, expected prototype:\nwxComboBox::wxComboBox(lua_Table * data, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\narg 5 ID = 25723480\narg 6 ID = 20268751\narg 7 ID = 59507769\narg 9 ID = 56813631\narg 10 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1278,7 +1347,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxComboBox::wxComboBox function");
 		}
 		const wxArrayString & choices=*choices_ptr;
-		long style=luatop>7 ? (long)lua_tointeger(L,8) : (long)0;
+		long style=luatop>7 ? (long)lua_tonumber(L,8) : (long)0;
 		const wxValidator* validator_ptr=luatop>8 ? (Luna< wxObject >::checkSubType< wxValidator >(L,9)) : NULL;
 		if( luatop>8 && !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxComboBox::wxComboBox function");
@@ -1293,8 +1362,10 @@ public:
 	static wxComboBox* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxComboBox, cannot match any of the overloads for function wxComboBox:\n  wxComboBox(lua_Table *)\n  wxComboBox(lua_Table *, wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n");
+		luaL_error(L, "error in function wxComboBox, cannot match any of the overloads for function wxComboBox:\n  wxComboBox()\n  wxComboBox(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n  wxComboBox(lua_Table *)\n  wxComboBox(lua_Table *, wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n");
 		return NULL;
 	}
 
@@ -1303,8 +1374,7 @@ public:
 	// bool wxComboBox::Create(wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::Create(wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr) function, expected prototype:\nbool wxComboBox::Create(wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 6 ID = 59507769\narg 8 ID = 56813631\narg 9 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::Create(wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr) function, expected prototype:\nbool wxComboBox::Create(wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 6 ID = 59507769\narg 8 ID = 56813631\narg 9 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1327,7 +1397,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxComboBox::Create function");
 		}
 		const wxArrayString & choices=*choices_ptr;
-		long style=luatop>7 ? (long)lua_tointeger(L,8) : (long)0;
+		long style=luatop>7 ? (long)lua_tonumber(L,8) : (long)0;
 		const wxValidator* validator_ptr=luatop>8 ? (Luna< wxObject >::checkSubType< wxValidator >(L,9)) : NULL;
 		if( luatop>8 && !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxComboBox::Create function");
@@ -1337,8 +1407,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::Create(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::Create(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Create(parent, id, value, pos, size, choices, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1349,15 +1418,13 @@ public:
 	// int wxComboBox::GetCurrentSelection() const
 	static int _bind_GetCurrentSelection(lua_State *L) {
 		if (!_lg_typecheck_GetCurrentSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxComboBox::GetCurrentSelection() const function, expected prototype:\nint wxComboBox::GetCurrentSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxComboBox::GetCurrentSelection() const function, expected prototype:\nint wxComboBox::GetCurrentSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboBox::GetCurrentSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxComboBox::GetCurrentSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetCurrentSelection();
 		lua_pushnumber(L,lret);
@@ -1368,15 +1435,13 @@ public:
 	// long wxComboBox::GetInsertionPoint() const
 	static int _bind_GetInsertionPoint(lua_State *L) {
 		if (!_lg_typecheck_GetInsertionPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxComboBox::GetInsertionPoint() const function, expected prototype:\nlong wxComboBox::GetInsertionPoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxComboBox::GetInsertionPoint() const function, expected prototype:\nlong wxComboBox::GetInsertionPoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxComboBox::GetInsertionPoint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long wxComboBox::GetInsertionPoint() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->GetInsertionPoint();
 		lua_pushnumber(L,lret);
@@ -1387,15 +1452,13 @@ public:
 	// bool wxComboBox::IsListEmpty() const
 	static int _bind_IsListEmpty(lua_State *L) {
 		if (!_lg_typecheck_IsListEmpty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::IsListEmpty() const function, expected prototype:\nbool wxComboBox::IsListEmpty() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::IsListEmpty() const function, expected prototype:\nbool wxComboBox::IsListEmpty() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::IsListEmpty() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::IsListEmpty() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsListEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -1406,15 +1469,13 @@ public:
 	// bool wxComboBox::IsTextEmpty() const
 	static int _bind_IsTextEmpty(lua_State *L) {
 		if (!_lg_typecheck_IsTextEmpty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::IsTextEmpty() const function, expected prototype:\nbool wxComboBox::IsTextEmpty() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::IsTextEmpty() const function, expected prototype:\nbool wxComboBox::IsTextEmpty() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::IsTextEmpty() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::IsTextEmpty() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsTextEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -1425,17 +1486,15 @@ public:
 	// void wxComboBox::SetSelection(long from, long to)
 	static int _bind_SetSelection_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SetSelection_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::SetSelection(long from, long to) function, expected prototype:\nvoid wxComboBox::SetSelection(long from, long to)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::SetSelection(long from, long to) function, expected prototype:\nvoid wxComboBox::SetSelection(long from, long to)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long from=(long)lua_tonumber(L,2);
+		long to=(long)lua_tonumber(L,3);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::SetSelection(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::SetSelection(long, long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelection(from, to);
 
@@ -1445,16 +1504,14 @@ public:
 	// void wxComboBox::SetSelection(int n)
 	static int _bind_SetSelection_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SetSelection_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::SetSelection(int n) function, expected prototype:\nvoid wxComboBox::SetSelection(int n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::SetSelection(int n) function, expected prototype:\nvoid wxComboBox::SetSelection(int n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int n=(int)lua_tointeger(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::SetSelection(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::SetSelection(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelection(n);
 
@@ -1473,16 +1530,14 @@ public:
 	// void wxComboBox::SetValue(const wxString & text)
 	static int _bind_SetValue(lua_State *L) {
 		if (!_lg_typecheck_SetValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::SetValue(const wxString & text) function, expected prototype:\nvoid wxComboBox::SetValue(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::SetValue(const wxString & text) function, expected prototype:\nvoid wxComboBox::SetValue(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::SetValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::SetValue(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetValue(text);
 
@@ -1492,15 +1547,13 @@ public:
 	// void wxComboBox::Popup()
 	static int _bind_Popup(lua_State *L) {
 		if (!_lg_typecheck_Popup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::Popup() function, expected prototype:\nvoid wxComboBox::Popup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::Popup() function, expected prototype:\nvoid wxComboBox::Popup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::Popup(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::Popup(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Popup();
 
@@ -1510,15 +1563,13 @@ public:
 	// void wxComboBox::Dismiss()
 	static int _bind_Dismiss(lua_State *L) {
 		if (!_lg_typecheck_Dismiss(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::Dismiss() function, expected prototype:\nvoid wxComboBox::Dismiss()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::Dismiss() function, expected prototype:\nvoid wxComboBox::Dismiss()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::Dismiss(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::Dismiss(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Dismiss();
 
@@ -1528,15 +1579,13 @@ public:
 	// int wxComboBox::GetSelection() const
 	static int _bind_GetSelection_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetSelection_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxComboBox::GetSelection() const function, expected prototype:\nint wxComboBox::GetSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxComboBox::GetSelection() const function, expected prototype:\nint wxComboBox::GetSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboBox::GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxComboBox::GetSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSelection();
 		lua_pushnumber(L,lret);
@@ -1547,8 +1596,7 @@ public:
 	// void wxComboBox::GetSelection(long * from, long * to) const
 	static int _bind_GetSelection_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetSelection_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::GetSelection(long * from, long * to) const function, expected prototype:\nvoid wxComboBox::GetSelection(long * from, long * to) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::GetSelection(long * from, long * to) const function, expected prototype:\nvoid wxComboBox::GetSelection(long * from, long * to) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		long* from=(long*)Luna< void >::check(L,2);
@@ -1556,8 +1604,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::GetSelection(long *, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::GetSelection(long *, long *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetSelection(from, to);
 
@@ -1576,8 +1623,7 @@ public:
 	// int wxComboBox::FindString(const wxString & string, bool caseSensitive = false) const
 	static int _bind_FindString(lua_State *L) {
 		if (!_lg_typecheck_FindString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxComboBox::FindString(const wxString & string, bool caseSensitive = false) const function, expected prototype:\nint wxComboBox::FindString(const wxString & string, bool caseSensitive = false) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxComboBox::FindString(const wxString & string, bool caseSensitive = false) const function, expected prototype:\nint wxComboBox::FindString(const wxString & string, bool caseSensitive = false) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1587,8 +1633,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboBox::FindString(const wxString &, bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxComboBox::FindString(const wxString &, bool) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->FindString(string, caseSensitive);
 		lua_pushnumber(L,lret);
@@ -1599,16 +1644,14 @@ public:
 	// wxString wxComboBox::GetString(unsigned int n) const
 	static int _bind_GetString(lua_State *L) {
 		if (!_lg_typecheck_GetString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxComboBox::GetString(unsigned int n) const function, expected prototype:\nwxString wxComboBox::GetString(unsigned int n) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxComboBox::GetString(unsigned int n) const function, expected prototype:\nwxString wxComboBox::GetString(unsigned int n) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int n=(unsigned int)lua_tointeger(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboBox::GetString(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxComboBox::GetString(unsigned int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetString(n);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1619,15 +1662,13 @@ public:
 	// wxString wxComboBox::GetStringSelection() const
 	static int _bind_GetStringSelection(lua_State *L) {
 		if (!_lg_typecheck_GetStringSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxComboBox::GetStringSelection() const function, expected prototype:\nwxString wxComboBox::GetStringSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxComboBox::GetStringSelection() const function, expected prototype:\nwxString wxComboBox::GetStringSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboBox::GetStringSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxComboBox::GetStringSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetStringSelection();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1638,8 +1679,7 @@ public:
 	// void wxComboBox::SetString(unsigned int n, const wxString & string)
 	static int _bind_SetString(lua_State *L) {
 		if (!_lg_typecheck_SetString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::SetString(unsigned int n, const wxString & string) function, expected prototype:\nvoid wxComboBox::SetString(unsigned int n, const wxString & string)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::SetString(unsigned int n, const wxString & string) function, expected prototype:\nvoid wxComboBox::SetString(unsigned int n, const wxString & string)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int n=(unsigned int)lua_tointeger(L,2);
@@ -1647,8 +1687,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::SetString(unsigned int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::SetString(unsigned int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetString(n, string);
 
@@ -1658,15 +1697,13 @@ public:
 	// unsigned int wxComboBox::GetCount() const
 	static int _bind_GetCount(lua_State *L) {
 		if (!_lg_typecheck_GetCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int wxComboBox::GetCount() const function, expected prototype:\nunsigned int wxComboBox::GetCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int wxComboBox::GetCount() const function, expected prototype:\nunsigned int wxComboBox::GetCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxComboBox::GetCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int wxComboBox::GetCount() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->GetCount();
 		lua_pushnumber(L,lret);
@@ -1677,15 +1714,13 @@ public:
 	// wxClassInfo * wxComboBox::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxComboBox::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxComboBox::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxComboBox::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxComboBox::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxComboBox::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxComboBox::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxComboBox::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1698,15 +1733,13 @@ public:
 	// bool wxComboBox::base_AcceptsFocus() const
 	static int _bind_base_AcceptsFocus(lua_State *L) {
 		if (!_lg_typecheck_base_AcceptsFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_AcceptsFocus() const function, expected prototype:\nbool wxComboBox::base_AcceptsFocus() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_AcceptsFocus() const function, expected prototype:\nbool wxComboBox::base_AcceptsFocus() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_AcceptsFocus() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1717,15 +1750,13 @@ public:
 	// bool wxComboBox::base_AcceptsFocusFromKeyboard() const
 	static int _bind_base_AcceptsFocusFromKeyboard(lua_State *L) {
 		if (!_lg_typecheck_base_AcceptsFocusFromKeyboard(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_AcceptsFocusFromKeyboard() const function, expected prototype:\nbool wxComboBox::base_AcceptsFocusFromKeyboard() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_AcceptsFocusFromKeyboard() const function, expected prototype:\nbool wxComboBox::base_AcceptsFocusFromKeyboard() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_AcceptsFocusFromKeyboard() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1736,15 +1767,13 @@ public:
 	// bool wxComboBox::base_AcceptsFocusRecursively() const
 	static int _bind_base_AcceptsFocusRecursively(lua_State *L) {
 		if (!_lg_typecheck_base_AcceptsFocusRecursively(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_AcceptsFocusRecursively() const function, expected prototype:\nbool wxComboBox::base_AcceptsFocusRecursively() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_AcceptsFocusRecursively() const function, expected prototype:\nbool wxComboBox::base_AcceptsFocusRecursively() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_AcceptsFocusRecursively() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1755,15 +1784,13 @@ public:
 	// bool wxComboBox::base_HasFocus() const
 	static int _bind_base_HasFocus(lua_State *L) {
 		if (!_lg_typecheck_base_HasFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_HasFocus() const function, expected prototype:\nbool wxComboBox::base_HasFocus() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_HasFocus() const function, expected prototype:\nbool wxComboBox::base_HasFocus() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_HasFocus() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1774,16 +1801,14 @@ public:
 	// void wxComboBox::base_SetCanFocus(bool canFocus)
 	static int _bind_base_SetCanFocus(lua_State *L) {
 		if (!_lg_typecheck_base_SetCanFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetCanFocus(bool canFocus) function, expected prototype:\nvoid wxComboBox::base_SetCanFocus(bool canFocus)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetCanFocus(bool canFocus) function, expected prototype:\nvoid wxComboBox::base_SetCanFocus(bool canFocus)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool canFocus=(bool)(lua_toboolean(L,2)==1);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetCanFocus(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetCanFocus(canFocus);
 
@@ -1793,15 +1818,13 @@ public:
 	// void wxComboBox::base_SetFocus()
 	static int _bind_base_SetFocus(lua_State *L) {
 		if (!_lg_typecheck_base_SetFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetFocus() function, expected prototype:\nvoid wxComboBox::base_SetFocus()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetFocus() function, expected prototype:\nvoid wxComboBox::base_SetFocus()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetFocus(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetFocus();
 
@@ -1811,15 +1834,13 @@ public:
 	// void wxComboBox::base_SetFocusFromKbd()
 	static int _bind_base_SetFocusFromKbd(lua_State *L) {
 		if (!_lg_typecheck_base_SetFocusFromKbd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetFocusFromKbd() function, expected prototype:\nvoid wxComboBox::base_SetFocusFromKbd()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetFocusFromKbd() function, expected prototype:\nvoid wxComboBox::base_SetFocusFromKbd()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetFocusFromKbd(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetFocusFromKbd();
 
@@ -1829,16 +1850,14 @@ public:
 	// void wxComboBox::base_AddChild(wxWindow * child)
 	static int _bind_base_AddChild(lua_State *L) {
 		if (!_lg_typecheck_base_AddChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_AddChild(wxWindow * child) function, expected prototype:\nvoid wxComboBox::base_AddChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_AddChild(wxWindow * child) function, expected prototype:\nvoid wxComboBox::base_AddChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* child=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_AddChild(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::AddChild(child);
 
@@ -1848,16 +1867,14 @@ public:
 	// void wxComboBox::base_RemoveChild(wxWindow * child)
 	static int _bind_base_RemoveChild(lua_State *L) {
 		if (!_lg_typecheck_base_RemoveChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_RemoveChild(wxWindow * child) function, expected prototype:\nvoid wxComboBox::base_RemoveChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_RemoveChild(wxWindow * child) function, expected prototype:\nvoid wxComboBox::base_RemoveChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* child=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_RemoveChild(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::RemoveChild(child);
 
@@ -1867,16 +1884,14 @@ public:
 	// bool wxComboBox::base_Reparent(wxWindow * newParent)
 	static int _bind_base_Reparent(lua_State *L) {
 		if (!_lg_typecheck_base_Reparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_Reparent(wxWindow * newParent) function, expected prototype:\nbool wxComboBox::base_Reparent(wxWindow * newParent)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_Reparent(wxWindow * newParent) function, expected prototype:\nbool wxComboBox::base_Reparent(wxWindow * newParent)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* newParent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_Reparent(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1887,8 +1902,7 @@ public:
 	// void wxComboBox::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)
 	static int _bind_base_AlwaysShowScrollbars(lua_State *L) {
 		if (!_lg_typecheck_base_AlwaysShowScrollbars(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true) function, expected prototype:\nvoid wxComboBox::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true) function, expected prototype:\nvoid wxComboBox::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1898,8 +1912,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_AlwaysShowScrollbars(bool, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1909,16 +1922,14 @@ public:
 	// int wxComboBox::base_GetScrollPos(int orientation) const
 	static int _bind_base_GetScrollPos(lua_State *L) {
 		if (!_lg_typecheck_base_GetScrollPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxComboBox::base_GetScrollPos(int orientation) const function, expected prototype:\nint wxComboBox::base_GetScrollPos(int orientation) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxComboBox::base_GetScrollPos(int orientation) const function, expected prototype:\nint wxComboBox::base_GetScrollPos(int orientation) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orientation=(int)lua_tointeger(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboBox::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxComboBox::base_GetScrollPos(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxComboBox::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1929,16 +1940,14 @@ public:
 	// int wxComboBox::base_GetScrollRange(int orientation) const
 	static int _bind_base_GetScrollRange(lua_State *L) {
 		if (!_lg_typecheck_base_GetScrollRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxComboBox::base_GetScrollRange(int orientation) const function, expected prototype:\nint wxComboBox::base_GetScrollRange(int orientation) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxComboBox::base_GetScrollRange(int orientation) const function, expected prototype:\nint wxComboBox::base_GetScrollRange(int orientation) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orientation=(int)lua_tointeger(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboBox::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxComboBox::base_GetScrollRange(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxComboBox::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1949,16 +1958,14 @@ public:
 	// int wxComboBox::base_GetScrollThumb(int orientation) const
 	static int _bind_base_GetScrollThumb(lua_State *L) {
 		if (!_lg_typecheck_base_GetScrollThumb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxComboBox::base_GetScrollThumb(int orientation) const function, expected prototype:\nint wxComboBox::base_GetScrollThumb(int orientation) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxComboBox::base_GetScrollThumb(int orientation) const function, expected prototype:\nint wxComboBox::base_GetScrollThumb(int orientation) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orientation=(int)lua_tointeger(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboBox::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxComboBox::base_GetScrollThumb(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxComboBox::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1969,16 +1976,14 @@ public:
 	// bool wxComboBox::base_IsScrollbarAlwaysShown(int orient) const
 	static int _bind_base_IsScrollbarAlwaysShown(lua_State *L) {
 		if (!_lg_typecheck_base_IsScrollbarAlwaysShown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_IsScrollbarAlwaysShown(int orient) const function, expected prototype:\nbool wxComboBox::base_IsScrollbarAlwaysShown(int orient) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_IsScrollbarAlwaysShown(int orient) const function, expected prototype:\nbool wxComboBox::base_IsScrollbarAlwaysShown(int orient) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orient=(int)lua_tointeger(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_IsScrollbarAlwaysShown(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1989,16 +1994,14 @@ public:
 	// bool wxComboBox::base_ScrollLines(int lines)
 	static int _bind_base_ScrollLines(lua_State *L) {
 		if (!_lg_typecheck_base_ScrollLines(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_ScrollLines(int lines) function, expected prototype:\nbool wxComboBox::base_ScrollLines(int lines)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_ScrollLines(int lines) function, expected prototype:\nbool wxComboBox::base_ScrollLines(int lines)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int lines=(int)lua_tointeger(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_ScrollLines(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -2009,16 +2012,14 @@ public:
 	// bool wxComboBox::base_ScrollPages(int pages)
 	static int _bind_base_ScrollPages(lua_State *L) {
 		if (!_lg_typecheck_base_ScrollPages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_ScrollPages(int pages) function, expected prototype:\nbool wxComboBox::base_ScrollPages(int pages)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_ScrollPages(int pages) function, expected prototype:\nbool wxComboBox::base_ScrollPages(int pages)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pages=(int)lua_tointeger(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_ScrollPages(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -2029,8 +2030,7 @@ public:
 	// void wxComboBox::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)
 	static int _bind_base_ScrollWindow(lua_State *L) {
 		if (!_lg_typecheck_base_ScrollWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL) function, expected prototype:\nvoid wxComboBox::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)\nClass arguments details:\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL) function, expected prototype:\nvoid wxComboBox::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)\nClass arguments details:\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2041,8 +2041,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_ScrollWindow(int, int, const wxRect *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::ScrollWindow(dx, dy, rect);
 
@@ -2052,8 +2051,7 @@ public:
 	// void wxComboBox::base_SetScrollPos(int orientation, int pos, bool refresh = true)
 	static int _bind_base_SetScrollPos(lua_State *L) {
 		if (!_lg_typecheck_base_SetScrollPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetScrollPos(int orientation, int pos, bool refresh = true) function, expected prototype:\nvoid wxComboBox::base_SetScrollPos(int orientation, int pos, bool refresh = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetScrollPos(int orientation, int pos, bool refresh = true) function, expected prototype:\nvoid wxComboBox::base_SetScrollPos(int orientation, int pos, bool refresh = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2064,8 +2062,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetScrollPos(int, int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetScrollPos(orientation, pos, refresh);
 
@@ -2075,8 +2072,7 @@ public:
 	// void wxComboBox::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)
 	static int _bind_base_SetScrollbar(lua_State *L) {
 		if (!_lg_typecheck_base_SetScrollbar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true) function, expected prototype:\nvoid wxComboBox::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true) function, expected prototype:\nvoid wxComboBox::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2089,8 +2085,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetScrollbar(int, int, int, int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -2100,8 +2095,7 @@ public:
 	// wxSize wxComboBox::base_ClientToWindowSize(const wxSize & size) const
 	static int _bind_base_ClientToWindowSize(lua_State *L) {
 		if (!_lg_typecheck_base_ClientToWindowSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_ClientToWindowSize(const wxSize & size) const function, expected prototype:\nwxSize wxComboBox::base_ClientToWindowSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_ClientToWindowSize(const wxSize & size) const function, expected prototype:\nwxSize wxComboBox::base_ClientToWindowSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -2112,8 +2106,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_ClientToWindowSize(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxComboBox::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2127,8 +2120,7 @@ public:
 	// wxSize wxComboBox::base_WindowToClientSize(const wxSize & size) const
 	static int _bind_base_WindowToClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_WindowToClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_WindowToClientSize(const wxSize & size) const function, expected prototype:\nwxSize wxComboBox::base_WindowToClientSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_WindowToClientSize(const wxSize & size) const function, expected prototype:\nwxSize wxComboBox::base_WindowToClientSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -2139,8 +2131,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_WindowToClientSize(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxComboBox::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2154,15 +2145,13 @@ public:
 	// void wxComboBox::base_Fit()
 	static int _bind_base_Fit(lua_State *L) {
 		if (!_lg_typecheck_base_Fit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Fit() function, expected prototype:\nvoid wxComboBox::base_Fit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Fit() function, expected prototype:\nvoid wxComboBox::base_Fit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_Fit(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::Fit();
 
@@ -2172,15 +2161,13 @@ public:
 	// void wxComboBox::base_FitInside()
 	static int _bind_base_FitInside(lua_State *L) {
 		if (!_lg_typecheck_base_FitInside(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_FitInside() function, expected prototype:\nvoid wxComboBox::base_FitInside()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_FitInside() function, expected prototype:\nvoid wxComboBox::base_FitInside()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_FitInside(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::FitInside();
 
@@ -2190,15 +2177,13 @@ public:
 	// wxSize wxComboBox::base_GetEffectiveMinSize() const
 	static int _bind_base_GetEffectiveMinSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetEffectiveMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_GetEffectiveMinSize() const function, expected prototype:\nwxSize wxComboBox::base_GetEffectiveMinSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_GetEffectiveMinSize() const function, expected prototype:\nwxSize wxComboBox::base_GetEffectiveMinSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_GetEffectiveMinSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxComboBox::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2212,15 +2197,13 @@ public:
 	// wxSize wxComboBox::base_GetMaxClientSize() const
 	static int _bind_base_GetMaxClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMaxClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_GetMaxClientSize() const function, expected prototype:\nwxSize wxComboBox::base_GetMaxClientSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_GetMaxClientSize() const function, expected prototype:\nwxSize wxComboBox::base_GetMaxClientSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_GetMaxClientSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxComboBox::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2234,15 +2217,13 @@ public:
 	// wxSize wxComboBox::base_GetMaxSize() const
 	static int _bind_base_GetMaxSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMaxSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_GetMaxSize() const function, expected prototype:\nwxSize wxComboBox::base_GetMaxSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_GetMaxSize() const function, expected prototype:\nwxSize wxComboBox::base_GetMaxSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_GetMaxSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxComboBox::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2256,15 +2237,13 @@ public:
 	// wxSize wxComboBox::base_GetMinClientSize() const
 	static int _bind_base_GetMinClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMinClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_GetMinClientSize() const function, expected prototype:\nwxSize wxComboBox::base_GetMinClientSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_GetMinClientSize() const function, expected prototype:\nwxSize wxComboBox::base_GetMinClientSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_GetMinClientSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxComboBox::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2278,15 +2257,13 @@ public:
 	// wxSize wxComboBox::base_GetMinSize() const
 	static int _bind_base_GetMinSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_GetMinSize() const function, expected prototype:\nwxSize wxComboBox::base_GetMinSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_GetMinSize() const function, expected prototype:\nwxSize wxComboBox::base_GetMinSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_GetMinSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxComboBox::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2300,15 +2277,13 @@ public:
 	// wxSize wxComboBox::base_GetBestVirtualSize() const
 	static int _bind_base_GetBestVirtualSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetBestVirtualSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_GetBestVirtualSize() const function, expected prototype:\nwxSize wxComboBox::base_GetBestVirtualSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_GetBestVirtualSize() const function, expected prototype:\nwxSize wxComboBox::base_GetBestVirtualSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_GetBestVirtualSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxComboBox::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2322,15 +2297,13 @@ public:
 	// wxSize wxComboBox::base_GetWindowBorderSize() const
 	static int _bind_base_GetWindowBorderSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetWindowBorderSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_GetWindowBorderSize() const function, expected prototype:\nwxSize wxComboBox::base_GetWindowBorderSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxComboBox::base_GetWindowBorderSize() const function, expected prototype:\nwxSize wxComboBox::base_GetWindowBorderSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxComboBox::base_GetWindowBorderSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxComboBox::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2344,8 +2317,7 @@ public:
 	// bool wxComboBox::base_InformFirstDirection(int direction, int size, int availableOtherDir)
 	static int _bind_base_InformFirstDirection(lua_State *L) {
 		if (!_lg_typecheck_base_InformFirstDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxComboBox::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxComboBox::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int direction=(int)lua_tointeger(L,2);
@@ -2354,8 +2326,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_InformFirstDirection(int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -2366,8 +2337,7 @@ public:
 	// void wxComboBox::base_SendSizeEvent(int flags = 0)
 	static int _bind_base_SendSizeEvent(lua_State *L) {
 		if (!_lg_typecheck_base_SendSizeEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SendSizeEvent(int flags = 0) function, expected prototype:\nvoid wxComboBox::base_SendSizeEvent(int flags = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SendSizeEvent(int flags = 0) function, expected prototype:\nvoid wxComboBox::base_SendSizeEvent(int flags = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2376,8 +2346,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SendSizeEvent(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SendSizeEvent(flags);
 
@@ -2387,8 +2356,7 @@ public:
 	// void wxComboBox::base_SetMaxClientSize(const wxSize & size)
 	static int _bind_base_SetMaxClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMaxClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetMaxClientSize(const wxSize & size) function, expected prototype:\nvoid wxComboBox::base_SetMaxClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetMaxClientSize(const wxSize & size) function, expected prototype:\nvoid wxComboBox::base_SetMaxClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -2399,8 +2367,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetMaxClientSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetMaxClientSize(size);
 
@@ -2410,8 +2377,7 @@ public:
 	// void wxComboBox::base_SetMaxSize(const wxSize & size)
 	static int _bind_base_SetMaxSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMaxSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetMaxSize(const wxSize & size) function, expected prototype:\nvoid wxComboBox::base_SetMaxSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetMaxSize(const wxSize & size) function, expected prototype:\nvoid wxComboBox::base_SetMaxSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -2422,8 +2388,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetMaxSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetMaxSize(size);
 
@@ -2433,8 +2398,7 @@ public:
 	// void wxComboBox::base_SetMinClientSize(const wxSize & size)
 	static int _bind_base_SetMinClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMinClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetMinClientSize(const wxSize & size) function, expected prototype:\nvoid wxComboBox::base_SetMinClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetMinClientSize(const wxSize & size) function, expected prototype:\nvoid wxComboBox::base_SetMinClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -2445,8 +2409,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetMinClientSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetMinClientSize(size);
 
@@ -2456,8 +2419,7 @@ public:
 	// void wxComboBox::base_SetMinSize(const wxSize & size)
 	static int _bind_base_SetMinSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetMinSize(const wxSize & size) function, expected prototype:\nvoid wxComboBox::base_SetMinSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetMinSize(const wxSize & size) function, expected prototype:\nvoid wxComboBox::base_SetMinSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -2468,8 +2430,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetMinSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetMinSize(size);
 
@@ -2479,8 +2440,7 @@ public:
 	// void wxComboBox::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)
 	static int _bind_base_SetSizeHints_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_SetSizeHints_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize) function, expected prototype:\nvoid wxComboBox::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)\nClass arguments details:\narg 1 ID = 20268751\narg 2 ID = 20268751\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize) function, expected prototype:\nvoid wxComboBox::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)\nClass arguments details:\narg 1 ID = 20268751\narg 2 ID = 20268751\narg 3 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2503,8 +2463,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2514,8 +2473,7 @@ public:
 	// void wxComboBox::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)
 	static int _bind_base_SetSizeHints_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_SetSizeHints_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1) function, expected prototype:\nvoid wxComboBox::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1) function, expected prototype:\nvoid wxComboBox::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2529,8 +2487,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2549,15 +2506,13 @@ public:
 	// wxPoint wxComboBox::base_GetClientAreaOrigin() const
 	static int _bind_base_GetClientAreaOrigin(lua_State *L) {
 		if (!_lg_typecheck_base_GetClientAreaOrigin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint wxComboBox::base_GetClientAreaOrigin() const function, expected prototype:\nwxPoint wxComboBox::base_GetClientAreaOrigin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint wxComboBox::base_GetClientAreaOrigin() const function, expected prototype:\nwxPoint wxComboBox::base_GetClientAreaOrigin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxComboBox::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint wxComboBox::base_GetClientAreaOrigin() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint stack_lret = self->wxComboBox::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2571,15 +2526,13 @@ public:
 	// void wxComboBox::base_ClearBackground()
 	static int _bind_base_ClearBackground(lua_State *L) {
 		if (!_lg_typecheck_base_ClearBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_ClearBackground() function, expected prototype:\nvoid wxComboBox::base_ClearBackground()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_ClearBackground() function, expected prototype:\nvoid wxComboBox::base_ClearBackground()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_ClearBackground(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::ClearBackground();
 
@@ -2589,15 +2542,13 @@ public:
 	// wxBackgroundStyle wxComboBox::base_GetBackgroundStyle() const
 	static int _bind_base_GetBackgroundStyle(lua_State *L) {
 		if (!_lg_typecheck_base_GetBackgroundStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBackgroundStyle wxComboBox::base_GetBackgroundStyle() const function, expected prototype:\nwxBackgroundStyle wxComboBox::base_GetBackgroundStyle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBackgroundStyle wxComboBox::base_GetBackgroundStyle() const function, expected prototype:\nwxBackgroundStyle wxComboBox::base_GetBackgroundStyle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxComboBox::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxComboBox::base_GetBackgroundStyle() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxBackgroundStyle lret = self->wxComboBox::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2608,15 +2559,13 @@ public:
 	// int wxComboBox::base_GetCharHeight() const
 	static int _bind_base_GetCharHeight(lua_State *L) {
 		if (!_lg_typecheck_base_GetCharHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxComboBox::base_GetCharHeight() const function, expected prototype:\nint wxComboBox::base_GetCharHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxComboBox::base_GetCharHeight() const function, expected prototype:\nint wxComboBox::base_GetCharHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboBox::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxComboBox::base_GetCharHeight() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxComboBox::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2627,15 +2576,13 @@ public:
 	// int wxComboBox::base_GetCharWidth() const
 	static int _bind_base_GetCharWidth(lua_State *L) {
 		if (!_lg_typecheck_base_GetCharWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxComboBox::base_GetCharWidth() const function, expected prototype:\nint wxComboBox::base_GetCharWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxComboBox::base_GetCharWidth() const function, expected prototype:\nint wxComboBox::base_GetCharWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboBox::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxComboBox::base_GetCharWidth() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxComboBox::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2646,15 +2593,13 @@ public:
 	// wxVisualAttributes wxComboBox::base_GetDefaultAttributes() const
 	static int _bind_base_GetDefaultAttributes(lua_State *L) {
 		if (!_lg_typecheck_base_GetDefaultAttributes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxVisualAttributes wxComboBox::base_GetDefaultAttributes() const function, expected prototype:\nwxVisualAttributes wxComboBox::base_GetDefaultAttributes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxVisualAttributes wxComboBox::base_GetDefaultAttributes() const function, expected prototype:\nwxVisualAttributes wxComboBox::base_GetDefaultAttributes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxComboBox::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxComboBox::base_GetDefaultAttributes() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxVisualAttributes stack_lret = self->wxComboBox::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2668,8 +2613,7 @@ public:
 	// void wxComboBox::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
 	static int _bind_base_Refresh(lua_State *L) {
 		if (!_lg_typecheck_base_Refresh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL) function, expected prototype:\nvoid wxComboBox::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)\nClass arguments details:\narg 2 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL) function, expected prototype:\nvoid wxComboBox::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)\nClass arguments details:\narg 2 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2679,8 +2623,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_Refresh(bool, const wxRect *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::Refresh(eraseBackground, rect);
 
@@ -2690,15 +2633,13 @@ public:
 	// void wxComboBox::base_Update()
 	static int _bind_base_Update(lua_State *L) {
 		if (!_lg_typecheck_base_Update(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Update() function, expected prototype:\nvoid wxComboBox::base_Update()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Update() function, expected prototype:\nvoid wxComboBox::base_Update()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_Update(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::Update();
 
@@ -2708,16 +2649,14 @@ public:
 	// bool wxComboBox::base_SetBackgroundStyle(wxBackgroundStyle style)
 	static int _bind_base_SetBackgroundStyle(lua_State *L) {
 		if (!_lg_typecheck_base_SetBackgroundStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_SetBackgroundStyle(wxBackgroundStyle style) function, expected prototype:\nbool wxComboBox::base_SetBackgroundStyle(wxBackgroundStyle style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_SetBackgroundStyle(wxBackgroundStyle style) function, expected prototype:\nbool wxComboBox::base_SetBackgroundStyle(wxBackgroundStyle style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBackgroundStyle style=(wxBackgroundStyle)lua_tointeger(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2728,8 +2667,7 @@ public:
 	// bool wxComboBox::base_SetFont(const wxFont & font)
 	static int _bind_base_SetFont(lua_State *L) {
 		if (!_lg_typecheck_base_SetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_SetFont(const wxFont & font) function, expected prototype:\nbool wxComboBox::base_SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_SetFont(const wxFont & font) function, expected prototype:\nbool wxComboBox::base_SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -2740,8 +2678,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_SetFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2752,15 +2689,13 @@ public:
 	// bool wxComboBox::base_ShouldInheritColours() const
 	static int _bind_base_ShouldInheritColours(lua_State *L) {
 		if (!_lg_typecheck_base_ShouldInheritColours(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_ShouldInheritColours() const function, expected prototype:\nbool wxComboBox::base_ShouldInheritColours() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_ShouldInheritColours() const function, expected prototype:\nbool wxComboBox::base_ShouldInheritColours() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_ShouldInheritColours() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2771,16 +2706,14 @@ public:
 	// void wxComboBox::base_SetThemeEnabled(bool enable)
 	static int _bind_base_SetThemeEnabled(lua_State *L) {
 		if (!_lg_typecheck_base_SetThemeEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetThemeEnabled(bool enable) function, expected prototype:\nvoid wxComboBox::base_SetThemeEnabled(bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetThemeEnabled(bool enable) function, expected prototype:\nvoid wxComboBox::base_SetThemeEnabled(bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enable=(bool)(lua_toboolean(L,2)==1);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetThemeEnabled(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetThemeEnabled(enable);
 
@@ -2790,15 +2723,13 @@ public:
 	// bool wxComboBox::base_GetThemeEnabled() const
 	static int _bind_base_GetThemeEnabled(lua_State *L) {
 		if (!_lg_typecheck_base_GetThemeEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_GetThemeEnabled() const function, expected prototype:\nbool wxComboBox::base_GetThemeEnabled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_GetThemeEnabled() const function, expected prototype:\nbool wxComboBox::base_GetThemeEnabled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_GetThemeEnabled() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2809,15 +2740,13 @@ public:
 	// bool wxComboBox::base_CanSetTransparent()
 	static int _bind_base_CanSetTransparent(lua_State *L) {
 		if (!_lg_typecheck_base_CanSetTransparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_CanSetTransparent() function, expected prototype:\nbool wxComboBox::base_CanSetTransparent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_CanSetTransparent() function, expected prototype:\nbool wxComboBox::base_CanSetTransparent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_CanSetTransparent(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2828,16 +2757,14 @@ public:
 	// bool wxComboBox::base_SetTransparent(unsigned char alpha)
 	static int _bind_base_SetTransparent(lua_State *L) {
 		if (!_lg_typecheck_base_SetTransparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_SetTransparent(unsigned char alpha) function, expected prototype:\nbool wxComboBox::base_SetTransparent(unsigned char alpha)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_SetTransparent(unsigned char alpha) function, expected prototype:\nbool wxComboBox::base_SetTransparent(unsigned char alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char alpha = (unsigned char)(lua_tointeger(L,2));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_SetTransparent(unsigned char). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2848,16 +2775,14 @@ public:
 	// void wxComboBox::base_SetNextHandler(wxEvtHandler * handler)
 	static int _bind_base_SetNextHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetNextHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxComboBox::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxComboBox::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetNextHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetNextHandler(handler);
 
@@ -2867,16 +2792,14 @@ public:
 	// void wxComboBox::base_SetPreviousHandler(wxEvtHandler * handler)
 	static int _bind_base_SetPreviousHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxComboBox::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxComboBox::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetPreviousHandler(handler);
 
@@ -2886,15 +2809,13 @@ public:
 	// long wxComboBox::base_GetWindowStyleFlag() const
 	static int _bind_base_GetWindowStyleFlag(lua_State *L) {
 		if (!_lg_typecheck_base_GetWindowStyleFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxComboBox::base_GetWindowStyleFlag() const function, expected prototype:\nlong wxComboBox::base_GetWindowStyleFlag() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxComboBox::base_GetWindowStyleFlag() const function, expected prototype:\nlong wxComboBox::base_GetWindowStyleFlag() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxComboBox::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long wxComboBox::base_GetWindowStyleFlag() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->wxComboBox::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2905,16 +2826,14 @@ public:
 	// void wxComboBox::base_SetExtraStyle(long exStyle)
 	static int _bind_base_SetExtraStyle(lua_State *L) {
 		if (!_lg_typecheck_base_SetExtraStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetExtraStyle(long exStyle) function, expected prototype:\nvoid wxComboBox::base_SetExtraStyle(long exStyle)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetExtraStyle(long exStyle) function, expected prototype:\nvoid wxComboBox::base_SetExtraStyle(long exStyle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long exStyle=(long)lua_tointeger(L,2);
+		long exStyle=(long)lua_tonumber(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetExtraStyle(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetExtraStyle(exStyle);
 
@@ -2924,16 +2843,14 @@ public:
 	// void wxComboBox::base_SetWindowStyleFlag(long style)
 	static int _bind_base_SetWindowStyleFlag(lua_State *L) {
 		if (!_lg_typecheck_base_SetWindowStyleFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetWindowStyleFlag(long style) function, expected prototype:\nvoid wxComboBox::base_SetWindowStyleFlag(long style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetWindowStyleFlag(long style) function, expected prototype:\nvoid wxComboBox::base_SetWindowStyleFlag(long style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long style=(long)lua_tointeger(L,2);
+		long style=(long)lua_tonumber(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetWindowStyleFlag(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetWindowStyleFlag(style);
 
@@ -2943,15 +2860,13 @@ public:
 	// void wxComboBox::base_Lower()
 	static int _bind_base_Lower(lua_State *L) {
 		if (!_lg_typecheck_base_Lower(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Lower() function, expected prototype:\nvoid wxComboBox::base_Lower()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Lower() function, expected prototype:\nvoid wxComboBox::base_Lower()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_Lower(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::Lower();
 
@@ -2961,15 +2876,13 @@ public:
 	// void wxComboBox::base_Raise()
 	static int _bind_base_Raise(lua_State *L) {
 		if (!_lg_typecheck_base_Raise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Raise() function, expected prototype:\nvoid wxComboBox::base_Raise()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Raise() function, expected prototype:\nvoid wxComboBox::base_Raise()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_Raise(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::Raise();
 
@@ -2979,8 +2892,7 @@ public:
 	// bool wxComboBox::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)
 	static int _bind_base_HideWithEffect(lua_State *L) {
 		if (!_lg_typecheck_base_HideWithEffect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxComboBox::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxComboBox::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2990,8 +2902,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -3002,15 +2913,13 @@ public:
 	// bool wxComboBox::base_IsShown() const
 	static int _bind_base_IsShown(lua_State *L) {
 		if (!_lg_typecheck_base_IsShown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_IsShown() const function, expected prototype:\nbool wxComboBox::base_IsShown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_IsShown() const function, expected prototype:\nbool wxComboBox::base_IsShown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_IsShown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -3021,15 +2930,13 @@ public:
 	// bool wxComboBox::base_IsShownOnScreen() const
 	static int _bind_base_IsShownOnScreen(lua_State *L) {
 		if (!_lg_typecheck_base_IsShownOnScreen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_IsShownOnScreen() const function, expected prototype:\nbool wxComboBox::base_IsShownOnScreen() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_IsShownOnScreen() const function, expected prototype:\nbool wxComboBox::base_IsShownOnScreen() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_IsShownOnScreen() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -3040,8 +2947,7 @@ public:
 	// bool wxComboBox::base_Enable(bool enable = true)
 	static int _bind_base_Enable(lua_State *L) {
 		if (!_lg_typecheck_base_Enable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_Enable(bool enable = true) function, expected prototype:\nbool wxComboBox::base_Enable(bool enable = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_Enable(bool enable = true) function, expected prototype:\nbool wxComboBox::base_Enable(bool enable = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3050,8 +2956,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_Enable(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -3062,8 +2967,7 @@ public:
 	// bool wxComboBox::base_Show(bool show = true)
 	static int _bind_base_Show(lua_State *L) {
 		if (!_lg_typecheck_base_Show(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_Show(bool show = true) function, expected prototype:\nbool wxComboBox::base_Show(bool show = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_Show(bool show = true) function, expected prototype:\nbool wxComboBox::base_Show(bool show = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3072,8 +2976,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_Show(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -3084,8 +2987,7 @@ public:
 	// bool wxComboBox::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)
 	static int _bind_base_ShowWithEffect(lua_State *L) {
 		if (!_lg_typecheck_base_ShowWithEffect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxComboBox::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxComboBox::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3095,8 +2997,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -3107,8 +3008,7 @@ public:
 	// wxString wxComboBox::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const
 	static int _bind_base_GetHelpTextAtPoint(lua_State *L) {
 		if (!_lg_typecheck_base_GetHelpTextAtPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const function, expected prototype:\nwxString wxComboBox::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const function, expected prototype:\nwxString wxComboBox::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* point_ptr=(Luna< wxPoint >::check(L,2));
@@ -3120,8 +3020,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxComboBox::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3132,15 +3031,13 @@ public:
 	// wxValidator * wxComboBox::base_GetValidator()
 	static int _bind_base_GetValidator(lua_State *L) {
 		if (!_lg_typecheck_base_GetValidator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxValidator * wxComboBox::base_GetValidator() function, expected prototype:\nwxValidator * wxComboBox::base_GetValidator()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxValidator * wxComboBox::base_GetValidator() function, expected prototype:\nwxValidator * wxComboBox::base_GetValidator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxComboBox::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxValidator * wxComboBox::base_GetValidator(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxValidator * lret = self->wxComboBox::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3153,8 +3050,7 @@ public:
 	// void wxComboBox::base_SetValidator(const wxValidator & validator)
 	static int _bind_base_SetValidator(lua_State *L) {
 		if (!_lg_typecheck_base_SetValidator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetValidator(const wxValidator & validator) function, expected prototype:\nvoid wxComboBox::base_SetValidator(const wxValidator & validator)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetValidator(const wxValidator & validator) function, expected prototype:\nvoid wxComboBox::base_SetValidator(const wxValidator & validator)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxValidator* validator_ptr=(Luna< wxObject >::checkSubType< wxValidator >(L,2));
@@ -3165,8 +3061,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetValidator(const wxValidator &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetValidator(validator);
 
@@ -3176,15 +3071,13 @@ public:
 	// bool wxComboBox::base_TransferDataFromWindow()
 	static int _bind_base_TransferDataFromWindow(lua_State *L) {
 		if (!_lg_typecheck_base_TransferDataFromWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_TransferDataFromWindow() function, expected prototype:\nbool wxComboBox::base_TransferDataFromWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_TransferDataFromWindow() function, expected prototype:\nbool wxComboBox::base_TransferDataFromWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_TransferDataFromWindow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3195,15 +3088,13 @@ public:
 	// bool wxComboBox::base_TransferDataToWindow()
 	static int _bind_base_TransferDataToWindow(lua_State *L) {
 		if (!_lg_typecheck_base_TransferDataToWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_TransferDataToWindow() function, expected prototype:\nbool wxComboBox::base_TransferDataToWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_TransferDataToWindow() function, expected prototype:\nbool wxComboBox::base_TransferDataToWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_TransferDataToWindow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3214,15 +3105,13 @@ public:
 	// bool wxComboBox::base_Validate()
 	static int _bind_base_Validate(lua_State *L) {
 		if (!_lg_typecheck_base_Validate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_Validate() function, expected prototype:\nbool wxComboBox::base_Validate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_Validate() function, expected prototype:\nbool wxComboBox::base_Validate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_Validate(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -3233,15 +3122,13 @@ public:
 	// wxLayoutDirection wxComboBox::base_GetLayoutDirection() const
 	static int _bind_base_GetLayoutDirection(lua_State *L) {
 		if (!_lg_typecheck_base_GetLayoutDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxLayoutDirection wxComboBox::base_GetLayoutDirection() const function, expected prototype:\nwxLayoutDirection wxComboBox::base_GetLayoutDirection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxLayoutDirection wxComboBox::base_GetLayoutDirection() const function, expected prototype:\nwxLayoutDirection wxComboBox::base_GetLayoutDirection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxComboBox::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxComboBox::base_GetLayoutDirection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxLayoutDirection lret = self->wxComboBox::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -3252,15 +3139,13 @@ public:
 	// wxString wxComboBox::base_GetName() const
 	static int _bind_base_GetName(lua_State *L) {
 		if (!_lg_typecheck_base_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetName() const function, expected prototype:\nwxString wxComboBox::base_GetName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetName() const function, expected prototype:\nwxString wxComboBox::base_GetName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetName() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxComboBox::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3271,16 +3156,14 @@ public:
 	// void wxComboBox::base_SetLayoutDirection(wxLayoutDirection dir)
 	static int _bind_base_SetLayoutDirection(lua_State *L) {
 		if (!_lg_typecheck_base_SetLayoutDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetLayoutDirection(wxLayoutDirection dir) function, expected prototype:\nvoid wxComboBox::base_SetLayoutDirection(wxLayoutDirection dir)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetLayoutDirection(wxLayoutDirection dir) function, expected prototype:\nvoid wxComboBox::base_SetLayoutDirection(wxLayoutDirection dir)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLayoutDirection dir=(wxLayoutDirection)lua_tointeger(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetLayoutDirection(dir);
 
@@ -3290,16 +3173,14 @@ public:
 	// void wxComboBox::base_SetName(const wxString & name)
 	static int _bind_base_SetName(lua_State *L) {
 		if (!_lg_typecheck_base_SetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetName(const wxString & name) function, expected prototype:\nvoid wxComboBox::base_SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetName(const wxString & name) function, expected prototype:\nvoid wxComboBox::base_SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetName(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetName(name);
 
@@ -3309,8 +3190,7 @@ public:
 	// void wxComboBox::base_SetAcceleratorTable(const wxAcceleratorTable & accel)
 	static int _bind_base_SetAcceleratorTable(lua_State *L) {
 		if (!_lg_typecheck_base_SetAcceleratorTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetAcceleratorTable(const wxAcceleratorTable & accel) function, expected prototype:\nvoid wxComboBox::base_SetAcceleratorTable(const wxAcceleratorTable & accel)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetAcceleratorTable(const wxAcceleratorTable & accel) function, expected prototype:\nvoid wxComboBox::base_SetAcceleratorTable(const wxAcceleratorTable & accel)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxAcceleratorTable* accel_ptr=(Luna< wxObject >::checkSubType< wxAcceleratorTable >(L,2));
@@ -3321,8 +3201,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetAcceleratorTable(accel);
 
@@ -3332,15 +3211,13 @@ public:
 	// bool wxComboBox::base_Destroy()
 	static int _bind_base_Destroy(lua_State *L) {
 		if (!_lg_typecheck_base_Destroy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_Destroy() function, expected prototype:\nbool wxComboBox::base_Destroy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_Destroy() function, expected prototype:\nbool wxComboBox::base_Destroy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_Destroy(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -3351,15 +3228,13 @@ public:
 	// wxDropTarget * wxComboBox::base_GetDropTarget() const
 	static int _bind_base_GetDropTarget(lua_State *L) {
 		if (!_lg_typecheck_base_GetDropTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDropTarget * wxComboBox::base_GetDropTarget() const function, expected prototype:\nwxDropTarget * wxComboBox::base_GetDropTarget() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDropTarget * wxComboBox::base_GetDropTarget() const function, expected prototype:\nwxDropTarget * wxComboBox::base_GetDropTarget() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxComboBox::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxComboBox::base_GetDropTarget() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDropTarget * lret = self->wxComboBox::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3372,16 +3247,14 @@ public:
 	// void wxComboBox::base_SetDropTarget(wxDropTarget * target)
 	static int _bind_base_SetDropTarget(lua_State *L) {
 		if (!_lg_typecheck_base_SetDropTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetDropTarget(wxDropTarget * target) function, expected prototype:\nvoid wxComboBox::base_SetDropTarget(wxDropTarget * target)\nClass arguments details:\narg 1 ID = 93694316\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetDropTarget(wxDropTarget * target) function, expected prototype:\nvoid wxComboBox::base_SetDropTarget(wxDropTarget * target)\nClass arguments details:\narg 1 ID = 93694316\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDropTarget* target=(Luna< wxDropTarget >::check(L,2));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetDropTarget(wxDropTarget *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetDropTarget(target);
 
@@ -3391,16 +3264,14 @@ public:
 	// void wxComboBox::base_DragAcceptFiles(bool accept)
 	static int _bind_base_DragAcceptFiles(lua_State *L) {
 		if (!_lg_typecheck_base_DragAcceptFiles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_DragAcceptFiles(bool accept) function, expected prototype:\nvoid wxComboBox::base_DragAcceptFiles(bool accept)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_DragAcceptFiles(bool accept) function, expected prototype:\nvoid wxComboBox::base_DragAcceptFiles(bool accept)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool accept=(bool)(lua_toboolean(L,2)==1);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_DragAcceptFiles(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::DragAcceptFiles(accept);
 
@@ -3410,15 +3281,13 @@ public:
 	// bool wxComboBox::base_Layout()
 	static int _bind_base_Layout(lua_State *L) {
 		if (!_lg_typecheck_base_Layout(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_Layout() function, expected prototype:\nbool wxComboBox::base_Layout()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_Layout() function, expected prototype:\nbool wxComboBox::base_Layout()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_Layout(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3429,15 +3298,13 @@ public:
 	// bool wxComboBox::base_HasCapture() const
 	static int _bind_base_HasCapture(lua_State *L) {
 		if (!_lg_typecheck_base_HasCapture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_HasCapture() const function, expected prototype:\nbool wxComboBox::base_HasCapture() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_HasCapture() const function, expected prototype:\nbool wxComboBox::base_HasCapture() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_HasCapture() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -3448,8 +3315,7 @@ public:
 	// bool wxComboBox::base_SetCursor(const wxCursor & cursor)
 	static int _bind_base_SetCursor(lua_State *L) {
 		if (!_lg_typecheck_base_SetCursor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_SetCursor(const wxCursor & cursor) function, expected prototype:\nbool wxComboBox::base_SetCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_SetCursor(const wxCursor & cursor) function, expected prototype:\nbool wxComboBox::base_SetCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxCursor* cursor_ptr=(Luna< wxObject >::checkSubType< wxCursor >(L,2));
@@ -3460,8 +3326,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_SetCursor(const wxCursor &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -3472,8 +3337,7 @@ public:
 	// void wxComboBox::base_WarpPointer(int x, int y)
 	static int _bind_base_WarpPointer(lua_State *L) {
 		if (!_lg_typecheck_base_WarpPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_WarpPointer(int x, int y) function, expected prototype:\nvoid wxComboBox::base_WarpPointer(int x, int y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_WarpPointer(int x, int y) function, expected prototype:\nvoid wxComboBox::base_WarpPointer(int x, int y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -3481,8 +3345,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_WarpPointer(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::WarpPointer(x, y);
 
@@ -3492,8 +3355,7 @@ public:
 	// void wxComboBox::base_DoUpdateWindowUI(wxUpdateUIEvent & event)
 	static int _bind_base_DoUpdateWindowUI(lua_State *L) {
 		if (!_lg_typecheck_base_DoUpdateWindowUI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_DoUpdateWindowUI(wxUpdateUIEvent & event) function, expected prototype:\nvoid wxComboBox::base_DoUpdateWindowUI(wxUpdateUIEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_DoUpdateWindowUI(wxUpdateUIEvent & event) function, expected prototype:\nvoid wxComboBox::base_DoUpdateWindowUI(wxUpdateUIEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxUpdateUIEvent* event_ptr=(Luna< wxObject >::checkSubType< wxUpdateUIEvent >(L,2));
@@ -3504,8 +3366,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::DoUpdateWindowUI(event);
 
@@ -3515,15 +3376,13 @@ public:
 	// bool wxComboBox::base_HasMultiplePages() const
 	static int _bind_base_HasMultiplePages(lua_State *L) {
 		if (!_lg_typecheck_base_HasMultiplePages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_HasMultiplePages() const function, expected prototype:\nbool wxComboBox::base_HasMultiplePages() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_HasMultiplePages() const function, expected prototype:\nbool wxComboBox::base_HasMultiplePages() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_HasMultiplePages() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3534,15 +3393,13 @@ public:
 	// void wxComboBox::base_InheritAttributes()
 	static int _bind_base_InheritAttributes(lua_State *L) {
 		if (!_lg_typecheck_base_InheritAttributes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_InheritAttributes() function, expected prototype:\nvoid wxComboBox::base_InheritAttributes()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_InheritAttributes() function, expected prototype:\nvoid wxComboBox::base_InheritAttributes()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_InheritAttributes(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::InheritAttributes();
 
@@ -3552,15 +3409,13 @@ public:
 	// void wxComboBox::base_InitDialog()
 	static int _bind_base_InitDialog(lua_State *L) {
 		if (!_lg_typecheck_base_InitDialog(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_InitDialog() function, expected prototype:\nvoid wxComboBox::base_InitDialog()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_InitDialog() function, expected prototype:\nvoid wxComboBox::base_InitDialog()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_InitDialog(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::InitDialog();
 
@@ -3570,15 +3425,13 @@ public:
 	// bool wxComboBox::base_IsRetained() const
 	static int _bind_base_IsRetained(lua_State *L) {
 		if (!_lg_typecheck_base_IsRetained(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_IsRetained() const function, expected prototype:\nbool wxComboBox::base_IsRetained() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_IsRetained() const function, expected prototype:\nbool wxComboBox::base_IsRetained() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_IsRetained() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3589,15 +3442,13 @@ public:
 	// bool wxComboBox::base_IsTopLevel() const
 	static int _bind_base_IsTopLevel(lua_State *L) {
 		if (!_lg_typecheck_base_IsTopLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_IsTopLevel() const function, expected prototype:\nbool wxComboBox::base_IsTopLevel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_IsTopLevel() const function, expected prototype:\nbool wxComboBox::base_IsTopLevel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_IsTopLevel() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3608,8 +3459,7 @@ public:
 	// void wxComboBox::base_MakeModal(bool modal = true)
 	static int _bind_base_MakeModal(lua_State *L) {
 		if (!_lg_typecheck_base_MakeModal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_MakeModal(bool modal = true) function, expected prototype:\nvoid wxComboBox::base_MakeModal(bool modal = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_MakeModal(bool modal = true) function, expected prototype:\nvoid wxComboBox::base_MakeModal(bool modal = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3618,8 +3468,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_MakeModal(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::MakeModal(modal);
 
@@ -3629,15 +3478,13 @@ public:
 	// void wxComboBox::base_OnInternalIdle()
 	static int _bind_base_OnInternalIdle(lua_State *L) {
 		if (!_lg_typecheck_base_OnInternalIdle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_OnInternalIdle() function, expected prototype:\nvoid wxComboBox::base_OnInternalIdle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_OnInternalIdle() function, expected prototype:\nvoid wxComboBox::base_OnInternalIdle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_OnInternalIdle(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::OnInternalIdle();
 
@@ -3647,8 +3494,7 @@ public:
 	// bool wxComboBox::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)
 	static int _bind_base_RegisterHotKey(lua_State *L) {
 		if (!_lg_typecheck_base_RegisterHotKey(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode) function, expected prototype:\nbool wxComboBox::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode) function, expected prototype:\nbool wxComboBox::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int hotkeyId=(int)lua_tointeger(L,2);
@@ -3657,8 +3503,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_RegisterHotKey(int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3669,16 +3514,14 @@ public:
 	// bool wxComboBox::base_UnregisterHotKey(int hotkeyId)
 	static int _bind_base_UnregisterHotKey(lua_State *L) {
 		if (!_lg_typecheck_base_UnregisterHotKey(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_UnregisterHotKey(int hotkeyId) function, expected prototype:\nbool wxComboBox::base_UnregisterHotKey(int hotkeyId)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_UnregisterHotKey(int hotkeyId) function, expected prototype:\nbool wxComboBox::base_UnregisterHotKey(int hotkeyId)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int hotkeyId=(int)lua_tointeger(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_UnregisterHotKey(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3689,18 +3532,16 @@ public:
 	// void wxComboBox::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)
 	static int _bind_base_UpdateWindowUI(lua_State *L) {
 		if (!_lg_typecheck_base_UpdateWindowUI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE) function, expected prototype:\nvoid wxComboBox::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE) function, expected prototype:\nvoid wxComboBox::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxUPDATE_UI_NONE;
+		long flags=luatop>1 ? (long)lua_tonumber(L,2) : (long)::wxUPDATE_UI_NONE;
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_UpdateWindowUI(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::UpdateWindowUI(flags);
 
@@ -3710,8 +3551,7 @@ public:
 	// void wxComboBox::base_Command(wxCommandEvent & event)
 	static int _bind_base_Command(lua_State *L) {
 		if (!_lg_typecheck_base_Command(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Command(wxCommandEvent & event) function, expected prototype:\nvoid wxComboBox::base_Command(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Command(wxCommandEvent & event) function, expected prototype:\nvoid wxComboBox::base_Command(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCommandEvent* event_ptr=(Luna< wxObject >::checkSubType< wxCommandEvent >(L,2));
@@ -3722,8 +3562,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_Command(wxCommandEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::Command(event);
 
@@ -3733,15 +3572,13 @@ public:
 	// wxString wxComboBox::base_GetLabel() const
 	static int _bind_base_GetLabel(lua_State *L) {
 		if (!_lg_typecheck_base_GetLabel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetLabel() const function, expected prototype:\nwxString wxComboBox::base_GetLabel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetLabel() const function, expected prototype:\nwxString wxComboBox::base_GetLabel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetLabel() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxComboBox::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3752,16 +3589,14 @@ public:
 	// void wxComboBox::base_SetLabel(const wxString & label)
 	static int _bind_base_SetLabel(lua_State *L) {
 		if (!_lg_typecheck_base_SetLabel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetLabel(const wxString & label) function, expected prototype:\nvoid wxComboBox::base_SetLabel(const wxString & label)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetLabel(const wxString & label) function, expected prototype:\nvoid wxComboBox::base_SetLabel(const wxString & label)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetLabel(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetLabel(label);
 
@@ -3771,16 +3606,14 @@ public:
 	// void wxComboBox::base_AppendText(const wxString & text)
 	static int _bind_base_AppendText(lua_State *L) {
 		if (!_lg_typecheck_base_AppendText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_AppendText(const wxString & text) function, expected prototype:\nvoid wxComboBox::base_AppendText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_AppendText(const wxString & text) function, expected prototype:\nvoid wxComboBox::base_AppendText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_AppendText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_AppendText(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::AppendText(text);
 
@@ -3790,15 +3623,13 @@ public:
 	// bool wxComboBox::base_CanCopy() const
 	static int _bind_base_CanCopy(lua_State *L) {
 		if (!_lg_typecheck_base_CanCopy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_CanCopy() const function, expected prototype:\nbool wxComboBox::base_CanCopy() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_CanCopy() const function, expected prototype:\nbool wxComboBox::base_CanCopy() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_CanCopy() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_CanCopy() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::CanCopy();
 		lua_pushboolean(L,lret?1:0);
@@ -3809,15 +3640,13 @@ public:
 	// bool wxComboBox::base_CanCut() const
 	static int _bind_base_CanCut(lua_State *L) {
 		if (!_lg_typecheck_base_CanCut(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_CanCut() const function, expected prototype:\nbool wxComboBox::base_CanCut() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_CanCut() const function, expected prototype:\nbool wxComboBox::base_CanCut() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_CanCut() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_CanCut() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::CanCut();
 		lua_pushboolean(L,lret?1:0);
@@ -3828,15 +3657,13 @@ public:
 	// bool wxComboBox::base_CanPaste() const
 	static int _bind_base_CanPaste(lua_State *L) {
 		if (!_lg_typecheck_base_CanPaste(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_CanPaste() const function, expected prototype:\nbool wxComboBox::base_CanPaste() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_CanPaste() const function, expected prototype:\nbool wxComboBox::base_CanPaste() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_CanPaste() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_CanPaste() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::CanPaste();
 		lua_pushboolean(L,lret?1:0);
@@ -3847,15 +3674,13 @@ public:
 	// bool wxComboBox::base_CanRedo() const
 	static int _bind_base_CanRedo(lua_State *L) {
 		if (!_lg_typecheck_base_CanRedo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_CanRedo() const function, expected prototype:\nbool wxComboBox::base_CanRedo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_CanRedo() const function, expected prototype:\nbool wxComboBox::base_CanRedo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_CanRedo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_CanRedo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::CanRedo();
 		lua_pushboolean(L,lret?1:0);
@@ -3866,15 +3691,13 @@ public:
 	// bool wxComboBox::base_CanUndo() const
 	static int _bind_base_CanUndo(lua_State *L) {
 		if (!_lg_typecheck_base_CanUndo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_CanUndo() const function, expected prototype:\nbool wxComboBox::base_CanUndo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_CanUndo() const function, expected prototype:\nbool wxComboBox::base_CanUndo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_CanUndo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_CanUndo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::CanUndo();
 		lua_pushboolean(L,lret?1:0);
@@ -3885,16 +3708,14 @@ public:
 	// void wxComboBox::base_ChangeValue(const wxString & value)
 	static int _bind_base_ChangeValue(lua_State *L) {
 		if (!_lg_typecheck_base_ChangeValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_ChangeValue(const wxString & value) function, expected prototype:\nvoid wxComboBox::base_ChangeValue(const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_ChangeValue(const wxString & value) function, expected prototype:\nvoid wxComboBox::base_ChangeValue(const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_ChangeValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_ChangeValue(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::ChangeValue(value);
 
@@ -3904,15 +3725,13 @@ public:
 	// void wxComboBox::base_Clear()
 	static int _bind_base_Clear(lua_State *L) {
 		if (!_lg_typecheck_base_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Clear() function, expected prototype:\nvoid wxComboBox::base_Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Clear() function, expected prototype:\nvoid wxComboBox::base_Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_Clear(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::Clear();
 
@@ -3922,15 +3741,13 @@ public:
 	// void wxComboBox::base_Copy()
 	static int _bind_base_Copy(lua_State *L) {
 		if (!_lg_typecheck_base_Copy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Copy() function, expected prototype:\nvoid wxComboBox::base_Copy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Copy() function, expected prototype:\nvoid wxComboBox::base_Copy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_Copy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_Copy(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::Copy();
 
@@ -3940,15 +3757,13 @@ public:
 	// long wxComboBox::base_GetLastPosition() const
 	static int _bind_base_GetLastPosition(lua_State *L) {
 		if (!_lg_typecheck_base_GetLastPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxComboBox::base_GetLastPosition() const function, expected prototype:\nlong wxComboBox::base_GetLastPosition() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxComboBox::base_GetLastPosition() const function, expected prototype:\nlong wxComboBox::base_GetLastPosition() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxComboBox::base_GetLastPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long wxComboBox::base_GetLastPosition() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->wxComboBox::GetLastPosition();
 		lua_pushnumber(L,lret);
@@ -3959,17 +3774,15 @@ public:
 	// wxString wxComboBox::base_GetRange(long from, long to) const
 	static int _bind_base_GetRange(lua_State *L) {
 		if (!_lg_typecheck_base_GetRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetRange(long from, long to) const function, expected prototype:\nwxString wxComboBox::base_GetRange(long from, long to) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetRange(long from, long to) const function, expected prototype:\nwxString wxComboBox::base_GetRange(long from, long to) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long from=(long)lua_tonumber(L,2);
+		long to=(long)lua_tonumber(L,3);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetRange(long, long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetRange(long, long) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxComboBox::GetRange(from, to);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3980,15 +3793,13 @@ public:
 	// wxString wxComboBox::base_GetValue() const
 	static int _bind_base_GetValue(lua_State *L) {
 		if (!_lg_typecheck_base_GetValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetValue() const function, expected prototype:\nwxString wxComboBox::base_GetValue() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetValue() const function, expected prototype:\nwxString wxComboBox::base_GetValue() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetValue() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxComboBox::GetValue();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3999,15 +3810,13 @@ public:
 	// bool wxComboBox::base_IsEditable() const
 	static int _bind_base_IsEditable(lua_State *L) {
 		if (!_lg_typecheck_base_IsEditable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_IsEditable() const function, expected prototype:\nbool wxComboBox::base_IsEditable() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_IsEditable() const function, expected prototype:\nbool wxComboBox::base_IsEditable() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_IsEditable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_IsEditable() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::IsEditable();
 		lua_pushboolean(L,lret?1:0);
@@ -4018,15 +3827,13 @@ public:
 	// void wxComboBox::base_Paste()
 	static int _bind_base_Paste(lua_State *L) {
 		if (!_lg_typecheck_base_Paste(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Paste() function, expected prototype:\nvoid wxComboBox::base_Paste()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Paste() function, expected prototype:\nvoid wxComboBox::base_Paste()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_Paste(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_Paste(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::Paste();
 
@@ -4036,15 +3843,13 @@ public:
 	// void wxComboBox::base_Redo()
 	static int _bind_base_Redo(lua_State *L) {
 		if (!_lg_typecheck_base_Redo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Redo() function, expected prototype:\nvoid wxComboBox::base_Redo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Redo() function, expected prototype:\nvoid wxComboBox::base_Redo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_Redo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_Redo(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::Redo();
 
@@ -4054,17 +3859,15 @@ public:
 	// void wxComboBox::base_Remove(long from, long to)
 	static int _bind_base_Remove(lua_State *L) {
 		if (!_lg_typecheck_base_Remove(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Remove(long from, long to) function, expected prototype:\nvoid wxComboBox::base_Remove(long from, long to)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Remove(long from, long to) function, expected prototype:\nvoid wxComboBox::base_Remove(long from, long to)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long from=(long)lua_tonumber(L,2);
+		long to=(long)lua_tonumber(L,3);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_Remove(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_Remove(long, long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::Remove(from, to);
 
@@ -4074,18 +3877,16 @@ public:
 	// void wxComboBox::base_Replace(long from, long to, const wxString & value)
 	static int _bind_base_Replace(lua_State *L) {
 		if (!_lg_typecheck_base_Replace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Replace(long from, long to, const wxString & value) function, expected prototype:\nvoid wxComboBox::base_Replace(long from, long to, const wxString & value)\nClass arguments details:\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Replace(long from, long to, const wxString & value) function, expected prototype:\nvoid wxComboBox::base_Replace(long from, long to, const wxString & value)\nClass arguments details:\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long from=(long)lua_tonumber(L,2);
+		long to=(long)lua_tonumber(L,3);
 		wxString value(lua_tostring(L,4),lua_objlen(L,4));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_Replace(long, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_Replace(long, long, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::Replace(from, to, value);
 
@@ -4095,16 +3896,14 @@ public:
 	// void wxComboBox::base_SetEditable(bool editable)
 	static int _bind_base_SetEditable(lua_State *L) {
 		if (!_lg_typecheck_base_SetEditable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetEditable(bool editable) function, expected prototype:\nvoid wxComboBox::base_SetEditable(bool editable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetEditable(bool editable) function, expected prototype:\nvoid wxComboBox::base_SetEditable(bool editable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool editable=(bool)(lua_toboolean(L,2)==1);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetEditable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetEditable(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetEditable(editable);
 
@@ -4114,16 +3913,14 @@ public:
 	// void wxComboBox::base_SetInsertionPoint(long pos)
 	static int _bind_base_SetInsertionPoint(lua_State *L) {
 		if (!_lg_typecheck_base_SetInsertionPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetInsertionPoint(long pos) function, expected prototype:\nvoid wxComboBox::base_SetInsertionPoint(long pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetInsertionPoint(long pos) function, expected prototype:\nvoid wxComboBox::base_SetInsertionPoint(long pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long pos=(long)lua_tointeger(L,2);
+		long pos=(long)lua_tonumber(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetInsertionPoint(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetInsertionPoint(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetInsertionPoint(pos);
 
@@ -4133,15 +3930,13 @@ public:
 	// void wxComboBox::base_SetInsertionPointEnd()
 	static int _bind_base_SetInsertionPointEnd(lua_State *L) {
 		if (!_lg_typecheck_base_SetInsertionPointEnd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetInsertionPointEnd() function, expected prototype:\nvoid wxComboBox::base_SetInsertionPointEnd()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetInsertionPointEnd() function, expected prototype:\nvoid wxComboBox::base_SetInsertionPointEnd()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetInsertionPointEnd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetInsertionPointEnd(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetInsertionPointEnd();
 
@@ -4151,16 +3946,14 @@ public:
 	// void wxComboBox::base_SetMaxLength(unsigned long len)
 	static int _bind_base_SetMaxLength(lua_State *L) {
 		if (!_lg_typecheck_base_SetMaxLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetMaxLength(unsigned long len) function, expected prototype:\nvoid wxComboBox::base_SetMaxLength(unsigned long len)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetMaxLength(unsigned long len) function, expected prototype:\nvoid wxComboBox::base_SetMaxLength(unsigned long len)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long len=(unsigned long)lua_tointeger(L,2);
+		unsigned long len=(unsigned long)lua_tonumber(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetMaxLength(unsigned long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetMaxLength(unsigned long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetMaxLength(len);
 
@@ -4170,15 +3963,13 @@ public:
 	// void wxComboBox::base_SelectAll()
 	static int _bind_base_SelectAll(lua_State *L) {
 		if (!_lg_typecheck_base_SelectAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SelectAll() function, expected prototype:\nvoid wxComboBox::base_SelectAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SelectAll() function, expected prototype:\nvoid wxComboBox::base_SelectAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SelectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SelectAll(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SelectAll();
 
@@ -4188,16 +3979,14 @@ public:
 	// bool wxComboBox::base_SetHint(const wxString & hint)
 	static int _bind_base_SetHint(lua_State *L) {
 		if (!_lg_typecheck_base_SetHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_SetHint(const wxString & hint) function, expected prototype:\nbool wxComboBox::base_SetHint(const wxString & hint)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboBox::base_SetHint(const wxString & hint) function, expected prototype:\nbool wxComboBox::base_SetHint(const wxString & hint)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString hint(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboBox::base_SetHint(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboBox::base_SetHint(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboBox::SetHint(hint);
 		lua_pushboolean(L,lret?1:0);
@@ -4208,15 +3997,13 @@ public:
 	// wxString wxComboBox::base_GetHint() const
 	static int _bind_base_GetHint(lua_State *L) {
 		if (!_lg_typecheck_base_GetHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetHint() const function, expected prototype:\nwxString wxComboBox::base_GetHint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetHint() const function, expected prototype:\nwxString wxComboBox::base_GetHint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetHint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetHint() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxComboBox::GetHint();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4227,15 +4014,13 @@ public:
 	// void wxComboBox::base_Undo()
 	static int _bind_base_Undo(lua_State *L) {
 		if (!_lg_typecheck_base_Undo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Undo() function, expected prototype:\nvoid wxComboBox::base_Undo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Undo() function, expected prototype:\nvoid wxComboBox::base_Undo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_Undo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_Undo(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::Undo();
 
@@ -4245,16 +4030,14 @@ public:
 	// void wxComboBox::base_WriteText(const wxString & text)
 	static int _bind_base_WriteText(lua_State *L) {
 		if (!_lg_typecheck_base_WriteText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_WriteText(const wxString & text) function, expected prototype:\nvoid wxComboBox::base_WriteText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_WriteText(const wxString & text) function, expected prototype:\nvoid wxComboBox::base_WriteText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_WriteText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_WriteText(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::WriteText(text);
 
@@ -4264,15 +4047,13 @@ public:
 	// int wxComboBox::base_GetCurrentSelection() const
 	static int _bind_base_GetCurrentSelection(lua_State *L) {
 		if (!_lg_typecheck_base_GetCurrentSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxComboBox::base_GetCurrentSelection() const function, expected prototype:\nint wxComboBox::base_GetCurrentSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxComboBox::base_GetCurrentSelection() const function, expected prototype:\nint wxComboBox::base_GetCurrentSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboBox::base_GetCurrentSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxComboBox::base_GetCurrentSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxComboBox::GetCurrentSelection();
 		lua_pushnumber(L,lret);
@@ -4283,15 +4064,13 @@ public:
 	// long wxComboBox::base_GetInsertionPoint() const
 	static int _bind_base_GetInsertionPoint(lua_State *L) {
 		if (!_lg_typecheck_base_GetInsertionPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxComboBox::base_GetInsertionPoint() const function, expected prototype:\nlong wxComboBox::base_GetInsertionPoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxComboBox::base_GetInsertionPoint() const function, expected prototype:\nlong wxComboBox::base_GetInsertionPoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxComboBox::base_GetInsertionPoint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long wxComboBox::base_GetInsertionPoint() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->wxComboBox::GetInsertionPoint();
 		lua_pushnumber(L,lret);
@@ -4302,17 +4081,15 @@ public:
 	// void wxComboBox::base_SetSelection(long from, long to)
 	static int _bind_base_SetSelection_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_SetSelection_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetSelection(long from, long to) function, expected prototype:\nvoid wxComboBox::base_SetSelection(long from, long to)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetSelection(long from, long to) function, expected prototype:\nvoid wxComboBox::base_SetSelection(long from, long to)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long from=(long)lua_tonumber(L,2);
+		long to=(long)lua_tonumber(L,3);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetSelection(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetSelection(long, long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetSelection(from, to);
 
@@ -4322,16 +4099,14 @@ public:
 	// void wxComboBox::base_SetSelection(int n)
 	static int _bind_base_SetSelection_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_SetSelection_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetSelection(int n) function, expected prototype:\nvoid wxComboBox::base_SetSelection(int n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetSelection(int n) function, expected prototype:\nvoid wxComboBox::base_SetSelection(int n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int n=(int)lua_tointeger(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetSelection(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetSelection(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetSelection(n);
 
@@ -4350,16 +4125,14 @@ public:
 	// void wxComboBox::base_SetValue(const wxString & text)
 	static int _bind_base_SetValue(lua_State *L) {
 		if (!_lg_typecheck_base_SetValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetValue(const wxString & text) function, expected prototype:\nvoid wxComboBox::base_SetValue(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetValue(const wxString & text) function, expected prototype:\nvoid wxComboBox::base_SetValue(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetValue(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetValue(text);
 
@@ -4369,15 +4142,13 @@ public:
 	// void wxComboBox::base_Popup()
 	static int _bind_base_Popup(lua_State *L) {
 		if (!_lg_typecheck_base_Popup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Popup() function, expected prototype:\nvoid wxComboBox::base_Popup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Popup() function, expected prototype:\nvoid wxComboBox::base_Popup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_Popup(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_Popup(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::Popup();
 
@@ -4387,15 +4158,13 @@ public:
 	// void wxComboBox::base_Dismiss()
 	static int _bind_base_Dismiss(lua_State *L) {
 		if (!_lg_typecheck_base_Dismiss(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Dismiss() function, expected prototype:\nvoid wxComboBox::base_Dismiss()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_Dismiss() function, expected prototype:\nvoid wxComboBox::base_Dismiss()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_Dismiss(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_Dismiss(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::Dismiss();
 
@@ -4405,15 +4174,13 @@ public:
 	// int wxComboBox::base_GetSelection() const
 	static int _bind_base_GetSelection_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_GetSelection_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxComboBox::base_GetSelection() const function, expected prototype:\nint wxComboBox::base_GetSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxComboBox::base_GetSelection() const function, expected prototype:\nint wxComboBox::base_GetSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboBox::base_GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxComboBox::base_GetSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxComboBox::GetSelection();
 		lua_pushnumber(L,lret);
@@ -4424,8 +4191,7 @@ public:
 	// void wxComboBox::base_GetSelection(long * from, long * to) const
 	static int _bind_base_GetSelection_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_GetSelection_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_GetSelection(long * from, long * to) const function, expected prototype:\nvoid wxComboBox::base_GetSelection(long * from, long * to) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_GetSelection(long * from, long * to) const function, expected prototype:\nvoid wxComboBox::base_GetSelection(long * from, long * to) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		long* from=(long*)Luna< void >::check(L,2);
@@ -4433,8 +4199,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_GetSelection(long *, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_GetSelection(long *, long *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::GetSelection(from, to);
 
@@ -4453,8 +4218,7 @@ public:
 	// int wxComboBox::base_FindString(const wxString & string, bool caseSensitive = false) const
 	static int _bind_base_FindString(lua_State *L) {
 		if (!_lg_typecheck_base_FindString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxComboBox::base_FindString(const wxString & string, bool caseSensitive = false) const function, expected prototype:\nint wxComboBox::base_FindString(const wxString & string, bool caseSensitive = false) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxComboBox::base_FindString(const wxString & string, bool caseSensitive = false) const function, expected prototype:\nint wxComboBox::base_FindString(const wxString & string, bool caseSensitive = false) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -4464,8 +4228,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboBox::base_FindString(const wxString &, bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxComboBox::base_FindString(const wxString &, bool) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxComboBox::FindString(string, caseSensitive);
 		lua_pushnumber(L,lret);
@@ -4476,16 +4239,14 @@ public:
 	// wxString wxComboBox::base_GetString(unsigned int n) const
 	static int _bind_base_GetString(lua_State *L) {
 		if (!_lg_typecheck_base_GetString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetString(unsigned int n) const function, expected prototype:\nwxString wxComboBox::base_GetString(unsigned int n) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetString(unsigned int n) const function, expected prototype:\nwxString wxComboBox::base_GetString(unsigned int n) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int n=(unsigned int)lua_tointeger(L,2);
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetString(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetString(unsigned int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxComboBox::GetString(n);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4496,15 +4257,13 @@ public:
 	// wxString wxComboBox::base_GetStringSelection() const
 	static int _bind_base_GetStringSelection(lua_State *L) {
 		if (!_lg_typecheck_base_GetStringSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetStringSelection() const function, expected prototype:\nwxString wxComboBox::base_GetStringSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxComboBox::base_GetStringSelection() const function, expected prototype:\nwxString wxComboBox::base_GetStringSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetStringSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxComboBox::base_GetStringSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxComboBox::GetStringSelection();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4515,8 +4274,7 @@ public:
 	// void wxComboBox::base_SetString(unsigned int n, const wxString & string)
 	static int _bind_base_SetString(lua_State *L) {
 		if (!_lg_typecheck_base_SetString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetString(unsigned int n, const wxString & string) function, expected prototype:\nvoid wxComboBox::base_SetString(unsigned int n, const wxString & string)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxComboBox::base_SetString(unsigned int n, const wxString & string) function, expected prototype:\nvoid wxComboBox::base_SetString(unsigned int n, const wxString & string)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int n=(unsigned int)lua_tointeger(L,2);
@@ -4524,8 +4282,7 @@ public:
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetString(unsigned int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboBox::base_SetString(unsigned int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboBox::SetString(n, string);
 
@@ -4535,15 +4292,13 @@ public:
 	// unsigned int wxComboBox::base_GetCount() const
 	static int _bind_base_GetCount(lua_State *L) {
 		if (!_lg_typecheck_base_GetCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int wxComboBox::base_GetCount() const function, expected prototype:\nunsigned int wxComboBox::base_GetCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int wxComboBox::base_GetCount() const function, expected prototype:\nunsigned int wxComboBox::base_GetCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboBox* self=Luna< wxObject >::checkSubType< wxComboBox >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxComboBox::base_GetCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int wxComboBox::base_GetCount() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->wxComboBox::GetCount();
 		lua_pushnumber(L,lret);
@@ -4562,8 +4317,7 @@ public:
 
 	static int _bind_baseCast_wxItemContainerImmutable(lua_State *L) {
 		if (!_lg_typecheck_baseCast_wxItemContainerImmutable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in baseCast_wxItemContainerImmutable function, expected prototype:\nbaseCast()");
+			luaL_error(L, "luna typecheck failed in baseCast_wxItemContainerImmutable function, expected prototype:\nbaseCast(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -4588,8 +4342,7 @@ public:
 
 	static int _bind_baseCast_wxTextEntry(lua_State *L) {
 		if (!_lg_typecheck_baseCast_wxTextEntry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in baseCast_wxTextEntry function, expected prototype:\nbaseCast()");
+			luaL_error(L, "luna typecheck failed in baseCast_wxTextEntry function, expected prototype:\nbaseCast(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -4610,13 +4363,6 @@ public:
 
 wxComboBox* LunaTraits< wxComboBox >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxComboBox::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
-	// void wxItemContainer::DoSetItemClientData(unsigned int arg1, void * arg2)
-	// void * wxItemContainer::DoGetItemClientData(unsigned int arg1) const
-	// void wxItemContainer::DoClear()
-	// void wxItemContainer::DoDeleteOneItem(unsigned int arg1)
-	// int wxItemContainer::DoInsertItems(const wxArrayStringsAdapter & arg1, unsigned int arg2, void ** arg3, wxClientDataType arg4)
 }
 
 void LunaTraits< wxComboBox >::_bind_dtor(wxComboBox* obj) {

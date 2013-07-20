@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridCellRenderer* self=(Luna< wxGridCellRenderer >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridCellEnumRenderer* self= (wxGridCellEnumRenderer*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxGridCellRenderer >::check(L,1));
@@ -122,8 +119,7 @@ public:
 	// wxGridCellEnumRenderer::wxGridCellEnumRenderer(lua_Table * data, const wxString & choices = wxEmptyString)
 	static wxGridCellEnumRenderer* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridCellEnumRenderer::wxGridCellEnumRenderer(lua_Table * data, const wxString & choices = wxEmptyString) function, expected prototype:\nwxGridCellEnumRenderer::wxGridCellEnumRenderer(lua_Table * data, const wxString & choices = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxGridCellEnumRenderer::wxGridCellEnumRenderer(lua_Table * data, const wxString & choices = wxEmptyString) function, expected prototype:\nwxGridCellEnumRenderer::wxGridCellEnumRenderer(lua_Table * data, const wxString & choices = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -138,16 +134,14 @@ public:
 	// void wxGridCellEnumRenderer::SetParameters(const wxString & params)
 	static int _bind_SetParameters(lua_State *L) {
 		if (!_lg_typecheck_SetParameters(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellEnumRenderer::SetParameters(const wxString & params) function, expected prototype:\nvoid wxGridCellEnumRenderer::SetParameters(const wxString & params)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellEnumRenderer::SetParameters(const wxString & params) function, expected prototype:\nvoid wxGridCellEnumRenderer::SetParameters(const wxString & params)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString params(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxGridCellEnumRenderer* self=Luna< wxGridCellRenderer >::checkSubType< wxGridCellEnumRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellEnumRenderer::SetParameters(const wxString &). Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellEnumRenderer::SetParameters(const wxString &). Got : '%s'\n%s",typeid(Luna< wxGridCellRenderer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetParameters(params);
 
@@ -157,16 +151,14 @@ public:
 	// void wxGridCellEnumRenderer::base_SetParameters(const wxString & params)
 	static int _bind_base_SetParameters(lua_State *L) {
 		if (!_lg_typecheck_base_SetParameters(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellEnumRenderer::base_SetParameters(const wxString & params) function, expected prototype:\nvoid wxGridCellEnumRenderer::base_SetParameters(const wxString & params)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellEnumRenderer::base_SetParameters(const wxString & params) function, expected prototype:\nvoid wxGridCellEnumRenderer::base_SetParameters(const wxString & params)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString params(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxGridCellEnumRenderer* self=Luna< wxGridCellRenderer >::checkSubType< wxGridCellEnumRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellEnumRenderer::base_SetParameters(const wxString &). Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellEnumRenderer::base_SetParameters(const wxString &). Got : '%s'\n%s",typeid(Luna< wxGridCellRenderer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxGridCellEnumRenderer::SetParameters(params);
 

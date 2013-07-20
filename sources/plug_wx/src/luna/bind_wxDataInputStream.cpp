@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDataInputStream*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDataInputStream*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataInputStream* rhs =(Luna< wxDataInputStream >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataInputStream* self= (wxDataInputStream*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDataInputStream >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -181,16 +177,14 @@ public:
 	// void wxDataInputStream::BigEndianOrdered(bool be_order)
 	static int _bind_BigEndianOrdered(lua_State *L) {
 		if (!_lg_typecheck_BigEndianOrdered(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataInputStream::BigEndianOrdered(bool be_order) function, expected prototype:\nvoid wxDataInputStream::BigEndianOrdered(bool be_order)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataInputStream::BigEndianOrdered(bool be_order) function, expected prototype:\nvoid wxDataInputStream::BigEndianOrdered(bool be_order)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool be_order=(bool)(lua_toboolean(L,2)==1);
 
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataInputStream::BigEndianOrdered(bool). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataInputStream::BigEndianOrdered(bool). Got : '%s'\n%s",typeid(Luna< wxDataInputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BigEndianOrdered(be_order);
 
@@ -200,15 +194,13 @@ public:
 	// unsigned char wxDataInputStream::Read8()
 	static int _bind_Read8_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Read8_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char wxDataInputStream::Read8() function, expected prototype:\nunsigned char wxDataInputStream::Read8()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char wxDataInputStream::Read8() function, expected prototype:\nunsigned char wxDataInputStream::Read8()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxDataInputStream::Read8(). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char wxDataInputStream::Read8(). Got : '%s'\n%s",typeid(Luna< wxDataInputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char lret = self->Read8();
 		lua_pushnumber(L,(int)lret);
@@ -219,8 +211,7 @@ public:
 	// void wxDataInputStream::Read8(unsigned char * buffer, size_t size)
 	static int _bind_Read8_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Read8_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataInputStream::Read8(unsigned char * buffer, size_t size) function, expected prototype:\nvoid wxDataInputStream::Read8(unsigned char * buffer, size_t size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataInputStream::Read8(unsigned char * buffer, size_t size) function, expected prototype:\nvoid wxDataInputStream::Read8(unsigned char * buffer, size_t size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char buffer = (unsigned char)(lua_tointeger(L,2));
@@ -228,8 +219,7 @@ public:
 
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataInputStream::Read8(unsigned char *, size_t). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataInputStream::Read8(unsigned char *, size_t). Got : '%s'\n%s",typeid(Luna< wxDataInputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Read8(&buffer, size);
 
@@ -248,15 +238,13 @@ public:
 	// unsigned short wxDataInputStream::Read16()
 	static int _bind_Read16_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Read16_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned short wxDataInputStream::Read16() function, expected prototype:\nunsigned short wxDataInputStream::Read16()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned short wxDataInputStream::Read16() function, expected prototype:\nunsigned short wxDataInputStream::Read16()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short wxDataInputStream::Read16(). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned short wxDataInputStream::Read16(). Got : '%s'\n%s",typeid(Luna< wxDataInputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned short lret = self->Read16();
 		lua_pushnumber(L,lret);
@@ -267,8 +255,7 @@ public:
 	// void wxDataInputStream::Read16(unsigned short * buffer, size_t size)
 	static int _bind_Read16_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Read16_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataInputStream::Read16(unsigned short * buffer, size_t size) function, expected prototype:\nvoid wxDataInputStream::Read16(unsigned short * buffer, size_t size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataInputStream::Read16(unsigned short * buffer, size_t size) function, expected prototype:\nvoid wxDataInputStream::Read16(unsigned short * buffer, size_t size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short* buffer=(unsigned short*)Luna< void >::check(L,2);
@@ -276,8 +263,7 @@ public:
 
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataInputStream::Read16(unsigned short *, size_t). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataInputStream::Read16(unsigned short *, size_t). Got : '%s'\n%s",typeid(Luna< wxDataInputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Read16(buffer, size);
 
@@ -296,15 +282,13 @@ public:
 	// unsigned int wxDataInputStream::Read32()
 	static int _bind_Read32_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Read32_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int wxDataInputStream::Read32() function, expected prototype:\nunsigned int wxDataInputStream::Read32()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int wxDataInputStream::Read32() function, expected prototype:\nunsigned int wxDataInputStream::Read32()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxDataInputStream::Read32(). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int wxDataInputStream::Read32(). Got : '%s'\n%s",typeid(Luna< wxDataInputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->Read32();
 		lua_pushnumber(L,lret);
@@ -315,8 +299,7 @@ public:
 	// void wxDataInputStream::Read32(unsigned int * buffer, size_t size)
 	static int _bind_Read32_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Read32_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataInputStream::Read32(unsigned int * buffer, size_t size) function, expected prototype:\nvoid wxDataInputStream::Read32(unsigned int * buffer, size_t size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataInputStream::Read32(unsigned int * buffer, size_t size) function, expected prototype:\nvoid wxDataInputStream::Read32(unsigned int * buffer, size_t size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int* buffer=(unsigned int*)Luna< void >::check(L,2);
@@ -324,8 +307,7 @@ public:
 
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataInputStream::Read32(unsigned int *, size_t). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataInputStream::Read32(unsigned int *, size_t). Got : '%s'\n%s",typeid(Luna< wxDataInputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Read32(buffer, size);
 
@@ -344,15 +326,13 @@ public:
 	// double wxDataInputStream::ReadDouble()
 	static int _bind_ReadDouble_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ReadDouble_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxDataInputStream::ReadDouble() function, expected prototype:\ndouble wxDataInputStream::ReadDouble()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxDataInputStream::ReadDouble() function, expected prototype:\ndouble wxDataInputStream::ReadDouble()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxDataInputStream::ReadDouble(). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxDataInputStream::ReadDouble(). Got : '%s'\n%s",typeid(Luna< wxDataInputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->ReadDouble();
 		lua_pushnumber(L,lret);
@@ -363,8 +343,7 @@ public:
 	// void wxDataInputStream::ReadDouble(double * buffer, size_t size)
 	static int _bind_ReadDouble_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ReadDouble_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataInputStream::ReadDouble(double * buffer, size_t size) function, expected prototype:\nvoid wxDataInputStream::ReadDouble(double * buffer, size_t size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataInputStream::ReadDouble(double * buffer, size_t size) function, expected prototype:\nvoid wxDataInputStream::ReadDouble(double * buffer, size_t size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double* buffer=(double*)Luna< void >::check(L,2);
@@ -372,8 +351,7 @@ public:
 
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataInputStream::ReadDouble(double *, size_t). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataInputStream::ReadDouble(double *, size_t). Got : '%s'\n%s",typeid(Luna< wxDataInputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ReadDouble(buffer, size);
 
@@ -392,15 +370,13 @@ public:
 	// wxString wxDataInputStream::ReadString()
 	static int _bind_ReadString(lua_State *L) {
 		if (!_lg_typecheck_ReadString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxDataInputStream::ReadString() function, expected prototype:\nwxString wxDataInputStream::ReadString()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxDataInputStream::ReadString() function, expected prototype:\nwxString wxDataInputStream::ReadString()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDataInputStream::ReadString(). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxDataInputStream::ReadString(). Got : '%s'\n%s",typeid(Luna< wxDataInputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->ReadString();
 		lua_pushlstring(L,lret.data(),lret.size());

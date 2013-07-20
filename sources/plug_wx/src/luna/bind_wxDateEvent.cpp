@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDateEvent* self= (wxDateEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -132,15 +129,13 @@ public:
 	// const wxDateTime & wxDateEvent::GetDate() const
 	static int _bind_GetDate(lua_State *L) {
 		if (!_lg_typecheck_GetDate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxDateTime & wxDateEvent::GetDate() const function, expected prototype:\nconst wxDateTime & wxDateEvent::GetDate() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxDateTime & wxDateEvent::GetDate() const function, expected prototype:\nconst wxDateTime & wxDateEvent::GetDate() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateEvent* self=Luna< wxObject >::checkSubType< wxDateEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxDateTime & wxDateEvent::GetDate() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxDateTime & wxDateEvent::GetDate() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->GetDate();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -153,8 +148,7 @@ public:
 	// void wxDateEvent::SetDate(const wxDateTime & date)
 	static int _bind_SetDate(lua_State *L) {
 		if (!_lg_typecheck_SetDate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDateEvent::SetDate(const wxDateTime & date) function, expected prototype:\nvoid wxDateEvent::SetDate(const wxDateTime & date)\nClass arguments details:\narg 1 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in void wxDateEvent::SetDate(const wxDateTime & date) function, expected prototype:\nvoid wxDateEvent::SetDate(const wxDateTime & date)\nClass arguments details:\narg 1 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateTime* date_ptr=(Luna< wxDateTime >::check(L,2));
@@ -165,8 +159,7 @@ public:
 
 		wxDateEvent* self=Luna< wxObject >::checkSubType< wxDateEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDateEvent::SetDate(const wxDateTime &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDateEvent::SetDate(const wxDateTime &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDate(date);
 
@@ -176,15 +169,13 @@ public:
 	// wxClassInfo * wxDateEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxDateEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxDateEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxDateEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxDateEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateEvent* self=Luna< wxObject >::checkSubType< wxDateEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDateEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDateEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxDateEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -197,15 +188,13 @@ public:
 	// wxEventCategory wxDateEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxDateEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxDateEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxDateEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxDateEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateEvent* self=Luna< wxObject >::checkSubType< wxDateEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxDateEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxDateEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxDateEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -216,15 +205,13 @@ public:
 	// wxEvent * wxDateEvent::base_Clone() const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvent * wxDateEvent::base_Clone() const function, expected prototype:\nwxEvent * wxDateEvent::base_Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvent * wxDateEvent::base_Clone() const function, expected prototype:\nwxEvent * wxDateEvent::base_Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateEvent* self=Luna< wxObject >::checkSubType< wxDateEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxDateEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvent * wxDateEvent::base_Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvent * lret = self->wxDateEvent::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.

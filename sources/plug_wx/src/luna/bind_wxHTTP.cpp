@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHTTP* self= (wxHTTP*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -255,8 +252,7 @@ public:
 	// wxHTTP::wxHTTP(lua_Table * data)
 	static wxHTTP* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHTTP::wxHTTP(lua_Table * data) function, expected prototype:\nwxHTTP::wxHTTP(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxHTTP::wxHTTP(lua_Table * data) function, expected prototype:\nwxHTTP::wxHTTP(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -268,16 +264,14 @@ public:
 	// bool wxHTTP::Connect(const wxString & host)
 	static int _bind_Connect_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Connect_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHTTP::Connect(const wxString & host) function, expected prototype:\nbool wxHTTP::Connect(const wxString & host)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHTTP::Connect(const wxString & host) function, expected prototype:\nbool wxHTTP::Connect(const wxString & host)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString host(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::Connect(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHTTP::Connect(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Connect(host);
 		lua_pushboolean(L,lret?1:0);
@@ -288,8 +282,7 @@ public:
 	// bool wxHTTP::Connect(const wxString & host, unsigned short port)
 	static int _bind_Connect_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Connect_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHTTP::Connect(const wxString & host, unsigned short port) function, expected prototype:\nbool wxHTTP::Connect(const wxString & host, unsigned short port)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHTTP::Connect(const wxString & host, unsigned short port) function, expected prototype:\nbool wxHTTP::Connect(const wxString & host, unsigned short port)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString host(lua_tostring(L,2),lua_objlen(L,2));
@@ -297,8 +290,7 @@ public:
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::Connect(const wxString &, unsigned short). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHTTP::Connect(const wxString &, unsigned short). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Connect(host, port);
 		lua_pushboolean(L,lret?1:0);
@@ -309,8 +301,7 @@ public:
 	// bool wxHTTP::Connect(const wxSockAddress & address, bool wait)
 	static int _bind_Connect_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Connect_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHTTP::Connect(const wxSockAddress & address, bool wait) function, expected prototype:\nbool wxHTTP::Connect(const wxSockAddress & address, bool wait)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxHTTP::Connect(const wxSockAddress & address, bool wait) function, expected prototype:\nbool wxHTTP::Connect(const wxSockAddress & address, bool wait)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSockAddress* address_ptr=(Luna< wxObject >::checkSubType< wxSockAddress >(L,2));
@@ -322,8 +313,7 @@ public:
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::Connect(const wxSockAddress &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHTTP::Connect(const wxSockAddress &, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Connect(address, wait);
 		lua_pushboolean(L,lret?1:0);
@@ -344,16 +334,14 @@ public:
 	// wxString wxHTTP::GetHeader(const wxString & header) const
 	static int _bind_GetHeader(lua_State *L) {
 		if (!_lg_typecheck_GetHeader(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxHTTP::GetHeader(const wxString & header) const function, expected prototype:\nwxString wxHTTP::GetHeader(const wxString & header) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxHTTP::GetHeader(const wxString & header) const function, expected prototype:\nwxString wxHTTP::GetHeader(const wxString & header) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString header(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHTTP::GetHeader(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxHTTP::GetHeader(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetHeader(header);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -364,16 +352,14 @@ public:
 	// wxInputStream * wxHTTP::GetInputStream(const wxString & path)
 	static int _bind_GetInputStream(lua_State *L) {
 		if (!_lg_typecheck_GetInputStream(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxInputStream * wxHTTP::GetInputStream(const wxString & path) function, expected prototype:\nwxInputStream * wxHTTP::GetInputStream(const wxString & path)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxInputStream * wxHTTP::GetInputStream(const wxString & path) function, expected prototype:\nwxInputStream * wxHTTP::GetInputStream(const wxString & path)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream * wxHTTP::GetInputStream(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxInputStream * wxHTTP::GetInputStream(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxInputStream * lret = self->GetInputStream(path);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -386,15 +372,13 @@ public:
 	// int wxHTTP::GetResponse() const
 	static int _bind_GetResponse(lua_State *L) {
 		if (!_lg_typecheck_GetResponse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxHTTP::GetResponse() const function, expected prototype:\nint wxHTTP::GetResponse() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxHTTP::GetResponse() const function, expected prototype:\nint wxHTTP::GetResponse() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHTTP::GetResponse() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxHTTP::GetResponse() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetResponse();
 		lua_pushnumber(L,lret);
@@ -405,8 +389,7 @@ public:
 	// void wxHTTP::SetHeader(const wxString & header, const wxString & h_data)
 	static int _bind_SetHeader(lua_State *L) {
 		if (!_lg_typecheck_SetHeader(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHTTP::SetHeader(const wxString & header, const wxString & h_data) function, expected prototype:\nvoid wxHTTP::SetHeader(const wxString & header, const wxString & h_data)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHTTP::SetHeader(const wxString & header, const wxString & h_data) function, expected prototype:\nvoid wxHTTP::SetHeader(const wxString & header, const wxString & h_data)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString header(lua_tostring(L,2),lua_objlen(L,2));
@@ -414,8 +397,7 @@ public:
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHTTP::SetHeader(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHTTP::SetHeader(const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetHeader(header, h_data);
 
@@ -425,16 +407,14 @@ public:
 	// wxString wxHTTP::GetCookie(const wxString & cookie) const
 	static int _bind_GetCookie(lua_State *L) {
 		if (!_lg_typecheck_GetCookie(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxHTTP::GetCookie(const wxString & cookie) const function, expected prototype:\nwxString wxHTTP::GetCookie(const wxString & cookie) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxHTTP::GetCookie(const wxString & cookie) const function, expected prototype:\nwxString wxHTTP::GetCookie(const wxString & cookie) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString cookie(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHTTP::GetCookie(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxHTTP::GetCookie(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetCookie(cookie);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -445,15 +425,13 @@ public:
 	// bool wxHTTP::HasCookies() const
 	static int _bind_HasCookies(lua_State *L) {
 		if (!_lg_typecheck_HasCookies(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHTTP::HasCookies() const function, expected prototype:\nbool wxHTTP::HasCookies() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHTTP::HasCookies() const function, expected prototype:\nbool wxHTTP::HasCookies() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::HasCookies() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHTTP::HasCookies() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasCookies();
 		lua_pushboolean(L,lret?1:0);
@@ -464,15 +442,13 @@ public:
 	// wxClassInfo * wxHTTP::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHTTP::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHTTP::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHTTP::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHTTP::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHTTP::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHTTP::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxHTTP::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -485,8 +461,7 @@ public:
 	// bool wxHTTP::base_GetLocal(wxSockAddress & addr) const
 	static int _bind_base_GetLocal(lua_State *L) {
 		if (!_lg_typecheck_base_GetLocal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHTTP::base_GetLocal(wxSockAddress & addr) const function, expected prototype:\nbool wxHTTP::base_GetLocal(wxSockAddress & addr) const\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxHTTP::base_GetLocal(wxSockAddress & addr) const function, expected prototype:\nbool wxHTTP::base_GetLocal(wxSockAddress & addr) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSockAddress* addr_ptr=(Luna< wxObject >::checkSubType< wxSockAddress >(L,2));
@@ -497,8 +472,7 @@ public:
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::base_GetLocal(wxSockAddress &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHTTP::base_GetLocal(wxSockAddress &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHTTP::GetLocal(addr);
 		lua_pushboolean(L,lret?1:0);
@@ -509,8 +483,7 @@ public:
 	// bool wxHTTP::base_GetPeer(wxSockAddress & addr) const
 	static int _bind_base_GetPeer(lua_State *L) {
 		if (!_lg_typecheck_base_GetPeer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHTTP::base_GetPeer(wxSockAddress & addr) const function, expected prototype:\nbool wxHTTP::base_GetPeer(wxSockAddress & addr) const\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxHTTP::base_GetPeer(wxSockAddress & addr) const function, expected prototype:\nbool wxHTTP::base_GetPeer(wxSockAddress & addr) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSockAddress* addr_ptr=(Luna< wxObject >::checkSubType< wxSockAddress >(L,2));
@@ -521,8 +494,7 @@ public:
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::base_GetPeer(wxSockAddress &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHTTP::base_GetPeer(wxSockAddress &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHTTP::GetPeer(addr);
 		lua_pushboolean(L,lret?1:0);
@@ -533,15 +505,13 @@ public:
 	// bool wxHTTP::base_Close()
 	static int _bind_base_Close(lua_State *L) {
 		if (!_lg_typecheck_base_Close(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHTTP::base_Close() function, expected prototype:\nbool wxHTTP::base_Close()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHTTP::base_Close() function, expected prototype:\nbool wxHTTP::base_Close()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Close(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Close(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHTTP::Close();
 		lua_pushboolean(L,lret?1:0);
@@ -552,8 +522,7 @@ public:
 	// bool wxHTTP::base_SetLocal(const wxIPV4address & local)
 	static int _bind_base_SetLocal(lua_State *L) {
 		if (!_lg_typecheck_base_SetLocal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHTTP::base_SetLocal(const wxIPV4address & local) function, expected prototype:\nbool wxHTTP::base_SetLocal(const wxIPV4address & local)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxHTTP::base_SetLocal(const wxIPV4address & local) function, expected prototype:\nbool wxHTTP::base_SetLocal(const wxIPV4address & local)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxIPV4address* local_ptr=(Luna< wxObject >::checkSubType< wxIPV4address >(L,2));
@@ -564,8 +533,7 @@ public:
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::base_SetLocal(const wxIPV4address &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHTTP::base_SetLocal(const wxIPV4address &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHTTP::SetLocal(local);
 		lua_pushboolean(L,lret?1:0);
@@ -576,15 +544,13 @@ public:
 	// wxProtocolError wxHTTP::base_GetError() const
 	static int _bind_base_GetError(lua_State *L) {
 		if (!_lg_typecheck_base_GetError(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxProtocolError wxHTTP::base_GetError() const function, expected prototype:\nwxProtocolError wxHTTP::base_GetError() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxProtocolError wxHTTP::base_GetError() const function, expected prototype:\nwxProtocolError wxHTTP::base_GetError() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxProtocolError wxHTTP::base_GetError() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxProtocolError wxHTTP::base_GetError() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxProtocolError lret = self->wxHTTP::GetError();
 		lua_pushnumber(L,lret);
@@ -595,16 +561,14 @@ public:
 	// void wxHTTP::base_SetPassword(const wxString & user)
 	static int _bind_base_SetPassword(lua_State *L) {
 		if (!_lg_typecheck_base_SetPassword(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHTTP::base_SetPassword(const wxString & user) function, expected prototype:\nvoid wxHTTP::base_SetPassword(const wxString & user)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHTTP::base_SetPassword(const wxString & user) function, expected prototype:\nvoid wxHTTP::base_SetPassword(const wxString & user)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString user(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHTTP::base_SetPassword(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHTTP::base_SetPassword(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHTTP::SetPassword(user);
 
@@ -614,16 +578,14 @@ public:
 	// void wxHTTP::base_SetUser(const wxString & user)
 	static int _bind_base_SetUser(lua_State *L) {
 		if (!_lg_typecheck_base_SetUser(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHTTP::base_SetUser(const wxString & user) function, expected prototype:\nvoid wxHTTP::base_SetUser(const wxString & user)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHTTP::base_SetUser(const wxString & user) function, expected prototype:\nvoid wxHTTP::base_SetUser(const wxString & user)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString user(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHTTP::base_SetUser(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHTTP::base_SetUser(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHTTP::SetUser(user);
 
@@ -633,16 +595,14 @@ public:
 	// bool wxHTTP::base_Connect(const wxString & host)
 	static int _bind_base_Connect_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_Connect_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHTTP::base_Connect(const wxString & host) function, expected prototype:\nbool wxHTTP::base_Connect(const wxString & host)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHTTP::base_Connect(const wxString & host) function, expected prototype:\nbool wxHTTP::base_Connect(const wxString & host)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString host(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Connect(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Connect(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHTTP::Connect(host);
 		lua_pushboolean(L,lret?1:0);
@@ -653,8 +613,7 @@ public:
 	// bool wxHTTP::base_Connect(const wxString & host, unsigned short port)
 	static int _bind_base_Connect_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_Connect_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHTTP::base_Connect(const wxString & host, unsigned short port) function, expected prototype:\nbool wxHTTP::base_Connect(const wxString & host, unsigned short port)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHTTP::base_Connect(const wxString & host, unsigned short port) function, expected prototype:\nbool wxHTTP::base_Connect(const wxString & host, unsigned short port)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString host(lua_tostring(L,2),lua_objlen(L,2));
@@ -662,8 +621,7 @@ public:
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Connect(const wxString &, unsigned short). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Connect(const wxString &, unsigned short). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHTTP::Connect(host, port);
 		lua_pushboolean(L,lret?1:0);
@@ -674,8 +632,7 @@ public:
 	// bool wxHTTP::base_Connect(const wxSockAddress & address, bool wait)
 	static int _bind_base_Connect_overload_3(lua_State *L) {
 		if (!_lg_typecheck_base_Connect_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHTTP::base_Connect(const wxSockAddress & address, bool wait) function, expected prototype:\nbool wxHTTP::base_Connect(const wxSockAddress & address, bool wait)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxHTTP::base_Connect(const wxSockAddress & address, bool wait) function, expected prototype:\nbool wxHTTP::base_Connect(const wxSockAddress & address, bool wait)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSockAddress* address_ptr=(Luna< wxObject >::checkSubType< wxSockAddress >(L,2));
@@ -687,8 +644,7 @@ public:
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Connect(const wxSockAddress &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Connect(const wxSockAddress &, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHTTP::Connect(address, wait);
 		lua_pushboolean(L,lret?1:0);
@@ -709,16 +665,14 @@ public:
 	// wxInputStream * wxHTTP::base_GetInputStream(const wxString & path)
 	static int _bind_base_GetInputStream(lua_State *L) {
 		if (!_lg_typecheck_base_GetInputStream(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxInputStream * wxHTTP::base_GetInputStream(const wxString & path) function, expected prototype:\nwxInputStream * wxHTTP::base_GetInputStream(const wxString & path)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxInputStream * wxHTTP::base_GetInputStream(const wxString & path) function, expected prototype:\nwxInputStream * wxHTTP::base_GetInputStream(const wxString & path)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream * wxHTTP::base_GetInputStream(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxInputStream * wxHTTP::base_GetInputStream(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxInputStream * lret = self->wxHTTP::GetInputStream(path);
 		if(!lret) return 0; // Do not write NULL pointers.

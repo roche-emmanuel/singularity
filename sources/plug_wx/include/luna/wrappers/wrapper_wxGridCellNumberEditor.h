@@ -217,15 +217,13 @@ public:
 	// bool wxGridCellNumberEditor::public_HasRange() const
 	static int _bind_public_HasRange(lua_State *L) {
 		if (!_lg_typecheck_public_HasRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridCellNumberEditor::public_HasRange() const function, expected prototype:\nbool wxGridCellNumberEditor::public_HasRange() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridCellNumberEditor::public_HasRange() const function, expected prototype:\nbool wxGridCellNumberEditor::public_HasRange() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_wxGridCellNumberEditor* self=Luna< wxGridCellEditor >::checkSubType< wrapper_wxGridCellNumberEditor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridCellNumberEditor::public_HasRange() const. Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridCellNumberEditor::public_HasRange() const. Got : '%s'\n%s",typeid(Luna< wxGridCellEditor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_HasRange();
 		lua_pushboolean(L,lret?1:0);
@@ -236,15 +234,13 @@ public:
 	// wxString wxGridCellNumberEditor::public_GetString() const
 	static int _bind_public_GetString(lua_State *L) {
 		if (!_lg_typecheck_public_GetString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxGridCellNumberEditor::public_GetString() const function, expected prototype:\nwxString wxGridCellNumberEditor::public_GetString() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxGridCellNumberEditor::public_GetString() const function, expected prototype:\nwxString wxGridCellNumberEditor::public_GetString() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_wxGridCellNumberEditor* self=Luna< wxGridCellEditor >::checkSubType< wrapper_wxGridCellNumberEditor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxGridCellNumberEditor::public_GetString() const. Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxGridCellNumberEditor::public_GetString() const. Got : '%s'\n%s",typeid(Luna< wxGridCellEditor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->public_GetString();
 		lua_pushlstring(L,lret.data(),lret.size());

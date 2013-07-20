@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxMouseCaptureChangedEvent* self= (wxMouseCaptureChangedEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -127,8 +124,7 @@ public:
 	// wxMouseCaptureChangedEvent::wxMouseCaptureChangedEvent(lua_Table * data, int windowId = 0, wxWindow * gainedCapture = NULL)
 	static wxMouseCaptureChangedEvent* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMouseCaptureChangedEvent::wxMouseCaptureChangedEvent(lua_Table * data, int windowId = 0, wxWindow * gainedCapture = NULL) function, expected prototype:\nwxMouseCaptureChangedEvent::wxMouseCaptureChangedEvent(lua_Table * data, int windowId = 0, wxWindow * gainedCapture = NULL)\nClass arguments details:\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxMouseCaptureChangedEvent::wxMouseCaptureChangedEvent(lua_Table * data, int windowId = 0, wxWindow * gainedCapture = NULL) function, expected prototype:\nwxMouseCaptureChangedEvent::wxMouseCaptureChangedEvent(lua_Table * data, int windowId = 0, wxWindow * gainedCapture = NULL)\nClass arguments details:\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -144,15 +140,13 @@ public:
 	// wxWindow * wxMouseCaptureChangedEvent::GetCapturedWindow() const
 	static int _bind_GetCapturedWindow(lua_State *L) {
 		if (!_lg_typecheck_GetCapturedWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWindow * wxMouseCaptureChangedEvent::GetCapturedWindow() const function, expected prototype:\nwxWindow * wxMouseCaptureChangedEvent::GetCapturedWindow() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxWindow * wxMouseCaptureChangedEvent::GetCapturedWindow() const function, expected prototype:\nwxWindow * wxMouseCaptureChangedEvent::GetCapturedWindow() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMouseCaptureChangedEvent* self=Luna< wxObject >::checkSubType< wxMouseCaptureChangedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxMouseCaptureChangedEvent::GetCapturedWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxWindow * wxMouseCaptureChangedEvent::GetCapturedWindow() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxWindow * lret = self->GetCapturedWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -165,15 +159,13 @@ public:
 	// wxClassInfo * wxMouseCaptureChangedEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMouseCaptureChangedEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMouseCaptureChangedEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMouseCaptureChangedEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMouseCaptureChangedEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMouseCaptureChangedEvent* self=Luna< wxObject >::checkSubType< wxMouseCaptureChangedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxMouseCaptureChangedEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMouseCaptureChangedEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxMouseCaptureChangedEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -186,15 +178,13 @@ public:
 	// wxEventCategory wxMouseCaptureChangedEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxMouseCaptureChangedEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxMouseCaptureChangedEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxMouseCaptureChangedEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxMouseCaptureChangedEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMouseCaptureChangedEvent* self=Luna< wxObject >::checkSubType< wxMouseCaptureChangedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxMouseCaptureChangedEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxMouseCaptureChangedEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxMouseCaptureChangedEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

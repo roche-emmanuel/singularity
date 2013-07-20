@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxRegEx*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxRegEx*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRegEx* rhs =(Luna< wxRegEx >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRegEx* self= (wxRegEx*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxRegEx >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -191,8 +187,7 @@ public:
 	// wxRegEx::wxRegEx()
 	static wxRegEx* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRegEx::wxRegEx() function, expected prototype:\nwxRegEx::wxRegEx()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRegEx::wxRegEx() function, expected prototype:\nwxRegEx::wxRegEx()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -202,8 +197,7 @@ public:
 	// wxRegEx::wxRegEx(const wxString & expr, int flags = ::wxRE_DEFAULT)
 	static wxRegEx* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRegEx::wxRegEx(const wxString & expr, int flags = ::wxRE_DEFAULT) function, expected prototype:\nwxRegEx::wxRegEx(const wxString & expr, int flags = ::wxRE_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxRegEx::wxRegEx(const wxString & expr, int flags = ::wxRE_DEFAULT) function, expected prototype:\nwxRegEx::wxRegEx(const wxString & expr, int flags = ::wxRE_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -228,8 +222,7 @@ public:
 	// bool wxRegEx::Compile(const wxString & pattern, int flags = ::wxRE_DEFAULT)
 	static int _bind_Compile(lua_State *L) {
 		if (!_lg_typecheck_Compile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRegEx::Compile(const wxString & pattern, int flags = ::wxRE_DEFAULT) function, expected prototype:\nbool wxRegEx::Compile(const wxString & pattern, int flags = ::wxRE_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxRegEx::Compile(const wxString & pattern, int flags = ::wxRE_DEFAULT) function, expected prototype:\nbool wxRegEx::Compile(const wxString & pattern, int flags = ::wxRE_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -239,8 +232,7 @@ public:
 
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegEx::Compile(const wxString &, int). Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRegEx::Compile(const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxRegEx >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Compile(pattern, flags);
 		lua_pushboolean(L,lret?1:0);
@@ -251,8 +243,7 @@ public:
 	// bool wxRegEx::GetMatch(size_t * start, size_t * len, size_t index = 0) const
 	static int _bind_GetMatch_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetMatch_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRegEx::GetMatch(size_t * start, size_t * len, size_t index = 0) const function, expected prototype:\nbool wxRegEx::GetMatch(size_t * start, size_t * len, size_t index = 0) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRegEx::GetMatch(size_t * start, size_t * len, size_t index = 0) const function, expected prototype:\nbool wxRegEx::GetMatch(size_t * start, size_t * len, size_t index = 0) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -263,8 +254,7 @@ public:
 
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegEx::GetMatch(size_t *, size_t *, size_t) const. Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRegEx::GetMatch(size_t *, size_t *, size_t) const. Got : '%s'\n%s",typeid(Luna< wxRegEx >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetMatch(start, len, index);
 		lua_pushboolean(L,lret?1:0);
@@ -275,8 +265,7 @@ public:
 	// wxString wxRegEx::GetMatch(const wxString & text, size_t index = 0) const
 	static int _bind_GetMatch_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetMatch_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxRegEx::GetMatch(const wxString & text, size_t index = 0) const function, expected prototype:\nwxString wxRegEx::GetMatch(const wxString & text, size_t index = 0) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxRegEx::GetMatch(const wxString & text, size_t index = 0) const function, expected prototype:\nwxString wxRegEx::GetMatch(const wxString & text, size_t index = 0) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -286,8 +275,7 @@ public:
 
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRegEx::GetMatch(const wxString &, size_t) const. Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxRegEx::GetMatch(const wxString &, size_t) const. Got : '%s'\n%s",typeid(Luna< wxRegEx >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetMatch(text, index);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -307,15 +295,13 @@ public:
 	// size_t wxRegEx::GetMatchCount() const
 	static int _bind_GetMatchCount(lua_State *L) {
 		if (!_lg_typecheck_GetMatchCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxRegEx::GetMatchCount() const function, expected prototype:\nsize_t wxRegEx::GetMatchCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxRegEx::GetMatchCount() const function, expected prototype:\nsize_t wxRegEx::GetMatchCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxRegEx::GetMatchCount() const. Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxRegEx::GetMatchCount() const. Got : '%s'\n%s",typeid(Luna< wxRegEx >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->GetMatchCount();
 		lua_pushnumber(L,lret);
@@ -326,15 +312,13 @@ public:
 	// bool wxRegEx::IsValid() const
 	static int _bind_IsValid(lua_State *L) {
 		if (!_lg_typecheck_IsValid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRegEx::IsValid() const function, expected prototype:\nbool wxRegEx::IsValid() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRegEx::IsValid() const function, expected prototype:\nbool wxRegEx::IsValid() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegEx::IsValid() const. Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRegEx::IsValid() const. Got : '%s'\n%s",typeid(Luna< wxRegEx >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsValid();
 		lua_pushboolean(L,lret?1:0);
@@ -345,8 +329,7 @@ public:
 	// int wxRegEx::Replace(wxString * text, const wxString & replacement, size_t maxMatches = 0) const
 	static int _bind_Replace(lua_State *L) {
 		if (!_lg_typecheck_Replace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxRegEx::Replace(wxString * text, const wxString & replacement, size_t maxMatches = 0) const function, expected prototype:\nint wxRegEx::Replace(wxString * text, const wxString & replacement, size_t maxMatches = 0) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxRegEx::Replace(wxString * text, const wxString & replacement, size_t maxMatches = 0) const function, expected prototype:\nint wxRegEx::Replace(wxString * text, const wxString & replacement, size_t maxMatches = 0) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -357,8 +340,7 @@ public:
 
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRegEx::Replace(wxString *, const wxString &, size_t) const. Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxRegEx::Replace(wxString *, const wxString &, size_t) const. Got : '%s'\n%s",typeid(Luna< wxRegEx >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Replace(&text, replacement, maxMatches);
 		lua_pushnumber(L,lret);
@@ -369,8 +351,7 @@ public:
 	// int wxRegEx::ReplaceAll(wxString * text, const wxString & replacement) const
 	static int _bind_ReplaceAll(lua_State *L) {
 		if (!_lg_typecheck_ReplaceAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxRegEx::ReplaceAll(wxString * text, const wxString & replacement) const function, expected prototype:\nint wxRegEx::ReplaceAll(wxString * text, const wxString & replacement) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxRegEx::ReplaceAll(wxString * text, const wxString & replacement) const function, expected prototype:\nint wxRegEx::ReplaceAll(wxString * text, const wxString & replacement) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
@@ -378,8 +359,7 @@ public:
 
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRegEx::ReplaceAll(wxString *, const wxString &) const. Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxRegEx::ReplaceAll(wxString *, const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxRegEx >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->ReplaceAll(&text, replacement);
 		lua_pushnumber(L,lret);
@@ -390,8 +370,7 @@ public:
 	// int wxRegEx::ReplaceFirst(wxString * text, const wxString & replacement) const
 	static int _bind_ReplaceFirst(lua_State *L) {
 		if (!_lg_typecheck_ReplaceFirst(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxRegEx::ReplaceFirst(wxString * text, const wxString & replacement) const function, expected prototype:\nint wxRegEx::ReplaceFirst(wxString * text, const wxString & replacement) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxRegEx::ReplaceFirst(wxString * text, const wxString & replacement) const function, expected prototype:\nint wxRegEx::ReplaceFirst(wxString * text, const wxString & replacement) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
@@ -399,8 +378,7 @@ public:
 
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRegEx::ReplaceFirst(wxString *, const wxString &) const. Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxRegEx::ReplaceFirst(wxString *, const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxRegEx >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->ReplaceFirst(&text, replacement);
 		lua_pushnumber(L,lret);

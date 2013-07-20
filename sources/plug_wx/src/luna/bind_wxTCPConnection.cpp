@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTCPConnection* self= (wxTCPConnection*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -401,8 +398,7 @@ public:
 	// wxTCPConnection::wxTCPConnection()
 	static wxTCPConnection* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTCPConnection::wxTCPConnection() function, expected prototype:\nwxTCPConnection::wxTCPConnection()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTCPConnection::wxTCPConnection() function, expected prototype:\nwxTCPConnection::wxTCPConnection()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -412,8 +408,7 @@ public:
 	// wxTCPConnection::wxTCPConnection(void * buffer, size_t size)
 	static wxTCPConnection* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTCPConnection::wxTCPConnection(void * buffer, size_t size) function, expected prototype:\nwxTCPConnection::wxTCPConnection(void * buffer, size_t size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTCPConnection::wxTCPConnection(void * buffer, size_t size) function, expected prototype:\nwxTCPConnection::wxTCPConnection(void * buffer, size_t size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* buffer=(Luna< void >::check(L,1));
@@ -425,8 +420,7 @@ public:
 	// wxTCPConnection::wxTCPConnection(lua_Table * data)
 	static wxTCPConnection* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTCPConnection::wxTCPConnection(lua_Table * data) function, expected prototype:\nwxTCPConnection::wxTCPConnection(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTCPConnection::wxTCPConnection(lua_Table * data) function, expected prototype:\nwxTCPConnection::wxTCPConnection(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -436,8 +430,7 @@ public:
 	// wxTCPConnection::wxTCPConnection(lua_Table * data, void * buffer, size_t size)
 	static wxTCPConnection* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTCPConnection::wxTCPConnection(lua_Table * data, void * buffer, size_t size) function, expected prototype:\nwxTCPConnection::wxTCPConnection(lua_Table * data, void * buffer, size_t size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTCPConnection::wxTCPConnection(lua_Table * data, void * buffer, size_t size) function, expected prototype:\nwxTCPConnection::wxTCPConnection(lua_Table * data, void * buffer, size_t size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* buffer=(Luna< void >::check(L,2));
@@ -462,21 +455,19 @@ public:
 	// bool wxTCPConnection::Advise(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE)
 	static int _bind_Advise_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Advise_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Advise(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE) function, expected prototype:\nbool wxTCPConnection::Advise(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Advise(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE) function, expected prototype:\nbool wxTCPConnection::Advise(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
-		void* data=(Luna< void >::check(L,3));
+		const void* data=(Luna< void >::check(L,3));
 		size_t size=(size_t)lua_tointeger(L,4);
 		wxIPCFormat format=luatop>4 ? (wxIPCFormat)lua_tointeger(L,5) : (wxIPCFormat)::wxIPC_PRIVATE;
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Advise(const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Advise(const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Advise(item, data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -487,8 +478,7 @@ public:
 	// bool wxTCPConnection::Advise(const wxString & item, const char * data)
 	static int _bind_Advise_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Advise_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Advise(const wxString & item, const char * data) function, expected prototype:\nbool wxTCPConnection::Advise(const wxString & item, const char * data)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Advise(const wxString & item, const char * data) function, expected prototype:\nbool wxTCPConnection::Advise(const wxString & item, const char * data)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
@@ -496,8 +486,7 @@ public:
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Advise(const wxString &, const char *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Advise(const wxString &, const char *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Advise(item, data);
 		lua_pushboolean(L,lret?1:0);
@@ -508,8 +497,7 @@ public:
 	// bool wxTCPConnection::Advise(const wxString & item, const wxString data)
 	static int _bind_Advise_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Advise_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Advise(const wxString & item, const wxString data) function, expected prototype:\nbool wxTCPConnection::Advise(const wxString & item, const wxString data)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Advise(const wxString & item, const wxString data) function, expected prototype:\nbool wxTCPConnection::Advise(const wxString & item, const wxString data)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
@@ -517,8 +505,7 @@ public:
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Advise(const wxString &, const wxString). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Advise(const wxString &, const wxString). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Advise(item, data);
 		lua_pushboolean(L,lret?1:0);
@@ -539,15 +526,13 @@ public:
 	// bool wxTCPConnection::Disconnect()
 	static int _bind_Disconnect(lua_State *L) {
 		if (!_lg_typecheck_Disconnect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Disconnect() function, expected prototype:\nbool wxTCPConnection::Disconnect()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Disconnect() function, expected prototype:\nbool wxTCPConnection::Disconnect()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Disconnect(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Disconnect(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Disconnect();
 		lua_pushboolean(L,lret?1:0);
@@ -558,20 +543,18 @@ public:
 	// bool wxTCPConnection::Execute(const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE)
 	static int _bind_Execute_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Execute_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Execute(const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE) function, expected prototype:\nbool wxTCPConnection::Execute(const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Execute(const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE) function, expected prototype:\nbool wxTCPConnection::Execute(const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		void* data=(Luna< void >::check(L,2));
+		const void* data=(Luna< void >::check(L,2));
 		size_t size=(size_t)lua_tointeger(L,3);
 		wxIPCFormat format=luatop>3 ? (wxIPCFormat)lua_tointeger(L,4) : (wxIPCFormat)::wxIPC_PRIVATE;
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Execute(const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Execute(const void *, size_t, wxIPCFormat). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Execute(data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -582,16 +565,14 @@ public:
 	// bool wxTCPConnection::Execute(const char * data)
 	static int _bind_Execute_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Execute_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Execute(const char * data) function, expected prototype:\nbool wxTCPConnection::Execute(const char * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Execute(const char * data) function, expected prototype:\nbool wxTCPConnection::Execute(const char * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * data=(const char *)lua_tostring(L,2);
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Execute(const char *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Execute(const char *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Execute(data);
 		lua_pushboolean(L,lret?1:0);
@@ -602,16 +583,14 @@ public:
 	// bool wxTCPConnection::Execute(const wxString data)
 	static int _bind_Execute_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Execute_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Execute(const wxString data) function, expected prototype:\nbool wxTCPConnection::Execute(const wxString data)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Execute(const wxString data) function, expected prototype:\nbool wxTCPConnection::Execute(const wxString data)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString data(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Execute(const wxString). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Execute(const wxString). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Execute(data);
 		lua_pushboolean(L,lret?1:0);
@@ -632,20 +611,18 @@ public:
 	// bool wxTCPConnection::OnAdvise(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)
 	static int _bind_OnAdvise(lua_State *L) {
 		if (!_lg_typecheck_OnAdvise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::OnAdvise(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format) function, expected prototype:\nbool wxTCPConnection::OnAdvise(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::OnAdvise(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format) function, expected prototype:\nbool wxTCPConnection::OnAdvise(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
-		void* data=(Luna< void >::check(L,4));
+		const void* data=(Luna< void >::check(L,4));
 		size_t size=(size_t)lua_tointeger(L,5);
 		wxIPCFormat format=(wxIPCFormat)lua_tointeger(L,6);
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::OnAdvise(const wxString &, const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::OnAdvise(const wxString &, const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->OnAdvise(topic, item, data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -656,15 +633,13 @@ public:
 	// bool wxTCPConnection::OnDisconnect()
 	static int _bind_OnDisconnect(lua_State *L) {
 		if (!_lg_typecheck_OnDisconnect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::OnDisconnect() function, expected prototype:\nbool wxTCPConnection::OnDisconnect()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::OnDisconnect() function, expected prototype:\nbool wxTCPConnection::OnDisconnect()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::OnDisconnect(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::OnDisconnect(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->OnDisconnect();
 		lua_pushboolean(L,lret?1:0);
@@ -675,19 +650,17 @@ public:
 	// bool wxTCPConnection::OnExecute(const wxString & topic, const void * data, size_t size, wxIPCFormat format)
 	static int _bind_OnExecute(lua_State *L) {
 		if (!_lg_typecheck_OnExecute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::OnExecute(const wxString & topic, const void * data, size_t size, wxIPCFormat format) function, expected prototype:\nbool wxTCPConnection::OnExecute(const wxString & topic, const void * data, size_t size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::OnExecute(const wxString & topic, const void * data, size_t size, wxIPCFormat format) function, expected prototype:\nbool wxTCPConnection::OnExecute(const wxString & topic, const void * data, size_t size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
-		void* data=(Luna< void >::check(L,3));
+		const void* data=(Luna< void >::check(L,3));
 		size_t size=(size_t)lua_tointeger(L,4);
 		wxIPCFormat format=(wxIPCFormat)lua_tointeger(L,5);
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::OnExecute(const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::OnExecute(const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->OnExecute(topic, data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -698,20 +671,18 @@ public:
 	// bool wxTCPConnection::OnPoke(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)
 	static int _bind_OnPoke(lua_State *L) {
 		if (!_lg_typecheck_OnPoke(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::OnPoke(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format) function, expected prototype:\nbool wxTCPConnection::OnPoke(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::OnPoke(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format) function, expected prototype:\nbool wxTCPConnection::OnPoke(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
-		void* data=(Luna< void >::check(L,4));
+		const void* data=(Luna< void >::check(L,4));
 		size_t size=(size_t)lua_tointeger(L,5);
 		wxIPCFormat format=(wxIPCFormat)lua_tointeger(L,6);
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::OnPoke(const wxString &, const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::OnPoke(const wxString &, const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->OnPoke(topic, item, data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -722,8 +693,7 @@ public:
 	// const void * wxTCPConnection::OnRequest(const wxString & topic, const wxString & item, size_t * size, wxIPCFormat format)
 	static int _bind_OnRequest(lua_State *L) {
 		if (!_lg_typecheck_OnRequest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const void * wxTCPConnection::OnRequest(const wxString & topic, const wxString & item, size_t * size, wxIPCFormat format) function, expected prototype:\nconst void * wxTCPConnection::OnRequest(const wxString & topic, const wxString & item, size_t * size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in const void * wxTCPConnection::OnRequest(const wxString & topic, const wxString & item, size_t * size, wxIPCFormat format) function, expected prototype:\nconst void * wxTCPConnection::OnRequest(const wxString & topic, const wxString & item, size_t * size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
@@ -733,8 +703,7 @@ public:
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * wxTCPConnection::OnRequest(const wxString &, const wxString &, size_t *, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const void * wxTCPConnection::OnRequest(const wxString &, const wxString &, size_t *, wxIPCFormat). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const void * lret = self->OnRequest(topic, item, size, format);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -747,8 +716,7 @@ public:
 	// bool wxTCPConnection::OnStartAdvise(const wxString & topic, const wxString & item)
 	static int _bind_OnStartAdvise(lua_State *L) {
 		if (!_lg_typecheck_OnStartAdvise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::OnStartAdvise(const wxString & topic, const wxString & item) function, expected prototype:\nbool wxTCPConnection::OnStartAdvise(const wxString & topic, const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::OnStartAdvise(const wxString & topic, const wxString & item) function, expected prototype:\nbool wxTCPConnection::OnStartAdvise(const wxString & topic, const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
@@ -756,8 +724,7 @@ public:
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::OnStartAdvise(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::OnStartAdvise(const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->OnStartAdvise(topic, item);
 		lua_pushboolean(L,lret?1:0);
@@ -768,8 +735,7 @@ public:
 	// bool wxTCPConnection::OnStopAdvise(const wxString & topic, const wxString & item)
 	static int _bind_OnStopAdvise(lua_State *L) {
 		if (!_lg_typecheck_OnStopAdvise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::OnStopAdvise(const wxString & topic, const wxString & item) function, expected prototype:\nbool wxTCPConnection::OnStopAdvise(const wxString & topic, const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::OnStopAdvise(const wxString & topic, const wxString & item) function, expected prototype:\nbool wxTCPConnection::OnStopAdvise(const wxString & topic, const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
@@ -777,8 +743,7 @@ public:
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::OnStopAdvise(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::OnStopAdvise(const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->OnStopAdvise(topic, item);
 		lua_pushboolean(L,lret?1:0);
@@ -789,21 +754,19 @@ public:
 	// bool wxTCPConnection::Poke(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE)
 	static int _bind_Poke_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Poke_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Poke(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE) function, expected prototype:\nbool wxTCPConnection::Poke(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Poke(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE) function, expected prototype:\nbool wxTCPConnection::Poke(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
-		void* data=(Luna< void >::check(L,3));
+		const void* data=(Luna< void >::check(L,3));
 		size_t size=(size_t)lua_tointeger(L,4);
 		wxIPCFormat format=luatop>4 ? (wxIPCFormat)lua_tointeger(L,5) : (wxIPCFormat)::wxIPC_PRIVATE;
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Poke(const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Poke(const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Poke(item, data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -814,8 +777,7 @@ public:
 	// bool wxTCPConnection::Poke(const wxString & item, const char * data)
 	static int _bind_Poke_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Poke_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Poke(const wxString & item, const char * data) function, expected prototype:\nbool wxTCPConnection::Poke(const wxString & item, const char * data)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Poke(const wxString & item, const char * data) function, expected prototype:\nbool wxTCPConnection::Poke(const wxString & item, const char * data)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
@@ -823,8 +785,7 @@ public:
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Poke(const wxString &, const char *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Poke(const wxString &, const char *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Poke(item, data);
 		lua_pushboolean(L,lret?1:0);
@@ -835,8 +796,7 @@ public:
 	// bool wxTCPConnection::Poke(const wxString & item, const wxString data)
 	static int _bind_Poke_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Poke_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Poke(const wxString & item, const wxString data) function, expected prototype:\nbool wxTCPConnection::Poke(const wxString & item, const wxString data)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::Poke(const wxString & item, const wxString data) function, expected prototype:\nbool wxTCPConnection::Poke(const wxString & item, const wxString data)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
@@ -844,8 +804,7 @@ public:
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Poke(const wxString &, const wxString). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::Poke(const wxString &, const wxString). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Poke(item, data);
 		lua_pushboolean(L,lret?1:0);
@@ -866,8 +825,7 @@ public:
 	// const void * wxTCPConnection::Request(const wxString & item, size_t * size = 0, wxIPCFormat format = ::wxIPC_TEXT)
 	static int _bind_Request(lua_State *L) {
 		if (!_lg_typecheck_Request(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const void * wxTCPConnection::Request(const wxString & item, size_t * size = 0, wxIPCFormat format = ::wxIPC_TEXT) function, expected prototype:\nconst void * wxTCPConnection::Request(const wxString & item, size_t * size = 0, wxIPCFormat format = ::wxIPC_TEXT)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in const void * wxTCPConnection::Request(const wxString & item, size_t * size = 0, wxIPCFormat format = ::wxIPC_TEXT) function, expected prototype:\nconst void * wxTCPConnection::Request(const wxString & item, size_t * size = 0, wxIPCFormat format = ::wxIPC_TEXT)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -878,8 +836,7 @@ public:
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * wxTCPConnection::Request(const wxString &, size_t *, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const void * wxTCPConnection::Request(const wxString &, size_t *, wxIPCFormat). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const void * lret = self->Request(item, size, format);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -892,16 +849,14 @@ public:
 	// bool wxTCPConnection::StartAdvise(const wxString & item)
 	static int _bind_StartAdvise(lua_State *L) {
 		if (!_lg_typecheck_StartAdvise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::StartAdvise(const wxString & item) function, expected prototype:\nbool wxTCPConnection::StartAdvise(const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::StartAdvise(const wxString & item) function, expected prototype:\nbool wxTCPConnection::StartAdvise(const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::StartAdvise(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::StartAdvise(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->StartAdvise(item);
 		lua_pushboolean(L,lret?1:0);
@@ -912,16 +867,14 @@ public:
 	// bool wxTCPConnection::StopAdvise(const wxString & item)
 	static int _bind_StopAdvise(lua_State *L) {
 		if (!_lg_typecheck_StopAdvise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::StopAdvise(const wxString & item) function, expected prototype:\nbool wxTCPConnection::StopAdvise(const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::StopAdvise(const wxString & item) function, expected prototype:\nbool wxTCPConnection::StopAdvise(const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::StopAdvise(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::StopAdvise(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->StopAdvise(item);
 		lua_pushboolean(L,lret?1:0);
@@ -932,15 +885,13 @@ public:
 	// wxClassInfo * wxTCPConnection::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxTCPConnection::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxTCPConnection::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxTCPConnection::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxTCPConnection::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxTCPConnection::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxTCPConnection::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxTCPConnection::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -953,15 +904,13 @@ public:
 	// bool wxTCPConnection::base_Disconnect()
 	static int _bind_base_Disconnect(lua_State *L) {
 		if (!_lg_typecheck_base_Disconnect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_Disconnect() function, expected prototype:\nbool wxTCPConnection::base_Disconnect()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_Disconnect() function, expected prototype:\nbool wxTCPConnection::base_Disconnect()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_Disconnect(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_Disconnect(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTCPConnection::Disconnect();
 		lua_pushboolean(L,lret?1:0);
@@ -972,20 +921,18 @@ public:
 	// bool wxTCPConnection::base_OnAdvise(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)
 	static int _bind_base_OnAdvise(lua_State *L) {
 		if (!_lg_typecheck_base_OnAdvise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_OnAdvise(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format) function, expected prototype:\nbool wxTCPConnection::base_OnAdvise(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_OnAdvise(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format) function, expected prototype:\nbool wxTCPConnection::base_OnAdvise(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
-		void* data=(Luna< void >::check(L,4));
+		const void* data=(Luna< void >::check(L,4));
 		size_t size=(size_t)lua_tointeger(L,5);
 		wxIPCFormat format=(wxIPCFormat)lua_tointeger(L,6);
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_OnAdvise(const wxString &, const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_OnAdvise(const wxString &, const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTCPConnection::OnAdvise(topic, item, data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -996,15 +943,13 @@ public:
 	// bool wxTCPConnection::base_OnDisconnect()
 	static int _bind_base_OnDisconnect(lua_State *L) {
 		if (!_lg_typecheck_base_OnDisconnect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_OnDisconnect() function, expected prototype:\nbool wxTCPConnection::base_OnDisconnect()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_OnDisconnect() function, expected prototype:\nbool wxTCPConnection::base_OnDisconnect()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_OnDisconnect(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_OnDisconnect(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTCPConnection::OnDisconnect();
 		lua_pushboolean(L,lret?1:0);
@@ -1015,19 +960,17 @@ public:
 	// bool wxTCPConnection::base_OnExecute(const wxString & topic, const void * data, size_t size, wxIPCFormat format)
 	static int _bind_base_OnExecute(lua_State *L) {
 		if (!_lg_typecheck_base_OnExecute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_OnExecute(const wxString & topic, const void * data, size_t size, wxIPCFormat format) function, expected prototype:\nbool wxTCPConnection::base_OnExecute(const wxString & topic, const void * data, size_t size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_OnExecute(const wxString & topic, const void * data, size_t size, wxIPCFormat format) function, expected prototype:\nbool wxTCPConnection::base_OnExecute(const wxString & topic, const void * data, size_t size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
-		void* data=(Luna< void >::check(L,3));
+		const void* data=(Luna< void >::check(L,3));
 		size_t size=(size_t)lua_tointeger(L,4);
 		wxIPCFormat format=(wxIPCFormat)lua_tointeger(L,5);
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_OnExecute(const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_OnExecute(const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTCPConnection::OnExecute(topic, data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -1038,20 +981,18 @@ public:
 	// bool wxTCPConnection::base_OnPoke(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)
 	static int _bind_base_OnPoke(lua_State *L) {
 		if (!_lg_typecheck_base_OnPoke(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_OnPoke(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format) function, expected prototype:\nbool wxTCPConnection::base_OnPoke(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_OnPoke(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format) function, expected prototype:\nbool wxTCPConnection::base_OnPoke(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
-		void* data=(Luna< void >::check(L,4));
+		const void* data=(Luna< void >::check(L,4));
 		size_t size=(size_t)lua_tointeger(L,5);
 		wxIPCFormat format=(wxIPCFormat)lua_tointeger(L,6);
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_OnPoke(const wxString &, const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_OnPoke(const wxString &, const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTCPConnection::OnPoke(topic, item, data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -1062,8 +1003,7 @@ public:
 	// const void * wxTCPConnection::base_OnRequest(const wxString & topic, const wxString & item, size_t * size, wxIPCFormat format)
 	static int _bind_base_OnRequest(lua_State *L) {
 		if (!_lg_typecheck_base_OnRequest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const void * wxTCPConnection::base_OnRequest(const wxString & topic, const wxString & item, size_t * size, wxIPCFormat format) function, expected prototype:\nconst void * wxTCPConnection::base_OnRequest(const wxString & topic, const wxString & item, size_t * size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in const void * wxTCPConnection::base_OnRequest(const wxString & topic, const wxString & item, size_t * size, wxIPCFormat format) function, expected prototype:\nconst void * wxTCPConnection::base_OnRequest(const wxString & topic, const wxString & item, size_t * size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
@@ -1073,8 +1013,7 @@ public:
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * wxTCPConnection::base_OnRequest(const wxString &, const wxString &, size_t *, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const void * wxTCPConnection::base_OnRequest(const wxString &, const wxString &, size_t *, wxIPCFormat). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const void * lret = self->wxTCPConnection::OnRequest(topic, item, size, format);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1087,8 +1026,7 @@ public:
 	// bool wxTCPConnection::base_OnStartAdvise(const wxString & topic, const wxString & item)
 	static int _bind_base_OnStartAdvise(lua_State *L) {
 		if (!_lg_typecheck_base_OnStartAdvise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_OnStartAdvise(const wxString & topic, const wxString & item) function, expected prototype:\nbool wxTCPConnection::base_OnStartAdvise(const wxString & topic, const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_OnStartAdvise(const wxString & topic, const wxString & item) function, expected prototype:\nbool wxTCPConnection::base_OnStartAdvise(const wxString & topic, const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
@@ -1096,8 +1034,7 @@ public:
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_OnStartAdvise(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_OnStartAdvise(const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTCPConnection::OnStartAdvise(topic, item);
 		lua_pushboolean(L,lret?1:0);
@@ -1108,8 +1045,7 @@ public:
 	// bool wxTCPConnection::base_OnStopAdvise(const wxString & topic, const wxString & item)
 	static int _bind_base_OnStopAdvise(lua_State *L) {
 		if (!_lg_typecheck_base_OnStopAdvise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_OnStopAdvise(const wxString & topic, const wxString & item) function, expected prototype:\nbool wxTCPConnection::base_OnStopAdvise(const wxString & topic, const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_OnStopAdvise(const wxString & topic, const wxString & item) function, expected prototype:\nbool wxTCPConnection::base_OnStopAdvise(const wxString & topic, const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
@@ -1117,8 +1053,7 @@ public:
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_OnStopAdvise(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_OnStopAdvise(const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTCPConnection::OnStopAdvise(topic, item);
 		lua_pushboolean(L,lret?1:0);
@@ -1129,8 +1064,7 @@ public:
 	// const void * wxTCPConnection::base_Request(const wxString & item, size_t * size = 0, wxIPCFormat format = ::wxIPC_TEXT)
 	static int _bind_base_Request(lua_State *L) {
 		if (!_lg_typecheck_base_Request(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const void * wxTCPConnection::base_Request(const wxString & item, size_t * size = 0, wxIPCFormat format = ::wxIPC_TEXT) function, expected prototype:\nconst void * wxTCPConnection::base_Request(const wxString & item, size_t * size = 0, wxIPCFormat format = ::wxIPC_TEXT)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in const void * wxTCPConnection::base_Request(const wxString & item, size_t * size = 0, wxIPCFormat format = ::wxIPC_TEXT) function, expected prototype:\nconst void * wxTCPConnection::base_Request(const wxString & item, size_t * size = 0, wxIPCFormat format = ::wxIPC_TEXT)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1141,8 +1075,7 @@ public:
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * wxTCPConnection::base_Request(const wxString &, size_t *, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const void * wxTCPConnection::base_Request(const wxString &, size_t *, wxIPCFormat). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const void * lret = self->wxTCPConnection::Request(item, size, format);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1155,16 +1088,14 @@ public:
 	// bool wxTCPConnection::base_StartAdvise(const wxString & item)
 	static int _bind_base_StartAdvise(lua_State *L) {
 		if (!_lg_typecheck_base_StartAdvise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_StartAdvise(const wxString & item) function, expected prototype:\nbool wxTCPConnection::base_StartAdvise(const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_StartAdvise(const wxString & item) function, expected prototype:\nbool wxTCPConnection::base_StartAdvise(const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_StartAdvise(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_StartAdvise(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTCPConnection::StartAdvise(item);
 		lua_pushboolean(L,lret?1:0);
@@ -1175,16 +1106,14 @@ public:
 	// bool wxTCPConnection::base_StopAdvise(const wxString & item)
 	static int _bind_base_StopAdvise(lua_State *L) {
 		if (!_lg_typecheck_base_StopAdvise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_StopAdvise(const wxString & item) function, expected prototype:\nbool wxTCPConnection::base_StopAdvise(const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPConnection::base_StopAdvise(const wxString & item) function, expected prototype:\nbool wxTCPConnection::base_StopAdvise(const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTCPConnection* self=Luna< wxObject >::checkSubType< wxTCPConnection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_StopAdvise(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPConnection::base_StopAdvise(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTCPConnection::StopAdvise(item);
 		lua_pushboolean(L,lret?1:0);

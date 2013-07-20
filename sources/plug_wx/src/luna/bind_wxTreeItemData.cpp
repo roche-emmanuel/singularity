@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxClientData* self=(Luna< wxClientData >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTreeItemData* self= (wxTreeItemData*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxClientData >::check(L,1));
@@ -125,8 +122,7 @@ public:
 	// wxTreeItemData::wxTreeItemData()
 	static wxTreeItemData* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTreeItemData::wxTreeItemData() function, expected prototype:\nwxTreeItemData::wxTreeItemData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTreeItemData::wxTreeItemData() function, expected prototype:\nwxTreeItemData::wxTreeItemData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -136,8 +132,7 @@ public:
 	// wxTreeItemData::wxTreeItemData(lua_Table * data)
 	static wxTreeItemData* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTreeItemData::wxTreeItemData(lua_Table * data) function, expected prototype:\nwxTreeItemData::wxTreeItemData(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTreeItemData::wxTreeItemData(lua_Table * data) function, expected prototype:\nwxTreeItemData::wxTreeItemData(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -158,15 +153,13 @@ public:
 	// const wxTreeItemId & wxTreeItemData::GetId() const
 	static int _bind_GetId(lua_State *L) {
 		if (!_lg_typecheck_GetId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxTreeItemId & wxTreeItemData::GetId() const function, expected prototype:\nconst wxTreeItemId & wxTreeItemData::GetId() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxTreeItemId & wxTreeItemData::GetId() const function, expected prototype:\nconst wxTreeItemId & wxTreeItemData::GetId() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTreeItemData* self=Luna< wxClientData >::checkSubType< wxTreeItemData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTreeItemId & wxTreeItemData::GetId() const. Got : '%s'",typeid(Luna< wxClientData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxTreeItemId & wxTreeItemData::GetId() const. Got : '%s'\n%s",typeid(Luna< wxClientData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxTreeItemId* lret = &self->GetId();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -179,8 +172,7 @@ public:
 	// void wxTreeItemData::SetId(const wxTreeItemId & id)
 	static int _bind_SetId(lua_State *L) {
 		if (!_lg_typecheck_SetId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTreeItemData::SetId(const wxTreeItemId & id) function, expected prototype:\nvoid wxTreeItemData::SetId(const wxTreeItemId & id)\nClass arguments details:\narg 1 ID = 28400299\n");
+			luaL_error(L, "luna typecheck failed in void wxTreeItemData::SetId(const wxTreeItemId & id) function, expected prototype:\nvoid wxTreeItemData::SetId(const wxTreeItemId & id)\nClass arguments details:\narg 1 ID = 28400299\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxTreeItemId* id_ptr=(Luna< wxTreeItemId >::check(L,2));
@@ -191,8 +183,7 @@ public:
 
 		wxTreeItemData* self=Luna< wxClientData >::checkSubType< wxTreeItemData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTreeItemData::SetId(const wxTreeItemId &). Got : '%s'",typeid(Luna< wxClientData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTreeItemData::SetId(const wxTreeItemId &). Got : '%s'\n%s",typeid(Luna< wxClientData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetId(id);
 

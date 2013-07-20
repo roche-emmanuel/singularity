@@ -25,7 +25,7 @@ cfg.mainframe_menus_enabled = true
 cfg.master_framerate = 30;
 
 cfg.log_verbose = true
-cfg.log_level = "DEBUG3"
+cfg.log_level = "DEBUG0"
 
 -- cfg.osg_log_level = "NOTICE"
 cfg.osg_log_level = "INFO"

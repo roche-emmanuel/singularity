@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridRangeSelectEvent* self= (wxGridRangeSelectEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -233,8 +230,7 @@ public:
 	// wxGridRangeSelectEvent::wxGridRangeSelectEvent()
 	static wxGridRangeSelectEvent* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridRangeSelectEvent::wxGridRangeSelectEvent() function, expected prototype:\nwxGridRangeSelectEvent::wxGridRangeSelectEvent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGridRangeSelectEvent::wxGridRangeSelectEvent() function, expected prototype:\nwxGridRangeSelectEvent::wxGridRangeSelectEvent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -244,8 +240,7 @@ public:
 	// wxGridRangeSelectEvent::wxGridRangeSelectEvent(int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())
 	static wxGridRangeSelectEvent* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridRangeSelectEvent::wxGridRangeSelectEvent(int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) function, expected prototype:\nwxGridRangeSelectEvent::wxGridRangeSelectEvent(int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())\nClass arguments details:\narg 3 ID = 56813631\narg 4 ID = 6476046\narg 5 ID = 6476046\narg 7 ID = 92036952\n");
+			luaL_error(L, "luna typecheck failed in wxGridRangeSelectEvent::wxGridRangeSelectEvent(int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) function, expected prototype:\nwxGridRangeSelectEvent::wxGridRangeSelectEvent(int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())\nClass arguments details:\narg 3 ID = 56813631\narg 4 ID = 6476046\narg 5 ID = 6476046\narg 7 ID = 92036952\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -276,8 +271,7 @@ public:
 	// wxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data)
 	static wxGridRangeSelectEvent* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data) function, expected prototype:\nwxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data) function, expected prototype:\nwxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -287,8 +281,7 @@ public:
 	// wxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data, int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())
 	static wxGridRangeSelectEvent* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data, int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) function, expected prototype:\nwxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data, int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())\nClass arguments details:\narg 4 ID = 56813631\narg 5 ID = 6476046\narg 6 ID = 6476046\narg 8 ID = 92036952\n");
+			luaL_error(L, "luna typecheck failed in wxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data, int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) function, expected prototype:\nwxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data, int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())\nClass arguments details:\narg 4 ID = 56813631\narg 5 ID = 6476046\narg 6 ID = 6476046\narg 8 ID = 92036952\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -332,15 +325,13 @@ public:
 	// bool wxGridRangeSelectEvent::AltDown() const
 	static int _bind_AltDown(lua_State *L) {
 		if (!_lg_typecheck_AltDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridRangeSelectEvent::AltDown() const function, expected prototype:\nbool wxGridRangeSelectEvent::AltDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridRangeSelectEvent::AltDown() const function, expected prototype:\nbool wxGridRangeSelectEvent::AltDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridRangeSelectEvent* self=Luna< wxObject >::checkSubType< wxGridRangeSelectEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridRangeSelectEvent::AltDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridRangeSelectEvent::AltDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AltDown();
 		lua_pushboolean(L,lret?1:0);
@@ -351,15 +342,13 @@ public:
 	// bool wxGridRangeSelectEvent::ControlDown() const
 	static int _bind_ControlDown(lua_State *L) {
 		if (!_lg_typecheck_ControlDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridRangeSelectEvent::ControlDown() const function, expected prototype:\nbool wxGridRangeSelectEvent::ControlDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridRangeSelectEvent::ControlDown() const function, expected prototype:\nbool wxGridRangeSelectEvent::ControlDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridRangeSelectEvent* self=Luna< wxObject >::checkSubType< wxGridRangeSelectEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridRangeSelectEvent::ControlDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridRangeSelectEvent::ControlDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ControlDown();
 		lua_pushboolean(L,lret?1:0);
@@ -370,15 +359,13 @@ public:
 	// wxGridCellCoords wxGridRangeSelectEvent::GetBottomRightCoords()
 	static int _bind_GetBottomRightCoords(lua_State *L) {
 		if (!_lg_typecheck_GetBottomRightCoords(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridCellCoords wxGridRangeSelectEvent::GetBottomRightCoords() function, expected prototype:\nwxGridCellCoords wxGridRangeSelectEvent::GetBottomRightCoords()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGridCellCoords wxGridRangeSelectEvent::GetBottomRightCoords() function, expected prototype:\nwxGridCellCoords wxGridRangeSelectEvent::GetBottomRightCoords()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridRangeSelectEvent* self=Luna< wxObject >::checkSubType< wxGridRangeSelectEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxGridCellCoords wxGridRangeSelectEvent::GetBottomRightCoords(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxGridCellCoords wxGridRangeSelectEvent::GetBottomRightCoords(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxGridCellCoords stack_lret = self->GetBottomRightCoords();
 		wxGridCellCoords* lret = new wxGridCellCoords(stack_lret);
@@ -392,15 +379,13 @@ public:
 	// int wxGridRangeSelectEvent::GetBottomRow()
 	static int _bind_GetBottomRow(lua_State *L) {
 		if (!_lg_typecheck_GetBottomRow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridRangeSelectEvent::GetBottomRow() function, expected prototype:\nint wxGridRangeSelectEvent::GetBottomRow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridRangeSelectEvent::GetBottomRow() function, expected prototype:\nint wxGridRangeSelectEvent::GetBottomRow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridRangeSelectEvent* self=Luna< wxObject >::checkSubType< wxGridRangeSelectEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridRangeSelectEvent::GetBottomRow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridRangeSelectEvent::GetBottomRow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetBottomRow();
 		lua_pushnumber(L,lret);
@@ -411,15 +396,13 @@ public:
 	// int wxGridRangeSelectEvent::GetLeftCol()
 	static int _bind_GetLeftCol(lua_State *L) {
 		if (!_lg_typecheck_GetLeftCol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridRangeSelectEvent::GetLeftCol() function, expected prototype:\nint wxGridRangeSelectEvent::GetLeftCol()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridRangeSelectEvent::GetLeftCol() function, expected prototype:\nint wxGridRangeSelectEvent::GetLeftCol()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridRangeSelectEvent* self=Luna< wxObject >::checkSubType< wxGridRangeSelectEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridRangeSelectEvent::GetLeftCol(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridRangeSelectEvent::GetLeftCol(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetLeftCol();
 		lua_pushnumber(L,lret);
@@ -430,15 +413,13 @@ public:
 	// int wxGridRangeSelectEvent::GetRightCol()
 	static int _bind_GetRightCol(lua_State *L) {
 		if (!_lg_typecheck_GetRightCol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridRangeSelectEvent::GetRightCol() function, expected prototype:\nint wxGridRangeSelectEvent::GetRightCol()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridRangeSelectEvent::GetRightCol() function, expected prototype:\nint wxGridRangeSelectEvent::GetRightCol()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridRangeSelectEvent* self=Luna< wxObject >::checkSubType< wxGridRangeSelectEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridRangeSelectEvent::GetRightCol(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridRangeSelectEvent::GetRightCol(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetRightCol();
 		lua_pushnumber(L,lret);
@@ -449,15 +430,13 @@ public:
 	// wxGridCellCoords wxGridRangeSelectEvent::GetTopLeftCoords()
 	static int _bind_GetTopLeftCoords(lua_State *L) {
 		if (!_lg_typecheck_GetTopLeftCoords(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridCellCoords wxGridRangeSelectEvent::GetTopLeftCoords() function, expected prototype:\nwxGridCellCoords wxGridRangeSelectEvent::GetTopLeftCoords()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGridCellCoords wxGridRangeSelectEvent::GetTopLeftCoords() function, expected prototype:\nwxGridCellCoords wxGridRangeSelectEvent::GetTopLeftCoords()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridRangeSelectEvent* self=Luna< wxObject >::checkSubType< wxGridRangeSelectEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxGridCellCoords wxGridRangeSelectEvent::GetTopLeftCoords(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxGridCellCoords wxGridRangeSelectEvent::GetTopLeftCoords(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxGridCellCoords stack_lret = self->GetTopLeftCoords();
 		wxGridCellCoords* lret = new wxGridCellCoords(stack_lret);
@@ -471,15 +450,13 @@ public:
 	// int wxGridRangeSelectEvent::GetTopRow()
 	static int _bind_GetTopRow(lua_State *L) {
 		if (!_lg_typecheck_GetTopRow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridRangeSelectEvent::GetTopRow() function, expected prototype:\nint wxGridRangeSelectEvent::GetTopRow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridRangeSelectEvent::GetTopRow() function, expected prototype:\nint wxGridRangeSelectEvent::GetTopRow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridRangeSelectEvent* self=Luna< wxObject >::checkSubType< wxGridRangeSelectEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridRangeSelectEvent::GetTopRow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridRangeSelectEvent::GetTopRow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetTopRow();
 		lua_pushnumber(L,lret);
@@ -490,15 +467,13 @@ public:
 	// bool wxGridRangeSelectEvent::MetaDown() const
 	static int _bind_MetaDown(lua_State *L) {
 		if (!_lg_typecheck_MetaDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridRangeSelectEvent::MetaDown() const function, expected prototype:\nbool wxGridRangeSelectEvent::MetaDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridRangeSelectEvent::MetaDown() const function, expected prototype:\nbool wxGridRangeSelectEvent::MetaDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridRangeSelectEvent* self=Luna< wxObject >::checkSubType< wxGridRangeSelectEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridRangeSelectEvent::MetaDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridRangeSelectEvent::MetaDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->MetaDown();
 		lua_pushboolean(L,lret?1:0);
@@ -509,15 +484,13 @@ public:
 	// bool wxGridRangeSelectEvent::Selecting()
 	static int _bind_Selecting(lua_State *L) {
 		if (!_lg_typecheck_Selecting(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridRangeSelectEvent::Selecting() function, expected prototype:\nbool wxGridRangeSelectEvent::Selecting()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridRangeSelectEvent::Selecting() function, expected prototype:\nbool wxGridRangeSelectEvent::Selecting()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridRangeSelectEvent* self=Luna< wxObject >::checkSubType< wxGridRangeSelectEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridRangeSelectEvent::Selecting(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridRangeSelectEvent::Selecting(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Selecting();
 		lua_pushboolean(L,lret?1:0);
@@ -528,15 +501,13 @@ public:
 	// bool wxGridRangeSelectEvent::ShiftDown() const
 	static int _bind_ShiftDown(lua_State *L) {
 		if (!_lg_typecheck_ShiftDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridRangeSelectEvent::ShiftDown() const function, expected prototype:\nbool wxGridRangeSelectEvent::ShiftDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridRangeSelectEvent::ShiftDown() const function, expected prototype:\nbool wxGridRangeSelectEvent::ShiftDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridRangeSelectEvent* self=Luna< wxObject >::checkSubType< wxGridRangeSelectEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridRangeSelectEvent::ShiftDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridRangeSelectEvent::ShiftDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ShiftDown();
 		lua_pushboolean(L,lret?1:0);
@@ -547,15 +518,13 @@ public:
 	// wxClassInfo * wxGridRangeSelectEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGridRangeSelectEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGridRangeSelectEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGridRangeSelectEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGridRangeSelectEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridRangeSelectEvent* self=Luna< wxObject >::checkSubType< wxGridRangeSelectEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxGridRangeSelectEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGridRangeSelectEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxGridRangeSelectEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -568,15 +537,13 @@ public:
 	// wxEventCategory wxGridRangeSelectEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxGridRangeSelectEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxGridRangeSelectEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxGridRangeSelectEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxGridRangeSelectEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridRangeSelectEvent* self=Luna< wxObject >::checkSubType< wxGridRangeSelectEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxGridRangeSelectEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxGridRangeSelectEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxGridRangeSelectEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -587,15 +554,13 @@ public:
 	// wxEvent * wxGridRangeSelectEvent::base_Clone() const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvent * wxGridRangeSelectEvent::base_Clone() const function, expected prototype:\nwxEvent * wxGridRangeSelectEvent::base_Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvent * wxGridRangeSelectEvent::base_Clone() const function, expected prototype:\nwxEvent * wxGridRangeSelectEvent::base_Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridRangeSelectEvent* self=Luna< wxObject >::checkSubType< wxGridRangeSelectEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxGridRangeSelectEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvent * wxGridRangeSelectEvent::base_Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvent * lret = self->wxGridRangeSelectEvent::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.

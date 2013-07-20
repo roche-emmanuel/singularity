@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlFilter* self= (wxHtmlFilter*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -126,8 +123,7 @@ public:
 	// wxHtmlFilter::wxHtmlFilter(lua_Table * data)
 	static wxHtmlFilter* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlFilter::wxHtmlFilter(lua_Table * data) function, expected prototype:\nwxHtmlFilter::wxHtmlFilter(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlFilter::wxHtmlFilter(lua_Table * data) function, expected prototype:\nwxHtmlFilter::wxHtmlFilter(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -139,8 +135,7 @@ public:
 	// bool wxHtmlFilter::CanRead(const wxFSFile & file) const
 	static int _bind_CanRead(lua_State *L) {
 		if (!_lg_typecheck_CanRead(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlFilter::CanRead(const wxFSFile & file) const function, expected prototype:\nbool wxHtmlFilter::CanRead(const wxFSFile & file) const\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlFilter::CanRead(const wxFSFile & file) const function, expected prototype:\nbool wxHtmlFilter::CanRead(const wxFSFile & file) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFSFile* file_ptr=(Luna< wxObject >::checkSubType< wxFSFile >(L,2));
@@ -151,8 +146,7 @@ public:
 
 		wxHtmlFilter* self=Luna< wxObject >::checkSubType< wxHtmlFilter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlFilter::CanRead(const wxFSFile &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlFilter::CanRead(const wxFSFile &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanRead(file);
 		lua_pushboolean(L,lret?1:0);
@@ -163,8 +157,7 @@ public:
 	// wxString wxHtmlFilter::ReadFile(const wxFSFile & file) const
 	static int _bind_ReadFile(lua_State *L) {
 		if (!_lg_typecheck_ReadFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxHtmlFilter::ReadFile(const wxFSFile & file) const function, expected prototype:\nwxString wxHtmlFilter::ReadFile(const wxFSFile & file) const\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxString wxHtmlFilter::ReadFile(const wxFSFile & file) const function, expected prototype:\nwxString wxHtmlFilter::ReadFile(const wxFSFile & file) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFSFile* file_ptr=(Luna< wxObject >::checkSubType< wxFSFile >(L,2));
@@ -175,8 +168,7 @@ public:
 
 		wxHtmlFilter* self=Luna< wxObject >::checkSubType< wxHtmlFilter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlFilter::ReadFile(const wxFSFile &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxHtmlFilter::ReadFile(const wxFSFile &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->ReadFile(file);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -187,15 +179,13 @@ public:
 	// wxClassInfo * wxHtmlFilter::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlFilter::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlFilter::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlFilter::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlFilter::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlFilter* self=Luna< wxObject >::checkSubType< wxHtmlFilter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlFilter::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlFilter::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxHtmlFilter::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

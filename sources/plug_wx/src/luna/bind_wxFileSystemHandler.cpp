@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFileSystemHandler* self= (wxFileSystemHandler*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -164,8 +161,7 @@ public:
 	// wxFileSystemHandler::wxFileSystemHandler(lua_Table * data)
 	static wxFileSystemHandler* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileSystemHandler::wxFileSystemHandler(lua_Table * data) function, expected prototype:\nwxFileSystemHandler::wxFileSystemHandler(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFileSystemHandler::wxFileSystemHandler(lua_Table * data) function, expected prototype:\nwxFileSystemHandler::wxFileSystemHandler(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -177,16 +173,14 @@ public:
 	// bool wxFileSystemHandler::CanOpen(const wxString & location)
 	static int _bind_CanOpen(lua_State *L) {
 		if (!_lg_typecheck_CanOpen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileSystemHandler::CanOpen(const wxString & location) function, expected prototype:\nbool wxFileSystemHandler::CanOpen(const wxString & location)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileSystemHandler::CanOpen(const wxString & location) function, expected prototype:\nbool wxFileSystemHandler::CanOpen(const wxString & location)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString location(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wxFileSystemHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileSystemHandler::CanOpen(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileSystemHandler::CanOpen(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanOpen(location);
 		lua_pushboolean(L,lret?1:0);
@@ -197,8 +191,7 @@ public:
 	// wxString wxFileSystemHandler::FindFirst(const wxString & wildcard, int flags = 0)
 	static int _bind_FindFirst(lua_State *L) {
 		if (!_lg_typecheck_FindFirst(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxFileSystemHandler::FindFirst(const wxString & wildcard, int flags = 0) function, expected prototype:\nwxString wxFileSystemHandler::FindFirst(const wxString & wildcard, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxFileSystemHandler::FindFirst(const wxString & wildcard, int flags = 0) function, expected prototype:\nwxString wxFileSystemHandler::FindFirst(const wxString & wildcard, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -208,8 +201,7 @@ public:
 
 		wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wxFileSystemHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileSystemHandler::FindFirst(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxFileSystemHandler::FindFirst(const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->FindFirst(wildcard, flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -220,15 +212,13 @@ public:
 	// wxString wxFileSystemHandler::FindNext()
 	static int _bind_FindNext(lua_State *L) {
 		if (!_lg_typecheck_FindNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxFileSystemHandler::FindNext() function, expected prototype:\nwxString wxFileSystemHandler::FindNext()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxFileSystemHandler::FindNext() function, expected prototype:\nwxString wxFileSystemHandler::FindNext()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wxFileSystemHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileSystemHandler::FindNext(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxFileSystemHandler::FindNext(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->FindNext();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -239,8 +229,7 @@ public:
 	// wxFSFile * wxFileSystemHandler::OpenFile(wxFileSystem & fs, const wxString & location)
 	static int _bind_OpenFile(lua_State *L) {
 		if (!_lg_typecheck_OpenFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFSFile * wxFileSystemHandler::OpenFile(wxFileSystem & fs, const wxString & location) function, expected prototype:\nwxFSFile * wxFileSystemHandler::OpenFile(wxFileSystem & fs, const wxString & location)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFSFile * wxFileSystemHandler::OpenFile(wxFileSystem & fs, const wxString & location) function, expected prototype:\nwxFSFile * wxFileSystemHandler::OpenFile(wxFileSystem & fs, const wxString & location)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFileSystem* fs_ptr=(Luna< wxObject >::checkSubType< wxFileSystem >(L,2));
@@ -252,8 +241,7 @@ public:
 
 		wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wxFileSystemHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFSFile * wxFileSystemHandler::OpenFile(wxFileSystem &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFSFile * wxFileSystemHandler::OpenFile(wxFileSystem &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFSFile * lret = self->OpenFile(fs, location);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -266,8 +254,7 @@ public:
 	// static wxString wxFileSystemHandler::GetMimeTypeFromExt(const wxString & location)
 	static int _bind_GetMimeTypeFromExt(lua_State *L) {
 		if (!_lg_typecheck_GetMimeTypeFromExt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxFileSystemHandler::GetMimeTypeFromExt(const wxString & location) function, expected prototype:\nstatic wxString wxFileSystemHandler::GetMimeTypeFromExt(const wxString & location)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxFileSystemHandler::GetMimeTypeFromExt(const wxString & location) function, expected prototype:\nstatic wxString wxFileSystemHandler::GetMimeTypeFromExt(const wxString & location)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString location(lua_tostring(L,1),lua_objlen(L,1));
@@ -281,15 +268,13 @@ public:
 	// wxClassInfo * wxFileSystemHandler::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFileSystemHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFileSystemHandler::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFileSystemHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFileSystemHandler::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wxFileSystemHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileSystemHandler::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileSystemHandler::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxFileSystemHandler::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -302,8 +287,7 @@ public:
 	// wxString wxFileSystemHandler::base_FindFirst(const wxString & wildcard, int flags = 0)
 	static int _bind_base_FindFirst(lua_State *L) {
 		if (!_lg_typecheck_base_FindFirst(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxFileSystemHandler::base_FindFirst(const wxString & wildcard, int flags = 0) function, expected prototype:\nwxString wxFileSystemHandler::base_FindFirst(const wxString & wildcard, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxFileSystemHandler::base_FindFirst(const wxString & wildcard, int flags = 0) function, expected prototype:\nwxString wxFileSystemHandler::base_FindFirst(const wxString & wildcard, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -313,8 +297,7 @@ public:
 
 		wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wxFileSystemHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileSystemHandler::base_FindFirst(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxFileSystemHandler::base_FindFirst(const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxFileSystemHandler::FindFirst(wildcard, flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -325,15 +308,13 @@ public:
 	// wxString wxFileSystemHandler::base_FindNext()
 	static int _bind_base_FindNext(lua_State *L) {
 		if (!_lg_typecheck_base_FindNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxFileSystemHandler::base_FindNext() function, expected prototype:\nwxString wxFileSystemHandler::base_FindNext()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxFileSystemHandler::base_FindNext() function, expected prototype:\nwxString wxFileSystemHandler::base_FindNext()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wxFileSystemHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileSystemHandler::base_FindNext(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxFileSystemHandler::base_FindNext(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxFileSystemHandler::FindNext();
 		lua_pushlstring(L,lret.data(),lret.size());

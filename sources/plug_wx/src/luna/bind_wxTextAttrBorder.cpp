@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTextAttrBorder* self= (wxTextAttrBorder*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxTextAttrBorder >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -138,7 +135,7 @@ public:
 	inline static bool _lg_typecheck_SetColour_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -282,7 +279,7 @@ public:
 	inline static bool _lg_typecheck_setBorderColour(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -315,8 +312,7 @@ public:
 	// wxTextAttrBorder::wxTextAttrBorder()
 	static wxTextAttrBorder* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTextAttrBorder::wxTextAttrBorder() function, expected prototype:\nwxTextAttrBorder::wxTextAttrBorder()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTextAttrBorder::wxTextAttrBorder() function, expected prototype:\nwxTextAttrBorder::wxTextAttrBorder()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -328,15 +324,13 @@ public:
 	// void wxTextAttrBorder::Reset()
 	static int _bind_Reset(lua_State *L) {
 		if (!_lg_typecheck_Reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::Reset() function, expected prototype:\nvoid wxTextAttrBorder::Reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::Reset() function, expected prototype:\nvoid wxTextAttrBorder::Reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::Reset(). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::Reset(). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Reset();
 
@@ -346,8 +340,7 @@ public:
 	// bool wxTextAttrBorder::EqPartial(const wxTextAttrBorder & border) const
 	static int _bind_EqPartial(lua_State *L) {
 		if (!_lg_typecheck_EqPartial(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::EqPartial(const wxTextAttrBorder & border) const function, expected prototype:\nbool wxTextAttrBorder::EqPartial(const wxTextAttrBorder & border) const\nClass arguments details:\narg 1 ID = 59699915\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::EqPartial(const wxTextAttrBorder & border) const function, expected prototype:\nbool wxTextAttrBorder::EqPartial(const wxTextAttrBorder & border) const\nClass arguments details:\narg 1 ID = 59699915\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxTextAttrBorder* border_ptr=(Luna< wxTextAttrBorder >::check(L,2));
@@ -358,8 +351,7 @@ public:
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::EqPartial(const wxTextAttrBorder &) const. Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::EqPartial(const wxTextAttrBorder &) const. Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->EqPartial(border);
 		lua_pushboolean(L,lret?1:0);
@@ -370,8 +362,7 @@ public:
 	// bool wxTextAttrBorder::Apply(const wxTextAttrBorder & border, const wxTextAttrBorder * compareWith = NULL)
 	static int _bind_Apply(lua_State *L) {
 		if (!_lg_typecheck_Apply(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::Apply(const wxTextAttrBorder & border, const wxTextAttrBorder * compareWith = NULL) function, expected prototype:\nbool wxTextAttrBorder::Apply(const wxTextAttrBorder & border, const wxTextAttrBorder * compareWith = NULL)\nClass arguments details:\narg 1 ID = 59699915\narg 2 ID = 59699915\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::Apply(const wxTextAttrBorder & border, const wxTextAttrBorder * compareWith = NULL) function, expected prototype:\nbool wxTextAttrBorder::Apply(const wxTextAttrBorder & border, const wxTextAttrBorder * compareWith = NULL)\nClass arguments details:\narg 1 ID = 59699915\narg 2 ID = 59699915\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -385,8 +376,7 @@ public:
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::Apply(const wxTextAttrBorder &, const wxTextAttrBorder *). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::Apply(const wxTextAttrBorder &, const wxTextAttrBorder *). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Apply(border, compareWith);
 		lua_pushboolean(L,lret?1:0);
@@ -397,8 +387,7 @@ public:
 	// bool wxTextAttrBorder::RemoveStyle(const wxTextAttrBorder & attr)
 	static int _bind_RemoveStyle(lua_State *L) {
 		if (!_lg_typecheck_RemoveStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::RemoveStyle(const wxTextAttrBorder & attr) function, expected prototype:\nbool wxTextAttrBorder::RemoveStyle(const wxTextAttrBorder & attr)\nClass arguments details:\narg 1 ID = 59699915\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::RemoveStyle(const wxTextAttrBorder & attr) function, expected prototype:\nbool wxTextAttrBorder::RemoveStyle(const wxTextAttrBorder & attr)\nClass arguments details:\narg 1 ID = 59699915\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxTextAttrBorder* attr_ptr=(Luna< wxTextAttrBorder >::check(L,2));
@@ -409,8 +398,7 @@ public:
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::RemoveStyle(const wxTextAttrBorder &). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::RemoveStyle(const wxTextAttrBorder &). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RemoveStyle(attr);
 		lua_pushboolean(L,lret?1:0);
@@ -421,8 +409,7 @@ public:
 	// void wxTextAttrBorder::CollectCommonAttributes(const wxTextAttrBorder & attr, wxTextAttrBorder & clashingAttr, wxTextAttrBorder & absentAttr)
 	static int _bind_CollectCommonAttributes(lua_State *L) {
 		if (!_lg_typecheck_CollectCommonAttributes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::CollectCommonAttributes(const wxTextAttrBorder & attr, wxTextAttrBorder & clashingAttr, wxTextAttrBorder & absentAttr) function, expected prototype:\nvoid wxTextAttrBorder::CollectCommonAttributes(const wxTextAttrBorder & attr, wxTextAttrBorder & clashingAttr, wxTextAttrBorder & absentAttr)\nClass arguments details:\narg 1 ID = 59699915\narg 2 ID = 59699915\narg 3 ID = 59699915\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::CollectCommonAttributes(const wxTextAttrBorder & attr, wxTextAttrBorder & clashingAttr, wxTextAttrBorder & absentAttr) function, expected prototype:\nvoid wxTextAttrBorder::CollectCommonAttributes(const wxTextAttrBorder & attr, wxTextAttrBorder & clashingAttr, wxTextAttrBorder & absentAttr)\nClass arguments details:\narg 1 ID = 59699915\narg 2 ID = 59699915\narg 3 ID = 59699915\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxTextAttrBorder* attr_ptr=(Luna< wxTextAttrBorder >::check(L,2));
@@ -443,8 +430,7 @@ public:
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::CollectCommonAttributes(const wxTextAttrBorder &, wxTextAttrBorder &, wxTextAttrBorder &). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::CollectCommonAttributes(const wxTextAttrBorder &, wxTextAttrBorder &, wxTextAttrBorder &). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CollectCommonAttributes(attr, clashingAttr, absentAttr);
 
@@ -454,16 +440,14 @@ public:
 	// void wxTextAttrBorder::SetStyle(int style)
 	static int _bind_SetStyle(lua_State *L) {
 		if (!_lg_typecheck_SetStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::SetStyle(int style) function, expected prototype:\nvoid wxTextAttrBorder::SetStyle(int style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::SetStyle(int style) function, expected prototype:\nvoid wxTextAttrBorder::SetStyle(int style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::SetStyle(int). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::SetStyle(int). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetStyle(style);
 
@@ -473,15 +457,13 @@ public:
 	// int wxTextAttrBorder::GetStyle() const
 	static int _bind_GetStyle(lua_State *L) {
 		if (!_lg_typecheck_GetStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTextAttrBorder::GetStyle() const function, expected prototype:\nint wxTextAttrBorder::GetStyle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxTextAttrBorder::GetStyle() const function, expected prototype:\nint wxTextAttrBorder::GetStyle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttrBorder::GetStyle() const. Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTextAttrBorder::GetStyle() const. Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetStyle();
 		lua_pushnumber(L,lret);
@@ -492,16 +474,14 @@ public:
 	// void wxTextAttrBorder::SetColour(unsigned long colour)
 	static int _bind_SetColour_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SetColour_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::SetColour(unsigned long colour) function, expected prototype:\nvoid wxTextAttrBorder::SetColour(unsigned long colour)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::SetColour(unsigned long colour) function, expected prototype:\nvoid wxTextAttrBorder::SetColour(unsigned long colour)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long colour=(unsigned long)lua_tointeger(L,2);
+		unsigned long colour=(unsigned long)lua_tonumber(L,2);
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::SetColour(unsigned long). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::SetColour(unsigned long). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetColour(colour);
 
@@ -511,8 +491,7 @@ public:
 	// void wxTextAttrBorder::SetColour(const wxColour & colour)
 	static int _bind_SetColour_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SetColour_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::SetColour(const wxColour & colour) function, expected prototype:\nvoid wxTextAttrBorder::SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::SetColour(const wxColour & colour) function, expected prototype:\nvoid wxTextAttrBorder::SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -523,8 +502,7 @@ public:
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::SetColour(const wxColour &). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::SetColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetColour(colour);
 
@@ -543,15 +521,13 @@ public:
 	// unsigned long wxTextAttrBorder::GetColourLong() const
 	static int _bind_GetColourLong(lua_State *L) {
 		if (!_lg_typecheck_GetColourLong(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned long wxTextAttrBorder::GetColourLong() const function, expected prototype:\nunsigned long wxTextAttrBorder::GetColourLong() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned long wxTextAttrBorder::GetColourLong() const function, expected prototype:\nunsigned long wxTextAttrBorder::GetColourLong() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned long wxTextAttrBorder::GetColourLong() const. Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned long wxTextAttrBorder::GetColourLong() const. Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned long lret = self->GetColourLong();
 		lua_pushnumber(L,lret);
@@ -562,15 +538,13 @@ public:
 	// wxColour wxTextAttrBorder::GetColour() const
 	static int _bind_GetColour(lua_State *L) {
 		if (!_lg_typecheck_GetColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxTextAttrBorder::GetColour() const function, expected prototype:\nwxColour wxTextAttrBorder::GetColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxTextAttrBorder::GetColour() const function, expected prototype:\nwxColour wxTextAttrBorder::GetColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxTextAttrBorder::GetColour() const. Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxTextAttrBorder::GetColour() const. Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxColour stack_lret = self->GetColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -584,15 +558,13 @@ public:
 	// wxTextAttrDimension & wxTextAttrBorder::GetWidth()
 	static int _bind_GetWidth_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetWidth_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTextAttrDimension & wxTextAttrBorder::GetWidth() function, expected prototype:\nwxTextAttrDimension & wxTextAttrBorder::GetWidth()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTextAttrDimension & wxTextAttrBorder::GetWidth() function, expected prototype:\nwxTextAttrDimension & wxTextAttrBorder::GetWidth()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextAttrBorder::GetWidth(). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextAttrBorder::GetWidth(). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxTextAttrDimension* lret = &self->GetWidth();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -605,15 +577,13 @@ public:
 	// const wxTextAttrDimension & wxTextAttrBorder::GetWidth() const
 	static int _bind_GetWidth_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetWidth_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxTextAttrDimension & wxTextAttrBorder::GetWidth() const function, expected prototype:\nconst wxTextAttrDimension & wxTextAttrBorder::GetWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxTextAttrDimension & wxTextAttrBorder::GetWidth() const function, expected prototype:\nconst wxTextAttrDimension & wxTextAttrBorder::GetWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextAttrBorder::GetWidth() const. Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextAttrBorder::GetWidth() const. Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxTextAttrDimension* lret = &self->GetWidth();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -635,8 +605,7 @@ public:
 	// void wxTextAttrBorder::SetWidth(const wxTextAttrDimension & width)
 	static int _bind_SetWidth_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SetWidth_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::SetWidth(const wxTextAttrDimension & width) function, expected prototype:\nvoid wxTextAttrBorder::SetWidth(const wxTextAttrDimension & width)\nClass arguments details:\narg 1 ID = 25580455\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::SetWidth(const wxTextAttrDimension & width) function, expected prototype:\nvoid wxTextAttrBorder::SetWidth(const wxTextAttrDimension & width)\nClass arguments details:\narg 1 ID = 25580455\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxTextAttrDimension* width_ptr=(Luna< wxTextAttrDimension >::check(L,2));
@@ -647,8 +616,7 @@ public:
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::SetWidth(const wxTextAttrDimension &). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::SetWidth(const wxTextAttrDimension &). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWidth(width);
 
@@ -658,8 +626,7 @@ public:
 	// void wxTextAttrBorder::SetWidth(int value, wxTextAttrUnits units = ::wxTEXT_ATTR_UNITS_TENTHS_MM)
 	static int _bind_SetWidth_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SetWidth_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::SetWidth(int value, wxTextAttrUnits units = ::wxTEXT_ATTR_UNITS_TENTHS_MM) function, expected prototype:\nvoid wxTextAttrBorder::SetWidth(int value, wxTextAttrUnits units = ::wxTEXT_ATTR_UNITS_TENTHS_MM)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::SetWidth(int value, wxTextAttrUnits units = ::wxTEXT_ATTR_UNITS_TENTHS_MM) function, expected prototype:\nvoid wxTextAttrBorder::SetWidth(int value, wxTextAttrUnits units = ::wxTEXT_ATTR_UNITS_TENTHS_MM)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -669,8 +636,7 @@ public:
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::SetWidth(int, wxTextAttrUnits). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::SetWidth(int, wxTextAttrUnits). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWidth(value, units);
 
@@ -689,15 +655,13 @@ public:
 	// bool wxTextAttrBorder::HasStyle() const
 	static int _bind_HasStyle(lua_State *L) {
 		if (!_lg_typecheck_HasStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::HasStyle() const function, expected prototype:\nbool wxTextAttrBorder::HasStyle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::HasStyle() const function, expected prototype:\nbool wxTextAttrBorder::HasStyle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::HasStyle() const. Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::HasStyle() const. Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasStyle();
 		lua_pushboolean(L,lret?1:0);
@@ -708,15 +672,13 @@ public:
 	// bool wxTextAttrBorder::HasColour() const
 	static int _bind_HasColour(lua_State *L) {
 		if (!_lg_typecheck_HasColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::HasColour() const function, expected prototype:\nbool wxTextAttrBorder::HasColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::HasColour() const function, expected prototype:\nbool wxTextAttrBorder::HasColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::HasColour() const. Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::HasColour() const. Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasColour();
 		lua_pushboolean(L,lret?1:0);
@@ -727,15 +689,13 @@ public:
 	// bool wxTextAttrBorder::HasWidth() const
 	static int _bind_HasWidth(lua_State *L) {
 		if (!_lg_typecheck_HasWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::HasWidth() const function, expected prototype:\nbool wxTextAttrBorder::HasWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::HasWidth() const function, expected prototype:\nbool wxTextAttrBorder::HasWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::HasWidth() const. Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::HasWidth() const. Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasWidth();
 		lua_pushboolean(L,lret?1:0);
@@ -746,15 +706,13 @@ public:
 	// bool wxTextAttrBorder::IsValid() const
 	static int _bind_IsValid(lua_State *L) {
 		if (!_lg_typecheck_IsValid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::IsValid() const function, expected prototype:\nbool wxTextAttrBorder::IsValid() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::IsValid() const function, expected prototype:\nbool wxTextAttrBorder::IsValid() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::IsValid() const. Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::IsValid() const. Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsValid();
 		lua_pushboolean(L,lret?1:0);
@@ -765,15 +723,13 @@ public:
 	// void wxTextAttrBorder::MakeValid()
 	static int _bind_MakeValid(lua_State *L) {
 		if (!_lg_typecheck_MakeValid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::MakeValid() function, expected prototype:\nvoid wxTextAttrBorder::MakeValid()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::MakeValid() function, expected prototype:\nvoid wxTextAttrBorder::MakeValid()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::MakeValid(). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::MakeValid(). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MakeValid();
 
@@ -783,15 +739,13 @@ public:
 	// int wxTextAttrBorder::GetFlags() const
 	static int _bind_GetFlags(lua_State *L) {
 		if (!_lg_typecheck_GetFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTextAttrBorder::GetFlags() const function, expected prototype:\nint wxTextAttrBorder::GetFlags() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxTextAttrBorder::GetFlags() const function, expected prototype:\nint wxTextAttrBorder::GetFlags() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttrBorder::GetFlags() const. Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTextAttrBorder::GetFlags() const. Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -802,16 +756,14 @@ public:
 	// void wxTextAttrBorder::SetFlags(int flags)
 	static int _bind_SetFlags(lua_State *L) {
 		if (!_lg_typecheck_SetFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::SetFlags(int flags) function, expected prototype:\nvoid wxTextAttrBorder::SetFlags(int flags)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::SetFlags(int flags) function, expected prototype:\nvoid wxTextAttrBorder::SetFlags(int flags)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int flags=(int)lua_tointeger(L,2);
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::SetFlags(int). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::SetFlags(int). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFlags(flags);
 
@@ -821,16 +773,14 @@ public:
 	// void wxTextAttrBorder::AddFlag(int flag)
 	static int _bind_AddFlag(lua_State *L) {
 		if (!_lg_typecheck_AddFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::AddFlag(int flag) function, expected prototype:\nvoid wxTextAttrBorder::AddFlag(int flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::AddFlag(int flag) function, expected prototype:\nvoid wxTextAttrBorder::AddFlag(int flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int flag=(int)lua_tointeger(L,2);
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::AddFlag(int). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::AddFlag(int). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddFlag(flag);
 
@@ -840,16 +790,14 @@ public:
 	// void wxTextAttrBorder::RemoveFlag(int flag)
 	static int _bind_RemoveFlag(lua_State *L) {
 		if (!_lg_typecheck_RemoveFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::RemoveFlag(int flag) function, expected prototype:\nvoid wxTextAttrBorder::RemoveFlag(int flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::RemoveFlag(int flag) function, expected prototype:\nvoid wxTextAttrBorder::RemoveFlag(int flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int flag=(int)lua_tointeger(L,2);
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::RemoveFlag(int). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::RemoveFlag(int). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RemoveFlag(flag);
 
@@ -859,15 +807,13 @@ public:
 	// int wxTextAttrBorder::m_borderStyle()
 	static int _bind_getBorderStyle(lua_State *L) {
 		if (!_lg_typecheck_getBorderStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTextAttrBorder::m_borderStyle() function, expected prototype:\nint wxTextAttrBorder::m_borderStyle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxTextAttrBorder::m_borderStyle() function, expected prototype:\nint wxTextAttrBorder::m_borderStyle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttrBorder::m_borderStyle(). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTextAttrBorder::m_borderStyle(). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_borderStyle;
 		lua_pushnumber(L,lret);
@@ -878,15 +824,13 @@ public:
 	// unsigned long wxTextAttrBorder::m_borderColour()
 	static int _bind_getBorderColour(lua_State *L) {
 		if (!_lg_typecheck_getBorderColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned long wxTextAttrBorder::m_borderColour() function, expected prototype:\nunsigned long wxTextAttrBorder::m_borderColour()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned long wxTextAttrBorder::m_borderColour() function, expected prototype:\nunsigned long wxTextAttrBorder::m_borderColour()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned long wxTextAttrBorder::m_borderColour(). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned long wxTextAttrBorder::m_borderColour(). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned long lret = self->m_borderColour;
 		lua_pushnumber(L,lret);
@@ -897,15 +841,13 @@ public:
 	// wxTextAttrDimension wxTextAttrBorder::m_borderWidth()
 	static int _bind_getBorderWidth(lua_State *L) {
 		if (!_lg_typecheck_getBorderWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTextAttrDimension wxTextAttrBorder::m_borderWidth() function, expected prototype:\nwxTextAttrDimension wxTextAttrBorder::m_borderWidth()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTextAttrDimension wxTextAttrBorder::m_borderWidth() function, expected prototype:\nwxTextAttrDimension wxTextAttrBorder::m_borderWidth()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension wxTextAttrBorder::m_borderWidth(). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension wxTextAttrBorder::m_borderWidth(). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxTextAttrDimension* lret = &self->m_borderWidth;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -918,15 +860,13 @@ public:
 	// int wxTextAttrBorder::m_flags()
 	static int _bind_getFlags(lua_State *L) {
 		if (!_lg_typecheck_getFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTextAttrBorder::m_flags() function, expected prototype:\nint wxTextAttrBorder::m_flags()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxTextAttrBorder::m_flags() function, expected prototype:\nint wxTextAttrBorder::m_flags()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttrBorder::m_flags(). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTextAttrBorder::m_flags(). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_flags;
 		lua_pushnumber(L,lret);
@@ -937,16 +877,14 @@ public:
 	// void wxTextAttrBorder::m_borderStyle(int value)
 	static int _bind_setBorderStyle(lua_State *L) {
 		if (!_lg_typecheck_setBorderStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::m_borderStyle(int value) function, expected prototype:\nvoid wxTextAttrBorder::m_borderStyle(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::m_borderStyle(int value) function, expected prototype:\nvoid wxTextAttrBorder::m_borderStyle(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::m_borderStyle(int). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::m_borderStyle(int). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_borderStyle = value;
 
@@ -956,16 +894,14 @@ public:
 	// void wxTextAttrBorder::m_borderColour(unsigned long value)
 	static int _bind_setBorderColour(lua_State *L) {
 		if (!_lg_typecheck_setBorderColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::m_borderColour(unsigned long value) function, expected prototype:\nvoid wxTextAttrBorder::m_borderColour(unsigned long value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::m_borderColour(unsigned long value) function, expected prototype:\nvoid wxTextAttrBorder::m_borderColour(unsigned long value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long value=(unsigned long)lua_tointeger(L,2);
+		unsigned long value=(unsigned long)lua_tonumber(L,2);
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::m_borderColour(unsigned long). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::m_borderColour(unsigned long). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_borderColour = value;
 
@@ -975,8 +911,7 @@ public:
 	// void wxTextAttrBorder::m_borderWidth(wxTextAttrDimension value)
 	static int _bind_setBorderWidth(lua_State *L) {
 		if (!_lg_typecheck_setBorderWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::m_borderWidth(wxTextAttrDimension value) function, expected prototype:\nvoid wxTextAttrBorder::m_borderWidth(wxTextAttrDimension value)\nClass arguments details:\narg 1 ID = 25580455\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::m_borderWidth(wxTextAttrDimension value) function, expected prototype:\nvoid wxTextAttrBorder::m_borderWidth(wxTextAttrDimension value)\nClass arguments details:\narg 1 ID = 25580455\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTextAttrDimension* value_ptr=(Luna< wxTextAttrDimension >::check(L,2));
@@ -987,8 +922,7 @@ public:
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::m_borderWidth(wxTextAttrDimension). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::m_borderWidth(wxTextAttrDimension). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_borderWidth = value;
 
@@ -998,16 +932,14 @@ public:
 	// void wxTextAttrBorder::m_flags(int value)
 	static int _bind_setFlags(lua_State *L) {
 		if (!_lg_typecheck_setFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::m_flags(int value) function, expected prototype:\nvoid wxTextAttrBorder::m_flags(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::m_flags(int value) function, expected prototype:\nvoid wxTextAttrBorder::m_flags(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::m_flags(int). Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrBorder::m_flags(int). Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_flags = value;
 
@@ -1019,8 +951,7 @@ public:
 	// bool wxTextAttrBorder::operator==(const wxTextAttrBorder & border) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::operator==(const wxTextAttrBorder & border) const function, expected prototype:\nbool wxTextAttrBorder::operator==(const wxTextAttrBorder & border) const\nClass arguments details:\narg 1 ID = 59699915\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextAttrBorder::operator==(const wxTextAttrBorder & border) const function, expected prototype:\nbool wxTextAttrBorder::operator==(const wxTextAttrBorder & border) const\nClass arguments details:\narg 1 ID = 59699915\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxTextAttrBorder* border_ptr=(Luna< wxTextAttrBorder >::check(L,2));
@@ -1031,8 +962,7 @@ public:
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::operator==(const wxTextAttrBorder &) const. Got : '%s'",typeid(Luna< wxTextAttrBorder >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextAttrBorder::operator==(const wxTextAttrBorder &) const. Got : '%s'\n%s",typeid(Luna< wxTextAttrBorder >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(border);
 		lua_pushboolean(L,lret?1:0);

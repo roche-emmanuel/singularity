@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSettableHeaderColumn* self= (wxSettableHeaderColumn*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxHeaderColumn >::check(L,1));
@@ -271,16 +268,14 @@ public:
 	// void wxSettableHeaderColumn::SetTitle(const wxString & title)
 	static int _bind_SetTitle(lua_State *L) {
 		if (!_lg_typecheck_SetTitle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetTitle(const wxString & title) function, expected prototype:\nvoid wxSettableHeaderColumn::SetTitle(const wxString & title)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetTitle(const wxString & title) function, expected prototype:\nvoid wxSettableHeaderColumn::SetTitle(const wxString & title)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString title(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetTitle(const wxString &). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetTitle(const wxString &). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTitle(title);
 
@@ -290,8 +285,7 @@ public:
 	// void wxSettableHeaderColumn::SetBitmap(const wxBitmap & bitmap)
 	static int _bind_SetBitmap(lua_State *L) {
 		if (!_lg_typecheck_SetBitmap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetBitmap(const wxBitmap & bitmap) function, expected prototype:\nvoid wxSettableHeaderColumn::SetBitmap(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetBitmap(const wxBitmap & bitmap) function, expected prototype:\nvoid wxSettableHeaderColumn::SetBitmap(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
@@ -302,8 +296,7 @@ public:
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetBitmap(const wxBitmap &). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetBitmap(const wxBitmap &). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetBitmap(bitmap);
 
@@ -313,16 +306,14 @@ public:
 	// void wxSettableHeaderColumn::SetWidth(int width)
 	static int _bind_SetWidth(lua_State *L) {
 		if (!_lg_typecheck_SetWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetWidth(int width) function, expected prototype:\nvoid wxSettableHeaderColumn::SetWidth(int width)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetWidth(int width) function, expected prototype:\nvoid wxSettableHeaderColumn::SetWidth(int width)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int width=(int)lua_tointeger(L,2);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetWidth(int). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetWidth(int). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWidth(width);
 
@@ -332,16 +323,14 @@ public:
 	// void wxSettableHeaderColumn::SetMinWidth(int minWidth)
 	static int _bind_SetMinWidth(lua_State *L) {
 		if (!_lg_typecheck_SetMinWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetMinWidth(int minWidth) function, expected prototype:\nvoid wxSettableHeaderColumn::SetMinWidth(int minWidth)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetMinWidth(int minWidth) function, expected prototype:\nvoid wxSettableHeaderColumn::SetMinWidth(int minWidth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int minWidth=(int)lua_tointeger(L,2);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetMinWidth(int). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetMinWidth(int). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMinWidth(minWidth);
 
@@ -351,16 +340,14 @@ public:
 	// void wxSettableHeaderColumn::SetAlignment(wxAlignment align)
 	static int _bind_SetAlignment(lua_State *L) {
 		if (!_lg_typecheck_SetAlignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetAlignment(wxAlignment align) function, expected prototype:\nvoid wxSettableHeaderColumn::SetAlignment(wxAlignment align)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetAlignment(wxAlignment align) function, expected prototype:\nvoid wxSettableHeaderColumn::SetAlignment(wxAlignment align)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxAlignment align=(wxAlignment)lua_tointeger(L,2);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetAlignment(wxAlignment). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetAlignment(wxAlignment). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAlignment(align);
 
@@ -370,16 +357,14 @@ public:
 	// void wxSettableHeaderColumn::SetFlags(int flags)
 	static int _bind_SetFlags(lua_State *L) {
 		if (!_lg_typecheck_SetFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetFlags(int flags) function, expected prototype:\nvoid wxSettableHeaderColumn::SetFlags(int flags)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetFlags(int flags) function, expected prototype:\nvoid wxSettableHeaderColumn::SetFlags(int flags)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int flags=(int)lua_tointeger(L,2);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetFlags(int). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetFlags(int). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFlags(flags);
 
@@ -389,8 +374,7 @@ public:
 	// void wxSettableHeaderColumn::ChangeFlag(int flag, bool set)
 	static int _bind_ChangeFlag(lua_State *L) {
 		if (!_lg_typecheck_ChangeFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::ChangeFlag(int flag, bool set) function, expected prototype:\nvoid wxSettableHeaderColumn::ChangeFlag(int flag, bool set)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::ChangeFlag(int flag, bool set) function, expected prototype:\nvoid wxSettableHeaderColumn::ChangeFlag(int flag, bool set)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int flag=(int)lua_tointeger(L,2);
@@ -398,8 +382,7 @@ public:
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::ChangeFlag(int, bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::ChangeFlag(int, bool). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ChangeFlag(flag, set);
 
@@ -409,16 +392,14 @@ public:
 	// void wxSettableHeaderColumn::SetFlag(int flag)
 	static int _bind_SetFlag(lua_State *L) {
 		if (!_lg_typecheck_SetFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetFlag(int flag) function, expected prototype:\nvoid wxSettableHeaderColumn::SetFlag(int flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetFlag(int flag) function, expected prototype:\nvoid wxSettableHeaderColumn::SetFlag(int flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int flag=(int)lua_tointeger(L,2);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetFlag(int). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetFlag(int). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFlag(flag);
 
@@ -428,16 +409,14 @@ public:
 	// void wxSettableHeaderColumn::ClearFlag(int flag)
 	static int _bind_ClearFlag(lua_State *L) {
 		if (!_lg_typecheck_ClearFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::ClearFlag(int flag) function, expected prototype:\nvoid wxSettableHeaderColumn::ClearFlag(int flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::ClearFlag(int flag) function, expected prototype:\nvoid wxSettableHeaderColumn::ClearFlag(int flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int flag=(int)lua_tointeger(L,2);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::ClearFlag(int). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::ClearFlag(int). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClearFlag(flag);
 
@@ -447,16 +426,14 @@ public:
 	// void wxSettableHeaderColumn::ToggleFlag(int flag)
 	static int _bind_ToggleFlag(lua_State *L) {
 		if (!_lg_typecheck_ToggleFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::ToggleFlag(int flag) function, expected prototype:\nvoid wxSettableHeaderColumn::ToggleFlag(int flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::ToggleFlag(int flag) function, expected prototype:\nvoid wxSettableHeaderColumn::ToggleFlag(int flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int flag=(int)lua_tointeger(L,2);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::ToggleFlag(int). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::ToggleFlag(int). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ToggleFlag(flag);
 
@@ -466,16 +443,14 @@ public:
 	// void wxSettableHeaderColumn::SetResizeable(bool resizable)
 	static int _bind_SetResizeable(lua_State *L) {
 		if (!_lg_typecheck_SetResizeable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetResizeable(bool resizable) function, expected prototype:\nvoid wxSettableHeaderColumn::SetResizeable(bool resizable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetResizeable(bool resizable) function, expected prototype:\nvoid wxSettableHeaderColumn::SetResizeable(bool resizable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool resizable=(bool)(lua_toboolean(L,2)==1);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetResizeable(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetResizeable(bool). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetResizeable(resizable);
 
@@ -485,16 +460,14 @@ public:
 	// void wxSettableHeaderColumn::SetSortable(bool sortable)
 	static int _bind_SetSortable(lua_State *L) {
 		if (!_lg_typecheck_SetSortable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetSortable(bool sortable) function, expected prototype:\nvoid wxSettableHeaderColumn::SetSortable(bool sortable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetSortable(bool sortable) function, expected prototype:\nvoid wxSettableHeaderColumn::SetSortable(bool sortable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool sortable=(bool)(lua_toboolean(L,2)==1);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetSortable(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetSortable(bool). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSortable(sortable);
 
@@ -504,16 +477,14 @@ public:
 	// void wxSettableHeaderColumn::SetReorderable(bool reorderable)
 	static int _bind_SetReorderable(lua_State *L) {
 		if (!_lg_typecheck_SetReorderable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetReorderable(bool reorderable) function, expected prototype:\nvoid wxSettableHeaderColumn::SetReorderable(bool reorderable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetReorderable(bool reorderable) function, expected prototype:\nvoid wxSettableHeaderColumn::SetReorderable(bool reorderable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool reorderable=(bool)(lua_toboolean(L,2)==1);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetReorderable(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetReorderable(bool). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetReorderable(reorderable);
 
@@ -523,16 +494,14 @@ public:
 	// void wxSettableHeaderColumn::SetHidden(bool hidden)
 	static int _bind_SetHidden(lua_State *L) {
 		if (!_lg_typecheck_SetHidden(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetHidden(bool hidden) function, expected prototype:\nvoid wxSettableHeaderColumn::SetHidden(bool hidden)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetHidden(bool hidden) function, expected prototype:\nvoid wxSettableHeaderColumn::SetHidden(bool hidden)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool hidden=(bool)(lua_toboolean(L,2)==1);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetHidden(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetHidden(bool). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetHidden(hidden);
 
@@ -542,15 +511,13 @@ public:
 	// void wxSettableHeaderColumn::UnsetAsSortKey()
 	static int _bind_UnsetAsSortKey(lua_State *L) {
 		if (!_lg_typecheck_UnsetAsSortKey(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::UnsetAsSortKey() function, expected prototype:\nvoid wxSettableHeaderColumn::UnsetAsSortKey()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::UnsetAsSortKey() function, expected prototype:\nvoid wxSettableHeaderColumn::UnsetAsSortKey()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::UnsetAsSortKey(). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::UnsetAsSortKey(). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->UnsetAsSortKey();
 
@@ -560,16 +527,14 @@ public:
 	// void wxSettableHeaderColumn::SetSortOrder(bool ascending)
 	static int _bind_SetSortOrder(lua_State *L) {
 		if (!_lg_typecheck_SetSortOrder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetSortOrder(bool ascending) function, expected prototype:\nvoid wxSettableHeaderColumn::SetSortOrder(bool ascending)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::SetSortOrder(bool ascending) function, expected prototype:\nvoid wxSettableHeaderColumn::SetSortOrder(bool ascending)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool ascending=(bool)(lua_toboolean(L,2)==1);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetSortOrder(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::SetSortOrder(bool). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSortOrder(ascending);
 
@@ -579,15 +544,13 @@ public:
 	// void wxSettableHeaderColumn::ToggleSortOrder()
 	static int _bind_ToggleSortOrder(lua_State *L) {
 		if (!_lg_typecheck_ToggleSortOrder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::ToggleSortOrder() function, expected prototype:\nvoid wxSettableHeaderColumn::ToggleSortOrder()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::ToggleSortOrder() function, expected prototype:\nvoid wxSettableHeaderColumn::ToggleSortOrder()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::ToggleSortOrder(). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::ToggleSortOrder(). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ToggleSortOrder();
 
@@ -597,15 +560,13 @@ public:
 	// bool wxSettableHeaderColumn::base_IsResizeable() const
 	static int _bind_base_IsResizeable(lua_State *L) {
 		if (!_lg_typecheck_base_IsResizeable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxSettableHeaderColumn::base_IsResizeable() const function, expected prototype:\nbool wxSettableHeaderColumn::base_IsResizeable() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxSettableHeaderColumn::base_IsResizeable() const function, expected prototype:\nbool wxSettableHeaderColumn::base_IsResizeable() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSettableHeaderColumn::base_IsResizeable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxSettableHeaderColumn::base_IsResizeable() const. Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxSettableHeaderColumn::IsResizeable();
 		lua_pushboolean(L,lret?1:0);
@@ -616,15 +577,13 @@ public:
 	// bool wxSettableHeaderColumn::base_IsSortable() const
 	static int _bind_base_IsSortable(lua_State *L) {
 		if (!_lg_typecheck_base_IsSortable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxSettableHeaderColumn::base_IsSortable() const function, expected prototype:\nbool wxSettableHeaderColumn::base_IsSortable() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxSettableHeaderColumn::base_IsSortable() const function, expected prototype:\nbool wxSettableHeaderColumn::base_IsSortable() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSettableHeaderColumn::base_IsSortable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxSettableHeaderColumn::base_IsSortable() const. Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxSettableHeaderColumn::IsSortable();
 		lua_pushboolean(L,lret?1:0);
@@ -635,15 +594,13 @@ public:
 	// bool wxSettableHeaderColumn::base_IsReorderable() const
 	static int _bind_base_IsReorderable(lua_State *L) {
 		if (!_lg_typecheck_base_IsReorderable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxSettableHeaderColumn::base_IsReorderable() const function, expected prototype:\nbool wxSettableHeaderColumn::base_IsReorderable() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxSettableHeaderColumn::base_IsReorderable() const function, expected prototype:\nbool wxSettableHeaderColumn::base_IsReorderable() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSettableHeaderColumn::base_IsReorderable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxSettableHeaderColumn::base_IsReorderable() const. Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxSettableHeaderColumn::IsReorderable();
 		lua_pushboolean(L,lret?1:0);
@@ -654,15 +611,13 @@ public:
 	// bool wxSettableHeaderColumn::base_IsHidden() const
 	static int _bind_base_IsHidden(lua_State *L) {
 		if (!_lg_typecheck_base_IsHidden(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxSettableHeaderColumn::base_IsHidden() const function, expected prototype:\nbool wxSettableHeaderColumn::base_IsHidden() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxSettableHeaderColumn::base_IsHidden() const function, expected prototype:\nbool wxSettableHeaderColumn::base_IsHidden() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSettableHeaderColumn::base_IsHidden() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxSettableHeaderColumn::base_IsHidden() const. Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxSettableHeaderColumn::IsHidden();
 		lua_pushboolean(L,lret?1:0);
@@ -673,16 +628,14 @@ public:
 	// void wxSettableHeaderColumn::base_SetResizeable(bool resizable)
 	static int _bind_base_SetResizeable(lua_State *L) {
 		if (!_lg_typecheck_base_SetResizeable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::base_SetResizeable(bool resizable) function, expected prototype:\nvoid wxSettableHeaderColumn::base_SetResizeable(bool resizable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::base_SetResizeable(bool resizable) function, expected prototype:\nvoid wxSettableHeaderColumn::base_SetResizeable(bool resizable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool resizable=(bool)(lua_toboolean(L,2)==1);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::base_SetResizeable(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::base_SetResizeable(bool). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxSettableHeaderColumn::SetResizeable(resizable);
 
@@ -692,16 +645,14 @@ public:
 	// void wxSettableHeaderColumn::base_SetSortable(bool sortable)
 	static int _bind_base_SetSortable(lua_State *L) {
 		if (!_lg_typecheck_base_SetSortable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::base_SetSortable(bool sortable) function, expected prototype:\nvoid wxSettableHeaderColumn::base_SetSortable(bool sortable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::base_SetSortable(bool sortable) function, expected prototype:\nvoid wxSettableHeaderColumn::base_SetSortable(bool sortable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool sortable=(bool)(lua_toboolean(L,2)==1);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::base_SetSortable(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::base_SetSortable(bool). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxSettableHeaderColumn::SetSortable(sortable);
 
@@ -711,16 +662,14 @@ public:
 	// void wxSettableHeaderColumn::base_SetReorderable(bool reorderable)
 	static int _bind_base_SetReorderable(lua_State *L) {
 		if (!_lg_typecheck_base_SetReorderable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::base_SetReorderable(bool reorderable) function, expected prototype:\nvoid wxSettableHeaderColumn::base_SetReorderable(bool reorderable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::base_SetReorderable(bool reorderable) function, expected prototype:\nvoid wxSettableHeaderColumn::base_SetReorderable(bool reorderable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool reorderable=(bool)(lua_toboolean(L,2)==1);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::base_SetReorderable(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::base_SetReorderable(bool). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxSettableHeaderColumn::SetReorderable(reorderable);
 
@@ -730,16 +679,14 @@ public:
 	// void wxSettableHeaderColumn::base_SetHidden(bool hidden)
 	static int _bind_base_SetHidden(lua_State *L) {
 		if (!_lg_typecheck_base_SetHidden(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::base_SetHidden(bool hidden) function, expected prototype:\nvoid wxSettableHeaderColumn::base_SetHidden(bool hidden)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSettableHeaderColumn::base_SetHidden(bool hidden) function, expected prototype:\nvoid wxSettableHeaderColumn::base_SetHidden(bool hidden)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool hidden=(bool)(lua_toboolean(L,2)==1);
 
 		wxSettableHeaderColumn* self=Luna< wxHeaderColumn >::checkSubType< wxSettableHeaderColumn >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::base_SetHidden(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSettableHeaderColumn::base_SetHidden(bool). Got : '%s'\n%s",typeid(Luna< wxHeaderColumn >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxSettableHeaderColumn::SetHidden(hidden);
 

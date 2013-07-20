@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxAuiNotebookEvent* self= (wxAuiNotebookEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -142,8 +139,7 @@ public:
 	// wxAuiNotebookEvent::wxAuiNotebookEvent(int command_type = wxEVT_NULL, int win_id = 0)
 	static wxAuiNotebookEvent* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiNotebookEvent::wxAuiNotebookEvent(int command_type = wxEVT_NULL, int win_id = 0) function, expected prototype:\nwxAuiNotebookEvent::wxAuiNotebookEvent(int command_type = wxEVT_NULL, int win_id = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxAuiNotebookEvent::wxAuiNotebookEvent(int command_type = wxEVT_NULL, int win_id = 0) function, expected prototype:\nwxAuiNotebookEvent::wxAuiNotebookEvent(int command_type = wxEVT_NULL, int win_id = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -157,8 +153,7 @@ public:
 	// wxAuiNotebookEvent::wxAuiNotebookEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0)
 	static wxAuiNotebookEvent* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiNotebookEvent::wxAuiNotebookEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0) function, expected prototype:\nwxAuiNotebookEvent::wxAuiNotebookEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxAuiNotebookEvent::wxAuiNotebookEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0) function, expected prototype:\nwxAuiNotebookEvent::wxAuiNotebookEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -183,15 +178,13 @@ public:
 	// wxEvent * wxAuiNotebookEvent::Clone()
 	static int _bind_Clone(lua_State *L) {
 		if (!_lg_typecheck_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvent * wxAuiNotebookEvent::Clone() function, expected prototype:\nwxEvent * wxAuiNotebookEvent::Clone()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvent * wxAuiNotebookEvent::Clone() function, expected prototype:\nwxEvent * wxAuiNotebookEvent::Clone()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebookEvent* self=Luna< wxObject >::checkSubType< wxAuiNotebookEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxAuiNotebookEvent::Clone(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvent * wxAuiNotebookEvent::Clone(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvent * lret = self->Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -204,15 +197,13 @@ public:
 	// wxClassInfo * wxAuiNotebookEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxAuiNotebookEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxAuiNotebookEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxAuiNotebookEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxAuiNotebookEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebookEvent* self=Luna< wxObject >::checkSubType< wxAuiNotebookEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxAuiNotebookEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxAuiNotebookEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxAuiNotebookEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -225,15 +216,13 @@ public:
 	// wxEventCategory wxAuiNotebookEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxAuiNotebookEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxAuiNotebookEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxAuiNotebookEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxAuiNotebookEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebookEvent* self=Luna< wxObject >::checkSubType< wxAuiNotebookEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxAuiNotebookEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxAuiNotebookEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxAuiNotebookEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -244,15 +233,13 @@ public:
 	// wxEvent * wxAuiNotebookEvent::base_Clone() const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvent * wxAuiNotebookEvent::base_Clone() const function, expected prototype:\nwxEvent * wxAuiNotebookEvent::base_Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvent * wxAuiNotebookEvent::base_Clone() const function, expected prototype:\nwxEvent * wxAuiNotebookEvent::base_Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebookEvent* self=Luna< wxObject >::checkSubType< wxAuiNotebookEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxAuiNotebookEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvent * wxAuiNotebookEvent::base_Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvent * lret = self->wxAuiNotebookEvent::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.

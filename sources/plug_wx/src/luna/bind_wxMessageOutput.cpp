@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxMessageOutput* self=(Luna< wxMessageOutput >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxMessageOutput*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxMessageOutput*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxMessageOutput* rhs =(Luna< wxMessageOutput >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxMessageOutput* self= (wxMessageOutput*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxMessageOutput >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -158,8 +153,7 @@ public:
 	// static wxMessageOutput * wxMessageOutput::Get()
 	static int _bind_Get(lua_State *L) {
 		if (!_lg_typecheck_Get(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxMessageOutput * wxMessageOutput::Get() function, expected prototype:\nstatic wxMessageOutput * wxMessageOutput::Get()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxMessageOutput * wxMessageOutput::Get() function, expected prototype:\nstatic wxMessageOutput * wxMessageOutput::Get()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -174,8 +168,7 @@ public:
 	// static wxMessageOutput * wxMessageOutput::Set(wxMessageOutput * msgout)
 	static int _bind_Set(lua_State *L) {
 		if (!_lg_typecheck_Set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxMessageOutput * wxMessageOutput::Set(wxMessageOutput * msgout) function, expected prototype:\nstatic wxMessageOutput * wxMessageOutput::Set(wxMessageOutput * msgout)\nClass arguments details:\narg 1 ID = 42086186\n");
+			luaL_error(L, "luna typecheck failed in static wxMessageOutput * wxMessageOutput::Set(wxMessageOutput * msgout) function, expected prototype:\nstatic wxMessageOutput * wxMessageOutput::Set(wxMessageOutput * msgout)\nClass arguments details:\narg 1 ID = 42086186\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxMessageOutput* msgout=(Luna< wxMessageOutput >::check(L,1));
@@ -191,16 +184,14 @@ public:
 	// void wxMessageOutput::Output(const wxString & str)
 	static int _bind_Output(lua_State *L) {
 		if (!_lg_typecheck_Output(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxMessageOutput::Output(const wxString & str) function, expected prototype:\nvoid wxMessageOutput::Output(const wxString & str)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxMessageOutput::Output(const wxString & str) function, expected prototype:\nvoid wxMessageOutput::Output(const wxString & str)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxMessageOutput* self=(Luna< wxMessageOutput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMessageOutput::Output(const wxString &). Got : '%s'",typeid(Luna< wxMessageOutput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxMessageOutput::Output(const wxString &). Got : '%s'\n%s",typeid(Luna< wxMessageOutput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Output(str);
 

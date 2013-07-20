@@ -149,36 +149,48 @@ protected:
 		return wxComboBox::AddPendingEvent(event);
 	};
 
-	// void wxItemContainer::DoSetItemClientData(unsigned int arg1, void * arg2)
+	// void wxComboBox::DoSetItemClientData(unsigned int arg1, void * arg2)
 	void DoSetItemClientData(unsigned int arg1, void * arg2) {
-		THROW_IF(!_obj.pushFunction("DoSetItemClientData"),"No implementation for abstract function wxItemContainer::DoSetItemClientData");
-		_obj.pushArg((wxComboBox*)this);
-		_obj.pushArg(arg1);
-		_obj.pushArg(arg2);
-		return (_obj.callFunction<void>());
+		if(_obj.pushFunction("DoSetItemClientData")) {
+			_obj.pushArg((wxComboBox*)this);
+			_obj.pushArg(arg1);
+			_obj.pushArg(arg2);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxComboBox::DoSetItemClientData(arg1, arg2);
 	};
 
-	// void * wxItemContainer::DoGetItemClientData(unsigned int arg1) const
+	// void * wxComboBox::DoGetItemClientData(unsigned int arg1) const
 	void * DoGetItemClientData(unsigned int arg1) const {
-		THROW_IF(!_obj.pushFunction("DoGetItemClientData"),"No implementation for abstract function wxItemContainer::DoGetItemClientData");
-		_obj.pushArg((wxComboBox*)this);
-		_obj.pushArg(arg1);
-		return (_obj.callFunction<void*>());
+		if(_obj.pushFunction("DoGetItemClientData")) {
+			_obj.pushArg((wxComboBox*)this);
+			_obj.pushArg(arg1);
+			return (_obj.callFunction<void*>());
+		}
+
+		return wxComboBox::DoGetItemClientData(arg1);
 	};
 
-	// void wxItemContainer::DoClear()
+	// void wxComboBox::DoClear()
 	void DoClear() {
-		THROW_IF(!_obj.pushFunction("DoClear"),"No implementation for abstract function wxItemContainer::DoClear");
-		_obj.pushArg((wxComboBox*)this);
-		return (_obj.callFunction<void>());
+		if(_obj.pushFunction("DoClear")) {
+			_obj.pushArg((wxComboBox*)this);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxComboBox::DoClear();
 	};
 
-	// void wxItemContainer::DoDeleteOneItem(unsigned int arg1)
+	// void wxComboBox::DoDeleteOneItem(unsigned int arg1)
 	void DoDeleteOneItem(unsigned int arg1) {
-		THROW_IF(!_obj.pushFunction("DoDeleteOneItem"),"No implementation for abstract function wxItemContainer::DoDeleteOneItem");
-		_obj.pushArg((wxComboBox*)this);
-		_obj.pushArg(arg1);
-		return (_obj.callFunction<void>());
+		if(_obj.pushFunction("DoDeleteOneItem")) {
+			_obj.pushArg((wxComboBox*)this);
+			_obj.pushArg(arg1);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxComboBox::DoDeleteOneItem(arg1);
 	};
 
 public:
@@ -1706,13 +1718,6 @@ public:
 	void register_protected_methods(lua_State* L) {
 	};
 
-
-protected:
-// int wxItemContainer::DoInsertItems(const wxArrayStringsAdapter & arg1, unsigned int arg2, void ** arg3, wxClientDataType arg4)
-int DoInsertItems(const wxArrayStringsAdapter &, unsigned int, void **, wxClientDataType) {
-	THROW_IF(true,"The function call int wxItemContainer::DoInsertItems(const wxArrayStringsAdapter &, unsigned int, void **, wxClientDataType) is not implemented in wrapper.");
-	return (int)0;
-};
 
 };
 

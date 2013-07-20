@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxColourPickerEvent* self= (wxColourPickerEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -153,8 +150,7 @@ public:
 	// wxColourPickerEvent::wxColourPickerEvent(wxObject * generator, int id, const wxColour & colour)
 	static wxColourPickerEvent* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColourPickerEvent::wxColourPickerEvent(wxObject * generator, int id, const wxColour & colour) function, expected prototype:\nwxColourPickerEvent::wxColourPickerEvent(wxObject * generator, int id, const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxColourPickerEvent::wxColourPickerEvent(wxObject * generator, int id, const wxColour & colour) function, expected prototype:\nwxColourPickerEvent::wxColourPickerEvent(wxObject * generator, int id, const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* generator=(Luna< wxObject >::check(L,1));
@@ -171,8 +167,7 @@ public:
 	// wxColourPickerEvent::wxColourPickerEvent(lua_Table * data, wxObject * generator, int id, const wxColour & colour)
 	static wxColourPickerEvent* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColourPickerEvent::wxColourPickerEvent(lua_Table * data, wxObject * generator, int id, const wxColour & colour) function, expected prototype:\nwxColourPickerEvent::wxColourPickerEvent(lua_Table * data, wxObject * generator, int id, const wxColour & colour)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxColourPickerEvent::wxColourPickerEvent(lua_Table * data, wxObject * generator, int id, const wxColour & colour) function, expected prototype:\nwxColourPickerEvent::wxColourPickerEvent(lua_Table * data, wxObject * generator, int id, const wxColour & colour)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* generator=(Luna< wxObject >::check(L,2));
@@ -200,15 +195,13 @@ public:
 	// wxColour wxColourPickerEvent::GetColour() const
 	static int _bind_GetColour(lua_State *L) {
 		if (!_lg_typecheck_GetColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxColourPickerEvent::GetColour() const function, expected prototype:\nwxColour wxColourPickerEvent::GetColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxColourPickerEvent::GetColour() const function, expected prototype:\nwxColour wxColourPickerEvent::GetColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColourPickerEvent* self=Luna< wxObject >::checkSubType< wxColourPickerEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxColourPickerEvent::GetColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxColourPickerEvent::GetColour() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxColour stack_lret = self->GetColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -222,8 +215,7 @@ public:
 	// void wxColourPickerEvent::SetColour(const wxColour & pos)
 	static int _bind_SetColour(lua_State *L) {
 		if (!_lg_typecheck_SetColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxColourPickerEvent::SetColour(const wxColour & pos) function, expected prototype:\nvoid wxColourPickerEvent::SetColour(const wxColour & pos)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxColourPickerEvent::SetColour(const wxColour & pos) function, expected prototype:\nvoid wxColourPickerEvent::SetColour(const wxColour & pos)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* pos_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -234,8 +226,7 @@ public:
 
 		wxColourPickerEvent* self=Luna< wxObject >::checkSubType< wxColourPickerEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerEvent::SetColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxColourPickerEvent::SetColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetColour(pos);
 
@@ -245,15 +236,13 @@ public:
 	// wxClassInfo * wxColourPickerEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxColourPickerEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxColourPickerEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxColourPickerEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxColourPickerEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColourPickerEvent* self=Luna< wxObject >::checkSubType< wxColourPickerEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxColourPickerEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxColourPickerEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxColourPickerEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -266,15 +255,13 @@ public:
 	// wxEventCategory wxColourPickerEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxColourPickerEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxColourPickerEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxColourPickerEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxColourPickerEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColourPickerEvent* self=Luna< wxObject >::checkSubType< wxColourPickerEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxColourPickerEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxColourPickerEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxColourPickerEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -285,15 +272,13 @@ public:
 	// wxEvent * wxColourPickerEvent::base_Clone() const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvent * wxColourPickerEvent::base_Clone() const function, expected prototype:\nwxEvent * wxColourPickerEvent::base_Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvent * wxColourPickerEvent::base_Clone() const function, expected prototype:\nwxEvent * wxColourPickerEvent::base_Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColourPickerEvent* self=Luna< wxObject >::checkSubType< wxColourPickerEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxColourPickerEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvent * wxColourPickerEvent::base_Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvent * lret = self->wxColourPickerEvent::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.

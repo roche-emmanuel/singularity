@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStringClientData* self= (wxStringClientData*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxClientData >::check(L,1));
@@ -99,8 +97,7 @@ public:
 	// wxStringClientData::wxStringClientData()
 	static wxStringClientData* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxStringClientData::wxStringClientData() function, expected prototype:\nwxStringClientData::wxStringClientData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxStringClientData::wxStringClientData() function, expected prototype:\nwxStringClientData::wxStringClientData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -110,8 +107,7 @@ public:
 	// wxStringClientData::wxStringClientData(const wxString & data)
 	static wxStringClientData* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxStringClientData::wxStringClientData(const wxString & data) function, expected prototype:\nwxStringClientData::wxStringClientData(const wxString & data)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxStringClientData::wxStringClientData(const wxString & data) function, expected prototype:\nwxStringClientData::wxStringClientData(const wxString & data)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString data(lua_tostring(L,1),lua_objlen(L,1));
@@ -133,15 +129,13 @@ public:
 	// const wxString & wxStringClientData::GetData() const
 	static int _bind_GetData(lua_State *L) {
 		if (!_lg_typecheck_GetData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxStringClientData::GetData() const function, expected prototype:\nconst wxString & wxStringClientData::GetData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxStringClientData::GetData() const function, expected prototype:\nconst wxString & wxStringClientData::GetData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStringClientData* self=Luna< wxClientData >::checkSubType< wxStringClientData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxStringClientData::GetData() const. Got : '%s'",typeid(Luna< wxClientData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxStringClientData::GetData() const. Got : '%s'\n%s",typeid(Luna< wxClientData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetData();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -152,16 +146,14 @@ public:
 	// void wxStringClientData::SetData(const wxString & data)
 	static int _bind_SetData(lua_State *L) {
 		if (!_lg_typecheck_SetData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStringClientData::SetData(const wxString & data) function, expected prototype:\nvoid wxStringClientData::SetData(const wxString & data)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStringClientData::SetData(const wxString & data) function, expected prototype:\nvoid wxStringClientData::SetData(const wxString & data)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString data(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStringClientData* self=Luna< wxClientData >::checkSubType< wxStringClientData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStringClientData::SetData(const wxString &). Got : '%s'",typeid(Luna< wxClientData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStringClientData::SetData(const wxString &). Got : '%s'\n%s",typeid(Luna< wxClientData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetData(data);
 

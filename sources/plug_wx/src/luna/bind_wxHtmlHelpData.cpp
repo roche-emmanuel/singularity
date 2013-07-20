@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlHelpData* self= (wxHtmlHelpData*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -164,8 +161,7 @@ public:
 	// wxHtmlHelpData::wxHtmlHelpData()
 	static wxHtmlHelpData* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlHelpData::wxHtmlHelpData() function, expected prototype:\nwxHtmlHelpData::wxHtmlHelpData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpData::wxHtmlHelpData() function, expected prototype:\nwxHtmlHelpData::wxHtmlHelpData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -175,8 +171,7 @@ public:
 	// wxHtmlHelpData::wxHtmlHelpData(lua_Table * data)
 	static wxHtmlHelpData* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlHelpData::wxHtmlHelpData(lua_Table * data) function, expected prototype:\nwxHtmlHelpData::wxHtmlHelpData(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpData::wxHtmlHelpData(lua_Table * data) function, expected prototype:\nwxHtmlHelpData::wxHtmlHelpData(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -197,16 +192,14 @@ public:
 	// bool wxHtmlHelpData::AddBook(const wxString & book_url)
 	static int _bind_AddBook(lua_State *L) {
 		if (!_lg_typecheck_AddBook(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpData::AddBook(const wxString & book_url) function, expected prototype:\nbool wxHtmlHelpData::AddBook(const wxString & book_url)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpData::AddBook(const wxString & book_url) function, expected prototype:\nbool wxHtmlHelpData::AddBook(const wxString & book_url)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString book_url(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpData::AddBook(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpData::AddBook(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AddBook(book_url);
 		lua_pushboolean(L,lret?1:0);
@@ -217,16 +210,14 @@ public:
 	// wxString wxHtmlHelpData::FindPageById(int id)
 	static int _bind_FindPageById(lua_State *L) {
 		if (!_lg_typecheck_FindPageById(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxHtmlHelpData::FindPageById(int id) function, expected prototype:\nwxString wxHtmlHelpData::FindPageById(int id)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxHtmlHelpData::FindPageById(int id) function, expected prototype:\nwxString wxHtmlHelpData::FindPageById(int id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int id=(int)lua_tointeger(L,2);
 
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpData::FindPageById(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpData::FindPageById(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->FindPageById(id);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -237,16 +228,14 @@ public:
 	// wxString wxHtmlHelpData::FindPageByName(const wxString & page)
 	static int _bind_FindPageByName(lua_State *L) {
 		if (!_lg_typecheck_FindPageByName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxHtmlHelpData::FindPageByName(const wxString & page) function, expected prototype:\nwxString wxHtmlHelpData::FindPageByName(const wxString & page)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxHtmlHelpData::FindPageByName(const wxString & page) function, expected prototype:\nwxString wxHtmlHelpData::FindPageByName(const wxString & page)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString page(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpData::FindPageByName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpData::FindPageByName(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->FindPageByName(page);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -257,15 +246,13 @@ public:
 	// const wxHtmlBookRecArray & wxHtmlHelpData::GetBookRecArray() const
 	static int _bind_GetBookRecArray(lua_State *L) {
 		if (!_lg_typecheck_GetBookRecArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxHtmlBookRecArray & wxHtmlHelpData::GetBookRecArray() const function, expected prototype:\nconst wxHtmlBookRecArray & wxHtmlHelpData::GetBookRecArray() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxHtmlBookRecArray & wxHtmlHelpData::GetBookRecArray() const function, expected prototype:\nconst wxHtmlBookRecArray & wxHtmlHelpData::GetBookRecArray() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxHtmlBookRecArray & wxHtmlHelpData::GetBookRecArray() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxHtmlBookRecArray & wxHtmlHelpData::GetBookRecArray() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxHtmlBookRecArray* lret = &self->GetBookRecArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -278,15 +265,13 @@ public:
 	// const wxHtmlHelpDataItems & wxHtmlHelpData::GetContentsArray() const
 	static int _bind_GetContentsArray(lua_State *L) {
 		if (!_lg_typecheck_GetContentsArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxHtmlHelpDataItems & wxHtmlHelpData::GetContentsArray() const function, expected prototype:\nconst wxHtmlHelpDataItems & wxHtmlHelpData::GetContentsArray() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxHtmlHelpDataItems & wxHtmlHelpData::GetContentsArray() const function, expected prototype:\nconst wxHtmlHelpDataItems & wxHtmlHelpData::GetContentsArray() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxHtmlHelpDataItems & wxHtmlHelpData::GetContentsArray() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxHtmlHelpDataItems & wxHtmlHelpData::GetContentsArray() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxHtmlHelpDataItems* lret = &self->GetContentsArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -299,15 +284,13 @@ public:
 	// const wxHtmlHelpDataItems & wxHtmlHelpData::GetIndexArray() const
 	static int _bind_GetIndexArray(lua_State *L) {
 		if (!_lg_typecheck_GetIndexArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxHtmlHelpDataItems & wxHtmlHelpData::GetIndexArray() const function, expected prototype:\nconst wxHtmlHelpDataItems & wxHtmlHelpData::GetIndexArray() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxHtmlHelpDataItems & wxHtmlHelpData::GetIndexArray() const function, expected prototype:\nconst wxHtmlHelpDataItems & wxHtmlHelpData::GetIndexArray() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxHtmlHelpDataItems & wxHtmlHelpData::GetIndexArray() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxHtmlHelpDataItems & wxHtmlHelpData::GetIndexArray() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxHtmlHelpDataItems* lret = &self->GetIndexArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -320,16 +303,14 @@ public:
 	// void wxHtmlHelpData::SetTempDir(const wxString & path)
 	static int _bind_SetTempDir(lua_State *L) {
 		if (!_lg_typecheck_SetTempDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlHelpData::SetTempDir(const wxString & path) function, expected prototype:\nvoid wxHtmlHelpData::SetTempDir(const wxString & path)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpData::SetTempDir(const wxString & path) function, expected prototype:\nvoid wxHtmlHelpData::SetTempDir(const wxString & path)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpData::SetTempDir(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpData::SetTempDir(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTempDir(path);
 
@@ -339,15 +320,13 @@ public:
 	// wxClassInfo * wxHtmlHelpData::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlHelpData::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlHelpData::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlHelpData::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlHelpData::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlHelpData::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlHelpData::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxHtmlHelpData::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

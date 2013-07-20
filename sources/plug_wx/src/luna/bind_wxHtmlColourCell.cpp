@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlColourCell* self= (wxHtmlColourCell*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -194,8 +191,7 @@ public:
 	// wxHtmlColourCell::wxHtmlColourCell(const wxColour & clr, int flags = wxHTML_CLR_FOREGROUND)
 	static wxHtmlColourCell* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlColourCell::wxHtmlColourCell(const wxColour & clr, int flags = wxHTML_CLR_FOREGROUND) function, expected prototype:\nwxHtmlColourCell::wxHtmlColourCell(const wxColour & clr, int flags = wxHTML_CLR_FOREGROUND)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlColourCell::wxHtmlColourCell(const wxColour & clr, int flags = wxHTML_CLR_FOREGROUND) function, expected prototype:\nwxHtmlColourCell::wxHtmlColourCell(const wxColour & clr, int flags = wxHTML_CLR_FOREGROUND)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -213,8 +209,7 @@ public:
 	// wxHtmlColourCell::wxHtmlColourCell(lua_Table * data, const wxColour & clr, int flags = wxHTML_CLR_FOREGROUND)
 	static wxHtmlColourCell* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlColourCell::wxHtmlColourCell(lua_Table * data, const wxColour & clr, int flags = wxHTML_CLR_FOREGROUND) function, expected prototype:\nwxHtmlColourCell::wxHtmlColourCell(lua_Table * data, const wxColour & clr, int flags = wxHTML_CLR_FOREGROUND)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlColourCell::wxHtmlColourCell(lua_Table * data, const wxColour & clr, int flags = wxHTML_CLR_FOREGROUND) function, expected prototype:\nwxHtmlColourCell::wxHtmlColourCell(lua_Table * data, const wxColour & clr, int flags = wxHTML_CLR_FOREGROUND)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -243,15 +238,13 @@ public:
 	// wxClassInfo * wxHtmlColourCell::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlColourCell::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlColourCell::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlColourCell::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlColourCell::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlColourCell* self=Luna< wxObject >::checkSubType< wxHtmlColourCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlColourCell::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlColourCell::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxHtmlColourCell::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -264,8 +257,7 @@ public:
 	// bool wxHtmlColourCell::base_AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const
 	static int _bind_base_AdjustPagebreak(lua_State *L) {
 		if (!_lg_typecheck_base_AdjustPagebreak(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlColourCell::base_AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const function, expected prototype:\nbool wxHtmlColourCell::base_AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const\nClass arguments details:\narg 2 ID = 47342076\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlColourCell::base_AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const function, expected prototype:\nbool wxHtmlColourCell::base_AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const\nClass arguments details:\narg 2 ID = 47342076\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int* pagebreak=(int*)Luna< void >::check(L,2);
@@ -277,8 +269,7 @@ public:
 
 		wxHtmlColourCell* self=Luna< wxObject >::checkSubType< wxHtmlColourCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlColourCell::base_AdjustPagebreak(int *, wxArrayInt &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlColourCell::base_AdjustPagebreak(int *, wxArrayInt &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHtmlColourCell::AdjustPagebreak(pagebreak, known_pagebreaks);
 		lua_pushboolean(L,lret?1:0);
@@ -289,8 +280,7 @@ public:
 	// void wxHtmlColourCell::base_Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info)
 	static int _bind_base_Draw(lua_State *L) {
 		if (!_lg_typecheck_base_Draw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlColourCell::base_Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info) function, expected prototype:\nvoid wxHtmlColourCell::base_Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info)\nClass arguments details:\narg 1 ID = 56813631\narg 6 ID = 10696080\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlColourCell::base_Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info) function, expected prototype:\nvoid wxHtmlColourCell::base_Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info)\nClass arguments details:\narg 1 ID = 56813631\narg 6 ID = 10696080\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
@@ -310,8 +300,7 @@ public:
 
 		wxHtmlColourCell* self=Luna< wxObject >::checkSubType< wxHtmlColourCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlColourCell::base_Draw(wxDC &, int, int, int, int, wxHtmlRenderingInfo &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlColourCell::base_Draw(wxDC &, int, int, int, int, wxHtmlRenderingInfo &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHtmlColourCell::Draw(dc, x, y, view_y1, view_y2, info);
 
@@ -321,8 +310,7 @@ public:
 	// void wxHtmlColourCell::base_DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info)
 	static int _bind_base_DrawInvisible(lua_State *L) {
 		if (!_lg_typecheck_base_DrawInvisible(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlColourCell::base_DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info) function, expected prototype:\nvoid wxHtmlColourCell::base_DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info)\nClass arguments details:\narg 1 ID = 56813631\narg 4 ID = 10696080\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlColourCell::base_DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info) function, expected prototype:\nvoid wxHtmlColourCell::base_DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info)\nClass arguments details:\narg 1 ID = 56813631\narg 4 ID = 10696080\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
@@ -340,8 +328,7 @@ public:
 
 		wxHtmlColourCell* self=Luna< wxObject >::checkSubType< wxHtmlColourCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlColourCell::base_DrawInvisible(wxDC &, int, int, wxHtmlRenderingInfo &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlColourCell::base_DrawInvisible(wxDC &, int, int, wxHtmlRenderingInfo &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHtmlColourCell::DrawInvisible(dc, x, y, info);
 
@@ -351,17 +338,15 @@ public:
 	// const wxHtmlCell * wxHtmlColourCell::base_Find(int condition, const void * param) const
 	static int _bind_base_Find(lua_State *L) {
 		if (!_lg_typecheck_base_Find(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxHtmlCell * wxHtmlColourCell::base_Find(int condition, const void * param) const function, expected prototype:\nconst wxHtmlCell * wxHtmlColourCell::base_Find(int condition, const void * param) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxHtmlCell * wxHtmlColourCell::base_Find(int condition, const void * param) const function, expected prototype:\nconst wxHtmlCell * wxHtmlColourCell::base_Find(int condition, const void * param) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int condition=(int)lua_tointeger(L,2);
-		void* param=(Luna< void >::check(L,3));
+		const void* param=(Luna< void >::check(L,3));
 
 		wxHtmlColourCell* self=Luna< wxObject >::checkSubType< wxHtmlColourCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxHtmlCell * wxHtmlColourCell::base_Find(int, const void *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxHtmlCell * wxHtmlColourCell::base_Find(int, const void *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxHtmlCell * lret = self->wxHtmlColourCell::Find(condition, param);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -374,15 +359,13 @@ public:
 	// wxHtmlCell * wxHtmlColourCell::base_GetFirstChild() const
 	static int _bind_base_GetFirstChild(lua_State *L) {
 		if (!_lg_typecheck_base_GetFirstChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlCell * wxHtmlColourCell::base_GetFirstChild() const function, expected prototype:\nwxHtmlCell * wxHtmlColourCell::base_GetFirstChild() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlCell * wxHtmlColourCell::base_GetFirstChild() const function, expected prototype:\nwxHtmlCell * wxHtmlColourCell::base_GetFirstChild() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlColourCell* self=Luna< wxObject >::checkSubType< wxHtmlColourCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHtmlCell * wxHtmlColourCell::base_GetFirstChild() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxHtmlCell * wxHtmlColourCell::base_GetFirstChild() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxHtmlCell * lret = self->wxHtmlColourCell::GetFirstChild();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -395,8 +378,7 @@ public:
 	// wxHtmlLinkInfo * wxHtmlColourCell::base_GetLink(int x = 0, int y = 0) const
 	static int _bind_base_GetLink(lua_State *L) {
 		if (!_lg_typecheck_base_GetLink(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlLinkInfo * wxHtmlColourCell::base_GetLink(int x = 0, int y = 0) const function, expected prototype:\nwxHtmlLinkInfo * wxHtmlColourCell::base_GetLink(int x = 0, int y = 0) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlLinkInfo * wxHtmlColourCell::base_GetLink(int x = 0, int y = 0) const function, expected prototype:\nwxHtmlLinkInfo * wxHtmlColourCell::base_GetLink(int x = 0, int y = 0) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -406,8 +388,7 @@ public:
 
 		wxHtmlColourCell* self=Luna< wxObject >::checkSubType< wxHtmlColourCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHtmlLinkInfo * wxHtmlColourCell::base_GetLink(int, int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxHtmlLinkInfo * wxHtmlColourCell::base_GetLink(int, int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxHtmlLinkInfo * lret = self->wxHtmlColourCell::GetLink(x, y);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -420,16 +401,14 @@ public:
 	// void wxHtmlColourCell::base_Layout(int w)
 	static int _bind_base_Layout(lua_State *L) {
 		if (!_lg_typecheck_base_Layout(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlColourCell::base_Layout(int w) function, expected prototype:\nvoid wxHtmlColourCell::base_Layout(int w)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlColourCell::base_Layout(int w) function, expected prototype:\nvoid wxHtmlColourCell::base_Layout(int w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int w=(int)lua_tointeger(L,2);
 
 		wxHtmlColourCell* self=Luna< wxObject >::checkSubType< wxHtmlColourCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlColourCell::base_Layout(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlColourCell::base_Layout(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHtmlColourCell::Layout(w);
 
@@ -439,8 +418,7 @@ public:
 	// void wxHtmlColourCell::base_SetPos(int x, int y)
 	static int _bind_base_SetPos(lua_State *L) {
 		if (!_lg_typecheck_base_SetPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlColourCell::base_SetPos(int x, int y) function, expected prototype:\nvoid wxHtmlColourCell::base_SetPos(int x, int y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlColourCell::base_SetPos(int x, int y) function, expected prototype:\nvoid wxHtmlColourCell::base_SetPos(int x, int y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -448,8 +426,7 @@ public:
 
 		wxHtmlColourCell* self=Luna< wxObject >::checkSubType< wxHtmlColourCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlColourCell::base_SetPos(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlColourCell::base_SetPos(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHtmlColourCell::SetPos(x, y);
 

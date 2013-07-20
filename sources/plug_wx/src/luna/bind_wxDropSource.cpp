@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDropSource*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDropSource*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDropSource* rhs =(Luna< wxDropSource >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDropSource* self= (wxDropSource*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDropSource >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -253,8 +248,7 @@ public:
 	// wxDropSource::wxDropSource(wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)
 	static wxDropSource* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDropSource::wxDropSource(wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) function, expected prototype:\nwxDropSource::wxDropSource(wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxDropSource::wxDropSource(wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) function, expected prototype:\nwxDropSource::wxDropSource(wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -282,8 +276,7 @@ public:
 	// wxDropSource::wxDropSource(wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)
 	static wxDropSource* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDropSource::wxDropSource(wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) function, expected prototype:\nwxDropSource::wxDropSource(wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)\nClass arguments details:\narg 1 ID = 55398761\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxDropSource::wxDropSource(wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) function, expected prototype:\nwxDropSource::wxDropSource(wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)\nClass arguments details:\narg 1 ID = 55398761\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -316,8 +309,7 @@ public:
 	// wxDropSource::wxDropSource(lua_Table * data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)
 	static wxDropSource* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDropSource::wxDropSource(lua_Table * data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) function, expected prototype:\nwxDropSource::wxDropSource(lua_Table * data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxDropSource::wxDropSource(lua_Table * data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) function, expected prototype:\nwxDropSource::wxDropSource(lua_Table * data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -345,8 +337,7 @@ public:
 	// wxDropSource::wxDropSource(lua_Table * data, wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)
 	static wxDropSource* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDropSource::wxDropSource(lua_Table * data, wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) function, expected prototype:\nwxDropSource::wxDropSource(lua_Table * data, wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)\nClass arguments details:\narg 2 ID = 55398761\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 56813631\narg 6 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxDropSource::wxDropSource(lua_Table * data, wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) function, expected prototype:\nwxDropSource::wxDropSource(lua_Table * data, wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)\nClass arguments details:\narg 2 ID = 55398761\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 56813631\narg 6 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -392,8 +383,7 @@ public:
 	// wxDragResult wxDropSource::DoDragDrop(int flags = ::wxDrag_CopyOnly)
 	static int _bind_DoDragDrop(lua_State *L) {
 		if (!_lg_typecheck_DoDragDrop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDragResult wxDropSource::DoDragDrop(int flags = ::wxDrag_CopyOnly) function, expected prototype:\nwxDragResult wxDropSource::DoDragDrop(int flags = ::wxDrag_CopyOnly)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDragResult wxDropSource::DoDragDrop(int flags = ::wxDrag_CopyOnly) function, expected prototype:\nwxDragResult wxDropSource::DoDragDrop(int flags = ::wxDrag_CopyOnly)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -402,8 +392,7 @@ public:
 
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDragResult wxDropSource::DoDragDrop(int). Got : '%s'",typeid(Luna< wxDropSource >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDragResult wxDropSource::DoDragDrop(int). Got : '%s'\n%s",typeid(Luna< wxDropSource >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDragResult lret = self->DoDragDrop(flags);
 		lua_pushnumber(L,lret);
@@ -414,15 +403,13 @@ public:
 	// wxDataObject * wxDropSource::GetDataObject()
 	static int _bind_GetDataObject(lua_State *L) {
 		if (!_lg_typecheck_GetDataObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataObject * wxDropSource::GetDataObject() function, expected prototype:\nwxDataObject * wxDropSource::GetDataObject()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDataObject * wxDropSource::GetDataObject() function, expected prototype:\nwxDataObject * wxDropSource::GetDataObject()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataObject * wxDropSource::GetDataObject(). Got : '%s'",typeid(Luna< wxDropSource >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDataObject * wxDropSource::GetDataObject(). Got : '%s'\n%s",typeid(Luna< wxDropSource >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDataObject * lret = self->GetDataObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -435,16 +422,14 @@ public:
 	// bool wxDropSource::GiveFeedback(wxDragResult effect)
 	static int _bind_GiveFeedback(lua_State *L) {
 		if (!_lg_typecheck_GiveFeedback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDropSource::GiveFeedback(wxDragResult effect) function, expected prototype:\nbool wxDropSource::GiveFeedback(wxDragResult effect)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDropSource::GiveFeedback(wxDragResult effect) function, expected prototype:\nbool wxDropSource::GiveFeedback(wxDragResult effect)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDragResult effect=(wxDragResult)lua_tointeger(L,2);
 
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDropSource::GiveFeedback(wxDragResult). Got : '%s'",typeid(Luna< wxDropSource >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDropSource::GiveFeedback(wxDragResult). Got : '%s'\n%s",typeid(Luna< wxDropSource >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GiveFeedback(effect);
 		lua_pushboolean(L,lret?1:0);
@@ -455,8 +440,7 @@ public:
 	// void wxDropSource::SetCursor(wxDragResult res, const wxCursor & cursor)
 	static int _bind_SetCursor(lua_State *L) {
 		if (!_lg_typecheck_SetCursor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDropSource::SetCursor(wxDragResult res, const wxCursor & cursor) function, expected prototype:\nvoid wxDropSource::SetCursor(wxDragResult res, const wxCursor & cursor)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxDropSource::SetCursor(wxDragResult res, const wxCursor & cursor) function, expected prototype:\nvoid wxDropSource::SetCursor(wxDragResult res, const wxCursor & cursor)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDragResult res=(wxDragResult)lua_tointeger(L,2);
@@ -468,8 +452,7 @@ public:
 
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDropSource::SetCursor(wxDragResult, const wxCursor &). Got : '%s'",typeid(Luna< wxDropSource >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDropSource::SetCursor(wxDragResult, const wxCursor &). Got : '%s'\n%s",typeid(Luna< wxDropSource >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCursor(res, cursor);
 
@@ -479,8 +462,7 @@ public:
 	// void wxDropSource::SetData(wxDataObject & data)
 	static int _bind_SetData(lua_State *L) {
 		if (!_lg_typecheck_SetData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDropSource::SetData(wxDataObject & data) function, expected prototype:\nvoid wxDropSource::SetData(wxDataObject & data)\nClass arguments details:\narg 1 ID = 55398761\n");
+			luaL_error(L, "luna typecheck failed in void wxDropSource::SetData(wxDataObject & data) function, expected prototype:\nvoid wxDropSource::SetData(wxDataObject & data)\nClass arguments details:\narg 1 ID = 55398761\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataObject* data_ptr=(Luna< wxDataObject >::check(L,2));
@@ -491,8 +473,7 @@ public:
 
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDropSource::SetData(wxDataObject &). Got : '%s'",typeid(Luna< wxDropSource >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDropSource::SetData(wxDataObject &). Got : '%s'\n%s",typeid(Luna< wxDropSource >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetData(data);
 
@@ -502,8 +483,7 @@ public:
 	// wxDragResult wxDropSource::base_DoDragDrop(int flags = ::wxDrag_CopyOnly)
 	static int _bind_base_DoDragDrop(lua_State *L) {
 		if (!_lg_typecheck_base_DoDragDrop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDragResult wxDropSource::base_DoDragDrop(int flags = ::wxDrag_CopyOnly) function, expected prototype:\nwxDragResult wxDropSource::base_DoDragDrop(int flags = ::wxDrag_CopyOnly)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDragResult wxDropSource::base_DoDragDrop(int flags = ::wxDrag_CopyOnly) function, expected prototype:\nwxDragResult wxDropSource::base_DoDragDrop(int flags = ::wxDrag_CopyOnly)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -512,8 +492,7 @@ public:
 
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDragResult wxDropSource::base_DoDragDrop(int). Got : '%s'",typeid(Luna< wxDropSource >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDragResult wxDropSource::base_DoDragDrop(int). Got : '%s'\n%s",typeid(Luna< wxDropSource >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDragResult lret = self->wxDropSource::DoDragDrop(flags);
 		lua_pushnumber(L,lret);
@@ -524,16 +503,14 @@ public:
 	// bool wxDropSource::base_GiveFeedback(wxDragResult effect)
 	static int _bind_base_GiveFeedback(lua_State *L) {
 		if (!_lg_typecheck_base_GiveFeedback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDropSource::base_GiveFeedback(wxDragResult effect) function, expected prototype:\nbool wxDropSource::base_GiveFeedback(wxDragResult effect)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDropSource::base_GiveFeedback(wxDragResult effect) function, expected prototype:\nbool wxDropSource::base_GiveFeedback(wxDragResult effect)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDragResult effect=(wxDragResult)lua_tointeger(L,2);
 
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDropSource::base_GiveFeedback(wxDragResult). Got : '%s'",typeid(Luna< wxDropSource >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDropSource::base_GiveFeedback(wxDragResult). Got : '%s'\n%s",typeid(Luna< wxDropSource >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDropSource::GiveFeedback(effect);
 		lua_pushboolean(L,lret?1:0);

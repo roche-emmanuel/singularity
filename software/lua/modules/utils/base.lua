@@ -5,8 +5,12 @@ Base utility functions.
 
 ]]
 
+local Class = {}
+
 local write = require "utils.tostring"
 local log = require "log"
+local assert = require "utils.assert"
+local append = table.insert
 
 local errorlevel = function()
   -- find the first level, not defined in the same file as this
@@ -140,11 +144,236 @@ True is the OS is Windows, false otherwise.
 boolean base.is_windows
 ]=]
 
+--[[
+Function: escape
+
+escape any 'magic' characters in a string
+
+Parameters:
+	s - The string to be escaped.
+  
+Returns:
+	The escaped string.
+]]
+function Class.escape(s)
+    assert.String(s)
+    return (s:gsub('[%-%.%+%[%]%(%)%$%^%%%?%*]','%%%1'))
+end
+
+--[[
+Function: choose
+
+Return either of two values, depending on a condition.
+
+Parameters:
+	cond - The condition to check
+	value1 - value returned if cond is true
+	value2 - (optional) value returned if cond is false
+]]
+function Class.choose(cond,value1,value2)
+    if cond then 
+		return value1
+    else 
+		return value2
+    end
+end
+
+--[[
+Function: execute
+
+Execute a shell command.
+
+Parameters:
+	cmd - a shell command
+  
+Returns:
+	true if successful, false otherwise. Then the actual return code.
+]]
+function Class.execute(cmd)
+	local res1 = os.execute(cmd)
+	return res1==0, res1
+end
+
+--[[
+Function: trimLeft
+
+Trim a string on left only using the given pattern.
+
+Parameters:
+	s - The string to trim
+	re - the trim pattern. Note that this pattern should *not* contain the "^" or the "$" symbols or
+no trim operation will occur.
+  
+Returns:
+	The trimed string
+]]
+function Class.trimLeft(s,re,plain)
+	assert.String(s)
+	if re then assert.String(re) end
+	re = re or "%s+"
+	re = plain and Class.escape(re) or re
+	local res,num = s:gsub("^"..re,"")
+	if num > 0 then
+		return Class.trimLeft(res,re) -- we do not pass plain here: re is already escaped.
+	end
+	return s
+end
+
+--[[
+Function: trimRight
+
+Trim a string on right only using the given pattern.
+
+Parameters:
+	s - The string to trim
+	re - the trim pattern. Note that this pattern should *not* contain the "^" or the "$" symbols or
+no trim operation will occur.
+  
+Returns:
+	The trimed string
+]]
+function Class.trimRight(s,re,plain)
+	assert.String(s)
+	if re then assert.String(re) end
+	re = re or "%s+"
+	re = plain and Class.escape(re) or re
+	local res,num = s:gsub(re.."$","")
+	if num > 0 then
+		return Class.trimRight(res,re) -- we do not pass plain here: re is already escaped.
+	end
+	return s
+end
+
+--[[
+Function: trim
+
+Trim a string on left and right using the given pattern.
+
+Parameters:
+	s - The string to trim
+	re - the trim pattern. Note that this pattern should *not* contain the "^" or the "$" symbols or
+no trim operation will occur.
+  
+Returns:
+	The trimed string
+]]
+function Class.trim(s,re,plain)
+	return Class.trimLeft(Class.trimRight(s,re,plain),re,plain)
+end
+
+--[[
+Function: split
+
+split a string into a list of strings separated by a delimiter.
+
+Parameters:
+	s - The input string
+	re - A Lua string pattern; defaults to '%s+'
+	plain - don't use Lua patterns
+	n - optional maximum number of splits
+	
+Returns:
+	A list-like table. Raise an error if s is not a string.
+]]
+function Class.split(s,re,withEmpty,plain,n)
+    assert.String(s)
+	-- s = Class.trim(s,re,plain)
+	
+    local find,sub,append = string.find, string.sub, table.insert
+    local i1,ls = 1,{}
+    if not re then re = '%s+' end
+    if re == '' then return {s} end
+    while true do
+        local i2,i3 = find(s,re,i1,plain)
+        if not i2 then
+            local last = sub(s,i1)
+            if (withEmpty or last ~= '') then append(ls,last) end
+            if #ls == 1 and ls[1] == '' then
+                return {}
+            else
+                return ls
+            end
+        end
+		local val = sub(s,i1,i2-1)
+        if (withEmpty or val ~= '') then append(ls,val) end
+        if n and #ls == n then
+            ls[#ls] = sub(s,i1)
+            return ls
+        end
+        i1 = i3+1
+    end
+end
+
+--[[
+Function: readFile
+
+Return the contents of a file as a string.
+
+Parameters:
+	filename - The file path.
+	is_bin - (optional) open in binary mode if true.
+  
+Returns:
+	The content of the file as a string.
+]]
+function Class.readFile(filename,is_bin)
+    local mode = is_bin and 'b' or ''
+    assert.String(filename)
+    local f,err = io.open(filename,'r'..mode)
+    if not f then return throw (err) end
+    local res,err = f:read('*a')
+    f:close()
+    if not res then return throw (err) end
+    return res
+end
+
+--[[
+Function: writeFile
+
+Write a string to a file.
+
+Parameters:
+	filename - The file path
+	str - The string
+  
+Returns:
+	True in case of success, false and error message otherwise.
+]]
+function Class.writeFile(filename,str)
+    assert.String(filename)
+    assert.String(str)
+    local f,err = io.open(filename,'w')
+    if not f then return throw(err) end
+    f:write(str)
+    f:close()
+    return true
+end
+
+--[[
+Function: readLines
+
+Return the contents of a file as a list of lines.
+
+Parameters:
+	filename - The file path
+	
+Returns:
+	The file content as a table.
+]]
+function Class.readLines(filename)
+    assert.String(filename)
+    local f,err = io.open(filename,'r')
+    if not f then return throw(err) end
+    local res = {}
+    for line in f:lines() do
+        append(res,line)
+    end
+    f:close()
+    return res
+end
+
 ----------------------------------------------------------------------------
 -- Public interface:
-
-
-local Class = {}
 
 Class.stacktrace = stacktrace
 Class.printStacktrace = printStacktrace

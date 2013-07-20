@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGCDC* self= (wxGCDC*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -152,8 +149,7 @@ public:
 	// wxGCDC::wxGCDC(const wxWindowDC & windowDC)
 	static wxGCDC* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC(const wxWindowDC & windowDC) function, expected prototype:\nwxGCDC::wxGCDC(const wxWindowDC & windowDC)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC(const wxWindowDC & windowDC) function, expected prototype:\nwxGCDC::wxGCDC(const wxWindowDC & windowDC)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxWindowDC* windowDC_ptr=(Luna< wxObject >::checkSubType< wxWindowDC >(L,1));
@@ -168,8 +164,7 @@ public:
 	// wxGCDC::wxGCDC(const wxMemoryDC & memoryDC)
 	static wxGCDC* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC(const wxMemoryDC & memoryDC) function, expected prototype:\nwxGCDC::wxGCDC(const wxMemoryDC & memoryDC)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC(const wxMemoryDC & memoryDC) function, expected prototype:\nwxGCDC::wxGCDC(const wxMemoryDC & memoryDC)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxMemoryDC* memoryDC_ptr=(Luna< wxObject >::checkSubType< wxMemoryDC >(L,1));
@@ -184,8 +179,7 @@ public:
 	// wxGCDC::wxGCDC()
 	static wxGCDC* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC() function, expected prototype:\nwxGCDC::wxGCDC()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC() function, expected prototype:\nwxGCDC::wxGCDC()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -195,8 +189,7 @@ public:
 	// wxGCDC::wxGCDC(lua_Table * data, const wxWindowDC & windowDC)
 	static wxGCDC* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC(lua_Table * data, const wxWindowDC & windowDC) function, expected prototype:\nwxGCDC::wxGCDC(lua_Table * data, const wxWindowDC & windowDC)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC(lua_Table * data, const wxWindowDC & windowDC) function, expected prototype:\nwxGCDC::wxGCDC(lua_Table * data, const wxWindowDC & windowDC)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxWindowDC* windowDC_ptr=(Luna< wxObject >::checkSubType< wxWindowDC >(L,2));
@@ -211,8 +204,7 @@ public:
 	// wxGCDC::wxGCDC(lua_Table * data, const wxMemoryDC & memoryDC)
 	static wxGCDC* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC(lua_Table * data, const wxMemoryDC & memoryDC) function, expected prototype:\nwxGCDC::wxGCDC(lua_Table * data, const wxMemoryDC & memoryDC)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC(lua_Table * data, const wxMemoryDC & memoryDC) function, expected prototype:\nwxGCDC::wxGCDC(lua_Table * data, const wxMemoryDC & memoryDC)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxMemoryDC* memoryDC_ptr=(Luna< wxObject >::checkSubType< wxMemoryDC >(L,2));
@@ -227,8 +219,7 @@ public:
 	// wxGCDC::wxGCDC(lua_Table * data)
 	static wxGCDC* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC(lua_Table * data) function, expected prototype:\nwxGCDC::wxGCDC(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC(lua_Table * data) function, expected prototype:\nwxGCDC::wxGCDC(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -253,15 +244,13 @@ public:
 	// wxClassInfo * wxGCDC::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGCDC::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGCDC::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGCDC::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGCDC::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGCDC* self=Luna< wxObject >::checkSubType< wxGCDC >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxGCDC::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGCDC::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxGCDC::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

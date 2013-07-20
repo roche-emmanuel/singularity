@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxSingleInstanceChecker*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxSingleInstanceChecker*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSingleInstanceChecker* rhs =(Luna< wxSingleInstanceChecker >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSingleInstanceChecker* self= (wxSingleInstanceChecker*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxSingleInstanceChecker >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -146,8 +142,7 @@ public:
 	// wxSingleInstanceChecker::wxSingleInstanceChecker()
 	static wxSingleInstanceChecker* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSingleInstanceChecker::wxSingleInstanceChecker() function, expected prototype:\nwxSingleInstanceChecker::wxSingleInstanceChecker()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSingleInstanceChecker::wxSingleInstanceChecker() function, expected prototype:\nwxSingleInstanceChecker::wxSingleInstanceChecker()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -157,8 +152,7 @@ public:
 	// wxSingleInstanceChecker::wxSingleInstanceChecker(const wxString & name, const wxString & path = wxEmptyString)
 	static wxSingleInstanceChecker* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSingleInstanceChecker::wxSingleInstanceChecker(const wxString & name, const wxString & path = wxEmptyString) function, expected prototype:\nwxSingleInstanceChecker::wxSingleInstanceChecker(const wxString & name, const wxString & path = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxSingleInstanceChecker::wxSingleInstanceChecker(const wxString & name, const wxString & path = wxEmptyString) function, expected prototype:\nwxSingleInstanceChecker::wxSingleInstanceChecker(const wxString & name, const wxString & path = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -183,8 +177,7 @@ public:
 	// bool wxSingleInstanceChecker::Create(const wxString & name, const wxString & path = wxEmptyString)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxSingleInstanceChecker::Create(const wxString & name, const wxString & path = wxEmptyString) function, expected prototype:\nbool wxSingleInstanceChecker::Create(const wxString & name, const wxString & path = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxSingleInstanceChecker::Create(const wxString & name, const wxString & path = wxEmptyString) function, expected prototype:\nbool wxSingleInstanceChecker::Create(const wxString & name, const wxString & path = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -194,8 +187,7 @@ public:
 
 		wxSingleInstanceChecker* self=(Luna< wxSingleInstanceChecker >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleInstanceChecker::Create(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxSingleInstanceChecker >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxSingleInstanceChecker::Create(const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxSingleInstanceChecker >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Create(name, path);
 		lua_pushboolean(L,lret?1:0);
@@ -206,15 +198,13 @@ public:
 	// bool wxSingleInstanceChecker::CreateDefault()
 	static int _bind_CreateDefault(lua_State *L) {
 		if (!_lg_typecheck_CreateDefault(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxSingleInstanceChecker::CreateDefault() function, expected prototype:\nbool wxSingleInstanceChecker::CreateDefault()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxSingleInstanceChecker::CreateDefault() function, expected prototype:\nbool wxSingleInstanceChecker::CreateDefault()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSingleInstanceChecker* self=(Luna< wxSingleInstanceChecker >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleInstanceChecker::CreateDefault(). Got : '%s'",typeid(Luna< wxSingleInstanceChecker >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxSingleInstanceChecker::CreateDefault(). Got : '%s'\n%s",typeid(Luna< wxSingleInstanceChecker >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CreateDefault();
 		lua_pushboolean(L,lret?1:0);
@@ -225,15 +215,13 @@ public:
 	// bool wxSingleInstanceChecker::IsAnotherRunning() const
 	static int _bind_IsAnotherRunning(lua_State *L) {
 		if (!_lg_typecheck_IsAnotherRunning(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxSingleInstanceChecker::IsAnotherRunning() const function, expected prototype:\nbool wxSingleInstanceChecker::IsAnotherRunning() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxSingleInstanceChecker::IsAnotherRunning() const function, expected prototype:\nbool wxSingleInstanceChecker::IsAnotherRunning() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSingleInstanceChecker* self=(Luna< wxSingleInstanceChecker >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleInstanceChecker::IsAnotherRunning() const. Got : '%s'",typeid(Luna< wxSingleInstanceChecker >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxSingleInstanceChecker::IsAnotherRunning() const. Got : '%s'\n%s",typeid(Luna< wxSingleInstanceChecker >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsAnotherRunning();
 		lua_pushboolean(L,lret?1:0);

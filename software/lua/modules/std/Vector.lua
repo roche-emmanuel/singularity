@@ -1,5 +1,7 @@
 local Class = require("classBuilder"){name="Vector",bases="base.Object"};
 
+local oo = require "loop.cached"
+
 -- This module defines a simple vector class encapsulating a lua table.
 --local oo = require "loop.base"
 --local type = type
@@ -199,12 +201,32 @@ function Class:toTable()
     return newdata;
 end
 
+-- Execute the provided function for each element in the vector.
 function Class:foreach(func)
 	for _,v in ipairs(self._data) do
         func(v)
     end
 end
 
+--- Retrieve all the elements matching a given predicate function:
+function Class:getMatches(func)
+	local list = oo.classof(self)()
+	for _,v in ipairs(self._data) do
+		if func(v) then
+			list:push_back(v)
+		end
+	end
+	return list
+end
+
+-- Find the first element in the list that passes the given predicate test.
+function Class:find(func)
+	for _,v in ipairs(self._data) do
+		if func(v) then
+			return v
+		end
+	end
+end
 
 Class.last = Class.back
 Class.first = Class.front

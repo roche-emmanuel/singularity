@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLinuxDistributionInfo* self= (wxLinuxDistributionInfo*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxLinuxDistributionInfo >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -154,15 +151,13 @@ public:
 	// wxString wxLinuxDistributionInfo::Id()
 	static int _bind_getId(lua_State *L) {
 		if (!_lg_typecheck_getId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxLinuxDistributionInfo::Id() function, expected prototype:\nwxString wxLinuxDistributionInfo::Id()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxLinuxDistributionInfo::Id() function, expected prototype:\nwxString wxLinuxDistributionInfo::Id()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLinuxDistributionInfo* self=(Luna< wxLinuxDistributionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxLinuxDistributionInfo::Id(). Got : '%s'",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxLinuxDistributionInfo::Id(). Got : '%s'\n%s",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->Id;
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -173,15 +168,13 @@ public:
 	// wxString wxLinuxDistributionInfo::Release()
 	static int _bind_getRelease(lua_State *L) {
 		if (!_lg_typecheck_getRelease(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxLinuxDistributionInfo::Release() function, expected prototype:\nwxString wxLinuxDistributionInfo::Release()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxLinuxDistributionInfo::Release() function, expected prototype:\nwxString wxLinuxDistributionInfo::Release()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLinuxDistributionInfo* self=(Luna< wxLinuxDistributionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxLinuxDistributionInfo::Release(). Got : '%s'",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxLinuxDistributionInfo::Release(). Got : '%s'\n%s",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->Release;
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -192,15 +185,13 @@ public:
 	// wxString wxLinuxDistributionInfo::CodeName()
 	static int _bind_getCodeName(lua_State *L) {
 		if (!_lg_typecheck_getCodeName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxLinuxDistributionInfo::CodeName() function, expected prototype:\nwxString wxLinuxDistributionInfo::CodeName()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxLinuxDistributionInfo::CodeName() function, expected prototype:\nwxString wxLinuxDistributionInfo::CodeName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLinuxDistributionInfo* self=(Luna< wxLinuxDistributionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxLinuxDistributionInfo::CodeName(). Got : '%s'",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxLinuxDistributionInfo::CodeName(). Got : '%s'\n%s",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->CodeName;
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -211,15 +202,13 @@ public:
 	// wxString wxLinuxDistributionInfo::Description()
 	static int _bind_getDescription(lua_State *L) {
 		if (!_lg_typecheck_getDescription(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxLinuxDistributionInfo::Description() function, expected prototype:\nwxString wxLinuxDistributionInfo::Description()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxLinuxDistributionInfo::Description() function, expected prototype:\nwxString wxLinuxDistributionInfo::Description()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLinuxDistributionInfo* self=(Luna< wxLinuxDistributionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxLinuxDistributionInfo::Description(). Got : '%s'",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxLinuxDistributionInfo::Description(). Got : '%s'\n%s",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->Description;
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -230,16 +219,14 @@ public:
 	// void wxLinuxDistributionInfo::Id(wxString value)
 	static int _bind_setId(lua_State *L) {
 		if (!_lg_typecheck_setId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLinuxDistributionInfo::Id(wxString value) function, expected prototype:\nvoid wxLinuxDistributionInfo::Id(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxLinuxDistributionInfo::Id(wxString value) function, expected prototype:\nvoid wxLinuxDistributionInfo::Id(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxLinuxDistributionInfo* self=(Luna< wxLinuxDistributionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLinuxDistributionInfo::Id(wxString). Got : '%s'",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLinuxDistributionInfo::Id(wxString). Got : '%s'\n%s",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Id = value;
 
@@ -249,16 +236,14 @@ public:
 	// void wxLinuxDistributionInfo::Release(wxString value)
 	static int _bind_setRelease(lua_State *L) {
 		if (!_lg_typecheck_setRelease(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLinuxDistributionInfo::Release(wxString value) function, expected prototype:\nvoid wxLinuxDistributionInfo::Release(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxLinuxDistributionInfo::Release(wxString value) function, expected prototype:\nvoid wxLinuxDistributionInfo::Release(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxLinuxDistributionInfo* self=(Luna< wxLinuxDistributionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLinuxDistributionInfo::Release(wxString). Got : '%s'",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLinuxDistributionInfo::Release(wxString). Got : '%s'\n%s",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Release = value;
 
@@ -268,16 +253,14 @@ public:
 	// void wxLinuxDistributionInfo::CodeName(wxString value)
 	static int _bind_setCodeName(lua_State *L) {
 		if (!_lg_typecheck_setCodeName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLinuxDistributionInfo::CodeName(wxString value) function, expected prototype:\nvoid wxLinuxDistributionInfo::CodeName(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxLinuxDistributionInfo::CodeName(wxString value) function, expected prototype:\nvoid wxLinuxDistributionInfo::CodeName(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxLinuxDistributionInfo* self=(Luna< wxLinuxDistributionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLinuxDistributionInfo::CodeName(wxString). Got : '%s'",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLinuxDistributionInfo::CodeName(wxString). Got : '%s'\n%s",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CodeName = value;
 
@@ -287,16 +270,14 @@ public:
 	// void wxLinuxDistributionInfo::Description(wxString value)
 	static int _bind_setDescription(lua_State *L) {
 		if (!_lg_typecheck_setDescription(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLinuxDistributionInfo::Description(wxString value) function, expected prototype:\nvoid wxLinuxDistributionInfo::Description(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxLinuxDistributionInfo::Description(wxString value) function, expected prototype:\nvoid wxLinuxDistributionInfo::Description(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxLinuxDistributionInfo* self=(Luna< wxLinuxDistributionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLinuxDistributionInfo::Description(wxString). Got : '%s'",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLinuxDistributionInfo::Description(wxString). Got : '%s'\n%s",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Description = value;
 
@@ -308,8 +289,7 @@ public:
 	// bool wxLinuxDistributionInfo::operator==(const wxLinuxDistributionInfo & ldi) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxLinuxDistributionInfo::operator==(const wxLinuxDistributionInfo & ldi) const function, expected prototype:\nbool wxLinuxDistributionInfo::operator==(const wxLinuxDistributionInfo & ldi) const\nClass arguments details:\narg 1 ID = 82275018\n");
+			luaL_error(L, "luna typecheck failed in bool wxLinuxDistributionInfo::operator==(const wxLinuxDistributionInfo & ldi) const function, expected prototype:\nbool wxLinuxDistributionInfo::operator==(const wxLinuxDistributionInfo & ldi) const\nClass arguments details:\narg 1 ID = 82275018\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxLinuxDistributionInfo* ldi_ptr=(Luna< wxLinuxDistributionInfo >::check(L,2));
@@ -320,8 +300,7 @@ public:
 
 		wxLinuxDistributionInfo* self=(Luna< wxLinuxDistributionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLinuxDistributionInfo::operator==(const wxLinuxDistributionInfo &) const. Got : '%s'",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxLinuxDistributionInfo::operator==(const wxLinuxDistributionInfo &) const. Got : '%s'\n%s",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(ldi);
 		lua_pushboolean(L,lret?1:0);
@@ -332,8 +311,7 @@ public:
 	// bool wxLinuxDistributionInfo::operator!=(const wxLinuxDistributionInfo & ldi) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxLinuxDistributionInfo::operator!=(const wxLinuxDistributionInfo & ldi) const function, expected prototype:\nbool wxLinuxDistributionInfo::operator!=(const wxLinuxDistributionInfo & ldi) const\nClass arguments details:\narg 1 ID = 82275018\n");
+			luaL_error(L, "luna typecheck failed in bool wxLinuxDistributionInfo::operator!=(const wxLinuxDistributionInfo & ldi) const function, expected prototype:\nbool wxLinuxDistributionInfo::operator!=(const wxLinuxDistributionInfo & ldi) const\nClass arguments details:\narg 1 ID = 82275018\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxLinuxDistributionInfo* ldi_ptr=(Luna< wxLinuxDistributionInfo >::check(L,2));
@@ -344,8 +322,7 @@ public:
 
 		wxLinuxDistributionInfo* self=(Luna< wxLinuxDistributionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLinuxDistributionInfo::operator!=(const wxLinuxDistributionInfo &) const. Got : '%s'",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxLinuxDistributionInfo::operator!=(const wxLinuxDistributionInfo &) const. Got : '%s'\n%s",typeid(Luna< wxLinuxDistributionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(ldi);
 		lua_pushboolean(L,lret?1:0);

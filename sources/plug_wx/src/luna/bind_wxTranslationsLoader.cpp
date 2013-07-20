@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTranslationsLoader* self=(Luna< wxTranslationsLoader >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTranslationsLoader*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTranslationsLoader*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTranslationsLoader* rhs =(Luna< wxTranslationsLoader >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTranslationsLoader* self= (wxTranslationsLoader*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxTranslationsLoader >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -158,8 +153,7 @@ public:
 	// wxTranslationsLoader::wxTranslationsLoader(lua_Table * data)
 	static wxTranslationsLoader* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTranslationsLoader::wxTranslationsLoader(lua_Table * data) function, expected prototype:\nwxTranslationsLoader::wxTranslationsLoader(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTranslationsLoader::wxTranslationsLoader(lua_Table * data) function, expected prototype:\nwxTranslationsLoader::wxTranslationsLoader(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -171,8 +165,7 @@ public:
 	// wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang)
 	static int _bind_LoadCatalog(lua_State *L) {
 		if (!_lg_typecheck_LoadCatalog(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang) function, expected prototype:\nwxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang) function, expected prototype:\nwxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString domain(lua_tostring(L,2),lua_objlen(L,2));
@@ -180,8 +173,7 @@ public:
 
 		wxTranslationsLoader* self=(Luna< wxTranslationsLoader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxTranslationsLoader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxTranslationsLoader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxMsgCatalog * lret = self->LoadCatalog(domain, lang);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -194,16 +186,14 @@ public:
 	// wxArrayString wxTranslationsLoader::GetAvailableTranslations(const wxString & domain) const
 	static int _bind_GetAvailableTranslations(lua_State *L) {
 		if (!_lg_typecheck_GetAvailableTranslations(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxArrayString wxTranslationsLoader::GetAvailableTranslations(const wxString & domain) const function, expected prototype:\nwxArrayString wxTranslationsLoader::GetAvailableTranslations(const wxString & domain) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxArrayString wxTranslationsLoader::GetAvailableTranslations(const wxString & domain) const function, expected prototype:\nwxArrayString wxTranslationsLoader::GetAvailableTranslations(const wxString & domain) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString domain(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTranslationsLoader* self=(Luna< wxTranslationsLoader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxArrayString wxTranslationsLoader::GetAvailableTranslations(const wxString &) const. Got : '%s'",typeid(Luna< wxTranslationsLoader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxArrayString wxTranslationsLoader::GetAvailableTranslations(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxTranslationsLoader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxArrayString stack_lret = self->GetAvailableTranslations(domain);
 		wxArrayString* lret = new wxArrayString(stack_lret);

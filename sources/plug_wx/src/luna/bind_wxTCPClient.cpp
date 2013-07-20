@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTCPClient* self= (wxTCPClient*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -162,8 +159,7 @@ public:
 	// wxTCPClient::wxTCPClient()
 	static wxTCPClient* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTCPClient::wxTCPClient() function, expected prototype:\nwxTCPClient::wxTCPClient()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTCPClient::wxTCPClient() function, expected prototype:\nwxTCPClient::wxTCPClient()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -173,8 +169,7 @@ public:
 	// wxTCPClient::wxTCPClient(lua_Table * data)
 	static wxTCPClient* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTCPClient::wxTCPClient(lua_Table * data) function, expected prototype:\nwxTCPClient::wxTCPClient(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTCPClient::wxTCPClient(lua_Table * data) function, expected prototype:\nwxTCPClient::wxTCPClient(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -195,8 +190,7 @@ public:
 	// wxConnectionBase * wxTCPClient::MakeConnection(const wxString & host, const wxString & service, const wxString & topic)
 	static int _bind_MakeConnection(lua_State *L) {
 		if (!_lg_typecheck_MakeConnection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxConnectionBase * wxTCPClient::MakeConnection(const wxString & host, const wxString & service, const wxString & topic) function, expected prototype:\nwxConnectionBase * wxTCPClient::MakeConnection(const wxString & host, const wxString & service, const wxString & topic)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxConnectionBase * wxTCPClient::MakeConnection(const wxString & host, const wxString & service, const wxString & topic) function, expected prototype:\nwxConnectionBase * wxTCPClient::MakeConnection(const wxString & host, const wxString & service, const wxString & topic)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString host(lua_tostring(L,2),lua_objlen(L,2));
@@ -205,8 +199,7 @@ public:
 
 		wxTCPClient* self=Luna< wxObject >::checkSubType< wxTCPClient >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConnectionBase * wxTCPClient::MakeConnection(const wxString &, const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxConnectionBase * wxTCPClient::MakeConnection(const wxString &, const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxConnectionBase * lret = self->MakeConnection(host, service, topic);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -219,15 +212,13 @@ public:
 	// wxConnectionBase * wxTCPClient::OnMakeConnection()
 	static int _bind_OnMakeConnection(lua_State *L) {
 		if (!_lg_typecheck_OnMakeConnection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxConnectionBase * wxTCPClient::OnMakeConnection() function, expected prototype:\nwxConnectionBase * wxTCPClient::OnMakeConnection()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxConnectionBase * wxTCPClient::OnMakeConnection() function, expected prototype:\nwxConnectionBase * wxTCPClient::OnMakeConnection()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTCPClient* self=Luna< wxObject >::checkSubType< wxTCPClient >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConnectionBase * wxTCPClient::OnMakeConnection(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxConnectionBase * wxTCPClient::OnMakeConnection(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxConnectionBase * lret = self->OnMakeConnection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -240,16 +231,14 @@ public:
 	// bool wxTCPClient::ValidHost(const wxString & host)
 	static int _bind_ValidHost(lua_State *L) {
 		if (!_lg_typecheck_ValidHost(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPClient::ValidHost(const wxString & host) function, expected prototype:\nbool wxTCPClient::ValidHost(const wxString & host)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPClient::ValidHost(const wxString & host) function, expected prototype:\nbool wxTCPClient::ValidHost(const wxString & host)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString host(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTCPClient* self=Luna< wxObject >::checkSubType< wxTCPClient >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPClient::ValidHost(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPClient::ValidHost(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ValidHost(host);
 		lua_pushboolean(L,lret?1:0);
@@ -260,15 +249,13 @@ public:
 	// wxClassInfo * wxTCPClient::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxTCPClient::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxTCPClient::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxTCPClient::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxTCPClient::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTCPClient* self=Luna< wxObject >::checkSubType< wxTCPClient >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxTCPClient::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxTCPClient::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxTCPClient::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -281,8 +268,7 @@ public:
 	// wxConnectionBase * wxTCPClient::base_MakeConnection(const wxString & host, const wxString & service, const wxString & topic)
 	static int _bind_base_MakeConnection(lua_State *L) {
 		if (!_lg_typecheck_base_MakeConnection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxConnectionBase * wxTCPClient::base_MakeConnection(const wxString & host, const wxString & service, const wxString & topic) function, expected prototype:\nwxConnectionBase * wxTCPClient::base_MakeConnection(const wxString & host, const wxString & service, const wxString & topic)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxConnectionBase * wxTCPClient::base_MakeConnection(const wxString & host, const wxString & service, const wxString & topic) function, expected prototype:\nwxConnectionBase * wxTCPClient::base_MakeConnection(const wxString & host, const wxString & service, const wxString & topic)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString host(lua_tostring(L,2),lua_objlen(L,2));
@@ -291,8 +277,7 @@ public:
 
 		wxTCPClient* self=Luna< wxObject >::checkSubType< wxTCPClient >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConnectionBase * wxTCPClient::base_MakeConnection(const wxString &, const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxConnectionBase * wxTCPClient::base_MakeConnection(const wxString &, const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxConnectionBase * lret = self->wxTCPClient::MakeConnection(host, service, topic);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -305,15 +290,13 @@ public:
 	// wxConnectionBase * wxTCPClient::base_OnMakeConnection()
 	static int _bind_base_OnMakeConnection(lua_State *L) {
 		if (!_lg_typecheck_base_OnMakeConnection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxConnectionBase * wxTCPClient::base_OnMakeConnection() function, expected prototype:\nwxConnectionBase * wxTCPClient::base_OnMakeConnection()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxConnectionBase * wxTCPClient::base_OnMakeConnection() function, expected prototype:\nwxConnectionBase * wxTCPClient::base_OnMakeConnection()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTCPClient* self=Luna< wxObject >::checkSubType< wxTCPClient >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConnectionBase * wxTCPClient::base_OnMakeConnection(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxConnectionBase * wxTCPClient::base_OnMakeConnection(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxConnectionBase * lret = self->wxTCPClient::OnMakeConnection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -326,16 +309,14 @@ public:
 	// bool wxTCPClient::base_ValidHost(const wxString & host)
 	static int _bind_base_ValidHost(lua_State *L) {
 		if (!_lg_typecheck_base_ValidHost(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTCPClient::base_ValidHost(const wxString & host) function, expected prototype:\nbool wxTCPClient::base_ValidHost(const wxString & host)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTCPClient::base_ValidHost(const wxString & host) function, expected prototype:\nbool wxTCPClient::base_ValidHost(const wxString & host)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString host(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTCPClient* self=Luna< wxObject >::checkSubType< wxTCPClient >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPClient::base_ValidHost(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTCPClient::base_ValidHost(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTCPClient::ValidHost(host);
 		lua_pushboolean(L,lret?1:0);

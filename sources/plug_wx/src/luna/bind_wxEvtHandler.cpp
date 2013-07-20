@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* self= (wxEvtHandler*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -341,8 +338,7 @@ public:
 	// wxEvtHandler::wxEvtHandler()
 	static wxEvtHandler* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvtHandler::wxEvtHandler() function, expected prototype:\nwxEvtHandler::wxEvtHandler()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvtHandler::wxEvtHandler() function, expected prototype:\nwxEvtHandler::wxEvtHandler()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -352,8 +348,7 @@ public:
 	// wxEvtHandler::wxEvtHandler(lua_Table * data)
 	static wxEvtHandler* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvtHandler::wxEvtHandler(lua_Table * data) function, expected prototype:\nwxEvtHandler::wxEvtHandler(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvtHandler::wxEvtHandler(lua_Table * data) function, expected prototype:\nwxEvtHandler::wxEvtHandler(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -374,16 +369,14 @@ public:
 	// void wxEvtHandler::QueueEvent(wxEvent * event)
 	static int _bind_QueueEvent(lua_State *L) {
 		if (!_lg_typecheck_QueueEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxEvtHandler::QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxEvtHandler::QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxEvtHandler::QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxEvtHandler::QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEvtHandler::QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxEvtHandler::QueueEvent(wxEvent *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->QueueEvent(event);
 
@@ -393,8 +386,7 @@ public:
 	// void wxEvtHandler::AddPendingEvent(const wxEvent & event)
 	static int _bind_AddPendingEvent(lua_State *L) {
 		if (!_lg_typecheck_AddPendingEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxEvtHandler::AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxEvtHandler::AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxEvtHandler::AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxEvtHandler::AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
@@ -405,8 +397,7 @@ public:
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEvtHandler::AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxEvtHandler::AddPendingEvent(const wxEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddPendingEvent(event);
 
@@ -416,8 +407,7 @@ public:
 	// bool wxEvtHandler::ProcessEvent(wxEvent & event)
 	static int _bind_ProcessEvent(lua_State *L) {
 		if (!_lg_typecheck_ProcessEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxEvtHandler::ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxEvtHandler::ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
@@ -428,8 +418,7 @@ public:
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEvtHandler::ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxEvtHandler::ProcessEvent(wxEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -440,8 +429,7 @@ public:
 	// bool wxEvtHandler::ProcessEventLocally(wxEvent & event)
 	static int _bind_ProcessEventLocally(lua_State *L) {
 		if (!_lg_typecheck_ProcessEventLocally(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::ProcessEventLocally(wxEvent & event) function, expected prototype:\nbool wxEvtHandler::ProcessEventLocally(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::ProcessEventLocally(wxEvent & event) function, expected prototype:\nbool wxEvtHandler::ProcessEventLocally(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
@@ -452,8 +440,7 @@ public:
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEvtHandler::ProcessEventLocally(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxEvtHandler::ProcessEventLocally(wxEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ProcessEventLocally(event);
 		lua_pushboolean(L,lret?1:0);
@@ -464,15 +451,13 @@ public:
 	// void wxEvtHandler::DeletePendingEvents()
 	static int _bind_DeletePendingEvents(lua_State *L) {
 		if (!_lg_typecheck_DeletePendingEvents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxEvtHandler::DeletePendingEvents() function, expected prototype:\nvoid wxEvtHandler::DeletePendingEvents()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxEvtHandler::DeletePendingEvents() function, expected prototype:\nvoid wxEvtHandler::DeletePendingEvents()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEvtHandler::DeletePendingEvents(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxEvtHandler::DeletePendingEvents(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DeletePendingEvents();
 
@@ -482,15 +467,13 @@ public:
 	// void * wxEvtHandler::GetClientData() const
 	static int _bind_GetClientData(lua_State *L) {
 		if (!_lg_typecheck_GetClientData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * wxEvtHandler::GetClientData() const function, expected prototype:\nvoid * wxEvtHandler::GetClientData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * wxEvtHandler::GetClientData() const function, expected prototype:\nvoid * wxEvtHandler::GetClientData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxEvtHandler::GetClientData() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * wxEvtHandler::GetClientData() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->GetClientData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -503,15 +486,13 @@ public:
 	// wxClientData * wxEvtHandler::GetClientObject() const
 	static int _bind_GetClientObject(lua_State *L) {
 		if (!_lg_typecheck_GetClientObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClientData * wxEvtHandler::GetClientObject() const function, expected prototype:\nwxClientData * wxEvtHandler::GetClientObject() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClientData * wxEvtHandler::GetClientObject() const function, expected prototype:\nwxClientData * wxEvtHandler::GetClientObject() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClientData * wxEvtHandler::GetClientObject() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClientData * wxEvtHandler::GetClientObject() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClientData * lret = self->GetClientObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -524,16 +505,14 @@ public:
 	// void wxEvtHandler::SetClientData(void * data)
 	static int _bind_SetClientData(lua_State *L) {
 		if (!_lg_typecheck_SetClientData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxEvtHandler::SetClientData(void * data) function, expected prototype:\nvoid wxEvtHandler::SetClientData(void * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxEvtHandler::SetClientData(void * data) function, expected prototype:\nvoid wxEvtHandler::SetClientData(void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* data=(Luna< void >::check(L,2));
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEvtHandler::SetClientData(void *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxEvtHandler::SetClientData(void *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetClientData(data);
 
@@ -543,16 +522,14 @@ public:
 	// void wxEvtHandler::SetClientObject(wxClientData * data)
 	static int _bind_SetClientObject(lua_State *L) {
 		if (!_lg_typecheck_SetClientObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxEvtHandler::SetClientObject(wxClientData * data) function, expected prototype:\nvoid wxEvtHandler::SetClientObject(wxClientData * data)\nClass arguments details:\narg 1 ID = 50457573\n");
+			luaL_error(L, "luna typecheck failed in void wxEvtHandler::SetClientObject(wxClientData * data) function, expected prototype:\nvoid wxEvtHandler::SetClientObject(wxClientData * data)\nClass arguments details:\narg 1 ID = 50457573\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxClientData* data=(Luna< wxClientData >::check(L,2));
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEvtHandler::SetClientObject(wxClientData *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxEvtHandler::SetClientObject(wxClientData *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetClientObject(data);
 
@@ -562,15 +539,13 @@ public:
 	// bool wxEvtHandler::GetEvtHandlerEnabled() const
 	static int _bind_GetEvtHandlerEnabled(lua_State *L) {
 		if (!_lg_typecheck_GetEvtHandlerEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::GetEvtHandlerEnabled() const function, expected prototype:\nbool wxEvtHandler::GetEvtHandlerEnabled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::GetEvtHandlerEnabled() const function, expected prototype:\nbool wxEvtHandler::GetEvtHandlerEnabled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEvtHandler::GetEvtHandlerEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxEvtHandler::GetEvtHandlerEnabled() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetEvtHandlerEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -581,15 +556,13 @@ public:
 	// wxEvtHandler * wxEvtHandler::GetNextHandler() const
 	static int _bind_GetNextHandler(lua_State *L) {
 		if (!_lg_typecheck_GetNextHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvtHandler * wxEvtHandler::GetNextHandler() const function, expected prototype:\nwxEvtHandler * wxEvtHandler::GetNextHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvtHandler * wxEvtHandler::GetNextHandler() const function, expected prototype:\nwxEvtHandler * wxEvtHandler::GetNextHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvtHandler * wxEvtHandler::GetNextHandler() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvtHandler * wxEvtHandler::GetNextHandler() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvtHandler * lret = self->GetNextHandler();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -602,15 +575,13 @@ public:
 	// wxEvtHandler * wxEvtHandler::GetPreviousHandler() const
 	static int _bind_GetPreviousHandler(lua_State *L) {
 		if (!_lg_typecheck_GetPreviousHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvtHandler * wxEvtHandler::GetPreviousHandler() const function, expected prototype:\nwxEvtHandler * wxEvtHandler::GetPreviousHandler() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvtHandler * wxEvtHandler::GetPreviousHandler() const function, expected prototype:\nwxEvtHandler * wxEvtHandler::GetPreviousHandler() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvtHandler * wxEvtHandler::GetPreviousHandler() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvtHandler * wxEvtHandler::GetPreviousHandler() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvtHandler * lret = self->GetPreviousHandler();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -623,16 +594,14 @@ public:
 	// void wxEvtHandler::SetEvtHandlerEnabled(bool enabled)
 	static int _bind_SetEvtHandlerEnabled(lua_State *L) {
 		if (!_lg_typecheck_SetEvtHandlerEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxEvtHandler::SetEvtHandlerEnabled(bool enabled) function, expected prototype:\nvoid wxEvtHandler::SetEvtHandlerEnabled(bool enabled)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxEvtHandler::SetEvtHandlerEnabled(bool enabled) function, expected prototype:\nvoid wxEvtHandler::SetEvtHandlerEnabled(bool enabled)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enabled=(bool)(lua_toboolean(L,2)==1);
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEvtHandler::SetEvtHandlerEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxEvtHandler::SetEvtHandlerEnabled(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetEvtHandlerEnabled(enabled);
 
@@ -642,16 +611,14 @@ public:
 	// void wxEvtHandler::SetNextHandler(wxEvtHandler * handler)
 	static int _bind_SetNextHandler(lua_State *L) {
 		if (!_lg_typecheck_SetNextHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxEvtHandler::SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxEvtHandler::SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxEvtHandler::SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxEvtHandler::SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEvtHandler::SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxEvtHandler::SetNextHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetNextHandler(handler);
 
@@ -661,16 +628,14 @@ public:
 	// void wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler)
 	static int _bind_SetPreviousHandler(lua_State *L) {
 		if (!_lg_typecheck_SetPreviousHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEvtHandler::SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxEvtHandler::SetPreviousHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetPreviousHandler(handler);
 
@@ -680,15 +645,13 @@ public:
 	// void wxEvtHandler::Unlink()
 	static int _bind_Unlink(lua_State *L) {
 		if (!_lg_typecheck_Unlink(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxEvtHandler::Unlink() function, expected prototype:\nvoid wxEvtHandler::Unlink()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxEvtHandler::Unlink() function, expected prototype:\nvoid wxEvtHandler::Unlink()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEvtHandler::Unlink(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxEvtHandler::Unlink(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Unlink();
 
@@ -698,15 +661,13 @@ public:
 	// bool wxEvtHandler::IsUnlinked() const
 	static int _bind_IsUnlinked(lua_State *L) {
 		if (!_lg_typecheck_IsUnlinked(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::IsUnlinked() const function, expected prototype:\nbool wxEvtHandler::IsUnlinked() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::IsUnlinked() const function, expected prototype:\nbool wxEvtHandler::IsUnlinked() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEvtHandler::IsUnlinked() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxEvtHandler::IsUnlinked() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsUnlinked();
 		lua_pushboolean(L,lret?1:0);
@@ -717,8 +678,7 @@ public:
 	// static void wxEvtHandler::AddFilter(wxEventFilter * filter)
 	static int _bind_AddFilter(lua_State *L) {
 		if (!_lg_typecheck_AddFilter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxEvtHandler::AddFilter(wxEventFilter * filter) function, expected prototype:\nstatic void wxEvtHandler::AddFilter(wxEventFilter * filter)\nClass arguments details:\narg 1 ID = 81056638\n");
+			luaL_error(L, "luna typecheck failed in static void wxEvtHandler::AddFilter(wxEventFilter * filter) function, expected prototype:\nstatic void wxEvtHandler::AddFilter(wxEventFilter * filter)\nClass arguments details:\narg 1 ID = 81056638\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEventFilter* filter=(Luna< wxEventFilter >::check(L,1));
@@ -731,8 +691,7 @@ public:
 	// static void wxEvtHandler::RemoveFilter(wxEventFilter * filter)
 	static int _bind_RemoveFilter(lua_State *L) {
 		if (!_lg_typecheck_RemoveFilter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxEvtHandler::RemoveFilter(wxEventFilter * filter) function, expected prototype:\nstatic void wxEvtHandler::RemoveFilter(wxEventFilter * filter)\nClass arguments details:\narg 1 ID = 81056638\n");
+			luaL_error(L, "luna typecheck failed in static void wxEvtHandler::RemoveFilter(wxEventFilter * filter) function, expected prototype:\nstatic void wxEvtHandler::RemoveFilter(wxEventFilter * filter)\nClass arguments details:\narg 1 ID = 81056638\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEventFilter* filter=(Luna< wxEventFilter >::check(L,1));
@@ -745,8 +704,7 @@ public:
 	// bool wxEvtHandler::disconnect(wxEvtHandler * handler, int id, int id2, int eventType)
 	static int _bind_disconnect_overload_1(lua_State *L) {
 		if (!_lg_typecheck_disconnect_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::disconnect(wxEvtHandler * handler, int id, int id2, int eventType) function, expected prototype:\nbool wxEvtHandler::disconnect(wxEvtHandler * handler, int id, int id2, int eventType)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::disconnect(wxEvtHandler * handler, int id, int id2, int eventType) function, expected prototype:\nbool wxEvtHandler::disconnect(wxEvtHandler * handler, int id, int id2, int eventType)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1));
@@ -763,8 +721,7 @@ public:
 	// bool wxEvtHandler::disconnect(wxEvtHandler * handler, int id, int eventType)
 	static int _bind_disconnect_overload_2(lua_State *L) {
 		if (!_lg_typecheck_disconnect_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::disconnect(wxEvtHandler * handler, int id, int eventType) function, expected prototype:\nbool wxEvtHandler::disconnect(wxEvtHandler * handler, int id, int eventType)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::disconnect(wxEvtHandler * handler, int id, int eventType) function, expected prototype:\nbool wxEvtHandler::disconnect(wxEvtHandler * handler, int id, int eventType)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1));
@@ -780,8 +737,7 @@ public:
 	// bool wxEvtHandler::disconnect(wxEvtHandler * handler, int eventType)
 	static int _bind_disconnect_overload_3(lua_State *L) {
 		if (!_lg_typecheck_disconnect_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::disconnect(wxEvtHandler * handler, int eventType) function, expected prototype:\nbool wxEvtHandler::disconnect(wxEvtHandler * handler, int eventType)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::disconnect(wxEvtHandler * handler, int eventType) function, expected prototype:\nbool wxEvtHandler::disconnect(wxEvtHandler * handler, int eventType)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1));
@@ -806,8 +762,7 @@ public:
 	// int wxEvtHandler::connect(wxEvtHandler * handler, int id, int id2, int eventType, lua_Function * dummy, lua_State * L)
 	static int _bind_connect_overload_1(lua_State *L) {
 		if (!_lg_typecheck_connect_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxEvtHandler::connect(wxEvtHandler * handler, int id, int id2, int eventType, lua_Function * dummy, lua_State * L) function, expected prototype:\nint wxEvtHandler::connect(wxEvtHandler * handler, int id, int id2, int eventType, lua_Function * dummy, lua_State * L)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in int wxEvtHandler::connect(wxEvtHandler * handler, int id, int id2, int eventType, lua_Function * dummy, lua_State * L) function, expected prototype:\nint wxEvtHandler::connect(wxEvtHandler * handler, int id, int id2, int eventType, lua_Function * dummy, lua_State * L)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1));
@@ -821,8 +776,7 @@ public:
 	// int wxEvtHandler::connect(wxEvtHandler * handler, int id, int eventType, lua_Function * dummy, lua_State * L)
 	static int _bind_connect_overload_2(lua_State *L) {
 		if (!_lg_typecheck_connect_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxEvtHandler::connect(wxEvtHandler * handler, int id, int eventType, lua_Function * dummy, lua_State * L) function, expected prototype:\nint wxEvtHandler::connect(wxEvtHandler * handler, int id, int eventType, lua_Function * dummy, lua_State * L)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in int wxEvtHandler::connect(wxEvtHandler * handler, int id, int eventType, lua_Function * dummy, lua_State * L) function, expected prototype:\nint wxEvtHandler::connect(wxEvtHandler * handler, int id, int eventType, lua_Function * dummy, lua_State * L)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1));
@@ -835,8 +789,7 @@ public:
 	// int wxEvtHandler::connect(wxEvtHandler * handler, int eventType, lua_Function * dummy, lua_State * L)
 	static int _bind_connect_overload_3(lua_State *L) {
 		if (!_lg_typecheck_connect_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxEvtHandler::connect(wxEvtHandler * handler, int eventType, lua_Function * dummy, lua_State * L) function, expected prototype:\nint wxEvtHandler::connect(wxEvtHandler * handler, int eventType, lua_Function * dummy, lua_State * L)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in int wxEvtHandler::connect(wxEvtHandler * handler, int eventType, lua_Function * dummy, lua_State * L) function, expected prototype:\nint wxEvtHandler::connect(wxEvtHandler * handler, int eventType, lua_Function * dummy, lua_State * L)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1));
@@ -858,15 +811,13 @@ public:
 	// wxClassInfo * wxEvtHandler::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxEvtHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxEvtHandler::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxEvtHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxEvtHandler::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxEvtHandler::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxEvtHandler::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxEvtHandler::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -879,16 +830,14 @@ public:
 	// void wxEvtHandler::base_QueueEvent(wxEvent * event)
 	static int _bind_base_QueueEvent(lua_State *L) {
 		if (!_lg_typecheck_base_QueueEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxEvtHandler::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxEvtHandler::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxEvtHandler::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxEvtHandler::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEvtHandler::base_QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxEvtHandler::base_QueueEvent(wxEvent *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxEvtHandler::QueueEvent(event);
 
@@ -898,8 +847,7 @@ public:
 	// void wxEvtHandler::base_AddPendingEvent(const wxEvent & event)
 	static int _bind_base_AddPendingEvent(lua_State *L) {
 		if (!_lg_typecheck_base_AddPendingEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxEvtHandler::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxEvtHandler::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxEvtHandler::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxEvtHandler::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
@@ -910,8 +858,7 @@ public:
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEvtHandler::base_AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxEvtHandler::base_AddPendingEvent(const wxEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxEvtHandler::AddPendingEvent(event);
 
@@ -921,8 +868,7 @@ public:
 	// bool wxEvtHandler::base_ProcessEvent(wxEvent & event)
 	static int _bind_base_ProcessEvent(lua_State *L) {
 		if (!_lg_typecheck_base_ProcessEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxEvtHandler::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxEvtHandler::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
@@ -933,8 +879,7 @@ public:
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEvtHandler::base_ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxEvtHandler::base_ProcessEvent(wxEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxEvtHandler::ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -945,16 +890,14 @@ public:
 	// void wxEvtHandler::base_SetNextHandler(wxEvtHandler * handler)
 	static int _bind_base_SetNextHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetNextHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxEvtHandler::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxEvtHandler::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxEvtHandler::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxEvtHandler::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEvtHandler::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxEvtHandler::base_SetNextHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxEvtHandler::SetNextHandler(handler);
 
@@ -964,16 +907,14 @@ public:
 	// void wxEvtHandler::base_SetPreviousHandler(wxEvtHandler * handler)
 	static int _bind_base_SetPreviousHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxEvtHandler::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxEvtHandler::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxEvtHandler::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxEvtHandler::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEvtHandler::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxEvtHandler::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxEvtHandler::SetPreviousHandler(handler);
 
@@ -991,8 +932,7 @@ public:
 
 	static int _bind_baseCast_wxTrackable(lua_State *L) {
 		if (!_lg_typecheck_baseCast_wxTrackable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in baseCast_wxTrackable function, expected prototype:\nbaseCast()");
+			luaL_error(L, "luna typecheck failed in baseCast_wxTrackable function, expected prototype:\nbaseCast(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));

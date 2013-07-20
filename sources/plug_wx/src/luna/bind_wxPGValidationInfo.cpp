@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxPGValidationInfo*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxPGValidationInfo*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPGValidationInfo* rhs =(Luna< wxPGValidationInfo >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPGValidationInfo* self= (wxPGValidationInfo*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxPGValidationInfo >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -138,15 +134,13 @@ public:
 	// unsigned char wxPGValidationInfo::GetFailureBehavior()
 	static int _bind_GetFailureBehavior(lua_State *L) {
 		if (!_lg_typecheck_GetFailureBehavior(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char wxPGValidationInfo::GetFailureBehavior() function, expected prototype:\nunsigned char wxPGValidationInfo::GetFailureBehavior()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char wxPGValidationInfo::GetFailureBehavior() function, expected prototype:\nunsigned char wxPGValidationInfo::GetFailureBehavior()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPGValidationInfo* self=(Luna< wxPGValidationInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxPGValidationInfo::GetFailureBehavior(). Got : '%s'",typeid(Luna< wxPGValidationInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char wxPGValidationInfo::GetFailureBehavior(). Got : '%s'\n%s",typeid(Luna< wxPGValidationInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char lret = self->GetFailureBehavior();
 		lua_pushnumber(L,(int)lret);
@@ -157,15 +151,13 @@ public:
 	// const wxString & wxPGValidationInfo::GetFailureMessage() const
 	static int _bind_GetFailureMessage(lua_State *L) {
 		if (!_lg_typecheck_GetFailureMessage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxPGValidationInfo::GetFailureMessage() const function, expected prototype:\nconst wxString & wxPGValidationInfo::GetFailureMessage() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxPGValidationInfo::GetFailureMessage() const function, expected prototype:\nconst wxString & wxPGValidationInfo::GetFailureMessage() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPGValidationInfo* self=(Luna< wxPGValidationInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxPGValidationInfo::GetFailureMessage() const. Got : '%s'",typeid(Luna< wxPGValidationInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxPGValidationInfo::GetFailureMessage() const. Got : '%s'\n%s",typeid(Luna< wxPGValidationInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetFailureMessage();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -176,16 +168,14 @@ public:
 	// void wxPGValidationInfo::SetFailureBehavior(unsigned char failureBehavior)
 	static int _bind_SetFailureBehavior(lua_State *L) {
 		if (!_lg_typecheck_SetFailureBehavior(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGValidationInfo::SetFailureBehavior(unsigned char failureBehavior) function, expected prototype:\nvoid wxPGValidationInfo::SetFailureBehavior(unsigned char failureBehavior)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPGValidationInfo::SetFailureBehavior(unsigned char failureBehavior) function, expected prototype:\nvoid wxPGValidationInfo::SetFailureBehavior(unsigned char failureBehavior)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char failureBehavior = (unsigned char)(lua_tointeger(L,2));
 
 		wxPGValidationInfo* self=(Luna< wxPGValidationInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGValidationInfo::SetFailureBehavior(unsigned char). Got : '%s'",typeid(Luna< wxPGValidationInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPGValidationInfo::SetFailureBehavior(unsigned char). Got : '%s'\n%s",typeid(Luna< wxPGValidationInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFailureBehavior(failureBehavior);
 
@@ -195,16 +185,14 @@ public:
 	// void wxPGValidationInfo::SetFailureMessage(const wxString & message)
 	static int _bind_SetFailureMessage(lua_State *L) {
 		if (!_lg_typecheck_SetFailureMessage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGValidationInfo::SetFailureMessage(const wxString & message) function, expected prototype:\nvoid wxPGValidationInfo::SetFailureMessage(const wxString & message)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxPGValidationInfo::SetFailureMessage(const wxString & message) function, expected prototype:\nvoid wxPGValidationInfo::SetFailureMessage(const wxString & message)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString message(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxPGValidationInfo* self=(Luna< wxPGValidationInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGValidationInfo::SetFailureMessage(const wxString &). Got : '%s'",typeid(Luna< wxPGValidationInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPGValidationInfo::SetFailureMessage(const wxString &). Got : '%s'\n%s",typeid(Luna< wxPGValidationInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFailureMessage(message);
 

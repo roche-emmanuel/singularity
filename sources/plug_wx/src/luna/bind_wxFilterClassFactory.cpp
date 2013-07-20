@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFilterClassFactory* self= (wxFilterClassFactory*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -194,8 +191,7 @@ public:
 	// bool wxFilterClassFactory::CanHandle(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) const
 	static int _bind_CanHandle(lua_State *L) {
 		if (!_lg_typecheck_CanHandle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFilterClassFactory::CanHandle(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) const function, expected prototype:\nbool wxFilterClassFactory::CanHandle(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFilterClassFactory::CanHandle(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) const function, expected prototype:\nbool wxFilterClassFactory::CanHandle(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -205,8 +201,7 @@ public:
 
 		wxFilterClassFactory* self=Luna< wxObject >::checkSubType< wxFilterClassFactory >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilterClassFactory::CanHandle(const wxString &, wxStreamProtocolType) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFilterClassFactory::CanHandle(const wxString &, wxStreamProtocolType) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanHandle(protocol, type);
 		lua_pushboolean(L,lret?1:0);
@@ -217,15 +212,13 @@ public:
 	// const wxFilterClassFactory * wxFilterClassFactory::GetNext() const
 	static int _bind_GetNext(lua_State *L) {
 		if (!_lg_typecheck_GetNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxFilterClassFactory * wxFilterClassFactory::GetNext() const function, expected prototype:\nconst wxFilterClassFactory * wxFilterClassFactory::GetNext() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxFilterClassFactory * wxFilterClassFactory::GetNext() const function, expected prototype:\nconst wxFilterClassFactory * wxFilterClassFactory::GetNext() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFilterClassFactory* self=Luna< wxObject >::checkSubType< wxFilterClassFactory >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxFilterClassFactory * wxFilterClassFactory::GetNext() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxFilterClassFactory * wxFilterClassFactory::GetNext() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxFilterClassFactory * lret = self->GetNext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -238,15 +231,13 @@ public:
 	// wxString wxFilterClassFactory::GetProtocol() const
 	static int _bind_GetProtocol(lua_State *L) {
 		if (!_lg_typecheck_GetProtocol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxFilterClassFactory::GetProtocol() const function, expected prototype:\nwxString wxFilterClassFactory::GetProtocol() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxFilterClassFactory::GetProtocol() const function, expected prototype:\nwxString wxFilterClassFactory::GetProtocol() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFilterClassFactory* self=Luna< wxObject >::checkSubType< wxFilterClassFactory >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFilterClassFactory::GetProtocol() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxFilterClassFactory::GetProtocol() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetProtocol();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -257,8 +248,7 @@ public:
 	// wxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream & stream) const
 	static int _bind_NewStream_overload_1(lua_State *L) {
 		if (!_lg_typecheck_NewStream_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream & stream) const function, expected prototype:\nwxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream & stream) const\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream & stream) const function, expected prototype:\nwxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream & stream) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxInputStream* stream_ptr=(Luna< wxObject >::checkSubType< wxInputStream >(L,2));
@@ -269,8 +259,7 @@ public:
 
 		wxFilterClassFactory* self=Luna< wxObject >::checkSubType< wxFilterClassFactory >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFilterInputStream * lret = self->NewStream(stream);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -283,8 +272,7 @@ public:
 	// wxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream & stream) const
 	static int _bind_NewStream_overload_2(lua_State *L) {
 		if (!_lg_typecheck_NewStream_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream & stream) const function, expected prototype:\nwxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream & stream) const\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream & stream) const function, expected prototype:\nwxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream & stream) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxOutputStream* stream_ptr=(Luna< wxObject >::checkSubType< wxOutputStream >(L,2));
@@ -295,8 +283,7 @@ public:
 
 		wxFilterClassFactory* self=Luna< wxObject >::checkSubType< wxFilterClassFactory >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFilterOutputStream * lret = self->NewStream(stream);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -309,16 +296,14 @@ public:
 	// wxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream * stream) const
 	static int _bind_NewStream_overload_3(lua_State *L) {
 		if (!_lg_typecheck_NewStream_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream * stream) const function, expected prototype:\nwxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream * stream) const\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream * stream) const function, expected prototype:\nwxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream * stream) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxInputStream* stream=(Luna< wxObject >::checkSubType< wxInputStream >(L,2));
 
 		wxFilterClassFactory* self=Luna< wxObject >::checkSubType< wxFilterClassFactory >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFilterInputStream * lret = self->NewStream(stream);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -331,16 +316,14 @@ public:
 	// wxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream * stream) const
 	static int _bind_NewStream_overload_4(lua_State *L) {
 		if (!_lg_typecheck_NewStream_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream * stream) const function, expected prototype:\nwxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream * stream) const\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream * stream) const function, expected prototype:\nwxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream * stream) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxOutputStream* stream=(Luna< wxObject >::checkSubType< wxOutputStream >(L,2));
 
 		wxFilterClassFactory* self=Luna< wxObject >::checkSubType< wxFilterClassFactory >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFilterOutputStream * lret = self->NewStream(stream);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -364,16 +347,14 @@ public:
 	// wxString wxFilterClassFactory::PopExtension(const wxString & location) const
 	static int _bind_PopExtension(lua_State *L) {
 		if (!_lg_typecheck_PopExtension(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxFilterClassFactory::PopExtension(const wxString & location) const function, expected prototype:\nwxString wxFilterClassFactory::PopExtension(const wxString & location) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxFilterClassFactory::PopExtension(const wxString & location) const function, expected prototype:\nwxString wxFilterClassFactory::PopExtension(const wxString & location) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString location(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxFilterClassFactory* self=Luna< wxObject >::checkSubType< wxFilterClassFactory >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFilterClassFactory::PopExtension(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxFilterClassFactory::PopExtension(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->PopExtension(location);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -384,15 +365,13 @@ public:
 	// void wxFilterClassFactory::PushFront()
 	static int _bind_PushFront(lua_State *L) {
 		if (!_lg_typecheck_PushFront(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFilterClassFactory::PushFront() function, expected prototype:\nvoid wxFilterClassFactory::PushFront()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxFilterClassFactory::PushFront() function, expected prototype:\nvoid wxFilterClassFactory::PushFront()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFilterClassFactory* self=Luna< wxObject >::checkSubType< wxFilterClassFactory >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilterClassFactory::PushFront(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFilterClassFactory::PushFront(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PushFront();
 
@@ -402,15 +381,13 @@ public:
 	// void wxFilterClassFactory::Remove()
 	static int _bind_Remove(lua_State *L) {
 		if (!_lg_typecheck_Remove(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFilterClassFactory::Remove() function, expected prototype:\nvoid wxFilterClassFactory::Remove()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxFilterClassFactory::Remove() function, expected prototype:\nvoid wxFilterClassFactory::Remove()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFilterClassFactory* self=Luna< wxObject >::checkSubType< wxFilterClassFactory >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilterClassFactory::Remove(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFilterClassFactory::Remove(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Remove();
 
@@ -420,8 +397,7 @@ public:
 	// static const wxFilterClassFactory * wxFilterClassFactory::Find(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL)
 	static int _bind_Find(lua_State *L) {
 		if (!_lg_typecheck_Find(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static const wxFilterClassFactory * wxFilterClassFactory::Find(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) function, expected prototype:\nstatic const wxFilterClassFactory * wxFilterClassFactory::Find(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static const wxFilterClassFactory * wxFilterClassFactory::Find(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) function, expected prototype:\nstatic const wxFilterClassFactory * wxFilterClassFactory::Find(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -440,8 +416,7 @@ public:
 	// static const wxFilterClassFactory * wxFilterClassFactory::GetFirst()
 	static int _bind_GetFirst(lua_State *L) {
 		if (!_lg_typecheck_GetFirst(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static const wxFilterClassFactory * wxFilterClassFactory::GetFirst() function, expected prototype:\nstatic const wxFilterClassFactory * wxFilterClassFactory::GetFirst()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static const wxFilterClassFactory * wxFilterClassFactory::GetFirst() function, expected prototype:\nstatic const wxFilterClassFactory * wxFilterClassFactory::GetFirst()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -456,15 +431,13 @@ public:
 	// wxClassInfo * wxFilterClassFactory::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFilterClassFactory::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFilterClassFactory::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFilterClassFactory::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFilterClassFactory::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFilterClassFactory* self=Luna< wxObject >::checkSubType< wxFilterClassFactory >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFilterClassFactory::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFilterClassFactory::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxFilterClassFactory::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

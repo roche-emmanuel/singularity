@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxVisualAttributes*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxVisualAttributes*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxVisualAttributes* rhs =(Luna< wxVisualAttributes >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxVisualAttributes* self= (wxVisualAttributes*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxVisualAttributes >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -151,15 +147,13 @@ public:
 	// wxFont wxVisualAttributes::font()
 	static int _bind_getFont(lua_State *L) {
 		if (!_lg_typecheck_getFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFont wxVisualAttributes::font() function, expected prototype:\nwxFont wxVisualAttributes::font()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFont wxVisualAttributes::font() function, expected prototype:\nwxFont wxVisualAttributes::font()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVisualAttributes* self=(Luna< wxVisualAttributes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont wxVisualAttributes::font(). Got : '%s'",typeid(Luna< wxVisualAttributes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFont wxVisualAttributes::font(). Got : '%s'\n%s",typeid(Luna< wxVisualAttributes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxFont* lret = &self->font;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -172,15 +166,13 @@ public:
 	// wxColour wxVisualAttributes::colFg()
 	static int _bind_getColFg(lua_State *L) {
 		if (!_lg_typecheck_getColFg(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxVisualAttributes::colFg() function, expected prototype:\nwxColour wxVisualAttributes::colFg()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxVisualAttributes::colFg() function, expected prototype:\nwxColour wxVisualAttributes::colFg()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVisualAttributes* self=(Luna< wxVisualAttributes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxVisualAttributes::colFg(). Got : '%s'",typeid(Luna< wxVisualAttributes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxVisualAttributes::colFg(). Got : '%s'\n%s",typeid(Luna< wxVisualAttributes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxColour* lret = &self->colFg;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -193,15 +185,13 @@ public:
 	// wxColour wxVisualAttributes::colBg()
 	static int _bind_getColBg(lua_State *L) {
 		if (!_lg_typecheck_getColBg(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxVisualAttributes::colBg() function, expected prototype:\nwxColour wxVisualAttributes::colBg()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxVisualAttributes::colBg() function, expected prototype:\nwxColour wxVisualAttributes::colBg()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVisualAttributes* self=(Luna< wxVisualAttributes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxVisualAttributes::colBg(). Got : '%s'",typeid(Luna< wxVisualAttributes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxVisualAttributes::colBg(). Got : '%s'\n%s",typeid(Luna< wxVisualAttributes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxColour* lret = &self->colBg;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -214,8 +204,7 @@ public:
 	// void wxVisualAttributes::font(wxFont value)
 	static int _bind_setFont(lua_State *L) {
 		if (!_lg_typecheck_setFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxVisualAttributes::font(wxFont value) function, expected prototype:\nvoid wxVisualAttributes::font(wxFont value)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxVisualAttributes::font(wxFont value) function, expected prototype:\nvoid wxVisualAttributes::font(wxFont value)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFont* value_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -226,8 +215,7 @@ public:
 
 		wxVisualAttributes* self=(Luna< wxVisualAttributes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVisualAttributes::font(wxFont). Got : '%s'",typeid(Luna< wxVisualAttributes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxVisualAttributes::font(wxFont). Got : '%s'\n%s",typeid(Luna< wxVisualAttributes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->font = value;
 
@@ -237,8 +225,7 @@ public:
 	// void wxVisualAttributes::colFg(wxColour value)
 	static int _bind_setColFg(lua_State *L) {
 		if (!_lg_typecheck_setColFg(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxVisualAttributes::colFg(wxColour value) function, expected prototype:\nvoid wxVisualAttributes::colFg(wxColour value)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxVisualAttributes::colFg(wxColour value) function, expected prototype:\nvoid wxVisualAttributes::colFg(wxColour value)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxColour* value_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -249,8 +236,7 @@ public:
 
 		wxVisualAttributes* self=(Luna< wxVisualAttributes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVisualAttributes::colFg(wxColour). Got : '%s'",typeid(Luna< wxVisualAttributes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxVisualAttributes::colFg(wxColour). Got : '%s'\n%s",typeid(Luna< wxVisualAttributes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->colFg = value;
 
@@ -260,8 +246,7 @@ public:
 	// void wxVisualAttributes::colBg(wxColour value)
 	static int _bind_setColBg(lua_State *L) {
 		if (!_lg_typecheck_setColBg(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxVisualAttributes::colBg(wxColour value) function, expected prototype:\nvoid wxVisualAttributes::colBg(wxColour value)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxVisualAttributes::colBg(wxColour value) function, expected prototype:\nvoid wxVisualAttributes::colBg(wxColour value)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxColour* value_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -272,8 +257,7 @@ public:
 
 		wxVisualAttributes* self=(Luna< wxVisualAttributes >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVisualAttributes::colBg(wxColour). Got : '%s'",typeid(Luna< wxVisualAttributes >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxVisualAttributes::colBg(wxColour). Got : '%s'\n%s",typeid(Luna< wxVisualAttributes >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->colBg = value;
 

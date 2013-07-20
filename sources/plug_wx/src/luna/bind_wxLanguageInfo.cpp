@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxLanguageInfo*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxLanguageInfo*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLanguageInfo* rhs =(Luna< wxLanguageInfo >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLanguageInfo* self= (wxLanguageInfo*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxLanguageInfo >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -202,15 +198,13 @@ public:
 	// unsigned int wxLanguageInfo::GetLCID() const
 	static int _bind_GetLCID(lua_State *L) {
 		if (!_lg_typecheck_GetLCID(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int wxLanguageInfo::GetLCID() const function, expected prototype:\nunsigned int wxLanguageInfo::GetLCID() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int wxLanguageInfo::GetLCID() const function, expected prototype:\nunsigned int wxLanguageInfo::GetLCID() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxLanguageInfo::GetLCID() const. Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int wxLanguageInfo::GetLCID() const. Got : '%s'\n%s",typeid(Luna< wxLanguageInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->GetLCID();
 		lua_pushnumber(L,lret);
@@ -221,15 +215,13 @@ public:
 	// wxString wxLanguageInfo::GetLocaleName() const
 	static int _bind_GetLocaleName(lua_State *L) {
 		if (!_lg_typecheck_GetLocaleName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxLanguageInfo::GetLocaleName() const function, expected prototype:\nwxString wxLanguageInfo::GetLocaleName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxLanguageInfo::GetLocaleName() const function, expected prototype:\nwxString wxLanguageInfo::GetLocaleName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxLanguageInfo::GetLocaleName() const. Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxLanguageInfo::GetLocaleName() const. Got : '%s'\n%s",typeid(Luna< wxLanguageInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetLocaleName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -240,15 +232,13 @@ public:
 	// int wxLanguageInfo::Language()
 	static int _bind_getLanguage(lua_State *L) {
 		if (!_lg_typecheck_getLanguage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxLanguageInfo::Language() function, expected prototype:\nint wxLanguageInfo::Language()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxLanguageInfo::Language() function, expected prototype:\nint wxLanguageInfo::Language()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxLanguageInfo::Language(). Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxLanguageInfo::Language(). Got : '%s'\n%s",typeid(Luna< wxLanguageInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Language;
 		lua_pushnumber(L,lret);
@@ -259,15 +249,13 @@ public:
 	// wxString wxLanguageInfo::CanonicalName()
 	static int _bind_getCanonicalName(lua_State *L) {
 		if (!_lg_typecheck_getCanonicalName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxLanguageInfo::CanonicalName() function, expected prototype:\nwxString wxLanguageInfo::CanonicalName()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxLanguageInfo::CanonicalName() function, expected prototype:\nwxString wxLanguageInfo::CanonicalName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxLanguageInfo::CanonicalName(). Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxLanguageInfo::CanonicalName(). Got : '%s'\n%s",typeid(Luna< wxLanguageInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->CanonicalName;
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -278,15 +266,13 @@ public:
 	// unsigned int wxLanguageInfo::WinLang()
 	static int _bind_getWinLang(lua_State *L) {
 		if (!_lg_typecheck_getWinLang(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int wxLanguageInfo::WinLang() function, expected prototype:\nunsigned int wxLanguageInfo::WinLang()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int wxLanguageInfo::WinLang() function, expected prototype:\nunsigned int wxLanguageInfo::WinLang()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxLanguageInfo::WinLang(). Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int wxLanguageInfo::WinLang(). Got : '%s'\n%s",typeid(Luna< wxLanguageInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->WinLang;
 		lua_pushnumber(L,lret);
@@ -297,15 +283,13 @@ public:
 	// unsigned int wxLanguageInfo::WinSublang()
 	static int _bind_getWinSublang(lua_State *L) {
 		if (!_lg_typecheck_getWinSublang(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int wxLanguageInfo::WinSublang() function, expected prototype:\nunsigned int wxLanguageInfo::WinSublang()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int wxLanguageInfo::WinSublang() function, expected prototype:\nunsigned int wxLanguageInfo::WinSublang()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxLanguageInfo::WinSublang(). Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int wxLanguageInfo::WinSublang(). Got : '%s'\n%s",typeid(Luna< wxLanguageInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->WinSublang;
 		lua_pushnumber(L,lret);
@@ -316,15 +300,13 @@ public:
 	// wxString wxLanguageInfo::Description()
 	static int _bind_getDescription(lua_State *L) {
 		if (!_lg_typecheck_getDescription(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxLanguageInfo::Description() function, expected prototype:\nwxString wxLanguageInfo::Description()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxLanguageInfo::Description() function, expected prototype:\nwxString wxLanguageInfo::Description()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxLanguageInfo::Description(). Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxLanguageInfo::Description(). Got : '%s'\n%s",typeid(Luna< wxLanguageInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->Description;
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -335,15 +317,13 @@ public:
 	// wxLayoutDirection wxLanguageInfo::LayoutDirection()
 	static int _bind_getLayoutDirection(lua_State *L) {
 		if (!_lg_typecheck_getLayoutDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxLayoutDirection wxLanguageInfo::LayoutDirection() function, expected prototype:\nwxLayoutDirection wxLanguageInfo::LayoutDirection()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxLayoutDirection wxLanguageInfo::LayoutDirection() function, expected prototype:\nwxLayoutDirection wxLanguageInfo::LayoutDirection()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxLanguageInfo::LayoutDirection(). Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxLanguageInfo::LayoutDirection(). Got : '%s'\n%s",typeid(Luna< wxLanguageInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxLayoutDirection lret = self->LayoutDirection;
 		lua_pushnumber(L,lret);
@@ -354,16 +334,14 @@ public:
 	// void wxLanguageInfo::Language(int value)
 	static int _bind_setLanguage(lua_State *L) {
 		if (!_lg_typecheck_setLanguage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLanguageInfo::Language(int value) function, expected prototype:\nvoid wxLanguageInfo::Language(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxLanguageInfo::Language(int value) function, expected prototype:\nvoid wxLanguageInfo::Language(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLanguageInfo::Language(int). Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLanguageInfo::Language(int). Got : '%s'\n%s",typeid(Luna< wxLanguageInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Language = value;
 
@@ -373,16 +351,14 @@ public:
 	// void wxLanguageInfo::CanonicalName(wxString value)
 	static int _bind_setCanonicalName(lua_State *L) {
 		if (!_lg_typecheck_setCanonicalName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLanguageInfo::CanonicalName(wxString value) function, expected prototype:\nvoid wxLanguageInfo::CanonicalName(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxLanguageInfo::CanonicalName(wxString value) function, expected prototype:\nvoid wxLanguageInfo::CanonicalName(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLanguageInfo::CanonicalName(wxString). Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLanguageInfo::CanonicalName(wxString). Got : '%s'\n%s",typeid(Luna< wxLanguageInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CanonicalName = value;
 
@@ -392,16 +368,14 @@ public:
 	// void wxLanguageInfo::WinLang(unsigned int value)
 	static int _bind_setWinLang(lua_State *L) {
 		if (!_lg_typecheck_setWinLang(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLanguageInfo::WinLang(unsigned int value) function, expected prototype:\nvoid wxLanguageInfo::WinLang(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxLanguageInfo::WinLang(unsigned int value) function, expected prototype:\nvoid wxLanguageInfo::WinLang(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLanguageInfo::WinLang(unsigned int). Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLanguageInfo::WinLang(unsigned int). Got : '%s'\n%s",typeid(Luna< wxLanguageInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WinLang = value;
 
@@ -411,16 +385,14 @@ public:
 	// void wxLanguageInfo::WinSublang(unsigned int value)
 	static int _bind_setWinSublang(lua_State *L) {
 		if (!_lg_typecheck_setWinSublang(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLanguageInfo::WinSublang(unsigned int value) function, expected prototype:\nvoid wxLanguageInfo::WinSublang(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxLanguageInfo::WinSublang(unsigned int value) function, expected prototype:\nvoid wxLanguageInfo::WinSublang(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLanguageInfo::WinSublang(unsigned int). Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLanguageInfo::WinSublang(unsigned int). Got : '%s'\n%s",typeid(Luna< wxLanguageInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WinSublang = value;
 
@@ -430,16 +402,14 @@ public:
 	// void wxLanguageInfo::Description(wxString value)
 	static int _bind_setDescription(lua_State *L) {
 		if (!_lg_typecheck_setDescription(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLanguageInfo::Description(wxString value) function, expected prototype:\nvoid wxLanguageInfo::Description(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxLanguageInfo::Description(wxString value) function, expected prototype:\nvoid wxLanguageInfo::Description(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLanguageInfo::Description(wxString). Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLanguageInfo::Description(wxString). Got : '%s'\n%s",typeid(Luna< wxLanguageInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Description = value;
 
@@ -449,16 +419,14 @@ public:
 	// void wxLanguageInfo::LayoutDirection(wxLayoutDirection value)
 	static int _bind_setLayoutDirection(lua_State *L) {
 		if (!_lg_typecheck_setLayoutDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLanguageInfo::LayoutDirection(wxLayoutDirection value) function, expected prototype:\nvoid wxLanguageInfo::LayoutDirection(wxLayoutDirection value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxLanguageInfo::LayoutDirection(wxLayoutDirection value) function, expected prototype:\nvoid wxLanguageInfo::LayoutDirection(wxLayoutDirection value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLayoutDirection value=(wxLayoutDirection)lua_tointeger(L,2);
 
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLanguageInfo::LayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLanguageInfo::LayoutDirection(wxLayoutDirection). Got : '%s'\n%s",typeid(Luna< wxLanguageInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LayoutDirection = value;
 

@@ -57,6 +57,8 @@ Group: utils  {
    File: assert  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/assert.lua)
    File: base  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/base.lua)
    File: buildclass  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/buildclass.lua)
+   File: compat  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/compat.lua)
+   File: dir  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/dir.lua)
    File: path  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/path.lua)
    File: sgtlog  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/sgtlog.lua)
    File: tostring  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/tostring.lua)

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDir*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDir*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDir* rhs =(Luna< wxDir >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDir* self= (wxDir*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDir >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -241,8 +237,7 @@ public:
 	// wxDir::wxDir()
 	static wxDir* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDir::wxDir() function, expected prototype:\nwxDir::wxDir()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDir::wxDir() function, expected prototype:\nwxDir::wxDir()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -252,8 +247,7 @@ public:
 	// wxDir::wxDir(const wxString & dir)
 	static wxDir* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDir::wxDir(const wxString & dir) function, expected prototype:\nwxDir::wxDir(const wxString & dir)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDir::wxDir(const wxString & dir) function, expected prototype:\nwxDir::wxDir(const wxString & dir)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString dir(lua_tostring(L,1),lua_objlen(L,1));
@@ -275,8 +269,7 @@ public:
 	// bool wxDir::GetFirst(wxString * filename, const wxString & filespec = wxEmptyString, int flags = ::wxDIR_DEFAULT) const
 	static int _bind_GetFirst(lua_State *L) {
 		if (!_lg_typecheck_GetFirst(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDir::GetFirst(wxString * filename, const wxString & filespec = wxEmptyString, int flags = ::wxDIR_DEFAULT) const function, expected prototype:\nbool wxDir::GetFirst(wxString * filename, const wxString & filespec = wxEmptyString, int flags = ::wxDIR_DEFAULT) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxDir::GetFirst(wxString * filename, const wxString & filespec = wxEmptyString, int flags = ::wxDIR_DEFAULT) const function, expected prototype:\nbool wxDir::GetFirst(wxString * filename, const wxString & filespec = wxEmptyString, int flags = ::wxDIR_DEFAULT) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -287,8 +280,7 @@ public:
 
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDir::GetFirst(wxString *, const wxString &, int) const. Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDir::GetFirst(wxString *, const wxString &, int) const. Got : '%s'\n%s",typeid(Luna< wxDir >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetFirst(&filename, filespec, flags);
 		lua_pushboolean(L,lret?1:0);
@@ -299,15 +291,13 @@ public:
 	// wxString wxDir::GetName() const
 	static int _bind_GetName(lua_State *L) {
 		if (!_lg_typecheck_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxDir::GetName() const function, expected prototype:\nwxString wxDir::GetName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxDir::GetName() const function, expected prototype:\nwxString wxDir::GetName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDir::GetName() const. Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxDir::GetName() const. Got : '%s'\n%s",typeid(Luna< wxDir >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -318,16 +308,14 @@ public:
 	// bool wxDir::GetNext(wxString * filename) const
 	static int _bind_GetNext(lua_State *L) {
 		if (!_lg_typecheck_GetNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDir::GetNext(wxString * filename) const function, expected prototype:\nbool wxDir::GetNext(wxString * filename) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxDir::GetNext(wxString * filename) const function, expected prototype:\nbool wxDir::GetNext(wxString * filename) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDir::GetNext(wxString *) const. Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDir::GetNext(wxString *) const. Got : '%s'\n%s",typeid(Luna< wxDir >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetNext(&filename);
 		lua_pushboolean(L,lret?1:0);
@@ -338,8 +326,7 @@ public:
 	// bool wxDir::HasFiles(const wxString & filespec = wxEmptyString) const
 	static int _bind_HasFiles(lua_State *L) {
 		if (!_lg_typecheck_HasFiles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDir::HasFiles(const wxString & filespec = wxEmptyString) const function, expected prototype:\nbool wxDir::HasFiles(const wxString & filespec = wxEmptyString) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxDir::HasFiles(const wxString & filespec = wxEmptyString) const function, expected prototype:\nbool wxDir::HasFiles(const wxString & filespec = wxEmptyString) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -348,8 +335,7 @@ public:
 
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDir::HasFiles(const wxString &) const. Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDir::HasFiles(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxDir >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasFiles(filespec);
 		lua_pushboolean(L,lret?1:0);
@@ -360,8 +346,7 @@ public:
 	// bool wxDir::HasSubDirs(const wxString & dirspec = wxEmptyString) const
 	static int _bind_HasSubDirs(lua_State *L) {
 		if (!_lg_typecheck_HasSubDirs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDir::HasSubDirs(const wxString & dirspec = wxEmptyString) const function, expected prototype:\nbool wxDir::HasSubDirs(const wxString & dirspec = wxEmptyString) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxDir::HasSubDirs(const wxString & dirspec = wxEmptyString) const function, expected prototype:\nbool wxDir::HasSubDirs(const wxString & dirspec = wxEmptyString) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -370,8 +355,7 @@ public:
 
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDir::HasSubDirs(const wxString &) const. Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDir::HasSubDirs(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxDir >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasSubDirs(dirspec);
 		lua_pushboolean(L,lret?1:0);
@@ -382,15 +366,13 @@ public:
 	// bool wxDir::IsOpened() const
 	static int _bind_IsOpened(lua_State *L) {
 		if (!_lg_typecheck_IsOpened(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDir::IsOpened() const function, expected prototype:\nbool wxDir::IsOpened() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDir::IsOpened() const function, expected prototype:\nbool wxDir::IsOpened() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDir::IsOpened() const. Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDir::IsOpened() const. Got : '%s'\n%s",typeid(Luna< wxDir >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOpened();
 		lua_pushboolean(L,lret?1:0);
@@ -401,16 +383,14 @@ public:
 	// bool wxDir::Open(const wxString & dir)
 	static int _bind_Open(lua_State *L) {
 		if (!_lg_typecheck_Open(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDir::Open(const wxString & dir) function, expected prototype:\nbool wxDir::Open(const wxString & dir)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxDir::Open(const wxString & dir) function, expected prototype:\nbool wxDir::Open(const wxString & dir)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString dir(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDir::Open(const wxString &). Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDir::Open(const wxString &). Got : '%s'\n%s",typeid(Luna< wxDir >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Open(dir);
 		lua_pushboolean(L,lret?1:0);
@@ -421,8 +401,7 @@ public:
 	// size_t wxDir::Traverse(wxDirTraverser & sink, const wxString & filespec = wxEmptyString, int flags = ::wxDIR_DEFAULT) const
 	static int _bind_Traverse(lua_State *L) {
 		if (!_lg_typecheck_Traverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxDir::Traverse(wxDirTraverser & sink, const wxString & filespec = wxEmptyString, int flags = ::wxDIR_DEFAULT) const function, expected prototype:\nsize_t wxDir::Traverse(wxDirTraverser & sink, const wxString & filespec = wxEmptyString, int flags = ::wxDIR_DEFAULT) const\nClass arguments details:\narg 1 ID = 40425950\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in size_t wxDir::Traverse(wxDirTraverser & sink, const wxString & filespec = wxEmptyString, int flags = ::wxDIR_DEFAULT) const function, expected prototype:\nsize_t wxDir::Traverse(wxDirTraverser & sink, const wxString & filespec = wxEmptyString, int flags = ::wxDIR_DEFAULT) const\nClass arguments details:\narg 1 ID = 40425950\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -437,8 +416,7 @@ public:
 
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxDir::Traverse(wxDirTraverser &, const wxString &, int) const. Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxDir::Traverse(wxDirTraverser &, const wxString &, int) const. Got : '%s'\n%s",typeid(Luna< wxDir >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->Traverse(sink, filespec, flags);
 		lua_pushnumber(L,lret);
@@ -449,8 +427,7 @@ public:
 	// static bool wxDir::Exists(const wxString & dir)
 	static int _bind_Exists(lua_State *L) {
 		if (!_lg_typecheck_Exists(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxDir::Exists(const wxString & dir) function, expected prototype:\nstatic bool wxDir::Exists(const wxString & dir)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static bool wxDir::Exists(const wxString & dir) function, expected prototype:\nstatic bool wxDir::Exists(const wxString & dir)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString dir(lua_tostring(L,1),lua_objlen(L,1));
@@ -464,8 +441,7 @@ public:
 	// static wxString wxDir::FindFirst(const wxString & dirname, const wxString & filespec, int flags = ::wxDIR_DEFAULT)
 	static int _bind_FindFirst(lua_State *L) {
 		if (!_lg_typecheck_FindFirst(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxDir::FindFirst(const wxString & dirname, const wxString & filespec, int flags = ::wxDIR_DEFAULT) function, expected prototype:\nstatic wxString wxDir::FindFirst(const wxString & dirname, const wxString & filespec, int flags = ::wxDIR_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxDir::FindFirst(const wxString & dirname, const wxString & filespec, int flags = ::wxDIR_DEFAULT) function, expected prototype:\nstatic wxString wxDir::FindFirst(const wxString & dirname, const wxString & filespec, int flags = ::wxDIR_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -483,8 +459,7 @@ public:
 	// static size_t wxDir::GetAllFiles(const wxString & dirname, wxArrayString * files, const wxString & filespec = wxEmptyString, int flags = ::wxDIR_DEFAULT)
 	static int _bind_GetAllFiles(lua_State *L) {
 		if (!_lg_typecheck_GetAllFiles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static size_t wxDir::GetAllFiles(const wxString & dirname, wxArrayString * files, const wxString & filespec = wxEmptyString, int flags = ::wxDIR_DEFAULT) function, expected prototype:\nstatic size_t wxDir::GetAllFiles(const wxString & dirname, wxArrayString * files, const wxString & filespec = wxEmptyString, int flags = ::wxDIR_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 59507769\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static size_t wxDir::GetAllFiles(const wxString & dirname, wxArrayString * files, const wxString & filespec = wxEmptyString, int flags = ::wxDIR_DEFAULT) function, expected prototype:\nstatic size_t wxDir::GetAllFiles(const wxString & dirname, wxArrayString * files, const wxString & filespec = wxEmptyString, int flags = ::wxDIR_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 59507769\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -503,8 +478,7 @@ public:
 	// static wxULongLong wxDir::GetTotalSize(const wxString & dir, wxArrayString * filesSkipped = NULL)
 	static int _bind_GetTotalSize(lua_State *L) {
 		if (!_lg_typecheck_GetTotalSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxULongLong wxDir::GetTotalSize(const wxString & dir, wxArrayString * filesSkipped = NULL) function, expected prototype:\nstatic wxULongLong wxDir::GetTotalSize(const wxString & dir, wxArrayString * filesSkipped = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 59507769\n");
+			luaL_error(L, "luna typecheck failed in static wxULongLong wxDir::GetTotalSize(const wxString & dir, wxArrayString * filesSkipped = NULL) function, expected prototype:\nstatic wxULongLong wxDir::GetTotalSize(const wxString & dir, wxArrayString * filesSkipped = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 59507769\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -524,8 +498,7 @@ public:
 	// static bool wxDir::Make(const wxString & dir, int perm = ::wxS_DIR_DEFAULT, int flags = 0)
 	static int _bind_Make(lua_State *L) {
 		if (!_lg_typecheck_Make(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxDir::Make(const wxString & dir, int perm = ::wxS_DIR_DEFAULT, int flags = 0) function, expected prototype:\nstatic bool wxDir::Make(const wxString & dir, int perm = ::wxS_DIR_DEFAULT, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static bool wxDir::Make(const wxString & dir, int perm = ::wxS_DIR_DEFAULT, int flags = 0) function, expected prototype:\nstatic bool wxDir::Make(const wxString & dir, int perm = ::wxS_DIR_DEFAULT, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -543,8 +516,7 @@ public:
 	// static bool wxDir::Remove(const wxString & dir, int flags = 0)
 	static int _bind_Remove(lua_State *L) {
 		if (!_lg_typecheck_Remove(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxDir::Remove(const wxString & dir, int flags = 0) function, expected prototype:\nstatic bool wxDir::Remove(const wxString & dir, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static bool wxDir::Remove(const wxString & dir, int flags = 0) function, expected prototype:\nstatic bool wxDir::Remove(const wxString & dir, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);

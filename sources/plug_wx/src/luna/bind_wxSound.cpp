@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSound* self= (wxSound*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -192,8 +189,7 @@ public:
 	// wxSound::wxSound()
 	static wxSound* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSound::wxSound() function, expected prototype:\nwxSound::wxSound()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSound::wxSound() function, expected prototype:\nwxSound::wxSound()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -203,8 +199,7 @@ public:
 	// wxSound::wxSound(const wxString & fileName, bool isResource = false)
 	static wxSound* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSound::wxSound(const wxString & fileName, bool isResource = false) function, expected prototype:\nwxSound::wxSound(const wxString & fileName, bool isResource = false)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxSound::wxSound(const wxString & fileName, bool isResource = false) function, expected prototype:\nwxSound::wxSound(const wxString & fileName, bool isResource = false)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -218,12 +213,11 @@ public:
 	// wxSound::wxSound(size_t size, const void * data)
 	static wxSound* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSound::wxSound(size_t size, const void * data) function, expected prototype:\nwxSound::wxSound(size_t size, const void * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSound::wxSound(size_t size, const void * data) function, expected prototype:\nwxSound::wxSound(size_t size, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t size=(size_t)lua_tointeger(L,1);
-		void* data=(Luna< void >::check(L,2));
+		const void* data=(Luna< void >::check(L,2));
 
 		return new wxSound(size, data);
 	}
@@ -231,8 +225,7 @@ public:
 	// wxSound::wxSound(lua_Table * data)
 	static wxSound* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSound::wxSound(lua_Table * data) function, expected prototype:\nwxSound::wxSound(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSound::wxSound(lua_Table * data) function, expected prototype:\nwxSound::wxSound(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -242,8 +235,7 @@ public:
 	// wxSound::wxSound(lua_Table * data, const wxString & fileName, bool isResource = false)
 	static wxSound* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSound::wxSound(lua_Table * data, const wxString & fileName, bool isResource = false) function, expected prototype:\nwxSound::wxSound(lua_Table * data, const wxString & fileName, bool isResource = false)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxSound::wxSound(lua_Table * data, const wxString & fileName, bool isResource = false) function, expected prototype:\nwxSound::wxSound(lua_Table * data, const wxString & fileName, bool isResource = false)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -257,12 +249,11 @@ public:
 	// wxSound::wxSound(lua_Table * data, size_t size, const void * data)
 	static wxSound* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSound::wxSound(lua_Table * data, size_t size, const void * data) function, expected prototype:\nwxSound::wxSound(lua_Table * data, size_t size, const void * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSound::wxSound(lua_Table * data, size_t size, const void * data) function, expected prototype:\nwxSound::wxSound(lua_Table * data, size_t size, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t size=(size_t)lua_tointeger(L,2);
-		void* data=(Luna< void >::check(L,3));
+		const void* data=(Luna< void >::check(L,3));
 
 		return new wrapper_wxSound(L,NULL, size, data);
 	}
@@ -285,8 +276,7 @@ public:
 	// bool wxSound::Create(const wxString & fileName, bool isResource = false)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxSound::Create(const wxString & fileName, bool isResource = false) function, expected prototype:\nbool wxSound::Create(const wxString & fileName, bool isResource = false)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxSound::Create(const wxString & fileName, bool isResource = false) function, expected prototype:\nbool wxSound::Create(const wxString & fileName, bool isResource = false)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -296,8 +286,7 @@ public:
 
 		wxSound* self=Luna< wxObject >::checkSubType< wxSound >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSound::Create(const wxString &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxSound::Create(const wxString &, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Create(fileName, isResource);
 		lua_pushboolean(L,lret?1:0);
@@ -308,15 +297,13 @@ public:
 	// bool wxSound::IsOk() const
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxSound::IsOk() const function, expected prototype:\nbool wxSound::IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxSound::IsOk() const function, expected prototype:\nbool wxSound::IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSound* self=Luna< wxObject >::checkSubType< wxSound >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSound::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxSound::IsOk() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -327,8 +314,7 @@ public:
 	// bool wxSound::Play(unsigned int flags = wxSOUND_ASYNC) const
 	static int _bind_Play_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Play_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxSound::Play(unsigned int flags = wxSOUND_ASYNC) const function, expected prototype:\nbool wxSound::Play(unsigned int flags = wxSOUND_ASYNC) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxSound::Play(unsigned int flags = wxSOUND_ASYNC) const function, expected prototype:\nbool wxSound::Play(unsigned int flags = wxSOUND_ASYNC) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -337,8 +323,7 @@ public:
 
 		wxSound* self=Luna< wxObject >::checkSubType< wxSound >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSound::Play(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxSound::Play(unsigned int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Play(flags);
 		lua_pushboolean(L,lret?1:0);
@@ -349,8 +334,7 @@ public:
 	// static bool wxSound::Play(const wxString & filename, unsigned int flags = wxSOUND_ASYNC)
 	static int _bind_Play_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Play_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxSound::Play(const wxString & filename, unsigned int flags = wxSOUND_ASYNC) function, expected prototype:\nstatic bool wxSound::Play(const wxString & filename, unsigned int flags = wxSOUND_ASYNC)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static bool wxSound::Play(const wxString & filename, unsigned int flags = wxSOUND_ASYNC) function, expected prototype:\nstatic bool wxSound::Play(const wxString & filename, unsigned int flags = wxSOUND_ASYNC)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -376,8 +360,7 @@ public:
 	// static void wxSound::Stop()
 	static int _bind_Stop(lua_State *L) {
 		if (!_lg_typecheck_Stop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxSound::Stop() function, expected prototype:\nstatic void wxSound::Stop()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxSound::Stop() function, expected prototype:\nstatic void wxSound::Stop()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -389,15 +372,13 @@ public:
 	// wxClassInfo * wxSound::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxSound::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxSound::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxSound::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxSound::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSound* self=Luna< wxObject >::checkSubType< wxSound >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSound::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSound::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxSound::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

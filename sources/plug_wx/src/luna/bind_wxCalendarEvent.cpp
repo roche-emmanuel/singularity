@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCalendarEvent* self= (wxCalendarEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -132,15 +129,13 @@ public:
 	// wxDateTime::WeekDay wxCalendarEvent::GetWeekDay() const
 	static int _bind_GetWeekDay(lua_State *L) {
 		if (!_lg_typecheck_GetWeekDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime::WeekDay wxCalendarEvent::GetWeekDay() const function, expected prototype:\nwxDateTime::WeekDay wxCalendarEvent::GetWeekDay() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime::WeekDay wxCalendarEvent::GetWeekDay() const function, expected prototype:\nwxDateTime::WeekDay wxCalendarEvent::GetWeekDay() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalendarEvent* self=Luna< wxObject >::checkSubType< wxCalendarEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime::WeekDay wxCalendarEvent::GetWeekDay() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime::WeekDay wxCalendarEvent::GetWeekDay() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime::WeekDay lret = self->GetWeekDay();
 		lua_pushnumber(L,lret);
@@ -151,16 +146,14 @@ public:
 	// void wxCalendarEvent::SetWeekDay(const wxDateTime::WeekDay day)
 	static int _bind_SetWeekDay(lua_State *L) {
 		if (!_lg_typecheck_SetWeekDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCalendarEvent::SetWeekDay(const wxDateTime::WeekDay day) function, expected prototype:\nvoid wxCalendarEvent::SetWeekDay(const wxDateTime::WeekDay day)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCalendarEvent::SetWeekDay(const wxDateTime::WeekDay day) function, expected prototype:\nvoid wxCalendarEvent::SetWeekDay(const wxDateTime::WeekDay day)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateTime::WeekDay day=(const wxDateTime::WeekDay)lua_tointeger(L,2);
 
 		wxCalendarEvent* self=Luna< wxObject >::checkSubType< wxCalendarEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarEvent::SetWeekDay(const wxDateTime::WeekDay). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCalendarEvent::SetWeekDay(const wxDateTime::WeekDay). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWeekDay(day);
 
@@ -170,15 +163,13 @@ public:
 	// wxClassInfo * wxCalendarEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxCalendarEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxCalendarEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxCalendarEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxCalendarEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalendarEvent* self=Luna< wxObject >::checkSubType< wxCalendarEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxCalendarEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCalendarEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxCalendarEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -191,15 +182,13 @@ public:
 	// wxEventCategory wxCalendarEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxCalendarEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxCalendarEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxCalendarEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxCalendarEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalendarEvent* self=Luna< wxObject >::checkSubType< wxCalendarEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxCalendarEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxCalendarEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxCalendarEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -210,15 +199,13 @@ public:
 	// wxEvent * wxCalendarEvent::base_Clone() const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvent * wxCalendarEvent::base_Clone() const function, expected prototype:\nwxEvent * wxCalendarEvent::base_Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvent * wxCalendarEvent::base_Clone() const function, expected prototype:\nwxEvent * wxCalendarEvent::base_Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalendarEvent* self=Luna< wxObject >::checkSubType< wxCalendarEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxCalendarEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvent * wxCalendarEvent::base_Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvent * lret = self->wxCalendarEvent::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.

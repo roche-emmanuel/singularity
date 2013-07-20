@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlLinkInfo* self= (wxHtmlLinkInfo*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -161,8 +158,7 @@ public:
 	// wxHtmlLinkInfo::wxHtmlLinkInfo()
 	static wxHtmlLinkInfo* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlLinkInfo::wxHtmlLinkInfo() function, expected prototype:\nwxHtmlLinkInfo::wxHtmlLinkInfo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlLinkInfo::wxHtmlLinkInfo() function, expected prototype:\nwxHtmlLinkInfo::wxHtmlLinkInfo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -172,8 +168,7 @@ public:
 	// wxHtmlLinkInfo::wxHtmlLinkInfo(const wxString & href, const wxString & target = wxEmptyString)
 	static wxHtmlLinkInfo* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlLinkInfo::wxHtmlLinkInfo(const wxString & href, const wxString & target = wxEmptyString) function, expected prototype:\nwxHtmlLinkInfo::wxHtmlLinkInfo(const wxString & href, const wxString & target = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlLinkInfo::wxHtmlLinkInfo(const wxString & href, const wxString & target = wxEmptyString) function, expected prototype:\nwxHtmlLinkInfo::wxHtmlLinkInfo(const wxString & href, const wxString & target = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -187,8 +182,7 @@ public:
 	// wxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data)
 	static wxHtmlLinkInfo* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data) function, expected prototype:\nwxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data) function, expected prototype:\nwxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -198,8 +192,7 @@ public:
 	// wxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data, const wxString & href, const wxString & target = wxEmptyString)
 	static wxHtmlLinkInfo* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data, const wxString & href, const wxString & target = wxEmptyString) function, expected prototype:\nwxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data, const wxString & href, const wxString & target = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data, const wxString & href, const wxString & target = wxEmptyString) function, expected prototype:\nwxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data, const wxString & href, const wxString & target = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -226,15 +219,13 @@ public:
 	// const wxMouseEvent * wxHtmlLinkInfo::GetEvent() const
 	static int _bind_GetEvent(lua_State *L) {
 		if (!_lg_typecheck_GetEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxMouseEvent * wxHtmlLinkInfo::GetEvent() const function, expected prototype:\nconst wxMouseEvent * wxHtmlLinkInfo::GetEvent() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxMouseEvent * wxHtmlLinkInfo::GetEvent() const function, expected prototype:\nconst wxMouseEvent * wxHtmlLinkInfo::GetEvent() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlLinkInfo* self=Luna< wxObject >::checkSubType< wxHtmlLinkInfo >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxMouseEvent * wxHtmlLinkInfo::GetEvent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxMouseEvent * wxHtmlLinkInfo::GetEvent() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxMouseEvent * lret = self->GetEvent();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -247,15 +238,13 @@ public:
 	// wxString wxHtmlLinkInfo::GetHref() const
 	static int _bind_GetHref(lua_State *L) {
 		if (!_lg_typecheck_GetHref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxHtmlLinkInfo::GetHref() const function, expected prototype:\nwxString wxHtmlLinkInfo::GetHref() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxHtmlLinkInfo::GetHref() const function, expected prototype:\nwxString wxHtmlLinkInfo::GetHref() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlLinkInfo* self=Luna< wxObject >::checkSubType< wxHtmlLinkInfo >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlLinkInfo::GetHref() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxHtmlLinkInfo::GetHref() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetHref();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -266,15 +255,13 @@ public:
 	// const wxHtmlCell * wxHtmlLinkInfo::GetHtmlCell() const
 	static int _bind_GetHtmlCell(lua_State *L) {
 		if (!_lg_typecheck_GetHtmlCell(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxHtmlCell * wxHtmlLinkInfo::GetHtmlCell() const function, expected prototype:\nconst wxHtmlCell * wxHtmlLinkInfo::GetHtmlCell() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxHtmlCell * wxHtmlLinkInfo::GetHtmlCell() const function, expected prototype:\nconst wxHtmlCell * wxHtmlLinkInfo::GetHtmlCell() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlLinkInfo* self=Luna< wxObject >::checkSubType< wxHtmlLinkInfo >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxHtmlCell * wxHtmlLinkInfo::GetHtmlCell() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxHtmlCell * wxHtmlLinkInfo::GetHtmlCell() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxHtmlCell * lret = self->GetHtmlCell();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -287,15 +274,13 @@ public:
 	// wxString wxHtmlLinkInfo::GetTarget() const
 	static int _bind_GetTarget(lua_State *L) {
 		if (!_lg_typecheck_GetTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxHtmlLinkInfo::GetTarget() const function, expected prototype:\nwxString wxHtmlLinkInfo::GetTarget() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxHtmlLinkInfo::GetTarget() const function, expected prototype:\nwxString wxHtmlLinkInfo::GetTarget() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlLinkInfo* self=Luna< wxObject >::checkSubType< wxHtmlLinkInfo >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlLinkInfo::GetTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxHtmlLinkInfo::GetTarget() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetTarget();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -306,15 +291,13 @@ public:
 	// wxClassInfo * wxHtmlLinkInfo::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlLinkInfo::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlLinkInfo::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlLinkInfo::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlLinkInfo::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlLinkInfo* self=Luna< wxObject >::checkSubType< wxHtmlLinkInfo >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlLinkInfo::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlLinkInfo::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxHtmlLinkInfo::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

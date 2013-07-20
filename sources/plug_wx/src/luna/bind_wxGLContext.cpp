@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGLContext* self= (wxGLContext*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -142,8 +139,7 @@ public:
 	// wxGLContext::wxGLContext(wxGLCanvas * win, const wxGLContext * other = NULL)
 	static wxGLContext* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGLContext::wxGLContext(wxGLCanvas * win, const wxGLContext * other = NULL) function, expected prototype:\nwxGLContext::wxGLContext(wxGLCanvas * win, const wxGLContext * other = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxGLContext::wxGLContext(wxGLCanvas * win, const wxGLContext * other = NULL) function, expected prototype:\nwxGLContext::wxGLContext(wxGLCanvas * win, const wxGLContext * other = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -157,8 +153,7 @@ public:
 	// wxGLContext::wxGLContext(lua_Table * data, wxGLCanvas * win, const wxGLContext * other = NULL)
 	static wxGLContext* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGLContext::wxGLContext(lua_Table * data, wxGLCanvas * win, const wxGLContext * other = NULL) function, expected prototype:\nwxGLContext::wxGLContext(lua_Table * data, wxGLCanvas * win, const wxGLContext * other = NULL)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxGLContext::wxGLContext(lua_Table * data, wxGLCanvas * win, const wxGLContext * other = NULL) function, expected prototype:\nwxGLContext::wxGLContext(lua_Table * data, wxGLCanvas * win, const wxGLContext * other = NULL)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -183,8 +178,7 @@ public:
 	// bool wxGLContext::SetCurrent(const wxGLCanvas & win) const
 	static int _bind_SetCurrent(lua_State *L) {
 		if (!_lg_typecheck_SetCurrent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGLContext::SetCurrent(const wxGLCanvas & win) const function, expected prototype:\nbool wxGLContext::SetCurrent(const wxGLCanvas & win) const\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxGLContext::SetCurrent(const wxGLCanvas & win) const function, expected prototype:\nbool wxGLContext::SetCurrent(const wxGLCanvas & win) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxGLCanvas* win_ptr=(Luna< wxObject >::checkSubType< wxGLCanvas >(L,2));
@@ -195,8 +189,7 @@ public:
 
 		wxGLContext* self=Luna< wxObject >::checkSubType< wxGLContext >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGLContext::SetCurrent(const wxGLCanvas &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGLContext::SetCurrent(const wxGLCanvas &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetCurrent(win);
 		lua_pushboolean(L,lret?1:0);
@@ -207,15 +200,13 @@ public:
 	// wxClassInfo * wxGLContext::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGLContext::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGLContext::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGLContext::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGLContext::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGLContext* self=Luna< wxObject >::checkSubType< wxGLContext >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxGLContext::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGLContext::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxGLContext::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -228,8 +219,7 @@ public:
 	// bool wxGLContext::base_SetCurrent(const wxGLCanvas & win) const
 	static int _bind_base_SetCurrent(lua_State *L) {
 		if (!_lg_typecheck_base_SetCurrent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGLContext::base_SetCurrent(const wxGLCanvas & win) const function, expected prototype:\nbool wxGLContext::base_SetCurrent(const wxGLCanvas & win) const\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxGLContext::base_SetCurrent(const wxGLCanvas & win) const function, expected prototype:\nbool wxGLContext::base_SetCurrent(const wxGLCanvas & win) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxGLCanvas* win_ptr=(Luna< wxObject >::checkSubType< wxGLCanvas >(L,2));
@@ -240,8 +230,7 @@ public:
 
 		wxGLContext* self=Luna< wxObject >::checkSubType< wxGLContext >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGLContext::base_SetCurrent(const wxGLCanvas &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGLContext::base_SetCurrent(const wxGLCanvas &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxGLContext::SetCurrent(win);
 		lua_pushboolean(L,lret?1:0);

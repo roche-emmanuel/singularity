@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGenericValidator* self= (wxGenericValidator*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -326,8 +323,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(const wxGenericValidator & validator)
 	static wxGenericValidator* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(const wxGenericValidator & validator) function, expected prototype:\nwxGenericValidator::wxGenericValidator(const wxGenericValidator & validator)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(const wxGenericValidator & validator) function, expected prototype:\nwxGenericValidator::wxGenericValidator(const wxGenericValidator & validator)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxGenericValidator* validator_ptr=(Luna< wxObject >::checkSubType< wxGenericValidator >(L,1));
@@ -342,8 +338,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(bool * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(bool * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(bool * valPtr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(bool * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(bool * valPtr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool* valPtr=(bool*)(Luna< void >::check(L,1));
@@ -354,8 +349,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(wxString * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(wxString * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(wxString * valPtr)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(wxString * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(wxString * valPtr)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString valPtr(lua_tostring(L,1),lua_objlen(L,1));
@@ -366,8 +360,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(int * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(int * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(int * valPtr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(int * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(int * valPtr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int* valPtr=(int*)Luna< void >::check(L,1);
@@ -378,8 +371,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(wxArrayInt * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(wxArrayInt * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(wxArrayInt * valPtr)\nClass arguments details:\narg 1 ID = 47342076\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(wxArrayInt * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(wxArrayInt * valPtr)\nClass arguments details:\narg 1 ID = 47342076\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxArrayInt* valPtr=(Luna< wxArrayInt >::check(L,1));
@@ -390,8 +382,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(wxDateTime * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(wxDateTime * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(wxDateTime * valPtr)\nClass arguments details:\narg 1 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(wxDateTime * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(wxDateTime * valPtr)\nClass arguments details:\narg 1 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDateTime* valPtr=(Luna< wxDateTime >::check(L,1));
@@ -402,8 +393,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(wxFileName * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_7(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(wxFileName * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(wxFileName * valPtr)\nClass arguments details:\narg 1 ID = 53530938\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(wxFileName * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(wxFileName * valPtr)\nClass arguments details:\narg 1 ID = 53530938\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFileName* valPtr=(Luna< wxFileName >::check(L,1));
@@ -414,8 +404,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(float * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_8(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(float * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(float * valPtr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(float * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(float * valPtr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float* valPtr=(float*)Luna< void >::check(L,1);
@@ -426,8 +415,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(double * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_9(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_9(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(double * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(double * valPtr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(double * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(double * valPtr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double* valPtr=(double*)Luna< void >::check(L,1);
@@ -438,8 +426,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(lua_Table * data, const wxGenericValidator & validator)
 	static wxGenericValidator* _bind_ctor_overload_10(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_10(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, const wxGenericValidator & validator) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, const wxGenericValidator & validator)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, const wxGenericValidator & validator) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, const wxGenericValidator & validator)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxGenericValidator* validator_ptr=(Luna< wxObject >::checkSubType< wxGenericValidator >(L,2));
@@ -454,8 +441,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(lua_Table * data, bool * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_11(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_11(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, bool * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, bool * valPtr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, bool * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, bool * valPtr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool* valPtr=(bool*)(Luna< void >::check(L,2));
@@ -466,8 +452,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(lua_Table * data, wxString * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_12(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_12(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, wxString * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, wxString * valPtr)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, wxString * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, wxString * valPtr)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString valPtr(lua_tostring(L,2),lua_objlen(L,2));
@@ -478,8 +463,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(lua_Table * data, int * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_13(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_13(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, int * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, int * valPtr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, int * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, int * valPtr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int* valPtr=(int*)Luna< void >::check(L,2);
@@ -490,8 +474,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(lua_Table * data, wxArrayInt * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_14(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_14(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, wxArrayInt * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, wxArrayInt * valPtr)\nClass arguments details:\narg 2 ID = 47342076\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, wxArrayInt * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, wxArrayInt * valPtr)\nClass arguments details:\narg 2 ID = 47342076\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxArrayInt* valPtr=(Luna< wxArrayInt >::check(L,2));
@@ -502,8 +485,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(lua_Table * data, wxDateTime * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_15(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_15(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, wxDateTime * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, wxDateTime * valPtr)\nClass arguments details:\narg 2 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, wxDateTime * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, wxDateTime * valPtr)\nClass arguments details:\narg 2 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDateTime* valPtr=(Luna< wxDateTime >::check(L,2));
@@ -514,8 +496,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(lua_Table * data, wxFileName * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_16(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_16(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, wxFileName * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, wxFileName * valPtr)\nClass arguments details:\narg 2 ID = 53530938\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, wxFileName * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, wxFileName * valPtr)\nClass arguments details:\narg 2 ID = 53530938\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFileName* valPtr=(Luna< wxFileName >::check(L,2));
@@ -526,8 +507,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(lua_Table * data, float * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_17(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_17(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, float * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, float * valPtr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, float * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, float * valPtr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float* valPtr=(float*)Luna< void >::check(L,2);
@@ -538,8 +518,7 @@ public:
 	// wxGenericValidator::wxGenericValidator(lua_Table * data, double * valPtr)
 	static wxGenericValidator* _bind_ctor_overload_18(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_18(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, double * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, double * valPtr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, double * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, double * valPtr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double* valPtr=(double*)Luna< void >::check(L,2);
@@ -577,15 +556,13 @@ public:
 	// wxObject * wxGenericValidator::Clone() const
 	static int _bind_Clone(lua_State *L) {
 		if (!_lg_typecheck_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxObject * wxGenericValidator::Clone() const function, expected prototype:\nwxObject * wxGenericValidator::Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxObject * wxGenericValidator::Clone() const function, expected prototype:\nwxObject * wxGenericValidator::Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxObject * wxGenericValidator::Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxObject * wxGenericValidator::Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxObject * lret = self->Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -598,15 +575,13 @@ public:
 	// bool wxGenericValidator::TransferFromWindow()
 	static int _bind_TransferFromWindow(lua_State *L) {
 		if (!_lg_typecheck_TransferFromWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::TransferFromWindow() function, expected prototype:\nbool wxGenericValidator::TransferFromWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::TransferFromWindow() function, expected prototype:\nbool wxGenericValidator::TransferFromWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericValidator::TransferFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::TransferFromWindow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->TransferFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -617,15 +592,13 @@ public:
 	// bool wxGenericValidator::TransferToWindow()
 	static int _bind_TransferToWindow(lua_State *L) {
 		if (!_lg_typecheck_TransferToWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::TransferToWindow() function, expected prototype:\nbool wxGenericValidator::TransferToWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::TransferToWindow() function, expected prototype:\nbool wxGenericValidator::TransferToWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericValidator::TransferToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::TransferToWindow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->TransferToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -636,15 +609,13 @@ public:
 	// wxClassInfo * wxGenericValidator::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGenericValidator::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGenericValidator::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGenericValidator::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGenericValidator::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxGenericValidator::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGenericValidator::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxGenericValidator::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -657,16 +628,14 @@ public:
 	// void wxGenericValidator::base_QueueEvent(wxEvent * event)
 	static int _bind_base_QueueEvent(lua_State *L) {
 		if (!_lg_typecheck_base_QueueEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGenericValidator::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxGenericValidator::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxGenericValidator::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxGenericValidator::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
 
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_QueueEvent(wxEvent *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxGenericValidator::QueueEvent(event);
 
@@ -676,8 +645,7 @@ public:
 	// void wxGenericValidator::base_AddPendingEvent(const wxEvent & event)
 	static int _bind_base_AddPendingEvent(lua_State *L) {
 		if (!_lg_typecheck_base_AddPendingEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGenericValidator::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxGenericValidator::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxGenericValidator::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxGenericValidator::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
@@ -688,8 +656,7 @@ public:
 
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_AddPendingEvent(const wxEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxGenericValidator::AddPendingEvent(event);
 
@@ -699,8 +666,7 @@ public:
 	// bool wxGenericValidator::base_ProcessEvent(wxEvent & event)
 	static int _bind_base_ProcessEvent(lua_State *L) {
 		if (!_lg_typecheck_base_ProcessEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxGenericValidator::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxGenericValidator::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
@@ -711,8 +677,7 @@ public:
 
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_ProcessEvent(wxEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxGenericValidator::ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -723,16 +688,14 @@ public:
 	// void wxGenericValidator::base_SetNextHandler(wxEvtHandler * handler)
 	static int _bind_base_SetNextHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetNextHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGenericValidator::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxGenericValidator::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxGenericValidator::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxGenericValidator::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_SetNextHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxGenericValidator::SetNextHandler(handler);
 
@@ -742,16 +705,14 @@ public:
 	// void wxGenericValidator::base_SetPreviousHandler(wxEvtHandler * handler)
 	static int _bind_base_SetPreviousHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGenericValidator::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxGenericValidator::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxGenericValidator::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxGenericValidator::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxGenericValidator::SetPreviousHandler(handler);
 
@@ -761,16 +722,14 @@ public:
 	// bool wxGenericValidator::base_Validate(wxWindow * parent)
 	static int _bind_base_Validate(lua_State *L) {
 		if (!_lg_typecheck_base_Validate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::base_Validate(wxWindow * parent) function, expected prototype:\nbool wxGenericValidator::base_Validate(wxWindow * parent)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::base_Validate(wxWindow * parent) function, expected prototype:\nbool wxGenericValidator::base_Validate(wxWindow * parent)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_Validate(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_Validate(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxGenericValidator::Validate(parent);
 		lua_pushboolean(L,lret?1:0);
@@ -781,15 +740,13 @@ public:
 	// wxObject * wxGenericValidator::base_Clone() const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxObject * wxGenericValidator::base_Clone() const function, expected prototype:\nwxObject * wxGenericValidator::base_Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxObject * wxGenericValidator::base_Clone() const function, expected prototype:\nwxObject * wxGenericValidator::base_Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxObject * wxGenericValidator::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxObject * wxGenericValidator::base_Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxObject * lret = self->wxGenericValidator::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -802,15 +759,13 @@ public:
 	// bool wxGenericValidator::base_TransferFromWindow()
 	static int _bind_base_TransferFromWindow(lua_State *L) {
 		if (!_lg_typecheck_base_TransferFromWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::base_TransferFromWindow() function, expected prototype:\nbool wxGenericValidator::base_TransferFromWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::base_TransferFromWindow() function, expected prototype:\nbool wxGenericValidator::base_TransferFromWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_TransferFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_TransferFromWindow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxGenericValidator::TransferFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -821,15 +776,13 @@ public:
 	// bool wxGenericValidator::base_TransferToWindow()
 	static int _bind_base_TransferToWindow(lua_State *L) {
 		if (!_lg_typecheck_base_TransferToWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::base_TransferToWindow() function, expected prototype:\nbool wxGenericValidator::base_TransferToWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::base_TransferToWindow() function, expected prototype:\nbool wxGenericValidator::base_TransferToWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_TransferToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_TransferToWindow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxGenericValidator::TransferToWindow();
 		lua_pushboolean(L,lret?1:0);

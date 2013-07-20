@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxStopWatch*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxStopWatch*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStopWatch* rhs =(Luna< wxStopWatch >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStopWatch* self= (wxStopWatch*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxStopWatch >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -124,7 +120,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -148,8 +144,7 @@ public:
 	// wxStopWatch::wxStopWatch()
 	static wxStopWatch* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxStopWatch::wxStopWatch() function, expected prototype:\nwxStopWatch::wxStopWatch()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxStopWatch::wxStopWatch() function, expected prototype:\nwxStopWatch::wxStopWatch()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -161,15 +156,13 @@ public:
 	// void wxStopWatch::Pause()
 	static int _bind_Pause(lua_State *L) {
 		if (!_lg_typecheck_Pause(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStopWatch::Pause() function, expected prototype:\nvoid wxStopWatch::Pause()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStopWatch::Pause() function, expected prototype:\nvoid wxStopWatch::Pause()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStopWatch* self=(Luna< wxStopWatch >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStopWatch::Pause(). Got : '%s'",typeid(Luna< wxStopWatch >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStopWatch::Pause(). Got : '%s'\n%s",typeid(Luna< wxStopWatch >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Pause();
 
@@ -179,15 +172,13 @@ public:
 	// void wxStopWatch::Resume()
 	static int _bind_Resume(lua_State *L) {
 		if (!_lg_typecheck_Resume(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStopWatch::Resume() function, expected prototype:\nvoid wxStopWatch::Resume()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStopWatch::Resume() function, expected prototype:\nvoid wxStopWatch::Resume()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStopWatch* self=(Luna< wxStopWatch >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStopWatch::Resume(). Got : '%s'",typeid(Luna< wxStopWatch >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStopWatch::Resume(). Got : '%s'\n%s",typeid(Luna< wxStopWatch >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Resume();
 
@@ -197,18 +188,16 @@ public:
 	// void wxStopWatch::Start(long milliseconds = 0)
 	static int _bind_Start(lua_State *L) {
 		if (!_lg_typecheck_Start(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStopWatch::Start(long milliseconds = 0) function, expected prototype:\nvoid wxStopWatch::Start(long milliseconds = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStopWatch::Start(long milliseconds = 0) function, expected prototype:\nvoid wxStopWatch::Start(long milliseconds = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		long milliseconds=luatop>1 ? (long)lua_tointeger(L,2) : (long)0;
+		long milliseconds=luatop>1 ? (long)lua_tonumber(L,2) : (long)0;
 
 		wxStopWatch* self=(Luna< wxStopWatch >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStopWatch::Start(long). Got : '%s'",typeid(Luna< wxStopWatch >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStopWatch::Start(long). Got : '%s'\n%s",typeid(Luna< wxStopWatch >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Start(milliseconds);
 
@@ -218,15 +207,13 @@ public:
 	// long wxStopWatch::Time() const
 	static int _bind_Time(lua_State *L) {
 		if (!_lg_typecheck_Time(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxStopWatch::Time() const function, expected prototype:\nlong wxStopWatch::Time() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxStopWatch::Time() const function, expected prototype:\nlong wxStopWatch::Time() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStopWatch* self=(Luna< wxStopWatch >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxStopWatch::Time() const. Got : '%s'",typeid(Luna< wxStopWatch >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long wxStopWatch::Time() const. Got : '%s'\n%s",typeid(Luna< wxStopWatch >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->Time();
 		lua_pushnumber(L,lret);
@@ -237,15 +224,13 @@ public:
 	// wxLongLong wxStopWatch::TimeInMicro() const
 	static int _bind_TimeInMicro(lua_State *L) {
 		if (!_lg_typecheck_TimeInMicro(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxLongLong wxStopWatch::TimeInMicro() const function, expected prototype:\nwxLongLong wxStopWatch::TimeInMicro() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxLongLong wxStopWatch::TimeInMicro() const function, expected prototype:\nwxLongLong wxStopWatch::TimeInMicro() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStopWatch* self=(Luna< wxStopWatch >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLongLong wxStopWatch::TimeInMicro() const. Got : '%s'",typeid(Luna< wxStopWatch >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxLongLong wxStopWatch::TimeInMicro() const. Got : '%s'\n%s",typeid(Luna< wxStopWatch >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxLongLong stack_lret = self->TimeInMicro();
 		wxLongLong* lret = new wxLongLong(stack_lret);

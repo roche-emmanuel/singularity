@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxGridSizesInfo*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxGridSizesInfo*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridSizesInfo* rhs =(Luna< wxGridSizesInfo >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridSizesInfo* self= (wxGridSizesInfo*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxGridSizesInfo >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -145,8 +141,7 @@ public:
 	// wxGridSizesInfo::wxGridSizesInfo()
 	static wxGridSizesInfo* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridSizesInfo::wxGridSizesInfo() function, expected prototype:\nwxGridSizesInfo::wxGridSizesInfo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGridSizesInfo::wxGridSizesInfo() function, expected prototype:\nwxGridSizesInfo::wxGridSizesInfo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -156,8 +151,7 @@ public:
 	// wxGridSizesInfo::wxGridSizesInfo(int defSize, const wxArrayInt & allSizes)
 	static wxGridSizesInfo* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridSizesInfo::wxGridSizesInfo(int defSize, const wxArrayInt & allSizes) function, expected prototype:\nwxGridSizesInfo::wxGridSizesInfo(int defSize, const wxArrayInt & allSizes)\nClass arguments details:\narg 2 ID = 47342076\n");
+			luaL_error(L, "luna typecheck failed in wxGridSizesInfo::wxGridSizesInfo(int defSize, const wxArrayInt & allSizes) function, expected prototype:\nwxGridSizesInfo::wxGridSizesInfo(int defSize, const wxArrayInt & allSizes)\nClass arguments details:\narg 2 ID = 47342076\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int defSize=(int)lua_tointeger(L,1);
@@ -184,16 +178,14 @@ public:
 	// int wxGridSizesInfo::GetSize(unsigned int pos) const
 	static int _bind_GetSize(lua_State *L) {
 		if (!_lg_typecheck_GetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridSizesInfo::GetSize(unsigned int pos) const function, expected prototype:\nint wxGridSizesInfo::GetSize(unsigned int pos) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridSizesInfo::GetSize(unsigned int pos) const function, expected prototype:\nint wxGridSizesInfo::GetSize(unsigned int pos) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int pos=(unsigned int)lua_tointeger(L,2);
 
 		wxGridSizesInfo* self=(Luna< wxGridSizesInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridSizesInfo::GetSize(unsigned int) const. Got : '%s'",typeid(Luna< wxGridSizesInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridSizesInfo::GetSize(unsigned int) const. Got : '%s'\n%s",typeid(Luna< wxGridSizesInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSize(pos);
 		lua_pushnumber(L,lret);
@@ -204,15 +196,13 @@ public:
 	// int wxGridSizesInfo::m_sizeDefault()
 	static int _bind_getSizeDefault(lua_State *L) {
 		if (!_lg_typecheck_getSizeDefault(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridSizesInfo::m_sizeDefault() function, expected prototype:\nint wxGridSizesInfo::m_sizeDefault()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridSizesInfo::m_sizeDefault() function, expected prototype:\nint wxGridSizesInfo::m_sizeDefault()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridSizesInfo* self=(Luna< wxGridSizesInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridSizesInfo::m_sizeDefault(). Got : '%s'",typeid(Luna< wxGridSizesInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridSizesInfo::m_sizeDefault(). Got : '%s'\n%s",typeid(Luna< wxGridSizesInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_sizeDefault;
 		lua_pushnumber(L,lret);
@@ -223,16 +213,14 @@ public:
 	// void wxGridSizesInfo::m_sizeDefault(int value)
 	static int _bind_setSizeDefault(lua_State *L) {
 		if (!_lg_typecheck_setSizeDefault(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridSizesInfo::m_sizeDefault(int value) function, expected prototype:\nvoid wxGridSizesInfo::m_sizeDefault(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridSizesInfo::m_sizeDefault(int value) function, expected prototype:\nvoid wxGridSizesInfo::m_sizeDefault(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		wxGridSizesInfo* self=(Luna< wxGridSizesInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridSizesInfo::m_sizeDefault(int). Got : '%s'",typeid(Luna< wxGridSizesInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridSizesInfo::m_sizeDefault(int). Got : '%s'\n%s",typeid(Luna< wxGridSizesInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_sizeDefault = value;
 

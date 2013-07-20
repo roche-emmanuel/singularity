@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPreviewCanvas* self=(Luna< wxPreviewCanvas >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxPreviewCanvas*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxPreviewCanvas*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPreviewCanvas* rhs =(Luna< wxPreviewCanvas >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPreviewCanvas* self= (wxPreviewCanvas*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxPreviewCanvas >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -145,8 +140,7 @@ public:
 	// void wxPreviewCanvas::OnPaint(wxPaintEvent & event)
 	static int _bind_OnPaint(lua_State *L) {
 		if (!_lg_typecheck_OnPaint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPreviewCanvas::OnPaint(wxPaintEvent & event) function, expected prototype:\nvoid wxPreviewCanvas::OnPaint(wxPaintEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPreviewCanvas::OnPaint(wxPaintEvent & event) function, expected prototype:\nvoid wxPreviewCanvas::OnPaint(wxPaintEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPaintEvent* event_ptr=(Luna< wxObject >::checkSubType< wxPaintEvent >(L,2));
@@ -157,8 +151,7 @@ public:
 
 		wxPreviewCanvas* self=(Luna< wxPreviewCanvas >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewCanvas::OnPaint(wxPaintEvent &). Got : '%s'",typeid(Luna< wxPreviewCanvas >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPreviewCanvas::OnPaint(wxPaintEvent &). Got : '%s'\n%s",typeid(Luna< wxPreviewCanvas >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnPaint(event);
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBitmapHandler* self= (wxBitmapHandler*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -227,8 +224,7 @@ public:
 	// wxBitmapHandler::wxBitmapHandler()
 	static wxBitmapHandler* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmapHandler::wxBitmapHandler() function, expected prototype:\nwxBitmapHandler::wxBitmapHandler()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBitmapHandler::wxBitmapHandler() function, expected prototype:\nwxBitmapHandler::wxBitmapHandler()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -238,8 +234,7 @@ public:
 	// wxBitmapHandler::wxBitmapHandler(lua_Table * data)
 	static wxBitmapHandler* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmapHandler::wxBitmapHandler(lua_Table * data) function, expected prototype:\nwxBitmapHandler::wxBitmapHandler(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBitmapHandler::wxBitmapHandler(lua_Table * data) function, expected prototype:\nwxBitmapHandler::wxBitmapHandler(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -260,14 +255,13 @@ public:
 	// bool wxBitmapHandler::Create(wxBitmap * bitmap, const void * data, wxBitmapType type, int width, int height, int depth = 1)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::Create(wxBitmap * bitmap, const void * data, wxBitmapType type, int width, int height, int depth = 1) function, expected prototype:\nbool wxBitmapHandler::Create(wxBitmap * bitmap, const void * data, wxBitmapType type, int width, int height, int depth = 1)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::Create(wxBitmap * bitmap, const void * data, wxBitmapType type, int width, int height, int depth = 1) function, expected prototype:\nbool wxBitmapHandler::Create(wxBitmap * bitmap, const void * data, wxBitmapType type, int width, int height, int depth = 1)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxBitmap* bitmap=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
-		void* data=(Luna< void >::check(L,3));
+		const void* data=(Luna< void >::check(L,3));
 		wxBitmapType type=(wxBitmapType)lua_tointeger(L,4);
 		int width=(int)lua_tointeger(L,5);
 		int height=(int)lua_tointeger(L,6);
@@ -275,8 +269,7 @@ public:
 
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::Create(wxBitmap *, const void *, wxBitmapType, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::Create(wxBitmap *, const void *, wxBitmapType, int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Create(bitmap, data, type, width, height, depth);
 		lua_pushboolean(L,lret?1:0);
@@ -287,15 +280,13 @@ public:
 	// const wxString & wxBitmapHandler::GetExtension() const
 	static int _bind_GetExtension(lua_State *L) {
 		if (!_lg_typecheck_GetExtension(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxBitmapHandler::GetExtension() const function, expected prototype:\nconst wxString & wxBitmapHandler::GetExtension() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxBitmapHandler::GetExtension() const function, expected prototype:\nconst wxString & wxBitmapHandler::GetExtension() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxBitmapHandler::GetExtension() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxBitmapHandler::GetExtension() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetExtension();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -306,15 +297,13 @@ public:
 	// const wxString & wxBitmapHandler::GetName() const
 	static int _bind_GetName(lua_State *L) {
 		if (!_lg_typecheck_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxBitmapHandler::GetName() const function, expected prototype:\nconst wxString & wxBitmapHandler::GetName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxBitmapHandler::GetName() const function, expected prototype:\nconst wxString & wxBitmapHandler::GetName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxBitmapHandler::GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxBitmapHandler::GetName() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -325,15 +314,13 @@ public:
 	// wxBitmapType wxBitmapHandler::GetType() const
 	static int _bind_GetType(lua_State *L) {
 		if (!_lg_typecheck_GetType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmapType wxBitmapHandler::GetType() const function, expected prototype:\nwxBitmapType wxBitmapHandler::GetType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBitmapType wxBitmapHandler::GetType() const function, expected prototype:\nwxBitmapType wxBitmapHandler::GetType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmapType wxBitmapHandler::GetType() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBitmapType wxBitmapHandler::GetType() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxBitmapType lret = self->GetType();
 		lua_pushnumber(L,lret);
@@ -344,8 +331,7 @@ public:
 	// bool wxBitmapHandler::LoadFile(wxBitmap * bitmap, const wxString & name, wxBitmapType type, int desiredWidth, int desiredHeight)
 	static int _bind_LoadFile(lua_State *L) {
 		if (!_lg_typecheck_LoadFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::LoadFile(wxBitmap * bitmap, const wxString & name, wxBitmapType type, int desiredWidth, int desiredHeight) function, expected prototype:\nbool wxBitmapHandler::LoadFile(wxBitmap * bitmap, const wxString & name, wxBitmapType type, int desiredWidth, int desiredHeight)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::LoadFile(wxBitmap * bitmap, const wxString & name, wxBitmapType type, int desiredWidth, int desiredHeight) function, expected prototype:\nbool wxBitmapHandler::LoadFile(wxBitmap * bitmap, const wxString & name, wxBitmapType type, int desiredWidth, int desiredHeight)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBitmap* bitmap=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
@@ -356,8 +342,7 @@ public:
 
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::LoadFile(wxBitmap *, const wxString &, wxBitmapType, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::LoadFile(wxBitmap *, const wxString &, wxBitmapType, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->LoadFile(bitmap, name, type, desiredWidth, desiredHeight);
 		lua_pushboolean(L,lret?1:0);
@@ -368,8 +353,7 @@ public:
 	// bool wxBitmapHandler::SaveFile(const wxBitmap * bitmap, const wxString & name, wxBitmapType type, const wxPalette * palette = NULL) const
 	static int _bind_SaveFile(lua_State *L) {
 		if (!_lg_typecheck_SaveFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::SaveFile(const wxBitmap * bitmap, const wxString & name, wxBitmapType type, const wxPalette * palette = NULL) const function, expected prototype:\nbool wxBitmapHandler::SaveFile(const wxBitmap * bitmap, const wxString & name, wxBitmapType type, const wxPalette * palette = NULL) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::SaveFile(const wxBitmap * bitmap, const wxString & name, wxBitmapType type, const wxPalette * palette = NULL) const function, expected prototype:\nbool wxBitmapHandler::SaveFile(const wxBitmap * bitmap, const wxString & name, wxBitmapType type, const wxPalette * palette = NULL) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -381,8 +365,7 @@ public:
 
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::SaveFile(const wxBitmap *, const wxString &, wxBitmapType, const wxPalette *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::SaveFile(const wxBitmap *, const wxString &, wxBitmapType, const wxPalette *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SaveFile(bitmap, name, type, palette);
 		lua_pushboolean(L,lret?1:0);
@@ -393,16 +376,14 @@ public:
 	// void wxBitmapHandler::SetExtension(const wxString & extension)
 	static int _bind_SetExtension(lua_State *L) {
 		if (!_lg_typecheck_SetExtension(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBitmapHandler::SetExtension(const wxString & extension) function, expected prototype:\nvoid wxBitmapHandler::SetExtension(const wxString & extension)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxBitmapHandler::SetExtension(const wxString & extension) function, expected prototype:\nvoid wxBitmapHandler::SetExtension(const wxString & extension)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString extension(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapHandler::SetExtension(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBitmapHandler::SetExtension(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetExtension(extension);
 
@@ -412,16 +393,14 @@ public:
 	// void wxBitmapHandler::SetName(const wxString & name)
 	static int _bind_SetName(lua_State *L) {
 		if (!_lg_typecheck_SetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBitmapHandler::SetName(const wxString & name) function, expected prototype:\nvoid wxBitmapHandler::SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxBitmapHandler::SetName(const wxString & name) function, expected prototype:\nvoid wxBitmapHandler::SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapHandler::SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBitmapHandler::SetName(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetName(name);
 
@@ -431,16 +410,14 @@ public:
 	// void wxBitmapHandler::SetType(wxBitmapType type)
 	static int _bind_SetType(lua_State *L) {
 		if (!_lg_typecheck_SetType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBitmapHandler::SetType(wxBitmapType type) function, expected prototype:\nvoid wxBitmapHandler::SetType(wxBitmapType type)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxBitmapHandler::SetType(wxBitmapType type) function, expected prototype:\nvoid wxBitmapHandler::SetType(wxBitmapType type)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBitmapType type=(wxBitmapType)lua_tointeger(L,2);
 
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapHandler::SetType(wxBitmapType). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBitmapHandler::SetType(wxBitmapType). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetType(type);
 
@@ -450,15 +427,13 @@ public:
 	// wxClassInfo * wxBitmapHandler::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxBitmapHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxBitmapHandler::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxBitmapHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxBitmapHandler::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxBitmapHandler::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxBitmapHandler::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxBitmapHandler::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -471,14 +446,13 @@ public:
 	// bool wxBitmapHandler::base_Create(wxBitmap * bitmap, const void * data, wxBitmapType type, int width, int height, int depth = 1)
 	static int _bind_base_Create(lua_State *L) {
 		if (!_lg_typecheck_base_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::base_Create(wxBitmap * bitmap, const void * data, wxBitmapType type, int width, int height, int depth = 1) function, expected prototype:\nbool wxBitmapHandler::base_Create(wxBitmap * bitmap, const void * data, wxBitmapType type, int width, int height, int depth = 1)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::base_Create(wxBitmap * bitmap, const void * data, wxBitmapType type, int width, int height, int depth = 1) function, expected prototype:\nbool wxBitmapHandler::base_Create(wxBitmap * bitmap, const void * data, wxBitmapType type, int width, int height, int depth = 1)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxBitmap* bitmap=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
-		void* data=(Luna< void >::check(L,3));
+		const void* data=(Luna< void >::check(L,3));
 		wxBitmapType type=(wxBitmapType)lua_tointeger(L,4);
 		int width=(int)lua_tointeger(L,5);
 		int height=(int)lua_tointeger(L,6);
@@ -486,8 +460,7 @@ public:
 
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::base_Create(wxBitmap *, const void *, wxBitmapType, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::base_Create(wxBitmap *, const void *, wxBitmapType, int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxBitmapHandler::Create(bitmap, data, type, width, height, depth);
 		lua_pushboolean(L,lret?1:0);
@@ -498,8 +471,7 @@ public:
 	// bool wxBitmapHandler::base_LoadFile(wxBitmap * bitmap, const wxString & name, wxBitmapType type, int desiredWidth, int desiredHeight)
 	static int _bind_base_LoadFile(lua_State *L) {
 		if (!_lg_typecheck_base_LoadFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::base_LoadFile(wxBitmap * bitmap, const wxString & name, wxBitmapType type, int desiredWidth, int desiredHeight) function, expected prototype:\nbool wxBitmapHandler::base_LoadFile(wxBitmap * bitmap, const wxString & name, wxBitmapType type, int desiredWidth, int desiredHeight)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::base_LoadFile(wxBitmap * bitmap, const wxString & name, wxBitmapType type, int desiredWidth, int desiredHeight) function, expected prototype:\nbool wxBitmapHandler::base_LoadFile(wxBitmap * bitmap, const wxString & name, wxBitmapType type, int desiredWidth, int desiredHeight)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBitmap* bitmap=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
@@ -510,8 +482,7 @@ public:
 
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::base_LoadFile(wxBitmap *, const wxString &, wxBitmapType, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::base_LoadFile(wxBitmap *, const wxString &, wxBitmapType, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxBitmapHandler::LoadFile(bitmap, name, type, desiredWidth, desiredHeight);
 		lua_pushboolean(L,lret?1:0);
@@ -522,8 +493,7 @@ public:
 	// bool wxBitmapHandler::base_SaveFile(const wxBitmap * bitmap, const wxString & name, wxBitmapType type, const wxPalette * palette = NULL) const
 	static int _bind_base_SaveFile(lua_State *L) {
 		if (!_lg_typecheck_base_SaveFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::base_SaveFile(const wxBitmap * bitmap, const wxString & name, wxBitmapType type, const wxPalette * palette = NULL) const function, expected prototype:\nbool wxBitmapHandler::base_SaveFile(const wxBitmap * bitmap, const wxString & name, wxBitmapType type, const wxPalette * palette = NULL) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::base_SaveFile(const wxBitmap * bitmap, const wxString & name, wxBitmapType type, const wxPalette * palette = NULL) const function, expected prototype:\nbool wxBitmapHandler::base_SaveFile(const wxBitmap * bitmap, const wxString & name, wxBitmapType type, const wxPalette * palette = NULL) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -535,8 +505,7 @@ public:
 
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::base_SaveFile(const wxBitmap *, const wxString &, wxBitmapType, const wxPalette *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::base_SaveFile(const wxBitmap *, const wxString &, wxBitmapType, const wxPalette *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxBitmapHandler::SaveFile(bitmap, name, type, palette);
 		lua_pushboolean(L,lret?1:0);

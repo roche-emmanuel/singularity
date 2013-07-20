@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxHtmlHelpController*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxHtmlHelpController*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlHelpController* rhs =(Luna< wxHtmlHelpController >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlHelpController* self= (wxHtmlHelpController*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxHtmlHelpController >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -292,8 +287,7 @@ public:
 	// wxHtmlHelpController::wxHtmlHelpController(int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL)
 	static wxHtmlHelpController* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlHelpController::wxHtmlHelpController(int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL) function, expected prototype:\nwxHtmlHelpController::wxHtmlHelpController(int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpController::wxHtmlHelpController(int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL) function, expected prototype:\nwxHtmlHelpController::wxHtmlHelpController(int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -307,8 +301,7 @@ public:
 	// wxHtmlHelpController::wxHtmlHelpController(lua_Table * data, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL)
 	static wxHtmlHelpController* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlHelpController::wxHtmlHelpController(lua_Table * data, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL) function, expected prototype:\nwxHtmlHelpController::wxHtmlHelpController(lua_Table * data, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL)\nClass arguments details:\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpController::wxHtmlHelpController(lua_Table * data, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL) function, expected prototype:\nwxHtmlHelpController::wxHtmlHelpController(lua_Table * data, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL)\nClass arguments details:\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -333,8 +326,7 @@ public:
 	// bool wxHtmlHelpController::AddBook(const wxFileName & bookFile, bool showWaitMsg = false)
 	static int _bind_AddBook_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AddBook_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::AddBook(const wxFileName & bookFile, bool showWaitMsg = false) function, expected prototype:\nbool wxHtmlHelpController::AddBook(const wxFileName & bookFile, bool showWaitMsg = false)\nClass arguments details:\narg 1 ID = 53530938\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::AddBook(const wxFileName & bookFile, bool showWaitMsg = false) function, expected prototype:\nbool wxHtmlHelpController::AddBook(const wxFileName & bookFile, bool showWaitMsg = false)\nClass arguments details:\narg 1 ID = 53530938\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -348,8 +340,7 @@ public:
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::AddBook(const wxFileName &, bool). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::AddBook(const wxFileName &, bool). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AddBook(bookFile, showWaitMsg);
 		lua_pushboolean(L,lret?1:0);
@@ -360,8 +351,7 @@ public:
 	// bool wxHtmlHelpController::AddBook(const wxString & bookUrl, bool showWaitMsg = false)
 	static int _bind_AddBook_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AddBook_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::AddBook(const wxString & bookUrl, bool showWaitMsg = false) function, expected prototype:\nbool wxHtmlHelpController::AddBook(const wxString & bookUrl, bool showWaitMsg = false)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::AddBook(const wxString & bookUrl, bool showWaitMsg = false) function, expected prototype:\nbool wxHtmlHelpController::AddBook(const wxString & bookUrl, bool showWaitMsg = false)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -371,8 +361,7 @@ public:
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::AddBook(const wxString &, bool). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::AddBook(const wxString &, bool). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AddBook(bookUrl, showWaitMsg);
 		lua_pushboolean(L,lret?1:0);
@@ -392,16 +381,14 @@ public:
 	// bool wxHtmlHelpController::Display(const wxString & x)
 	static int _bind_Display_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Display_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::Display(const wxString & x) function, expected prototype:\nbool wxHtmlHelpController::Display(const wxString & x)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::Display(const wxString & x) function, expected prototype:\nbool wxHtmlHelpController::Display(const wxString & x)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString x(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::Display(const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::Display(const wxString &). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Display(x);
 		lua_pushboolean(L,lret?1:0);
@@ -412,16 +399,14 @@ public:
 	// bool wxHtmlHelpController::Display(int id)
 	static int _bind_Display_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Display_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::Display(int id) function, expected prototype:\nbool wxHtmlHelpController::Display(int id)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::Display(int id) function, expected prototype:\nbool wxHtmlHelpController::Display(int id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int id=(int)lua_tointeger(L,2);
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::Display(int). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::Display(int). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Display(id);
 		lua_pushboolean(L,lret?1:0);
@@ -441,15 +426,13 @@ public:
 	// bool wxHtmlHelpController::DisplayContents()
 	static int _bind_DisplayContents(lua_State *L) {
 		if (!_lg_typecheck_DisplayContents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::DisplayContents() function, expected prototype:\nbool wxHtmlHelpController::DisplayContents()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::DisplayContents() function, expected prototype:\nbool wxHtmlHelpController::DisplayContents()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::DisplayContents(). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::DisplayContents(). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DisplayContents();
 		lua_pushboolean(L,lret?1:0);
@@ -460,15 +443,13 @@ public:
 	// bool wxHtmlHelpController::DisplayIndex()
 	static int _bind_DisplayIndex(lua_State *L) {
 		if (!_lg_typecheck_DisplayIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::DisplayIndex() function, expected prototype:\nbool wxHtmlHelpController::DisplayIndex()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::DisplayIndex() function, expected prototype:\nbool wxHtmlHelpController::DisplayIndex()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::DisplayIndex(). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::DisplayIndex(). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DisplayIndex();
 		lua_pushboolean(L,lret?1:0);
@@ -479,8 +460,7 @@ public:
 	// bool wxHtmlHelpController::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)
 	static int _bind_KeywordSearch(lua_State *L) {
 		if (!_lg_typecheck_KeywordSearch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL) function, expected prototype:\nbool wxHtmlHelpController::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL) function, expected prototype:\nbool wxHtmlHelpController::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -490,8 +470,7 @@ public:
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::KeywordSearch(const wxString &, wxHelpSearchMode). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::KeywordSearch(const wxString &, wxHelpSearchMode). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->KeywordSearch(keyword, mode);
 		lua_pushboolean(L,lret?1:0);
@@ -502,8 +481,7 @@ public:
 	// void wxHtmlHelpController::ReadCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)
 	static int _bind_ReadCustomization(lua_State *L) {
 		if (!_lg_typecheck_ReadCustomization(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::ReadCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString) function, expected prototype:\nvoid wxHtmlHelpController::ReadCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::ReadCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString) function, expected prototype:\nvoid wxHtmlHelpController::ReadCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -513,8 +491,7 @@ public:
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::ReadCustomization(wxConfigBase *, const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::ReadCustomization(wxConfigBase *, const wxString &). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ReadCustomization(cfg, path);
 
@@ -524,16 +501,14 @@ public:
 	// void wxHtmlHelpController::SetShouldPreventAppExit(bool enable)
 	static int _bind_SetShouldPreventAppExit(lua_State *L) {
 		if (!_lg_typecheck_SetShouldPreventAppExit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::SetShouldPreventAppExit(bool enable) function, expected prototype:\nvoid wxHtmlHelpController::SetShouldPreventAppExit(bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::SetShouldPreventAppExit(bool enable) function, expected prototype:\nvoid wxHtmlHelpController::SetShouldPreventAppExit(bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enable=(bool)(lua_toboolean(L,2)==1);
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::SetShouldPreventAppExit(bool). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::SetShouldPreventAppExit(bool). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetShouldPreventAppExit(enable);
 
@@ -543,16 +518,14 @@ public:
 	// void wxHtmlHelpController::SetTempDir(const wxString & path)
 	static int _bind_SetTempDir(lua_State *L) {
 		if (!_lg_typecheck_SetTempDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::SetTempDir(const wxString & path) function, expected prototype:\nvoid wxHtmlHelpController::SetTempDir(const wxString & path)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::SetTempDir(const wxString & path) function, expected prototype:\nvoid wxHtmlHelpController::SetTempDir(const wxString & path)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::SetTempDir(const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::SetTempDir(const wxString &). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTempDir(path);
 
@@ -562,16 +535,14 @@ public:
 	// void wxHtmlHelpController::SetTitleFormat(const wxString & format)
 	static int _bind_SetTitleFormat(lua_State *L) {
 		if (!_lg_typecheck_SetTitleFormat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::SetTitleFormat(const wxString & format) function, expected prototype:\nvoid wxHtmlHelpController::SetTitleFormat(const wxString & format)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::SetTitleFormat(const wxString & format) function, expected prototype:\nvoid wxHtmlHelpController::SetTitleFormat(const wxString & format)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString format(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::SetTitleFormat(const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::SetTitleFormat(const wxString &). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTitleFormat(format);
 
@@ -581,8 +552,7 @@ public:
 	// void wxHtmlHelpController::UseConfig(wxConfigBase * config, const wxString & rootpath = wxEmptyString)
 	static int _bind_UseConfig(lua_State *L) {
 		if (!_lg_typecheck_UseConfig(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::UseConfig(wxConfigBase * config, const wxString & rootpath = wxEmptyString) function, expected prototype:\nvoid wxHtmlHelpController::UseConfig(wxConfigBase * config, const wxString & rootpath = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::UseConfig(wxConfigBase * config, const wxString & rootpath = wxEmptyString) function, expected prototype:\nvoid wxHtmlHelpController::UseConfig(wxConfigBase * config, const wxString & rootpath = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -592,8 +562,7 @@ public:
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::UseConfig(wxConfigBase *, const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::UseConfig(wxConfigBase *, const wxString &). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->UseConfig(config, rootpath);
 
@@ -603,8 +572,7 @@ public:
 	// void wxHtmlHelpController::WriteCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)
 	static int _bind_WriteCustomization(lua_State *L) {
 		if (!_lg_typecheck_WriteCustomization(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::WriteCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString) function, expected prototype:\nvoid wxHtmlHelpController::WriteCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::WriteCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString) function, expected prototype:\nvoid wxHtmlHelpController::WriteCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -614,8 +582,7 @@ public:
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::WriteCustomization(wxConfigBase *, const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::WriteCustomization(wxConfigBase *, const wxString &). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteCustomization(cfg, path);
 
@@ -625,15 +592,13 @@ public:
 	// bool wxHtmlHelpController::base_DisplayContents()
 	static int _bind_base_DisplayContents(lua_State *L) {
 		if (!_lg_typecheck_base_DisplayContents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::base_DisplayContents() function, expected prototype:\nbool wxHtmlHelpController::base_DisplayContents()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::base_DisplayContents() function, expected prototype:\nbool wxHtmlHelpController::base_DisplayContents()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::base_DisplayContents(). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::base_DisplayContents(). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHtmlHelpController::DisplayContents();
 		lua_pushboolean(L,lret?1:0);
@@ -644,8 +609,7 @@ public:
 	// bool wxHtmlHelpController::base_KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)
 	static int _bind_base_KeywordSearch(lua_State *L) {
 		if (!_lg_typecheck_base_KeywordSearch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::base_KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL) function, expected prototype:\nbool wxHtmlHelpController::base_KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::base_KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL) function, expected prototype:\nbool wxHtmlHelpController::base_KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -655,8 +619,7 @@ public:
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::base_KeywordSearch(const wxString &, wxHelpSearchMode). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::base_KeywordSearch(const wxString &, wxHelpSearchMode). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHtmlHelpController::KeywordSearch(keyword, mode);
 		lua_pushboolean(L,lret?1:0);
@@ -667,8 +630,7 @@ public:
 	// void wxHtmlHelpController::base_ReadCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)
 	static int _bind_base_ReadCustomization(lua_State *L) {
 		if (!_lg_typecheck_base_ReadCustomization(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::base_ReadCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString) function, expected prototype:\nvoid wxHtmlHelpController::base_ReadCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::base_ReadCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString) function, expected prototype:\nvoid wxHtmlHelpController::base_ReadCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -678,8 +640,7 @@ public:
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::base_ReadCustomization(wxConfigBase *, const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::base_ReadCustomization(wxConfigBase *, const wxString &). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHtmlHelpController::ReadCustomization(cfg, path);
 
@@ -689,8 +650,7 @@ public:
 	// void wxHtmlHelpController::base_WriteCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)
 	static int _bind_base_WriteCustomization(lua_State *L) {
 		if (!_lg_typecheck_base_WriteCustomization(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::base_WriteCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString) function, expected prototype:\nvoid wxHtmlHelpController::base_WriteCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::base_WriteCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString) function, expected prototype:\nvoid wxHtmlHelpController::base_WriteCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -700,8 +660,7 @@ public:
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::base_WriteCustomization(wxConfigBase *, const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::base_WriteCustomization(wxConfigBase *, const wxString &). Got : '%s'\n%s",typeid(Luna< wxHtmlHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHtmlHelpController::WriteCustomization(cfg, path);
 

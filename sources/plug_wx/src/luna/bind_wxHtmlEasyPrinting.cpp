@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlEasyPrinting* self= (wxHtmlEasyPrinting*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -234,8 +231,7 @@ public:
 	// wxHtmlEasyPrinting::wxHtmlEasyPrinting(const wxString & name = "Printing", wxWindow * parentWindow = NULL)
 	static wxHtmlEasyPrinting* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlEasyPrinting::wxHtmlEasyPrinting(const wxString & name = \"Printing\", wxWindow * parentWindow = NULL) function, expected prototype:\nwxHtmlEasyPrinting::wxHtmlEasyPrinting(const wxString & name = \"Printing\", wxWindow * parentWindow = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlEasyPrinting::wxHtmlEasyPrinting(const wxString & name = \"Printing\", wxWindow * parentWindow = NULL) function, expected prototype:\nwxHtmlEasyPrinting::wxHtmlEasyPrinting(const wxString & name = \"Printing\", wxWindow * parentWindow = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -249,8 +245,7 @@ public:
 	// wxHtmlEasyPrinting::wxHtmlEasyPrinting(lua_Table * data, const wxString & name = "Printing", wxWindow * parentWindow = NULL)
 	static wxHtmlEasyPrinting* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlEasyPrinting::wxHtmlEasyPrinting(lua_Table * data, const wxString & name = \"Printing\", wxWindow * parentWindow = NULL) function, expected prototype:\nwxHtmlEasyPrinting::wxHtmlEasyPrinting(lua_Table * data, const wxString & name = \"Printing\", wxWindow * parentWindow = NULL)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlEasyPrinting::wxHtmlEasyPrinting(lua_Table * data, const wxString & name = \"Printing\", wxWindow * parentWindow = NULL) function, expected prototype:\nwxHtmlEasyPrinting::wxHtmlEasyPrinting(lua_Table * data, const wxString & name = \"Printing\", wxWindow * parentWindow = NULL)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -275,15 +270,13 @@ public:
 	// const wxString & wxHtmlEasyPrinting::GetName() const
 	static int _bind_GetName(lua_State *L) {
 		if (!_lg_typecheck_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxHtmlEasyPrinting::GetName() const function, expected prototype:\nconst wxString & wxHtmlEasyPrinting::GetName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxHtmlEasyPrinting::GetName() const function, expected prototype:\nconst wxString & wxHtmlEasyPrinting::GetName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxHtmlEasyPrinting::GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxHtmlEasyPrinting::GetName() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -294,15 +287,13 @@ public:
 	// wxPageSetupDialogData * wxHtmlEasyPrinting::GetPageSetupData()
 	static int _bind_GetPageSetupData(lua_State *L) {
 		if (!_lg_typecheck_GetPageSetupData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPageSetupDialogData * wxHtmlEasyPrinting::GetPageSetupData() function, expected prototype:\nwxPageSetupDialogData * wxHtmlEasyPrinting::GetPageSetupData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPageSetupDialogData * wxHtmlEasyPrinting::GetPageSetupData() function, expected prototype:\nwxPageSetupDialogData * wxHtmlEasyPrinting::GetPageSetupData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPageSetupDialogData * wxHtmlEasyPrinting::GetPageSetupData(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPageSetupDialogData * wxHtmlEasyPrinting::GetPageSetupData(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPageSetupDialogData * lret = self->GetPageSetupData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -315,15 +306,13 @@ public:
 	// wxWindow * wxHtmlEasyPrinting::GetParentWindow() const
 	static int _bind_GetParentWindow(lua_State *L) {
 		if (!_lg_typecheck_GetParentWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWindow * wxHtmlEasyPrinting::GetParentWindow() const function, expected prototype:\nwxWindow * wxHtmlEasyPrinting::GetParentWindow() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxWindow * wxHtmlEasyPrinting::GetParentWindow() const function, expected prototype:\nwxWindow * wxHtmlEasyPrinting::GetParentWindow() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxHtmlEasyPrinting::GetParentWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxWindow * wxHtmlEasyPrinting::GetParentWindow() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxWindow * lret = self->GetParentWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -336,15 +325,13 @@ public:
 	// void wxHtmlEasyPrinting::PageSetup()
 	static int _bind_PageSetup(lua_State *L) {
 		if (!_lg_typecheck_PageSetup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::PageSetup() function, expected prototype:\nvoid wxHtmlEasyPrinting::PageSetup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::PageSetup() function, expected prototype:\nvoid wxHtmlEasyPrinting::PageSetup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::PageSetup(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::PageSetup(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PageSetup();
 
@@ -354,16 +341,14 @@ public:
 	// bool wxHtmlEasyPrinting::PreviewFile(const wxString & htmlfile)
 	static int _bind_PreviewFile(lua_State *L) {
 		if (!_lg_typecheck_PreviewFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlEasyPrinting::PreviewFile(const wxString & htmlfile) function, expected prototype:\nbool wxHtmlEasyPrinting::PreviewFile(const wxString & htmlfile)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlEasyPrinting::PreviewFile(const wxString & htmlfile) function, expected prototype:\nbool wxHtmlEasyPrinting::PreviewFile(const wxString & htmlfile)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString htmlfile(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PreviewFile(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PreviewFile(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PreviewFile(htmlfile);
 		lua_pushboolean(L,lret?1:0);
@@ -374,8 +359,7 @@ public:
 	// bool wxHtmlEasyPrinting::PreviewText(const wxString & htmltext, const wxString & basepath = wxEmptyString)
 	static int _bind_PreviewText(lua_State *L) {
 		if (!_lg_typecheck_PreviewText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlEasyPrinting::PreviewText(const wxString & htmltext, const wxString & basepath = wxEmptyString) function, expected prototype:\nbool wxHtmlEasyPrinting::PreviewText(const wxString & htmltext, const wxString & basepath = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlEasyPrinting::PreviewText(const wxString & htmltext, const wxString & basepath = wxEmptyString) function, expected prototype:\nbool wxHtmlEasyPrinting::PreviewText(const wxString & htmltext, const wxString & basepath = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -385,8 +369,7 @@ public:
 
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PreviewText(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PreviewText(const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PreviewText(htmltext, basepath);
 		lua_pushboolean(L,lret?1:0);
@@ -397,16 +380,14 @@ public:
 	// bool wxHtmlEasyPrinting::PrintFile(const wxString & htmlfile)
 	static int _bind_PrintFile(lua_State *L) {
 		if (!_lg_typecheck_PrintFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlEasyPrinting::PrintFile(const wxString & htmlfile) function, expected prototype:\nbool wxHtmlEasyPrinting::PrintFile(const wxString & htmlfile)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlEasyPrinting::PrintFile(const wxString & htmlfile) function, expected prototype:\nbool wxHtmlEasyPrinting::PrintFile(const wxString & htmlfile)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString htmlfile(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PrintFile(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PrintFile(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PrintFile(htmlfile);
 		lua_pushboolean(L,lret?1:0);
@@ -417,8 +398,7 @@ public:
 	// bool wxHtmlEasyPrinting::PrintText(const wxString & htmltext, const wxString & basepath = wxEmptyString)
 	static int _bind_PrintText(lua_State *L) {
 		if (!_lg_typecheck_PrintText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlEasyPrinting::PrintText(const wxString & htmltext, const wxString & basepath = wxEmptyString) function, expected prototype:\nbool wxHtmlEasyPrinting::PrintText(const wxString & htmltext, const wxString & basepath = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlEasyPrinting::PrintText(const wxString & htmltext, const wxString & basepath = wxEmptyString) function, expected prototype:\nbool wxHtmlEasyPrinting::PrintText(const wxString & htmltext, const wxString & basepath = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -428,8 +408,7 @@ public:
 
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PrintText(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PrintText(const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PrintText(htmltext, basepath);
 		lua_pushboolean(L,lret?1:0);
@@ -440,8 +419,7 @@ public:
 	// void wxHtmlEasyPrinting::SetFonts(const wxString & normal_face, const wxString & fixed_face, const int * sizes = NULL)
 	static int _bind_SetFonts(lua_State *L) {
 		if (!_lg_typecheck_SetFonts(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetFonts(const wxString & normal_face, const wxString & fixed_face, const int * sizes = NULL) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetFonts(const wxString & normal_face, const wxString & fixed_face, const int * sizes = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetFonts(const wxString & normal_face, const wxString & fixed_face, const int * sizes = NULL) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetFonts(const wxString & normal_face, const wxString & fixed_face, const int * sizes = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -452,8 +430,7 @@ public:
 
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetFonts(const wxString &, const wxString &, const int *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetFonts(const wxString &, const wxString &, const int *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFonts(normal_face, fixed_face, sizes);
 
@@ -463,16 +440,14 @@ public:
 	// void wxHtmlEasyPrinting::SetName(const wxString & name)
 	static int _bind_SetName(lua_State *L) {
 		if (!_lg_typecheck_SetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetName(const wxString & name) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetName(const wxString & name) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetName(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetName(name);
 
@@ -482,8 +457,7 @@ public:
 	// void wxHtmlEasyPrinting::SetStandardFonts(int size = -1, const wxString & normal_face = wxEmptyString, const wxString & fixed_face = wxEmptyString)
 	static int _bind_SetStandardFonts(lua_State *L) {
 		if (!_lg_typecheck_SetStandardFonts(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetStandardFonts(int size = -1, const wxString & normal_face = wxEmptyString, const wxString & fixed_face = wxEmptyString) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetStandardFonts(int size = -1, const wxString & normal_face = wxEmptyString, const wxString & fixed_face = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetStandardFonts(int size = -1, const wxString & normal_face = wxEmptyString, const wxString & fixed_face = wxEmptyString) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetStandardFonts(int size = -1, const wxString & normal_face = wxEmptyString, const wxString & fixed_face = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -494,8 +468,7 @@ public:
 
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetStandardFonts(int, const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetStandardFonts(int, const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetStandardFonts(size, normal_face, fixed_face);
 
@@ -505,8 +478,7 @@ public:
 	// void wxHtmlEasyPrinting::SetFooter(const wxString & footer, int pg = ::wxPAGE_ALL)
 	static int _bind_SetFooter(lua_State *L) {
 		if (!_lg_typecheck_SetFooter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetFooter(const wxString & footer, int pg = ::wxPAGE_ALL) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetFooter(const wxString & footer, int pg = ::wxPAGE_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetFooter(const wxString & footer, int pg = ::wxPAGE_ALL) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetFooter(const wxString & footer, int pg = ::wxPAGE_ALL)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -516,8 +488,7 @@ public:
 
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetFooter(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetFooter(const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFooter(footer, pg);
 
@@ -527,8 +498,7 @@ public:
 	// void wxHtmlEasyPrinting::SetHeader(const wxString & header, int pg = ::wxPAGE_ALL)
 	static int _bind_SetHeader(lua_State *L) {
 		if (!_lg_typecheck_SetHeader(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetHeader(const wxString & header, int pg = ::wxPAGE_ALL) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetHeader(const wxString & header, int pg = ::wxPAGE_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetHeader(const wxString & header, int pg = ::wxPAGE_ALL) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetHeader(const wxString & header, int pg = ::wxPAGE_ALL)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -538,8 +508,7 @@ public:
 
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetHeader(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetHeader(const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetHeader(header, pg);
 
@@ -549,16 +518,14 @@ public:
 	// void wxHtmlEasyPrinting::SetParentWindow(wxWindow * window)
 	static int _bind_SetParentWindow(lua_State *L) {
 		if (!_lg_typecheck_SetParentWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetParentWindow(wxWindow * window) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetParentWindow(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetParentWindow(wxWindow * window) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetParentWindow(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetParentWindow(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetParentWindow(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetParentWindow(window);
 
@@ -568,15 +535,13 @@ public:
 	// wxClassInfo * wxHtmlEasyPrinting::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlEasyPrinting::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlEasyPrinting::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlEasyPrinting::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlEasyPrinting::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlEasyPrinting::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlEasyPrinting::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxHtmlEasyPrinting::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

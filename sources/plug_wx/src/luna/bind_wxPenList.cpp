@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxPenList*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxPenList*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPenList* rhs =(Luna< wxPenList >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPenList* self= (wxPenList*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxPenList >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -126,8 +122,7 @@ public:
 	// wxPenList::wxPenList()
 	static wxPenList* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPenList::wxPenList() function, expected prototype:\nwxPenList::wxPenList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPenList::wxPenList() function, expected prototype:\nwxPenList::wxPenList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -139,8 +134,7 @@ public:
 	// wxPen * wxPenList::FindOrCreatePen(const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID)
 	static int _bind_FindOrCreatePen(lua_State *L) {
 		if (!_lg_typecheck_FindOrCreatePen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPen * wxPenList::FindOrCreatePen(const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID) function, expected prototype:\nwxPen * wxPenList::FindOrCreatePen(const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxPen * wxPenList::FindOrCreatePen(const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID) function, expected prototype:\nwxPen * wxPenList::FindOrCreatePen(const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -155,8 +149,7 @@ public:
 
 		wxPenList* self=(Luna< wxPenList >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPen * wxPenList::FindOrCreatePen(const wxColour &, int, wxPenStyle). Got : '%s'",typeid(Luna< wxPenList >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPen * wxPenList::FindOrCreatePen(const wxColour &, int, wxPenStyle). Got : '%s'\n%s",typeid(Luna< wxPenList >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPen * lret = self->FindOrCreatePen(colour, width, style);
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxImageList* self= (wxImageList*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -285,8 +282,7 @@ public:
 	// wxImageList::wxImageList()
 	static wxImageList* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxImageList::wxImageList() function, expected prototype:\nwxImageList::wxImageList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxImageList::wxImageList() function, expected prototype:\nwxImageList::wxImageList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -296,8 +292,7 @@ public:
 	// wxImageList::wxImageList(int width, int height, bool mask = true, int initialCount = 1)
 	static wxImageList* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxImageList::wxImageList(int width, int height, bool mask = true, int initialCount = 1) function, expected prototype:\nwxImageList::wxImageList(int width, int height, bool mask = true, int initialCount = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxImageList::wxImageList(int width, int height, bool mask = true, int initialCount = 1) function, expected prototype:\nwxImageList::wxImageList(int width, int height, bool mask = true, int initialCount = 1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -313,8 +308,7 @@ public:
 	// wxImageList::wxImageList(lua_Table * data)
 	static wxImageList* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxImageList::wxImageList(lua_Table * data) function, expected prototype:\nwxImageList::wxImageList(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxImageList::wxImageList(lua_Table * data) function, expected prototype:\nwxImageList::wxImageList(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -324,8 +318,7 @@ public:
 	// wxImageList::wxImageList(lua_Table * data, int width, int height, bool mask = true, int initialCount = 1)
 	static wxImageList* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxImageList::wxImageList(lua_Table * data, int width, int height, bool mask = true, int initialCount = 1) function, expected prototype:\nwxImageList::wxImageList(lua_Table * data, int width, int height, bool mask = true, int initialCount = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxImageList::wxImageList(lua_Table * data, int width, int height, bool mask = true, int initialCount = 1) function, expected prototype:\nwxImageList::wxImageList(lua_Table * data, int width, int height, bool mask = true, int initialCount = 1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -354,8 +347,7 @@ public:
 	// int wxImageList::Add(const wxBitmap & bitmap, const wxBitmap & mask = wxNullBitmap)
 	static int _bind_Add_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Add_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxImageList::Add(const wxBitmap & bitmap, const wxBitmap & mask = wxNullBitmap) function, expected prototype:\nint wxImageList::Add(const wxBitmap & bitmap, const wxBitmap & mask = wxNullBitmap)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in int wxImageList::Add(const wxBitmap & bitmap, const wxBitmap & mask = wxNullBitmap) function, expected prototype:\nint wxImageList::Add(const wxBitmap & bitmap, const wxBitmap & mask = wxNullBitmap)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -373,8 +365,7 @@ public:
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxImageList::Add(const wxBitmap &, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxImageList::Add(const wxBitmap &, const wxBitmap &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Add(bitmap, mask);
 		lua_pushnumber(L,lret);
@@ -385,8 +376,7 @@ public:
 	// int wxImageList::Add(const wxBitmap & bitmap, const wxColour & maskColour)
 	static int _bind_Add_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Add_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxImageList::Add(const wxBitmap & bitmap, const wxColour & maskColour) function, expected prototype:\nint wxImageList::Add(const wxBitmap & bitmap, const wxColour & maskColour)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in int wxImageList::Add(const wxBitmap & bitmap, const wxColour & maskColour) function, expected prototype:\nint wxImageList::Add(const wxBitmap & bitmap, const wxColour & maskColour)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
@@ -402,8 +392,7 @@ public:
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxImageList::Add(const wxBitmap &, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxImageList::Add(const wxBitmap &, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Add(bitmap, maskColour);
 		lua_pushnumber(L,lret);
@@ -414,8 +403,7 @@ public:
 	// int wxImageList::Add(const wxIcon & icon)
 	static int _bind_Add_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Add_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxImageList::Add(const wxIcon & icon) function, expected prototype:\nint wxImageList::Add(const wxIcon & icon)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in int wxImageList::Add(const wxIcon & icon) function, expected prototype:\nint wxImageList::Add(const wxIcon & icon)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,2));
@@ -426,8 +414,7 @@ public:
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxImageList::Add(const wxIcon &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxImageList::Add(const wxIcon &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Add(icon);
 		lua_pushnumber(L,lret);
@@ -448,8 +435,7 @@ public:
 	// bool wxImageList::Create(int width, int height, bool mask = true, int initialCount = 1)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxImageList::Create(int width, int height, bool mask = true, int initialCount = 1) function, expected prototype:\nbool wxImageList::Create(int width, int height, bool mask = true, int initialCount = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxImageList::Create(int width, int height, bool mask = true, int initialCount = 1) function, expected prototype:\nbool wxImageList::Create(int width, int height, bool mask = true, int initialCount = 1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -461,8 +447,7 @@ public:
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::Create(int, int, bool, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxImageList::Create(int, int, bool, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Create(width, height, mask, initialCount);
 		lua_pushboolean(L,lret?1:0);
@@ -473,8 +458,7 @@ public:
 	// bool wxImageList::Draw(int index, wxDC & dc, int x, int y, int flags = 0x0001, bool solidBackground = false)
 	static int _bind_Draw(lua_State *L) {
 		if (!_lg_typecheck_Draw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxImageList::Draw(int index, wxDC & dc, int x, int y, int flags = 0x0001, bool solidBackground = false) function, expected prototype:\nbool wxImageList::Draw(int index, wxDC & dc, int x, int y, int flags = 0x0001, bool solidBackground = false)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxImageList::Draw(int index, wxDC & dc, int x, int y, int flags = 0x0001, bool solidBackground = false) function, expected prototype:\nbool wxImageList::Draw(int index, wxDC & dc, int x, int y, int flags = 0x0001, bool solidBackground = false)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -492,8 +476,7 @@ public:
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::Draw(int, wxDC &, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxImageList::Draw(int, wxDC &, int, int, int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Draw(index, dc, x, y, flags, solidBackground);
 		lua_pushboolean(L,lret?1:0);
@@ -504,16 +487,14 @@ public:
 	// wxBitmap wxImageList::GetBitmap(int index) const
 	static int _bind_GetBitmap(lua_State *L) {
 		if (!_lg_typecheck_GetBitmap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmap wxImageList::GetBitmap(int index) const function, expected prototype:\nwxBitmap wxImageList::GetBitmap(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBitmap wxImageList::GetBitmap(int index) const function, expected prototype:\nwxBitmap wxImageList::GetBitmap(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap wxImageList::GetBitmap(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBitmap wxImageList::GetBitmap(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxBitmap stack_lret = self->GetBitmap(index);
 		wxBitmap* lret = new wxBitmap(stack_lret);
@@ -527,16 +508,14 @@ public:
 	// wxIcon wxImageList::GetIcon(int index) const
 	static int _bind_GetIcon(lua_State *L) {
 		if (!_lg_typecheck_GetIcon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIcon wxImageList::GetIcon(int index) const function, expected prototype:\nwxIcon wxImageList::GetIcon(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxIcon wxImageList::GetIcon(int index) const function, expected prototype:\nwxIcon wxImageList::GetIcon(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIcon wxImageList::GetIcon(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxIcon wxImageList::GetIcon(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxIcon stack_lret = self->GetIcon(index);
 		wxIcon* lret = new wxIcon(stack_lret);
@@ -550,15 +529,13 @@ public:
 	// int wxImageList::GetImageCount() const
 	static int _bind_GetImageCount(lua_State *L) {
 		if (!_lg_typecheck_GetImageCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxImageList::GetImageCount() const function, expected prototype:\nint wxImageList::GetImageCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxImageList::GetImageCount() const function, expected prototype:\nint wxImageList::GetImageCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxImageList::GetImageCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxImageList::GetImageCount() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetImageCount();
 		lua_pushnumber(L,lret);
@@ -569,8 +546,7 @@ public:
 	// bool wxImageList::GetSize(int index, int & width, int & height) const
 	static int _bind_GetSize(lua_State *L) {
 		if (!_lg_typecheck_GetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxImageList::GetSize(int index, int & width, int & height) const function, expected prototype:\nbool wxImageList::GetSize(int index, int & width, int & height) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxImageList::GetSize(int index, int & width, int & height) const function, expected prototype:\nbool wxImageList::GetSize(int index, int & width, int & height) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -579,28 +555,27 @@ public:
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::GetSize(int, int &, int &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxImageList::GetSize(int, int &, int &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetSize(index, width, height);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,width);
+		lua_pushnumber(L,height);
+		return 3;
 	}
 
 	// bool wxImageList::Remove(int index)
 	static int _bind_Remove(lua_State *L) {
 		if (!_lg_typecheck_Remove(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxImageList::Remove(int index) function, expected prototype:\nbool wxImageList::Remove(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxImageList::Remove(int index) function, expected prototype:\nbool wxImageList::Remove(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::Remove(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxImageList::Remove(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Remove(index);
 		lua_pushboolean(L,lret?1:0);
@@ -611,15 +586,13 @@ public:
 	// bool wxImageList::RemoveAll()
 	static int _bind_RemoveAll(lua_State *L) {
 		if (!_lg_typecheck_RemoveAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxImageList::RemoveAll() function, expected prototype:\nbool wxImageList::RemoveAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxImageList::RemoveAll() function, expected prototype:\nbool wxImageList::RemoveAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::RemoveAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxImageList::RemoveAll(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RemoveAll();
 		lua_pushboolean(L,lret?1:0);
@@ -630,8 +603,7 @@ public:
 	// bool wxImageList::Replace(int index, const wxBitmap & bitmap, const wxBitmap & mask = wxNullBitmap)
 	static int _bind_Replace_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Replace_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxImageList::Replace(int index, const wxBitmap & bitmap, const wxBitmap & mask = wxNullBitmap) function, expected prototype:\nbool wxImageList::Replace(int index, const wxBitmap & bitmap, const wxBitmap & mask = wxNullBitmap)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxImageList::Replace(int index, const wxBitmap & bitmap, const wxBitmap & mask = wxNullBitmap) function, expected prototype:\nbool wxImageList::Replace(int index, const wxBitmap & bitmap, const wxBitmap & mask = wxNullBitmap)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -650,8 +622,7 @@ public:
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::Replace(int, const wxBitmap &, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxImageList::Replace(int, const wxBitmap &, const wxBitmap &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Replace(index, bitmap, mask);
 		lua_pushboolean(L,lret?1:0);
@@ -662,8 +633,7 @@ public:
 	// bool wxImageList::Replace(int index, const wxIcon & icon)
 	static int _bind_Replace_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Replace_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxImageList::Replace(int index, const wxIcon & icon) function, expected prototype:\nbool wxImageList::Replace(int index, const wxIcon & icon)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxImageList::Replace(int index, const wxIcon & icon) function, expected prototype:\nbool wxImageList::Replace(int index, const wxIcon & icon)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -675,8 +645,7 @@ public:
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::Replace(int, const wxIcon &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxImageList::Replace(int, const wxIcon &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Replace(index, icon);
 		lua_pushboolean(L,lret?1:0);
@@ -696,15 +665,13 @@ public:
 	// wxClassInfo * wxImageList::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxImageList::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxImageList::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxImageList::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxImageList::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxImageList::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxImageList::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxImageList::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -717,8 +684,7 @@ public:
 	// bool wxImageList::base_Draw(int index, wxDC & dc, int x, int y, int flags = 0x0001, bool solidBackground = false)
 	static int _bind_base_Draw(lua_State *L) {
 		if (!_lg_typecheck_base_Draw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxImageList::base_Draw(int index, wxDC & dc, int x, int y, int flags = 0x0001, bool solidBackground = false) function, expected prototype:\nbool wxImageList::base_Draw(int index, wxDC & dc, int x, int y, int flags = 0x0001, bool solidBackground = false)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxImageList::base_Draw(int index, wxDC & dc, int x, int y, int flags = 0x0001, bool solidBackground = false) function, expected prototype:\nbool wxImageList::base_Draw(int index, wxDC & dc, int x, int y, int flags = 0x0001, bool solidBackground = false)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -736,8 +702,7 @@ public:
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::base_Draw(int, wxDC &, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxImageList::base_Draw(int, wxDC &, int, int, int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxImageList::Draw(index, dc, x, y, flags, solidBackground);
 		lua_pushboolean(L,lret?1:0);
@@ -748,15 +713,13 @@ public:
 	// int wxImageList::base_GetImageCount() const
 	static int _bind_base_GetImageCount(lua_State *L) {
 		if (!_lg_typecheck_base_GetImageCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxImageList::base_GetImageCount() const function, expected prototype:\nint wxImageList::base_GetImageCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxImageList::base_GetImageCount() const function, expected prototype:\nint wxImageList::base_GetImageCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxImageList::base_GetImageCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxImageList::base_GetImageCount() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxImageList::GetImageCount();
 		lua_pushnumber(L,lret);
@@ -767,8 +730,7 @@ public:
 	// bool wxImageList::base_GetSize(int index, int & width, int & height) const
 	static int _bind_base_GetSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxImageList::base_GetSize(int index, int & width, int & height) const function, expected prototype:\nbool wxImageList::base_GetSize(int index, int & width, int & height) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxImageList::base_GetSize(int index, int & width, int & height) const function, expected prototype:\nbool wxImageList::base_GetSize(int index, int & width, int & height) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -777,13 +739,14 @@ public:
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::base_GetSize(int, int &, int &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxImageList::base_GetSize(int, int &, int &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxImageList::GetSize(index, width, height);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,width);
+		lua_pushnumber(L,height);
+		return 3;
 	}
 
 

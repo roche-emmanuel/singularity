@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataViewCustomRenderer* self= (wxDataViewCustomRenderer*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -245,8 +242,7 @@ public:
 	// wxDataViewCustomRenderer::wxDataViewCustomRenderer(lua_Table * data, const wxString & varianttype = "string", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1)
 	static wxDataViewCustomRenderer* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewCustomRenderer::wxDataViewCustomRenderer(lua_Table * data, const wxString & varianttype = \"string\", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1) function, expected prototype:\nwxDataViewCustomRenderer::wxDataViewCustomRenderer(lua_Table * data, const wxString & varianttype = \"string\", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewCustomRenderer::wxDataViewCustomRenderer(lua_Table * data, const wxString & varianttype = \"string\", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1) function, expected prototype:\nwxDataViewCustomRenderer::wxDataViewCustomRenderer(lua_Table * data, const wxString & varianttype = \"string\", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -263,15 +259,13 @@ public:
 	// wxSize wxDataViewCustomRenderer::GetSize() const
 	static int _bind_GetSize(lua_State *L) {
 		if (!_lg_typecheck_GetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxDataViewCustomRenderer::GetSize() const function, expected prototype:\nwxSize wxDataViewCustomRenderer::GetSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxDataViewCustomRenderer::GetSize() const function, expected prototype:\nwxSize wxDataViewCustomRenderer::GetSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDataViewCustomRenderer::GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxDataViewCustomRenderer::GetSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->GetSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -285,8 +279,7 @@ public:
 	// bool wxDataViewCustomRenderer::ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent)
 	static int _bind_ActivateCell(lua_State *L) {
 		if (!_lg_typecheck_ActivateCell(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent) function, expected prototype:\nbool wxDataViewCustomRenderer::ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent)\nClass arguments details:\narg 1 ID = 20234418\narg 2 ID = 66533182\narg 3 ID = 11709329\narg 5 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent) function, expected prototype:\nbool wxDataViewCustomRenderer::ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent)\nClass arguments details:\narg 1 ID = 20234418\narg 2 ID = 66533182\narg 3 ID = 11709329\narg 5 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect* cell_ptr=(Luna< wxRect >::check(L,2));
@@ -305,8 +298,7 @@ public:
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::ActivateCell(const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int, const wxMouseEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::ActivateCell(const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int, const wxMouseEvent *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ActivateCell(cell, model, item, col, mouseEvent);
 		lua_pushboolean(L,lret?1:0);
@@ -317,15 +309,13 @@ public:
 	// const wxDataViewItemAttr & wxDataViewCustomRenderer::GetAttr() const
 	static int _bind_GetAttr(lua_State *L) {
 		if (!_lg_typecheck_GetAttr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxDataViewItemAttr & wxDataViewCustomRenderer::GetAttr() const function, expected prototype:\nconst wxDataViewItemAttr & wxDataViewCustomRenderer::GetAttr() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxDataViewItemAttr & wxDataViewCustomRenderer::GetAttr() const function, expected prototype:\nconst wxDataViewItemAttr & wxDataViewCustomRenderer::GetAttr() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxDataViewItemAttr & wxDataViewCustomRenderer::GetAttr() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxDataViewItemAttr & wxDataViewCustomRenderer::GetAttr() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDataViewItemAttr* lret = &self->GetAttr();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -338,15 +328,13 @@ public:
 	// bool wxDataViewCustomRenderer::HasEditorCtrl() const
 	static int _bind_HasEditorCtrl(lua_State *L) {
 		if (!_lg_typecheck_HasEditorCtrl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::HasEditorCtrl() const function, expected prototype:\nbool wxDataViewCustomRenderer::HasEditorCtrl() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::HasEditorCtrl() const function, expected prototype:\nbool wxDataViewCustomRenderer::HasEditorCtrl() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::HasEditorCtrl() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::HasEditorCtrl() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasEditorCtrl();
 		lua_pushboolean(L,lret?1:0);
@@ -357,8 +345,7 @@ public:
 	// bool wxDataViewCustomRenderer::LeftClick(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col)
 	static int _bind_LeftClick(lua_State *L) {
 		if (!_lg_typecheck_LeftClick(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::LeftClick(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col) function, expected prototype:\nbool wxDataViewCustomRenderer::LeftClick(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col)\nClass arguments details:\narg 1 ID = 25723480\narg 2 ID = 20234418\narg 3 ID = 66533182\narg 4 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::LeftClick(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col) function, expected prototype:\nbool wxDataViewCustomRenderer::LeftClick(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col)\nClass arguments details:\narg 1 ID = 25723480\narg 2 ID = 20234418\narg 3 ID = 66533182\narg 4 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* cursor_ptr=(Luna< wxPoint >::check(L,2));
@@ -381,8 +368,7 @@ public:
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::LeftClick(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::LeftClick(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->LeftClick(cursor, cell, model, item, col);
 		lua_pushboolean(L,lret?1:0);
@@ -393,8 +379,7 @@ public:
 	// bool wxDataViewCustomRenderer::Render(wxRect cell, wxDC * dc, int state)
 	static int _bind_Render(lua_State *L) {
 		if (!_lg_typecheck_Render(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::Render(wxRect cell, wxDC * dc, int state) function, expected prototype:\nbool wxDataViewCustomRenderer::Render(wxRect cell, wxDC * dc, int state)\nClass arguments details:\narg 1 ID = 20234418\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::Render(wxRect cell, wxDC * dc, int state) function, expected prototype:\nbool wxDataViewCustomRenderer::Render(wxRect cell, wxDC * dc, int state)\nClass arguments details:\narg 1 ID = 20234418\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRect* cell_ptr=(Luna< wxRect >::check(L,2));
@@ -407,8 +392,7 @@ public:
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::Render(wxRect, wxDC *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::Render(wxRect, wxDC *, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Render(cell, dc, state);
 		lua_pushboolean(L,lret?1:0);
@@ -419,8 +403,7 @@ public:
 	// void wxDataViewCustomRenderer::RenderText(const wxString & text, int xoffset, wxRect cell, wxDC * dc, int state)
 	static int _bind_RenderText(lua_State *L) {
 		if (!_lg_typecheck_RenderText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewCustomRenderer::RenderText(const wxString & text, int xoffset, wxRect cell, wxDC * dc, int state) function, expected prototype:\nvoid wxDataViewCustomRenderer::RenderText(const wxString & text, int xoffset, wxRect cell, wxDC * dc, int state)\nClass arguments details:\narg 1 ID = 88196105\narg 3 ID = 20234418\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewCustomRenderer::RenderText(const wxString & text, int xoffset, wxRect cell, wxDC * dc, int state) function, expected prototype:\nvoid wxDataViewCustomRenderer::RenderText(const wxString & text, int xoffset, wxRect cell, wxDC * dc, int state)\nClass arguments details:\narg 1 ID = 88196105\narg 3 ID = 20234418\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
@@ -435,8 +418,7 @@ public:
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCustomRenderer::RenderText(const wxString &, int, wxRect, wxDC *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewCustomRenderer::RenderText(const wxString &, int, wxRect, wxDC *, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RenderText(text, xoffset, cell, dc, state);
 
@@ -446,8 +428,7 @@ public:
 	// bool wxDataViewCustomRenderer::StartDrag(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col)
 	static int _bind_StartDrag(lua_State *L) {
 		if (!_lg_typecheck_StartDrag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::StartDrag(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col) function, expected prototype:\nbool wxDataViewCustomRenderer::StartDrag(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col)\nClass arguments details:\narg 1 ID = 25723480\narg 2 ID = 20234418\narg 3 ID = 66533182\narg 4 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::StartDrag(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col) function, expected prototype:\nbool wxDataViewCustomRenderer::StartDrag(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col)\nClass arguments details:\narg 1 ID = 25723480\narg 2 ID = 20234418\narg 3 ID = 66533182\narg 4 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* cursor_ptr=(Luna< wxPoint >::check(L,2));
@@ -470,8 +451,7 @@ public:
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::StartDrag(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::StartDrag(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->StartDrag(cursor, cell, model, item, col);
 		lua_pushboolean(L,lret?1:0);
@@ -482,15 +462,13 @@ public:
 	// wxClassInfo * wxDataViewCustomRenderer::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxDataViewCustomRenderer::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxDataViewCustomRenderer::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxDataViewCustomRenderer::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxDataViewCustomRenderer::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewCustomRenderer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewCustomRenderer::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxDataViewCustomRenderer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -503,15 +481,13 @@ public:
 	// int wxDataViewCustomRenderer::base_GetAlignment() const
 	static int _bind_base_GetAlignment(lua_State *L) {
 		if (!_lg_typecheck_base_GetAlignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDataViewCustomRenderer::base_GetAlignment() const function, expected prototype:\nint wxDataViewCustomRenderer::base_GetAlignment() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxDataViewCustomRenderer::base_GetAlignment() const function, expected prototype:\nint wxDataViewCustomRenderer::base_GetAlignment() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewCustomRenderer::base_GetAlignment() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDataViewCustomRenderer::base_GetAlignment() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxDataViewCustomRenderer::GetAlignment();
 		lua_pushnumber(L,lret);
@@ -522,15 +498,13 @@ public:
 	// wxDataViewCellMode wxDataViewCustomRenderer::base_GetMode() const
 	static int _bind_base_GetMode(lua_State *L) {
 		if (!_lg_typecheck_base_GetMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewCellMode wxDataViewCustomRenderer::base_GetMode() const function, expected prototype:\nwxDataViewCellMode wxDataViewCustomRenderer::base_GetMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewCellMode wxDataViewCustomRenderer::base_GetMode() const function, expected prototype:\nwxDataViewCellMode wxDataViewCustomRenderer::base_GetMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewCustomRenderer::base_GetMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewCustomRenderer::base_GetMode() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDataViewCellMode lret = self->wxDataViewCustomRenderer::GetMode();
 		lua_pushnumber(L,lret);
@@ -541,16 +515,14 @@ public:
 	// void wxDataViewCustomRenderer::base_SetAlignment(int align)
 	static int _bind_base_SetAlignment(lua_State *L) {
 		if (!_lg_typecheck_base_SetAlignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewCustomRenderer::base_SetAlignment(int align) function, expected prototype:\nvoid wxDataViewCustomRenderer::base_SetAlignment(int align)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewCustomRenderer::base_SetAlignment(int align) function, expected prototype:\nvoid wxDataViewCustomRenderer::base_SetAlignment(int align)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int align=(int)lua_tointeger(L,2);
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCustomRenderer::base_SetAlignment(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewCustomRenderer::base_SetAlignment(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDataViewCustomRenderer::SetAlignment(align);
 
@@ -560,8 +532,7 @@ public:
 	// bool wxDataViewCustomRenderer::base_ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent)
 	static int _bind_base_ActivateCell(lua_State *L) {
 		if (!_lg_typecheck_base_ActivateCell(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::base_ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent) function, expected prototype:\nbool wxDataViewCustomRenderer::base_ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent)\nClass arguments details:\narg 1 ID = 20234418\narg 2 ID = 66533182\narg 3 ID = 11709329\narg 5 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::base_ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent) function, expected prototype:\nbool wxDataViewCustomRenderer::base_ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent)\nClass arguments details:\narg 1 ID = 20234418\narg 2 ID = 66533182\narg 3 ID = 11709329\narg 5 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect* cell_ptr=(Luna< wxRect >::check(L,2));
@@ -580,8 +551,7 @@ public:
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_ActivateCell(const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int, const wxMouseEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_ActivateCell(const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int, const wxMouseEvent *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewCustomRenderer::ActivateCell(cell, model, item, col, mouseEvent);
 		lua_pushboolean(L,lret?1:0);
@@ -592,15 +562,13 @@ public:
 	// bool wxDataViewCustomRenderer::base_HasEditorCtrl() const
 	static int _bind_base_HasEditorCtrl(lua_State *L) {
 		if (!_lg_typecheck_base_HasEditorCtrl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::base_HasEditorCtrl() const function, expected prototype:\nbool wxDataViewCustomRenderer::base_HasEditorCtrl() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::base_HasEditorCtrl() const function, expected prototype:\nbool wxDataViewCustomRenderer::base_HasEditorCtrl() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_HasEditorCtrl() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_HasEditorCtrl() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewCustomRenderer::HasEditorCtrl();
 		lua_pushboolean(L,lret?1:0);
@@ -611,8 +579,7 @@ public:
 	// bool wxDataViewCustomRenderer::base_LeftClick(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col)
 	static int _bind_base_LeftClick(lua_State *L) {
 		if (!_lg_typecheck_base_LeftClick(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::base_LeftClick(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col) function, expected prototype:\nbool wxDataViewCustomRenderer::base_LeftClick(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col)\nClass arguments details:\narg 1 ID = 25723480\narg 2 ID = 20234418\narg 3 ID = 66533182\narg 4 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::base_LeftClick(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col) function, expected prototype:\nbool wxDataViewCustomRenderer::base_LeftClick(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col)\nClass arguments details:\narg 1 ID = 25723480\narg 2 ID = 20234418\narg 3 ID = 66533182\narg 4 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* cursor_ptr=(Luna< wxPoint >::check(L,2));
@@ -635,8 +602,7 @@ public:
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_LeftClick(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_LeftClick(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewCustomRenderer::LeftClick(cursor, cell, model, item, col);
 		lua_pushboolean(L,lret?1:0);
@@ -647,8 +613,7 @@ public:
 	// bool wxDataViewCustomRenderer::base_StartDrag(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col)
 	static int _bind_base_StartDrag(lua_State *L) {
 		if (!_lg_typecheck_base_StartDrag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::base_StartDrag(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col) function, expected prototype:\nbool wxDataViewCustomRenderer::base_StartDrag(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col)\nClass arguments details:\narg 1 ID = 25723480\narg 2 ID = 20234418\narg 3 ID = 66533182\narg 4 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewCustomRenderer::base_StartDrag(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col) function, expected prototype:\nbool wxDataViewCustomRenderer::base_StartDrag(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col)\nClass arguments details:\narg 1 ID = 25723480\narg 2 ID = 20234418\narg 3 ID = 66533182\narg 4 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* cursor_ptr=(Luna< wxPoint >::check(L,2));
@@ -671,8 +636,7 @@ public:
 
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_StartDrag(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_StartDrag(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewCustomRenderer::StartDrag(cursor, cell, model, item, col);
 		lua_pushboolean(L,lret?1:0);

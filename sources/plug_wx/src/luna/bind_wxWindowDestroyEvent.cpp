@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindowDestroyEvent* self= (wxWindowDestroyEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -142,8 +139,7 @@ public:
 	// wxWindowDestroyEvent::wxWindowDestroyEvent(wxWindow * win = NULL)
 	static wxWindowDestroyEvent* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWindowDestroyEvent::wxWindowDestroyEvent(wxWindow * win = NULL) function, expected prototype:\nwxWindowDestroyEvent::wxWindowDestroyEvent(wxWindow * win = NULL)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxWindowDestroyEvent::wxWindowDestroyEvent(wxWindow * win = NULL) function, expected prototype:\nwxWindowDestroyEvent::wxWindowDestroyEvent(wxWindow * win = NULL)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -156,8 +152,7 @@ public:
 	// wxWindowDestroyEvent::wxWindowDestroyEvent(lua_Table * data, wxWindow * win = NULL)
 	static wxWindowDestroyEvent* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWindowDestroyEvent::wxWindowDestroyEvent(lua_Table * data, wxWindow * win = NULL) function, expected prototype:\nwxWindowDestroyEvent::wxWindowDestroyEvent(lua_Table * data, wxWindow * win = NULL)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxWindowDestroyEvent::wxWindowDestroyEvent(lua_Table * data, wxWindow * win = NULL) function, expected prototype:\nwxWindowDestroyEvent::wxWindowDestroyEvent(lua_Table * data, wxWindow * win = NULL)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -181,15 +176,13 @@ public:
 	// wxWindow * wxWindowDestroyEvent::GetWindow() const
 	static int _bind_GetWindow(lua_State *L) {
 		if (!_lg_typecheck_GetWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWindow * wxWindowDestroyEvent::GetWindow() const function, expected prototype:\nwxWindow * wxWindowDestroyEvent::GetWindow() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxWindow * wxWindowDestroyEvent::GetWindow() const function, expected prototype:\nwxWindow * wxWindowDestroyEvent::GetWindow() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxWindowDestroyEvent* self=Luna< wxObject >::checkSubType< wxWindowDestroyEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxWindowDestroyEvent::GetWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxWindow * wxWindowDestroyEvent::GetWindow() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxWindow * lret = self->GetWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -202,15 +195,13 @@ public:
 	// wxClassInfo * wxWindowDestroyEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxWindowDestroyEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxWindowDestroyEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxWindowDestroyEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxWindowDestroyEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxWindowDestroyEvent* self=Luna< wxObject >::checkSubType< wxWindowDestroyEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxWindowDestroyEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxWindowDestroyEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxWindowDestroyEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -223,15 +214,13 @@ public:
 	// wxEventCategory wxWindowDestroyEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxWindowDestroyEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxWindowDestroyEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxWindowDestroyEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxWindowDestroyEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxWindowDestroyEvent* self=Luna< wxObject >::checkSubType< wxWindowDestroyEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxWindowDestroyEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxWindowDestroyEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxWindowDestroyEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -242,15 +231,13 @@ public:
 	// wxEvent * wxWindowDestroyEvent::base_Clone() const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvent * wxWindowDestroyEvent::base_Clone() const function, expected prototype:\nwxEvent * wxWindowDestroyEvent::base_Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvent * wxWindowDestroyEvent::base_Clone() const function, expected prototype:\nwxEvent * wxWindowDestroyEvent::base_Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxWindowDestroyEvent* self=Luna< wxObject >::checkSubType< wxWindowDestroyEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxWindowDestroyEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvent * wxWindowDestroyEvent::base_Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvent * lret = self->wxWindowDestroyEvent::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.

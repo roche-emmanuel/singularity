@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBrush* self= (wxBrush*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -321,8 +318,7 @@ public:
 	// wxBrush::wxBrush()
 	static wxBrush* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush() function, expected prototype:\nwxBrush::wxBrush()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush() function, expected prototype:\nwxBrush::wxBrush()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -332,8 +328,7 @@ public:
 	// wxBrush::wxBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID)
 	static wxBrush* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID) function, expected prototype:\nwxBrush::wxBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID) function, expected prototype:\nwxBrush::wxBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -351,8 +346,7 @@ public:
 	// wxBrush::wxBrush(const wxBitmap & stippleBitmap)
 	static wxBrush* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(const wxBitmap & stippleBitmap) function, expected prototype:\nwxBrush::wxBrush(const wxBitmap & stippleBitmap)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(const wxBitmap & stippleBitmap) function, expected prototype:\nwxBrush::wxBrush(const wxBitmap & stippleBitmap)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* stippleBitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,1));
@@ -367,8 +361,7 @@ public:
 	// wxBrush::wxBrush(const wxBrush & brush)
 	static wxBrush* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(const wxBrush & brush) function, expected prototype:\nwxBrush::wxBrush(const wxBrush & brush)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(const wxBrush & brush) function, expected prototype:\nwxBrush::wxBrush(const wxBrush & brush)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBrush* brush_ptr=(Luna< wxObject >::checkSubType< wxBrush >(L,1));
@@ -383,8 +376,7 @@ public:
 	// wxBrush::wxBrush(lua_Table * data)
 	static wxBrush* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(lua_Table * data) function, expected prototype:\nwxBrush::wxBrush(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(lua_Table * data) function, expected prototype:\nwxBrush::wxBrush(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -394,8 +386,7 @@ public:
 	// wxBrush::wxBrush(lua_Table * data, const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID)
 	static wxBrush* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(lua_Table * data, const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID) function, expected prototype:\nwxBrush::wxBrush(lua_Table * data, const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(lua_Table * data, const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID) function, expected prototype:\nwxBrush::wxBrush(lua_Table * data, const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -413,8 +404,7 @@ public:
 	// wxBrush::wxBrush(lua_Table * data, const wxBitmap & stippleBitmap)
 	static wxBrush* _bind_ctor_overload_7(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(lua_Table * data, const wxBitmap & stippleBitmap) function, expected prototype:\nwxBrush::wxBrush(lua_Table * data, const wxBitmap & stippleBitmap)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(lua_Table * data, const wxBitmap & stippleBitmap) function, expected prototype:\nwxBrush::wxBrush(lua_Table * data, const wxBitmap & stippleBitmap)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* stippleBitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
@@ -429,8 +419,7 @@ public:
 	// wxBrush::wxBrush(lua_Table * data, const wxBrush & brush)
 	static wxBrush* _bind_ctor_overload_8(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(lua_Table * data, const wxBrush & brush) function, expected prototype:\nwxBrush::wxBrush(lua_Table * data, const wxBrush & brush)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(lua_Table * data, const wxBrush & brush) function, expected prototype:\nwxBrush::wxBrush(lua_Table * data, const wxBrush & brush)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBrush* brush_ptr=(Luna< wxObject >::checkSubType< wxBrush >(L,2));
@@ -462,15 +451,13 @@ public:
 	// wxColour wxBrush::GetColour() const
 	static int _bind_GetColour(lua_State *L) {
 		if (!_lg_typecheck_GetColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxBrush::GetColour() const function, expected prototype:\nwxColour wxBrush::GetColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxBrush::GetColour() const function, expected prototype:\nwxColour wxBrush::GetColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxBrush::GetColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxBrush::GetColour() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxColour stack_lret = self->GetColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -484,15 +471,13 @@ public:
 	// wxBitmap * wxBrush::GetStipple() const
 	static int _bind_GetStipple(lua_State *L) {
 		if (!_lg_typecheck_GetStipple(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmap * wxBrush::GetStipple() const function, expected prototype:\nwxBitmap * wxBrush::GetStipple() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBitmap * wxBrush::GetStipple() const function, expected prototype:\nwxBitmap * wxBrush::GetStipple() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap * wxBrush::GetStipple() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBitmap * wxBrush::GetStipple() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxBitmap * lret = self->GetStipple();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -505,15 +490,13 @@ public:
 	// wxBrushStyle wxBrush::GetStyle() const
 	static int _bind_GetStyle(lua_State *L) {
 		if (!_lg_typecheck_GetStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBrushStyle wxBrush::GetStyle() const function, expected prototype:\nwxBrushStyle wxBrush::GetStyle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBrushStyle wxBrush::GetStyle() const function, expected prototype:\nwxBrushStyle wxBrush::GetStyle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBrushStyle wxBrush::GetStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBrushStyle wxBrush::GetStyle() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxBrushStyle lret = self->GetStyle();
 		lua_pushnumber(L,lret);
@@ -524,15 +507,13 @@ public:
 	// bool wxBrush::IsHatch() const
 	static int _bind_IsHatch(lua_State *L) {
 		if (!_lg_typecheck_IsHatch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBrush::IsHatch() const function, expected prototype:\nbool wxBrush::IsHatch() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxBrush::IsHatch() const function, expected prototype:\nbool wxBrush::IsHatch() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::IsHatch() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBrush::IsHatch() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsHatch();
 		lua_pushboolean(L,lret?1:0);
@@ -543,15 +524,13 @@ public:
 	// bool wxBrush::IsOk() const
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBrush::IsOk() const function, expected prototype:\nbool wxBrush::IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxBrush::IsOk() const function, expected prototype:\nbool wxBrush::IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBrush::IsOk() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -562,15 +541,13 @@ public:
 	// bool wxBrush::IsNonTransparent() const
 	static int _bind_IsNonTransparent(lua_State *L) {
 		if (!_lg_typecheck_IsNonTransparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBrush::IsNonTransparent() const function, expected prototype:\nbool wxBrush::IsNonTransparent() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxBrush::IsNonTransparent() const function, expected prototype:\nbool wxBrush::IsNonTransparent() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::IsNonTransparent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBrush::IsNonTransparent() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsNonTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -581,15 +558,13 @@ public:
 	// bool wxBrush::IsTransparent() const
 	static int _bind_IsTransparent(lua_State *L) {
 		if (!_lg_typecheck_IsTransparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBrush::IsTransparent() const function, expected prototype:\nbool wxBrush::IsTransparent() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxBrush::IsTransparent() const function, expected prototype:\nbool wxBrush::IsTransparent() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::IsTransparent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBrush::IsTransparent() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -600,8 +575,7 @@ public:
 	// void wxBrush::SetColour(const wxColour & colour)
 	static int _bind_SetColour_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SetColour_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBrush::SetColour(const wxColour & colour) function, expected prototype:\nvoid wxBrush::SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxBrush::SetColour(const wxColour & colour) function, expected prototype:\nvoid wxBrush::SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -612,8 +586,7 @@ public:
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::SetColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBrush::SetColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetColour(colour);
 
@@ -623,8 +596,7 @@ public:
 	// void wxBrush::SetColour(unsigned char red, unsigned char green, unsigned char blue)
 	static int _bind_SetColour_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SetColour_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBrush::SetColour(unsigned char red, unsigned char green, unsigned char blue) function, expected prototype:\nvoid wxBrush::SetColour(unsigned char red, unsigned char green, unsigned char blue)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxBrush::SetColour(unsigned char red, unsigned char green, unsigned char blue) function, expected prototype:\nvoid wxBrush::SetColour(unsigned char red, unsigned char green, unsigned char blue)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char red = (unsigned char)(lua_tointeger(L,2));
@@ -633,8 +605,7 @@ public:
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::SetColour(unsigned char, unsigned char, unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBrush::SetColour(unsigned char, unsigned char, unsigned char). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetColour(red, green, blue);
 
@@ -653,8 +624,7 @@ public:
 	// void wxBrush::SetStipple(const wxBitmap & bitmap)
 	static int _bind_SetStipple(lua_State *L) {
 		if (!_lg_typecheck_SetStipple(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBrush::SetStipple(const wxBitmap & bitmap) function, expected prototype:\nvoid wxBrush::SetStipple(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxBrush::SetStipple(const wxBitmap & bitmap) function, expected prototype:\nvoid wxBrush::SetStipple(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
@@ -665,8 +635,7 @@ public:
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::SetStipple(const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBrush::SetStipple(const wxBitmap &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetStipple(bitmap);
 
@@ -676,16 +645,14 @@ public:
 	// void wxBrush::SetStyle(wxBrushStyle style)
 	static int _bind_SetStyle(lua_State *L) {
 		if (!_lg_typecheck_SetStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBrush::SetStyle(wxBrushStyle style) function, expected prototype:\nvoid wxBrush::SetStyle(wxBrushStyle style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxBrush::SetStyle(wxBrushStyle style) function, expected prototype:\nvoid wxBrush::SetStyle(wxBrushStyle style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBrushStyle style=(wxBrushStyle)lua_tointeger(L,2);
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::SetStyle(wxBrushStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBrush::SetStyle(wxBrushStyle). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetStyle(style);
 
@@ -695,15 +662,13 @@ public:
 	// wxClassInfo * wxBrush::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxBrush::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxBrush::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxBrush::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxBrush::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxBrush::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxBrush::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxBrush::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -716,15 +681,13 @@ public:
 	// wxColour wxBrush::base_GetColour() const
 	static int _bind_base_GetColour(lua_State *L) {
 		if (!_lg_typecheck_base_GetColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxBrush::base_GetColour() const function, expected prototype:\nwxColour wxBrush::base_GetColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxBrush::base_GetColour() const function, expected prototype:\nwxColour wxBrush::base_GetColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxBrush::base_GetColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxBrush::base_GetColour() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxColour stack_lret = self->wxBrush::GetColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -738,15 +701,13 @@ public:
 	// wxBitmap * wxBrush::base_GetStipple() const
 	static int _bind_base_GetStipple(lua_State *L) {
 		if (!_lg_typecheck_base_GetStipple(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmap * wxBrush::base_GetStipple() const function, expected prototype:\nwxBitmap * wxBrush::base_GetStipple() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBitmap * wxBrush::base_GetStipple() const function, expected prototype:\nwxBitmap * wxBrush::base_GetStipple() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap * wxBrush::base_GetStipple() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBitmap * wxBrush::base_GetStipple() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxBitmap * lret = self->wxBrush::GetStipple();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -759,15 +720,13 @@ public:
 	// wxBrushStyle wxBrush::base_GetStyle() const
 	static int _bind_base_GetStyle(lua_State *L) {
 		if (!_lg_typecheck_base_GetStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBrushStyle wxBrush::base_GetStyle() const function, expected prototype:\nwxBrushStyle wxBrush::base_GetStyle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBrushStyle wxBrush::base_GetStyle() const function, expected prototype:\nwxBrushStyle wxBrush::base_GetStyle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBrushStyle wxBrush::base_GetStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBrushStyle wxBrush::base_GetStyle() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxBrushStyle lret = self->wxBrush::GetStyle();
 		lua_pushnumber(L,lret);
@@ -778,15 +737,13 @@ public:
 	// bool wxBrush::base_IsHatch() const
 	static int _bind_base_IsHatch(lua_State *L) {
 		if (!_lg_typecheck_base_IsHatch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBrush::base_IsHatch() const function, expected prototype:\nbool wxBrush::base_IsHatch() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxBrush::base_IsHatch() const function, expected prototype:\nbool wxBrush::base_IsHatch() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::base_IsHatch() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBrush::base_IsHatch() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxBrush::IsHatch();
 		lua_pushboolean(L,lret?1:0);
@@ -797,15 +754,13 @@ public:
 	// bool wxBrush::base_IsOk() const
 	static int _bind_base_IsOk(lua_State *L) {
 		if (!_lg_typecheck_base_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBrush::base_IsOk() const function, expected prototype:\nbool wxBrush::base_IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxBrush::base_IsOk() const function, expected prototype:\nbool wxBrush::base_IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBrush::base_IsOk() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxBrush::IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -816,8 +771,7 @@ public:
 	// void wxBrush::base_SetColour(const wxColour & colour)
 	static int _bind_base_SetColour_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_SetColour_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBrush::base_SetColour(const wxColour & colour) function, expected prototype:\nvoid wxBrush::base_SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxBrush::base_SetColour(const wxColour & colour) function, expected prototype:\nvoid wxBrush::base_SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -828,8 +782,7 @@ public:
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::base_SetColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBrush::base_SetColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxBrush::SetColour(colour);
 
@@ -839,8 +792,7 @@ public:
 	// void wxBrush::base_SetColour(unsigned char red, unsigned char green, unsigned char blue)
 	static int _bind_base_SetColour_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_SetColour_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBrush::base_SetColour(unsigned char red, unsigned char green, unsigned char blue) function, expected prototype:\nvoid wxBrush::base_SetColour(unsigned char red, unsigned char green, unsigned char blue)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxBrush::base_SetColour(unsigned char red, unsigned char green, unsigned char blue) function, expected prototype:\nvoid wxBrush::base_SetColour(unsigned char red, unsigned char green, unsigned char blue)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char red = (unsigned char)(lua_tointeger(L,2));
@@ -849,8 +801,7 @@ public:
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::base_SetColour(unsigned char, unsigned char, unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBrush::base_SetColour(unsigned char, unsigned char, unsigned char). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxBrush::SetColour(red, green, blue);
 
@@ -869,8 +820,7 @@ public:
 	// void wxBrush::base_SetStipple(const wxBitmap & bitmap)
 	static int _bind_base_SetStipple(lua_State *L) {
 		if (!_lg_typecheck_base_SetStipple(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBrush::base_SetStipple(const wxBitmap & bitmap) function, expected prototype:\nvoid wxBrush::base_SetStipple(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxBrush::base_SetStipple(const wxBitmap & bitmap) function, expected prototype:\nvoid wxBrush::base_SetStipple(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
@@ -881,8 +831,7 @@ public:
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::base_SetStipple(const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBrush::base_SetStipple(const wxBitmap &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxBrush::SetStipple(bitmap);
 
@@ -892,16 +841,14 @@ public:
 	// void wxBrush::base_SetStyle(wxBrushStyle style)
 	static int _bind_base_SetStyle(lua_State *L) {
 		if (!_lg_typecheck_base_SetStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBrush::base_SetStyle(wxBrushStyle style) function, expected prototype:\nvoid wxBrush::base_SetStyle(wxBrushStyle style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxBrush::base_SetStyle(wxBrushStyle style) function, expected prototype:\nvoid wxBrush::base_SetStyle(wxBrushStyle style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBrushStyle style=(wxBrushStyle)lua_tointeger(L,2);
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::base_SetStyle(wxBrushStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBrush::base_SetStyle(wxBrushStyle). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxBrush::SetStyle(style);
 
@@ -913,8 +860,7 @@ public:
 	// bool wxBrush::operator!=(const wxBrush & brush) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBrush::operator!=(const wxBrush & brush) const function, expected prototype:\nbool wxBrush::operator!=(const wxBrush & brush) const\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxBrush::operator!=(const wxBrush & brush) const function, expected prototype:\nbool wxBrush::operator!=(const wxBrush & brush) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBrush* brush_ptr=(Luna< wxObject >::checkSubType< wxBrush >(L,2));
@@ -925,8 +871,7 @@ public:
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::operator!=(const wxBrush &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBrush::operator!=(const wxBrush &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(brush);
 		lua_pushboolean(L,lret?1:0);
@@ -937,8 +882,7 @@ public:
 	// bool wxBrush::operator==(const wxBrush & brush) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBrush::operator==(const wxBrush & brush) const function, expected prototype:\nbool wxBrush::operator==(const wxBrush & brush) const\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxBrush::operator==(const wxBrush & brush) const function, expected prototype:\nbool wxBrush::operator==(const wxBrush & brush) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBrush* brush_ptr=(Luna< wxObject >::checkSubType< wxBrush >(L,2));
@@ -949,8 +893,7 @@ public:
 
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::operator==(const wxBrush &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBrush::operator==(const wxBrush &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(brush);
 		lua_pushboolean(L,lret?1:0);

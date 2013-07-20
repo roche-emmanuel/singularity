@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDelegateRendererNative* self= (wxDelegateRendererNative*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxRendererNative >::check(L,1));
@@ -437,8 +434,7 @@ public:
 	// wxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data)
 	static wxDelegateRendererNative* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data) function, expected prototype:\nwxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data) function, expected prototype:\nwxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -448,8 +444,7 @@ public:
 	// wxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data, wxRendererNative & rendererNative)
 	static wxDelegateRendererNative* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data, wxRendererNative & rendererNative) function, expected prototype:\nwxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data, wxRendererNative & rendererNative)\nClass arguments details:\narg 2 ID = 18398493\n");
+			luaL_error(L, "luna typecheck failed in wxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data, wxRendererNative & rendererNative) function, expected prototype:\nwxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data, wxRendererNative & rendererNative)\nClass arguments details:\narg 2 ID = 18398493\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRendererNative* rendererNative_ptr=(Luna< wxRendererNative >::check(L,2));
@@ -475,8 +470,7 @@ public:
 	// int wxDelegateRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
 	static int _bind_DrawHeaderButton(lua_State *L) {
 		if (!_lg_typecheck_DrawHeaderButton(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) function, expected prototype:\nint wxDelegateRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 6 ID = 67488995\n");
+			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) function, expected prototype:\nint wxDelegateRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 6 ID = 67488995\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -498,8 +492,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::DrawHeaderButton(wxWindow *, wxDC &, const wxRect &, int, wxHeaderSortIconType, wxHeaderButtonParams *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::DrawHeaderButton(wxWindow *, wxDC &, const wxRect &, int, wxHeaderSortIconType, wxHeaderButtonParams *). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->DrawHeaderButton(win, dc, rect, flags, sortArrow, params);
 		lua_pushnumber(L,lret);
@@ -510,8 +503,7 @@ public:
 	// int wxDelegateRendererNative::DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
 	static int _bind_DrawHeaderButtonContents(lua_State *L) {
 		if (!_lg_typecheck_DrawHeaderButtonContents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) function, expected prototype:\nint wxDelegateRendererNative::DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 6 ID = 67488995\n");
+			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) function, expected prototype:\nint wxDelegateRendererNative::DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 6 ID = 67488995\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -533,8 +525,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::DrawHeaderButtonContents(wxWindow *, wxDC &, const wxRect &, int, wxHeaderSortIconType, wxHeaderButtonParams *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::DrawHeaderButtonContents(wxWindow *, wxDC &, const wxRect &, int, wxHeaderSortIconType, wxHeaderButtonParams *). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->DrawHeaderButtonContents(win, dc, rect, flags, sortArrow, params);
 		lua_pushnumber(L,lret);
@@ -545,16 +536,14 @@ public:
 	// int wxDelegateRendererNative::GetHeaderButtonHeight(wxWindow * win)
 	static int _bind_GetHeaderButtonHeight(lua_State *L) {
 		if (!_lg_typecheck_GetHeaderButtonHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::GetHeaderButtonHeight(wxWindow * win) function, expected prototype:\nint wxDelegateRendererNative::GetHeaderButtonHeight(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::GetHeaderButtonHeight(wxWindow * win) function, expected prototype:\nint wxDelegateRendererNative::GetHeaderButtonHeight(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::GetHeaderButtonHeight(wxWindow *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::GetHeaderButtonHeight(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetHeaderButtonHeight(win);
 		lua_pushnumber(L,lret);
@@ -565,16 +554,14 @@ public:
 	// int wxDelegateRendererNative::GetHeaderButtonMargin(wxWindow * win)
 	static int _bind_GetHeaderButtonMargin(lua_State *L) {
 		if (!_lg_typecheck_GetHeaderButtonMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::GetHeaderButtonMargin(wxWindow * win) function, expected prototype:\nint wxDelegateRendererNative::GetHeaderButtonMargin(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::GetHeaderButtonMargin(wxWindow * win) function, expected prototype:\nint wxDelegateRendererNative::GetHeaderButtonMargin(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::GetHeaderButtonMargin(wxWindow *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::GetHeaderButtonMargin(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetHeaderButtonMargin(win);
 		lua_pushnumber(L,lret);
@@ -585,8 +572,7 @@ public:
 	// void wxDelegateRendererNative::DrawTreeItemButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_DrawTreeItemButton(lua_State *L) {
 		if (!_lg_typecheck_DrawTreeItemButton(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawTreeItemButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawTreeItemButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawTreeItemButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawTreeItemButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -606,8 +592,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawTreeItemButton(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawTreeItemButton(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawTreeItemButton(win, dc, rect, flags);
 
@@ -617,8 +602,7 @@ public:
 	// void wxDelegateRendererNative::DrawSplitterBorder(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_DrawSplitterBorder(lua_State *L) {
 		if (!_lg_typecheck_DrawSplitterBorder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawSplitterBorder(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawSplitterBorder(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawSplitterBorder(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawSplitterBorder(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -638,8 +622,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawSplitterBorder(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawSplitterBorder(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawSplitterBorder(win, dc, rect, flags);
 
@@ -649,8 +632,7 @@ public:
 	// void wxDelegateRendererNative::DrawSplitterSash(wxWindow * win, wxDC & dc, const wxSize & size, int position, wxOrientation orient, int flags = 0)
 	static int _bind_DrawSplitterSash(lua_State *L) {
 		if (!_lg_typecheck_DrawSplitterSash(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawSplitterSash(wxWindow * win, wxDC & dc, const wxSize & size, int position, wxOrientation orient, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawSplitterSash(wxWindow * win, wxDC & dc, const wxSize & size, int position, wxOrientation orient, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawSplitterSash(wxWindow * win, wxDC & dc, const wxSize & size, int position, wxOrientation orient, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawSplitterSash(wxWindow * win, wxDC & dc, const wxSize & size, int position, wxOrientation orient, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -672,8 +654,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawSplitterSash(wxWindow *, wxDC &, const wxSize &, int, wxOrientation, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawSplitterSash(wxWindow *, wxDC &, const wxSize &, int, wxOrientation, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawSplitterSash(win, dc, size, position, orient, flags);
 
@@ -683,8 +664,7 @@ public:
 	// void wxDelegateRendererNative::DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_DrawComboBoxDropButton(lua_State *L) {
 		if (!_lg_typecheck_DrawComboBoxDropButton(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -704,8 +684,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawComboBoxDropButton(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawComboBoxDropButton(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawComboBoxDropButton(win, dc, rect, flags);
 
@@ -715,8 +694,7 @@ public:
 	// void wxDelegateRendererNative::DrawDropArrow(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_DrawDropArrow(lua_State *L) {
 		if (!_lg_typecheck_DrawDropArrow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawDropArrow(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawDropArrow(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawDropArrow(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawDropArrow(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -736,8 +714,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawDropArrow(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawDropArrow(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawDropArrow(win, dc, rect, flags);
 
@@ -747,8 +724,7 @@ public:
 	// void wxDelegateRendererNative::DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_DrawCheckBox(lua_State *L) {
 		if (!_lg_typecheck_DrawCheckBox(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -768,8 +744,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawCheckBox(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawCheckBox(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawCheckBox(win, dc, rect, flags);
 
@@ -779,16 +754,14 @@ public:
 	// wxSize wxDelegateRendererNative::GetCheckBoxSize(wxWindow * win)
 	static int _bind_GetCheckBoxSize(lua_State *L) {
 		if (!_lg_typecheck_GetCheckBoxSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxDelegateRendererNative::GetCheckBoxSize(wxWindow * win) function, expected prototype:\nwxSize wxDelegateRendererNative::GetCheckBoxSize(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxDelegateRendererNative::GetCheckBoxSize(wxWindow * win) function, expected prototype:\nwxSize wxDelegateRendererNative::GetCheckBoxSize(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDelegateRendererNative::GetCheckBoxSize(wxWindow *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxDelegateRendererNative::GetCheckBoxSize(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->GetCheckBoxSize(win);
 		wxSize* lret = new wxSize(stack_lret);
@@ -802,8 +775,7 @@ public:
 	// void wxDelegateRendererNative::DrawPushButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_DrawPushButton(lua_State *L) {
 		if (!_lg_typecheck_DrawPushButton(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawPushButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawPushButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawPushButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawPushButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -823,8 +795,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawPushButton(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawPushButton(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawPushButton(win, dc, rect, flags);
 
@@ -834,8 +805,7 @@ public:
 	// void wxDelegateRendererNative::DrawItemSelectionRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_DrawItemSelectionRect(lua_State *L) {
 		if (!_lg_typecheck_DrawItemSelectionRect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawItemSelectionRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawItemSelectionRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawItemSelectionRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawItemSelectionRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -855,8 +825,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawItemSelectionRect(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawItemSelectionRect(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawItemSelectionRect(win, dc, rect, flags);
 
@@ -866,8 +835,7 @@ public:
 	// void wxDelegateRendererNative::DrawFocusRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_DrawFocusRect(lua_State *L) {
 		if (!_lg_typecheck_DrawFocusRect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawFocusRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawFocusRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::DrawFocusRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::DrawFocusRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -887,8 +855,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawFocusRect(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::DrawFocusRect(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawFocusRect(win, dc, rect, flags);
 
@@ -898,16 +865,14 @@ public:
 	// wxSplitterRenderParams wxDelegateRendererNative::GetSplitterParams(const wxWindow * win)
 	static int _bind_GetSplitterParams(lua_State *L) {
 		if (!_lg_typecheck_GetSplitterParams(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSplitterRenderParams wxDelegateRendererNative::GetSplitterParams(const wxWindow * win) function, expected prototype:\nwxSplitterRenderParams wxDelegateRendererNative::GetSplitterParams(const wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxSplitterRenderParams wxDelegateRendererNative::GetSplitterParams(const wxWindow * win) function, expected prototype:\nwxSplitterRenderParams wxDelegateRendererNative::GetSplitterParams(const wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSplitterRenderParams wxDelegateRendererNative::GetSplitterParams(const wxWindow *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSplitterRenderParams wxDelegateRendererNative::GetSplitterParams(const wxWindow *). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSplitterRenderParams stack_lret = self->GetSplitterParams(win);
 		wxSplitterRenderParams* lret = new wxSplitterRenderParams(stack_lret);
@@ -921,15 +886,13 @@ public:
 	// wxRendererVersion wxDelegateRendererNative::GetVersion() const
 	static int _bind_GetVersion(lua_State *L) {
 		if (!_lg_typecheck_GetVersion(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRendererVersion wxDelegateRendererNative::GetVersion() const function, expected prototype:\nwxRendererVersion wxDelegateRendererNative::GetVersion() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRendererVersion wxDelegateRendererNative::GetVersion() const function, expected prototype:\nwxRendererVersion wxDelegateRendererNative::GetVersion() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRendererVersion wxDelegateRendererNative::GetVersion() const. Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRendererVersion wxDelegateRendererNative::GetVersion() const. Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxRendererVersion stack_lret = self->GetVersion();
 		wxRendererVersion* lret = new wxRendererVersion(stack_lret);
@@ -943,8 +906,7 @@ public:
 	// int wxDelegateRendererNative::base_DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
 	static int _bind_base_DrawHeaderButton(lua_State *L) {
 		if (!_lg_typecheck_base_DrawHeaderButton(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::base_DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) function, expected prototype:\nint wxDelegateRendererNative::base_DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 6 ID = 67488995\n");
+			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::base_DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) function, expected prototype:\nint wxDelegateRendererNative::base_DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 6 ID = 67488995\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -966,8 +928,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::base_DrawHeaderButton(wxWindow *, wxDC &, const wxRect &, int, wxHeaderSortIconType, wxHeaderButtonParams *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::base_DrawHeaderButton(wxWindow *, wxDC &, const wxRect &, int, wxHeaderSortIconType, wxHeaderButtonParams *). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxDelegateRendererNative::DrawHeaderButton(win, dc, rect, flags, sortArrow, params);
 		lua_pushnumber(L,lret);
@@ -978,8 +939,7 @@ public:
 	// int wxDelegateRendererNative::base_DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
 	static int _bind_base_DrawHeaderButtonContents(lua_State *L) {
 		if (!_lg_typecheck_base_DrawHeaderButtonContents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::base_DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) function, expected prototype:\nint wxDelegateRendererNative::base_DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 6 ID = 67488995\n");
+			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::base_DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) function, expected prototype:\nint wxDelegateRendererNative::base_DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 6 ID = 67488995\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1001,8 +961,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::base_DrawHeaderButtonContents(wxWindow *, wxDC &, const wxRect &, int, wxHeaderSortIconType, wxHeaderButtonParams *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::base_DrawHeaderButtonContents(wxWindow *, wxDC &, const wxRect &, int, wxHeaderSortIconType, wxHeaderButtonParams *). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxDelegateRendererNative::DrawHeaderButtonContents(win, dc, rect, flags, sortArrow, params);
 		lua_pushnumber(L,lret);
@@ -1013,16 +972,14 @@ public:
 	// int wxDelegateRendererNative::base_GetHeaderButtonHeight(wxWindow * win)
 	static int _bind_base_GetHeaderButtonHeight(lua_State *L) {
 		if (!_lg_typecheck_base_GetHeaderButtonHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::base_GetHeaderButtonHeight(wxWindow * win) function, expected prototype:\nint wxDelegateRendererNative::base_GetHeaderButtonHeight(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::base_GetHeaderButtonHeight(wxWindow * win) function, expected prototype:\nint wxDelegateRendererNative::base_GetHeaderButtonHeight(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::base_GetHeaderButtonHeight(wxWindow *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::base_GetHeaderButtonHeight(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxDelegateRendererNative::GetHeaderButtonHeight(win);
 		lua_pushnumber(L,lret);
@@ -1033,16 +990,14 @@ public:
 	// int wxDelegateRendererNative::base_GetHeaderButtonMargin(wxWindow * win)
 	static int _bind_base_GetHeaderButtonMargin(lua_State *L) {
 		if (!_lg_typecheck_base_GetHeaderButtonMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::base_GetHeaderButtonMargin(wxWindow * win) function, expected prototype:\nint wxDelegateRendererNative::base_GetHeaderButtonMargin(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in int wxDelegateRendererNative::base_GetHeaderButtonMargin(wxWindow * win) function, expected prototype:\nint wxDelegateRendererNative::base_GetHeaderButtonMargin(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::base_GetHeaderButtonMargin(wxWindow *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDelegateRendererNative::base_GetHeaderButtonMargin(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxDelegateRendererNative::GetHeaderButtonMargin(win);
 		lua_pushnumber(L,lret);
@@ -1053,8 +1008,7 @@ public:
 	// void wxDelegateRendererNative::base_DrawTreeItemButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_base_DrawTreeItemButton(lua_State *L) {
 		if (!_lg_typecheck_base_DrawTreeItemButton(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawTreeItemButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawTreeItemButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawTreeItemButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawTreeItemButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1074,8 +1028,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawTreeItemButton(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawTreeItemButton(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDelegateRendererNative::DrawTreeItemButton(win, dc, rect, flags);
 
@@ -1085,8 +1038,7 @@ public:
 	// void wxDelegateRendererNative::base_DrawSplitterBorder(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_base_DrawSplitterBorder(lua_State *L) {
 		if (!_lg_typecheck_base_DrawSplitterBorder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawSplitterBorder(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawSplitterBorder(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawSplitterBorder(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawSplitterBorder(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1106,8 +1058,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawSplitterBorder(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawSplitterBorder(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDelegateRendererNative::DrawSplitterBorder(win, dc, rect, flags);
 
@@ -1117,8 +1068,7 @@ public:
 	// void wxDelegateRendererNative::base_DrawSplitterSash(wxWindow * win, wxDC & dc, const wxSize & size, int position, wxOrientation orient, int flags = 0)
 	static int _bind_base_DrawSplitterSash(lua_State *L) {
 		if (!_lg_typecheck_base_DrawSplitterSash(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawSplitterSash(wxWindow * win, wxDC & dc, const wxSize & size, int position, wxOrientation orient, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawSplitterSash(wxWindow * win, wxDC & dc, const wxSize & size, int position, wxOrientation orient, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawSplitterSash(wxWindow * win, wxDC & dc, const wxSize & size, int position, wxOrientation orient, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawSplitterSash(wxWindow * win, wxDC & dc, const wxSize & size, int position, wxOrientation orient, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1140,8 +1090,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawSplitterSash(wxWindow *, wxDC &, const wxSize &, int, wxOrientation, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawSplitterSash(wxWindow *, wxDC &, const wxSize &, int, wxOrientation, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDelegateRendererNative::DrawSplitterSash(win, dc, size, position, orient, flags);
 
@@ -1151,8 +1100,7 @@ public:
 	// void wxDelegateRendererNative::base_DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_base_DrawComboBoxDropButton(lua_State *L) {
 		if (!_lg_typecheck_base_DrawComboBoxDropButton(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1172,8 +1120,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawComboBoxDropButton(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawComboBoxDropButton(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDelegateRendererNative::DrawComboBoxDropButton(win, dc, rect, flags);
 
@@ -1183,8 +1130,7 @@ public:
 	// void wxDelegateRendererNative::base_DrawDropArrow(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_base_DrawDropArrow(lua_State *L) {
 		if (!_lg_typecheck_base_DrawDropArrow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawDropArrow(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawDropArrow(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawDropArrow(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawDropArrow(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1204,8 +1150,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawDropArrow(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawDropArrow(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDelegateRendererNative::DrawDropArrow(win, dc, rect, flags);
 
@@ -1215,8 +1160,7 @@ public:
 	// void wxDelegateRendererNative::base_DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_base_DrawCheckBox(lua_State *L) {
 		if (!_lg_typecheck_base_DrawCheckBox(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1236,8 +1180,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawCheckBox(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawCheckBox(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDelegateRendererNative::DrawCheckBox(win, dc, rect, flags);
 
@@ -1247,16 +1190,14 @@ public:
 	// wxSize wxDelegateRendererNative::base_GetCheckBoxSize(wxWindow * win)
 	static int _bind_base_GetCheckBoxSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetCheckBoxSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxDelegateRendererNative::base_GetCheckBoxSize(wxWindow * win) function, expected prototype:\nwxSize wxDelegateRendererNative::base_GetCheckBoxSize(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxDelegateRendererNative::base_GetCheckBoxSize(wxWindow * win) function, expected prototype:\nwxSize wxDelegateRendererNative::base_GetCheckBoxSize(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDelegateRendererNative::base_GetCheckBoxSize(wxWindow *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxDelegateRendererNative::base_GetCheckBoxSize(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxDelegateRendererNative::GetCheckBoxSize(win);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1270,8 +1211,7 @@ public:
 	// void wxDelegateRendererNative::base_DrawPushButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_base_DrawPushButton(lua_State *L) {
 		if (!_lg_typecheck_base_DrawPushButton(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawPushButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawPushButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawPushButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawPushButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1291,8 +1231,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawPushButton(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawPushButton(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDelegateRendererNative::DrawPushButton(win, dc, rect, flags);
 
@@ -1302,8 +1241,7 @@ public:
 	// void wxDelegateRendererNative::base_DrawItemSelectionRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_base_DrawItemSelectionRect(lua_State *L) {
 		if (!_lg_typecheck_base_DrawItemSelectionRect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawItemSelectionRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawItemSelectionRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawItemSelectionRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawItemSelectionRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1323,8 +1261,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawItemSelectionRect(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawItemSelectionRect(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDelegateRendererNative::DrawItemSelectionRect(win, dc, rect, flags);
 
@@ -1334,8 +1271,7 @@ public:
 	// void wxDelegateRendererNative::base_DrawFocusRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	static int _bind_base_DrawFocusRect(lua_State *L) {
 		if (!_lg_typecheck_base_DrawFocusRect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawFocusRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawFocusRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDelegateRendererNative::base_DrawFocusRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) function, expected prototype:\nvoid wxDelegateRendererNative::base_DrawFocusRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1355,8 +1291,7 @@ public:
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawFocusRect(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDelegateRendererNative::base_DrawFocusRect(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDelegateRendererNative::DrawFocusRect(win, dc, rect, flags);
 
@@ -1366,16 +1301,14 @@ public:
 	// wxSplitterRenderParams wxDelegateRendererNative::base_GetSplitterParams(const wxWindow * win)
 	static int _bind_base_GetSplitterParams(lua_State *L) {
 		if (!_lg_typecheck_base_GetSplitterParams(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSplitterRenderParams wxDelegateRendererNative::base_GetSplitterParams(const wxWindow * win) function, expected prototype:\nwxSplitterRenderParams wxDelegateRendererNative::base_GetSplitterParams(const wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxSplitterRenderParams wxDelegateRendererNative::base_GetSplitterParams(const wxWindow * win) function, expected prototype:\nwxSplitterRenderParams wxDelegateRendererNative::base_GetSplitterParams(const wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSplitterRenderParams wxDelegateRendererNative::base_GetSplitterParams(const wxWindow *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSplitterRenderParams wxDelegateRendererNative::base_GetSplitterParams(const wxWindow *). Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSplitterRenderParams stack_lret = self->wxDelegateRendererNative::GetSplitterParams(win);
 		wxSplitterRenderParams* lret = new wxSplitterRenderParams(stack_lret);
@@ -1389,15 +1322,13 @@ public:
 	// wxRendererVersion wxDelegateRendererNative::base_GetVersion() const
 	static int _bind_base_GetVersion(lua_State *L) {
 		if (!_lg_typecheck_base_GetVersion(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRendererVersion wxDelegateRendererNative::base_GetVersion() const function, expected prototype:\nwxRendererVersion wxDelegateRendererNative::base_GetVersion() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRendererVersion wxDelegateRendererNative::base_GetVersion() const function, expected prototype:\nwxRendererVersion wxDelegateRendererNative::base_GetVersion() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRendererVersion wxDelegateRendererNative::base_GetVersion() const. Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRendererVersion wxDelegateRendererNative::base_GetVersion() const. Got : '%s'\n%s",typeid(Luna< wxRendererNative >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxRendererVersion stack_lret = self->wxDelegateRendererNative::GetVersion();
 		wxRendererVersion* lret = new wxRendererVersion(stack_lret);

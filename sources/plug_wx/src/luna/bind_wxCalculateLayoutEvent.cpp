@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCalculateLayoutEvent* self= (wxCalculateLayoutEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -146,8 +143,7 @@ public:
 	// wxCalculateLayoutEvent::wxCalculateLayoutEvent(lua_Table * data, int id = 0)
 	static wxCalculateLayoutEvent* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCalculateLayoutEvent::wxCalculateLayoutEvent(lua_Table * data, int id = 0) function, expected prototype:\nwxCalculateLayoutEvent::wxCalculateLayoutEvent(lua_Table * data, int id = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxCalculateLayoutEvent::wxCalculateLayoutEvent(lua_Table * data, int id = 0) function, expected prototype:\nwxCalculateLayoutEvent::wxCalculateLayoutEvent(lua_Table * data, int id = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -162,15 +158,13 @@ public:
 	// int wxCalculateLayoutEvent::GetFlags() const
 	static int _bind_GetFlags(lua_State *L) {
 		if (!_lg_typecheck_GetFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxCalculateLayoutEvent::GetFlags() const function, expected prototype:\nint wxCalculateLayoutEvent::GetFlags() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxCalculateLayoutEvent::GetFlags() const function, expected prototype:\nint wxCalculateLayoutEvent::GetFlags() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalculateLayoutEvent* self=Luna< wxObject >::checkSubType< wxCalculateLayoutEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCalculateLayoutEvent::GetFlags() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxCalculateLayoutEvent::GetFlags() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -181,15 +175,13 @@ public:
 	// wxRect wxCalculateLayoutEvent::GetRect() const
 	static int _bind_GetRect(lua_State *L) {
 		if (!_lg_typecheck_GetRect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRect wxCalculateLayoutEvent::GetRect() const function, expected prototype:\nwxRect wxCalculateLayoutEvent::GetRect() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRect wxCalculateLayoutEvent::GetRect() const function, expected prototype:\nwxRect wxCalculateLayoutEvent::GetRect() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalculateLayoutEvent* self=Luna< wxObject >::checkSubType< wxCalculateLayoutEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxCalculateLayoutEvent::GetRect() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRect wxCalculateLayoutEvent::GetRect() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxRect stack_lret = self->GetRect();
 		wxRect* lret = new wxRect(stack_lret);
@@ -203,16 +195,14 @@ public:
 	// void wxCalculateLayoutEvent::SetFlags(int flags)
 	static int _bind_SetFlags(lua_State *L) {
 		if (!_lg_typecheck_SetFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCalculateLayoutEvent::SetFlags(int flags) function, expected prototype:\nvoid wxCalculateLayoutEvent::SetFlags(int flags)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCalculateLayoutEvent::SetFlags(int flags) function, expected prototype:\nvoid wxCalculateLayoutEvent::SetFlags(int flags)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int flags=(int)lua_tointeger(L,2);
 
 		wxCalculateLayoutEvent* self=Luna< wxObject >::checkSubType< wxCalculateLayoutEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalculateLayoutEvent::SetFlags(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCalculateLayoutEvent::SetFlags(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFlags(flags);
 
@@ -222,8 +212,7 @@ public:
 	// void wxCalculateLayoutEvent::SetRect(const wxRect & rect)
 	static int _bind_SetRect(lua_State *L) {
 		if (!_lg_typecheck_SetRect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCalculateLayoutEvent::SetRect(const wxRect & rect) function, expected prototype:\nvoid wxCalculateLayoutEvent::SetRect(const wxRect & rect)\nClass arguments details:\narg 1 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxCalculateLayoutEvent::SetRect(const wxRect & rect) function, expected prototype:\nvoid wxCalculateLayoutEvent::SetRect(const wxRect & rect)\nClass arguments details:\narg 1 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,2));
@@ -234,8 +223,7 @@ public:
 
 		wxCalculateLayoutEvent* self=Luna< wxObject >::checkSubType< wxCalculateLayoutEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalculateLayoutEvent::SetRect(const wxRect &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCalculateLayoutEvent::SetRect(const wxRect &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRect(rect);
 
@@ -245,15 +233,13 @@ public:
 	// wxClassInfo * wxCalculateLayoutEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxCalculateLayoutEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxCalculateLayoutEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxCalculateLayoutEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxCalculateLayoutEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalculateLayoutEvent* self=Luna< wxObject >::checkSubType< wxCalculateLayoutEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxCalculateLayoutEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCalculateLayoutEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxCalculateLayoutEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -266,15 +252,13 @@ public:
 	// wxEventCategory wxCalculateLayoutEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxCalculateLayoutEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxCalculateLayoutEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxCalculateLayoutEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxCalculateLayoutEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalculateLayoutEvent* self=Luna< wxObject >::checkSubType< wxCalculateLayoutEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxCalculateLayoutEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxCalculateLayoutEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxCalculateLayoutEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxJoystickEvent* self= (wxJoystickEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -195,8 +192,7 @@ public:
 	// wxJoystickEvent::wxJoystickEvent(lua_Table * data, int eventType = wxEVT_NULL, int state = 0, int joystick = ::wxJOYSTICK1, int change = 0)
 	static wxJoystickEvent* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxJoystickEvent::wxJoystickEvent(lua_Table * data, int eventType = wxEVT_NULL, int state = 0, int joystick = ::wxJOYSTICK1, int change = 0) function, expected prototype:\nwxJoystickEvent::wxJoystickEvent(lua_Table * data, int eventType = wxEVT_NULL, int state = 0, int joystick = ::wxJOYSTICK1, int change = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxJoystickEvent::wxJoystickEvent(lua_Table * data, int eventType = wxEVT_NULL, int state = 0, int joystick = ::wxJOYSTICK1, int change = 0) function, expected prototype:\nwxJoystickEvent::wxJoystickEvent(lua_Table * data, int eventType = wxEVT_NULL, int state = 0, int joystick = ::wxJOYSTICK1, int change = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -214,8 +210,7 @@ public:
 	// bool wxJoystickEvent::ButtonDown(int button = ::wxJOY_BUTTON_ANY) const
 	static int _bind_ButtonDown(lua_State *L) {
 		if (!_lg_typecheck_ButtonDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::ButtonDown(int button = ::wxJOY_BUTTON_ANY) const function, expected prototype:\nbool wxJoystickEvent::ButtonDown(int button = ::wxJOY_BUTTON_ANY) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::ButtonDown(int button = ::wxJOY_BUTTON_ANY) const function, expected prototype:\nbool wxJoystickEvent::ButtonDown(int button = ::wxJOY_BUTTON_ANY) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -224,8 +219,7 @@ public:
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::ButtonDown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::ButtonDown(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ButtonDown(button);
 		lua_pushboolean(L,lret?1:0);
@@ -236,8 +230,7 @@ public:
 	// bool wxJoystickEvent::ButtonIsDown(int button = ::wxJOY_BUTTON_ANY) const
 	static int _bind_ButtonIsDown(lua_State *L) {
 		if (!_lg_typecheck_ButtonIsDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::ButtonIsDown(int button = ::wxJOY_BUTTON_ANY) const function, expected prototype:\nbool wxJoystickEvent::ButtonIsDown(int button = ::wxJOY_BUTTON_ANY) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::ButtonIsDown(int button = ::wxJOY_BUTTON_ANY) const function, expected prototype:\nbool wxJoystickEvent::ButtonIsDown(int button = ::wxJOY_BUTTON_ANY) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -246,8 +239,7 @@ public:
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::ButtonIsDown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::ButtonIsDown(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ButtonIsDown(button);
 		lua_pushboolean(L,lret?1:0);
@@ -258,8 +250,7 @@ public:
 	// bool wxJoystickEvent::ButtonUp(int button = ::wxJOY_BUTTON_ANY) const
 	static int _bind_ButtonUp(lua_State *L) {
 		if (!_lg_typecheck_ButtonUp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::ButtonUp(int button = ::wxJOY_BUTTON_ANY) const function, expected prototype:\nbool wxJoystickEvent::ButtonUp(int button = ::wxJOY_BUTTON_ANY) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::ButtonUp(int button = ::wxJOY_BUTTON_ANY) const function, expected prototype:\nbool wxJoystickEvent::ButtonUp(int button = ::wxJOY_BUTTON_ANY) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -268,8 +259,7 @@ public:
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::ButtonUp(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::ButtonUp(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ButtonUp(button);
 		lua_pushboolean(L,lret?1:0);
@@ -280,15 +270,13 @@ public:
 	// int wxJoystickEvent::GetButtonChange() const
 	static int _bind_GetButtonChange(lua_State *L) {
 		if (!_lg_typecheck_GetButtonChange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxJoystickEvent::GetButtonChange() const function, expected prototype:\nint wxJoystickEvent::GetButtonChange() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxJoystickEvent::GetButtonChange() const function, expected prototype:\nint wxJoystickEvent::GetButtonChange() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetButtonChange() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetButtonChange() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetButtonChange();
 		lua_pushnumber(L,lret);
@@ -299,15 +287,13 @@ public:
 	// int wxJoystickEvent::GetButtonState() const
 	static int _bind_GetButtonState(lua_State *L) {
 		if (!_lg_typecheck_GetButtonState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxJoystickEvent::GetButtonState() const function, expected prototype:\nint wxJoystickEvent::GetButtonState() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxJoystickEvent::GetButtonState() const function, expected prototype:\nint wxJoystickEvent::GetButtonState() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetButtonState() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetButtonState() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetButtonState();
 		lua_pushnumber(L,lret);
@@ -318,15 +304,13 @@ public:
 	// int wxJoystickEvent::GetJoystick() const
 	static int _bind_GetJoystick(lua_State *L) {
 		if (!_lg_typecheck_GetJoystick(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxJoystickEvent::GetJoystick() const function, expected prototype:\nint wxJoystickEvent::GetJoystick() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxJoystickEvent::GetJoystick() const function, expected prototype:\nint wxJoystickEvent::GetJoystick() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetJoystick() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetJoystick() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetJoystick();
 		lua_pushnumber(L,lret);
@@ -337,15 +321,13 @@ public:
 	// wxPoint wxJoystickEvent::GetPosition() const
 	static int _bind_GetPosition(lua_State *L) {
 		if (!_lg_typecheck_GetPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint wxJoystickEvent::GetPosition() const function, expected prototype:\nwxPoint wxJoystickEvent::GetPosition() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint wxJoystickEvent::GetPosition() const function, expected prototype:\nwxPoint wxJoystickEvent::GetPosition() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxJoystickEvent::GetPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint wxJoystickEvent::GetPosition() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint stack_lret = self->GetPosition();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -359,15 +341,13 @@ public:
 	// int wxJoystickEvent::GetZPosition() const
 	static int _bind_GetZPosition(lua_State *L) {
 		if (!_lg_typecheck_GetZPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxJoystickEvent::GetZPosition() const function, expected prototype:\nint wxJoystickEvent::GetZPosition() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxJoystickEvent::GetZPosition() const function, expected prototype:\nint wxJoystickEvent::GetZPosition() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetZPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetZPosition() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetZPosition();
 		lua_pushnumber(L,lret);
@@ -378,15 +358,13 @@ public:
 	// bool wxJoystickEvent::IsButton() const
 	static int _bind_IsButton(lua_State *L) {
 		if (!_lg_typecheck_IsButton(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::IsButton() const function, expected prototype:\nbool wxJoystickEvent::IsButton() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::IsButton() const function, expected prototype:\nbool wxJoystickEvent::IsButton() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::IsButton() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::IsButton() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsButton();
 		lua_pushboolean(L,lret?1:0);
@@ -397,15 +375,13 @@ public:
 	// bool wxJoystickEvent::IsMove() const
 	static int _bind_IsMove(lua_State *L) {
 		if (!_lg_typecheck_IsMove(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::IsMove() const function, expected prototype:\nbool wxJoystickEvent::IsMove() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::IsMove() const function, expected prototype:\nbool wxJoystickEvent::IsMove() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::IsMove() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::IsMove() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsMove();
 		lua_pushboolean(L,lret?1:0);
@@ -416,15 +392,13 @@ public:
 	// bool wxJoystickEvent::IsZMove() const
 	static int _bind_IsZMove(lua_State *L) {
 		if (!_lg_typecheck_IsZMove(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::IsZMove() const function, expected prototype:\nbool wxJoystickEvent::IsZMove() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::IsZMove() const function, expected prototype:\nbool wxJoystickEvent::IsZMove() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::IsZMove() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::IsZMove() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsZMove();
 		lua_pushboolean(L,lret?1:0);
@@ -435,15 +409,13 @@ public:
 	// wxClassInfo * wxJoystickEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxJoystickEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxJoystickEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxJoystickEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxJoystickEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxJoystickEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxJoystickEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxJoystickEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -456,15 +428,13 @@ public:
 	// wxEventCategory wxJoystickEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxJoystickEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxJoystickEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxJoystickEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxJoystickEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxJoystickEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxJoystickEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxJoystickEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

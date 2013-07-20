@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStyledTextCtrl* self= (wxStyledTextCtrl*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -100,7 +97,7 @@ public:
 		if( luatop>2 && (!(Luna< wxPoint >::check(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
 		if( luatop>3 && (!(Luna< wxSize >::check(L,4))) ) return false;
-		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
 		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
 		return true;
 	}
@@ -117,7 +114,7 @@ public:
 		if( luatop>3 && (!(Luna< wxPoint >::check(L,4))) ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
 		if( luatop>4 && (!(Luna< wxSize >::check(L,5))) ) return false;
-		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
 		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
 		return true;
 	}
@@ -603,7 +600,7 @@ public:
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
-		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
 		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
 		return true;
 	}
@@ -668,8 +665,8 @@ public:
 	inline static bool _lg_typecheck_DoDropText(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
 		return true;
 	}
@@ -2501,8 +2498,8 @@ public:
 	inline static bool _lg_typecheck_SetSelection(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -4170,14 +4167,14 @@ public:
 	inline static bool _lg_typecheck_base_SetExtraStyle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_SetWindowStyleFlag(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -4435,7 +4432,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -4523,8 +4520,8 @@ public:
 	inline static bool _lg_typecheck_base_SetSelection(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -4542,8 +4539,7 @@ public:
 	// wxStyledTextCtrl::wxStyledTextCtrl(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)
 	static wxStyledTextCtrl* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxStyledTextCtrl::wxStyledTextCtrl(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr) function, expected prototype:\nwxStyledTextCtrl::wxStyledTextCtrl(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxStyledTextCtrl::wxStyledTextCtrl(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr) function, expected prototype:\nwxStyledTextCtrl::wxStyledTextCtrl(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -4560,7 +4556,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxStyledTextCtrl::wxStyledTextCtrl function");
 		}
 		const wxSize & size=luatop>3 ? *size_ptr : (const wxSize&)wxDefaultSize;
-		long style=luatop>4 ? (long)lua_tointeger(L,5) : (long)0;
+		long style=luatop>4 ? (long)lua_tonumber(L,5) : (long)0;
 		wxString name(lua_tostring(L,6),lua_objlen(L,6));
 
 		return new wxStyledTextCtrl(parent, id, pos, size, style, name);
@@ -4569,8 +4565,7 @@ public:
 	// wxStyledTextCtrl::wxStyledTextCtrl(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)
 	static wxStyledTextCtrl* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxStyledTextCtrl::wxStyledTextCtrl(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr) function, expected prototype:\nwxStyledTextCtrl::wxStyledTextCtrl(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 7 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxStyledTextCtrl::wxStyledTextCtrl(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr) function, expected prototype:\nwxStyledTextCtrl::wxStyledTextCtrl(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 7 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -4587,7 +4582,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxStyledTextCtrl::wxStyledTextCtrl function");
 		}
 		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)0;
+		long style=luatop>5 ? (long)lua_tonumber(L,6) : (long)0;
 		wxString name(lua_tostring(L,7),lua_objlen(L,7));
 
 		return new wrapper_wxStyledTextCtrl(L,NULL, parent, id, pos, size, style, name);
@@ -4607,16 +4602,14 @@ public:
 	// void wxStyledTextCtrl::AddRefDocument(void * docPointer)
 	static int _bind_AddRefDocument(lua_State *L) {
 		if (!_lg_typecheck_AddRefDocument(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AddRefDocument(void * docPointer) function, expected prototype:\nvoid wxStyledTextCtrl::AddRefDocument(void * docPointer)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AddRefDocument(void * docPointer) function, expected prototype:\nvoid wxStyledTextCtrl::AddRefDocument(void * docPointer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* docPointer=(Luna< void >::check(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AddRefDocument(void *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AddRefDocument(void *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddRefDocument(docPointer);
 
@@ -4626,16 +4619,14 @@ public:
 	// void wxStyledTextCtrl::AddText(const wxString & text)
 	static int _bind_AddText(lua_State *L) {
 		if (!_lg_typecheck_AddText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AddText(const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::AddText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AddText(const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::AddText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AddText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AddText(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddText(text);
 
@@ -4645,16 +4636,14 @@ public:
 	// void wxStyledTextCtrl::AddTextRaw(const char * text)
 	static int _bind_AddTextRaw(lua_State *L) {
 		if (!_lg_typecheck_AddTextRaw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AddTextRaw(const char * text) function, expected prototype:\nvoid wxStyledTextCtrl::AddTextRaw(const char * text)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AddTextRaw(const char * text) function, expected prototype:\nvoid wxStyledTextCtrl::AddTextRaw(const char * text)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * text=(const char *)lua_tostring(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AddTextRaw(const char *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AddTextRaw(const char *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddTextRaw(text);
 
@@ -4664,16 +4653,14 @@ public:
 	// void wxStyledTextCtrl::Allocate(int bytes)
 	static int _bind_Allocate(lua_State *L) {
 		if (!_lg_typecheck_Allocate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Allocate(int bytes) function, expected prototype:\nvoid wxStyledTextCtrl::Allocate(int bytes)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Allocate(int bytes) function, expected prototype:\nvoid wxStyledTextCtrl::Allocate(int bytes)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int bytes=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Allocate(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Allocate(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Allocate(bytes);
 
@@ -4683,16 +4670,14 @@ public:
 	// void wxStyledTextCtrl::AppendText(const wxString & text)
 	static int _bind_AppendText(lua_State *L) {
 		if (!_lg_typecheck_AppendText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AppendText(const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::AppendText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AppendText(const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::AppendText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AppendText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AppendText(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AppendText(text);
 
@@ -4702,16 +4687,14 @@ public:
 	// void wxStyledTextCtrl::AppendTextRaw(const char * text)
 	static int _bind_AppendTextRaw(lua_State *L) {
 		if (!_lg_typecheck_AppendTextRaw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AppendTextRaw(const char * text) function, expected prototype:\nvoid wxStyledTextCtrl::AppendTextRaw(const char * text)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AppendTextRaw(const char * text) function, expected prototype:\nvoid wxStyledTextCtrl::AppendTextRaw(const char * text)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * text=(const char *)lua_tostring(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AppendTextRaw(const char *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AppendTextRaw(const char *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AppendTextRaw(text);
 
@@ -4721,15 +4704,13 @@ public:
 	// bool wxStyledTextCtrl::AutoCompActive()
 	static int _bind_AutoCompActive(lua_State *L) {
 		if (!_lg_typecheck_AutoCompActive(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::AutoCompActive() function, expected prototype:\nbool wxStyledTextCtrl::AutoCompActive()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::AutoCompActive() function, expected prototype:\nbool wxStyledTextCtrl::AutoCompActive()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::AutoCompActive(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::AutoCompActive(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoCompActive();
 		lua_pushboolean(L,lret?1:0);
@@ -4740,15 +4721,13 @@ public:
 	// void wxStyledTextCtrl::AutoCompCancel()
 	static int _bind_AutoCompCancel(lua_State *L) {
 		if (!_lg_typecheck_AutoCompCancel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompCancel() function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompCancel()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompCancel() function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompCancel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompCancel(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompCancel(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoCompCancel();
 
@@ -4758,15 +4737,13 @@ public:
 	// void wxStyledTextCtrl::AutoCompComplete()
 	static int _bind_AutoCompComplete(lua_State *L) {
 		if (!_lg_typecheck_AutoCompComplete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompComplete() function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompComplete()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompComplete() function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompComplete()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompComplete(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompComplete(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoCompComplete();
 
@@ -4776,15 +4753,13 @@ public:
 	// bool wxStyledTextCtrl::AutoCompGetAutoHide() const
 	static int _bind_AutoCompGetAutoHide(lua_State *L) {
 		if (!_lg_typecheck_AutoCompGetAutoHide(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::AutoCompGetAutoHide() const function, expected prototype:\nbool wxStyledTextCtrl::AutoCompGetAutoHide() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::AutoCompGetAutoHide() const function, expected prototype:\nbool wxStyledTextCtrl::AutoCompGetAutoHide() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::AutoCompGetAutoHide() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::AutoCompGetAutoHide() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoCompGetAutoHide();
 		lua_pushboolean(L,lret?1:0);
@@ -4795,15 +4770,13 @@ public:
 	// bool wxStyledTextCtrl::AutoCompGetCancelAtStart() const
 	static int _bind_AutoCompGetCancelAtStart(lua_State *L) {
 		if (!_lg_typecheck_AutoCompGetCancelAtStart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::AutoCompGetCancelAtStart() const function, expected prototype:\nbool wxStyledTextCtrl::AutoCompGetCancelAtStart() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::AutoCompGetCancelAtStart() const function, expected prototype:\nbool wxStyledTextCtrl::AutoCompGetCancelAtStart() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::AutoCompGetCancelAtStart() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::AutoCompGetCancelAtStart() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoCompGetCancelAtStart();
 		lua_pushboolean(L,lret?1:0);
@@ -4814,15 +4787,13 @@ public:
 	// bool wxStyledTextCtrl::AutoCompGetChooseSingle() const
 	static int _bind_AutoCompGetChooseSingle(lua_State *L) {
 		if (!_lg_typecheck_AutoCompGetChooseSingle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::AutoCompGetChooseSingle() const function, expected prototype:\nbool wxStyledTextCtrl::AutoCompGetChooseSingle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::AutoCompGetChooseSingle() const function, expected prototype:\nbool wxStyledTextCtrl::AutoCompGetChooseSingle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::AutoCompGetChooseSingle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::AutoCompGetChooseSingle() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoCompGetChooseSingle();
 		lua_pushboolean(L,lret?1:0);
@@ -4833,15 +4804,13 @@ public:
 	// int wxStyledTextCtrl::AutoCompGetCurrent()
 	static int _bind_AutoCompGetCurrent(lua_State *L) {
 		if (!_lg_typecheck_AutoCompGetCurrent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AutoCompGetCurrent() function, expected prototype:\nint wxStyledTextCtrl::AutoCompGetCurrent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AutoCompGetCurrent() function, expected prototype:\nint wxStyledTextCtrl::AutoCompGetCurrent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AutoCompGetCurrent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AutoCompGetCurrent(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->AutoCompGetCurrent();
 		lua_pushnumber(L,lret);
@@ -4852,15 +4821,13 @@ public:
 	// bool wxStyledTextCtrl::AutoCompGetDropRestOfWord() const
 	static int _bind_AutoCompGetDropRestOfWord(lua_State *L) {
 		if (!_lg_typecheck_AutoCompGetDropRestOfWord(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::AutoCompGetDropRestOfWord() const function, expected prototype:\nbool wxStyledTextCtrl::AutoCompGetDropRestOfWord() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::AutoCompGetDropRestOfWord() const function, expected prototype:\nbool wxStyledTextCtrl::AutoCompGetDropRestOfWord() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::AutoCompGetDropRestOfWord() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::AutoCompGetDropRestOfWord() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoCompGetDropRestOfWord();
 		lua_pushboolean(L,lret?1:0);
@@ -4871,15 +4838,13 @@ public:
 	// bool wxStyledTextCtrl::AutoCompGetIgnoreCase() const
 	static int _bind_AutoCompGetIgnoreCase(lua_State *L) {
 		if (!_lg_typecheck_AutoCompGetIgnoreCase(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::AutoCompGetIgnoreCase() const function, expected prototype:\nbool wxStyledTextCtrl::AutoCompGetIgnoreCase() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::AutoCompGetIgnoreCase() const function, expected prototype:\nbool wxStyledTextCtrl::AutoCompGetIgnoreCase() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::AutoCompGetIgnoreCase() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::AutoCompGetIgnoreCase() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoCompGetIgnoreCase();
 		lua_pushboolean(L,lret?1:0);
@@ -4890,15 +4855,13 @@ public:
 	// int wxStyledTextCtrl::AutoCompGetMaxHeight() const
 	static int _bind_AutoCompGetMaxHeight(lua_State *L) {
 		if (!_lg_typecheck_AutoCompGetMaxHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AutoCompGetMaxHeight() const function, expected prototype:\nint wxStyledTextCtrl::AutoCompGetMaxHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AutoCompGetMaxHeight() const function, expected prototype:\nint wxStyledTextCtrl::AutoCompGetMaxHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AutoCompGetMaxHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AutoCompGetMaxHeight() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->AutoCompGetMaxHeight();
 		lua_pushnumber(L,lret);
@@ -4909,15 +4872,13 @@ public:
 	// int wxStyledTextCtrl::AutoCompGetMaxWidth() const
 	static int _bind_AutoCompGetMaxWidth(lua_State *L) {
 		if (!_lg_typecheck_AutoCompGetMaxWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AutoCompGetMaxWidth() const function, expected prototype:\nint wxStyledTextCtrl::AutoCompGetMaxWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AutoCompGetMaxWidth() const function, expected prototype:\nint wxStyledTextCtrl::AutoCompGetMaxWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AutoCompGetMaxWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AutoCompGetMaxWidth() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->AutoCompGetMaxWidth();
 		lua_pushnumber(L,lret);
@@ -4928,15 +4889,13 @@ public:
 	// int wxStyledTextCtrl::AutoCompGetSeparator() const
 	static int _bind_AutoCompGetSeparator(lua_State *L) {
 		if (!_lg_typecheck_AutoCompGetSeparator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AutoCompGetSeparator() const function, expected prototype:\nint wxStyledTextCtrl::AutoCompGetSeparator() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AutoCompGetSeparator() const function, expected prototype:\nint wxStyledTextCtrl::AutoCompGetSeparator() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AutoCompGetSeparator() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AutoCompGetSeparator() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->AutoCompGetSeparator();
 		lua_pushnumber(L,lret);
@@ -4947,15 +4906,13 @@ public:
 	// int wxStyledTextCtrl::AutoCompGetTypeSeparator() const
 	static int _bind_AutoCompGetTypeSeparator(lua_State *L) {
 		if (!_lg_typecheck_AutoCompGetTypeSeparator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AutoCompGetTypeSeparator() const function, expected prototype:\nint wxStyledTextCtrl::AutoCompGetTypeSeparator() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AutoCompGetTypeSeparator() const function, expected prototype:\nint wxStyledTextCtrl::AutoCompGetTypeSeparator() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AutoCompGetTypeSeparator() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AutoCompGetTypeSeparator() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->AutoCompGetTypeSeparator();
 		lua_pushnumber(L,lret);
@@ -4966,15 +4923,13 @@ public:
 	// int wxStyledTextCtrl::AutoCompPosStart()
 	static int _bind_AutoCompPosStart(lua_State *L) {
 		if (!_lg_typecheck_AutoCompPosStart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AutoCompPosStart() function, expected prototype:\nint wxStyledTextCtrl::AutoCompPosStart()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AutoCompPosStart() function, expected prototype:\nint wxStyledTextCtrl::AutoCompPosStart()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AutoCompPosStart(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AutoCompPosStart(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->AutoCompPosStart();
 		lua_pushnumber(L,lret);
@@ -4985,16 +4940,14 @@ public:
 	// void wxStyledTextCtrl::AutoCompSelect(const wxString & text)
 	static int _bind_AutoCompSelect(lua_State *L) {
 		if (!_lg_typecheck_AutoCompSelect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSelect(const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSelect(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSelect(const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSelect(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSelect(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSelect(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoCompSelect(text);
 
@@ -5004,16 +4957,14 @@ public:
 	// void wxStyledTextCtrl::AutoCompSetAutoHide(bool autoHide)
 	static int _bind_AutoCompSetAutoHide(lua_State *L) {
 		if (!_lg_typecheck_AutoCompSetAutoHide(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetAutoHide(bool autoHide) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetAutoHide(bool autoHide)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetAutoHide(bool autoHide) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetAutoHide(bool autoHide)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool autoHide=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetAutoHide(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetAutoHide(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoCompSetAutoHide(autoHide);
 
@@ -5023,16 +4974,14 @@ public:
 	// void wxStyledTextCtrl::AutoCompSetCancelAtStart(bool cancel)
 	static int _bind_AutoCompSetCancelAtStart(lua_State *L) {
 		if (!_lg_typecheck_AutoCompSetCancelAtStart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetCancelAtStart(bool cancel) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetCancelAtStart(bool cancel)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetCancelAtStart(bool cancel) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetCancelAtStart(bool cancel)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool cancel=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetCancelAtStart(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetCancelAtStart(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoCompSetCancelAtStart(cancel);
 
@@ -5042,16 +4991,14 @@ public:
 	// void wxStyledTextCtrl::AutoCompSetChooseSingle(bool chooseSingle)
 	static int _bind_AutoCompSetChooseSingle(lua_State *L) {
 		if (!_lg_typecheck_AutoCompSetChooseSingle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetChooseSingle(bool chooseSingle) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetChooseSingle(bool chooseSingle)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetChooseSingle(bool chooseSingle) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetChooseSingle(bool chooseSingle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool chooseSingle=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetChooseSingle(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetChooseSingle(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoCompSetChooseSingle(chooseSingle);
 
@@ -5061,16 +5008,14 @@ public:
 	// void wxStyledTextCtrl::AutoCompSetDropRestOfWord(bool dropRestOfWord)
 	static int _bind_AutoCompSetDropRestOfWord(lua_State *L) {
 		if (!_lg_typecheck_AutoCompSetDropRestOfWord(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetDropRestOfWord(bool dropRestOfWord) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetDropRestOfWord(bool dropRestOfWord)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetDropRestOfWord(bool dropRestOfWord) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetDropRestOfWord(bool dropRestOfWord)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool dropRestOfWord=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetDropRestOfWord(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetDropRestOfWord(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoCompSetDropRestOfWord(dropRestOfWord);
 
@@ -5080,16 +5025,14 @@ public:
 	// void wxStyledTextCtrl::AutoCompSetFillUps(const wxString & characterSet)
 	static int _bind_AutoCompSetFillUps(lua_State *L) {
 		if (!_lg_typecheck_AutoCompSetFillUps(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetFillUps(const wxString & characterSet) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetFillUps(const wxString & characterSet)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetFillUps(const wxString & characterSet) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetFillUps(const wxString & characterSet)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString characterSet(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetFillUps(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetFillUps(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoCompSetFillUps(characterSet);
 
@@ -5099,16 +5042,14 @@ public:
 	// void wxStyledTextCtrl::AutoCompSetIgnoreCase(bool ignoreCase)
 	static int _bind_AutoCompSetIgnoreCase(lua_State *L) {
 		if (!_lg_typecheck_AutoCompSetIgnoreCase(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetIgnoreCase(bool ignoreCase) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetIgnoreCase(bool ignoreCase)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetIgnoreCase(bool ignoreCase) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetIgnoreCase(bool ignoreCase)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool ignoreCase=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetIgnoreCase(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetIgnoreCase(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoCompSetIgnoreCase(ignoreCase);
 
@@ -5118,16 +5059,14 @@ public:
 	// void wxStyledTextCtrl::AutoCompSetMaxHeight(int rowCount)
 	static int _bind_AutoCompSetMaxHeight(lua_State *L) {
 		if (!_lg_typecheck_AutoCompSetMaxHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetMaxHeight(int rowCount) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetMaxHeight(int rowCount)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetMaxHeight(int rowCount) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetMaxHeight(int rowCount)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int rowCount=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetMaxHeight(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetMaxHeight(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoCompSetMaxHeight(rowCount);
 
@@ -5137,16 +5076,14 @@ public:
 	// void wxStyledTextCtrl::AutoCompSetMaxWidth(int characterCount)
 	static int _bind_AutoCompSetMaxWidth(lua_State *L) {
 		if (!_lg_typecheck_AutoCompSetMaxWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetMaxWidth(int characterCount) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetMaxWidth(int characterCount)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetMaxWidth(int characterCount) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetMaxWidth(int characterCount)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int characterCount=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetMaxWidth(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetMaxWidth(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoCompSetMaxWidth(characterCount);
 
@@ -5156,16 +5093,14 @@ public:
 	// void wxStyledTextCtrl::AutoCompSetSeparator(int separatorCharacter)
 	static int _bind_AutoCompSetSeparator(lua_State *L) {
 		if (!_lg_typecheck_AutoCompSetSeparator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetSeparator(int separatorCharacter) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetSeparator(int separatorCharacter)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetSeparator(int separatorCharacter) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetSeparator(int separatorCharacter)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int separatorCharacter=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetSeparator(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetSeparator(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoCompSetSeparator(separatorCharacter);
 
@@ -5175,16 +5110,14 @@ public:
 	// void wxStyledTextCtrl::AutoCompSetTypeSeparator(int separatorCharacter)
 	static int _bind_AutoCompSetTypeSeparator(lua_State *L) {
 		if (!_lg_typecheck_AutoCompSetTypeSeparator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetTypeSeparator(int separatorCharacter) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetTypeSeparator(int separatorCharacter)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompSetTypeSeparator(int separatorCharacter) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompSetTypeSeparator(int separatorCharacter)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int separatorCharacter=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetTypeSeparator(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompSetTypeSeparator(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoCompSetTypeSeparator(separatorCharacter);
 
@@ -5194,8 +5127,7 @@ public:
 	// void wxStyledTextCtrl::AutoCompShow(int lenEntered, const wxString & itemList)
 	static int _bind_AutoCompShow(lua_State *L) {
 		if (!_lg_typecheck_AutoCompShow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompShow(int lenEntered, const wxString & itemList) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompShow(int lenEntered, const wxString & itemList)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompShow(int lenEntered, const wxString & itemList) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompShow(int lenEntered, const wxString & itemList)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int lenEntered=(int)lua_tointeger(L,2);
@@ -5203,8 +5135,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompShow(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompShow(int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoCompShow(lenEntered, itemList);
 
@@ -5214,16 +5145,14 @@ public:
 	// void wxStyledTextCtrl::AutoCompStops(const wxString & characterSet)
 	static int _bind_AutoCompStops(lua_State *L) {
 		if (!_lg_typecheck_AutoCompStops(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompStops(const wxString & characterSet) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompStops(const wxString & characterSet)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AutoCompStops(const wxString & characterSet) function, expected prototype:\nvoid wxStyledTextCtrl::AutoCompStops(const wxString & characterSet)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString characterSet(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompStops(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AutoCompStops(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AutoCompStops(characterSet);
 
@@ -5233,15 +5162,13 @@ public:
 	// void wxStyledTextCtrl::BackTab()
 	static int _bind_BackTab(lua_State *L) {
 		if (!_lg_typecheck_BackTab(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::BackTab() function, expected prototype:\nvoid wxStyledTextCtrl::BackTab()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::BackTab() function, expected prototype:\nvoid wxStyledTextCtrl::BackTab()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::BackTab(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::BackTab(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BackTab();
 
@@ -5251,15 +5178,13 @@ public:
 	// void wxStyledTextCtrl::BeginUndoAction()
 	static int _bind_BeginUndoAction(lua_State *L) {
 		if (!_lg_typecheck_BeginUndoAction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::BeginUndoAction() function, expected prototype:\nvoid wxStyledTextCtrl::BeginUndoAction()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::BeginUndoAction() function, expected prototype:\nvoid wxStyledTextCtrl::BeginUndoAction()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::BeginUndoAction(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::BeginUndoAction(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BeginUndoAction();
 
@@ -5269,16 +5194,14 @@ public:
 	// void wxStyledTextCtrl::BraceBadLight(int pos)
 	static int _bind_BraceBadLight(lua_State *L) {
 		if (!_lg_typecheck_BraceBadLight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::BraceBadLight(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::BraceBadLight(int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::BraceBadLight(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::BraceBadLight(int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::BraceBadLight(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::BraceBadLight(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BraceBadLight(pos);
 
@@ -5288,8 +5211,7 @@ public:
 	// void wxStyledTextCtrl::BraceHighlight(int pos1, int pos2)
 	static int _bind_BraceHighlight(lua_State *L) {
 		if (!_lg_typecheck_BraceHighlight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::BraceHighlight(int pos1, int pos2) function, expected prototype:\nvoid wxStyledTextCtrl::BraceHighlight(int pos1, int pos2)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::BraceHighlight(int pos1, int pos2) function, expected prototype:\nvoid wxStyledTextCtrl::BraceHighlight(int pos1, int pos2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos1=(int)lua_tointeger(L,2);
@@ -5297,8 +5219,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::BraceHighlight(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::BraceHighlight(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BraceHighlight(pos1, pos2);
 
@@ -5308,16 +5229,14 @@ public:
 	// int wxStyledTextCtrl::BraceMatch(int pos)
 	static int _bind_BraceMatch(lua_State *L) {
 		if (!_lg_typecheck_BraceMatch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::BraceMatch(int pos) function, expected prototype:\nint wxStyledTextCtrl::BraceMatch(int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::BraceMatch(int pos) function, expected prototype:\nint wxStyledTextCtrl::BraceMatch(int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::BraceMatch(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::BraceMatch(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->BraceMatch(pos);
 		lua_pushnumber(L,lret);
@@ -5328,15 +5247,13 @@ public:
 	// bool wxStyledTextCtrl::CallTipActive()
 	static int _bind_CallTipActive(lua_State *L) {
 		if (!_lg_typecheck_CallTipActive(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::CallTipActive() function, expected prototype:\nbool wxStyledTextCtrl::CallTipActive()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::CallTipActive() function, expected prototype:\nbool wxStyledTextCtrl::CallTipActive()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::CallTipActive(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::CallTipActive(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CallTipActive();
 		lua_pushboolean(L,lret?1:0);
@@ -5347,15 +5264,13 @@ public:
 	// void wxStyledTextCtrl::CallTipCancel()
 	static int _bind_CallTipCancel(lua_State *L) {
 		if (!_lg_typecheck_CallTipCancel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CallTipCancel() function, expected prototype:\nvoid wxStyledTextCtrl::CallTipCancel()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CallTipCancel() function, expected prototype:\nvoid wxStyledTextCtrl::CallTipCancel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CallTipCancel(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CallTipCancel(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CallTipCancel();
 
@@ -5365,15 +5280,13 @@ public:
 	// int wxStyledTextCtrl::CallTipPosAtStart()
 	static int _bind_CallTipPosAtStart(lua_State *L) {
 		if (!_lg_typecheck_CallTipPosAtStart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::CallTipPosAtStart() function, expected prototype:\nint wxStyledTextCtrl::CallTipPosAtStart()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::CallTipPosAtStart() function, expected prototype:\nint wxStyledTextCtrl::CallTipPosAtStart()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::CallTipPosAtStart(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::CallTipPosAtStart(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->CallTipPosAtStart();
 		lua_pushnumber(L,lret);
@@ -5384,8 +5297,7 @@ public:
 	// void wxStyledTextCtrl::CallTipSetBackground(const wxColour & back)
 	static int _bind_CallTipSetBackground(lua_State *L) {
 		if (!_lg_typecheck_CallTipSetBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CallTipSetBackground(const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::CallTipSetBackground(const wxColour & back)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CallTipSetBackground(const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::CallTipSetBackground(const wxColour & back)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* back_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -5396,8 +5308,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CallTipSetBackground(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CallTipSetBackground(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CallTipSetBackground(back);
 
@@ -5407,8 +5318,7 @@ public:
 	// void wxStyledTextCtrl::CallTipSetForeground(const wxColour & fore)
 	static int _bind_CallTipSetForeground(lua_State *L) {
 		if (!_lg_typecheck_CallTipSetForeground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CallTipSetForeground(const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::CallTipSetForeground(const wxColour & fore)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CallTipSetForeground(const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::CallTipSetForeground(const wxColour & fore)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* fore_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -5419,8 +5329,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CallTipSetForeground(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CallTipSetForeground(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CallTipSetForeground(fore);
 
@@ -5430,8 +5339,7 @@ public:
 	// void wxStyledTextCtrl::CallTipSetForegroundHighlight(const wxColour & fore)
 	static int _bind_CallTipSetForegroundHighlight(lua_State *L) {
 		if (!_lg_typecheck_CallTipSetForegroundHighlight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CallTipSetForegroundHighlight(const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::CallTipSetForegroundHighlight(const wxColour & fore)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CallTipSetForegroundHighlight(const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::CallTipSetForegroundHighlight(const wxColour & fore)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* fore_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -5442,8 +5350,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CallTipSetForegroundHighlight(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CallTipSetForegroundHighlight(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CallTipSetForegroundHighlight(fore);
 
@@ -5453,8 +5360,7 @@ public:
 	// void wxStyledTextCtrl::CallTipSetHighlight(int start, int end)
 	static int _bind_CallTipSetHighlight(lua_State *L) {
 		if (!_lg_typecheck_CallTipSetHighlight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CallTipSetHighlight(int start, int end) function, expected prototype:\nvoid wxStyledTextCtrl::CallTipSetHighlight(int start, int end)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CallTipSetHighlight(int start, int end) function, expected prototype:\nvoid wxStyledTextCtrl::CallTipSetHighlight(int start, int end)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int start=(int)lua_tointeger(L,2);
@@ -5462,8 +5368,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CallTipSetHighlight(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CallTipSetHighlight(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CallTipSetHighlight(start, end);
 
@@ -5473,8 +5378,7 @@ public:
 	// void wxStyledTextCtrl::CallTipShow(int pos, const wxString & definition)
 	static int _bind_CallTipShow(lua_State *L) {
 		if (!_lg_typecheck_CallTipShow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CallTipShow(int pos, const wxString & definition) function, expected prototype:\nvoid wxStyledTextCtrl::CallTipShow(int pos, const wxString & definition)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CallTipShow(int pos, const wxString & definition) function, expected prototype:\nvoid wxStyledTextCtrl::CallTipShow(int pos, const wxString & definition)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -5482,8 +5386,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CallTipShow(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CallTipShow(int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CallTipShow(pos, definition);
 
@@ -5493,16 +5396,14 @@ public:
 	// void wxStyledTextCtrl::CallTipUseStyle(int tabSize)
 	static int _bind_CallTipUseStyle(lua_State *L) {
 		if (!_lg_typecheck_CallTipUseStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CallTipUseStyle(int tabSize) function, expected prototype:\nvoid wxStyledTextCtrl::CallTipUseStyle(int tabSize)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CallTipUseStyle(int tabSize) function, expected prototype:\nvoid wxStyledTextCtrl::CallTipUseStyle(int tabSize)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int tabSize=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CallTipUseStyle(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CallTipUseStyle(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CallTipUseStyle(tabSize);
 
@@ -5512,15 +5413,13 @@ public:
 	// bool wxStyledTextCtrl::CanPaste() const
 	static int _bind_CanPaste(lua_State *L) {
 		if (!_lg_typecheck_CanPaste(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::CanPaste() const function, expected prototype:\nbool wxStyledTextCtrl::CanPaste() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::CanPaste() const function, expected prototype:\nbool wxStyledTextCtrl::CanPaste() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::CanPaste() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::CanPaste() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanPaste();
 		lua_pushboolean(L,lret?1:0);
@@ -5531,15 +5430,13 @@ public:
 	// bool wxStyledTextCtrl::CanRedo() const
 	static int _bind_CanRedo(lua_State *L) {
 		if (!_lg_typecheck_CanRedo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::CanRedo() const function, expected prototype:\nbool wxStyledTextCtrl::CanRedo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::CanRedo() const function, expected prototype:\nbool wxStyledTextCtrl::CanRedo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::CanRedo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::CanRedo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanRedo();
 		lua_pushboolean(L,lret?1:0);
@@ -5550,15 +5447,13 @@ public:
 	// bool wxStyledTextCtrl::CanUndo() const
 	static int _bind_CanUndo(lua_State *L) {
 		if (!_lg_typecheck_CanUndo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::CanUndo() const function, expected prototype:\nbool wxStyledTextCtrl::CanUndo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::CanUndo() const function, expected prototype:\nbool wxStyledTextCtrl::CanUndo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::CanUndo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::CanUndo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanUndo();
 		lua_pushboolean(L,lret?1:0);
@@ -5569,15 +5464,13 @@ public:
 	// void wxStyledTextCtrl::Cancel()
 	static int _bind_Cancel(lua_State *L) {
 		if (!_lg_typecheck_Cancel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Cancel() function, expected prototype:\nvoid wxStyledTextCtrl::Cancel()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Cancel() function, expected prototype:\nvoid wxStyledTextCtrl::Cancel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Cancel(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Cancel(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Cancel();
 
@@ -5587,15 +5480,13 @@ public:
 	// void wxStyledTextCtrl::CharLeft()
 	static int _bind_CharLeft(lua_State *L) {
 		if (!_lg_typecheck_CharLeft(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CharLeft() function, expected prototype:\nvoid wxStyledTextCtrl::CharLeft()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CharLeft() function, expected prototype:\nvoid wxStyledTextCtrl::CharLeft()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CharLeft(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CharLeft(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CharLeft();
 
@@ -5605,15 +5496,13 @@ public:
 	// void wxStyledTextCtrl::CharLeftExtend()
 	static int _bind_CharLeftExtend(lua_State *L) {
 		if (!_lg_typecheck_CharLeftExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CharLeftExtend() function, expected prototype:\nvoid wxStyledTextCtrl::CharLeftExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CharLeftExtend() function, expected prototype:\nvoid wxStyledTextCtrl::CharLeftExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CharLeftExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CharLeftExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CharLeftExtend();
 
@@ -5623,15 +5512,13 @@ public:
 	// void wxStyledTextCtrl::CharLeftRectExtend()
 	static int _bind_CharLeftRectExtend(lua_State *L) {
 		if (!_lg_typecheck_CharLeftRectExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CharLeftRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::CharLeftRectExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CharLeftRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::CharLeftRectExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CharLeftRectExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CharLeftRectExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CharLeftRectExtend();
 
@@ -5641,15 +5528,13 @@ public:
 	// void wxStyledTextCtrl::CharRight()
 	static int _bind_CharRight(lua_State *L) {
 		if (!_lg_typecheck_CharRight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CharRight() function, expected prototype:\nvoid wxStyledTextCtrl::CharRight()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CharRight() function, expected prototype:\nvoid wxStyledTextCtrl::CharRight()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CharRight(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CharRight(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CharRight();
 
@@ -5659,15 +5544,13 @@ public:
 	// void wxStyledTextCtrl::CharRightExtend()
 	static int _bind_CharRightExtend(lua_State *L) {
 		if (!_lg_typecheck_CharRightExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CharRightExtend() function, expected prototype:\nvoid wxStyledTextCtrl::CharRightExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CharRightExtend() function, expected prototype:\nvoid wxStyledTextCtrl::CharRightExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CharRightExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CharRightExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CharRightExtend();
 
@@ -5677,15 +5560,13 @@ public:
 	// void wxStyledTextCtrl::CharRightRectExtend()
 	static int _bind_CharRightRectExtend(lua_State *L) {
 		if (!_lg_typecheck_CharRightRectExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CharRightRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::CharRightRectExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CharRightRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::CharRightRectExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CharRightRectExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CharRightRectExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CharRightRectExtend();
 
@@ -5695,15 +5576,13 @@ public:
 	// void wxStyledTextCtrl::ChooseCaretX()
 	static int _bind_ChooseCaretX(lua_State *L) {
 		if (!_lg_typecheck_ChooseCaretX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ChooseCaretX() function, expected prototype:\nvoid wxStyledTextCtrl::ChooseCaretX()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ChooseCaretX() function, expected prototype:\nvoid wxStyledTextCtrl::ChooseCaretX()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ChooseCaretX(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ChooseCaretX(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ChooseCaretX();
 
@@ -5713,15 +5592,13 @@ public:
 	// void wxStyledTextCtrl::Clear()
 	static int _bind_Clear(lua_State *L) {
 		if (!_lg_typecheck_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Clear() function, expected prototype:\nvoid wxStyledTextCtrl::Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Clear() function, expected prototype:\nvoid wxStyledTextCtrl::Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Clear(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Clear();
 
@@ -5731,15 +5608,13 @@ public:
 	// void wxStyledTextCtrl::ClearAll()
 	static int _bind_ClearAll(lua_State *L) {
 		if (!_lg_typecheck_ClearAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ClearAll() function, expected prototype:\nvoid wxStyledTextCtrl::ClearAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ClearAll() function, expected prototype:\nvoid wxStyledTextCtrl::ClearAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ClearAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ClearAll(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClearAll();
 
@@ -5749,15 +5624,13 @@ public:
 	// void wxStyledTextCtrl::ClearDocumentStyle()
 	static int _bind_ClearDocumentStyle(lua_State *L) {
 		if (!_lg_typecheck_ClearDocumentStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ClearDocumentStyle() function, expected prototype:\nvoid wxStyledTextCtrl::ClearDocumentStyle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ClearDocumentStyle() function, expected prototype:\nvoid wxStyledTextCtrl::ClearDocumentStyle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ClearDocumentStyle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ClearDocumentStyle(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClearDocumentStyle();
 
@@ -5767,15 +5640,13 @@ public:
 	// void wxStyledTextCtrl::ClearRegisteredImages()
 	static int _bind_ClearRegisteredImages(lua_State *L) {
 		if (!_lg_typecheck_ClearRegisteredImages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ClearRegisteredImages() function, expected prototype:\nvoid wxStyledTextCtrl::ClearRegisteredImages()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ClearRegisteredImages() function, expected prototype:\nvoid wxStyledTextCtrl::ClearRegisteredImages()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ClearRegisteredImages(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ClearRegisteredImages(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClearRegisteredImages();
 
@@ -5785,8 +5656,7 @@ public:
 	// void wxStyledTextCtrl::CmdKeyAssign(int key, int modifiers, int cmd)
 	static int _bind_CmdKeyAssign(lua_State *L) {
 		if (!_lg_typecheck_CmdKeyAssign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CmdKeyAssign(int key, int modifiers, int cmd) function, expected prototype:\nvoid wxStyledTextCtrl::CmdKeyAssign(int key, int modifiers, int cmd)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CmdKeyAssign(int key, int modifiers, int cmd) function, expected prototype:\nvoid wxStyledTextCtrl::CmdKeyAssign(int key, int modifiers, int cmd)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int key=(int)lua_tointeger(L,2);
@@ -5795,8 +5665,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CmdKeyAssign(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CmdKeyAssign(int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CmdKeyAssign(key, modifiers, cmd);
 
@@ -5806,8 +5675,7 @@ public:
 	// void wxStyledTextCtrl::CmdKeyClear(int key, int modifiers)
 	static int _bind_CmdKeyClear(lua_State *L) {
 		if (!_lg_typecheck_CmdKeyClear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CmdKeyClear(int key, int modifiers) function, expected prototype:\nvoid wxStyledTextCtrl::CmdKeyClear(int key, int modifiers)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CmdKeyClear(int key, int modifiers) function, expected prototype:\nvoid wxStyledTextCtrl::CmdKeyClear(int key, int modifiers)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int key=(int)lua_tointeger(L,2);
@@ -5815,8 +5683,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CmdKeyClear(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CmdKeyClear(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CmdKeyClear(key, modifiers);
 
@@ -5826,15 +5693,13 @@ public:
 	// void wxStyledTextCtrl::CmdKeyClearAll()
 	static int _bind_CmdKeyClearAll(lua_State *L) {
 		if (!_lg_typecheck_CmdKeyClearAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CmdKeyClearAll() function, expected prototype:\nvoid wxStyledTextCtrl::CmdKeyClearAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CmdKeyClearAll() function, expected prototype:\nvoid wxStyledTextCtrl::CmdKeyClearAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CmdKeyClearAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CmdKeyClearAll(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CmdKeyClearAll();
 
@@ -5844,16 +5709,14 @@ public:
 	// void wxStyledTextCtrl::CmdKeyExecute(int cmd)
 	static int _bind_CmdKeyExecute(lua_State *L) {
 		if (!_lg_typecheck_CmdKeyExecute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CmdKeyExecute(int cmd) function, expected prototype:\nvoid wxStyledTextCtrl::CmdKeyExecute(int cmd)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CmdKeyExecute(int cmd) function, expected prototype:\nvoid wxStyledTextCtrl::CmdKeyExecute(int cmd)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int cmd=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CmdKeyExecute(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CmdKeyExecute(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CmdKeyExecute(cmd);
 
@@ -5863,8 +5726,7 @@ public:
 	// void wxStyledTextCtrl::Colourise(int start, int end)
 	static int _bind_Colourise(lua_State *L) {
 		if (!_lg_typecheck_Colourise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Colourise(int start, int end) function, expected prototype:\nvoid wxStyledTextCtrl::Colourise(int start, int end)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Colourise(int start, int end) function, expected prototype:\nvoid wxStyledTextCtrl::Colourise(int start, int end)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int start=(int)lua_tointeger(L,2);
@@ -5872,8 +5734,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Colourise(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Colourise(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Colourise(start, end);
 
@@ -5883,16 +5744,14 @@ public:
 	// void wxStyledTextCtrl::ConvertEOLs(int eolMode)
 	static int _bind_ConvertEOLs(lua_State *L) {
 		if (!_lg_typecheck_ConvertEOLs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ConvertEOLs(int eolMode) function, expected prototype:\nvoid wxStyledTextCtrl::ConvertEOLs(int eolMode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ConvertEOLs(int eolMode) function, expected prototype:\nvoid wxStyledTextCtrl::ConvertEOLs(int eolMode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int eolMode=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ConvertEOLs(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ConvertEOLs(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ConvertEOLs(eolMode);
 
@@ -5902,15 +5761,13 @@ public:
 	// void wxStyledTextCtrl::Copy()
 	static int _bind_Copy(lua_State *L) {
 		if (!_lg_typecheck_Copy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Copy() function, expected prototype:\nvoid wxStyledTextCtrl::Copy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Copy() function, expected prototype:\nvoid wxStyledTextCtrl::Copy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Copy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Copy(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Copy();
 
@@ -5920,8 +5777,7 @@ public:
 	// void wxStyledTextCtrl::CopyRange(int start, int end)
 	static int _bind_CopyRange(lua_State *L) {
 		if (!_lg_typecheck_CopyRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CopyRange(int start, int end) function, expected prototype:\nvoid wxStyledTextCtrl::CopyRange(int start, int end)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CopyRange(int start, int end) function, expected prototype:\nvoid wxStyledTextCtrl::CopyRange(int start, int end)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int start=(int)lua_tointeger(L,2);
@@ -5929,8 +5785,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CopyRange(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CopyRange(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CopyRange(start, end);
 
@@ -5940,8 +5795,7 @@ public:
 	// void wxStyledTextCtrl::CopyText(int length, const wxString & text)
 	static int _bind_CopyText(lua_State *L) {
 		if (!_lg_typecheck_CopyText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CopyText(int length, const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::CopyText(int length, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CopyText(int length, const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::CopyText(int length, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int length=(int)lua_tointeger(L,2);
@@ -5949,8 +5803,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CopyText(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CopyText(int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CopyText(length, text);
 
@@ -5960,8 +5813,7 @@ public:
 	// bool wxStyledTextCtrl::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr) function, expected prototype:\nbool wxStyledTextCtrl::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr) function, expected prototype:\nbool wxStyledTextCtrl::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -5978,13 +5830,12 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxStyledTextCtrl::Create function");
 		}
 		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)0;
+		long style=luatop>5 ? (long)lua_tonumber(L,6) : (long)0;
 		wxString name(lua_tostring(L,7),lua_objlen(L,7));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::Create(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::Create(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Create(parent, id, pos, size, style, name);
 		lua_pushboolean(L,lret?1:0);
@@ -5995,15 +5846,13 @@ public:
 	// void * wxStyledTextCtrl::CreateDocument()
 	static int _bind_CreateDocument(lua_State *L) {
 		if (!_lg_typecheck_CreateDocument(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * wxStyledTextCtrl::CreateDocument() function, expected prototype:\nvoid * wxStyledTextCtrl::CreateDocument()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * wxStyledTextCtrl::CreateDocument() function, expected prototype:\nvoid * wxStyledTextCtrl::CreateDocument()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxStyledTextCtrl::CreateDocument(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * wxStyledTextCtrl::CreateDocument(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->CreateDocument();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -6016,15 +5865,13 @@ public:
 	// void wxStyledTextCtrl::Cut()
 	static int _bind_Cut(lua_State *L) {
 		if (!_lg_typecheck_Cut(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Cut() function, expected prototype:\nvoid wxStyledTextCtrl::Cut()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Cut() function, expected prototype:\nvoid wxStyledTextCtrl::Cut()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Cut(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Cut(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Cut();
 
@@ -6034,15 +5881,13 @@ public:
 	// void wxStyledTextCtrl::DelLineLeft()
 	static int _bind_DelLineLeft(lua_State *L) {
 		if (!_lg_typecheck_DelLineLeft(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DelLineLeft() function, expected prototype:\nvoid wxStyledTextCtrl::DelLineLeft()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DelLineLeft() function, expected prototype:\nvoid wxStyledTextCtrl::DelLineLeft()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DelLineLeft(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DelLineLeft(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DelLineLeft();
 
@@ -6052,15 +5897,13 @@ public:
 	// void wxStyledTextCtrl::DelLineRight()
 	static int _bind_DelLineRight(lua_State *L) {
 		if (!_lg_typecheck_DelLineRight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DelLineRight() function, expected prototype:\nvoid wxStyledTextCtrl::DelLineRight()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DelLineRight() function, expected prototype:\nvoid wxStyledTextCtrl::DelLineRight()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DelLineRight(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DelLineRight(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DelLineRight();
 
@@ -6070,15 +5913,13 @@ public:
 	// void wxStyledTextCtrl::DelWordLeft()
 	static int _bind_DelWordLeft(lua_State *L) {
 		if (!_lg_typecheck_DelWordLeft(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DelWordLeft() function, expected prototype:\nvoid wxStyledTextCtrl::DelWordLeft()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DelWordLeft() function, expected prototype:\nvoid wxStyledTextCtrl::DelWordLeft()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DelWordLeft(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DelWordLeft(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DelWordLeft();
 
@@ -6088,15 +5929,13 @@ public:
 	// void wxStyledTextCtrl::DelWordRight()
 	static int _bind_DelWordRight(lua_State *L) {
 		if (!_lg_typecheck_DelWordRight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DelWordRight() function, expected prototype:\nvoid wxStyledTextCtrl::DelWordRight()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DelWordRight() function, expected prototype:\nvoid wxStyledTextCtrl::DelWordRight()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DelWordRight(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DelWordRight(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DelWordRight();
 
@@ -6106,15 +5945,13 @@ public:
 	// void wxStyledTextCtrl::DeleteBack()
 	static int _bind_DeleteBack(lua_State *L) {
 		if (!_lg_typecheck_DeleteBack(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DeleteBack() function, expected prototype:\nvoid wxStyledTextCtrl::DeleteBack()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DeleteBack() function, expected prototype:\nvoid wxStyledTextCtrl::DeleteBack()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DeleteBack(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DeleteBack(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DeleteBack();
 
@@ -6124,15 +5961,13 @@ public:
 	// void wxStyledTextCtrl::DeleteBackNotLine()
 	static int _bind_DeleteBackNotLine(lua_State *L) {
 		if (!_lg_typecheck_DeleteBackNotLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DeleteBackNotLine() function, expected prototype:\nvoid wxStyledTextCtrl::DeleteBackNotLine()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DeleteBackNotLine() function, expected prototype:\nvoid wxStyledTextCtrl::DeleteBackNotLine()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DeleteBackNotLine(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DeleteBackNotLine(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DeleteBackNotLine();
 
@@ -6142,8 +5977,7 @@ public:
 	// wxDragResult wxStyledTextCtrl::DoDragOver(int x, int y, wxDragResult def)
 	static int _bind_DoDragOver(lua_State *L) {
 		if (!_lg_typecheck_DoDragOver(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDragResult wxStyledTextCtrl::DoDragOver(int x, int y, wxDragResult def) function, expected prototype:\nwxDragResult wxStyledTextCtrl::DoDragOver(int x, int y, wxDragResult def)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDragResult wxStyledTextCtrl::DoDragOver(int x, int y, wxDragResult def) function, expected prototype:\nwxDragResult wxStyledTextCtrl::DoDragOver(int x, int y, wxDragResult def)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -6152,8 +5986,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDragResult wxStyledTextCtrl::DoDragOver(int, int, wxDragResult). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDragResult wxStyledTextCtrl::DoDragOver(int, int, wxDragResult). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDragResult lret = self->DoDragOver(x, y, def);
 		lua_pushnumber(L,lret);
@@ -6164,18 +5997,16 @@ public:
 	// bool wxStyledTextCtrl::DoDropText(long x, long y, const wxString & data)
 	static int _bind_DoDropText(lua_State *L) {
 		if (!_lg_typecheck_DoDropText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::DoDropText(long x, long y, const wxString & data) function, expected prototype:\nbool wxStyledTextCtrl::DoDropText(long x, long y, const wxString & data)\nClass arguments details:\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::DoDropText(long x, long y, const wxString & data) function, expected prototype:\nbool wxStyledTextCtrl::DoDropText(long x, long y, const wxString & data)\nClass arguments details:\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long x=(long)lua_tointeger(L,2);
-		long y=(long)lua_tointeger(L,3);
+		long x=(long)lua_tonumber(L,2);
+		long y=(long)lua_tonumber(L,3);
 		wxString data(lua_tostring(L,4),lua_objlen(L,4));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::DoDropText(long, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::DoDropText(long, long, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DoDropText(x, y, data);
 		lua_pushboolean(L,lret?1:0);
@@ -6186,16 +6017,14 @@ public:
 	// int wxStyledTextCtrl::DocLineFromVisible(int lineDisplay)
 	static int _bind_DocLineFromVisible(lua_State *L) {
 		if (!_lg_typecheck_DocLineFromVisible(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::DocLineFromVisible(int lineDisplay) function, expected prototype:\nint wxStyledTextCtrl::DocLineFromVisible(int lineDisplay)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::DocLineFromVisible(int lineDisplay) function, expected prototype:\nint wxStyledTextCtrl::DocLineFromVisible(int lineDisplay)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int lineDisplay=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::DocLineFromVisible(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::DocLineFromVisible(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->DocLineFromVisible(lineDisplay);
 		lua_pushnumber(L,lret);
@@ -6206,15 +6035,13 @@ public:
 	// void wxStyledTextCtrl::DocumentEnd()
 	static int _bind_DocumentEnd(lua_State *L) {
 		if (!_lg_typecheck_DocumentEnd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DocumentEnd() function, expected prototype:\nvoid wxStyledTextCtrl::DocumentEnd()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DocumentEnd() function, expected prototype:\nvoid wxStyledTextCtrl::DocumentEnd()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DocumentEnd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DocumentEnd(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DocumentEnd();
 
@@ -6224,15 +6051,13 @@ public:
 	// void wxStyledTextCtrl::DocumentEndExtend()
 	static int _bind_DocumentEndExtend(lua_State *L) {
 		if (!_lg_typecheck_DocumentEndExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DocumentEndExtend() function, expected prototype:\nvoid wxStyledTextCtrl::DocumentEndExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DocumentEndExtend() function, expected prototype:\nvoid wxStyledTextCtrl::DocumentEndExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DocumentEndExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DocumentEndExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DocumentEndExtend();
 
@@ -6242,15 +6067,13 @@ public:
 	// void wxStyledTextCtrl::DocumentStart()
 	static int _bind_DocumentStart(lua_State *L) {
 		if (!_lg_typecheck_DocumentStart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DocumentStart() function, expected prototype:\nvoid wxStyledTextCtrl::DocumentStart()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DocumentStart() function, expected prototype:\nvoid wxStyledTextCtrl::DocumentStart()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DocumentStart(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DocumentStart(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DocumentStart();
 
@@ -6260,15 +6083,13 @@ public:
 	// void wxStyledTextCtrl::DocumentStartExtend()
 	static int _bind_DocumentStartExtend(lua_State *L) {
 		if (!_lg_typecheck_DocumentStartExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DocumentStartExtend() function, expected prototype:\nvoid wxStyledTextCtrl::DocumentStartExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::DocumentStartExtend() function, expected prototype:\nvoid wxStyledTextCtrl::DocumentStartExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DocumentStartExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::DocumentStartExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DocumentStartExtend();
 
@@ -6278,15 +6099,13 @@ public:
 	// void wxStyledTextCtrl::EditToggleOvertype()
 	static int _bind_EditToggleOvertype(lua_State *L) {
 		if (!_lg_typecheck_EditToggleOvertype(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::EditToggleOvertype() function, expected prototype:\nvoid wxStyledTextCtrl::EditToggleOvertype()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::EditToggleOvertype() function, expected prototype:\nvoid wxStyledTextCtrl::EditToggleOvertype()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::EditToggleOvertype(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::EditToggleOvertype(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EditToggleOvertype();
 
@@ -6296,15 +6115,13 @@ public:
 	// void wxStyledTextCtrl::EndUndoAction()
 	static int _bind_EndUndoAction(lua_State *L) {
 		if (!_lg_typecheck_EndUndoAction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::EndUndoAction() function, expected prototype:\nvoid wxStyledTextCtrl::EndUndoAction()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::EndUndoAction() function, expected prototype:\nvoid wxStyledTextCtrl::EndUndoAction()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::EndUndoAction(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::EndUndoAction(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EndUndoAction();
 
@@ -6314,15 +6131,13 @@ public:
 	// void wxStyledTextCtrl::EnsureCaretVisible()
 	static int _bind_EnsureCaretVisible(lua_State *L) {
 		if (!_lg_typecheck_EnsureCaretVisible(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::EnsureCaretVisible() function, expected prototype:\nvoid wxStyledTextCtrl::EnsureCaretVisible()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::EnsureCaretVisible() function, expected prototype:\nvoid wxStyledTextCtrl::EnsureCaretVisible()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::EnsureCaretVisible(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::EnsureCaretVisible(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EnsureCaretVisible();
 
@@ -6332,16 +6147,14 @@ public:
 	// void wxStyledTextCtrl::EnsureVisible(int line)
 	static int _bind_EnsureVisible(lua_State *L) {
 		if (!_lg_typecheck_EnsureVisible(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::EnsureVisible(int line) function, expected prototype:\nvoid wxStyledTextCtrl::EnsureVisible(int line)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::EnsureVisible(int line) function, expected prototype:\nvoid wxStyledTextCtrl::EnsureVisible(int line)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::EnsureVisible(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::EnsureVisible(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EnsureVisible(line);
 
@@ -6351,16 +6164,14 @@ public:
 	// void wxStyledTextCtrl::EnsureVisibleEnforcePolicy(int line)
 	static int _bind_EnsureVisibleEnforcePolicy(lua_State *L) {
 		if (!_lg_typecheck_EnsureVisibleEnforcePolicy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::EnsureVisibleEnforcePolicy(int line) function, expected prototype:\nvoid wxStyledTextCtrl::EnsureVisibleEnforcePolicy(int line)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::EnsureVisibleEnforcePolicy(int line) function, expected prototype:\nvoid wxStyledTextCtrl::EnsureVisibleEnforcePolicy(int line)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::EnsureVisibleEnforcePolicy(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::EnsureVisibleEnforcePolicy(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EnsureVisibleEnforcePolicy(line);
 
@@ -6370,8 +6181,7 @@ public:
 	// int wxStyledTextCtrl::FindColumn(int line, int column)
 	static int _bind_FindColumn(lua_State *L) {
 		if (!_lg_typecheck_FindColumn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::FindColumn(int line, int column) function, expected prototype:\nint wxStyledTextCtrl::FindColumn(int line, int column)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::FindColumn(int line, int column) function, expected prototype:\nint wxStyledTextCtrl::FindColumn(int line, int column)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
@@ -6379,8 +6189,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::FindColumn(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::FindColumn(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->FindColumn(line, column);
 		lua_pushnumber(L,lret);
@@ -6391,8 +6200,7 @@ public:
 	// int wxStyledTextCtrl::FindText(int minPos, int maxPos, const wxString & text, int flags = 0)
 	static int _bind_FindText(lua_State *L) {
 		if (!_lg_typecheck_FindText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::FindText(int minPos, int maxPos, const wxString & text, int flags = 0) function, expected prototype:\nint wxStyledTextCtrl::FindText(int minPos, int maxPos, const wxString & text, int flags = 0)\nClass arguments details:\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::FindText(int minPos, int maxPos, const wxString & text, int flags = 0) function, expected prototype:\nint wxStyledTextCtrl::FindText(int minPos, int maxPos, const wxString & text, int flags = 0)\nClass arguments details:\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6404,8 +6212,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::FindText(int, int, const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::FindText(int, int, const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->FindText(minPos, maxPos, text, flags);
 		lua_pushnumber(L,lret);
@@ -6416,15 +6223,13 @@ public:
 	// void wxStyledTextCtrl::FormFeed()
 	static int _bind_FormFeed(lua_State *L) {
 		if (!_lg_typecheck_FormFeed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::FormFeed() function, expected prototype:\nvoid wxStyledTextCtrl::FormFeed()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::FormFeed() function, expected prototype:\nvoid wxStyledTextCtrl::FormFeed()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::FormFeed(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::FormFeed(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FormFeed();
 
@@ -6434,8 +6239,7 @@ public:
 	// int wxStyledTextCtrl::FormatRange(bool doDraw, int startPos, int endPos, wxDC * draw, wxDC * target, wxRect renderRect, wxRect pageRect)
 	static int _bind_FormatRange(lua_State *L) {
 		if (!_lg_typecheck_FormatRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::FormatRange(bool doDraw, int startPos, int endPos, wxDC * draw, wxDC * target, wxRect renderRect, wxRect pageRect) function, expected prototype:\nint wxStyledTextCtrl::FormatRange(bool doDraw, int startPos, int endPos, wxDC * draw, wxDC * target, wxRect renderRect, wxRect pageRect)\nClass arguments details:\narg 4 ID = 56813631\narg 5 ID = 56813631\narg 6 ID = 20234418\narg 7 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::FormatRange(bool doDraw, int startPos, int endPos, wxDC * draw, wxDC * target, wxRect renderRect, wxRect pageRect) function, expected prototype:\nint wxStyledTextCtrl::FormatRange(bool doDraw, int startPos, int endPos, wxDC * draw, wxDC * target, wxRect renderRect, wxRect pageRect)\nClass arguments details:\narg 4 ID = 56813631\narg 5 ID = 56813631\narg 6 ID = 20234418\narg 7 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool doDraw=(bool)(lua_toboolean(L,2)==1);
@@ -6456,8 +6260,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::FormatRange(bool, int, int, wxDC *, wxDC *, wxRect, wxRect). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::FormatRange(bool, int, int, wxDC *, wxDC *, wxRect, wxRect). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->FormatRange(doDraw, startPos, endPos, draw, target, renderRect, pageRect);
 		lua_pushnumber(L,lret);
@@ -6468,15 +6271,13 @@ public:
 	// int wxStyledTextCtrl::GetAnchor() const
 	static int _bind_GetAnchor(lua_State *L) {
 		if (!_lg_typecheck_GetAnchor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetAnchor() const function, expected prototype:\nint wxStyledTextCtrl::GetAnchor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetAnchor() const function, expected prototype:\nint wxStyledTextCtrl::GetAnchor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetAnchor() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetAnchor() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetAnchor();
 		lua_pushnumber(L,lret);
@@ -6487,15 +6288,13 @@ public:
 	// bool wxStyledTextCtrl::GetBackSpaceUnIndents() const
 	static int _bind_GetBackSpaceUnIndents(lua_State *L) {
 		if (!_lg_typecheck_GetBackSpaceUnIndents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetBackSpaceUnIndents() const function, expected prototype:\nbool wxStyledTextCtrl::GetBackSpaceUnIndents() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetBackSpaceUnIndents() const function, expected prototype:\nbool wxStyledTextCtrl::GetBackSpaceUnIndents() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetBackSpaceUnIndents() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetBackSpaceUnIndents() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetBackSpaceUnIndents();
 		lua_pushboolean(L,lret?1:0);
@@ -6506,15 +6305,13 @@ public:
 	// wxColour wxStyledTextCtrl::GetCaretForeground() const
 	static int _bind_GetCaretForeground(lua_State *L) {
 		if (!_lg_typecheck_GetCaretForeground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxStyledTextCtrl::GetCaretForeground() const function, expected prototype:\nwxColour wxStyledTextCtrl::GetCaretForeground() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxStyledTextCtrl::GetCaretForeground() const function, expected prototype:\nwxColour wxStyledTextCtrl::GetCaretForeground() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxStyledTextCtrl::GetCaretForeground() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxStyledTextCtrl::GetCaretForeground() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxColour stack_lret = self->GetCaretForeground();
 		wxColour* lret = new wxColour(stack_lret);
@@ -6528,15 +6325,13 @@ public:
 	// int wxStyledTextCtrl::GetCaretLineBackAlpha() const
 	static int _bind_GetCaretLineBackAlpha(lua_State *L) {
 		if (!_lg_typecheck_GetCaretLineBackAlpha(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetCaretLineBackAlpha() const function, expected prototype:\nint wxStyledTextCtrl::GetCaretLineBackAlpha() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetCaretLineBackAlpha() const function, expected prototype:\nint wxStyledTextCtrl::GetCaretLineBackAlpha() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetCaretLineBackAlpha() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetCaretLineBackAlpha() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetCaretLineBackAlpha();
 		lua_pushnumber(L,lret);
@@ -6547,15 +6342,13 @@ public:
 	// wxColour wxStyledTextCtrl::GetCaretLineBackground() const
 	static int _bind_GetCaretLineBackground(lua_State *L) {
 		if (!_lg_typecheck_GetCaretLineBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxStyledTextCtrl::GetCaretLineBackground() const function, expected prototype:\nwxColour wxStyledTextCtrl::GetCaretLineBackground() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxStyledTextCtrl::GetCaretLineBackground() const function, expected prototype:\nwxColour wxStyledTextCtrl::GetCaretLineBackground() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxStyledTextCtrl::GetCaretLineBackground() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxStyledTextCtrl::GetCaretLineBackground() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxColour stack_lret = self->GetCaretLineBackground();
 		wxColour* lret = new wxColour(stack_lret);
@@ -6569,15 +6362,13 @@ public:
 	// bool wxStyledTextCtrl::GetCaretLineVisible() const
 	static int _bind_GetCaretLineVisible(lua_State *L) {
 		if (!_lg_typecheck_GetCaretLineVisible(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetCaretLineVisible() const function, expected prototype:\nbool wxStyledTextCtrl::GetCaretLineVisible() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetCaretLineVisible() const function, expected prototype:\nbool wxStyledTextCtrl::GetCaretLineVisible() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetCaretLineVisible() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetCaretLineVisible() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetCaretLineVisible();
 		lua_pushboolean(L,lret?1:0);
@@ -6588,15 +6379,13 @@ public:
 	// int wxStyledTextCtrl::GetCaretPeriod() const
 	static int _bind_GetCaretPeriod(lua_State *L) {
 		if (!_lg_typecheck_GetCaretPeriod(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetCaretPeriod() const function, expected prototype:\nint wxStyledTextCtrl::GetCaretPeriod() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetCaretPeriod() const function, expected prototype:\nint wxStyledTextCtrl::GetCaretPeriod() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetCaretPeriod() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetCaretPeriod() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetCaretPeriod();
 		lua_pushnumber(L,lret);
@@ -6607,15 +6396,13 @@ public:
 	// bool wxStyledTextCtrl::GetCaretSticky() const
 	static int _bind_GetCaretSticky(lua_State *L) {
 		if (!_lg_typecheck_GetCaretSticky(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetCaretSticky() const function, expected prototype:\nbool wxStyledTextCtrl::GetCaretSticky() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetCaretSticky() const function, expected prototype:\nbool wxStyledTextCtrl::GetCaretSticky() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetCaretSticky() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetCaretSticky() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetCaretSticky();
 		lua_pushboolean(L,lret?1:0);
@@ -6626,15 +6413,13 @@ public:
 	// int wxStyledTextCtrl::GetCaretWidth() const
 	static int _bind_GetCaretWidth(lua_State *L) {
 		if (!_lg_typecheck_GetCaretWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetCaretWidth() const function, expected prototype:\nint wxStyledTextCtrl::GetCaretWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetCaretWidth() const function, expected prototype:\nint wxStyledTextCtrl::GetCaretWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetCaretWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetCaretWidth() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetCaretWidth();
 		lua_pushnumber(L,lret);
@@ -6645,16 +6430,14 @@ public:
 	// int wxStyledTextCtrl::GetCharAt(int pos) const
 	static int _bind_GetCharAt(lua_State *L) {
 		if (!_lg_typecheck_GetCharAt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetCharAt(int pos) const function, expected prototype:\nint wxStyledTextCtrl::GetCharAt(int pos) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetCharAt(int pos) const function, expected prototype:\nint wxStyledTextCtrl::GetCharAt(int pos) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetCharAt(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetCharAt(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetCharAt(pos);
 		lua_pushnumber(L,lret);
@@ -6665,15 +6448,13 @@ public:
 	// int wxStyledTextCtrl::GetCodePage() const
 	static int _bind_GetCodePage(lua_State *L) {
 		if (!_lg_typecheck_GetCodePage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetCodePage() const function, expected prototype:\nint wxStyledTextCtrl::GetCodePage() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetCodePage() const function, expected prototype:\nint wxStyledTextCtrl::GetCodePage() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetCodePage() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetCodePage() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetCodePage();
 		lua_pushnumber(L,lret);
@@ -6684,16 +6465,14 @@ public:
 	// int wxStyledTextCtrl::GetColumn(int pos) const
 	static int _bind_GetColumn(lua_State *L) {
 		if (!_lg_typecheck_GetColumn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetColumn(int pos) const function, expected prototype:\nint wxStyledTextCtrl::GetColumn(int pos) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetColumn(int pos) const function, expected prototype:\nint wxStyledTextCtrl::GetColumn(int pos) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetColumn(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetColumn(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetColumn(pos);
 		lua_pushnumber(L,lret);
@@ -6704,15 +6483,13 @@ public:
 	// int wxStyledTextCtrl::GetControlCharSymbol() const
 	static int _bind_GetControlCharSymbol(lua_State *L) {
 		if (!_lg_typecheck_GetControlCharSymbol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetControlCharSymbol() const function, expected prototype:\nint wxStyledTextCtrl::GetControlCharSymbol() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetControlCharSymbol() const function, expected prototype:\nint wxStyledTextCtrl::GetControlCharSymbol() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetControlCharSymbol() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetControlCharSymbol() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetControlCharSymbol();
 		lua_pushnumber(L,lret);
@@ -6723,8 +6500,7 @@ public:
 	// wxString wxStyledTextCtrl::GetCurLine(int * linePos = NULL)
 	static int _bind_GetCurLine(lua_State *L) {
 		if (!_lg_typecheck_GetCurLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::GetCurLine(int * linePos = NULL) function, expected prototype:\nwxString wxStyledTextCtrl::GetCurLine(int * linePos = NULL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::GetCurLine(int * linePos = NULL) function, expected prototype:\nwxString wxStyledTextCtrl::GetCurLine(int * linePos = NULL)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6733,8 +6509,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::GetCurLine(int *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::GetCurLine(int *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetCurLine(linePos);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -6745,15 +6520,13 @@ public:
 	// int wxStyledTextCtrl::GetCurrentLine()
 	static int _bind_GetCurrentLine(lua_State *L) {
 		if (!_lg_typecheck_GetCurrentLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetCurrentLine() function, expected prototype:\nint wxStyledTextCtrl::GetCurrentLine()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetCurrentLine() function, expected prototype:\nint wxStyledTextCtrl::GetCurrentLine()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetCurrentLine(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetCurrentLine(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetCurrentLine();
 		lua_pushnumber(L,lret);
@@ -6764,15 +6537,13 @@ public:
 	// int wxStyledTextCtrl::GetCurrentPos() const
 	static int _bind_GetCurrentPos(lua_State *L) {
 		if (!_lg_typecheck_GetCurrentPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetCurrentPos() const function, expected prototype:\nint wxStyledTextCtrl::GetCurrentPos() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetCurrentPos() const function, expected prototype:\nint wxStyledTextCtrl::GetCurrentPos() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetCurrentPos() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetCurrentPos() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetCurrentPos();
 		lua_pushnumber(L,lret);
@@ -6783,15 +6554,13 @@ public:
 	// void * wxStyledTextCtrl::GetDocPointer()
 	static int _bind_GetDocPointer(lua_State *L) {
 		if (!_lg_typecheck_GetDocPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * wxStyledTextCtrl::GetDocPointer() function, expected prototype:\nvoid * wxStyledTextCtrl::GetDocPointer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * wxStyledTextCtrl::GetDocPointer() function, expected prototype:\nvoid * wxStyledTextCtrl::GetDocPointer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxStyledTextCtrl::GetDocPointer(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * wxStyledTextCtrl::GetDocPointer(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->GetDocPointer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -6804,15 +6573,13 @@ public:
 	// int wxStyledTextCtrl::GetEOLMode() const
 	static int _bind_GetEOLMode(lua_State *L) {
 		if (!_lg_typecheck_GetEOLMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetEOLMode() const function, expected prototype:\nint wxStyledTextCtrl::GetEOLMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetEOLMode() const function, expected prototype:\nint wxStyledTextCtrl::GetEOLMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetEOLMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetEOLMode() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetEOLMode();
 		lua_pushnumber(L,lret);
@@ -6823,15 +6590,13 @@ public:
 	// wxColour wxStyledTextCtrl::GetEdgeColour() const
 	static int _bind_GetEdgeColour(lua_State *L) {
 		if (!_lg_typecheck_GetEdgeColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxStyledTextCtrl::GetEdgeColour() const function, expected prototype:\nwxColour wxStyledTextCtrl::GetEdgeColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxStyledTextCtrl::GetEdgeColour() const function, expected prototype:\nwxColour wxStyledTextCtrl::GetEdgeColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxStyledTextCtrl::GetEdgeColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxStyledTextCtrl::GetEdgeColour() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxColour stack_lret = self->GetEdgeColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -6845,15 +6610,13 @@ public:
 	// int wxStyledTextCtrl::GetEdgeColumn() const
 	static int _bind_GetEdgeColumn(lua_State *L) {
 		if (!_lg_typecheck_GetEdgeColumn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetEdgeColumn() const function, expected prototype:\nint wxStyledTextCtrl::GetEdgeColumn() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetEdgeColumn() const function, expected prototype:\nint wxStyledTextCtrl::GetEdgeColumn() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetEdgeColumn() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetEdgeColumn() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetEdgeColumn();
 		lua_pushnumber(L,lret);
@@ -6864,15 +6627,13 @@ public:
 	// int wxStyledTextCtrl::GetEdgeMode() const
 	static int _bind_GetEdgeMode(lua_State *L) {
 		if (!_lg_typecheck_GetEdgeMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetEdgeMode() const function, expected prototype:\nint wxStyledTextCtrl::GetEdgeMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetEdgeMode() const function, expected prototype:\nint wxStyledTextCtrl::GetEdgeMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetEdgeMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetEdgeMode() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetEdgeMode();
 		lua_pushnumber(L,lret);
@@ -6883,15 +6644,13 @@ public:
 	// bool wxStyledTextCtrl::GetEndAtLastLine() const
 	static int _bind_GetEndAtLastLine(lua_State *L) {
 		if (!_lg_typecheck_GetEndAtLastLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetEndAtLastLine() const function, expected prototype:\nbool wxStyledTextCtrl::GetEndAtLastLine() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetEndAtLastLine() const function, expected prototype:\nbool wxStyledTextCtrl::GetEndAtLastLine() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetEndAtLastLine() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetEndAtLastLine() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetEndAtLastLine();
 		lua_pushboolean(L,lret?1:0);
@@ -6902,15 +6661,13 @@ public:
 	// int wxStyledTextCtrl::GetEndStyled() const
 	static int _bind_GetEndStyled(lua_State *L) {
 		if (!_lg_typecheck_GetEndStyled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetEndStyled() const function, expected prototype:\nint wxStyledTextCtrl::GetEndStyled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetEndStyled() const function, expected prototype:\nint wxStyledTextCtrl::GetEndStyled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetEndStyled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetEndStyled() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetEndStyled();
 		lua_pushnumber(L,lret);
@@ -6921,15 +6678,13 @@ public:
 	// int wxStyledTextCtrl::GetFirstVisibleLine() const
 	static int _bind_GetFirstVisibleLine(lua_State *L) {
 		if (!_lg_typecheck_GetFirstVisibleLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetFirstVisibleLine() const function, expected prototype:\nint wxStyledTextCtrl::GetFirstVisibleLine() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetFirstVisibleLine() const function, expected prototype:\nint wxStyledTextCtrl::GetFirstVisibleLine() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetFirstVisibleLine() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetFirstVisibleLine() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetFirstVisibleLine();
 		lua_pushnumber(L,lret);
@@ -6940,16 +6695,14 @@ public:
 	// bool wxStyledTextCtrl::GetFoldExpanded(int line) const
 	static int _bind_GetFoldExpanded(lua_State *L) {
 		if (!_lg_typecheck_GetFoldExpanded(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetFoldExpanded(int line) const function, expected prototype:\nbool wxStyledTextCtrl::GetFoldExpanded(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetFoldExpanded(int line) const function, expected prototype:\nbool wxStyledTextCtrl::GetFoldExpanded(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetFoldExpanded(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetFoldExpanded(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetFoldExpanded(line);
 		lua_pushboolean(L,lret?1:0);
@@ -6960,16 +6713,14 @@ public:
 	// int wxStyledTextCtrl::GetFoldLevel(int line) const
 	static int _bind_GetFoldLevel(lua_State *L) {
 		if (!_lg_typecheck_GetFoldLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetFoldLevel(int line) const function, expected prototype:\nint wxStyledTextCtrl::GetFoldLevel(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetFoldLevel(int line) const function, expected prototype:\nint wxStyledTextCtrl::GetFoldLevel(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetFoldLevel(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetFoldLevel(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetFoldLevel(line);
 		lua_pushnumber(L,lret);
@@ -6980,16 +6731,14 @@ public:
 	// int wxStyledTextCtrl::GetFoldParent(int line) const
 	static int _bind_GetFoldParent(lua_State *L) {
 		if (!_lg_typecheck_GetFoldParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetFoldParent(int line) const function, expected prototype:\nint wxStyledTextCtrl::GetFoldParent(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetFoldParent(int line) const function, expected prototype:\nint wxStyledTextCtrl::GetFoldParent(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetFoldParent(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetFoldParent(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetFoldParent(line);
 		lua_pushnumber(L,lret);
@@ -7000,15 +6749,13 @@ public:
 	// int wxStyledTextCtrl::GetHighlightGuide() const
 	static int _bind_GetHighlightGuide(lua_State *L) {
 		if (!_lg_typecheck_GetHighlightGuide(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetHighlightGuide() const function, expected prototype:\nint wxStyledTextCtrl::GetHighlightGuide() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetHighlightGuide() const function, expected prototype:\nint wxStyledTextCtrl::GetHighlightGuide() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetHighlightGuide() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetHighlightGuide() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetHighlightGuide();
 		lua_pushnumber(L,lret);
@@ -7019,15 +6766,13 @@ public:
 	// int wxStyledTextCtrl::GetIndent() const
 	static int _bind_GetIndent(lua_State *L) {
 		if (!_lg_typecheck_GetIndent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetIndent() const function, expected prototype:\nint wxStyledTextCtrl::GetIndent() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetIndent() const function, expected prototype:\nint wxStyledTextCtrl::GetIndent() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetIndent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetIndent() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetIndent();
 		lua_pushnumber(L,lret);
@@ -7038,15 +6783,13 @@ public:
 	// int wxStyledTextCtrl::GetIndentationGuides() const
 	static int _bind_GetIndentationGuides(lua_State *L) {
 		if (!_lg_typecheck_GetIndentationGuides(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetIndentationGuides() const function, expected prototype:\nint wxStyledTextCtrl::GetIndentationGuides() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetIndentationGuides() const function, expected prototype:\nint wxStyledTextCtrl::GetIndentationGuides() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetIndentationGuides() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetIndentationGuides() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetIndentationGuides();
 		lua_pushnumber(L,lret);
@@ -7057,8 +6800,7 @@ public:
 	// int wxStyledTextCtrl::GetLastChild(int line, int level) const
 	static int _bind_GetLastChild(lua_State *L) {
 		if (!_lg_typecheck_GetLastChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLastChild(int line, int level) const function, expected prototype:\nint wxStyledTextCtrl::GetLastChild(int line, int level) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLastChild(int line, int level) const function, expected prototype:\nint wxStyledTextCtrl::GetLastChild(int line, int level) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
@@ -7066,8 +6808,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLastChild(int, int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLastChild(int, int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetLastChild(line, level);
 		lua_pushnumber(L,lret);
@@ -7078,15 +6819,13 @@ public:
 	// bool wxStyledTextCtrl::GetLastKeydownProcessed()
 	static int _bind_GetLastKeydownProcessed(lua_State *L) {
 		if (!_lg_typecheck_GetLastKeydownProcessed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetLastKeydownProcessed() function, expected prototype:\nbool wxStyledTextCtrl::GetLastKeydownProcessed()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetLastKeydownProcessed() function, expected prototype:\nbool wxStyledTextCtrl::GetLastKeydownProcessed()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetLastKeydownProcessed(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetLastKeydownProcessed(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetLastKeydownProcessed();
 		lua_pushboolean(L,lret?1:0);
@@ -7097,15 +6836,13 @@ public:
 	// int wxStyledTextCtrl::GetLayoutCache() const
 	static int _bind_GetLayoutCache(lua_State *L) {
 		if (!_lg_typecheck_GetLayoutCache(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLayoutCache() const function, expected prototype:\nint wxStyledTextCtrl::GetLayoutCache() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLayoutCache() const function, expected prototype:\nint wxStyledTextCtrl::GetLayoutCache() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLayoutCache() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLayoutCache() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetLayoutCache();
 		lua_pushnumber(L,lret);
@@ -7116,15 +6853,13 @@ public:
 	// int wxStyledTextCtrl::GetLength() const
 	static int _bind_GetLength(lua_State *L) {
 		if (!_lg_typecheck_GetLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLength() const function, expected prototype:\nint wxStyledTextCtrl::GetLength() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLength() const function, expected prototype:\nint wxStyledTextCtrl::GetLength() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLength() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLength() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetLength();
 		lua_pushnumber(L,lret);
@@ -7135,15 +6870,13 @@ public:
 	// int wxStyledTextCtrl::GetLexer() const
 	static int _bind_GetLexer(lua_State *L) {
 		if (!_lg_typecheck_GetLexer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLexer() const function, expected prototype:\nint wxStyledTextCtrl::GetLexer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLexer() const function, expected prototype:\nint wxStyledTextCtrl::GetLexer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLexer() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLexer() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetLexer();
 		lua_pushnumber(L,lret);
@@ -7154,16 +6887,14 @@ public:
 	// wxString wxStyledTextCtrl::GetLine(int line) const
 	static int _bind_GetLine(lua_State *L) {
 		if (!_lg_typecheck_GetLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::GetLine(int line) const function, expected prototype:\nwxString wxStyledTextCtrl::GetLine(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::GetLine(int line) const function, expected prototype:\nwxString wxStyledTextCtrl::GetLine(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::GetLine(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::GetLine(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetLine(line);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -7174,15 +6905,13 @@ public:
 	// int wxStyledTextCtrl::GetLineCount() const
 	static int _bind_GetLineCount(lua_State *L) {
 		if (!_lg_typecheck_GetLineCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLineCount() const function, expected prototype:\nint wxStyledTextCtrl::GetLineCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLineCount() const function, expected prototype:\nint wxStyledTextCtrl::GetLineCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLineCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLineCount() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetLineCount();
 		lua_pushnumber(L,lret);
@@ -7193,16 +6922,14 @@ public:
 	// int wxStyledTextCtrl::GetLineEndPosition(int line) const
 	static int _bind_GetLineEndPosition(lua_State *L) {
 		if (!_lg_typecheck_GetLineEndPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLineEndPosition(int line) const function, expected prototype:\nint wxStyledTextCtrl::GetLineEndPosition(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLineEndPosition(int line) const function, expected prototype:\nint wxStyledTextCtrl::GetLineEndPosition(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLineEndPosition(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLineEndPosition(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetLineEndPosition(line);
 		lua_pushnumber(L,lret);
@@ -7213,16 +6940,14 @@ public:
 	// int wxStyledTextCtrl::GetLineIndentPosition(int line) const
 	static int _bind_GetLineIndentPosition(lua_State *L) {
 		if (!_lg_typecheck_GetLineIndentPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLineIndentPosition(int line) const function, expected prototype:\nint wxStyledTextCtrl::GetLineIndentPosition(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLineIndentPosition(int line) const function, expected prototype:\nint wxStyledTextCtrl::GetLineIndentPosition(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLineIndentPosition(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLineIndentPosition(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetLineIndentPosition(line);
 		lua_pushnumber(L,lret);
@@ -7233,16 +6958,14 @@ public:
 	// int wxStyledTextCtrl::GetLineIndentation(int line) const
 	static int _bind_GetLineIndentation(lua_State *L) {
 		if (!_lg_typecheck_GetLineIndentation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLineIndentation(int line) const function, expected prototype:\nint wxStyledTextCtrl::GetLineIndentation(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLineIndentation(int line) const function, expected prototype:\nint wxStyledTextCtrl::GetLineIndentation(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLineIndentation(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLineIndentation(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetLineIndentation(line);
 		lua_pushnumber(L,lret);
@@ -7253,16 +6976,14 @@ public:
 	// int wxStyledTextCtrl::GetLineSelEndPosition(int line)
 	static int _bind_GetLineSelEndPosition(lua_State *L) {
 		if (!_lg_typecheck_GetLineSelEndPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLineSelEndPosition(int line) function, expected prototype:\nint wxStyledTextCtrl::GetLineSelEndPosition(int line)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLineSelEndPosition(int line) function, expected prototype:\nint wxStyledTextCtrl::GetLineSelEndPosition(int line)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLineSelEndPosition(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLineSelEndPosition(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetLineSelEndPosition(line);
 		lua_pushnumber(L,lret);
@@ -7273,16 +6994,14 @@ public:
 	// int wxStyledTextCtrl::GetLineSelStartPosition(int line)
 	static int _bind_GetLineSelStartPosition(lua_State *L) {
 		if (!_lg_typecheck_GetLineSelStartPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLineSelStartPosition(int line) function, expected prototype:\nint wxStyledTextCtrl::GetLineSelStartPosition(int line)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLineSelStartPosition(int line) function, expected prototype:\nint wxStyledTextCtrl::GetLineSelStartPosition(int line)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLineSelStartPosition(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLineSelStartPosition(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetLineSelStartPosition(line);
 		lua_pushnumber(L,lret);
@@ -7293,16 +7012,14 @@ public:
 	// int wxStyledTextCtrl::GetLineState(int line) const
 	static int _bind_GetLineState(lua_State *L) {
 		if (!_lg_typecheck_GetLineState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLineState(int line) const function, expected prototype:\nint wxStyledTextCtrl::GetLineState(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetLineState(int line) const function, expected prototype:\nint wxStyledTextCtrl::GetLineState(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLineState(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetLineState(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetLineState(line);
 		lua_pushnumber(L,lret);
@@ -7313,16 +7030,14 @@ public:
 	// bool wxStyledTextCtrl::GetLineVisible(int line) const
 	static int _bind_GetLineVisible(lua_State *L) {
 		if (!_lg_typecheck_GetLineVisible(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetLineVisible(int line) const function, expected prototype:\nbool wxStyledTextCtrl::GetLineVisible(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetLineVisible(int line) const function, expected prototype:\nbool wxStyledTextCtrl::GetLineVisible(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetLineVisible(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetLineVisible(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetLineVisible(line);
 		lua_pushboolean(L,lret?1:0);
@@ -7333,15 +7048,13 @@ public:
 	// int wxStyledTextCtrl::GetMarginLeft() const
 	static int _bind_GetMarginLeft(lua_State *L) {
 		if (!_lg_typecheck_GetMarginLeft(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMarginLeft() const function, expected prototype:\nint wxStyledTextCtrl::GetMarginLeft() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMarginLeft() const function, expected prototype:\nint wxStyledTextCtrl::GetMarginLeft() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMarginLeft() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMarginLeft() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetMarginLeft();
 		lua_pushnumber(L,lret);
@@ -7352,16 +7065,14 @@ public:
 	// int wxStyledTextCtrl::GetMarginMask(int margin) const
 	static int _bind_GetMarginMask(lua_State *L) {
 		if (!_lg_typecheck_GetMarginMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMarginMask(int margin) const function, expected prototype:\nint wxStyledTextCtrl::GetMarginMask(int margin) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMarginMask(int margin) const function, expected prototype:\nint wxStyledTextCtrl::GetMarginMask(int margin) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int margin=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMarginMask(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMarginMask(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetMarginMask(margin);
 		lua_pushnumber(L,lret);
@@ -7372,15 +7083,13 @@ public:
 	// int wxStyledTextCtrl::GetMarginRight() const
 	static int _bind_GetMarginRight(lua_State *L) {
 		if (!_lg_typecheck_GetMarginRight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMarginRight() const function, expected prototype:\nint wxStyledTextCtrl::GetMarginRight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMarginRight() const function, expected prototype:\nint wxStyledTextCtrl::GetMarginRight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMarginRight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMarginRight() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetMarginRight();
 		lua_pushnumber(L,lret);
@@ -7391,16 +7100,14 @@ public:
 	// bool wxStyledTextCtrl::GetMarginSensitive(int margin) const
 	static int _bind_GetMarginSensitive(lua_State *L) {
 		if (!_lg_typecheck_GetMarginSensitive(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetMarginSensitive(int margin) const function, expected prototype:\nbool wxStyledTextCtrl::GetMarginSensitive(int margin) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetMarginSensitive(int margin) const function, expected prototype:\nbool wxStyledTextCtrl::GetMarginSensitive(int margin) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int margin=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetMarginSensitive(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetMarginSensitive(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetMarginSensitive(margin);
 		lua_pushboolean(L,lret?1:0);
@@ -7411,16 +7118,14 @@ public:
 	// int wxStyledTextCtrl::GetMarginType(int margin) const
 	static int _bind_GetMarginType(lua_State *L) {
 		if (!_lg_typecheck_GetMarginType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMarginType(int margin) const function, expected prototype:\nint wxStyledTextCtrl::GetMarginType(int margin) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMarginType(int margin) const function, expected prototype:\nint wxStyledTextCtrl::GetMarginType(int margin) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int margin=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMarginType(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMarginType(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetMarginType(margin);
 		lua_pushnumber(L,lret);
@@ -7431,16 +7136,14 @@ public:
 	// int wxStyledTextCtrl::GetMarginWidth(int margin) const
 	static int _bind_GetMarginWidth(lua_State *L) {
 		if (!_lg_typecheck_GetMarginWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMarginWidth(int margin) const function, expected prototype:\nint wxStyledTextCtrl::GetMarginWidth(int margin) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMarginWidth(int margin) const function, expected prototype:\nint wxStyledTextCtrl::GetMarginWidth(int margin) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int margin=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMarginWidth(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMarginWidth(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetMarginWidth(margin);
 		lua_pushnumber(L,lret);
@@ -7451,15 +7154,13 @@ public:
 	// int wxStyledTextCtrl::GetMaxLineState() const
 	static int _bind_GetMaxLineState(lua_State *L) {
 		if (!_lg_typecheck_GetMaxLineState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMaxLineState() const function, expected prototype:\nint wxStyledTextCtrl::GetMaxLineState() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMaxLineState() const function, expected prototype:\nint wxStyledTextCtrl::GetMaxLineState() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMaxLineState() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMaxLineState() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetMaxLineState();
 		lua_pushnumber(L,lret);
@@ -7470,15 +7171,13 @@ public:
 	// int wxStyledTextCtrl::GetModEventMask() const
 	static int _bind_GetModEventMask(lua_State *L) {
 		if (!_lg_typecheck_GetModEventMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetModEventMask() const function, expected prototype:\nint wxStyledTextCtrl::GetModEventMask() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetModEventMask() const function, expected prototype:\nint wxStyledTextCtrl::GetModEventMask() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetModEventMask() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetModEventMask() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetModEventMask();
 		lua_pushnumber(L,lret);
@@ -7489,15 +7188,13 @@ public:
 	// bool wxStyledTextCtrl::GetModify() const
 	static int _bind_GetModify(lua_State *L) {
 		if (!_lg_typecheck_GetModify(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetModify() const function, expected prototype:\nbool wxStyledTextCtrl::GetModify() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetModify() const function, expected prototype:\nbool wxStyledTextCtrl::GetModify() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetModify() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetModify() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetModify();
 		lua_pushboolean(L,lret?1:0);
@@ -7508,15 +7205,13 @@ public:
 	// bool wxStyledTextCtrl::GetMouseDownCaptures() const
 	static int _bind_GetMouseDownCaptures(lua_State *L) {
 		if (!_lg_typecheck_GetMouseDownCaptures(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetMouseDownCaptures() const function, expected prototype:\nbool wxStyledTextCtrl::GetMouseDownCaptures() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetMouseDownCaptures() const function, expected prototype:\nbool wxStyledTextCtrl::GetMouseDownCaptures() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetMouseDownCaptures() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetMouseDownCaptures() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetMouseDownCaptures();
 		lua_pushboolean(L,lret?1:0);
@@ -7527,15 +7222,13 @@ public:
 	// int wxStyledTextCtrl::GetMouseDwellTime() const
 	static int _bind_GetMouseDwellTime(lua_State *L) {
 		if (!_lg_typecheck_GetMouseDwellTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMouseDwellTime() const function, expected prototype:\nint wxStyledTextCtrl::GetMouseDwellTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMouseDwellTime() const function, expected prototype:\nint wxStyledTextCtrl::GetMouseDwellTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMouseDwellTime() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMouseDwellTime() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetMouseDwellTime();
 		lua_pushnumber(L,lret);
@@ -7546,15 +7239,13 @@ public:
 	// bool wxStyledTextCtrl::GetOvertype() const
 	static int _bind_GetOvertype(lua_State *L) {
 		if (!_lg_typecheck_GetOvertype(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetOvertype() const function, expected prototype:\nbool wxStyledTextCtrl::GetOvertype() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetOvertype() const function, expected prototype:\nbool wxStyledTextCtrl::GetOvertype() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetOvertype() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetOvertype() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetOvertype();
 		lua_pushboolean(L,lret?1:0);
@@ -7565,15 +7256,13 @@ public:
 	// bool wxStyledTextCtrl::GetPasteConvertEndings() const
 	static int _bind_GetPasteConvertEndings(lua_State *L) {
 		if (!_lg_typecheck_GetPasteConvertEndings(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetPasteConvertEndings() const function, expected prototype:\nbool wxStyledTextCtrl::GetPasteConvertEndings() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetPasteConvertEndings() const function, expected prototype:\nbool wxStyledTextCtrl::GetPasteConvertEndings() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetPasteConvertEndings() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetPasteConvertEndings() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetPasteConvertEndings();
 		lua_pushboolean(L,lret?1:0);
@@ -7584,15 +7273,13 @@ public:
 	// int wxStyledTextCtrl::GetPrintColourMode() const
 	static int _bind_GetPrintColourMode(lua_State *L) {
 		if (!_lg_typecheck_GetPrintColourMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetPrintColourMode() const function, expected prototype:\nint wxStyledTextCtrl::GetPrintColourMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetPrintColourMode() const function, expected prototype:\nint wxStyledTextCtrl::GetPrintColourMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetPrintColourMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetPrintColourMode() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetPrintColourMode();
 		lua_pushnumber(L,lret);
@@ -7603,15 +7290,13 @@ public:
 	// int wxStyledTextCtrl::GetPrintMagnification() const
 	static int _bind_GetPrintMagnification(lua_State *L) {
 		if (!_lg_typecheck_GetPrintMagnification(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetPrintMagnification() const function, expected prototype:\nint wxStyledTextCtrl::GetPrintMagnification() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetPrintMagnification() const function, expected prototype:\nint wxStyledTextCtrl::GetPrintMagnification() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetPrintMagnification() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetPrintMagnification() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetPrintMagnification();
 		lua_pushnumber(L,lret);
@@ -7622,15 +7307,13 @@ public:
 	// int wxStyledTextCtrl::GetPrintWrapMode() const
 	static int _bind_GetPrintWrapMode(lua_State *L) {
 		if (!_lg_typecheck_GetPrintWrapMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetPrintWrapMode() const function, expected prototype:\nint wxStyledTextCtrl::GetPrintWrapMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetPrintWrapMode() const function, expected prototype:\nint wxStyledTextCtrl::GetPrintWrapMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetPrintWrapMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetPrintWrapMode() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetPrintWrapMode();
 		lua_pushnumber(L,lret);
@@ -7641,16 +7324,14 @@ public:
 	// wxString wxStyledTextCtrl::GetProperty(const wxString & key)
 	static int _bind_GetProperty(lua_State *L) {
 		if (!_lg_typecheck_GetProperty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::GetProperty(const wxString & key) function, expected prototype:\nwxString wxStyledTextCtrl::GetProperty(const wxString & key)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::GetProperty(const wxString & key) function, expected prototype:\nwxString wxStyledTextCtrl::GetProperty(const wxString & key)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::GetProperty(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::GetProperty(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetProperty(key);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -7661,16 +7342,14 @@ public:
 	// wxString wxStyledTextCtrl::GetPropertyExpanded(const wxString & key)
 	static int _bind_GetPropertyExpanded(lua_State *L) {
 		if (!_lg_typecheck_GetPropertyExpanded(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::GetPropertyExpanded(const wxString & key) function, expected prototype:\nwxString wxStyledTextCtrl::GetPropertyExpanded(const wxString & key)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::GetPropertyExpanded(const wxString & key) function, expected prototype:\nwxString wxStyledTextCtrl::GetPropertyExpanded(const wxString & key)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::GetPropertyExpanded(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::GetPropertyExpanded(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetPropertyExpanded(key);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -7681,16 +7360,14 @@ public:
 	// int wxStyledTextCtrl::GetPropertyInt(const wxString & key) const
 	static int _bind_GetPropertyInt(lua_State *L) {
 		if (!_lg_typecheck_GetPropertyInt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetPropertyInt(const wxString & key) const function, expected prototype:\nint wxStyledTextCtrl::GetPropertyInt(const wxString & key) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetPropertyInt(const wxString & key) const function, expected prototype:\nint wxStyledTextCtrl::GetPropertyInt(const wxString & key) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetPropertyInt(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetPropertyInt(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetPropertyInt(key);
 		lua_pushnumber(L,lret);
@@ -7701,15 +7378,13 @@ public:
 	// bool wxStyledTextCtrl::GetReadOnly() const
 	static int _bind_GetReadOnly(lua_State *L) {
 		if (!_lg_typecheck_GetReadOnly(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetReadOnly() const function, expected prototype:\nbool wxStyledTextCtrl::GetReadOnly() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetReadOnly() const function, expected prototype:\nbool wxStyledTextCtrl::GetReadOnly() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetReadOnly() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetReadOnly() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetReadOnly();
 		lua_pushboolean(L,lret?1:0);
@@ -7720,15 +7395,13 @@ public:
 	// int wxStyledTextCtrl::GetSTCCursor() const
 	static int _bind_GetSTCCursor(lua_State *L) {
 		if (!_lg_typecheck_GetSTCCursor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSTCCursor() const function, expected prototype:\nint wxStyledTextCtrl::GetSTCCursor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSTCCursor() const function, expected prototype:\nint wxStyledTextCtrl::GetSTCCursor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSTCCursor() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSTCCursor() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSTCCursor();
 		lua_pushnumber(L,lret);
@@ -7739,15 +7412,13 @@ public:
 	// bool wxStyledTextCtrl::GetSTCFocus() const
 	static int _bind_GetSTCFocus(lua_State *L) {
 		if (!_lg_typecheck_GetSTCFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetSTCFocus() const function, expected prototype:\nbool wxStyledTextCtrl::GetSTCFocus() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetSTCFocus() const function, expected prototype:\nbool wxStyledTextCtrl::GetSTCFocus() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetSTCFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetSTCFocus() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetSTCFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -7758,15 +7429,13 @@ public:
 	// int wxStyledTextCtrl::GetScrollWidth() const
 	static int _bind_GetScrollWidth(lua_State *L) {
 		if (!_lg_typecheck_GetScrollWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetScrollWidth() const function, expected prototype:\nint wxStyledTextCtrl::GetScrollWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetScrollWidth() const function, expected prototype:\nint wxStyledTextCtrl::GetScrollWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetScrollWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetScrollWidth() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetScrollWidth();
 		lua_pushnumber(L,lret);
@@ -7777,15 +7446,13 @@ public:
 	// int wxStyledTextCtrl::GetSearchFlags() const
 	static int _bind_GetSearchFlags(lua_State *L) {
 		if (!_lg_typecheck_GetSearchFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSearchFlags() const function, expected prototype:\nint wxStyledTextCtrl::GetSearchFlags() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSearchFlags() const function, expected prototype:\nint wxStyledTextCtrl::GetSearchFlags() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSearchFlags() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSearchFlags() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSearchFlags();
 		lua_pushnumber(L,lret);
@@ -7796,15 +7463,13 @@ public:
 	// int wxStyledTextCtrl::GetSelAlpha() const
 	static int _bind_GetSelAlpha(lua_State *L) {
 		if (!_lg_typecheck_GetSelAlpha(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelAlpha() const function, expected prototype:\nint wxStyledTextCtrl::GetSelAlpha() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelAlpha() const function, expected prototype:\nint wxStyledTextCtrl::GetSelAlpha() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelAlpha() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelAlpha() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSelAlpha();
 		lua_pushnumber(L,lret);
@@ -7815,15 +7480,13 @@ public:
 	// wxString wxStyledTextCtrl::GetSelectedText()
 	static int _bind_GetSelectedText(lua_State *L) {
 		if (!_lg_typecheck_GetSelectedText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::GetSelectedText() function, expected prototype:\nwxString wxStyledTextCtrl::GetSelectedText()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::GetSelectedText() function, expected prototype:\nwxString wxStyledTextCtrl::GetSelectedText()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::GetSelectedText(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::GetSelectedText(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetSelectedText();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -7834,8 +7497,7 @@ public:
 	// void wxStyledTextCtrl::GetSelection(int * INTPUT, int * OUTPUT)
 	static int _bind_GetSelection(lua_State *L) {
 		if (!_lg_typecheck_GetSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::GetSelection(int * INTPUT, int * OUTPUT) function, expected prototype:\nvoid wxStyledTextCtrl::GetSelection(int * INTPUT, int * OUTPUT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::GetSelection(int * INTPUT, int * OUTPUT) function, expected prototype:\nvoid wxStyledTextCtrl::GetSelection(int * INTPUT, int * OUTPUT)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int* INTPUT=(int*)Luna< void >::check(L,2);
@@ -7843,8 +7505,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::GetSelection(int *, int *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::GetSelection(int *, int *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetSelection(INTPUT, OUTPUT);
 
@@ -7854,15 +7515,13 @@ public:
 	// int wxStyledTextCtrl::GetSelectionEnd() const
 	static int _bind_GetSelectionEnd(lua_State *L) {
 		if (!_lg_typecheck_GetSelectionEnd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionEnd() const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionEnd() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionEnd() const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionEnd() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionEnd() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionEnd() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSelectionEnd();
 		lua_pushnumber(L,lret);
@@ -7873,15 +7532,13 @@ public:
 	// int wxStyledTextCtrl::GetSelectionMode() const
 	static int _bind_GetSelectionMode(lua_State *L) {
 		if (!_lg_typecheck_GetSelectionMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionMode() const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionMode() const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionMode() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSelectionMode();
 		lua_pushnumber(L,lret);
@@ -7892,15 +7549,13 @@ public:
 	// int wxStyledTextCtrl::GetSelectionStart() const
 	static int _bind_GetSelectionStart(lua_State *L) {
 		if (!_lg_typecheck_GetSelectionStart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionStart() const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionStart() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionStart() const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionStart() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionStart() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionStart() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSelectionStart();
 		lua_pushnumber(L,lret);
@@ -7911,15 +7566,13 @@ public:
 	// int wxStyledTextCtrl::GetStatus() const
 	static int _bind_GetStatus(lua_State *L) {
 		if (!_lg_typecheck_GetStatus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetStatus() const function, expected prototype:\nint wxStyledTextCtrl::GetStatus() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetStatus() const function, expected prototype:\nint wxStyledTextCtrl::GetStatus() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetStatus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetStatus() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetStatus();
 		lua_pushnumber(L,lret);
@@ -7930,16 +7583,14 @@ public:
 	// int wxStyledTextCtrl::GetStyleAt(int pos) const
 	static int _bind_GetStyleAt(lua_State *L) {
 		if (!_lg_typecheck_GetStyleAt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetStyleAt(int pos) const function, expected prototype:\nint wxStyledTextCtrl::GetStyleAt(int pos) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetStyleAt(int pos) const function, expected prototype:\nint wxStyledTextCtrl::GetStyleAt(int pos) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetStyleAt(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetStyleAt(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetStyleAt(pos);
 		lua_pushnumber(L,lret);
@@ -7950,15 +7601,13 @@ public:
 	// int wxStyledTextCtrl::GetStyleBits() const
 	static int _bind_GetStyleBits(lua_State *L) {
 		if (!_lg_typecheck_GetStyleBits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetStyleBits() const function, expected prototype:\nint wxStyledTextCtrl::GetStyleBits() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetStyleBits() const function, expected prototype:\nint wxStyledTextCtrl::GetStyleBits() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetStyleBits() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetStyleBits() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetStyleBits();
 		lua_pushnumber(L,lret);
@@ -7969,15 +7618,13 @@ public:
 	// int wxStyledTextCtrl::GetStyleBitsNeeded() const
 	static int _bind_GetStyleBitsNeeded(lua_State *L) {
 		if (!_lg_typecheck_GetStyleBitsNeeded(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetStyleBitsNeeded() const function, expected prototype:\nint wxStyledTextCtrl::GetStyleBitsNeeded() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetStyleBitsNeeded() const function, expected prototype:\nint wxStyledTextCtrl::GetStyleBitsNeeded() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetStyleBitsNeeded() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetStyleBitsNeeded() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetStyleBitsNeeded();
 		lua_pushnumber(L,lret);
@@ -7988,15 +7635,13 @@ public:
 	// bool wxStyledTextCtrl::GetTabIndents() const
 	static int _bind_GetTabIndents(lua_State *L) {
 		if (!_lg_typecheck_GetTabIndents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetTabIndents() const function, expected prototype:\nbool wxStyledTextCtrl::GetTabIndents() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetTabIndents() const function, expected prototype:\nbool wxStyledTextCtrl::GetTabIndents() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetTabIndents() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetTabIndents() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetTabIndents();
 		lua_pushboolean(L,lret?1:0);
@@ -8007,15 +7652,13 @@ public:
 	// int wxStyledTextCtrl::GetTabWidth() const
 	static int _bind_GetTabWidth(lua_State *L) {
 		if (!_lg_typecheck_GetTabWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetTabWidth() const function, expected prototype:\nint wxStyledTextCtrl::GetTabWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetTabWidth() const function, expected prototype:\nint wxStyledTextCtrl::GetTabWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetTabWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetTabWidth() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetTabWidth();
 		lua_pushnumber(L,lret);
@@ -8026,15 +7669,13 @@ public:
 	// int wxStyledTextCtrl::GetTargetEnd() const
 	static int _bind_GetTargetEnd(lua_State *L) {
 		if (!_lg_typecheck_GetTargetEnd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetTargetEnd() const function, expected prototype:\nint wxStyledTextCtrl::GetTargetEnd() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetTargetEnd() const function, expected prototype:\nint wxStyledTextCtrl::GetTargetEnd() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetTargetEnd() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetTargetEnd() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetTargetEnd();
 		lua_pushnumber(L,lret);
@@ -8045,15 +7686,13 @@ public:
 	// int wxStyledTextCtrl::GetTargetStart() const
 	static int _bind_GetTargetStart(lua_State *L) {
 		if (!_lg_typecheck_GetTargetStart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetTargetStart() const function, expected prototype:\nint wxStyledTextCtrl::GetTargetStart() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetTargetStart() const function, expected prototype:\nint wxStyledTextCtrl::GetTargetStart() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetTargetStart() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetTargetStart() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetTargetStart();
 		lua_pushnumber(L,lret);
@@ -8064,15 +7703,13 @@ public:
 	// wxString wxStyledTextCtrl::GetText() const
 	static int _bind_GetText(lua_State *L) {
 		if (!_lg_typecheck_GetText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::GetText() const function, expected prototype:\nwxString wxStyledTextCtrl::GetText() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::GetText() const function, expected prototype:\nwxString wxStyledTextCtrl::GetText() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::GetText() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::GetText() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetText();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -8083,15 +7720,13 @@ public:
 	// int wxStyledTextCtrl::GetTextLength() const
 	static int _bind_GetTextLength(lua_State *L) {
 		if (!_lg_typecheck_GetTextLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetTextLength() const function, expected prototype:\nint wxStyledTextCtrl::GetTextLength() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetTextLength() const function, expected prototype:\nint wxStyledTextCtrl::GetTextLength() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetTextLength() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetTextLength() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetTextLength();
 		lua_pushnumber(L,lret);
@@ -8102,8 +7737,7 @@ public:
 	// wxString wxStyledTextCtrl::GetTextRange(int startPos, int endPos)
 	static int _bind_GetTextRange(lua_State *L) {
 		if (!_lg_typecheck_GetTextRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::GetTextRange(int startPos, int endPos) function, expected prototype:\nwxString wxStyledTextCtrl::GetTextRange(int startPos, int endPos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::GetTextRange(int startPos, int endPos) function, expected prototype:\nwxString wxStyledTextCtrl::GetTextRange(int startPos, int endPos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int startPos=(int)lua_tointeger(L,2);
@@ -8111,8 +7745,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::GetTextRange(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::GetTextRange(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetTextRange(startPos, endPos);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -8123,15 +7756,13 @@ public:
 	// bool wxStyledTextCtrl::GetTwoPhaseDraw() const
 	static int _bind_GetTwoPhaseDraw(lua_State *L) {
 		if (!_lg_typecheck_GetTwoPhaseDraw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetTwoPhaseDraw() const function, expected prototype:\nbool wxStyledTextCtrl::GetTwoPhaseDraw() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetTwoPhaseDraw() const function, expected prototype:\nbool wxStyledTextCtrl::GetTwoPhaseDraw() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetTwoPhaseDraw() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetTwoPhaseDraw() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetTwoPhaseDraw();
 		lua_pushboolean(L,lret?1:0);
@@ -8142,15 +7773,13 @@ public:
 	// bool wxStyledTextCtrl::GetUndoCollection() const
 	static int _bind_GetUndoCollection(lua_State *L) {
 		if (!_lg_typecheck_GetUndoCollection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetUndoCollection() const function, expected prototype:\nbool wxStyledTextCtrl::GetUndoCollection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetUndoCollection() const function, expected prototype:\nbool wxStyledTextCtrl::GetUndoCollection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetUndoCollection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetUndoCollection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetUndoCollection();
 		lua_pushboolean(L,lret?1:0);
@@ -8161,15 +7790,13 @@ public:
 	// bool wxStyledTextCtrl::GetUseAntiAliasing()
 	static int _bind_GetUseAntiAliasing(lua_State *L) {
 		if (!_lg_typecheck_GetUseAntiAliasing(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetUseAntiAliasing() function, expected prototype:\nbool wxStyledTextCtrl::GetUseAntiAliasing()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetUseAntiAliasing() function, expected prototype:\nbool wxStyledTextCtrl::GetUseAntiAliasing()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetUseAntiAliasing(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetUseAntiAliasing(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetUseAntiAliasing();
 		lua_pushboolean(L,lret?1:0);
@@ -8180,15 +7807,13 @@ public:
 	// bool wxStyledTextCtrl::GetUseHorizontalScrollBar() const
 	static int _bind_GetUseHorizontalScrollBar(lua_State *L) {
 		if (!_lg_typecheck_GetUseHorizontalScrollBar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetUseHorizontalScrollBar() const function, expected prototype:\nbool wxStyledTextCtrl::GetUseHorizontalScrollBar() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetUseHorizontalScrollBar() const function, expected prototype:\nbool wxStyledTextCtrl::GetUseHorizontalScrollBar() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetUseHorizontalScrollBar() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetUseHorizontalScrollBar() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetUseHorizontalScrollBar();
 		lua_pushboolean(L,lret?1:0);
@@ -8199,15 +7824,13 @@ public:
 	// bool wxStyledTextCtrl::GetUseTabs() const
 	static int _bind_GetUseTabs(lua_State *L) {
 		if (!_lg_typecheck_GetUseTabs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetUseTabs() const function, expected prototype:\nbool wxStyledTextCtrl::GetUseTabs() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetUseTabs() const function, expected prototype:\nbool wxStyledTextCtrl::GetUseTabs() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetUseTabs() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetUseTabs() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetUseTabs();
 		lua_pushboolean(L,lret?1:0);
@@ -8218,15 +7841,13 @@ public:
 	// bool wxStyledTextCtrl::GetUseVerticalScrollBar() const
 	static int _bind_GetUseVerticalScrollBar(lua_State *L) {
 		if (!_lg_typecheck_GetUseVerticalScrollBar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetUseVerticalScrollBar() const function, expected prototype:\nbool wxStyledTextCtrl::GetUseVerticalScrollBar() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetUseVerticalScrollBar() const function, expected prototype:\nbool wxStyledTextCtrl::GetUseVerticalScrollBar() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetUseVerticalScrollBar() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetUseVerticalScrollBar() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetUseVerticalScrollBar();
 		lua_pushboolean(L,lret?1:0);
@@ -8237,15 +7858,13 @@ public:
 	// bool wxStyledTextCtrl::GetViewEOL() const
 	static int _bind_GetViewEOL(lua_State *L) {
 		if (!_lg_typecheck_GetViewEOL(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetViewEOL() const function, expected prototype:\nbool wxStyledTextCtrl::GetViewEOL() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetViewEOL() const function, expected prototype:\nbool wxStyledTextCtrl::GetViewEOL() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetViewEOL() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetViewEOL() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetViewEOL();
 		lua_pushboolean(L,lret?1:0);
@@ -8256,15 +7875,13 @@ public:
 	// int wxStyledTextCtrl::GetViewWhiteSpace() const
 	static int _bind_GetViewWhiteSpace(lua_State *L) {
 		if (!_lg_typecheck_GetViewWhiteSpace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetViewWhiteSpace() const function, expected prototype:\nint wxStyledTextCtrl::GetViewWhiteSpace() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetViewWhiteSpace() const function, expected prototype:\nint wxStyledTextCtrl::GetViewWhiteSpace() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetViewWhiteSpace() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetViewWhiteSpace() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetViewWhiteSpace();
 		lua_pushnumber(L,lret);
@@ -8275,15 +7892,13 @@ public:
 	// int wxStyledTextCtrl::GetWrapMode() const
 	static int _bind_GetWrapMode(lua_State *L) {
 		if (!_lg_typecheck_GetWrapMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetWrapMode() const function, expected prototype:\nint wxStyledTextCtrl::GetWrapMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetWrapMode() const function, expected prototype:\nint wxStyledTextCtrl::GetWrapMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetWrapMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetWrapMode() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetWrapMode();
 		lua_pushnumber(L,lret);
@@ -8294,15 +7909,13 @@ public:
 	// int wxStyledTextCtrl::GetWrapStartIndent() const
 	static int _bind_GetWrapStartIndent(lua_State *L) {
 		if (!_lg_typecheck_GetWrapStartIndent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetWrapStartIndent() const function, expected prototype:\nint wxStyledTextCtrl::GetWrapStartIndent() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetWrapStartIndent() const function, expected prototype:\nint wxStyledTextCtrl::GetWrapStartIndent() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetWrapStartIndent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetWrapStartIndent() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetWrapStartIndent();
 		lua_pushnumber(L,lret);
@@ -8313,15 +7926,13 @@ public:
 	// int wxStyledTextCtrl::GetWrapVisualFlags() const
 	static int _bind_GetWrapVisualFlags(lua_State *L) {
 		if (!_lg_typecheck_GetWrapVisualFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetWrapVisualFlags() const function, expected prototype:\nint wxStyledTextCtrl::GetWrapVisualFlags() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetWrapVisualFlags() const function, expected prototype:\nint wxStyledTextCtrl::GetWrapVisualFlags() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetWrapVisualFlags() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetWrapVisualFlags() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetWrapVisualFlags();
 		lua_pushnumber(L,lret);
@@ -8332,15 +7943,13 @@ public:
 	// int wxStyledTextCtrl::GetWrapVisualFlagsLocation() const
 	static int _bind_GetWrapVisualFlagsLocation(lua_State *L) {
 		if (!_lg_typecheck_GetWrapVisualFlagsLocation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetWrapVisualFlagsLocation() const function, expected prototype:\nint wxStyledTextCtrl::GetWrapVisualFlagsLocation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetWrapVisualFlagsLocation() const function, expected prototype:\nint wxStyledTextCtrl::GetWrapVisualFlagsLocation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetWrapVisualFlagsLocation() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetWrapVisualFlagsLocation() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetWrapVisualFlagsLocation();
 		lua_pushnumber(L,lret);
@@ -8351,15 +7960,13 @@ public:
 	// int wxStyledTextCtrl::GetXOffset() const
 	static int _bind_GetXOffset(lua_State *L) {
 		if (!_lg_typecheck_GetXOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetXOffset() const function, expected prototype:\nint wxStyledTextCtrl::GetXOffset() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetXOffset() const function, expected prototype:\nint wxStyledTextCtrl::GetXOffset() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetXOffset() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetXOffset() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetXOffset();
 		lua_pushnumber(L,lret);
@@ -8370,15 +7977,13 @@ public:
 	// int wxStyledTextCtrl::GetZoom() const
 	static int _bind_GetZoom(lua_State *L) {
 		if (!_lg_typecheck_GetZoom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetZoom() const function, expected prototype:\nint wxStyledTextCtrl::GetZoom() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetZoom() const function, expected prototype:\nint wxStyledTextCtrl::GetZoom() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetZoom() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetZoom() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetZoom();
 		lua_pushnumber(L,lret);
@@ -8389,16 +7994,14 @@ public:
 	// void wxStyledTextCtrl::GotoLine(int line)
 	static int _bind_GotoLine(lua_State *L) {
 		if (!_lg_typecheck_GotoLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::GotoLine(int line) function, expected prototype:\nvoid wxStyledTextCtrl::GotoLine(int line)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::GotoLine(int line) function, expected prototype:\nvoid wxStyledTextCtrl::GotoLine(int line)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::GotoLine(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::GotoLine(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GotoLine(line);
 
@@ -8408,16 +8011,14 @@ public:
 	// void wxStyledTextCtrl::GotoPos(int pos)
 	static int _bind_GotoPos(lua_State *L) {
 		if (!_lg_typecheck_GotoPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::GotoPos(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::GotoPos(int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::GotoPos(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::GotoPos(int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::GotoPos(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::GotoPos(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GotoPos(pos);
 
@@ -8427,8 +8028,7 @@ public:
 	// void wxStyledTextCtrl::HideLines(int lineStart, int lineEnd)
 	static int _bind_HideLines(lua_State *L) {
 		if (!_lg_typecheck_HideLines(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HideLines(int lineStart, int lineEnd) function, expected prototype:\nvoid wxStyledTextCtrl::HideLines(int lineStart, int lineEnd)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HideLines(int lineStart, int lineEnd) function, expected prototype:\nvoid wxStyledTextCtrl::HideLines(int lineStart, int lineEnd)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int lineStart=(int)lua_tointeger(L,2);
@@ -8436,8 +8036,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HideLines(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HideLines(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HideLines(lineStart, lineEnd);
 
@@ -8447,16 +8046,14 @@ public:
 	// void wxStyledTextCtrl::HideSelection(bool normal)
 	static int _bind_HideSelection(lua_State *L) {
 		if (!_lg_typecheck_HideSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HideSelection(bool normal) function, expected prototype:\nvoid wxStyledTextCtrl::HideSelection(bool normal)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HideSelection(bool normal) function, expected prototype:\nvoid wxStyledTextCtrl::HideSelection(bool normal)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool normal=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HideSelection(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HideSelection(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HideSelection(normal);
 
@@ -8466,15 +8063,13 @@ public:
 	// void wxStyledTextCtrl::Home()
 	static int _bind_Home(lua_State *L) {
 		if (!_lg_typecheck_Home(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Home() function, expected prototype:\nvoid wxStyledTextCtrl::Home()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Home() function, expected prototype:\nvoid wxStyledTextCtrl::Home()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Home(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Home(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Home();
 
@@ -8484,15 +8079,13 @@ public:
 	// void wxStyledTextCtrl::HomeDisplay()
 	static int _bind_HomeDisplay(lua_State *L) {
 		if (!_lg_typecheck_HomeDisplay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HomeDisplay() function, expected prototype:\nvoid wxStyledTextCtrl::HomeDisplay()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HomeDisplay() function, expected prototype:\nvoid wxStyledTextCtrl::HomeDisplay()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HomeDisplay(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HomeDisplay(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HomeDisplay();
 
@@ -8502,15 +8095,13 @@ public:
 	// void wxStyledTextCtrl::HomeDisplayExtend()
 	static int _bind_HomeDisplayExtend(lua_State *L) {
 		if (!_lg_typecheck_HomeDisplayExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HomeDisplayExtend() function, expected prototype:\nvoid wxStyledTextCtrl::HomeDisplayExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HomeDisplayExtend() function, expected prototype:\nvoid wxStyledTextCtrl::HomeDisplayExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HomeDisplayExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HomeDisplayExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HomeDisplayExtend();
 
@@ -8520,15 +8111,13 @@ public:
 	// void wxStyledTextCtrl::HomeExtend()
 	static int _bind_HomeExtend(lua_State *L) {
 		if (!_lg_typecheck_HomeExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HomeExtend() function, expected prototype:\nvoid wxStyledTextCtrl::HomeExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HomeExtend() function, expected prototype:\nvoid wxStyledTextCtrl::HomeExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HomeExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HomeExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HomeExtend();
 
@@ -8538,15 +8127,13 @@ public:
 	// void wxStyledTextCtrl::HomeRectExtend()
 	static int _bind_HomeRectExtend(lua_State *L) {
 		if (!_lg_typecheck_HomeRectExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HomeRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::HomeRectExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HomeRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::HomeRectExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HomeRectExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HomeRectExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HomeRectExtend();
 
@@ -8556,15 +8143,13 @@ public:
 	// void wxStyledTextCtrl::HomeWrap()
 	static int _bind_HomeWrap(lua_State *L) {
 		if (!_lg_typecheck_HomeWrap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HomeWrap() function, expected prototype:\nvoid wxStyledTextCtrl::HomeWrap()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HomeWrap() function, expected prototype:\nvoid wxStyledTextCtrl::HomeWrap()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HomeWrap(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HomeWrap(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HomeWrap();
 
@@ -8574,15 +8159,13 @@ public:
 	// void wxStyledTextCtrl::HomeWrapExtend()
 	static int _bind_HomeWrapExtend(lua_State *L) {
 		if (!_lg_typecheck_HomeWrapExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HomeWrapExtend() function, expected prototype:\nvoid wxStyledTextCtrl::HomeWrapExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::HomeWrapExtend() function, expected prototype:\nvoid wxStyledTextCtrl::HomeWrapExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HomeWrapExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::HomeWrapExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HomeWrapExtend();
 
@@ -8592,16 +8175,14 @@ public:
 	// wxColour wxStyledTextCtrl::IndicatorGetForeground(int indic) const
 	static int _bind_IndicatorGetForeground(lua_State *L) {
 		if (!_lg_typecheck_IndicatorGetForeground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxStyledTextCtrl::IndicatorGetForeground(int indic) const function, expected prototype:\nwxColour wxStyledTextCtrl::IndicatorGetForeground(int indic) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxStyledTextCtrl::IndicatorGetForeground(int indic) const function, expected prototype:\nwxColour wxStyledTextCtrl::IndicatorGetForeground(int indic) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int indic=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxStyledTextCtrl::IndicatorGetForeground(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxStyledTextCtrl::IndicatorGetForeground(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxColour stack_lret = self->IndicatorGetForeground(indic);
 		wxColour* lret = new wxColour(stack_lret);
@@ -8615,16 +8196,14 @@ public:
 	// int wxStyledTextCtrl::IndicatorGetStyle(int indic) const
 	static int _bind_IndicatorGetStyle(lua_State *L) {
 		if (!_lg_typecheck_IndicatorGetStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::IndicatorGetStyle(int indic) const function, expected prototype:\nint wxStyledTextCtrl::IndicatorGetStyle(int indic) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::IndicatorGetStyle(int indic) const function, expected prototype:\nint wxStyledTextCtrl::IndicatorGetStyle(int indic) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int indic=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::IndicatorGetStyle(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::IndicatorGetStyle(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->IndicatorGetStyle(indic);
 		lua_pushnumber(L,lret);
@@ -8635,8 +8214,7 @@ public:
 	// void wxStyledTextCtrl::IndicatorSetForeground(int indic, const wxColour & fore)
 	static int _bind_IndicatorSetForeground(lua_State *L) {
 		if (!_lg_typecheck_IndicatorSetForeground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::IndicatorSetForeground(int indic, const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::IndicatorSetForeground(int indic, const wxColour & fore)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::IndicatorSetForeground(int indic, const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::IndicatorSetForeground(int indic, const wxColour & fore)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int indic=(int)lua_tointeger(L,2);
@@ -8648,8 +8226,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::IndicatorSetForeground(int, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::IndicatorSetForeground(int, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->IndicatorSetForeground(indic, fore);
 
@@ -8659,8 +8236,7 @@ public:
 	// void wxStyledTextCtrl::IndicatorSetStyle(int indic, int style)
 	static int _bind_IndicatorSetStyle(lua_State *L) {
 		if (!_lg_typecheck_IndicatorSetStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::IndicatorSetStyle(int indic, int style) function, expected prototype:\nvoid wxStyledTextCtrl::IndicatorSetStyle(int indic, int style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::IndicatorSetStyle(int indic, int style) function, expected prototype:\nvoid wxStyledTextCtrl::IndicatorSetStyle(int indic, int style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int indic=(int)lua_tointeger(L,2);
@@ -8668,8 +8244,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::IndicatorSetStyle(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::IndicatorSetStyle(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->IndicatorSetStyle(indic, style);
 
@@ -8679,8 +8254,7 @@ public:
 	// void wxStyledTextCtrl::InsertText(int pos, const wxString & text)
 	static int _bind_InsertText(lua_State *L) {
 		if (!_lg_typecheck_InsertText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::InsertText(int pos, const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::InsertText(int pos, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::InsertText(int pos, const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::InsertText(int pos, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -8688,8 +8262,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::InsertText(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::InsertText(int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->InsertText(pos, text);
 
@@ -8699,8 +8272,7 @@ public:
 	// void wxStyledTextCtrl::InsertTextRaw(int pos, const char * text)
 	static int _bind_InsertTextRaw(lua_State *L) {
 		if (!_lg_typecheck_InsertTextRaw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::InsertTextRaw(int pos, const char * text) function, expected prototype:\nvoid wxStyledTextCtrl::InsertTextRaw(int pos, const char * text)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::InsertTextRaw(int pos, const char * text) function, expected prototype:\nvoid wxStyledTextCtrl::InsertTextRaw(int pos, const char * text)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -8708,8 +8280,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::InsertTextRaw(int, const char *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::InsertTextRaw(int, const char *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->InsertTextRaw(pos, text);
 
@@ -8719,15 +8290,13 @@ public:
 	// void wxStyledTextCtrl::LineCopy()
 	static int _bind_LineCopy(lua_State *L) {
 		if (!_lg_typecheck_LineCopy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineCopy() function, expected prototype:\nvoid wxStyledTextCtrl::LineCopy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineCopy() function, expected prototype:\nvoid wxStyledTextCtrl::LineCopy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineCopy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineCopy(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineCopy();
 
@@ -8737,15 +8306,13 @@ public:
 	// void wxStyledTextCtrl::LineCut()
 	static int _bind_LineCut(lua_State *L) {
 		if (!_lg_typecheck_LineCut(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineCut() function, expected prototype:\nvoid wxStyledTextCtrl::LineCut()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineCut() function, expected prototype:\nvoid wxStyledTextCtrl::LineCut()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineCut(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineCut(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineCut();
 
@@ -8755,15 +8322,13 @@ public:
 	// void wxStyledTextCtrl::LineDelete()
 	static int _bind_LineDelete(lua_State *L) {
 		if (!_lg_typecheck_LineDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineDelete() function, expected prototype:\nvoid wxStyledTextCtrl::LineDelete()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineDelete() function, expected prototype:\nvoid wxStyledTextCtrl::LineDelete()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineDelete(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineDelete(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineDelete();
 
@@ -8773,15 +8338,13 @@ public:
 	// void wxStyledTextCtrl::LineDown()
 	static int _bind_LineDown(lua_State *L) {
 		if (!_lg_typecheck_LineDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineDown() function, expected prototype:\nvoid wxStyledTextCtrl::LineDown()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineDown() function, expected prototype:\nvoid wxStyledTextCtrl::LineDown()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineDown(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineDown(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineDown();
 
@@ -8791,15 +8354,13 @@ public:
 	// void wxStyledTextCtrl::LineDownExtend()
 	static int _bind_LineDownExtend(lua_State *L) {
 		if (!_lg_typecheck_LineDownExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineDownExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineDownExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineDownExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineDownExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineDownExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineDownExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineDownExtend();
 
@@ -8809,15 +8370,13 @@ public:
 	// void wxStyledTextCtrl::LineDownRectExtend()
 	static int _bind_LineDownRectExtend(lua_State *L) {
 		if (!_lg_typecheck_LineDownRectExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineDownRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineDownRectExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineDownRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineDownRectExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineDownRectExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineDownRectExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineDownRectExtend();
 
@@ -8827,15 +8386,13 @@ public:
 	// void wxStyledTextCtrl::LineDuplicate()
 	static int _bind_LineDuplicate(lua_State *L) {
 		if (!_lg_typecheck_LineDuplicate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineDuplicate() function, expected prototype:\nvoid wxStyledTextCtrl::LineDuplicate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineDuplicate() function, expected prototype:\nvoid wxStyledTextCtrl::LineDuplicate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineDuplicate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineDuplicate(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineDuplicate();
 
@@ -8845,15 +8402,13 @@ public:
 	// void wxStyledTextCtrl::LineEnd()
 	static int _bind_LineEnd(lua_State *L) {
 		if (!_lg_typecheck_LineEnd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineEnd() function, expected prototype:\nvoid wxStyledTextCtrl::LineEnd()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineEnd() function, expected prototype:\nvoid wxStyledTextCtrl::LineEnd()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineEnd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineEnd(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineEnd();
 
@@ -8863,15 +8418,13 @@ public:
 	// void wxStyledTextCtrl::LineEndDisplay()
 	static int _bind_LineEndDisplay(lua_State *L) {
 		if (!_lg_typecheck_LineEndDisplay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineEndDisplay() function, expected prototype:\nvoid wxStyledTextCtrl::LineEndDisplay()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineEndDisplay() function, expected prototype:\nvoid wxStyledTextCtrl::LineEndDisplay()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineEndDisplay(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineEndDisplay(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineEndDisplay();
 
@@ -8881,15 +8434,13 @@ public:
 	// void wxStyledTextCtrl::LineEndDisplayExtend()
 	static int _bind_LineEndDisplayExtend(lua_State *L) {
 		if (!_lg_typecheck_LineEndDisplayExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineEndDisplayExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineEndDisplayExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineEndDisplayExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineEndDisplayExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineEndDisplayExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineEndDisplayExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineEndDisplayExtend();
 
@@ -8899,15 +8450,13 @@ public:
 	// void wxStyledTextCtrl::LineEndExtend()
 	static int _bind_LineEndExtend(lua_State *L) {
 		if (!_lg_typecheck_LineEndExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineEndExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineEndExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineEndExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineEndExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineEndExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineEndExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineEndExtend();
 
@@ -8917,15 +8466,13 @@ public:
 	// void wxStyledTextCtrl::LineEndRectExtend()
 	static int _bind_LineEndRectExtend(lua_State *L) {
 		if (!_lg_typecheck_LineEndRectExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineEndRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineEndRectExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineEndRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineEndRectExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineEndRectExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineEndRectExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineEndRectExtend();
 
@@ -8935,15 +8482,13 @@ public:
 	// void wxStyledTextCtrl::LineEndWrap()
 	static int _bind_LineEndWrap(lua_State *L) {
 		if (!_lg_typecheck_LineEndWrap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineEndWrap() function, expected prototype:\nvoid wxStyledTextCtrl::LineEndWrap()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineEndWrap() function, expected prototype:\nvoid wxStyledTextCtrl::LineEndWrap()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineEndWrap(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineEndWrap(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineEndWrap();
 
@@ -8953,15 +8498,13 @@ public:
 	// void wxStyledTextCtrl::LineEndWrapExtend()
 	static int _bind_LineEndWrapExtend(lua_State *L) {
 		if (!_lg_typecheck_LineEndWrapExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineEndWrapExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineEndWrapExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineEndWrapExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineEndWrapExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineEndWrapExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineEndWrapExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineEndWrapExtend();
 
@@ -8971,16 +8514,14 @@ public:
 	// int wxStyledTextCtrl::LineFromPosition(int pos) const
 	static int _bind_LineFromPosition(lua_State *L) {
 		if (!_lg_typecheck_LineFromPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::LineFromPosition(int pos) const function, expected prototype:\nint wxStyledTextCtrl::LineFromPosition(int pos) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::LineFromPosition(int pos) const function, expected prototype:\nint wxStyledTextCtrl::LineFromPosition(int pos) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::LineFromPosition(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::LineFromPosition(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->LineFromPosition(pos);
 		lua_pushnumber(L,lret);
@@ -8991,16 +8532,14 @@ public:
 	// int wxStyledTextCtrl::LineLength(int line) const
 	static int _bind_LineLength(lua_State *L) {
 		if (!_lg_typecheck_LineLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::LineLength(int line) const function, expected prototype:\nint wxStyledTextCtrl::LineLength(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::LineLength(int line) const function, expected prototype:\nint wxStyledTextCtrl::LineLength(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::LineLength(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::LineLength(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->LineLength(line);
 		lua_pushnumber(L,lret);
@@ -9011,8 +8550,7 @@ public:
 	// void wxStyledTextCtrl::LineScroll(int columns, int lines)
 	static int _bind_LineScroll(lua_State *L) {
 		if (!_lg_typecheck_LineScroll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineScroll(int columns, int lines) function, expected prototype:\nvoid wxStyledTextCtrl::LineScroll(int columns, int lines)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineScroll(int columns, int lines) function, expected prototype:\nvoid wxStyledTextCtrl::LineScroll(int columns, int lines)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int columns=(int)lua_tointeger(L,2);
@@ -9020,8 +8558,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineScroll(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineScroll(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineScroll(columns, lines);
 
@@ -9031,15 +8568,13 @@ public:
 	// void wxStyledTextCtrl::LineScrollDown()
 	static int _bind_LineScrollDown(lua_State *L) {
 		if (!_lg_typecheck_LineScrollDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineScrollDown() function, expected prototype:\nvoid wxStyledTextCtrl::LineScrollDown()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineScrollDown() function, expected prototype:\nvoid wxStyledTextCtrl::LineScrollDown()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineScrollDown(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineScrollDown(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineScrollDown();
 
@@ -9049,15 +8584,13 @@ public:
 	// void wxStyledTextCtrl::LineScrollUp()
 	static int _bind_LineScrollUp(lua_State *L) {
 		if (!_lg_typecheck_LineScrollUp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineScrollUp() function, expected prototype:\nvoid wxStyledTextCtrl::LineScrollUp()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineScrollUp() function, expected prototype:\nvoid wxStyledTextCtrl::LineScrollUp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineScrollUp(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineScrollUp(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineScrollUp();
 
@@ -9067,15 +8600,13 @@ public:
 	// void wxStyledTextCtrl::LineTranspose()
 	static int _bind_LineTranspose(lua_State *L) {
 		if (!_lg_typecheck_LineTranspose(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineTranspose() function, expected prototype:\nvoid wxStyledTextCtrl::LineTranspose()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineTranspose() function, expected prototype:\nvoid wxStyledTextCtrl::LineTranspose()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineTranspose(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineTranspose(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineTranspose();
 
@@ -9085,15 +8616,13 @@ public:
 	// void wxStyledTextCtrl::LineUp()
 	static int _bind_LineUp(lua_State *L) {
 		if (!_lg_typecheck_LineUp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineUp() function, expected prototype:\nvoid wxStyledTextCtrl::LineUp()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineUp() function, expected prototype:\nvoid wxStyledTextCtrl::LineUp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineUp(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineUp(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineUp();
 
@@ -9103,15 +8632,13 @@ public:
 	// void wxStyledTextCtrl::LineUpExtend()
 	static int _bind_LineUpExtend(lua_State *L) {
 		if (!_lg_typecheck_LineUpExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineUpExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineUpExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineUpExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineUpExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineUpExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineUpExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineUpExtend();
 
@@ -9121,15 +8648,13 @@ public:
 	// void wxStyledTextCtrl::LineUpRectExtend()
 	static int _bind_LineUpRectExtend(lua_State *L) {
 		if (!_lg_typecheck_LineUpRectExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineUpRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineUpRectExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LineUpRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::LineUpRectExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineUpRectExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LineUpRectExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineUpRectExtend();
 
@@ -9139,15 +8664,13 @@ public:
 	// void wxStyledTextCtrl::LinesJoin()
 	static int _bind_LinesJoin(lua_State *L) {
 		if (!_lg_typecheck_LinesJoin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LinesJoin() function, expected prototype:\nvoid wxStyledTextCtrl::LinesJoin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LinesJoin() function, expected prototype:\nvoid wxStyledTextCtrl::LinesJoin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LinesJoin(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LinesJoin(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LinesJoin();
 
@@ -9157,15 +8680,13 @@ public:
 	// int wxStyledTextCtrl::LinesOnScreen() const
 	static int _bind_LinesOnScreen(lua_State *L) {
 		if (!_lg_typecheck_LinesOnScreen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::LinesOnScreen() const function, expected prototype:\nint wxStyledTextCtrl::LinesOnScreen() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::LinesOnScreen() const function, expected prototype:\nint wxStyledTextCtrl::LinesOnScreen() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::LinesOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::LinesOnScreen() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->LinesOnScreen();
 		lua_pushnumber(L,lret);
@@ -9176,16 +8697,14 @@ public:
 	// void wxStyledTextCtrl::LinesSplit(int pixelWidth)
 	static int _bind_LinesSplit(lua_State *L) {
 		if (!_lg_typecheck_LinesSplit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LinesSplit(int pixelWidth) function, expected prototype:\nvoid wxStyledTextCtrl::LinesSplit(int pixelWidth)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LinesSplit(int pixelWidth) function, expected prototype:\nvoid wxStyledTextCtrl::LinesSplit(int pixelWidth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pixelWidth=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LinesSplit(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LinesSplit(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LinesSplit(pixelWidth);
 
@@ -9195,8 +8714,7 @@ public:
 	// bool wxStyledTextCtrl::LoadFile(const wxString & file, int fileType = wxTEXT_TYPE_ANY)
 	static int _bind_LoadFile(lua_State *L) {
 		if (!_lg_typecheck_LoadFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::LoadFile(const wxString & file, int fileType = wxTEXT_TYPE_ANY) function, expected prototype:\nbool wxStyledTextCtrl::LoadFile(const wxString & file, int fileType = wxTEXT_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::LoadFile(const wxString & file, int fileType = wxTEXT_TYPE_ANY) function, expected prototype:\nbool wxStyledTextCtrl::LoadFile(const wxString & file, int fileType = wxTEXT_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9206,8 +8724,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::LoadFile(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::LoadFile(const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->LoadFile(file, fileType);
 		lua_pushboolean(L,lret?1:0);
@@ -9218,15 +8735,13 @@ public:
 	// void wxStyledTextCtrl::LowerCase()
 	static int _bind_LowerCase(lua_State *L) {
 		if (!_lg_typecheck_LowerCase(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LowerCase() function, expected prototype:\nvoid wxStyledTextCtrl::LowerCase()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::LowerCase() function, expected prototype:\nvoid wxStyledTextCtrl::LowerCase()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LowerCase(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::LowerCase(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LowerCase();
 
@@ -9236,8 +8751,7 @@ public:
 	// int wxStyledTextCtrl::MarkerAdd(int line, int markerNumber)
 	static int _bind_MarkerAdd(lua_State *L) {
 		if (!_lg_typecheck_MarkerAdd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::MarkerAdd(int line, int markerNumber) function, expected prototype:\nint wxStyledTextCtrl::MarkerAdd(int line, int markerNumber)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::MarkerAdd(int line, int markerNumber) function, expected prototype:\nint wxStyledTextCtrl::MarkerAdd(int line, int markerNumber)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
@@ -9245,8 +8759,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::MarkerAdd(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::MarkerAdd(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->MarkerAdd(line, markerNumber);
 		lua_pushnumber(L,lret);
@@ -9257,8 +8770,7 @@ public:
 	// void wxStyledTextCtrl::MarkerAddSet(int line, int set)
 	static int _bind_MarkerAddSet(lua_State *L) {
 		if (!_lg_typecheck_MarkerAddSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerAddSet(int line, int set) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerAddSet(int line, int set)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerAddSet(int line, int set) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerAddSet(int line, int set)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
@@ -9266,8 +8778,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerAddSet(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerAddSet(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MarkerAddSet(line, set);
 
@@ -9277,8 +8788,7 @@ public:
 	// void wxStyledTextCtrl::MarkerDefine(int markerNumber, int markerSymbol, const wxColour & foreground = wxNullColour, const wxColour & background = wxNullColour)
 	static int _bind_MarkerDefine(lua_State *L) {
 		if (!_lg_typecheck_MarkerDefine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerDefine(int markerNumber, int markerSymbol, const wxColour & foreground = wxNullColour, const wxColour & background = wxNullColour) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerDefine(int markerNumber, int markerSymbol, const wxColour & foreground = wxNullColour, const wxColour & background = wxNullColour)\nClass arguments details:\narg 3 ID = 56813631\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerDefine(int markerNumber, int markerSymbol, const wxColour & foreground = wxNullColour, const wxColour & background = wxNullColour) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerDefine(int markerNumber, int markerSymbol, const wxColour & foreground = wxNullColour, const wxColour & background = wxNullColour)\nClass arguments details:\narg 3 ID = 56813631\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9298,8 +8808,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerDefine(int, int, const wxColour &, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerDefine(int, int, const wxColour &, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MarkerDefine(markerNumber, markerSymbol, foreground, background);
 
@@ -9309,8 +8818,7 @@ public:
 	// void wxStyledTextCtrl::MarkerDefineBitmap(int markerNumber, const wxBitmap & bmp)
 	static int _bind_MarkerDefineBitmap(lua_State *L) {
 		if (!_lg_typecheck_MarkerDefineBitmap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerDefineBitmap(int markerNumber, const wxBitmap & bmp) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerDefineBitmap(int markerNumber, const wxBitmap & bmp)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerDefineBitmap(int markerNumber, const wxBitmap & bmp) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerDefineBitmap(int markerNumber, const wxBitmap & bmp)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int markerNumber=(int)lua_tointeger(L,2);
@@ -9322,8 +8830,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerDefineBitmap(int, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerDefineBitmap(int, const wxBitmap &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MarkerDefineBitmap(markerNumber, bmp);
 
@@ -9333,8 +8840,7 @@ public:
 	// void wxStyledTextCtrl::MarkerDelete(int line, int markerNumber)
 	static int _bind_MarkerDelete(lua_State *L) {
 		if (!_lg_typecheck_MarkerDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerDelete(int line, int markerNumber) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerDelete(int line, int markerNumber)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerDelete(int line, int markerNumber) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerDelete(int line, int markerNumber)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
@@ -9342,8 +8848,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerDelete(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerDelete(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MarkerDelete(line, markerNumber);
 
@@ -9353,16 +8858,14 @@ public:
 	// void wxStyledTextCtrl::MarkerDeleteAll(int markerNumber)
 	static int _bind_MarkerDeleteAll(lua_State *L) {
 		if (!_lg_typecheck_MarkerDeleteAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerDeleteAll(int markerNumber) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerDeleteAll(int markerNumber)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerDeleteAll(int markerNumber) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerDeleteAll(int markerNumber)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int markerNumber=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerDeleteAll(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerDeleteAll(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MarkerDeleteAll(markerNumber);
 
@@ -9372,16 +8875,14 @@ public:
 	// void wxStyledTextCtrl::MarkerDeleteHandle(int handle)
 	static int _bind_MarkerDeleteHandle(lua_State *L) {
 		if (!_lg_typecheck_MarkerDeleteHandle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerDeleteHandle(int handle) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerDeleteHandle(int handle)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerDeleteHandle(int handle) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerDeleteHandle(int handle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int handle=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerDeleteHandle(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerDeleteHandle(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MarkerDeleteHandle(handle);
 
@@ -9391,16 +8892,14 @@ public:
 	// int wxStyledTextCtrl::MarkerGet(int line)
 	static int _bind_MarkerGet(lua_State *L) {
 		if (!_lg_typecheck_MarkerGet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::MarkerGet(int line) function, expected prototype:\nint wxStyledTextCtrl::MarkerGet(int line)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::MarkerGet(int line) function, expected prototype:\nint wxStyledTextCtrl::MarkerGet(int line)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::MarkerGet(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::MarkerGet(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->MarkerGet(line);
 		lua_pushnumber(L,lret);
@@ -9411,16 +8910,14 @@ public:
 	// int wxStyledTextCtrl::MarkerLineFromHandle(int handle)
 	static int _bind_MarkerLineFromHandle(lua_State *L) {
 		if (!_lg_typecheck_MarkerLineFromHandle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::MarkerLineFromHandle(int handle) function, expected prototype:\nint wxStyledTextCtrl::MarkerLineFromHandle(int handle)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::MarkerLineFromHandle(int handle) function, expected prototype:\nint wxStyledTextCtrl::MarkerLineFromHandle(int handle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int handle=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::MarkerLineFromHandle(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::MarkerLineFromHandle(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->MarkerLineFromHandle(handle);
 		lua_pushnumber(L,lret);
@@ -9431,8 +8928,7 @@ public:
 	// int wxStyledTextCtrl::MarkerNext(int lineStart, int markerMask)
 	static int _bind_MarkerNext(lua_State *L) {
 		if (!_lg_typecheck_MarkerNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::MarkerNext(int lineStart, int markerMask) function, expected prototype:\nint wxStyledTextCtrl::MarkerNext(int lineStart, int markerMask)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::MarkerNext(int lineStart, int markerMask) function, expected prototype:\nint wxStyledTextCtrl::MarkerNext(int lineStart, int markerMask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int lineStart=(int)lua_tointeger(L,2);
@@ -9440,8 +8936,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::MarkerNext(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::MarkerNext(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->MarkerNext(lineStart, markerMask);
 		lua_pushnumber(L,lret);
@@ -9452,8 +8947,7 @@ public:
 	// int wxStyledTextCtrl::MarkerPrevious(int lineStart, int markerMask)
 	static int _bind_MarkerPrevious(lua_State *L) {
 		if (!_lg_typecheck_MarkerPrevious(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::MarkerPrevious(int lineStart, int markerMask) function, expected prototype:\nint wxStyledTextCtrl::MarkerPrevious(int lineStart, int markerMask)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::MarkerPrevious(int lineStart, int markerMask) function, expected prototype:\nint wxStyledTextCtrl::MarkerPrevious(int lineStart, int markerMask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int lineStart=(int)lua_tointeger(L,2);
@@ -9461,8 +8955,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::MarkerPrevious(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::MarkerPrevious(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->MarkerPrevious(lineStart, markerMask);
 		lua_pushnumber(L,lret);
@@ -9473,8 +8966,7 @@ public:
 	// void wxStyledTextCtrl::MarkerSetAlpha(int markerNumber, int alpha)
 	static int _bind_MarkerSetAlpha(lua_State *L) {
 		if (!_lg_typecheck_MarkerSetAlpha(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerSetAlpha(int markerNumber, int alpha) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerSetAlpha(int markerNumber, int alpha)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerSetAlpha(int markerNumber, int alpha) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerSetAlpha(int markerNumber, int alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int markerNumber=(int)lua_tointeger(L,2);
@@ -9482,8 +8974,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerSetAlpha(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerSetAlpha(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MarkerSetAlpha(markerNumber, alpha);
 
@@ -9493,8 +8984,7 @@ public:
 	// void wxStyledTextCtrl::MarkerSetBackground(int markerNumber, const wxColour & back)
 	static int _bind_MarkerSetBackground(lua_State *L) {
 		if (!_lg_typecheck_MarkerSetBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerSetBackground(int markerNumber, const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerSetBackground(int markerNumber, const wxColour & back)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerSetBackground(int markerNumber, const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerSetBackground(int markerNumber, const wxColour & back)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int markerNumber=(int)lua_tointeger(L,2);
@@ -9506,8 +8996,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerSetBackground(int, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerSetBackground(int, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MarkerSetBackground(markerNumber, back);
 
@@ -9517,8 +9006,7 @@ public:
 	// void wxStyledTextCtrl::MarkerSetForeground(int markerNumber, const wxColour & fore)
 	static int _bind_MarkerSetForeground(lua_State *L) {
 		if (!_lg_typecheck_MarkerSetForeground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerSetForeground(int markerNumber, const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerSetForeground(int markerNumber, const wxColour & fore)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarkerSetForeground(int markerNumber, const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::MarkerSetForeground(int markerNumber, const wxColour & fore)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int markerNumber=(int)lua_tointeger(L,2);
@@ -9530,8 +9018,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerSetForeground(int, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarkerSetForeground(int, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MarkerSetForeground(markerNumber, fore);
 
@@ -9541,15 +9028,13 @@ public:
 	// void wxStyledTextCtrl::MoveCaretInsideView()
 	static int _bind_MoveCaretInsideView(lua_State *L) {
 		if (!_lg_typecheck_MoveCaretInsideView(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MoveCaretInsideView() function, expected prototype:\nvoid wxStyledTextCtrl::MoveCaretInsideView()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MoveCaretInsideView() function, expected prototype:\nvoid wxStyledTextCtrl::MoveCaretInsideView()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MoveCaretInsideView(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MoveCaretInsideView(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MoveCaretInsideView();
 
@@ -9559,15 +9044,13 @@ public:
 	// void wxStyledTextCtrl::NewLine()
 	static int _bind_NewLine(lua_State *L) {
 		if (!_lg_typecheck_NewLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::NewLine() function, expected prototype:\nvoid wxStyledTextCtrl::NewLine()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::NewLine() function, expected prototype:\nvoid wxStyledTextCtrl::NewLine()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::NewLine(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::NewLine(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->NewLine();
 
@@ -9577,15 +9060,13 @@ public:
 	// void wxStyledTextCtrl::PageDown()
 	static int _bind_PageDown(lua_State *L) {
 		if (!_lg_typecheck_PageDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::PageDown() function, expected prototype:\nvoid wxStyledTextCtrl::PageDown()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::PageDown() function, expected prototype:\nvoid wxStyledTextCtrl::PageDown()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::PageDown(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::PageDown(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PageDown();
 
@@ -9595,15 +9076,13 @@ public:
 	// void wxStyledTextCtrl::PageDownExtend()
 	static int _bind_PageDownExtend(lua_State *L) {
 		if (!_lg_typecheck_PageDownExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::PageDownExtend() function, expected prototype:\nvoid wxStyledTextCtrl::PageDownExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::PageDownExtend() function, expected prototype:\nvoid wxStyledTextCtrl::PageDownExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::PageDownExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::PageDownExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PageDownExtend();
 
@@ -9613,15 +9092,13 @@ public:
 	// void wxStyledTextCtrl::PageDownRectExtend()
 	static int _bind_PageDownRectExtend(lua_State *L) {
 		if (!_lg_typecheck_PageDownRectExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::PageDownRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::PageDownRectExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::PageDownRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::PageDownRectExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::PageDownRectExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::PageDownRectExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PageDownRectExtend();
 
@@ -9631,15 +9108,13 @@ public:
 	// void wxStyledTextCtrl::PageUp()
 	static int _bind_PageUp(lua_State *L) {
 		if (!_lg_typecheck_PageUp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::PageUp() function, expected prototype:\nvoid wxStyledTextCtrl::PageUp()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::PageUp() function, expected prototype:\nvoid wxStyledTextCtrl::PageUp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::PageUp(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::PageUp(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PageUp();
 
@@ -9649,15 +9124,13 @@ public:
 	// void wxStyledTextCtrl::PageUpExtend()
 	static int _bind_PageUpExtend(lua_State *L) {
 		if (!_lg_typecheck_PageUpExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::PageUpExtend() function, expected prototype:\nvoid wxStyledTextCtrl::PageUpExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::PageUpExtend() function, expected prototype:\nvoid wxStyledTextCtrl::PageUpExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::PageUpExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::PageUpExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PageUpExtend();
 
@@ -9667,15 +9140,13 @@ public:
 	// void wxStyledTextCtrl::PageUpRectExtend()
 	static int _bind_PageUpRectExtend(lua_State *L) {
 		if (!_lg_typecheck_PageUpRectExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::PageUpRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::PageUpRectExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::PageUpRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::PageUpRectExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::PageUpRectExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::PageUpRectExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PageUpRectExtend();
 
@@ -9685,15 +9156,13 @@ public:
 	// void wxStyledTextCtrl::ParaDown()
 	static int _bind_ParaDown(lua_State *L) {
 		if (!_lg_typecheck_ParaDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ParaDown() function, expected prototype:\nvoid wxStyledTextCtrl::ParaDown()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ParaDown() function, expected prototype:\nvoid wxStyledTextCtrl::ParaDown()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ParaDown(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ParaDown(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ParaDown();
 
@@ -9703,15 +9172,13 @@ public:
 	// void wxStyledTextCtrl::ParaDownExtend()
 	static int _bind_ParaDownExtend(lua_State *L) {
 		if (!_lg_typecheck_ParaDownExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ParaDownExtend() function, expected prototype:\nvoid wxStyledTextCtrl::ParaDownExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ParaDownExtend() function, expected prototype:\nvoid wxStyledTextCtrl::ParaDownExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ParaDownExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ParaDownExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ParaDownExtend();
 
@@ -9721,15 +9188,13 @@ public:
 	// void wxStyledTextCtrl::ParaUp()
 	static int _bind_ParaUp(lua_State *L) {
 		if (!_lg_typecheck_ParaUp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ParaUp() function, expected prototype:\nvoid wxStyledTextCtrl::ParaUp()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ParaUp() function, expected prototype:\nvoid wxStyledTextCtrl::ParaUp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ParaUp(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ParaUp(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ParaUp();
 
@@ -9739,15 +9204,13 @@ public:
 	// void wxStyledTextCtrl::ParaUpExtend()
 	static int _bind_ParaUpExtend(lua_State *L) {
 		if (!_lg_typecheck_ParaUpExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ParaUpExtend() function, expected prototype:\nvoid wxStyledTextCtrl::ParaUpExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ParaUpExtend() function, expected prototype:\nvoid wxStyledTextCtrl::ParaUpExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ParaUpExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ParaUpExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ParaUpExtend();
 
@@ -9757,15 +9220,13 @@ public:
 	// void wxStyledTextCtrl::Paste()
 	static int _bind_Paste(lua_State *L) {
 		if (!_lg_typecheck_Paste(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Paste() function, expected prototype:\nvoid wxStyledTextCtrl::Paste()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Paste() function, expected prototype:\nvoid wxStyledTextCtrl::Paste()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Paste(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Paste(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Paste();
 
@@ -9775,16 +9236,14 @@ public:
 	// wxPoint wxStyledTextCtrl::PointFromPosition(int pos)
 	static int _bind_PointFromPosition(lua_State *L) {
 		if (!_lg_typecheck_PointFromPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint wxStyledTextCtrl::PointFromPosition(int pos) function, expected prototype:\nwxPoint wxStyledTextCtrl::PointFromPosition(int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint wxStyledTextCtrl::PointFromPosition(int pos) function, expected prototype:\nwxPoint wxStyledTextCtrl::PointFromPosition(int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxStyledTextCtrl::PointFromPosition(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint wxStyledTextCtrl::PointFromPosition(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint stack_lret = self->PointFromPosition(pos);
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -9798,16 +9257,14 @@ public:
 	// int wxStyledTextCtrl::PositionAfter(int pos)
 	static int _bind_PositionAfter(lua_State *L) {
 		if (!_lg_typecheck_PositionAfter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::PositionAfter(int pos) function, expected prototype:\nint wxStyledTextCtrl::PositionAfter(int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::PositionAfter(int pos) function, expected prototype:\nint wxStyledTextCtrl::PositionAfter(int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::PositionAfter(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::PositionAfter(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->PositionAfter(pos);
 		lua_pushnumber(L,lret);
@@ -9818,16 +9275,14 @@ public:
 	// int wxStyledTextCtrl::PositionBefore(int pos)
 	static int _bind_PositionBefore(lua_State *L) {
 		if (!_lg_typecheck_PositionBefore(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::PositionBefore(int pos) function, expected prototype:\nint wxStyledTextCtrl::PositionBefore(int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::PositionBefore(int pos) function, expected prototype:\nint wxStyledTextCtrl::PositionBefore(int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::PositionBefore(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::PositionBefore(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->PositionBefore(pos);
 		lua_pushnumber(L,lret);
@@ -9838,16 +9293,14 @@ public:
 	// int wxStyledTextCtrl::PositionFromLine(int line) const
 	static int _bind_PositionFromLine(lua_State *L) {
 		if (!_lg_typecheck_PositionFromLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::PositionFromLine(int line) const function, expected prototype:\nint wxStyledTextCtrl::PositionFromLine(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::PositionFromLine(int line) const function, expected prototype:\nint wxStyledTextCtrl::PositionFromLine(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::PositionFromLine(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::PositionFromLine(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->PositionFromLine(line);
 		lua_pushnumber(L,lret);
@@ -9858,8 +9311,7 @@ public:
 	// int wxStyledTextCtrl::PositionFromPoint(wxPoint pt) const
 	static int _bind_PositionFromPoint(lua_State *L) {
 		if (!_lg_typecheck_PositionFromPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::PositionFromPoint(wxPoint pt) const function, expected prototype:\nint wxStyledTextCtrl::PositionFromPoint(wxPoint pt) const\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::PositionFromPoint(wxPoint pt) const function, expected prototype:\nint wxStyledTextCtrl::PositionFromPoint(wxPoint pt) const\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPoint* pt_ptr=(Luna< wxPoint >::check(L,2));
@@ -9870,8 +9322,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::PositionFromPoint(wxPoint) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::PositionFromPoint(wxPoint) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->PositionFromPoint(pt);
 		lua_pushnumber(L,lret);
@@ -9882,8 +9333,7 @@ public:
 	// int wxStyledTextCtrl::PositionFromPointClose(int x, int y)
 	static int _bind_PositionFromPointClose(lua_State *L) {
 		if (!_lg_typecheck_PositionFromPointClose(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::PositionFromPointClose(int x, int y) function, expected prototype:\nint wxStyledTextCtrl::PositionFromPointClose(int x, int y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::PositionFromPointClose(int x, int y) function, expected prototype:\nint wxStyledTextCtrl::PositionFromPointClose(int x, int y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -9891,8 +9341,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::PositionFromPointClose(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::PositionFromPointClose(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->PositionFromPointClose(x, y);
 		lua_pushnumber(L,lret);
@@ -9903,15 +9352,13 @@ public:
 	// void wxStyledTextCtrl::Redo()
 	static int _bind_Redo(lua_State *L) {
 		if (!_lg_typecheck_Redo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Redo() function, expected prototype:\nvoid wxStyledTextCtrl::Redo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Redo() function, expected prototype:\nvoid wxStyledTextCtrl::Redo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Redo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Redo(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Redo();
 
@@ -9921,8 +9368,7 @@ public:
 	// void wxStyledTextCtrl::RegisterImage(int type, const wxBitmap & bmp)
 	static int _bind_RegisterImage(lua_State *L) {
 		if (!_lg_typecheck_RegisterImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::RegisterImage(int type, const wxBitmap & bmp) function, expected prototype:\nvoid wxStyledTextCtrl::RegisterImage(int type, const wxBitmap & bmp)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::RegisterImage(int type, const wxBitmap & bmp) function, expected prototype:\nvoid wxStyledTextCtrl::RegisterImage(int type, const wxBitmap & bmp)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int type=(int)lua_tointeger(L,2);
@@ -9934,8 +9380,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::RegisterImage(int, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::RegisterImage(int, const wxBitmap &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RegisterImage(type, bmp);
 
@@ -9945,16 +9390,14 @@ public:
 	// void wxStyledTextCtrl::ReleaseDocument(void * docPointer)
 	static int _bind_ReleaseDocument(lua_State *L) {
 		if (!_lg_typecheck_ReleaseDocument(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ReleaseDocument(void * docPointer) function, expected prototype:\nvoid wxStyledTextCtrl::ReleaseDocument(void * docPointer)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ReleaseDocument(void * docPointer) function, expected prototype:\nvoid wxStyledTextCtrl::ReleaseDocument(void * docPointer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* docPointer=(Luna< void >::check(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ReleaseDocument(void *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ReleaseDocument(void *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ReleaseDocument(docPointer);
 
@@ -9964,16 +9407,14 @@ public:
 	// void wxStyledTextCtrl::ReplaceSelection(const wxString & text)
 	static int _bind_ReplaceSelection(lua_State *L) {
 		if (!_lg_typecheck_ReplaceSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ReplaceSelection(const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::ReplaceSelection(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ReplaceSelection(const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::ReplaceSelection(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ReplaceSelection(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ReplaceSelection(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ReplaceSelection(text);
 
@@ -9983,16 +9424,14 @@ public:
 	// int wxStyledTextCtrl::ReplaceTarget(const wxString & text)
 	static int _bind_ReplaceTarget(lua_State *L) {
 		if (!_lg_typecheck_ReplaceTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::ReplaceTarget(const wxString & text) function, expected prototype:\nint wxStyledTextCtrl::ReplaceTarget(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::ReplaceTarget(const wxString & text) function, expected prototype:\nint wxStyledTextCtrl::ReplaceTarget(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::ReplaceTarget(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::ReplaceTarget(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->ReplaceTarget(text);
 		lua_pushnumber(L,lret);
@@ -10003,16 +9442,14 @@ public:
 	// int wxStyledTextCtrl::ReplaceTargetRE(const wxString & text)
 	static int _bind_ReplaceTargetRE(lua_State *L) {
 		if (!_lg_typecheck_ReplaceTargetRE(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::ReplaceTargetRE(const wxString & text) function, expected prototype:\nint wxStyledTextCtrl::ReplaceTargetRE(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::ReplaceTargetRE(const wxString & text) function, expected prototype:\nint wxStyledTextCtrl::ReplaceTargetRE(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::ReplaceTargetRE(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::ReplaceTargetRE(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->ReplaceTargetRE(text);
 		lua_pushnumber(L,lret);
@@ -10023,8 +9460,7 @@ public:
 	// bool wxStyledTextCtrl::SaveFile(const wxString & file = wxEmptyString, int fileType = wxTEXT_TYPE_ANY)
 	static int _bind_SaveFile(lua_State *L) {
 		if (!_lg_typecheck_SaveFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::SaveFile(const wxString & file = wxEmptyString, int fileType = wxTEXT_TYPE_ANY) function, expected prototype:\nbool wxStyledTextCtrl::SaveFile(const wxString & file = wxEmptyString, int fileType = wxTEXT_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::SaveFile(const wxString & file = wxEmptyString, int fileType = wxTEXT_TYPE_ANY) function, expected prototype:\nbool wxStyledTextCtrl::SaveFile(const wxString & file = wxEmptyString, int fileType = wxTEXT_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10034,8 +9470,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::SaveFile(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::SaveFile(const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SaveFile(file, fileType);
 		lua_pushboolean(L,lret?1:0);
@@ -10046,16 +9481,14 @@ public:
 	// void wxStyledTextCtrl::ScrollToColumn(int column)
 	static int _bind_ScrollToColumn(lua_State *L) {
 		if (!_lg_typecheck_ScrollToColumn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ScrollToColumn(int column) function, expected prototype:\nvoid wxStyledTextCtrl::ScrollToColumn(int column)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ScrollToColumn(int column) function, expected prototype:\nvoid wxStyledTextCtrl::ScrollToColumn(int column)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int column=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ScrollToColumn(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ScrollToColumn(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ScrollToColumn(column);
 
@@ -10065,16 +9498,14 @@ public:
 	// void wxStyledTextCtrl::ScrollToLine(int line)
 	static int _bind_ScrollToLine(lua_State *L) {
 		if (!_lg_typecheck_ScrollToLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ScrollToLine(int line) function, expected prototype:\nvoid wxStyledTextCtrl::ScrollToLine(int line)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ScrollToLine(int line) function, expected prototype:\nvoid wxStyledTextCtrl::ScrollToLine(int line)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ScrollToLine(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ScrollToLine(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ScrollToLine(line);
 
@@ -10084,15 +9515,13 @@ public:
 	// void wxStyledTextCtrl::SearchAnchor()
 	static int _bind_SearchAnchor(lua_State *L) {
 		if (!_lg_typecheck_SearchAnchor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SearchAnchor() function, expected prototype:\nvoid wxStyledTextCtrl::SearchAnchor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SearchAnchor() function, expected prototype:\nvoid wxStyledTextCtrl::SearchAnchor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SearchAnchor(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SearchAnchor(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SearchAnchor();
 
@@ -10102,16 +9531,14 @@ public:
 	// int wxStyledTextCtrl::SearchInTarget(const wxString & text)
 	static int _bind_SearchInTarget(lua_State *L) {
 		if (!_lg_typecheck_SearchInTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::SearchInTarget(const wxString & text) function, expected prototype:\nint wxStyledTextCtrl::SearchInTarget(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::SearchInTarget(const wxString & text) function, expected prototype:\nint wxStyledTextCtrl::SearchInTarget(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::SearchInTarget(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::SearchInTarget(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->SearchInTarget(text);
 		lua_pushnumber(L,lret);
@@ -10122,8 +9549,7 @@ public:
 	// int wxStyledTextCtrl::SearchNext(int flags, const wxString & text)
 	static int _bind_SearchNext(lua_State *L) {
 		if (!_lg_typecheck_SearchNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::SearchNext(int flags, const wxString & text) function, expected prototype:\nint wxStyledTextCtrl::SearchNext(int flags, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::SearchNext(int flags, const wxString & text) function, expected prototype:\nint wxStyledTextCtrl::SearchNext(int flags, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int flags=(int)lua_tointeger(L,2);
@@ -10131,8 +9557,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::SearchNext(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::SearchNext(int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->SearchNext(flags, text);
 		lua_pushnumber(L,lret);
@@ -10143,8 +9568,7 @@ public:
 	// int wxStyledTextCtrl::SearchPrev(int flags, const wxString & text)
 	static int _bind_SearchPrev(lua_State *L) {
 		if (!_lg_typecheck_SearchPrev(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::SearchPrev(int flags, const wxString & text) function, expected prototype:\nint wxStyledTextCtrl::SearchPrev(int flags, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::SearchPrev(int flags, const wxString & text) function, expected prototype:\nint wxStyledTextCtrl::SearchPrev(int flags, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int flags=(int)lua_tointeger(L,2);
@@ -10152,8 +9576,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::SearchPrev(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::SearchPrev(int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->SearchPrev(flags, text);
 		lua_pushnumber(L,lret);
@@ -10164,15 +9587,13 @@ public:
 	// void wxStyledTextCtrl::SelectAll()
 	static int _bind_SelectAll(lua_State *L) {
 		if (!_lg_typecheck_SelectAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SelectAll() function, expected prototype:\nvoid wxStyledTextCtrl::SelectAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SelectAll() function, expected prototype:\nvoid wxStyledTextCtrl::SelectAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SelectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SelectAll(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SelectAll();
 
@@ -10182,15 +9603,13 @@ public:
 	// void wxStyledTextCtrl::SelectionDuplicate()
 	static int _bind_SelectionDuplicate(lua_State *L) {
 		if (!_lg_typecheck_SelectionDuplicate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SelectionDuplicate() function, expected prototype:\nvoid wxStyledTextCtrl::SelectionDuplicate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SelectionDuplicate() function, expected prototype:\nvoid wxStyledTextCtrl::SelectionDuplicate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SelectionDuplicate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SelectionDuplicate(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SelectionDuplicate();
 
@@ -10200,15 +9619,13 @@ public:
 	// bool wxStyledTextCtrl::SelectionIsRectangle() const
 	static int _bind_SelectionIsRectangle(lua_State *L) {
 		if (!_lg_typecheck_SelectionIsRectangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::SelectionIsRectangle() const function, expected prototype:\nbool wxStyledTextCtrl::SelectionIsRectangle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::SelectionIsRectangle() const function, expected prototype:\nbool wxStyledTextCtrl::SelectionIsRectangle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::SelectionIsRectangle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::SelectionIsRectangle() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SelectionIsRectangle();
 		lua_pushboolean(L,lret?1:0);
@@ -10219,16 +9636,14 @@ public:
 	// void wxStyledTextCtrl::SetAnchor(int posAnchor)
 	static int _bind_SetAnchor(lua_State *L) {
 		if (!_lg_typecheck_SetAnchor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAnchor(int posAnchor) function, expected prototype:\nvoid wxStyledTextCtrl::SetAnchor(int posAnchor)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAnchor(int posAnchor) function, expected prototype:\nvoid wxStyledTextCtrl::SetAnchor(int posAnchor)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int posAnchor=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAnchor(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAnchor(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAnchor(posAnchor);
 
@@ -10238,16 +9653,14 @@ public:
 	// void wxStyledTextCtrl::SetBackSpaceUnIndents(bool bsUnIndents)
 	static int _bind_SetBackSpaceUnIndents(lua_State *L) {
 		if (!_lg_typecheck_SetBackSpaceUnIndents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetBackSpaceUnIndents(bool bsUnIndents) function, expected prototype:\nvoid wxStyledTextCtrl::SetBackSpaceUnIndents(bool bsUnIndents)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetBackSpaceUnIndents(bool bsUnIndents) function, expected prototype:\nvoid wxStyledTextCtrl::SetBackSpaceUnIndents(bool bsUnIndents)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool bsUnIndents=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetBackSpaceUnIndents(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetBackSpaceUnIndents(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetBackSpaceUnIndents(bsUnIndents);
 
@@ -10257,8 +9670,7 @@ public:
 	// void wxStyledTextCtrl::SetCaretForeground(const wxColour & fore)
 	static int _bind_SetCaretForeground(lua_State *L) {
 		if (!_lg_typecheck_SetCaretForeground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCaretForeground(const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::SetCaretForeground(const wxColour & fore)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCaretForeground(const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::SetCaretForeground(const wxColour & fore)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* fore_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -10269,8 +9681,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCaretForeground(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCaretForeground(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCaretForeground(fore);
 
@@ -10280,16 +9691,14 @@ public:
 	// void wxStyledTextCtrl::SetCaretLineBackAlpha(int alpha)
 	static int _bind_SetCaretLineBackAlpha(lua_State *L) {
 		if (!_lg_typecheck_SetCaretLineBackAlpha(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCaretLineBackAlpha(int alpha) function, expected prototype:\nvoid wxStyledTextCtrl::SetCaretLineBackAlpha(int alpha)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCaretLineBackAlpha(int alpha) function, expected prototype:\nvoid wxStyledTextCtrl::SetCaretLineBackAlpha(int alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int alpha=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCaretLineBackAlpha(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCaretLineBackAlpha(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCaretLineBackAlpha(alpha);
 
@@ -10299,8 +9708,7 @@ public:
 	// void wxStyledTextCtrl::SetCaretLineBackground(const wxColour & back)
 	static int _bind_SetCaretLineBackground(lua_State *L) {
 		if (!_lg_typecheck_SetCaretLineBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCaretLineBackground(const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::SetCaretLineBackground(const wxColour & back)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCaretLineBackground(const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::SetCaretLineBackground(const wxColour & back)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* back_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -10311,8 +9719,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCaretLineBackground(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCaretLineBackground(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCaretLineBackground(back);
 
@@ -10322,16 +9729,14 @@ public:
 	// void wxStyledTextCtrl::SetCaretLineVisible(bool show)
 	static int _bind_SetCaretLineVisible(lua_State *L) {
 		if (!_lg_typecheck_SetCaretLineVisible(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCaretLineVisible(bool show) function, expected prototype:\nvoid wxStyledTextCtrl::SetCaretLineVisible(bool show)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCaretLineVisible(bool show) function, expected prototype:\nvoid wxStyledTextCtrl::SetCaretLineVisible(bool show)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool show=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCaretLineVisible(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCaretLineVisible(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCaretLineVisible(show);
 
@@ -10341,16 +9746,14 @@ public:
 	// void wxStyledTextCtrl::SetCaretPeriod(int periodMilliseconds)
 	static int _bind_SetCaretPeriod(lua_State *L) {
 		if (!_lg_typecheck_SetCaretPeriod(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCaretPeriod(int periodMilliseconds) function, expected prototype:\nvoid wxStyledTextCtrl::SetCaretPeriod(int periodMilliseconds)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCaretPeriod(int periodMilliseconds) function, expected prototype:\nvoid wxStyledTextCtrl::SetCaretPeriod(int periodMilliseconds)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int periodMilliseconds=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCaretPeriod(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCaretPeriod(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCaretPeriod(periodMilliseconds);
 
@@ -10360,16 +9763,14 @@ public:
 	// void wxStyledTextCtrl::SetCaretSticky(bool useCaretStickyBehaviour)
 	static int _bind_SetCaretSticky(lua_State *L) {
 		if (!_lg_typecheck_SetCaretSticky(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCaretSticky(bool useCaretStickyBehaviour) function, expected prototype:\nvoid wxStyledTextCtrl::SetCaretSticky(bool useCaretStickyBehaviour)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCaretSticky(bool useCaretStickyBehaviour) function, expected prototype:\nvoid wxStyledTextCtrl::SetCaretSticky(bool useCaretStickyBehaviour)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useCaretStickyBehaviour=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCaretSticky(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCaretSticky(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCaretSticky(useCaretStickyBehaviour);
 
@@ -10379,16 +9780,14 @@ public:
 	// void wxStyledTextCtrl::SetCaretWidth(int pixelWidth)
 	static int _bind_SetCaretWidth(lua_State *L) {
 		if (!_lg_typecheck_SetCaretWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCaretWidth(int pixelWidth) function, expected prototype:\nvoid wxStyledTextCtrl::SetCaretWidth(int pixelWidth)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCaretWidth(int pixelWidth) function, expected prototype:\nvoid wxStyledTextCtrl::SetCaretWidth(int pixelWidth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pixelWidth=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCaretWidth(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCaretWidth(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCaretWidth(pixelWidth);
 
@@ -10398,15 +9797,13 @@ public:
 	// void wxStyledTextCtrl::SetCharsDefault()
 	static int _bind_SetCharsDefault(lua_State *L) {
 		if (!_lg_typecheck_SetCharsDefault(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCharsDefault() function, expected prototype:\nvoid wxStyledTextCtrl::SetCharsDefault()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCharsDefault() function, expected prototype:\nvoid wxStyledTextCtrl::SetCharsDefault()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCharsDefault(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCharsDefault(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCharsDefault();
 
@@ -10416,16 +9813,14 @@ public:
 	// void wxStyledTextCtrl::SetCodePage(int codePage)
 	static int _bind_SetCodePage(lua_State *L) {
 		if (!_lg_typecheck_SetCodePage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCodePage(int codePage) function, expected prototype:\nvoid wxStyledTextCtrl::SetCodePage(int codePage)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCodePage(int codePage) function, expected prototype:\nvoid wxStyledTextCtrl::SetCodePage(int codePage)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int codePage=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCodePage(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCodePage(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCodePage(codePage);
 
@@ -10435,16 +9830,14 @@ public:
 	// void wxStyledTextCtrl::SetControlCharSymbol(int symbol)
 	static int _bind_SetControlCharSymbol(lua_State *L) {
 		if (!_lg_typecheck_SetControlCharSymbol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetControlCharSymbol(int symbol) function, expected prototype:\nvoid wxStyledTextCtrl::SetControlCharSymbol(int symbol)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetControlCharSymbol(int symbol) function, expected prototype:\nvoid wxStyledTextCtrl::SetControlCharSymbol(int symbol)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int symbol=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetControlCharSymbol(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetControlCharSymbol(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetControlCharSymbol(symbol);
 
@@ -10454,16 +9847,14 @@ public:
 	// void wxStyledTextCtrl::SetCurrentPos(int pos)
 	static int _bind_SetCurrentPos(lua_State *L) {
 		if (!_lg_typecheck_SetCurrentPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCurrentPos(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetCurrentPos(int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetCurrentPos(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetCurrentPos(int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCurrentPos(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetCurrentPos(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCurrentPos(pos);
 
@@ -10473,16 +9864,14 @@ public:
 	// void wxStyledTextCtrl::SetDocPointer(void * docPointer)
 	static int _bind_SetDocPointer(lua_State *L) {
 		if (!_lg_typecheck_SetDocPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetDocPointer(void * docPointer) function, expected prototype:\nvoid wxStyledTextCtrl::SetDocPointer(void * docPointer)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetDocPointer(void * docPointer) function, expected prototype:\nvoid wxStyledTextCtrl::SetDocPointer(void * docPointer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* docPointer=(Luna< void >::check(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetDocPointer(void *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetDocPointer(void *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDocPointer(docPointer);
 
@@ -10492,16 +9881,14 @@ public:
 	// void wxStyledTextCtrl::SetEOLMode(int eolMode)
 	static int _bind_SetEOLMode(lua_State *L) {
 		if (!_lg_typecheck_SetEOLMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetEOLMode(int eolMode) function, expected prototype:\nvoid wxStyledTextCtrl::SetEOLMode(int eolMode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetEOLMode(int eolMode) function, expected prototype:\nvoid wxStyledTextCtrl::SetEOLMode(int eolMode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int eolMode=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetEOLMode(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetEOLMode(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetEOLMode(eolMode);
 
@@ -10511,8 +9898,7 @@ public:
 	// void wxStyledTextCtrl::SetEdgeColour(const wxColour & edgeColour)
 	static int _bind_SetEdgeColour(lua_State *L) {
 		if (!_lg_typecheck_SetEdgeColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetEdgeColour(const wxColour & edgeColour) function, expected prototype:\nvoid wxStyledTextCtrl::SetEdgeColour(const wxColour & edgeColour)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetEdgeColour(const wxColour & edgeColour) function, expected prototype:\nvoid wxStyledTextCtrl::SetEdgeColour(const wxColour & edgeColour)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* edgeColour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -10523,8 +9909,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetEdgeColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetEdgeColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetEdgeColour(edgeColour);
 
@@ -10534,16 +9919,14 @@ public:
 	// void wxStyledTextCtrl::SetEdgeColumn(int column)
 	static int _bind_SetEdgeColumn(lua_State *L) {
 		if (!_lg_typecheck_SetEdgeColumn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetEdgeColumn(int column) function, expected prototype:\nvoid wxStyledTextCtrl::SetEdgeColumn(int column)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetEdgeColumn(int column) function, expected prototype:\nvoid wxStyledTextCtrl::SetEdgeColumn(int column)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int column=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetEdgeColumn(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetEdgeColumn(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetEdgeColumn(column);
 
@@ -10553,16 +9936,14 @@ public:
 	// void wxStyledTextCtrl::SetEdgeMode(int mode)
 	static int _bind_SetEdgeMode(lua_State *L) {
 		if (!_lg_typecheck_SetEdgeMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetEdgeMode(int mode) function, expected prototype:\nvoid wxStyledTextCtrl::SetEdgeMode(int mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetEdgeMode(int mode) function, expected prototype:\nvoid wxStyledTextCtrl::SetEdgeMode(int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int mode=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetEdgeMode(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetEdgeMode(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetEdgeMode(mode);
 
@@ -10572,16 +9953,14 @@ public:
 	// void wxStyledTextCtrl::SetEndAtLastLine(bool endAtLastLine)
 	static int _bind_SetEndAtLastLine(lua_State *L) {
 		if (!_lg_typecheck_SetEndAtLastLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetEndAtLastLine(bool endAtLastLine) function, expected prototype:\nvoid wxStyledTextCtrl::SetEndAtLastLine(bool endAtLastLine)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetEndAtLastLine(bool endAtLastLine) function, expected prototype:\nvoid wxStyledTextCtrl::SetEndAtLastLine(bool endAtLastLine)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool endAtLastLine=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetEndAtLastLine(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetEndAtLastLine(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetEndAtLastLine(endAtLastLine);
 
@@ -10591,8 +9970,7 @@ public:
 	// void wxStyledTextCtrl::SetFoldExpanded(int line, bool expanded)
 	static int _bind_SetFoldExpanded(lua_State *L) {
 		if (!_lg_typecheck_SetFoldExpanded(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetFoldExpanded(int line, bool expanded) function, expected prototype:\nvoid wxStyledTextCtrl::SetFoldExpanded(int line, bool expanded)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetFoldExpanded(int line, bool expanded) function, expected prototype:\nvoid wxStyledTextCtrl::SetFoldExpanded(int line, bool expanded)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
@@ -10600,8 +9978,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetFoldExpanded(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetFoldExpanded(int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFoldExpanded(line, expanded);
 
@@ -10611,16 +9988,14 @@ public:
 	// void wxStyledTextCtrl::SetFoldFlags(int flags)
 	static int _bind_SetFoldFlags(lua_State *L) {
 		if (!_lg_typecheck_SetFoldFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetFoldFlags(int flags) function, expected prototype:\nvoid wxStyledTextCtrl::SetFoldFlags(int flags)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetFoldFlags(int flags) function, expected prototype:\nvoid wxStyledTextCtrl::SetFoldFlags(int flags)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int flags=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetFoldFlags(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetFoldFlags(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFoldFlags(flags);
 
@@ -10630,8 +10005,7 @@ public:
 	// void wxStyledTextCtrl::SetFoldLevel(int line, int level)
 	static int _bind_SetFoldLevel(lua_State *L) {
 		if (!_lg_typecheck_SetFoldLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetFoldLevel(int line, int level) function, expected prototype:\nvoid wxStyledTextCtrl::SetFoldLevel(int line, int level)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetFoldLevel(int line, int level) function, expected prototype:\nvoid wxStyledTextCtrl::SetFoldLevel(int line, int level)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
@@ -10639,8 +10013,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetFoldLevel(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetFoldLevel(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFoldLevel(line, level);
 
@@ -10650,8 +10023,7 @@ public:
 	// void wxStyledTextCtrl::SetFoldMarginColour(bool useSetting, const wxColour & back)
 	static int _bind_SetFoldMarginColour(lua_State *L) {
 		if (!_lg_typecheck_SetFoldMarginColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetFoldMarginColour(bool useSetting, const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::SetFoldMarginColour(bool useSetting, const wxColour & back)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetFoldMarginColour(bool useSetting, const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::SetFoldMarginColour(bool useSetting, const wxColour & back)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useSetting=(bool)(lua_toboolean(L,2)==1);
@@ -10663,8 +10035,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetFoldMarginColour(bool, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetFoldMarginColour(bool, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFoldMarginColour(useSetting, back);
 
@@ -10674,8 +10045,7 @@ public:
 	// void wxStyledTextCtrl::SetFoldMarginHiColour(bool useSetting, const wxColour & fore)
 	static int _bind_SetFoldMarginHiColour(lua_State *L) {
 		if (!_lg_typecheck_SetFoldMarginHiColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetFoldMarginHiColour(bool useSetting, const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::SetFoldMarginHiColour(bool useSetting, const wxColour & fore)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetFoldMarginHiColour(bool useSetting, const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::SetFoldMarginHiColour(bool useSetting, const wxColour & fore)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useSetting=(bool)(lua_toboolean(L,2)==1);
@@ -10687,8 +10057,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetFoldMarginHiColour(bool, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetFoldMarginHiColour(bool, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFoldMarginHiColour(useSetting, fore);
 
@@ -10698,16 +10067,14 @@ public:
 	// void wxStyledTextCtrl::SetHScrollBar(wxScrollBar * bar)
 	static int _bind_SetHScrollBar(lua_State *L) {
 		if (!_lg_typecheck_SetHScrollBar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetHScrollBar(wxScrollBar * bar) function, expected prototype:\nvoid wxStyledTextCtrl::SetHScrollBar(wxScrollBar * bar)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetHScrollBar(wxScrollBar * bar) function, expected prototype:\nvoid wxStyledTextCtrl::SetHScrollBar(wxScrollBar * bar)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxScrollBar* bar=(Luna< wxObject >::checkSubType< wxScrollBar >(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetHScrollBar(wxScrollBar *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetHScrollBar(wxScrollBar *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetHScrollBar(bar);
 
@@ -10717,16 +10084,14 @@ public:
 	// void wxStyledTextCtrl::SetHighlightGuide(int column)
 	static int _bind_SetHighlightGuide(lua_State *L) {
 		if (!_lg_typecheck_SetHighlightGuide(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetHighlightGuide(int column) function, expected prototype:\nvoid wxStyledTextCtrl::SetHighlightGuide(int column)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetHighlightGuide(int column) function, expected prototype:\nvoid wxStyledTextCtrl::SetHighlightGuide(int column)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int column=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetHighlightGuide(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetHighlightGuide(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetHighlightGuide(column);
 
@@ -10736,8 +10101,7 @@ public:
 	// void wxStyledTextCtrl::SetHotspotActiveBackground(bool useSetting, const wxColour & back)
 	static int _bind_SetHotspotActiveBackground(lua_State *L) {
 		if (!_lg_typecheck_SetHotspotActiveBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetHotspotActiveBackground(bool useSetting, const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::SetHotspotActiveBackground(bool useSetting, const wxColour & back)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetHotspotActiveBackground(bool useSetting, const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::SetHotspotActiveBackground(bool useSetting, const wxColour & back)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useSetting=(bool)(lua_toboolean(L,2)==1);
@@ -10749,8 +10113,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetHotspotActiveBackground(bool, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetHotspotActiveBackground(bool, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetHotspotActiveBackground(useSetting, back);
 
@@ -10760,8 +10123,7 @@ public:
 	// void wxStyledTextCtrl::SetHotspotActiveForeground(bool useSetting, const wxColour & fore)
 	static int _bind_SetHotspotActiveForeground(lua_State *L) {
 		if (!_lg_typecheck_SetHotspotActiveForeground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetHotspotActiveForeground(bool useSetting, const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::SetHotspotActiveForeground(bool useSetting, const wxColour & fore)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetHotspotActiveForeground(bool useSetting, const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::SetHotspotActiveForeground(bool useSetting, const wxColour & fore)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useSetting=(bool)(lua_toboolean(L,2)==1);
@@ -10773,8 +10135,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetHotspotActiveForeground(bool, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetHotspotActiveForeground(bool, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetHotspotActiveForeground(useSetting, fore);
 
@@ -10784,16 +10145,14 @@ public:
 	// void wxStyledTextCtrl::SetHotspotActiveUnderline(bool underline)
 	static int _bind_SetHotspotActiveUnderline(lua_State *L) {
 		if (!_lg_typecheck_SetHotspotActiveUnderline(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetHotspotActiveUnderline(bool underline) function, expected prototype:\nvoid wxStyledTextCtrl::SetHotspotActiveUnderline(bool underline)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetHotspotActiveUnderline(bool underline) function, expected prototype:\nvoid wxStyledTextCtrl::SetHotspotActiveUnderline(bool underline)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool underline=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetHotspotActiveUnderline(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetHotspotActiveUnderline(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetHotspotActiveUnderline(underline);
 
@@ -10803,16 +10162,14 @@ public:
 	// void wxStyledTextCtrl::SetHotspotSingleLine(bool singleLine)
 	static int _bind_SetHotspotSingleLine(lua_State *L) {
 		if (!_lg_typecheck_SetHotspotSingleLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetHotspotSingleLine(bool singleLine) function, expected prototype:\nvoid wxStyledTextCtrl::SetHotspotSingleLine(bool singleLine)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetHotspotSingleLine(bool singleLine) function, expected prototype:\nvoid wxStyledTextCtrl::SetHotspotSingleLine(bool singleLine)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool singleLine=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetHotspotSingleLine(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetHotspotSingleLine(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetHotspotSingleLine(singleLine);
 
@@ -10822,16 +10179,14 @@ public:
 	// void wxStyledTextCtrl::SetIndent(int indentSize)
 	static int _bind_SetIndent(lua_State *L) {
 		if (!_lg_typecheck_SetIndent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetIndent(int indentSize) function, expected prototype:\nvoid wxStyledTextCtrl::SetIndent(int indentSize)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetIndent(int indentSize) function, expected prototype:\nvoid wxStyledTextCtrl::SetIndent(int indentSize)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int indentSize=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetIndent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetIndent(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetIndent(indentSize);
 
@@ -10841,16 +10196,14 @@ public:
 	// void wxStyledTextCtrl::SetIndentationGuides(int indentView)
 	static int _bind_SetIndentationGuides(lua_State *L) {
 		if (!_lg_typecheck_SetIndentationGuides(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetIndentationGuides(int indentView) function, expected prototype:\nvoid wxStyledTextCtrl::SetIndentationGuides(int indentView)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetIndentationGuides(int indentView) function, expected prototype:\nvoid wxStyledTextCtrl::SetIndentationGuides(int indentView)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int indentView=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetIndentationGuides(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetIndentationGuides(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetIndentationGuides(indentView);
 
@@ -10860,8 +10213,7 @@ public:
 	// void wxStyledTextCtrl::SetKeyWords(int keywordSet, const wxString & keyWords)
 	static int _bind_SetKeyWords(lua_State *L) {
 		if (!_lg_typecheck_SetKeyWords(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetKeyWords(int keywordSet, const wxString & keyWords) function, expected prototype:\nvoid wxStyledTextCtrl::SetKeyWords(int keywordSet, const wxString & keyWords)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetKeyWords(int keywordSet, const wxString & keyWords) function, expected prototype:\nvoid wxStyledTextCtrl::SetKeyWords(int keywordSet, const wxString & keyWords)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int keywordSet=(int)lua_tointeger(L,2);
@@ -10869,8 +10221,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetKeyWords(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetKeyWords(int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetKeyWords(keywordSet, keyWords);
 
@@ -10880,16 +10231,14 @@ public:
 	// void wxStyledTextCtrl::SetLastKeydownProcessed(bool val)
 	static int _bind_SetLastKeydownProcessed(lua_State *L) {
 		if (!_lg_typecheck_SetLastKeydownProcessed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetLastKeydownProcessed(bool val) function, expected prototype:\nvoid wxStyledTextCtrl::SetLastKeydownProcessed(bool val)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetLastKeydownProcessed(bool val) function, expected prototype:\nvoid wxStyledTextCtrl::SetLastKeydownProcessed(bool val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool val=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetLastKeydownProcessed(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetLastKeydownProcessed(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetLastKeydownProcessed(val);
 
@@ -10899,16 +10248,14 @@ public:
 	// void wxStyledTextCtrl::SetLayoutCache(int mode)
 	static int _bind_SetLayoutCache(lua_State *L) {
 		if (!_lg_typecheck_SetLayoutCache(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetLayoutCache(int mode) function, expected prototype:\nvoid wxStyledTextCtrl::SetLayoutCache(int mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetLayoutCache(int mode) function, expected prototype:\nvoid wxStyledTextCtrl::SetLayoutCache(int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int mode=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetLayoutCache(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetLayoutCache(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetLayoutCache(mode);
 
@@ -10918,16 +10265,14 @@ public:
 	// void wxStyledTextCtrl::SetLexer(int lexer)
 	static int _bind_SetLexer(lua_State *L) {
 		if (!_lg_typecheck_SetLexer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetLexer(int lexer) function, expected prototype:\nvoid wxStyledTextCtrl::SetLexer(int lexer)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetLexer(int lexer) function, expected prototype:\nvoid wxStyledTextCtrl::SetLexer(int lexer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int lexer=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetLexer(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetLexer(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetLexer(lexer);
 
@@ -10937,16 +10282,14 @@ public:
 	// void wxStyledTextCtrl::SetLexerLanguage(const wxString & language)
 	static int _bind_SetLexerLanguage(lua_State *L) {
 		if (!_lg_typecheck_SetLexerLanguage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetLexerLanguage(const wxString & language) function, expected prototype:\nvoid wxStyledTextCtrl::SetLexerLanguage(const wxString & language)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetLexerLanguage(const wxString & language) function, expected prototype:\nvoid wxStyledTextCtrl::SetLexerLanguage(const wxString & language)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString language(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetLexerLanguage(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetLexerLanguage(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetLexerLanguage(language);
 
@@ -10956,8 +10299,7 @@ public:
 	// void wxStyledTextCtrl::SetLineIndentation(int line, int indentSize)
 	static int _bind_SetLineIndentation(lua_State *L) {
 		if (!_lg_typecheck_SetLineIndentation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetLineIndentation(int line, int indentSize) function, expected prototype:\nvoid wxStyledTextCtrl::SetLineIndentation(int line, int indentSize)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetLineIndentation(int line, int indentSize) function, expected prototype:\nvoid wxStyledTextCtrl::SetLineIndentation(int line, int indentSize)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
@@ -10965,8 +10307,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetLineIndentation(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetLineIndentation(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetLineIndentation(line, indentSize);
 
@@ -10976,8 +10317,7 @@ public:
 	// void wxStyledTextCtrl::SetLineState(int line, int state)
 	static int _bind_SetLineState(lua_State *L) {
 		if (!_lg_typecheck_SetLineState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetLineState(int line, int state) function, expected prototype:\nvoid wxStyledTextCtrl::SetLineState(int line, int state)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetLineState(int line, int state) function, expected prototype:\nvoid wxStyledTextCtrl::SetLineState(int line, int state)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
@@ -10985,8 +10325,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetLineState(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetLineState(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetLineState(line, state);
 
@@ -10996,16 +10335,14 @@ public:
 	// void wxStyledTextCtrl::SetMarginLeft(int pixelWidth)
 	static int _bind_SetMarginLeft(lua_State *L) {
 		if (!_lg_typecheck_SetMarginLeft(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMarginLeft(int pixelWidth) function, expected prototype:\nvoid wxStyledTextCtrl::SetMarginLeft(int pixelWidth)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMarginLeft(int pixelWidth) function, expected prototype:\nvoid wxStyledTextCtrl::SetMarginLeft(int pixelWidth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pixelWidth=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMarginLeft(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMarginLeft(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMarginLeft(pixelWidth);
 
@@ -11015,8 +10352,7 @@ public:
 	// void wxStyledTextCtrl::SetMarginMask(int margin, int mask)
 	static int _bind_SetMarginMask(lua_State *L) {
 		if (!_lg_typecheck_SetMarginMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMarginMask(int margin, int mask) function, expected prototype:\nvoid wxStyledTextCtrl::SetMarginMask(int margin, int mask)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMarginMask(int margin, int mask) function, expected prototype:\nvoid wxStyledTextCtrl::SetMarginMask(int margin, int mask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int margin=(int)lua_tointeger(L,2);
@@ -11024,8 +10360,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMarginMask(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMarginMask(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMarginMask(margin, mask);
 
@@ -11035,16 +10370,14 @@ public:
 	// void wxStyledTextCtrl::SetMarginRight(int pixelWidth)
 	static int _bind_SetMarginRight(lua_State *L) {
 		if (!_lg_typecheck_SetMarginRight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMarginRight(int pixelWidth) function, expected prototype:\nvoid wxStyledTextCtrl::SetMarginRight(int pixelWidth)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMarginRight(int pixelWidth) function, expected prototype:\nvoid wxStyledTextCtrl::SetMarginRight(int pixelWidth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pixelWidth=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMarginRight(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMarginRight(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMarginRight(pixelWidth);
 
@@ -11054,8 +10387,7 @@ public:
 	// void wxStyledTextCtrl::SetMarginSensitive(int margin, bool sensitive)
 	static int _bind_SetMarginSensitive(lua_State *L) {
 		if (!_lg_typecheck_SetMarginSensitive(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMarginSensitive(int margin, bool sensitive) function, expected prototype:\nvoid wxStyledTextCtrl::SetMarginSensitive(int margin, bool sensitive)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMarginSensitive(int margin, bool sensitive) function, expected prototype:\nvoid wxStyledTextCtrl::SetMarginSensitive(int margin, bool sensitive)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int margin=(int)lua_tointeger(L,2);
@@ -11063,8 +10395,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMarginSensitive(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMarginSensitive(int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMarginSensitive(margin, sensitive);
 
@@ -11074,8 +10405,7 @@ public:
 	// void wxStyledTextCtrl::SetMarginType(int margin, int marginType)
 	static int _bind_SetMarginType(lua_State *L) {
 		if (!_lg_typecheck_SetMarginType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMarginType(int margin, int marginType) function, expected prototype:\nvoid wxStyledTextCtrl::SetMarginType(int margin, int marginType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMarginType(int margin, int marginType) function, expected prototype:\nvoid wxStyledTextCtrl::SetMarginType(int margin, int marginType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int margin=(int)lua_tointeger(L,2);
@@ -11083,8 +10413,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMarginType(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMarginType(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMarginType(margin, marginType);
 
@@ -11094,8 +10423,7 @@ public:
 	// void wxStyledTextCtrl::SetMarginWidth(int margin, int pixelWidth)
 	static int _bind_SetMarginWidth(lua_State *L) {
 		if (!_lg_typecheck_SetMarginWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMarginWidth(int margin, int pixelWidth) function, expected prototype:\nvoid wxStyledTextCtrl::SetMarginWidth(int margin, int pixelWidth)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMarginWidth(int margin, int pixelWidth) function, expected prototype:\nvoid wxStyledTextCtrl::SetMarginWidth(int margin, int pixelWidth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int margin=(int)lua_tointeger(L,2);
@@ -11103,8 +10431,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMarginWidth(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMarginWidth(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMarginWidth(margin, pixelWidth);
 
@@ -11114,8 +10441,7 @@ public:
 	// void wxStyledTextCtrl::SetMargins(int left, int right)
 	static int _bind_SetMargins(lua_State *L) {
 		if (!_lg_typecheck_SetMargins(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMargins(int left, int right) function, expected prototype:\nvoid wxStyledTextCtrl::SetMargins(int left, int right)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMargins(int left, int right) function, expected prototype:\nvoid wxStyledTextCtrl::SetMargins(int left, int right)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int left=(int)lua_tointeger(L,2);
@@ -11123,8 +10449,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMargins(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMargins(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMargins(left, right);
 
@@ -11134,16 +10459,14 @@ public:
 	// void wxStyledTextCtrl::SetModEventMask(int mask)
 	static int _bind_SetModEventMask(lua_State *L) {
 		if (!_lg_typecheck_SetModEventMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetModEventMask(int mask) function, expected prototype:\nvoid wxStyledTextCtrl::SetModEventMask(int mask)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetModEventMask(int mask) function, expected prototype:\nvoid wxStyledTextCtrl::SetModEventMask(int mask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int mask=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetModEventMask(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetModEventMask(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetModEventMask(mask);
 
@@ -11153,16 +10476,14 @@ public:
 	// void wxStyledTextCtrl::SetMouseDownCaptures(bool captures)
 	static int _bind_SetMouseDownCaptures(lua_State *L) {
 		if (!_lg_typecheck_SetMouseDownCaptures(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMouseDownCaptures(bool captures) function, expected prototype:\nvoid wxStyledTextCtrl::SetMouseDownCaptures(bool captures)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMouseDownCaptures(bool captures) function, expected prototype:\nvoid wxStyledTextCtrl::SetMouseDownCaptures(bool captures)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool captures=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMouseDownCaptures(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMouseDownCaptures(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMouseDownCaptures(captures);
 
@@ -11172,16 +10493,14 @@ public:
 	// void wxStyledTextCtrl::SetMouseDwellTime(int periodMilliseconds)
 	static int _bind_SetMouseDwellTime(lua_State *L) {
 		if (!_lg_typecheck_SetMouseDwellTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMouseDwellTime(int periodMilliseconds) function, expected prototype:\nvoid wxStyledTextCtrl::SetMouseDwellTime(int periodMilliseconds)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMouseDwellTime(int periodMilliseconds) function, expected prototype:\nvoid wxStyledTextCtrl::SetMouseDwellTime(int periodMilliseconds)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int periodMilliseconds=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMouseDwellTime(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMouseDwellTime(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMouseDwellTime(periodMilliseconds);
 
@@ -11191,16 +10510,14 @@ public:
 	// void wxStyledTextCtrl::SetOvertype(bool overtype)
 	static int _bind_SetOvertype(lua_State *L) {
 		if (!_lg_typecheck_SetOvertype(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetOvertype(bool overtype) function, expected prototype:\nvoid wxStyledTextCtrl::SetOvertype(bool overtype)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetOvertype(bool overtype) function, expected prototype:\nvoid wxStyledTextCtrl::SetOvertype(bool overtype)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool overtype=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetOvertype(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetOvertype(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetOvertype(overtype);
 
@@ -11210,16 +10527,14 @@ public:
 	// void wxStyledTextCtrl::SetPasteConvertEndings(bool convert)
 	static int _bind_SetPasteConvertEndings(lua_State *L) {
 		if (!_lg_typecheck_SetPasteConvertEndings(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetPasteConvertEndings(bool convert) function, expected prototype:\nvoid wxStyledTextCtrl::SetPasteConvertEndings(bool convert)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetPasteConvertEndings(bool convert) function, expected prototype:\nvoid wxStyledTextCtrl::SetPasteConvertEndings(bool convert)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool convert=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetPasteConvertEndings(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetPasteConvertEndings(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetPasteConvertEndings(convert);
 
@@ -11229,16 +10544,14 @@ public:
 	// void wxStyledTextCtrl::SetPrintColourMode(int mode)
 	static int _bind_SetPrintColourMode(lua_State *L) {
 		if (!_lg_typecheck_SetPrintColourMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetPrintColourMode(int mode) function, expected prototype:\nvoid wxStyledTextCtrl::SetPrintColourMode(int mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetPrintColourMode(int mode) function, expected prototype:\nvoid wxStyledTextCtrl::SetPrintColourMode(int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int mode=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetPrintColourMode(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetPrintColourMode(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetPrintColourMode(mode);
 
@@ -11248,16 +10561,14 @@ public:
 	// void wxStyledTextCtrl::SetPrintMagnification(int magnification)
 	static int _bind_SetPrintMagnification(lua_State *L) {
 		if (!_lg_typecheck_SetPrintMagnification(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetPrintMagnification(int magnification) function, expected prototype:\nvoid wxStyledTextCtrl::SetPrintMagnification(int magnification)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetPrintMagnification(int magnification) function, expected prototype:\nvoid wxStyledTextCtrl::SetPrintMagnification(int magnification)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int magnification=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetPrintMagnification(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetPrintMagnification(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetPrintMagnification(magnification);
 
@@ -11267,16 +10578,14 @@ public:
 	// void wxStyledTextCtrl::SetPrintWrapMode(int mode)
 	static int _bind_SetPrintWrapMode(lua_State *L) {
 		if (!_lg_typecheck_SetPrintWrapMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetPrintWrapMode(int mode) function, expected prototype:\nvoid wxStyledTextCtrl::SetPrintWrapMode(int mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetPrintWrapMode(int mode) function, expected prototype:\nvoid wxStyledTextCtrl::SetPrintWrapMode(int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int mode=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetPrintWrapMode(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetPrintWrapMode(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetPrintWrapMode(mode);
 
@@ -11286,8 +10595,7 @@ public:
 	// void wxStyledTextCtrl::SetProperty(const wxString & key, const wxString & value)
 	static int _bind_SetProperty(lua_State *L) {
 		if (!_lg_typecheck_SetProperty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetProperty(const wxString & key, const wxString & value) function, expected prototype:\nvoid wxStyledTextCtrl::SetProperty(const wxString & key, const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetProperty(const wxString & key, const wxString & value) function, expected prototype:\nvoid wxStyledTextCtrl::SetProperty(const wxString & key, const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
@@ -11295,8 +10603,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetProperty(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetProperty(const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetProperty(key, value);
 
@@ -11306,16 +10613,14 @@ public:
 	// void wxStyledTextCtrl::SetReadOnly(bool readOnly)
 	static int _bind_SetReadOnly(lua_State *L) {
 		if (!_lg_typecheck_SetReadOnly(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetReadOnly(bool readOnly) function, expected prototype:\nvoid wxStyledTextCtrl::SetReadOnly(bool readOnly)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetReadOnly(bool readOnly) function, expected prototype:\nvoid wxStyledTextCtrl::SetReadOnly(bool readOnly)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool readOnly=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetReadOnly(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetReadOnly(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetReadOnly(readOnly);
 
@@ -11325,16 +10630,14 @@ public:
 	// void wxStyledTextCtrl::SetSTCCursor(int cursorType)
 	static int _bind_SetSTCCursor(lua_State *L) {
 		if (!_lg_typecheck_SetSTCCursor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSTCCursor(int cursorType) function, expected prototype:\nvoid wxStyledTextCtrl::SetSTCCursor(int cursorType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSTCCursor(int cursorType) function, expected prototype:\nvoid wxStyledTextCtrl::SetSTCCursor(int cursorType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int cursorType=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSTCCursor(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSTCCursor(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSTCCursor(cursorType);
 
@@ -11344,16 +10647,14 @@ public:
 	// void wxStyledTextCtrl::SetSTCFocus(bool focus)
 	static int _bind_SetSTCFocus(lua_State *L) {
 		if (!_lg_typecheck_SetSTCFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSTCFocus(bool focus) function, expected prototype:\nvoid wxStyledTextCtrl::SetSTCFocus(bool focus)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSTCFocus(bool focus) function, expected prototype:\nvoid wxStyledTextCtrl::SetSTCFocus(bool focus)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool focus=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSTCFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSTCFocus(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSTCFocus(focus);
 
@@ -11363,15 +10664,13 @@ public:
 	// void wxStyledTextCtrl::SetSavePoint()
 	static int _bind_SetSavePoint(lua_State *L) {
 		if (!_lg_typecheck_SetSavePoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSavePoint() function, expected prototype:\nvoid wxStyledTextCtrl::SetSavePoint()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSavePoint() function, expected prototype:\nvoid wxStyledTextCtrl::SetSavePoint()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSavePoint(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSavePoint(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSavePoint();
 
@@ -11381,16 +10680,14 @@ public:
 	// void wxStyledTextCtrl::SetScrollWidth(int pixelWidth)
 	static int _bind_SetScrollWidth(lua_State *L) {
 		if (!_lg_typecheck_SetScrollWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetScrollWidth(int pixelWidth) function, expected prototype:\nvoid wxStyledTextCtrl::SetScrollWidth(int pixelWidth)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetScrollWidth(int pixelWidth) function, expected prototype:\nvoid wxStyledTextCtrl::SetScrollWidth(int pixelWidth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pixelWidth=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetScrollWidth(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetScrollWidth(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetScrollWidth(pixelWidth);
 
@@ -11400,16 +10697,14 @@ public:
 	// void wxStyledTextCtrl::SetSearchFlags(int flags)
 	static int _bind_SetSearchFlags(lua_State *L) {
 		if (!_lg_typecheck_SetSearchFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSearchFlags(int flags) function, expected prototype:\nvoid wxStyledTextCtrl::SetSearchFlags(int flags)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSearchFlags(int flags) function, expected prototype:\nvoid wxStyledTextCtrl::SetSearchFlags(int flags)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int flags=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSearchFlags(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSearchFlags(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSearchFlags(flags);
 
@@ -11419,16 +10714,14 @@ public:
 	// void wxStyledTextCtrl::SetSelAlpha(int alpha)
 	static int _bind_SetSelAlpha(lua_State *L) {
 		if (!_lg_typecheck_SetSelAlpha(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelAlpha(int alpha) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelAlpha(int alpha)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelAlpha(int alpha) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelAlpha(int alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int alpha=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelAlpha(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelAlpha(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelAlpha(alpha);
 
@@ -11438,8 +10731,7 @@ public:
 	// void wxStyledTextCtrl::SetSelBackground(bool useSetting, const wxColour & back)
 	static int _bind_SetSelBackground(lua_State *L) {
 		if (!_lg_typecheck_SetSelBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelBackground(bool useSetting, const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelBackground(bool useSetting, const wxColour & back)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelBackground(bool useSetting, const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelBackground(bool useSetting, const wxColour & back)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useSetting=(bool)(lua_toboolean(L,2)==1);
@@ -11451,8 +10743,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelBackground(bool, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelBackground(bool, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelBackground(useSetting, back);
 
@@ -11462,8 +10753,7 @@ public:
 	// void wxStyledTextCtrl::SetSelForeground(bool useSetting, const wxColour & fore)
 	static int _bind_SetSelForeground(lua_State *L) {
 		if (!_lg_typecheck_SetSelForeground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelForeground(bool useSetting, const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelForeground(bool useSetting, const wxColour & fore)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelForeground(bool useSetting, const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelForeground(bool useSetting, const wxColour & fore)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useSetting=(bool)(lua_toboolean(L,2)==1);
@@ -11475,8 +10765,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelForeground(bool, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelForeground(bool, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelForeground(useSetting, fore);
 
@@ -11486,17 +10775,15 @@ public:
 	// void wxStyledTextCtrl::SetSelection(long from, long to)
 	static int _bind_SetSelection(lua_State *L) {
 		if (!_lg_typecheck_SetSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelection(long from, long to) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelection(long from, long to)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelection(long from, long to) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelection(long from, long to)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long from=(long)lua_tonumber(L,2);
+		long to=(long)lua_tonumber(L,3);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelection(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelection(long, long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelection(from, to);
 
@@ -11506,16 +10793,14 @@ public:
 	// void wxStyledTextCtrl::SetSelectionEnd(int pos)
 	static int _bind_SetSelectionEnd(lua_State *L) {
 		if (!_lg_typecheck_SetSelectionEnd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionEnd(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionEnd(int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionEnd(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionEnd(int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionEnd(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionEnd(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelectionEnd(pos);
 
@@ -11525,16 +10810,14 @@ public:
 	// void wxStyledTextCtrl::SetSelectionMode(int mode)
 	static int _bind_SetSelectionMode(lua_State *L) {
 		if (!_lg_typecheck_SetSelectionMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionMode(int mode) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionMode(int mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionMode(int mode) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionMode(int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int mode=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionMode(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionMode(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelectionMode(mode);
 
@@ -11544,16 +10827,14 @@ public:
 	// void wxStyledTextCtrl::SetSelectionStart(int pos)
 	static int _bind_SetSelectionStart(lua_State *L) {
 		if (!_lg_typecheck_SetSelectionStart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionStart(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionStart(int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionStart(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionStart(int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionStart(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionStart(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelectionStart(pos);
 
@@ -11563,16 +10844,14 @@ public:
 	// void wxStyledTextCtrl::SetStatus(int statusCode)
 	static int _bind_SetStatus(lua_State *L) {
 		if (!_lg_typecheck_SetStatus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetStatus(int statusCode) function, expected prototype:\nvoid wxStyledTextCtrl::SetStatus(int statusCode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetStatus(int statusCode) function, expected prototype:\nvoid wxStyledTextCtrl::SetStatus(int statusCode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int statusCode=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetStatus(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetStatus(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetStatus(statusCode);
 
@@ -11582,16 +10861,14 @@ public:
 	// void wxStyledTextCtrl::SetStyleBits(int bits)
 	static int _bind_SetStyleBits(lua_State *L) {
 		if (!_lg_typecheck_SetStyleBits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetStyleBits(int bits) function, expected prototype:\nvoid wxStyledTextCtrl::SetStyleBits(int bits)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetStyleBits(int bits) function, expected prototype:\nvoid wxStyledTextCtrl::SetStyleBits(int bits)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int bits=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetStyleBits(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetStyleBits(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetStyleBits(bits);
 
@@ -11601,8 +10878,7 @@ public:
 	// void wxStyledTextCtrl::SetStyleBytes(int length, char * styleBytes)
 	static int _bind_SetStyleBytes(lua_State *L) {
 		if (!_lg_typecheck_SetStyleBytes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetStyleBytes(int length, char * styleBytes) function, expected prototype:\nvoid wxStyledTextCtrl::SetStyleBytes(int length, char * styleBytes)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetStyleBytes(int length, char * styleBytes) function, expected prototype:\nvoid wxStyledTextCtrl::SetStyleBytes(int length, char * styleBytes)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int length=(int)lua_tointeger(L,2);
@@ -11610,8 +10886,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetStyleBytes(int, char *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetStyleBytes(int, char *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetStyleBytes(length, styleBytes);
 
@@ -11621,8 +10896,7 @@ public:
 	// void wxStyledTextCtrl::SetStyling(int length, int style)
 	static int _bind_SetStyling(lua_State *L) {
 		if (!_lg_typecheck_SetStyling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetStyling(int length, int style) function, expected prototype:\nvoid wxStyledTextCtrl::SetStyling(int length, int style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetStyling(int length, int style) function, expected prototype:\nvoid wxStyledTextCtrl::SetStyling(int length, int style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int length=(int)lua_tointeger(L,2);
@@ -11630,8 +10904,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetStyling(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetStyling(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetStyling(length, style);
 
@@ -11641,16 +10914,14 @@ public:
 	// void wxStyledTextCtrl::SetTabIndents(bool tabIndents)
 	static int _bind_SetTabIndents(lua_State *L) {
 		if (!_lg_typecheck_SetTabIndents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetTabIndents(bool tabIndents) function, expected prototype:\nvoid wxStyledTextCtrl::SetTabIndents(bool tabIndents)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetTabIndents(bool tabIndents) function, expected prototype:\nvoid wxStyledTextCtrl::SetTabIndents(bool tabIndents)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool tabIndents=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetTabIndents(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetTabIndents(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTabIndents(tabIndents);
 
@@ -11660,16 +10931,14 @@ public:
 	// void wxStyledTextCtrl::SetTabWidth(int tabWidth)
 	static int _bind_SetTabWidth(lua_State *L) {
 		if (!_lg_typecheck_SetTabWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetTabWidth(int tabWidth) function, expected prototype:\nvoid wxStyledTextCtrl::SetTabWidth(int tabWidth)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetTabWidth(int tabWidth) function, expected prototype:\nvoid wxStyledTextCtrl::SetTabWidth(int tabWidth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int tabWidth=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetTabWidth(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetTabWidth(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTabWidth(tabWidth);
 
@@ -11679,16 +10948,14 @@ public:
 	// void wxStyledTextCtrl::SetTargetEnd(int pos)
 	static int _bind_SetTargetEnd(lua_State *L) {
 		if (!_lg_typecheck_SetTargetEnd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetTargetEnd(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetTargetEnd(int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetTargetEnd(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetTargetEnd(int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetTargetEnd(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetTargetEnd(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTargetEnd(pos);
 
@@ -11698,16 +10965,14 @@ public:
 	// void wxStyledTextCtrl::SetTargetStart(int pos)
 	static int _bind_SetTargetStart(lua_State *L) {
 		if (!_lg_typecheck_SetTargetStart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetTargetStart(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetTargetStart(int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetTargetStart(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetTargetStart(int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetTargetStart(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetTargetStart(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTargetStart(pos);
 
@@ -11717,16 +10982,14 @@ public:
 	// void wxStyledTextCtrl::SetText(const wxString & text)
 	static int _bind_SetText(lua_State *L) {
 		if (!_lg_typecheck_SetText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetText(const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::SetText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetText(const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::SetText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetText(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetText(text);
 
@@ -11736,16 +10999,14 @@ public:
 	// void wxStyledTextCtrl::SetTextRaw(const char * text)
 	static int _bind_SetTextRaw(lua_State *L) {
 		if (!_lg_typecheck_SetTextRaw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetTextRaw(const char * text) function, expected prototype:\nvoid wxStyledTextCtrl::SetTextRaw(const char * text)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetTextRaw(const char * text) function, expected prototype:\nvoid wxStyledTextCtrl::SetTextRaw(const char * text)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * text=(const char *)lua_tostring(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetTextRaw(const char *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetTextRaw(const char *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTextRaw(text);
 
@@ -11755,16 +11016,14 @@ public:
 	// void wxStyledTextCtrl::SetTwoPhaseDraw(bool twoPhase)
 	static int _bind_SetTwoPhaseDraw(lua_State *L) {
 		if (!_lg_typecheck_SetTwoPhaseDraw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetTwoPhaseDraw(bool twoPhase) function, expected prototype:\nvoid wxStyledTextCtrl::SetTwoPhaseDraw(bool twoPhase)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetTwoPhaseDraw(bool twoPhase) function, expected prototype:\nvoid wxStyledTextCtrl::SetTwoPhaseDraw(bool twoPhase)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool twoPhase=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetTwoPhaseDraw(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetTwoPhaseDraw(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTwoPhaseDraw(twoPhase);
 
@@ -11774,16 +11033,14 @@ public:
 	// void wxStyledTextCtrl::SetUndoCollection(bool collectUndo)
 	static int _bind_SetUndoCollection(lua_State *L) {
 		if (!_lg_typecheck_SetUndoCollection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetUndoCollection(bool collectUndo) function, expected prototype:\nvoid wxStyledTextCtrl::SetUndoCollection(bool collectUndo)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetUndoCollection(bool collectUndo) function, expected prototype:\nvoid wxStyledTextCtrl::SetUndoCollection(bool collectUndo)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool collectUndo=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetUndoCollection(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetUndoCollection(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetUndoCollection(collectUndo);
 
@@ -11793,16 +11050,14 @@ public:
 	// void wxStyledTextCtrl::SetUseAntiAliasing(bool useAA)
 	static int _bind_SetUseAntiAliasing(lua_State *L) {
 		if (!_lg_typecheck_SetUseAntiAliasing(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetUseAntiAliasing(bool useAA) function, expected prototype:\nvoid wxStyledTextCtrl::SetUseAntiAliasing(bool useAA)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetUseAntiAliasing(bool useAA) function, expected prototype:\nvoid wxStyledTextCtrl::SetUseAntiAliasing(bool useAA)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useAA=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetUseAntiAliasing(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetUseAntiAliasing(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetUseAntiAliasing(useAA);
 
@@ -11812,16 +11067,14 @@ public:
 	// void wxStyledTextCtrl::SetUseHorizontalScrollBar(bool show)
 	static int _bind_SetUseHorizontalScrollBar(lua_State *L) {
 		if (!_lg_typecheck_SetUseHorizontalScrollBar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetUseHorizontalScrollBar(bool show) function, expected prototype:\nvoid wxStyledTextCtrl::SetUseHorizontalScrollBar(bool show)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetUseHorizontalScrollBar(bool show) function, expected prototype:\nvoid wxStyledTextCtrl::SetUseHorizontalScrollBar(bool show)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool show=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetUseHorizontalScrollBar(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetUseHorizontalScrollBar(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetUseHorizontalScrollBar(show);
 
@@ -11831,16 +11084,14 @@ public:
 	// void wxStyledTextCtrl::SetUseTabs(bool useTabs)
 	static int _bind_SetUseTabs(lua_State *L) {
 		if (!_lg_typecheck_SetUseTabs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetUseTabs(bool useTabs) function, expected prototype:\nvoid wxStyledTextCtrl::SetUseTabs(bool useTabs)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetUseTabs(bool useTabs) function, expected prototype:\nvoid wxStyledTextCtrl::SetUseTabs(bool useTabs)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useTabs=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetUseTabs(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetUseTabs(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetUseTabs(useTabs);
 
@@ -11850,16 +11101,14 @@ public:
 	// void wxStyledTextCtrl::SetUseVerticalScrollBar(bool show)
 	static int _bind_SetUseVerticalScrollBar(lua_State *L) {
 		if (!_lg_typecheck_SetUseVerticalScrollBar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetUseVerticalScrollBar(bool show) function, expected prototype:\nvoid wxStyledTextCtrl::SetUseVerticalScrollBar(bool show)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetUseVerticalScrollBar(bool show) function, expected prototype:\nvoid wxStyledTextCtrl::SetUseVerticalScrollBar(bool show)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool show=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetUseVerticalScrollBar(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetUseVerticalScrollBar(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetUseVerticalScrollBar(show);
 
@@ -11869,16 +11118,14 @@ public:
 	// void wxStyledTextCtrl::SetVScrollBar(wxScrollBar * bar)
 	static int _bind_SetVScrollBar(lua_State *L) {
 		if (!_lg_typecheck_SetVScrollBar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetVScrollBar(wxScrollBar * bar) function, expected prototype:\nvoid wxStyledTextCtrl::SetVScrollBar(wxScrollBar * bar)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetVScrollBar(wxScrollBar * bar) function, expected prototype:\nvoid wxStyledTextCtrl::SetVScrollBar(wxScrollBar * bar)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxScrollBar* bar=(Luna< wxObject >::checkSubType< wxScrollBar >(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetVScrollBar(wxScrollBar *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetVScrollBar(wxScrollBar *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetVScrollBar(bar);
 
@@ -11888,16 +11135,14 @@ public:
 	// void wxStyledTextCtrl::SetViewEOL(bool visible)
 	static int _bind_SetViewEOL(lua_State *L) {
 		if (!_lg_typecheck_SetViewEOL(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetViewEOL(bool visible) function, expected prototype:\nvoid wxStyledTextCtrl::SetViewEOL(bool visible)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetViewEOL(bool visible) function, expected prototype:\nvoid wxStyledTextCtrl::SetViewEOL(bool visible)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool visible=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetViewEOL(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetViewEOL(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetViewEOL(visible);
 
@@ -11907,16 +11152,14 @@ public:
 	// void wxStyledTextCtrl::SetViewWhiteSpace(int viewWS)
 	static int _bind_SetViewWhiteSpace(lua_State *L) {
 		if (!_lg_typecheck_SetViewWhiteSpace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetViewWhiteSpace(int viewWS) function, expected prototype:\nvoid wxStyledTextCtrl::SetViewWhiteSpace(int viewWS)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetViewWhiteSpace(int viewWS) function, expected prototype:\nvoid wxStyledTextCtrl::SetViewWhiteSpace(int viewWS)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int viewWS=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetViewWhiteSpace(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetViewWhiteSpace(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetViewWhiteSpace(viewWS);
 
@@ -11926,8 +11169,7 @@ public:
 	// void wxStyledTextCtrl::SetVisiblePolicy(int visiblePolicy, int visibleSlop)
 	static int _bind_SetVisiblePolicy(lua_State *L) {
 		if (!_lg_typecheck_SetVisiblePolicy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetVisiblePolicy(int visiblePolicy, int visibleSlop) function, expected prototype:\nvoid wxStyledTextCtrl::SetVisiblePolicy(int visiblePolicy, int visibleSlop)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetVisiblePolicy(int visiblePolicy, int visibleSlop) function, expected prototype:\nvoid wxStyledTextCtrl::SetVisiblePolicy(int visiblePolicy, int visibleSlop)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int visiblePolicy=(int)lua_tointeger(L,2);
@@ -11935,8 +11177,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetVisiblePolicy(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetVisiblePolicy(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetVisiblePolicy(visiblePolicy, visibleSlop);
 
@@ -11946,8 +11187,7 @@ public:
 	// void wxStyledTextCtrl::SetWhitespaceBackground(bool useSetting, const wxColour & back)
 	static int _bind_SetWhitespaceBackground(lua_State *L) {
 		if (!_lg_typecheck_SetWhitespaceBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWhitespaceBackground(bool useSetting, const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::SetWhitespaceBackground(bool useSetting, const wxColour & back)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWhitespaceBackground(bool useSetting, const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::SetWhitespaceBackground(bool useSetting, const wxColour & back)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useSetting=(bool)(lua_toboolean(L,2)==1);
@@ -11959,8 +11199,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWhitespaceBackground(bool, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWhitespaceBackground(bool, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWhitespaceBackground(useSetting, back);
 
@@ -11970,16 +11209,14 @@ public:
 	// void wxStyledTextCtrl::SetWhitespaceChars(const wxString & characters)
 	static int _bind_SetWhitespaceChars(lua_State *L) {
 		if (!_lg_typecheck_SetWhitespaceChars(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWhitespaceChars(const wxString & characters) function, expected prototype:\nvoid wxStyledTextCtrl::SetWhitespaceChars(const wxString & characters)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWhitespaceChars(const wxString & characters) function, expected prototype:\nvoid wxStyledTextCtrl::SetWhitespaceChars(const wxString & characters)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString characters(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWhitespaceChars(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWhitespaceChars(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWhitespaceChars(characters);
 
@@ -11989,8 +11226,7 @@ public:
 	// void wxStyledTextCtrl::SetWhitespaceForeground(bool useSetting, const wxColour & fore)
 	static int _bind_SetWhitespaceForeground(lua_State *L) {
 		if (!_lg_typecheck_SetWhitespaceForeground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWhitespaceForeground(bool useSetting, const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::SetWhitespaceForeground(bool useSetting, const wxColour & fore)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWhitespaceForeground(bool useSetting, const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::SetWhitespaceForeground(bool useSetting, const wxColour & fore)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useSetting=(bool)(lua_toboolean(L,2)==1);
@@ -12002,8 +11238,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWhitespaceForeground(bool, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWhitespaceForeground(bool, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWhitespaceForeground(useSetting, fore);
 
@@ -12013,16 +11248,14 @@ public:
 	// void wxStyledTextCtrl::SetWhitespaceSize(int size)
 	static int _bind_SetWhitespaceSize(lua_State *L) {
 		if (!_lg_typecheck_SetWhitespaceSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWhitespaceSize(int size) function, expected prototype:\nvoid wxStyledTextCtrl::SetWhitespaceSize(int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWhitespaceSize(int size) function, expected prototype:\nvoid wxStyledTextCtrl::SetWhitespaceSize(int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int size=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWhitespaceSize(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWhitespaceSize(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWhitespaceSize(size);
 
@@ -12032,15 +11265,13 @@ public:
 	// int wxStyledTextCtrl::GetWhitespaceSize() const
 	static int _bind_GetWhitespaceSize(lua_State *L) {
 		if (!_lg_typecheck_GetWhitespaceSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetWhitespaceSize() const function, expected prototype:\nint wxStyledTextCtrl::GetWhitespaceSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetWhitespaceSize() const function, expected prototype:\nint wxStyledTextCtrl::GetWhitespaceSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetWhitespaceSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetWhitespaceSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetWhitespaceSize();
 		lua_pushnumber(L,lret);
@@ -12051,16 +11282,14 @@ public:
 	// void wxStyledTextCtrl::SetWordChars(const wxString & characters)
 	static int _bind_SetWordChars(lua_State *L) {
 		if (!_lg_typecheck_SetWordChars(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWordChars(const wxString & characters) function, expected prototype:\nvoid wxStyledTextCtrl::SetWordChars(const wxString & characters)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWordChars(const wxString & characters) function, expected prototype:\nvoid wxStyledTextCtrl::SetWordChars(const wxString & characters)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString characters(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWordChars(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWordChars(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWordChars(characters);
 
@@ -12070,16 +11299,14 @@ public:
 	// void wxStyledTextCtrl::SetWrapMode(int mode)
 	static int _bind_SetWrapMode(lua_State *L) {
 		if (!_lg_typecheck_SetWrapMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWrapMode(int mode) function, expected prototype:\nvoid wxStyledTextCtrl::SetWrapMode(int mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWrapMode(int mode) function, expected prototype:\nvoid wxStyledTextCtrl::SetWrapMode(int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int mode=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWrapMode(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWrapMode(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWrapMode(mode);
 
@@ -12089,16 +11316,14 @@ public:
 	// void wxStyledTextCtrl::SetWrapStartIndent(int indent)
 	static int _bind_SetWrapStartIndent(lua_State *L) {
 		if (!_lg_typecheck_SetWrapStartIndent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWrapStartIndent(int indent) function, expected prototype:\nvoid wxStyledTextCtrl::SetWrapStartIndent(int indent)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWrapStartIndent(int indent) function, expected prototype:\nvoid wxStyledTextCtrl::SetWrapStartIndent(int indent)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int indent=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWrapStartIndent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWrapStartIndent(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWrapStartIndent(indent);
 
@@ -12108,16 +11333,14 @@ public:
 	// void wxStyledTextCtrl::SetWrapVisualFlags(int wrapVisualFlags)
 	static int _bind_SetWrapVisualFlags(lua_State *L) {
 		if (!_lg_typecheck_SetWrapVisualFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWrapVisualFlags(int wrapVisualFlags) function, expected prototype:\nvoid wxStyledTextCtrl::SetWrapVisualFlags(int wrapVisualFlags)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWrapVisualFlags(int wrapVisualFlags) function, expected prototype:\nvoid wxStyledTextCtrl::SetWrapVisualFlags(int wrapVisualFlags)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int wrapVisualFlags=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWrapVisualFlags(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWrapVisualFlags(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWrapVisualFlags(wrapVisualFlags);
 
@@ -12127,16 +11350,14 @@ public:
 	// void wxStyledTextCtrl::SetWrapVisualFlagsLocation(int wrapVisualFlagsLocation)
 	static int _bind_SetWrapVisualFlagsLocation(lua_State *L) {
 		if (!_lg_typecheck_SetWrapVisualFlagsLocation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWrapVisualFlagsLocation(int wrapVisualFlagsLocation) function, expected prototype:\nvoid wxStyledTextCtrl::SetWrapVisualFlagsLocation(int wrapVisualFlagsLocation)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWrapVisualFlagsLocation(int wrapVisualFlagsLocation) function, expected prototype:\nvoid wxStyledTextCtrl::SetWrapVisualFlagsLocation(int wrapVisualFlagsLocation)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int wrapVisualFlagsLocation=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWrapVisualFlagsLocation(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWrapVisualFlagsLocation(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWrapVisualFlagsLocation(wrapVisualFlagsLocation);
 
@@ -12146,8 +11367,7 @@ public:
 	// void wxStyledTextCtrl::SetXCaretPolicy(int caretPolicy, int caretSlop)
 	static int _bind_SetXCaretPolicy(lua_State *L) {
 		if (!_lg_typecheck_SetXCaretPolicy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetXCaretPolicy(int caretPolicy, int caretSlop) function, expected prototype:\nvoid wxStyledTextCtrl::SetXCaretPolicy(int caretPolicy, int caretSlop)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetXCaretPolicy(int caretPolicy, int caretSlop) function, expected prototype:\nvoid wxStyledTextCtrl::SetXCaretPolicy(int caretPolicy, int caretSlop)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int caretPolicy=(int)lua_tointeger(L,2);
@@ -12155,8 +11375,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetXCaretPolicy(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetXCaretPolicy(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetXCaretPolicy(caretPolicy, caretSlop);
 
@@ -12166,16 +11385,14 @@ public:
 	// void wxStyledTextCtrl::SetXOffset(int newOffset)
 	static int _bind_SetXOffset(lua_State *L) {
 		if (!_lg_typecheck_SetXOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetXOffset(int newOffset) function, expected prototype:\nvoid wxStyledTextCtrl::SetXOffset(int newOffset)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetXOffset(int newOffset) function, expected prototype:\nvoid wxStyledTextCtrl::SetXOffset(int newOffset)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int newOffset=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetXOffset(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetXOffset(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetXOffset(newOffset);
 
@@ -12185,8 +11402,7 @@ public:
 	// void wxStyledTextCtrl::SetYCaretPolicy(int caretPolicy, int caretSlop)
 	static int _bind_SetYCaretPolicy(lua_State *L) {
 		if (!_lg_typecheck_SetYCaretPolicy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetYCaretPolicy(int caretPolicy, int caretSlop) function, expected prototype:\nvoid wxStyledTextCtrl::SetYCaretPolicy(int caretPolicy, int caretSlop)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetYCaretPolicy(int caretPolicy, int caretSlop) function, expected prototype:\nvoid wxStyledTextCtrl::SetYCaretPolicy(int caretPolicy, int caretSlop)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int caretPolicy=(int)lua_tointeger(L,2);
@@ -12194,8 +11410,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetYCaretPolicy(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetYCaretPolicy(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetYCaretPolicy(caretPolicy, caretSlop);
 
@@ -12205,16 +11420,14 @@ public:
 	// void wxStyledTextCtrl::SetZoom(int zoom)
 	static int _bind_SetZoom(lua_State *L) {
 		if (!_lg_typecheck_SetZoom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetZoom(int zoom) function, expected prototype:\nvoid wxStyledTextCtrl::SetZoom(int zoom)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetZoom(int zoom) function, expected prototype:\nvoid wxStyledTextCtrl::SetZoom(int zoom)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int zoom=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetZoom(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetZoom(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetZoom(zoom);
 
@@ -12224,8 +11437,7 @@ public:
 	// void wxStyledTextCtrl::ShowLines(int lineStart, int lineEnd)
 	static int _bind_ShowLines(lua_State *L) {
 		if (!_lg_typecheck_ShowLines(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ShowLines(int lineStart, int lineEnd) function, expected prototype:\nvoid wxStyledTextCtrl::ShowLines(int lineStart, int lineEnd)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ShowLines(int lineStart, int lineEnd) function, expected prototype:\nvoid wxStyledTextCtrl::ShowLines(int lineStart, int lineEnd)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int lineStart=(int)lua_tointeger(L,2);
@@ -12233,8 +11445,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ShowLines(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ShowLines(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ShowLines(lineStart, lineEnd);
 
@@ -12244,15 +11455,13 @@ public:
 	// void wxStyledTextCtrl::StartRecord()
 	static int _bind_StartRecord(lua_State *L) {
 		if (!_lg_typecheck_StartRecord(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StartRecord() function, expected prototype:\nvoid wxStyledTextCtrl::StartRecord()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StartRecord() function, expected prototype:\nvoid wxStyledTextCtrl::StartRecord()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StartRecord(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StartRecord(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StartRecord();
 
@@ -12262,8 +11471,7 @@ public:
 	// void wxStyledTextCtrl::StartStyling(int pos, int mask)
 	static int _bind_StartStyling(lua_State *L) {
 		if (!_lg_typecheck_StartStyling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StartStyling(int pos, int mask) function, expected prototype:\nvoid wxStyledTextCtrl::StartStyling(int pos, int mask)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StartStyling(int pos, int mask) function, expected prototype:\nvoid wxStyledTextCtrl::StartStyling(int pos, int mask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -12271,8 +11479,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StartStyling(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StartStyling(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StartStyling(pos, mask);
 
@@ -12282,15 +11489,13 @@ public:
 	// void wxStyledTextCtrl::StopRecord()
 	static int _bind_StopRecord(lua_State *L) {
 		if (!_lg_typecheck_StopRecord(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StopRecord() function, expected prototype:\nvoid wxStyledTextCtrl::StopRecord()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StopRecord() function, expected prototype:\nvoid wxStyledTextCtrl::StopRecord()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StopRecord(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StopRecord(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StopRecord();
 
@@ -12300,15 +11505,13 @@ public:
 	// void wxStyledTextCtrl::StutteredPageDown()
 	static int _bind_StutteredPageDown(lua_State *L) {
 		if (!_lg_typecheck_StutteredPageDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StutteredPageDown() function, expected prototype:\nvoid wxStyledTextCtrl::StutteredPageDown()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StutteredPageDown() function, expected prototype:\nvoid wxStyledTextCtrl::StutteredPageDown()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StutteredPageDown(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StutteredPageDown(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StutteredPageDown();
 
@@ -12318,15 +11521,13 @@ public:
 	// void wxStyledTextCtrl::StutteredPageDownExtend()
 	static int _bind_StutteredPageDownExtend(lua_State *L) {
 		if (!_lg_typecheck_StutteredPageDownExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StutteredPageDownExtend() function, expected prototype:\nvoid wxStyledTextCtrl::StutteredPageDownExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StutteredPageDownExtend() function, expected prototype:\nvoid wxStyledTextCtrl::StutteredPageDownExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StutteredPageDownExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StutteredPageDownExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StutteredPageDownExtend();
 
@@ -12336,15 +11537,13 @@ public:
 	// void wxStyledTextCtrl::StutteredPageUp()
 	static int _bind_StutteredPageUp(lua_State *L) {
 		if (!_lg_typecheck_StutteredPageUp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StutteredPageUp() function, expected prototype:\nvoid wxStyledTextCtrl::StutteredPageUp()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StutteredPageUp() function, expected prototype:\nvoid wxStyledTextCtrl::StutteredPageUp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StutteredPageUp(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StutteredPageUp(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StutteredPageUp();
 
@@ -12354,15 +11553,13 @@ public:
 	// void wxStyledTextCtrl::StutteredPageUpExtend()
 	static int _bind_StutteredPageUpExtend(lua_State *L) {
 		if (!_lg_typecheck_StutteredPageUpExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StutteredPageUpExtend() function, expected prototype:\nvoid wxStyledTextCtrl::StutteredPageUpExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StutteredPageUpExtend() function, expected prototype:\nvoid wxStyledTextCtrl::StutteredPageUpExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StutteredPageUpExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StutteredPageUpExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StutteredPageUpExtend();
 
@@ -12372,15 +11569,13 @@ public:
 	// void wxStyledTextCtrl::StyleClearAll()
 	static int _bind_StyleClearAll(lua_State *L) {
 		if (!_lg_typecheck_StyleClearAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleClearAll() function, expected prototype:\nvoid wxStyledTextCtrl::StyleClearAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleClearAll() function, expected prototype:\nvoid wxStyledTextCtrl::StyleClearAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleClearAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleClearAll(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleClearAll();
 
@@ -12390,15 +11585,13 @@ public:
 	// void wxStyledTextCtrl::StyleResetDefault()
 	static int _bind_StyleResetDefault(lua_State *L) {
 		if (!_lg_typecheck_StyleResetDefault(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleResetDefault() function, expected prototype:\nvoid wxStyledTextCtrl::StyleResetDefault()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleResetDefault() function, expected prototype:\nvoid wxStyledTextCtrl::StyleResetDefault()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleResetDefault(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleResetDefault(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleResetDefault();
 
@@ -12408,8 +11601,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetBackground(int style, const wxColour & back)
 	static int _bind_StyleSetBackground(lua_State *L) {
 		if (!_lg_typecheck_StyleSetBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetBackground(int style, const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetBackground(int style, const wxColour & back)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetBackground(int style, const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetBackground(int style, const wxColour & back)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
@@ -12421,8 +11613,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetBackground(int, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetBackground(int, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetBackground(style, back);
 
@@ -12432,8 +11623,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetBold(int style, bool bold)
 	static int _bind_StyleSetBold(lua_State *L) {
 		if (!_lg_typecheck_StyleSetBold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetBold(int style, bool bold) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetBold(int style, bool bold)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetBold(int style, bool bold) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetBold(int style, bool bold)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
@@ -12441,8 +11631,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetBold(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetBold(int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetBold(style, bold);
 
@@ -12452,8 +11641,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetCase(int style, int caseForce)
 	static int _bind_StyleSetCase(lua_State *L) {
 		if (!_lg_typecheck_StyleSetCase(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetCase(int style, int caseForce) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetCase(int style, int caseForce)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetCase(int style, int caseForce) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetCase(int style, int caseForce)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
@@ -12461,8 +11649,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetCase(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetCase(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetCase(style, caseForce);
 
@@ -12472,8 +11659,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetChangeable(int style, bool changeable)
 	static int _bind_StyleSetChangeable(lua_State *L) {
 		if (!_lg_typecheck_StyleSetChangeable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetChangeable(int style, bool changeable) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetChangeable(int style, bool changeable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetChangeable(int style, bool changeable) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetChangeable(int style, bool changeable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
@@ -12481,8 +11667,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetChangeable(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetChangeable(int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetChangeable(style, changeable);
 
@@ -12492,8 +11677,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetCharacterSet(int style, int characterSet)
 	static int _bind_StyleSetCharacterSet(lua_State *L) {
 		if (!_lg_typecheck_StyleSetCharacterSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetCharacterSet(int style, int characterSet) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetCharacterSet(int style, int characterSet)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetCharacterSet(int style, int characterSet) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetCharacterSet(int style, int characterSet)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
@@ -12501,8 +11685,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetCharacterSet(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetCharacterSet(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetCharacterSet(style, characterSet);
 
@@ -12512,8 +11695,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetEOLFilled(int style, bool filled)
 	static int _bind_StyleSetEOLFilled(lua_State *L) {
 		if (!_lg_typecheck_StyleSetEOLFilled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetEOLFilled(int style, bool filled) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetEOLFilled(int style, bool filled)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetEOLFilled(int style, bool filled) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetEOLFilled(int style, bool filled)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
@@ -12521,8 +11703,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetEOLFilled(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetEOLFilled(int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetEOLFilled(style, filled);
 
@@ -12532,8 +11713,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetFaceName(int style, const wxString & fontName)
 	static int _bind_StyleSetFaceName(lua_State *L) {
 		if (!_lg_typecheck_StyleSetFaceName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetFaceName(int style, const wxString & fontName) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetFaceName(int style, const wxString & fontName)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetFaceName(int style, const wxString & fontName) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetFaceName(int style, const wxString & fontName)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
@@ -12541,8 +11721,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetFaceName(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetFaceName(int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetFaceName(style, fontName);
 
@@ -12552,8 +11731,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetFont(int styleNum, wxFont & font)
 	static int _bind_StyleSetFont(lua_State *L) {
 		if (!_lg_typecheck_StyleSetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetFont(int styleNum, wxFont & font) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetFont(int styleNum, wxFont & font)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetFont(int styleNum, wxFont & font) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetFont(int styleNum, wxFont & font)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int styleNum=(int)lua_tointeger(L,2);
@@ -12565,8 +11743,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetFont(int, wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetFont(int, wxFont &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetFont(styleNum, font);
 
@@ -12576,8 +11753,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetFontAttr(int styleNum, int size, const wxString & faceName, bool bold, bool italic, bool underline, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT)
 	static int _bind_StyleSetFontAttr(lua_State *L) {
 		if (!_lg_typecheck_StyleSetFontAttr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetFontAttr(int styleNum, int size, const wxString & faceName, bool bold, bool italic, bool underline, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetFontAttr(int styleNum, int size, const wxString & faceName, bool bold, bool italic, bool underline, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT)\nClass arguments details:\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetFontAttr(int styleNum, int size, const wxString & faceName, bool bold, bool italic, bool underline, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetFontAttr(int styleNum, int size, const wxString & faceName, bool bold, bool italic, bool underline, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT)\nClass arguments details:\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12592,8 +11768,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetFontAttr(int, int, const wxString &, bool, bool, bool, wxFontEncoding). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetFontAttr(int, int, const wxString &, bool, bool, bool, wxFontEncoding). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetFontAttr(styleNum, size, faceName, bold, italic, underline, encoding);
 
@@ -12603,8 +11778,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetFontEncoding(int style, wxFontEncoding encoding)
 	static int _bind_StyleSetFontEncoding(lua_State *L) {
 		if (!_lg_typecheck_StyleSetFontEncoding(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetFontEncoding(int style, wxFontEncoding encoding) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetFontEncoding(int style, wxFontEncoding encoding)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetFontEncoding(int style, wxFontEncoding encoding) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetFontEncoding(int style, wxFontEncoding encoding)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
@@ -12612,8 +11786,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetFontEncoding(int, wxFontEncoding). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetFontEncoding(int, wxFontEncoding). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetFontEncoding(style, encoding);
 
@@ -12623,8 +11796,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetForeground(int style, const wxColour & fore)
 	static int _bind_StyleSetForeground(lua_State *L) {
 		if (!_lg_typecheck_StyleSetForeground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetForeground(int style, const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetForeground(int style, const wxColour & fore)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetForeground(int style, const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetForeground(int style, const wxColour & fore)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
@@ -12636,8 +11808,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetForeground(int, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetForeground(int, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetForeground(style, fore);
 
@@ -12647,8 +11818,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetHotSpot(int style, bool hotspot)
 	static int _bind_StyleSetHotSpot(lua_State *L) {
 		if (!_lg_typecheck_StyleSetHotSpot(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetHotSpot(int style, bool hotspot) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetHotSpot(int style, bool hotspot)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetHotSpot(int style, bool hotspot) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetHotSpot(int style, bool hotspot)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
@@ -12656,8 +11826,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetHotSpot(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetHotSpot(int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetHotSpot(style, hotspot);
 
@@ -12667,8 +11836,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetItalic(int style, bool italic)
 	static int _bind_StyleSetItalic(lua_State *L) {
 		if (!_lg_typecheck_StyleSetItalic(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetItalic(int style, bool italic) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetItalic(int style, bool italic)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetItalic(int style, bool italic) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetItalic(int style, bool italic)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
@@ -12676,8 +11844,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetItalic(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetItalic(int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetItalic(style, italic);
 
@@ -12687,8 +11854,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetSize(int style, int sizePoints)
 	static int _bind_StyleSetSize(lua_State *L) {
 		if (!_lg_typecheck_StyleSetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetSize(int style, int sizePoints) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetSize(int style, int sizePoints)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetSize(int style, int sizePoints) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetSize(int style, int sizePoints)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
@@ -12696,8 +11862,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetSize(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetSize(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetSize(style, sizePoints);
 
@@ -12707,8 +11872,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetSpec(int styleNum, const wxString & spec)
 	static int _bind_StyleSetSpec(lua_State *L) {
 		if (!_lg_typecheck_StyleSetSpec(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetSpec(int styleNum, const wxString & spec) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetSpec(int styleNum, const wxString & spec)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetSpec(int styleNum, const wxString & spec) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetSpec(int styleNum, const wxString & spec)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int styleNum=(int)lua_tointeger(L,2);
@@ -12716,8 +11880,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetSpec(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetSpec(int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetSpec(styleNum, spec);
 
@@ -12727,8 +11890,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetUnderline(int style, bool underline)
 	static int _bind_StyleSetUnderline(lua_State *L) {
 		if (!_lg_typecheck_StyleSetUnderline(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetUnderline(int style, bool underline) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetUnderline(int style, bool underline)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetUnderline(int style, bool underline) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetUnderline(int style, bool underline)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
@@ -12736,8 +11898,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetUnderline(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetUnderline(int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetUnderline(style, underline);
 
@@ -12747,8 +11908,7 @@ public:
 	// void wxStyledTextCtrl::StyleSetVisible(int style, bool visible)
 	static int _bind_StyleSetVisible(lua_State *L) {
 		if (!_lg_typecheck_StyleSetVisible(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetVisible(int style, bool visible) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetVisible(int style, bool visible)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetVisible(int style, bool visible) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetVisible(int style, bool visible)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
@@ -12756,8 +11916,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetVisible(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::StyleSetVisible(int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StyleSetVisible(style, visible);
 
@@ -12767,15 +11926,13 @@ public:
 	// void wxStyledTextCtrl::Tab()
 	static int _bind_Tab(lua_State *L) {
 		if (!_lg_typecheck_Tab(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Tab() function, expected prototype:\nvoid wxStyledTextCtrl::Tab()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Tab() function, expected prototype:\nvoid wxStyledTextCtrl::Tab()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Tab(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Tab(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Tab();
 
@@ -12785,15 +11942,13 @@ public:
 	// void wxStyledTextCtrl::TargetFromSelection()
 	static int _bind_TargetFromSelection(lua_State *L) {
 		if (!_lg_typecheck_TargetFromSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::TargetFromSelection() function, expected prototype:\nvoid wxStyledTextCtrl::TargetFromSelection()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::TargetFromSelection() function, expected prototype:\nvoid wxStyledTextCtrl::TargetFromSelection()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::TargetFromSelection(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::TargetFromSelection(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TargetFromSelection();
 
@@ -12803,16 +11958,14 @@ public:
 	// int wxStyledTextCtrl::TextHeight(int line)
 	static int _bind_TextHeight(lua_State *L) {
 		if (!_lg_typecheck_TextHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::TextHeight(int line) function, expected prototype:\nint wxStyledTextCtrl::TextHeight(int line)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::TextHeight(int line) function, expected prototype:\nint wxStyledTextCtrl::TextHeight(int line)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::TextHeight(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::TextHeight(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->TextHeight(line);
 		lua_pushnumber(L,lret);
@@ -12823,8 +11976,7 @@ public:
 	// int wxStyledTextCtrl::TextWidth(int style, const wxString & text)
 	static int _bind_TextWidth(lua_State *L) {
 		if (!_lg_typecheck_TextWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::TextWidth(int style, const wxString & text) function, expected prototype:\nint wxStyledTextCtrl::TextWidth(int style, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::TextWidth(int style, const wxString & text) function, expected prototype:\nint wxStyledTextCtrl::TextWidth(int style, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
@@ -12832,8 +11984,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::TextWidth(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::TextWidth(int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->TextWidth(style, text);
 		lua_pushnumber(L,lret);
@@ -12844,15 +11995,13 @@ public:
 	// void wxStyledTextCtrl::ToggleCaretSticky()
 	static int _bind_ToggleCaretSticky(lua_State *L) {
 		if (!_lg_typecheck_ToggleCaretSticky(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ToggleCaretSticky() function, expected prototype:\nvoid wxStyledTextCtrl::ToggleCaretSticky()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ToggleCaretSticky() function, expected prototype:\nvoid wxStyledTextCtrl::ToggleCaretSticky()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ToggleCaretSticky(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ToggleCaretSticky(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ToggleCaretSticky();
 
@@ -12862,16 +12011,14 @@ public:
 	// void wxStyledTextCtrl::ToggleFold(int line)
 	static int _bind_ToggleFold(lua_State *L) {
 		if (!_lg_typecheck_ToggleFold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ToggleFold(int line) function, expected prototype:\nvoid wxStyledTextCtrl::ToggleFold(int line)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ToggleFold(int line) function, expected prototype:\nvoid wxStyledTextCtrl::ToggleFold(int line)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ToggleFold(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ToggleFold(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ToggleFold(line);
 
@@ -12881,15 +12028,13 @@ public:
 	// void wxStyledTextCtrl::Undo()
 	static int _bind_Undo(lua_State *L) {
 		if (!_lg_typecheck_Undo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Undo() function, expected prototype:\nvoid wxStyledTextCtrl::Undo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::Undo() function, expected prototype:\nvoid wxStyledTextCtrl::Undo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Undo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::Undo(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Undo();
 
@@ -12899,15 +12044,13 @@ public:
 	// void wxStyledTextCtrl::UpperCase()
 	static int _bind_UpperCase(lua_State *L) {
 		if (!_lg_typecheck_UpperCase(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::UpperCase() function, expected prototype:\nvoid wxStyledTextCtrl::UpperCase()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::UpperCase() function, expected prototype:\nvoid wxStyledTextCtrl::UpperCase()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::UpperCase(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::UpperCase(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->UpperCase();
 
@@ -12917,16 +12060,14 @@ public:
 	// void wxStyledTextCtrl::UsePopUp(bool allowPopUp)
 	static int _bind_UsePopUp(lua_State *L) {
 		if (!_lg_typecheck_UsePopUp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::UsePopUp(bool allowPopUp) function, expected prototype:\nvoid wxStyledTextCtrl::UsePopUp(bool allowPopUp)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::UsePopUp(bool allowPopUp) function, expected prototype:\nvoid wxStyledTextCtrl::UsePopUp(bool allowPopUp)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool allowPopUp=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::UsePopUp(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::UsePopUp(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->UsePopUp(allowPopUp);
 
@@ -12936,8 +12077,7 @@ public:
 	// void wxStyledTextCtrl::UserListShow(int listType, const wxString & itemList)
 	static int _bind_UserListShow(lua_State *L) {
 		if (!_lg_typecheck_UserListShow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::UserListShow(int listType, const wxString & itemList) function, expected prototype:\nvoid wxStyledTextCtrl::UserListShow(int listType, const wxString & itemList)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::UserListShow(int listType, const wxString & itemList) function, expected prototype:\nvoid wxStyledTextCtrl::UserListShow(int listType, const wxString & itemList)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int listType=(int)lua_tointeger(L,2);
@@ -12945,8 +12085,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::UserListShow(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::UserListShow(int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->UserListShow(listType, itemList);
 
@@ -12956,15 +12095,13 @@ public:
 	// void wxStyledTextCtrl::VCHome()
 	static int _bind_VCHome(lua_State *L) {
 		if (!_lg_typecheck_VCHome(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::VCHome() function, expected prototype:\nvoid wxStyledTextCtrl::VCHome()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::VCHome() function, expected prototype:\nvoid wxStyledTextCtrl::VCHome()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::VCHome(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::VCHome(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VCHome();
 
@@ -12974,15 +12111,13 @@ public:
 	// void wxStyledTextCtrl::VCHomeExtend()
 	static int _bind_VCHomeExtend(lua_State *L) {
 		if (!_lg_typecheck_VCHomeExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::VCHomeExtend() function, expected prototype:\nvoid wxStyledTextCtrl::VCHomeExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::VCHomeExtend() function, expected prototype:\nvoid wxStyledTextCtrl::VCHomeExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::VCHomeExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::VCHomeExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VCHomeExtend();
 
@@ -12992,15 +12127,13 @@ public:
 	// void wxStyledTextCtrl::VCHomeRectExtend()
 	static int _bind_VCHomeRectExtend(lua_State *L) {
 		if (!_lg_typecheck_VCHomeRectExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::VCHomeRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::VCHomeRectExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::VCHomeRectExtend() function, expected prototype:\nvoid wxStyledTextCtrl::VCHomeRectExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::VCHomeRectExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::VCHomeRectExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VCHomeRectExtend();
 
@@ -13010,15 +12143,13 @@ public:
 	// void wxStyledTextCtrl::VCHomeWrap()
 	static int _bind_VCHomeWrap(lua_State *L) {
 		if (!_lg_typecheck_VCHomeWrap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::VCHomeWrap() function, expected prototype:\nvoid wxStyledTextCtrl::VCHomeWrap()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::VCHomeWrap() function, expected prototype:\nvoid wxStyledTextCtrl::VCHomeWrap()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::VCHomeWrap(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::VCHomeWrap(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VCHomeWrap();
 
@@ -13028,15 +12159,13 @@ public:
 	// void wxStyledTextCtrl::VCHomeWrapExtend()
 	static int _bind_VCHomeWrapExtend(lua_State *L) {
 		if (!_lg_typecheck_VCHomeWrapExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::VCHomeWrapExtend() function, expected prototype:\nvoid wxStyledTextCtrl::VCHomeWrapExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::VCHomeWrapExtend() function, expected prototype:\nvoid wxStyledTextCtrl::VCHomeWrapExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::VCHomeWrapExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::VCHomeWrapExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VCHomeWrapExtend();
 
@@ -13046,16 +12175,14 @@ public:
 	// int wxStyledTextCtrl::VisibleFromDocLine(int line)
 	static int _bind_VisibleFromDocLine(lua_State *L) {
 		if (!_lg_typecheck_VisibleFromDocLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::VisibleFromDocLine(int line) function, expected prototype:\nint wxStyledTextCtrl::VisibleFromDocLine(int line)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::VisibleFromDocLine(int line) function, expected prototype:\nint wxStyledTextCtrl::VisibleFromDocLine(int line)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::VisibleFromDocLine(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::VisibleFromDocLine(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->VisibleFromDocLine(line);
 		lua_pushnumber(L,lret);
@@ -13066,8 +12193,7 @@ public:
 	// int wxStyledTextCtrl::WordEndPosition(int pos, bool onlyWordCharacters)
 	static int _bind_WordEndPosition(lua_State *L) {
 		if (!_lg_typecheck_WordEndPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::WordEndPosition(int pos, bool onlyWordCharacters) function, expected prototype:\nint wxStyledTextCtrl::WordEndPosition(int pos, bool onlyWordCharacters)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::WordEndPosition(int pos, bool onlyWordCharacters) function, expected prototype:\nint wxStyledTextCtrl::WordEndPosition(int pos, bool onlyWordCharacters)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -13075,8 +12201,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::WordEndPosition(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::WordEndPosition(int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->WordEndPosition(pos, onlyWordCharacters);
 		lua_pushnumber(L,lret);
@@ -13087,15 +12212,13 @@ public:
 	// void wxStyledTextCtrl::WordLeft()
 	static int _bind_WordLeft(lua_State *L) {
 		if (!_lg_typecheck_WordLeft(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordLeft() function, expected prototype:\nvoid wxStyledTextCtrl::WordLeft()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordLeft() function, expected prototype:\nvoid wxStyledTextCtrl::WordLeft()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordLeft(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordLeft(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WordLeft();
 
@@ -13105,15 +12228,13 @@ public:
 	// void wxStyledTextCtrl::WordLeftEnd()
 	static int _bind_WordLeftEnd(lua_State *L) {
 		if (!_lg_typecheck_WordLeftEnd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordLeftEnd() function, expected prototype:\nvoid wxStyledTextCtrl::WordLeftEnd()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordLeftEnd() function, expected prototype:\nvoid wxStyledTextCtrl::WordLeftEnd()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordLeftEnd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordLeftEnd(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WordLeftEnd();
 
@@ -13123,15 +12244,13 @@ public:
 	// void wxStyledTextCtrl::WordLeftEndExtend()
 	static int _bind_WordLeftEndExtend(lua_State *L) {
 		if (!_lg_typecheck_WordLeftEndExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordLeftEndExtend() function, expected prototype:\nvoid wxStyledTextCtrl::WordLeftEndExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordLeftEndExtend() function, expected prototype:\nvoid wxStyledTextCtrl::WordLeftEndExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordLeftEndExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordLeftEndExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WordLeftEndExtend();
 
@@ -13141,15 +12260,13 @@ public:
 	// void wxStyledTextCtrl::WordLeftExtend()
 	static int _bind_WordLeftExtend(lua_State *L) {
 		if (!_lg_typecheck_WordLeftExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordLeftExtend() function, expected prototype:\nvoid wxStyledTextCtrl::WordLeftExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordLeftExtend() function, expected prototype:\nvoid wxStyledTextCtrl::WordLeftExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordLeftExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordLeftExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WordLeftExtend();
 
@@ -13159,15 +12276,13 @@ public:
 	// void wxStyledTextCtrl::WordPartLeft()
 	static int _bind_WordPartLeft(lua_State *L) {
 		if (!_lg_typecheck_WordPartLeft(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordPartLeft() function, expected prototype:\nvoid wxStyledTextCtrl::WordPartLeft()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordPartLeft() function, expected prototype:\nvoid wxStyledTextCtrl::WordPartLeft()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordPartLeft(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordPartLeft(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WordPartLeft();
 
@@ -13177,15 +12292,13 @@ public:
 	// void wxStyledTextCtrl::WordPartLeftExtend()
 	static int _bind_WordPartLeftExtend(lua_State *L) {
 		if (!_lg_typecheck_WordPartLeftExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordPartLeftExtend() function, expected prototype:\nvoid wxStyledTextCtrl::WordPartLeftExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordPartLeftExtend() function, expected prototype:\nvoid wxStyledTextCtrl::WordPartLeftExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordPartLeftExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordPartLeftExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WordPartLeftExtend();
 
@@ -13195,15 +12308,13 @@ public:
 	// void wxStyledTextCtrl::WordPartRight()
 	static int _bind_WordPartRight(lua_State *L) {
 		if (!_lg_typecheck_WordPartRight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordPartRight() function, expected prototype:\nvoid wxStyledTextCtrl::WordPartRight()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordPartRight() function, expected prototype:\nvoid wxStyledTextCtrl::WordPartRight()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordPartRight(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordPartRight(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WordPartRight();
 
@@ -13213,15 +12324,13 @@ public:
 	// void wxStyledTextCtrl::WordPartRightExtend()
 	static int _bind_WordPartRightExtend(lua_State *L) {
 		if (!_lg_typecheck_WordPartRightExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordPartRightExtend() function, expected prototype:\nvoid wxStyledTextCtrl::WordPartRightExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordPartRightExtend() function, expected prototype:\nvoid wxStyledTextCtrl::WordPartRightExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordPartRightExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordPartRightExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WordPartRightExtend();
 
@@ -13231,15 +12340,13 @@ public:
 	// void wxStyledTextCtrl::WordRight()
 	static int _bind_WordRight(lua_State *L) {
 		if (!_lg_typecheck_WordRight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordRight() function, expected prototype:\nvoid wxStyledTextCtrl::WordRight()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordRight() function, expected prototype:\nvoid wxStyledTextCtrl::WordRight()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordRight(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordRight(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WordRight();
 
@@ -13249,15 +12356,13 @@ public:
 	// void wxStyledTextCtrl::WordRightEnd()
 	static int _bind_WordRightEnd(lua_State *L) {
 		if (!_lg_typecheck_WordRightEnd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordRightEnd() function, expected prototype:\nvoid wxStyledTextCtrl::WordRightEnd()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordRightEnd() function, expected prototype:\nvoid wxStyledTextCtrl::WordRightEnd()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordRightEnd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordRightEnd(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WordRightEnd();
 
@@ -13267,15 +12372,13 @@ public:
 	// void wxStyledTextCtrl::WordRightEndExtend()
 	static int _bind_WordRightEndExtend(lua_State *L) {
 		if (!_lg_typecheck_WordRightEndExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordRightEndExtend() function, expected prototype:\nvoid wxStyledTextCtrl::WordRightEndExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordRightEndExtend() function, expected prototype:\nvoid wxStyledTextCtrl::WordRightEndExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordRightEndExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordRightEndExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WordRightEndExtend();
 
@@ -13285,15 +12388,13 @@ public:
 	// void wxStyledTextCtrl::WordRightExtend()
 	static int _bind_WordRightExtend(lua_State *L) {
 		if (!_lg_typecheck_WordRightExtend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordRightExtend() function, expected prototype:\nvoid wxStyledTextCtrl::WordRightExtend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::WordRightExtend() function, expected prototype:\nvoid wxStyledTextCtrl::WordRightExtend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordRightExtend(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::WordRightExtend(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WordRightExtend();
 
@@ -13303,8 +12404,7 @@ public:
 	// int wxStyledTextCtrl::WordStartPosition(int pos, bool onlyWordCharacters)
 	static int _bind_WordStartPosition(lua_State *L) {
 		if (!_lg_typecheck_WordStartPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::WordStartPosition(int pos, bool onlyWordCharacters) function, expected prototype:\nint wxStyledTextCtrl::WordStartPosition(int pos, bool onlyWordCharacters)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::WordStartPosition(int pos, bool onlyWordCharacters) function, expected prototype:\nint wxStyledTextCtrl::WordStartPosition(int pos, bool onlyWordCharacters)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
@@ -13312,8 +12412,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::WordStartPosition(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::WordStartPosition(int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->WordStartPosition(pos, onlyWordCharacters);
 		lua_pushnumber(L,lret);
@@ -13324,16 +12423,14 @@ public:
 	// int wxStyledTextCtrl::WrapCount(int line)
 	static int _bind_WrapCount(lua_State *L) {
 		if (!_lg_typecheck_WrapCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::WrapCount(int line) function, expected prototype:\nint wxStyledTextCtrl::WrapCount(int line)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::WrapCount(int line) function, expected prototype:\nint wxStyledTextCtrl::WrapCount(int line)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::WrapCount(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::WrapCount(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->WrapCount(line);
 		lua_pushnumber(L,lret);
@@ -13344,15 +12441,13 @@ public:
 	// void wxStyledTextCtrl::ZoomIn()
 	static int _bind_ZoomIn(lua_State *L) {
 		if (!_lg_typecheck_ZoomIn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ZoomIn() function, expected prototype:\nvoid wxStyledTextCtrl::ZoomIn()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ZoomIn() function, expected prototype:\nvoid wxStyledTextCtrl::ZoomIn()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ZoomIn(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ZoomIn(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ZoomIn();
 
@@ -13362,15 +12457,13 @@ public:
 	// void wxStyledTextCtrl::ZoomOut()
 	static int _bind_ZoomOut(lua_State *L) {
 		if (!_lg_typecheck_ZoomOut(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ZoomOut() function, expected prototype:\nvoid wxStyledTextCtrl::ZoomOut()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ZoomOut() function, expected prototype:\nvoid wxStyledTextCtrl::ZoomOut()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ZoomOut(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ZoomOut(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ZoomOut();
 
@@ -13380,16 +12473,14 @@ public:
 	// void wxStyledTextCtrl::SetWrapIndentMode(int mode)
 	static int _bind_SetWrapIndentMode(lua_State *L) {
 		if (!_lg_typecheck_SetWrapIndentMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWrapIndentMode(int mode) function, expected prototype:\nvoid wxStyledTextCtrl::SetWrapIndentMode(int mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetWrapIndentMode(int mode) function, expected prototype:\nvoid wxStyledTextCtrl::SetWrapIndentMode(int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int mode=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWrapIndentMode(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetWrapIndentMode(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWrapIndentMode(mode);
 
@@ -13399,15 +12490,13 @@ public:
 	// int wxStyledTextCtrl::GetWrapIndentMode() const
 	static int _bind_GetWrapIndentMode(lua_State *L) {
 		if (!_lg_typecheck_GetWrapIndentMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetWrapIndentMode() const function, expected prototype:\nint wxStyledTextCtrl::GetWrapIndentMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetWrapIndentMode() const function, expected prototype:\nint wxStyledTextCtrl::GetWrapIndentMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetWrapIndentMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetWrapIndentMode() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetWrapIndentMode();
 		lua_pushnumber(L,lret);
@@ -13418,16 +12507,14 @@ public:
 	// void wxStyledTextCtrl::SetFirstVisibleLine(int lineDisplay)
 	static int _bind_SetFirstVisibleLine(lua_State *L) {
 		if (!_lg_typecheck_SetFirstVisibleLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetFirstVisibleLine(int lineDisplay) function, expected prototype:\nvoid wxStyledTextCtrl::SetFirstVisibleLine(int lineDisplay)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetFirstVisibleLine(int lineDisplay) function, expected prototype:\nvoid wxStyledTextCtrl::SetFirstVisibleLine(int lineDisplay)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int lineDisplay=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetFirstVisibleLine(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetFirstVisibleLine(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFirstVisibleLine(lineDisplay);
 
@@ -13437,15 +12524,13 @@ public:
 	// void wxStyledTextCtrl::CopyAllowLine()
 	static int _bind_CopyAllowLine(lua_State *L) {
 		if (!_lg_typecheck_CopyAllowLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CopyAllowLine() function, expected prototype:\nvoid wxStyledTextCtrl::CopyAllowLine()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::CopyAllowLine() function, expected prototype:\nvoid wxStyledTextCtrl::CopyAllowLine()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CopyAllowLine(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::CopyAllowLine(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CopyAllowLine();
 
@@ -13455,15 +12540,13 @@ public:
 	// const char * wxStyledTextCtrl::GetCharacterPointer()
 	static int _bind_GetCharacterPointer(lua_State *L) {
 		if (!_lg_typecheck_GetCharacterPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * wxStyledTextCtrl::GetCharacterPointer() function, expected prototype:\nconst char * wxStyledTextCtrl::GetCharacterPointer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * wxStyledTextCtrl::GetCharacterPointer() function, expected prototype:\nconst char * wxStyledTextCtrl::GetCharacterPointer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * wxStyledTextCtrl::GetCharacterPointer(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * wxStyledTextCtrl::GetCharacterPointer(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->GetCharacterPointer();
 		lua_pushstring(L,lret);
@@ -13474,16 +12557,14 @@ public:
 	// void wxStyledTextCtrl::SetKeysUnicode(bool keysUnicode)
 	static int _bind_SetKeysUnicode(lua_State *L) {
 		if (!_lg_typecheck_SetKeysUnicode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetKeysUnicode(bool keysUnicode) function, expected prototype:\nvoid wxStyledTextCtrl::SetKeysUnicode(bool keysUnicode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetKeysUnicode(bool keysUnicode) function, expected prototype:\nvoid wxStyledTextCtrl::SetKeysUnicode(bool keysUnicode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool keysUnicode=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetKeysUnicode(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetKeysUnicode(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetKeysUnicode(keysUnicode);
 
@@ -13493,15 +12574,13 @@ public:
 	// bool wxStyledTextCtrl::GetKeysUnicode() const
 	static int _bind_GetKeysUnicode(lua_State *L) {
 		if (!_lg_typecheck_GetKeysUnicode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetKeysUnicode() const function, expected prototype:\nbool wxStyledTextCtrl::GetKeysUnicode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetKeysUnicode() const function, expected prototype:\nbool wxStyledTextCtrl::GetKeysUnicode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetKeysUnicode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetKeysUnicode() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetKeysUnicode();
 		lua_pushboolean(L,lret?1:0);
@@ -13512,8 +12591,7 @@ public:
 	// void wxStyledTextCtrl::IndicatorSetAlpha(int indicator, int alpha)
 	static int _bind_IndicatorSetAlpha(lua_State *L) {
 		if (!_lg_typecheck_IndicatorSetAlpha(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::IndicatorSetAlpha(int indicator, int alpha) function, expected prototype:\nvoid wxStyledTextCtrl::IndicatorSetAlpha(int indicator, int alpha)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::IndicatorSetAlpha(int indicator, int alpha) function, expected prototype:\nvoid wxStyledTextCtrl::IndicatorSetAlpha(int indicator, int alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int indicator=(int)lua_tointeger(L,2);
@@ -13521,8 +12599,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::IndicatorSetAlpha(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::IndicatorSetAlpha(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->IndicatorSetAlpha(indicator, alpha);
 
@@ -13532,16 +12609,14 @@ public:
 	// int wxStyledTextCtrl::IndicatorGetAlpha(int indicator) const
 	static int _bind_IndicatorGetAlpha(lua_State *L) {
 		if (!_lg_typecheck_IndicatorGetAlpha(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::IndicatorGetAlpha(int indicator) const function, expected prototype:\nint wxStyledTextCtrl::IndicatorGetAlpha(int indicator) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::IndicatorGetAlpha(int indicator) const function, expected prototype:\nint wxStyledTextCtrl::IndicatorGetAlpha(int indicator) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int indicator=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::IndicatorGetAlpha(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::IndicatorGetAlpha(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->IndicatorGetAlpha(indicator);
 		lua_pushnumber(L,lret);
@@ -13552,16 +12627,14 @@ public:
 	// void wxStyledTextCtrl::SetExtraAscent(int extraAscent)
 	static int _bind_SetExtraAscent(lua_State *L) {
 		if (!_lg_typecheck_SetExtraAscent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetExtraAscent(int extraAscent) function, expected prototype:\nvoid wxStyledTextCtrl::SetExtraAscent(int extraAscent)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetExtraAscent(int extraAscent) function, expected prototype:\nvoid wxStyledTextCtrl::SetExtraAscent(int extraAscent)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int extraAscent=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetExtraAscent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetExtraAscent(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetExtraAscent(extraAscent);
 
@@ -13571,15 +12644,13 @@ public:
 	// int wxStyledTextCtrl::GetExtraAscent() const
 	static int _bind_GetExtraAscent(lua_State *L) {
 		if (!_lg_typecheck_GetExtraAscent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetExtraAscent() const function, expected prototype:\nint wxStyledTextCtrl::GetExtraAscent() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetExtraAscent() const function, expected prototype:\nint wxStyledTextCtrl::GetExtraAscent() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetExtraAscent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetExtraAscent() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetExtraAscent();
 		lua_pushnumber(L,lret);
@@ -13590,16 +12661,14 @@ public:
 	// void wxStyledTextCtrl::SetExtraDescent(int extraDescent)
 	static int _bind_SetExtraDescent(lua_State *L) {
 		if (!_lg_typecheck_SetExtraDescent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetExtraDescent(int extraDescent) function, expected prototype:\nvoid wxStyledTextCtrl::SetExtraDescent(int extraDescent)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetExtraDescent(int extraDescent) function, expected prototype:\nvoid wxStyledTextCtrl::SetExtraDescent(int extraDescent)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int extraDescent=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetExtraDescent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetExtraDescent(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetExtraDescent(extraDescent);
 
@@ -13609,15 +12678,13 @@ public:
 	// int wxStyledTextCtrl::GetExtraDescent() const
 	static int _bind_GetExtraDescent(lua_State *L) {
 		if (!_lg_typecheck_GetExtraDescent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetExtraDescent() const function, expected prototype:\nint wxStyledTextCtrl::GetExtraDescent() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetExtraDescent() const function, expected prototype:\nint wxStyledTextCtrl::GetExtraDescent() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetExtraDescent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetExtraDescent() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetExtraDescent();
 		lua_pushnumber(L,lret);
@@ -13628,16 +12695,14 @@ public:
 	// int wxStyledTextCtrl::GetMarkerSymbolDefined(int markerNumber)
 	static int _bind_GetMarkerSymbolDefined(lua_State *L) {
 		if (!_lg_typecheck_GetMarkerSymbolDefined(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMarkerSymbolDefined(int markerNumber) function, expected prototype:\nint wxStyledTextCtrl::GetMarkerSymbolDefined(int markerNumber)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMarkerSymbolDefined(int markerNumber) function, expected prototype:\nint wxStyledTextCtrl::GetMarkerSymbolDefined(int markerNumber)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int markerNumber=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMarkerSymbolDefined(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMarkerSymbolDefined(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetMarkerSymbolDefined(markerNumber);
 		lua_pushnumber(L,lret);
@@ -13648,8 +12713,7 @@ public:
 	// void wxStyledTextCtrl::MarginSetText(int line, const wxString & text)
 	static int _bind_MarginSetText(lua_State *L) {
 		if (!_lg_typecheck_MarginSetText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarginSetText(int line, const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::MarginSetText(int line, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarginSetText(int line, const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::MarginSetText(int line, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
@@ -13657,8 +12721,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarginSetText(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarginSetText(int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MarginSetText(line, text);
 
@@ -13668,16 +12731,14 @@ public:
 	// wxString wxStyledTextCtrl::MarginGetText(int line) const
 	static int _bind_MarginGetText(lua_State *L) {
 		if (!_lg_typecheck_MarginGetText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::MarginGetText(int line) const function, expected prototype:\nwxString wxStyledTextCtrl::MarginGetText(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::MarginGetText(int line) const function, expected prototype:\nwxString wxStyledTextCtrl::MarginGetText(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::MarginGetText(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::MarginGetText(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->MarginGetText(line);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -13688,8 +12749,7 @@ public:
 	// void wxStyledTextCtrl::MarginSetStyle(int line, int style)
 	static int _bind_MarginSetStyle(lua_State *L) {
 		if (!_lg_typecheck_MarginSetStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarginSetStyle(int line, int style) function, expected prototype:\nvoid wxStyledTextCtrl::MarginSetStyle(int line, int style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarginSetStyle(int line, int style) function, expected prototype:\nvoid wxStyledTextCtrl::MarginSetStyle(int line, int style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
@@ -13697,8 +12757,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarginSetStyle(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarginSetStyle(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MarginSetStyle(line, style);
 
@@ -13708,16 +12767,14 @@ public:
 	// int wxStyledTextCtrl::MarginGetStyle(int line) const
 	static int _bind_MarginGetStyle(lua_State *L) {
 		if (!_lg_typecheck_MarginGetStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::MarginGetStyle(int line) const function, expected prototype:\nint wxStyledTextCtrl::MarginGetStyle(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::MarginGetStyle(int line) const function, expected prototype:\nint wxStyledTextCtrl::MarginGetStyle(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::MarginGetStyle(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::MarginGetStyle(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->MarginGetStyle(line);
 		lua_pushnumber(L,lret);
@@ -13728,8 +12785,7 @@ public:
 	// void wxStyledTextCtrl::MarginSetStyles(int line, const wxString & styles)
 	static int _bind_MarginSetStyles(lua_State *L) {
 		if (!_lg_typecheck_MarginSetStyles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarginSetStyles(int line, const wxString & styles) function, expected prototype:\nvoid wxStyledTextCtrl::MarginSetStyles(int line, const wxString & styles)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarginSetStyles(int line, const wxString & styles) function, expected prototype:\nvoid wxStyledTextCtrl::MarginSetStyles(int line, const wxString & styles)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
@@ -13737,8 +12793,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarginSetStyles(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarginSetStyles(int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MarginSetStyles(line, styles);
 
@@ -13748,16 +12803,14 @@ public:
 	// wxString wxStyledTextCtrl::MarginGetStyles(int line) const
 	static int _bind_MarginGetStyles(lua_State *L) {
 		if (!_lg_typecheck_MarginGetStyles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::MarginGetStyles(int line) const function, expected prototype:\nwxString wxStyledTextCtrl::MarginGetStyles(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::MarginGetStyles(int line) const function, expected prototype:\nwxString wxStyledTextCtrl::MarginGetStyles(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::MarginGetStyles(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::MarginGetStyles(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->MarginGetStyles(line);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -13768,15 +12821,13 @@ public:
 	// void wxStyledTextCtrl::MarginTextClearAll()
 	static int _bind_MarginTextClearAll(lua_State *L) {
 		if (!_lg_typecheck_MarginTextClearAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarginTextClearAll() function, expected prototype:\nvoid wxStyledTextCtrl::MarginTextClearAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarginTextClearAll() function, expected prototype:\nvoid wxStyledTextCtrl::MarginTextClearAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarginTextClearAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarginTextClearAll(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MarginTextClearAll();
 
@@ -13786,16 +12837,14 @@ public:
 	// void wxStyledTextCtrl::MarginSetStyleOffset(int style)
 	static int _bind_MarginSetStyleOffset(lua_State *L) {
 		if (!_lg_typecheck_MarginSetStyleOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarginSetStyleOffset(int style) function, expected prototype:\nvoid wxStyledTextCtrl::MarginSetStyleOffset(int style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::MarginSetStyleOffset(int style) function, expected prototype:\nvoid wxStyledTextCtrl::MarginSetStyleOffset(int style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarginSetStyleOffset(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::MarginSetStyleOffset(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MarginSetStyleOffset(style);
 
@@ -13805,15 +12854,13 @@ public:
 	// int wxStyledTextCtrl::MarginGetStyleOffset() const
 	static int _bind_MarginGetStyleOffset(lua_State *L) {
 		if (!_lg_typecheck_MarginGetStyleOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::MarginGetStyleOffset() const function, expected prototype:\nint wxStyledTextCtrl::MarginGetStyleOffset() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::MarginGetStyleOffset() const function, expected prototype:\nint wxStyledTextCtrl::MarginGetStyleOffset() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::MarginGetStyleOffset() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::MarginGetStyleOffset() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->MarginGetStyleOffset();
 		lua_pushnumber(L,lret);
@@ -13824,8 +12871,7 @@ public:
 	// void wxStyledTextCtrl::AnnotationSetText(int line, const wxString & text)
 	static int _bind_AnnotationSetText(lua_State *L) {
 		if (!_lg_typecheck_AnnotationSetText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AnnotationSetText(int line, const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::AnnotationSetText(int line, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AnnotationSetText(int line, const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::AnnotationSetText(int line, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
@@ -13833,8 +12879,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AnnotationSetText(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AnnotationSetText(int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AnnotationSetText(line, text);
 
@@ -13844,16 +12889,14 @@ public:
 	// wxString wxStyledTextCtrl::AnnotationGetText(int line) const
 	static int _bind_AnnotationGetText(lua_State *L) {
 		if (!_lg_typecheck_AnnotationGetText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::AnnotationGetText(int line) const function, expected prototype:\nwxString wxStyledTextCtrl::AnnotationGetText(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::AnnotationGetText(int line) const function, expected prototype:\nwxString wxStyledTextCtrl::AnnotationGetText(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::AnnotationGetText(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::AnnotationGetText(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->AnnotationGetText(line);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -13864,8 +12907,7 @@ public:
 	// void wxStyledTextCtrl::AnnotationSetStyle(int line, int style)
 	static int _bind_AnnotationSetStyle(lua_State *L) {
 		if (!_lg_typecheck_AnnotationSetStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AnnotationSetStyle(int line, int style) function, expected prototype:\nvoid wxStyledTextCtrl::AnnotationSetStyle(int line, int style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AnnotationSetStyle(int line, int style) function, expected prototype:\nvoid wxStyledTextCtrl::AnnotationSetStyle(int line, int style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
@@ -13873,8 +12915,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AnnotationSetStyle(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AnnotationSetStyle(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AnnotationSetStyle(line, style);
 
@@ -13884,16 +12925,14 @@ public:
 	// int wxStyledTextCtrl::AnnotationGetStyle(int line) const
 	static int _bind_AnnotationGetStyle(lua_State *L) {
 		if (!_lg_typecheck_AnnotationGetStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AnnotationGetStyle(int line) const function, expected prototype:\nint wxStyledTextCtrl::AnnotationGetStyle(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AnnotationGetStyle(int line) const function, expected prototype:\nint wxStyledTextCtrl::AnnotationGetStyle(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AnnotationGetStyle(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AnnotationGetStyle(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->AnnotationGetStyle(line);
 		lua_pushnumber(L,lret);
@@ -13904,8 +12943,7 @@ public:
 	// void wxStyledTextCtrl::AnnotationSetStyles(int line, const wxString & styles)
 	static int _bind_AnnotationSetStyles(lua_State *L) {
 		if (!_lg_typecheck_AnnotationSetStyles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AnnotationSetStyles(int line, const wxString & styles) function, expected prototype:\nvoid wxStyledTextCtrl::AnnotationSetStyles(int line, const wxString & styles)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AnnotationSetStyles(int line, const wxString & styles) function, expected prototype:\nvoid wxStyledTextCtrl::AnnotationSetStyles(int line, const wxString & styles)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
@@ -13913,8 +12951,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AnnotationSetStyles(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AnnotationSetStyles(int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AnnotationSetStyles(line, styles);
 
@@ -13924,16 +12961,14 @@ public:
 	// wxString wxStyledTextCtrl::AnnotationGetStyles(int line) const
 	static int _bind_AnnotationGetStyles(lua_State *L) {
 		if (!_lg_typecheck_AnnotationGetStyles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::AnnotationGetStyles(int line) const function, expected prototype:\nwxString wxStyledTextCtrl::AnnotationGetStyles(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::AnnotationGetStyles(int line) const function, expected prototype:\nwxString wxStyledTextCtrl::AnnotationGetStyles(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::AnnotationGetStyles(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::AnnotationGetStyles(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->AnnotationGetStyles(line);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -13944,16 +12979,14 @@ public:
 	// int wxStyledTextCtrl::AnnotationGetLines(int line) const
 	static int _bind_AnnotationGetLines(lua_State *L) {
 		if (!_lg_typecheck_AnnotationGetLines(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AnnotationGetLines(int line) const function, expected prototype:\nint wxStyledTextCtrl::AnnotationGetLines(int line) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AnnotationGetLines(int line) const function, expected prototype:\nint wxStyledTextCtrl::AnnotationGetLines(int line) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int line=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AnnotationGetLines(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AnnotationGetLines(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->AnnotationGetLines(line);
 		lua_pushnumber(L,lret);
@@ -13964,15 +12997,13 @@ public:
 	// void wxStyledTextCtrl::AnnotationClearAll()
 	static int _bind_AnnotationClearAll(lua_State *L) {
 		if (!_lg_typecheck_AnnotationClearAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AnnotationClearAll() function, expected prototype:\nvoid wxStyledTextCtrl::AnnotationClearAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AnnotationClearAll() function, expected prototype:\nvoid wxStyledTextCtrl::AnnotationClearAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AnnotationClearAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AnnotationClearAll(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AnnotationClearAll();
 
@@ -13982,16 +13013,14 @@ public:
 	// void wxStyledTextCtrl::AnnotationSetVisible(int visible)
 	static int _bind_AnnotationSetVisible(lua_State *L) {
 		if (!_lg_typecheck_AnnotationSetVisible(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AnnotationSetVisible(int visible) function, expected prototype:\nvoid wxStyledTextCtrl::AnnotationSetVisible(int visible)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AnnotationSetVisible(int visible) function, expected prototype:\nvoid wxStyledTextCtrl::AnnotationSetVisible(int visible)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int visible=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AnnotationSetVisible(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AnnotationSetVisible(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AnnotationSetVisible(visible);
 
@@ -14001,15 +13030,13 @@ public:
 	// int wxStyledTextCtrl::AnnotationGetVisible() const
 	static int _bind_AnnotationGetVisible(lua_State *L) {
 		if (!_lg_typecheck_AnnotationGetVisible(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AnnotationGetVisible() const function, expected prototype:\nint wxStyledTextCtrl::AnnotationGetVisible() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AnnotationGetVisible() const function, expected prototype:\nint wxStyledTextCtrl::AnnotationGetVisible() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AnnotationGetVisible() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AnnotationGetVisible() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->AnnotationGetVisible();
 		lua_pushnumber(L,lret);
@@ -14020,16 +13047,14 @@ public:
 	// void wxStyledTextCtrl::AnnotationSetStyleOffset(int style)
 	static int _bind_AnnotationSetStyleOffset(lua_State *L) {
 		if (!_lg_typecheck_AnnotationSetStyleOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AnnotationSetStyleOffset(int style) function, expected prototype:\nvoid wxStyledTextCtrl::AnnotationSetStyleOffset(int style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AnnotationSetStyleOffset(int style) function, expected prototype:\nvoid wxStyledTextCtrl::AnnotationSetStyleOffset(int style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int style=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AnnotationSetStyleOffset(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AnnotationSetStyleOffset(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AnnotationSetStyleOffset(style);
 
@@ -14039,15 +13064,13 @@ public:
 	// int wxStyledTextCtrl::AnnotationGetStyleOffset() const
 	static int _bind_AnnotationGetStyleOffset(lua_State *L) {
 		if (!_lg_typecheck_AnnotationGetStyleOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AnnotationGetStyleOffset() const function, expected prototype:\nint wxStyledTextCtrl::AnnotationGetStyleOffset() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AnnotationGetStyleOffset() const function, expected prototype:\nint wxStyledTextCtrl::AnnotationGetStyleOffset() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AnnotationGetStyleOffset() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AnnotationGetStyleOffset() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->AnnotationGetStyleOffset();
 		lua_pushnumber(L,lret);
@@ -14058,8 +13081,7 @@ public:
 	// void wxStyledTextCtrl::AddUndoAction(int token, int flags)
 	static int _bind_AddUndoAction(lua_State *L) {
 		if (!_lg_typecheck_AddUndoAction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AddUndoAction(int token, int flags) function, expected prototype:\nvoid wxStyledTextCtrl::AddUndoAction(int token, int flags)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::AddUndoAction(int token, int flags) function, expected prototype:\nvoid wxStyledTextCtrl::AddUndoAction(int token, int flags)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int token=(int)lua_tointeger(L,2);
@@ -14067,8 +13089,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AddUndoAction(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::AddUndoAction(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddUndoAction(token, flags);
 
@@ -14078,8 +13099,7 @@ public:
 	// int wxStyledTextCtrl::CharPositionFromPoint(int x, int y)
 	static int _bind_CharPositionFromPoint(lua_State *L) {
 		if (!_lg_typecheck_CharPositionFromPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::CharPositionFromPoint(int x, int y) function, expected prototype:\nint wxStyledTextCtrl::CharPositionFromPoint(int x, int y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::CharPositionFromPoint(int x, int y) function, expected prototype:\nint wxStyledTextCtrl::CharPositionFromPoint(int x, int y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -14087,8 +13107,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::CharPositionFromPoint(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::CharPositionFromPoint(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->CharPositionFromPoint(x, y);
 		lua_pushnumber(L,lret);
@@ -14099,8 +13118,7 @@ public:
 	// int wxStyledTextCtrl::CharPositionFromPointClose(int x, int y)
 	static int _bind_CharPositionFromPointClose(lua_State *L) {
 		if (!_lg_typecheck_CharPositionFromPointClose(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::CharPositionFromPointClose(int x, int y) function, expected prototype:\nint wxStyledTextCtrl::CharPositionFromPointClose(int x, int y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::CharPositionFromPointClose(int x, int y) function, expected prototype:\nint wxStyledTextCtrl::CharPositionFromPointClose(int x, int y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -14108,8 +13126,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::CharPositionFromPointClose(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::CharPositionFromPointClose(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->CharPositionFromPointClose(x, y);
 		lua_pushnumber(L,lret);
@@ -14120,16 +13137,14 @@ public:
 	// void wxStyledTextCtrl::SetMultipleSelection(bool multipleSelection)
 	static int _bind_SetMultipleSelection(lua_State *L) {
 		if (!_lg_typecheck_SetMultipleSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMultipleSelection(bool multipleSelection) function, expected prototype:\nvoid wxStyledTextCtrl::SetMultipleSelection(bool multipleSelection)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMultipleSelection(bool multipleSelection) function, expected prototype:\nvoid wxStyledTextCtrl::SetMultipleSelection(bool multipleSelection)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool multipleSelection=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMultipleSelection(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMultipleSelection(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMultipleSelection(multipleSelection);
 
@@ -14139,15 +13154,13 @@ public:
 	// bool wxStyledTextCtrl::GetMultipleSelection() const
 	static int _bind_GetMultipleSelection(lua_State *L) {
 		if (!_lg_typecheck_GetMultipleSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetMultipleSelection() const function, expected prototype:\nbool wxStyledTextCtrl::GetMultipleSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetMultipleSelection() const function, expected prototype:\nbool wxStyledTextCtrl::GetMultipleSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetMultipleSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetMultipleSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetMultipleSelection();
 		lua_pushboolean(L,lret?1:0);
@@ -14158,16 +13171,14 @@ public:
 	// void wxStyledTextCtrl::SetAdditionalSelectionTyping(bool additionalSelectionTyping)
 	static int _bind_SetAdditionalSelectionTyping(lua_State *L) {
 		if (!_lg_typecheck_SetAdditionalSelectionTyping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAdditionalSelectionTyping(bool additionalSelectionTyping) function, expected prototype:\nvoid wxStyledTextCtrl::SetAdditionalSelectionTyping(bool additionalSelectionTyping)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAdditionalSelectionTyping(bool additionalSelectionTyping) function, expected prototype:\nvoid wxStyledTextCtrl::SetAdditionalSelectionTyping(bool additionalSelectionTyping)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool additionalSelectionTyping=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAdditionalSelectionTyping(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAdditionalSelectionTyping(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAdditionalSelectionTyping(additionalSelectionTyping);
 
@@ -14177,15 +13188,13 @@ public:
 	// bool wxStyledTextCtrl::GetAdditionalSelectionTyping() const
 	static int _bind_GetAdditionalSelectionTyping(lua_State *L) {
 		if (!_lg_typecheck_GetAdditionalSelectionTyping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetAdditionalSelectionTyping() const function, expected prototype:\nbool wxStyledTextCtrl::GetAdditionalSelectionTyping() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetAdditionalSelectionTyping() const function, expected prototype:\nbool wxStyledTextCtrl::GetAdditionalSelectionTyping() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetAdditionalSelectionTyping() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetAdditionalSelectionTyping() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetAdditionalSelectionTyping();
 		lua_pushboolean(L,lret?1:0);
@@ -14196,16 +13205,14 @@ public:
 	// void wxStyledTextCtrl::SetAdditionalCaretsBlink(bool additionalCaretsBlink)
 	static int _bind_SetAdditionalCaretsBlink(lua_State *L) {
 		if (!_lg_typecheck_SetAdditionalCaretsBlink(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAdditionalCaretsBlink(bool additionalCaretsBlink) function, expected prototype:\nvoid wxStyledTextCtrl::SetAdditionalCaretsBlink(bool additionalCaretsBlink)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAdditionalCaretsBlink(bool additionalCaretsBlink) function, expected prototype:\nvoid wxStyledTextCtrl::SetAdditionalCaretsBlink(bool additionalCaretsBlink)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool additionalCaretsBlink=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAdditionalCaretsBlink(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAdditionalCaretsBlink(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAdditionalCaretsBlink(additionalCaretsBlink);
 
@@ -14215,15 +13222,13 @@ public:
 	// bool wxStyledTextCtrl::GetAdditionalCaretsBlink() const
 	static int _bind_GetAdditionalCaretsBlink(lua_State *L) {
 		if (!_lg_typecheck_GetAdditionalCaretsBlink(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetAdditionalCaretsBlink() const function, expected prototype:\nbool wxStyledTextCtrl::GetAdditionalCaretsBlink() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetAdditionalCaretsBlink() const function, expected prototype:\nbool wxStyledTextCtrl::GetAdditionalCaretsBlink() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetAdditionalCaretsBlink() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetAdditionalCaretsBlink() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetAdditionalCaretsBlink();
 		lua_pushboolean(L,lret?1:0);
@@ -14234,16 +13239,14 @@ public:
 	// void wxStyledTextCtrl::SetAdditionalCaretsVisible(bool additionalCaretsBlink)
 	static int _bind_SetAdditionalCaretsVisible(lua_State *L) {
 		if (!_lg_typecheck_SetAdditionalCaretsVisible(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAdditionalCaretsVisible(bool additionalCaretsBlink) function, expected prototype:\nvoid wxStyledTextCtrl::SetAdditionalCaretsVisible(bool additionalCaretsBlink)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAdditionalCaretsVisible(bool additionalCaretsBlink) function, expected prototype:\nvoid wxStyledTextCtrl::SetAdditionalCaretsVisible(bool additionalCaretsBlink)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool additionalCaretsBlink=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAdditionalCaretsVisible(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAdditionalCaretsVisible(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAdditionalCaretsVisible(additionalCaretsBlink);
 
@@ -14253,15 +13256,13 @@ public:
 	// bool wxStyledTextCtrl::GetAdditionalCaretsVisible() const
 	static int _bind_GetAdditionalCaretsVisible(lua_State *L) {
 		if (!_lg_typecheck_GetAdditionalCaretsVisible(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetAdditionalCaretsVisible() const function, expected prototype:\nbool wxStyledTextCtrl::GetAdditionalCaretsVisible() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::GetAdditionalCaretsVisible() const function, expected prototype:\nbool wxStyledTextCtrl::GetAdditionalCaretsVisible() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetAdditionalCaretsVisible() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::GetAdditionalCaretsVisible() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetAdditionalCaretsVisible();
 		lua_pushboolean(L,lret?1:0);
@@ -14272,15 +13273,13 @@ public:
 	// int wxStyledTextCtrl::GetSelections() const
 	static int _bind_GetSelections(lua_State *L) {
 		if (!_lg_typecheck_GetSelections(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelections() const function, expected prototype:\nint wxStyledTextCtrl::GetSelections() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelections() const function, expected prototype:\nint wxStyledTextCtrl::GetSelections() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelections() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelections() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSelections();
 		lua_pushnumber(L,lret);
@@ -14291,15 +13290,13 @@ public:
 	// void wxStyledTextCtrl::ClearSelections()
 	static int _bind_ClearSelections(lua_State *L) {
 		if (!_lg_typecheck_ClearSelections(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ClearSelections() function, expected prototype:\nvoid wxStyledTextCtrl::ClearSelections()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::ClearSelections() function, expected prototype:\nvoid wxStyledTextCtrl::ClearSelections()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ClearSelections(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::ClearSelections(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClearSelections();
 
@@ -14309,8 +13306,7 @@ public:
 	// int wxStyledTextCtrl::AddSelection(int caret, int anchor)
 	static int _bind_AddSelection(lua_State *L) {
 		if (!_lg_typecheck_AddSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AddSelection(int caret, int anchor) function, expected prototype:\nint wxStyledTextCtrl::AddSelection(int caret, int anchor)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::AddSelection(int caret, int anchor) function, expected prototype:\nint wxStyledTextCtrl::AddSelection(int caret, int anchor)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int caret=(int)lua_tointeger(L,2);
@@ -14318,8 +13314,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AddSelection(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::AddSelection(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->AddSelection(caret, anchor);
 		lua_pushnumber(L,lret);
@@ -14330,16 +13325,14 @@ public:
 	// void wxStyledTextCtrl::SetMainSelection(int selection)
 	static int _bind_SetMainSelection(lua_State *L) {
 		if (!_lg_typecheck_SetMainSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMainSelection(int selection) function, expected prototype:\nvoid wxStyledTextCtrl::SetMainSelection(int selection)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetMainSelection(int selection) function, expected prototype:\nvoid wxStyledTextCtrl::SetMainSelection(int selection)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int selection=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMainSelection(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetMainSelection(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMainSelection(selection);
 
@@ -14349,15 +13342,13 @@ public:
 	// int wxStyledTextCtrl::GetMainSelection() const
 	static int _bind_GetMainSelection(lua_State *L) {
 		if (!_lg_typecheck_GetMainSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMainSelection() const function, expected prototype:\nint wxStyledTextCtrl::GetMainSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetMainSelection() const function, expected prototype:\nint wxStyledTextCtrl::GetMainSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMainSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetMainSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetMainSelection();
 		lua_pushnumber(L,lret);
@@ -14368,8 +13359,7 @@ public:
 	// void wxStyledTextCtrl::SetSelectionNCaret(int selection, int pos)
 	static int _bind_SetSelectionNCaret(lua_State *L) {
 		if (!_lg_typecheck_SetSelectionNCaret(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionNCaret(int selection, int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionNCaret(int selection, int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionNCaret(int selection, int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionNCaret(int selection, int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int selection=(int)lua_tointeger(L,2);
@@ -14377,8 +13367,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionNCaret(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionNCaret(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelectionNCaret(selection, pos);
 
@@ -14388,16 +13377,14 @@ public:
 	// int wxStyledTextCtrl::GetSelectionNCaret(int selection) const
 	static int _bind_GetSelectionNCaret(lua_State *L) {
 		if (!_lg_typecheck_GetSelectionNCaret(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionNCaret(int selection) const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionNCaret(int selection) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionNCaret(int selection) const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionNCaret(int selection) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int selection=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionNCaret(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionNCaret(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSelectionNCaret(selection);
 		lua_pushnumber(L,lret);
@@ -14408,8 +13395,7 @@ public:
 	// void wxStyledTextCtrl::SetSelectionNAnchor(int selection, int posAnchor)
 	static int _bind_SetSelectionNAnchor(lua_State *L) {
 		if (!_lg_typecheck_SetSelectionNAnchor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionNAnchor(int selection, int posAnchor) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionNAnchor(int selection, int posAnchor)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionNAnchor(int selection, int posAnchor) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionNAnchor(int selection, int posAnchor)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int selection=(int)lua_tointeger(L,2);
@@ -14417,8 +13403,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionNAnchor(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionNAnchor(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelectionNAnchor(selection, posAnchor);
 
@@ -14428,16 +13413,14 @@ public:
 	// int wxStyledTextCtrl::GetSelectionNAnchor(int selection) const
 	static int _bind_GetSelectionNAnchor(lua_State *L) {
 		if (!_lg_typecheck_GetSelectionNAnchor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionNAnchor(int selection) const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionNAnchor(int selection) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionNAnchor(int selection) const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionNAnchor(int selection) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int selection=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionNAnchor(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionNAnchor(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSelectionNAnchor(selection);
 		lua_pushnumber(L,lret);
@@ -14448,8 +13431,7 @@ public:
 	// void wxStyledTextCtrl::SetSelectionNCaretVirtualSpace(int selection, int space)
 	static int _bind_SetSelectionNCaretVirtualSpace(lua_State *L) {
 		if (!_lg_typecheck_SetSelectionNCaretVirtualSpace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionNCaretVirtualSpace(int selection, int space) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionNCaretVirtualSpace(int selection, int space)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionNCaretVirtualSpace(int selection, int space) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionNCaretVirtualSpace(int selection, int space)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int selection=(int)lua_tointeger(L,2);
@@ -14457,8 +13439,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionNCaretVirtualSpace(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionNCaretVirtualSpace(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelectionNCaretVirtualSpace(selection, space);
 
@@ -14468,16 +13449,14 @@ public:
 	// int wxStyledTextCtrl::GetSelectionNCaretVirtualSpace(int selection) const
 	static int _bind_GetSelectionNCaretVirtualSpace(lua_State *L) {
 		if (!_lg_typecheck_GetSelectionNCaretVirtualSpace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionNCaretVirtualSpace(int selection) const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionNCaretVirtualSpace(int selection) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionNCaretVirtualSpace(int selection) const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionNCaretVirtualSpace(int selection) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int selection=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionNCaretVirtualSpace(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionNCaretVirtualSpace(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSelectionNCaretVirtualSpace(selection);
 		lua_pushnumber(L,lret);
@@ -14488,8 +13467,7 @@ public:
 	// void wxStyledTextCtrl::SetSelectionNAnchorVirtualSpace(int selection, int space)
 	static int _bind_SetSelectionNAnchorVirtualSpace(lua_State *L) {
 		if (!_lg_typecheck_SetSelectionNAnchorVirtualSpace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionNAnchorVirtualSpace(int selection, int space) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionNAnchorVirtualSpace(int selection, int space)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionNAnchorVirtualSpace(int selection, int space) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionNAnchorVirtualSpace(int selection, int space)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int selection=(int)lua_tointeger(L,2);
@@ -14497,8 +13475,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionNAnchorVirtualSpace(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionNAnchorVirtualSpace(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelectionNAnchorVirtualSpace(selection, space);
 
@@ -14508,16 +13485,14 @@ public:
 	// int wxStyledTextCtrl::GetSelectionNAnchorVirtualSpace(int selection) const
 	static int _bind_GetSelectionNAnchorVirtualSpace(lua_State *L) {
 		if (!_lg_typecheck_GetSelectionNAnchorVirtualSpace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionNAnchorVirtualSpace(int selection) const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionNAnchorVirtualSpace(int selection) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionNAnchorVirtualSpace(int selection) const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionNAnchorVirtualSpace(int selection) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int selection=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionNAnchorVirtualSpace(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionNAnchorVirtualSpace(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSelectionNAnchorVirtualSpace(selection);
 		lua_pushnumber(L,lret);
@@ -14528,8 +13503,7 @@ public:
 	// void wxStyledTextCtrl::SetSelectionNStart(int selection, int pos)
 	static int _bind_SetSelectionNStart(lua_State *L) {
 		if (!_lg_typecheck_SetSelectionNStart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionNStart(int selection, int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionNStart(int selection, int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionNStart(int selection, int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionNStart(int selection, int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int selection=(int)lua_tointeger(L,2);
@@ -14537,8 +13511,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionNStart(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionNStart(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelectionNStart(selection, pos);
 
@@ -14548,16 +13521,14 @@ public:
 	// int wxStyledTextCtrl::GetSelectionNStart(int selection) const
 	static int _bind_GetSelectionNStart(lua_State *L) {
 		if (!_lg_typecheck_GetSelectionNStart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionNStart(int selection) const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionNStart(int selection) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionNStart(int selection) const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionNStart(int selection) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int selection=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionNStart(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionNStart(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSelectionNStart(selection);
 		lua_pushnumber(L,lret);
@@ -14568,8 +13539,7 @@ public:
 	// void wxStyledTextCtrl::SetSelectionNEnd(int selection, int pos)
 	static int _bind_SetSelectionNEnd(lua_State *L) {
 		if (!_lg_typecheck_SetSelectionNEnd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionNEnd(int selection, int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionNEnd(int selection, int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetSelectionNEnd(int selection, int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetSelectionNEnd(int selection, int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int selection=(int)lua_tointeger(L,2);
@@ -14577,8 +13547,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionNEnd(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetSelectionNEnd(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelectionNEnd(selection, pos);
 
@@ -14588,16 +13557,14 @@ public:
 	// int wxStyledTextCtrl::GetSelectionNEnd(int selection) const
 	static int _bind_GetSelectionNEnd(lua_State *L) {
 		if (!_lg_typecheck_GetSelectionNEnd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionNEnd(int selection) const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionNEnd(int selection) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetSelectionNEnd(int selection) const function, expected prototype:\nint wxStyledTextCtrl::GetSelectionNEnd(int selection) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int selection=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionNEnd(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetSelectionNEnd(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSelectionNEnd(selection);
 		lua_pushnumber(L,lret);
@@ -14608,16 +13575,14 @@ public:
 	// void wxStyledTextCtrl::SetRectangularSelectionCaret(int pos)
 	static int _bind_SetRectangularSelectionCaret(lua_State *L) {
 		if (!_lg_typecheck_SetRectangularSelectionCaret(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetRectangularSelectionCaret(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetRectangularSelectionCaret(int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetRectangularSelectionCaret(int pos) function, expected prototype:\nvoid wxStyledTextCtrl::SetRectangularSelectionCaret(int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetRectangularSelectionCaret(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetRectangularSelectionCaret(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRectangularSelectionCaret(pos);
 
@@ -14627,15 +13592,13 @@ public:
 	// int wxStyledTextCtrl::GetRectangularSelectionCaret() const
 	static int _bind_GetRectangularSelectionCaret(lua_State *L) {
 		if (!_lg_typecheck_GetRectangularSelectionCaret(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetRectangularSelectionCaret() const function, expected prototype:\nint wxStyledTextCtrl::GetRectangularSelectionCaret() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetRectangularSelectionCaret() const function, expected prototype:\nint wxStyledTextCtrl::GetRectangularSelectionCaret() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetRectangularSelectionCaret() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetRectangularSelectionCaret() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetRectangularSelectionCaret();
 		lua_pushnumber(L,lret);
@@ -14646,16 +13609,14 @@ public:
 	// void wxStyledTextCtrl::SetRectangularSelectionAnchor(int posAnchor)
 	static int _bind_SetRectangularSelectionAnchor(lua_State *L) {
 		if (!_lg_typecheck_SetRectangularSelectionAnchor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetRectangularSelectionAnchor(int posAnchor) function, expected prototype:\nvoid wxStyledTextCtrl::SetRectangularSelectionAnchor(int posAnchor)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetRectangularSelectionAnchor(int posAnchor) function, expected prototype:\nvoid wxStyledTextCtrl::SetRectangularSelectionAnchor(int posAnchor)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int posAnchor=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetRectangularSelectionAnchor(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetRectangularSelectionAnchor(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRectangularSelectionAnchor(posAnchor);
 
@@ -14665,15 +13626,13 @@ public:
 	// int wxStyledTextCtrl::GetRectangularSelectionAnchor() const
 	static int _bind_GetRectangularSelectionAnchor(lua_State *L) {
 		if (!_lg_typecheck_GetRectangularSelectionAnchor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetRectangularSelectionAnchor() const function, expected prototype:\nint wxStyledTextCtrl::GetRectangularSelectionAnchor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetRectangularSelectionAnchor() const function, expected prototype:\nint wxStyledTextCtrl::GetRectangularSelectionAnchor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetRectangularSelectionAnchor() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetRectangularSelectionAnchor() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetRectangularSelectionAnchor();
 		lua_pushnumber(L,lret);
@@ -14684,16 +13643,14 @@ public:
 	// void wxStyledTextCtrl::SetRectangularSelectionCaretVirtualSpace(int space)
 	static int _bind_SetRectangularSelectionCaretVirtualSpace(lua_State *L) {
 		if (!_lg_typecheck_SetRectangularSelectionCaretVirtualSpace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetRectangularSelectionCaretVirtualSpace(int space) function, expected prototype:\nvoid wxStyledTextCtrl::SetRectangularSelectionCaretVirtualSpace(int space)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetRectangularSelectionCaretVirtualSpace(int space) function, expected prototype:\nvoid wxStyledTextCtrl::SetRectangularSelectionCaretVirtualSpace(int space)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int space=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetRectangularSelectionCaretVirtualSpace(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetRectangularSelectionCaretVirtualSpace(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRectangularSelectionCaretVirtualSpace(space);
 
@@ -14703,15 +13660,13 @@ public:
 	// int wxStyledTextCtrl::GetRectangularSelectionCaretVirtualSpace() const
 	static int _bind_GetRectangularSelectionCaretVirtualSpace(lua_State *L) {
 		if (!_lg_typecheck_GetRectangularSelectionCaretVirtualSpace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetRectangularSelectionCaretVirtualSpace() const function, expected prototype:\nint wxStyledTextCtrl::GetRectangularSelectionCaretVirtualSpace() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetRectangularSelectionCaretVirtualSpace() const function, expected prototype:\nint wxStyledTextCtrl::GetRectangularSelectionCaretVirtualSpace() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetRectangularSelectionCaretVirtualSpace() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetRectangularSelectionCaretVirtualSpace() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetRectangularSelectionCaretVirtualSpace();
 		lua_pushnumber(L,lret);
@@ -14722,16 +13677,14 @@ public:
 	// void wxStyledTextCtrl::SetRectangularSelectionAnchorVirtualSpace(int space)
 	static int _bind_SetRectangularSelectionAnchorVirtualSpace(lua_State *L) {
 		if (!_lg_typecheck_SetRectangularSelectionAnchorVirtualSpace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetRectangularSelectionAnchorVirtualSpace(int space) function, expected prototype:\nvoid wxStyledTextCtrl::SetRectangularSelectionAnchorVirtualSpace(int space)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetRectangularSelectionAnchorVirtualSpace(int space) function, expected prototype:\nvoid wxStyledTextCtrl::SetRectangularSelectionAnchorVirtualSpace(int space)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int space=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetRectangularSelectionAnchorVirtualSpace(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetRectangularSelectionAnchorVirtualSpace(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRectangularSelectionAnchorVirtualSpace(space);
 
@@ -14741,15 +13694,13 @@ public:
 	// int wxStyledTextCtrl::GetRectangularSelectionAnchorVirtualSpace() const
 	static int _bind_GetRectangularSelectionAnchorVirtualSpace(lua_State *L) {
 		if (!_lg_typecheck_GetRectangularSelectionAnchorVirtualSpace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetRectangularSelectionAnchorVirtualSpace() const function, expected prototype:\nint wxStyledTextCtrl::GetRectangularSelectionAnchorVirtualSpace() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetRectangularSelectionAnchorVirtualSpace() const function, expected prototype:\nint wxStyledTextCtrl::GetRectangularSelectionAnchorVirtualSpace() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetRectangularSelectionAnchorVirtualSpace() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetRectangularSelectionAnchorVirtualSpace() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetRectangularSelectionAnchorVirtualSpace();
 		lua_pushnumber(L,lret);
@@ -14760,16 +13711,14 @@ public:
 	// void wxStyledTextCtrl::SetVirtualSpaceOptions(int virtualSpaceOptions)
 	static int _bind_SetVirtualSpaceOptions(lua_State *L) {
 		if (!_lg_typecheck_SetVirtualSpaceOptions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetVirtualSpaceOptions(int virtualSpaceOptions) function, expected prototype:\nvoid wxStyledTextCtrl::SetVirtualSpaceOptions(int virtualSpaceOptions)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetVirtualSpaceOptions(int virtualSpaceOptions) function, expected prototype:\nvoid wxStyledTextCtrl::SetVirtualSpaceOptions(int virtualSpaceOptions)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int virtualSpaceOptions=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetVirtualSpaceOptions(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetVirtualSpaceOptions(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetVirtualSpaceOptions(virtualSpaceOptions);
 
@@ -14779,15 +13728,13 @@ public:
 	// int wxStyledTextCtrl::GetVirtualSpaceOptions() const
 	static int _bind_GetVirtualSpaceOptions(lua_State *L) {
 		if (!_lg_typecheck_GetVirtualSpaceOptions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetVirtualSpaceOptions() const function, expected prototype:\nint wxStyledTextCtrl::GetVirtualSpaceOptions() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetVirtualSpaceOptions() const function, expected prototype:\nint wxStyledTextCtrl::GetVirtualSpaceOptions() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetVirtualSpaceOptions() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetVirtualSpaceOptions() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetVirtualSpaceOptions();
 		lua_pushnumber(L,lret);
@@ -14798,16 +13745,14 @@ public:
 	// void wxStyledTextCtrl::SetRectangularSelectionModifier(int modifier)
 	static int _bind_SetRectangularSelectionModifier(lua_State *L) {
 		if (!_lg_typecheck_SetRectangularSelectionModifier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetRectangularSelectionModifier(int modifier) function, expected prototype:\nvoid wxStyledTextCtrl::SetRectangularSelectionModifier(int modifier)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetRectangularSelectionModifier(int modifier) function, expected prototype:\nvoid wxStyledTextCtrl::SetRectangularSelectionModifier(int modifier)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int modifier=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetRectangularSelectionModifier(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetRectangularSelectionModifier(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRectangularSelectionModifier(modifier);
 
@@ -14817,15 +13762,13 @@ public:
 	// int wxStyledTextCtrl::GetRectangularSelectionModifier() const
 	static int _bind_GetRectangularSelectionModifier(lua_State *L) {
 		if (!_lg_typecheck_GetRectangularSelectionModifier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetRectangularSelectionModifier() const function, expected prototype:\nint wxStyledTextCtrl::GetRectangularSelectionModifier() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetRectangularSelectionModifier() const function, expected prototype:\nint wxStyledTextCtrl::GetRectangularSelectionModifier() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetRectangularSelectionModifier() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetRectangularSelectionModifier() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetRectangularSelectionModifier();
 		lua_pushnumber(L,lret);
@@ -14836,8 +13779,7 @@ public:
 	// void wxStyledTextCtrl::SetAdditionalSelForeground(const wxColour & fore)
 	static int _bind_SetAdditionalSelForeground(lua_State *L) {
 		if (!_lg_typecheck_SetAdditionalSelForeground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAdditionalSelForeground(const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::SetAdditionalSelForeground(const wxColour & fore)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAdditionalSelForeground(const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::SetAdditionalSelForeground(const wxColour & fore)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* fore_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -14848,8 +13790,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAdditionalSelForeground(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAdditionalSelForeground(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAdditionalSelForeground(fore);
 
@@ -14859,8 +13800,7 @@ public:
 	// void wxStyledTextCtrl::SetAdditionalSelBackground(const wxColour & back)
 	static int _bind_SetAdditionalSelBackground(lua_State *L) {
 		if (!_lg_typecheck_SetAdditionalSelBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAdditionalSelBackground(const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::SetAdditionalSelBackground(const wxColour & back)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAdditionalSelBackground(const wxColour & back) function, expected prototype:\nvoid wxStyledTextCtrl::SetAdditionalSelBackground(const wxColour & back)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* back_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -14871,8 +13811,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAdditionalSelBackground(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAdditionalSelBackground(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAdditionalSelBackground(back);
 
@@ -14882,16 +13821,14 @@ public:
 	// void wxStyledTextCtrl::SetAdditionalSelAlpha(int alpha)
 	static int _bind_SetAdditionalSelAlpha(lua_State *L) {
 		if (!_lg_typecheck_SetAdditionalSelAlpha(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAdditionalSelAlpha(int alpha) function, expected prototype:\nvoid wxStyledTextCtrl::SetAdditionalSelAlpha(int alpha)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAdditionalSelAlpha(int alpha) function, expected prototype:\nvoid wxStyledTextCtrl::SetAdditionalSelAlpha(int alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int alpha=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAdditionalSelAlpha(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAdditionalSelAlpha(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAdditionalSelAlpha(alpha);
 
@@ -14901,15 +13838,13 @@ public:
 	// int wxStyledTextCtrl::GetAdditionalSelAlpha() const
 	static int _bind_GetAdditionalSelAlpha(lua_State *L) {
 		if (!_lg_typecheck_GetAdditionalSelAlpha(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetAdditionalSelAlpha() const function, expected prototype:\nint wxStyledTextCtrl::GetAdditionalSelAlpha() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::GetAdditionalSelAlpha() const function, expected prototype:\nint wxStyledTextCtrl::GetAdditionalSelAlpha() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetAdditionalSelAlpha() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::GetAdditionalSelAlpha() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetAdditionalSelAlpha();
 		lua_pushnumber(L,lret);
@@ -14920,8 +13855,7 @@ public:
 	// void wxStyledTextCtrl::SetAdditionalCaretForeground(const wxColour & fore)
 	static int _bind_SetAdditionalCaretForeground(lua_State *L) {
 		if (!_lg_typecheck_SetAdditionalCaretForeground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAdditionalCaretForeground(const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::SetAdditionalCaretForeground(const wxColour & fore)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SetAdditionalCaretForeground(const wxColour & fore) function, expected prototype:\nvoid wxStyledTextCtrl::SetAdditionalCaretForeground(const wxColour & fore)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* fore_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -14932,8 +13866,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAdditionalCaretForeground(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SetAdditionalCaretForeground(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAdditionalCaretForeground(fore);
 
@@ -14943,15 +13876,13 @@ public:
 	// wxColour wxStyledTextCtrl::GetAdditionalCaretForeground() const
 	static int _bind_GetAdditionalCaretForeground(lua_State *L) {
 		if (!_lg_typecheck_GetAdditionalCaretForeground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxStyledTextCtrl::GetAdditionalCaretForeground() const function, expected prototype:\nwxColour wxStyledTextCtrl::GetAdditionalCaretForeground() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxStyledTextCtrl::GetAdditionalCaretForeground() const function, expected prototype:\nwxColour wxStyledTextCtrl::GetAdditionalCaretForeground() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxStyledTextCtrl::GetAdditionalCaretForeground() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxStyledTextCtrl::GetAdditionalCaretForeground() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxColour stack_lret = self->GetAdditionalCaretForeground();
 		wxColour* lret = new wxColour(stack_lret);
@@ -14965,15 +13896,13 @@ public:
 	// void wxStyledTextCtrl::RotateSelection()
 	static int _bind_RotateSelection(lua_State *L) {
 		if (!_lg_typecheck_RotateSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::RotateSelection() function, expected prototype:\nvoid wxStyledTextCtrl::RotateSelection()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::RotateSelection() function, expected prototype:\nvoid wxStyledTextCtrl::RotateSelection()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::RotateSelection(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::RotateSelection(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RotateSelection();
 
@@ -14983,15 +13912,13 @@ public:
 	// void wxStyledTextCtrl::SwapMainAnchorCaret()
 	static int _bind_SwapMainAnchorCaret(lua_State *L) {
 		if (!_lg_typecheck_SwapMainAnchorCaret(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SwapMainAnchorCaret() function, expected prototype:\nvoid wxStyledTextCtrl::SwapMainAnchorCaret()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::SwapMainAnchorCaret() function, expected prototype:\nvoid wxStyledTextCtrl::SwapMainAnchorCaret()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SwapMainAnchorCaret(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::SwapMainAnchorCaret(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SwapMainAnchorCaret();
 
@@ -15001,15 +13928,13 @@ public:
 	// wxClassInfo * wxStyledTextCtrl::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxStyledTextCtrl::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxStyledTextCtrl::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxStyledTextCtrl::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxStyledTextCtrl::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxStyledTextCtrl::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxStyledTextCtrl::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxStyledTextCtrl::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -15022,15 +13947,13 @@ public:
 	// bool wxStyledTextCtrl::base_AcceptsFocus() const
 	static int _bind_base_AcceptsFocus(lua_State *L) {
 		if (!_lg_typecheck_base_AcceptsFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_AcceptsFocus() const function, expected prototype:\nbool wxStyledTextCtrl::base_AcceptsFocus() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_AcceptsFocus() const function, expected prototype:\nbool wxStyledTextCtrl::base_AcceptsFocus() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_AcceptsFocus() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -15041,15 +13964,13 @@ public:
 	// bool wxStyledTextCtrl::base_AcceptsFocusFromKeyboard() const
 	static int _bind_base_AcceptsFocusFromKeyboard(lua_State *L) {
 		if (!_lg_typecheck_base_AcceptsFocusFromKeyboard(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_AcceptsFocusFromKeyboard() const function, expected prototype:\nbool wxStyledTextCtrl::base_AcceptsFocusFromKeyboard() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_AcceptsFocusFromKeyboard() const function, expected prototype:\nbool wxStyledTextCtrl::base_AcceptsFocusFromKeyboard() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_AcceptsFocusFromKeyboard() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -15060,15 +13981,13 @@ public:
 	// bool wxStyledTextCtrl::base_AcceptsFocusRecursively() const
 	static int _bind_base_AcceptsFocusRecursively(lua_State *L) {
 		if (!_lg_typecheck_base_AcceptsFocusRecursively(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_AcceptsFocusRecursively() const function, expected prototype:\nbool wxStyledTextCtrl::base_AcceptsFocusRecursively() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_AcceptsFocusRecursively() const function, expected prototype:\nbool wxStyledTextCtrl::base_AcceptsFocusRecursively() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_AcceptsFocusRecursively() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -15079,15 +13998,13 @@ public:
 	// bool wxStyledTextCtrl::base_HasFocus() const
 	static int _bind_base_HasFocus(lua_State *L) {
 		if (!_lg_typecheck_base_HasFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_HasFocus() const function, expected prototype:\nbool wxStyledTextCtrl::base_HasFocus() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_HasFocus() const function, expected prototype:\nbool wxStyledTextCtrl::base_HasFocus() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_HasFocus() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -15098,16 +14015,14 @@ public:
 	// void wxStyledTextCtrl::base_SetCanFocus(bool canFocus)
 	static int _bind_base_SetCanFocus(lua_State *L) {
 		if (!_lg_typecheck_base_SetCanFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetCanFocus(bool canFocus) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetCanFocus(bool canFocus)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetCanFocus(bool canFocus) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetCanFocus(bool canFocus)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool canFocus=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetCanFocus(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetCanFocus(canFocus);
 
@@ -15117,15 +14032,13 @@ public:
 	// void wxStyledTextCtrl::base_SetFocus()
 	static int _bind_base_SetFocus(lua_State *L) {
 		if (!_lg_typecheck_base_SetFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetFocus() function, expected prototype:\nvoid wxStyledTextCtrl::base_SetFocus()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetFocus() function, expected prototype:\nvoid wxStyledTextCtrl::base_SetFocus()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetFocus(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetFocus();
 
@@ -15135,15 +14048,13 @@ public:
 	// void wxStyledTextCtrl::base_SetFocusFromKbd()
 	static int _bind_base_SetFocusFromKbd(lua_State *L) {
 		if (!_lg_typecheck_base_SetFocusFromKbd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetFocusFromKbd() function, expected prototype:\nvoid wxStyledTextCtrl::base_SetFocusFromKbd()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetFocusFromKbd() function, expected prototype:\nvoid wxStyledTextCtrl::base_SetFocusFromKbd()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetFocusFromKbd(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetFocusFromKbd();
 
@@ -15153,16 +14064,14 @@ public:
 	// void wxStyledTextCtrl::base_AddChild(wxWindow * child)
 	static int _bind_base_AddChild(lua_State *L) {
 		if (!_lg_typecheck_base_AddChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_AddChild(wxWindow * child) function, expected prototype:\nvoid wxStyledTextCtrl::base_AddChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_AddChild(wxWindow * child) function, expected prototype:\nvoid wxStyledTextCtrl::base_AddChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* child=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_AddChild(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::AddChild(child);
 
@@ -15172,16 +14081,14 @@ public:
 	// void wxStyledTextCtrl::base_RemoveChild(wxWindow * child)
 	static int _bind_base_RemoveChild(lua_State *L) {
 		if (!_lg_typecheck_base_RemoveChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_RemoveChild(wxWindow * child) function, expected prototype:\nvoid wxStyledTextCtrl::base_RemoveChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_RemoveChild(wxWindow * child) function, expected prototype:\nvoid wxStyledTextCtrl::base_RemoveChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* child=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_RemoveChild(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::RemoveChild(child);
 
@@ -15191,16 +14098,14 @@ public:
 	// bool wxStyledTextCtrl::base_Reparent(wxWindow * newParent)
 	static int _bind_base_Reparent(lua_State *L) {
 		if (!_lg_typecheck_base_Reparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_Reparent(wxWindow * newParent) function, expected prototype:\nbool wxStyledTextCtrl::base_Reparent(wxWindow * newParent)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_Reparent(wxWindow * newParent) function, expected prototype:\nbool wxStyledTextCtrl::base_Reparent(wxWindow * newParent)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* newParent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_Reparent(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -15211,8 +14116,7 @@ public:
 	// void wxStyledTextCtrl::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)
 	static int _bind_base_AlwaysShowScrollbars(lua_State *L) {
 		if (!_lg_typecheck_base_AlwaysShowScrollbars(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true) function, expected prototype:\nvoid wxStyledTextCtrl::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true) function, expected prototype:\nvoid wxStyledTextCtrl::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15222,8 +14126,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_AlwaysShowScrollbars(bool, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::AlwaysShowScrollbars(hflag, vflag);
 
@@ -15233,16 +14136,14 @@ public:
 	// int wxStyledTextCtrl::base_GetScrollPos(int orientation) const
 	static int _bind_base_GetScrollPos(lua_State *L) {
 		if (!_lg_typecheck_base_GetScrollPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::base_GetScrollPos(int orientation) const function, expected prototype:\nint wxStyledTextCtrl::base_GetScrollPos(int orientation) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::base_GetScrollPos(int orientation) const function, expected prototype:\nint wxStyledTextCtrl::base_GetScrollPos(int orientation) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orientation=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::base_GetScrollPos(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxStyledTextCtrl::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -15253,16 +14154,14 @@ public:
 	// int wxStyledTextCtrl::base_GetScrollRange(int orientation) const
 	static int _bind_base_GetScrollRange(lua_State *L) {
 		if (!_lg_typecheck_base_GetScrollRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::base_GetScrollRange(int orientation) const function, expected prototype:\nint wxStyledTextCtrl::base_GetScrollRange(int orientation) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::base_GetScrollRange(int orientation) const function, expected prototype:\nint wxStyledTextCtrl::base_GetScrollRange(int orientation) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orientation=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::base_GetScrollRange(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxStyledTextCtrl::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -15273,16 +14172,14 @@ public:
 	// int wxStyledTextCtrl::base_GetScrollThumb(int orientation) const
 	static int _bind_base_GetScrollThumb(lua_State *L) {
 		if (!_lg_typecheck_base_GetScrollThumb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::base_GetScrollThumb(int orientation) const function, expected prototype:\nint wxStyledTextCtrl::base_GetScrollThumb(int orientation) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::base_GetScrollThumb(int orientation) const function, expected prototype:\nint wxStyledTextCtrl::base_GetScrollThumb(int orientation) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orientation=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::base_GetScrollThumb(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxStyledTextCtrl::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -15293,16 +14190,14 @@ public:
 	// bool wxStyledTextCtrl::base_IsScrollbarAlwaysShown(int orient) const
 	static int _bind_base_IsScrollbarAlwaysShown(lua_State *L) {
 		if (!_lg_typecheck_base_IsScrollbarAlwaysShown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_IsScrollbarAlwaysShown(int orient) const function, expected prototype:\nbool wxStyledTextCtrl::base_IsScrollbarAlwaysShown(int orient) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_IsScrollbarAlwaysShown(int orient) const function, expected prototype:\nbool wxStyledTextCtrl::base_IsScrollbarAlwaysShown(int orient) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orient=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_IsScrollbarAlwaysShown(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -15313,16 +14208,14 @@ public:
 	// bool wxStyledTextCtrl::base_ScrollLines(int lines)
 	static int _bind_base_ScrollLines(lua_State *L) {
 		if (!_lg_typecheck_base_ScrollLines(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_ScrollLines(int lines) function, expected prototype:\nbool wxStyledTextCtrl::base_ScrollLines(int lines)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_ScrollLines(int lines) function, expected prototype:\nbool wxStyledTextCtrl::base_ScrollLines(int lines)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int lines=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_ScrollLines(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -15333,16 +14226,14 @@ public:
 	// bool wxStyledTextCtrl::base_ScrollPages(int pages)
 	static int _bind_base_ScrollPages(lua_State *L) {
 		if (!_lg_typecheck_base_ScrollPages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_ScrollPages(int pages) function, expected prototype:\nbool wxStyledTextCtrl::base_ScrollPages(int pages)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_ScrollPages(int pages) function, expected prototype:\nbool wxStyledTextCtrl::base_ScrollPages(int pages)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pages=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_ScrollPages(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -15353,8 +14244,7 @@ public:
 	// void wxStyledTextCtrl::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)
 	static int _bind_base_ScrollWindow(lua_State *L) {
 		if (!_lg_typecheck_base_ScrollWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL) function, expected prototype:\nvoid wxStyledTextCtrl::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)\nClass arguments details:\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL) function, expected prototype:\nvoid wxStyledTextCtrl::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)\nClass arguments details:\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15365,8 +14255,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_ScrollWindow(int, int, const wxRect *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::ScrollWindow(dx, dy, rect);
 
@@ -15376,8 +14265,7 @@ public:
 	// void wxStyledTextCtrl::base_SetScrollPos(int orientation, int pos, bool refresh = true)
 	static int _bind_base_SetScrollPos(lua_State *L) {
 		if (!_lg_typecheck_base_SetScrollPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetScrollPos(int orientation, int pos, bool refresh = true) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetScrollPos(int orientation, int pos, bool refresh = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetScrollPos(int orientation, int pos, bool refresh = true) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetScrollPos(int orientation, int pos, bool refresh = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15388,8 +14276,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetScrollPos(int, int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetScrollPos(orientation, pos, refresh);
 
@@ -15399,8 +14286,7 @@ public:
 	// void wxStyledTextCtrl::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)
 	static int _bind_base_SetScrollbar(lua_State *L) {
 		if (!_lg_typecheck_base_SetScrollbar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15413,8 +14299,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetScrollbar(int, int, int, int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -15424,8 +14309,7 @@ public:
 	// wxSize wxStyledTextCtrl::base_ClientToWindowSize(const wxSize & size) const
 	static int _bind_base_ClientToWindowSize(lua_State *L) {
 		if (!_lg_typecheck_base_ClientToWindowSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_ClientToWindowSize(const wxSize & size) const function, expected prototype:\nwxSize wxStyledTextCtrl::base_ClientToWindowSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_ClientToWindowSize(const wxSize & size) const function, expected prototype:\nwxSize wxStyledTextCtrl::base_ClientToWindowSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -15436,8 +14320,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_ClientToWindowSize(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxStyledTextCtrl::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -15451,8 +14334,7 @@ public:
 	// wxSize wxStyledTextCtrl::base_WindowToClientSize(const wxSize & size) const
 	static int _bind_base_WindowToClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_WindowToClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_WindowToClientSize(const wxSize & size) const function, expected prototype:\nwxSize wxStyledTextCtrl::base_WindowToClientSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_WindowToClientSize(const wxSize & size) const function, expected prototype:\nwxSize wxStyledTextCtrl::base_WindowToClientSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -15463,8 +14345,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_WindowToClientSize(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxStyledTextCtrl::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -15478,15 +14359,13 @@ public:
 	// void wxStyledTextCtrl::base_Fit()
 	static int _bind_base_Fit(lua_State *L) {
 		if (!_lg_typecheck_base_Fit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Fit() function, expected prototype:\nvoid wxStyledTextCtrl::base_Fit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Fit() function, expected prototype:\nvoid wxStyledTextCtrl::base_Fit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Fit(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::Fit();
 
@@ -15496,15 +14375,13 @@ public:
 	// void wxStyledTextCtrl::base_FitInside()
 	static int _bind_base_FitInside(lua_State *L) {
 		if (!_lg_typecheck_base_FitInside(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_FitInside() function, expected prototype:\nvoid wxStyledTextCtrl::base_FitInside()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_FitInside() function, expected prototype:\nvoid wxStyledTextCtrl::base_FitInside()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_FitInside(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::FitInside();
 
@@ -15514,15 +14391,13 @@ public:
 	// wxSize wxStyledTextCtrl::base_GetEffectiveMinSize() const
 	static int _bind_base_GetEffectiveMinSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetEffectiveMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_GetEffectiveMinSize() const function, expected prototype:\nwxSize wxStyledTextCtrl::base_GetEffectiveMinSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_GetEffectiveMinSize() const function, expected prototype:\nwxSize wxStyledTextCtrl::base_GetEffectiveMinSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_GetEffectiveMinSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxStyledTextCtrl::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -15536,15 +14411,13 @@ public:
 	// wxSize wxStyledTextCtrl::base_GetMaxClientSize() const
 	static int _bind_base_GetMaxClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMaxClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_GetMaxClientSize() const function, expected prototype:\nwxSize wxStyledTextCtrl::base_GetMaxClientSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_GetMaxClientSize() const function, expected prototype:\nwxSize wxStyledTextCtrl::base_GetMaxClientSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_GetMaxClientSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxStyledTextCtrl::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -15558,15 +14431,13 @@ public:
 	// wxSize wxStyledTextCtrl::base_GetMaxSize() const
 	static int _bind_base_GetMaxSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMaxSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_GetMaxSize() const function, expected prototype:\nwxSize wxStyledTextCtrl::base_GetMaxSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_GetMaxSize() const function, expected prototype:\nwxSize wxStyledTextCtrl::base_GetMaxSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_GetMaxSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxStyledTextCtrl::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -15580,15 +14451,13 @@ public:
 	// wxSize wxStyledTextCtrl::base_GetMinClientSize() const
 	static int _bind_base_GetMinClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMinClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_GetMinClientSize() const function, expected prototype:\nwxSize wxStyledTextCtrl::base_GetMinClientSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_GetMinClientSize() const function, expected prototype:\nwxSize wxStyledTextCtrl::base_GetMinClientSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_GetMinClientSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxStyledTextCtrl::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -15602,15 +14471,13 @@ public:
 	// wxSize wxStyledTextCtrl::base_GetMinSize() const
 	static int _bind_base_GetMinSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_GetMinSize() const function, expected prototype:\nwxSize wxStyledTextCtrl::base_GetMinSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_GetMinSize() const function, expected prototype:\nwxSize wxStyledTextCtrl::base_GetMinSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_GetMinSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxStyledTextCtrl::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -15624,15 +14491,13 @@ public:
 	// wxSize wxStyledTextCtrl::base_GetBestVirtualSize() const
 	static int _bind_base_GetBestVirtualSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetBestVirtualSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_GetBestVirtualSize() const function, expected prototype:\nwxSize wxStyledTextCtrl::base_GetBestVirtualSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_GetBestVirtualSize() const function, expected prototype:\nwxSize wxStyledTextCtrl::base_GetBestVirtualSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_GetBestVirtualSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxStyledTextCtrl::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -15646,15 +14511,13 @@ public:
 	// wxSize wxStyledTextCtrl::base_GetWindowBorderSize() const
 	static int _bind_base_GetWindowBorderSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetWindowBorderSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_GetWindowBorderSize() const function, expected prototype:\nwxSize wxStyledTextCtrl::base_GetWindowBorderSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxStyledTextCtrl::base_GetWindowBorderSize() const function, expected prototype:\nwxSize wxStyledTextCtrl::base_GetWindowBorderSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxStyledTextCtrl::base_GetWindowBorderSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxStyledTextCtrl::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -15668,8 +14531,7 @@ public:
 	// bool wxStyledTextCtrl::base_InformFirstDirection(int direction, int size, int availableOtherDir)
 	static int _bind_base_InformFirstDirection(lua_State *L) {
 		if (!_lg_typecheck_base_InformFirstDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxStyledTextCtrl::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxStyledTextCtrl::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int direction=(int)lua_tointeger(L,2);
@@ -15678,8 +14540,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_InformFirstDirection(int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -15690,8 +14551,7 @@ public:
 	// void wxStyledTextCtrl::base_SendSizeEvent(int flags = 0)
 	static int _bind_base_SendSizeEvent(lua_State *L) {
 		if (!_lg_typecheck_base_SendSizeEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SendSizeEvent(int flags = 0) function, expected prototype:\nvoid wxStyledTextCtrl::base_SendSizeEvent(int flags = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SendSizeEvent(int flags = 0) function, expected prototype:\nvoid wxStyledTextCtrl::base_SendSizeEvent(int flags = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15700,8 +14560,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SendSizeEvent(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SendSizeEvent(flags);
 
@@ -15711,8 +14570,7 @@ public:
 	// void wxStyledTextCtrl::base_SetMaxClientSize(const wxSize & size)
 	static int _bind_base_SetMaxClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMaxClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetMaxClientSize(const wxSize & size) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetMaxClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetMaxClientSize(const wxSize & size) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetMaxClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -15723,8 +14581,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetMaxClientSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetMaxClientSize(size);
 
@@ -15734,8 +14591,7 @@ public:
 	// void wxStyledTextCtrl::base_SetMaxSize(const wxSize & size)
 	static int _bind_base_SetMaxSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMaxSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetMaxSize(const wxSize & size) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetMaxSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetMaxSize(const wxSize & size) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetMaxSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -15746,8 +14602,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetMaxSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetMaxSize(size);
 
@@ -15757,8 +14612,7 @@ public:
 	// void wxStyledTextCtrl::base_SetMinClientSize(const wxSize & size)
 	static int _bind_base_SetMinClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMinClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetMinClientSize(const wxSize & size) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetMinClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetMinClientSize(const wxSize & size) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetMinClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -15769,8 +14623,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetMinClientSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetMinClientSize(size);
 
@@ -15780,8 +14633,7 @@ public:
 	// void wxStyledTextCtrl::base_SetMinSize(const wxSize & size)
 	static int _bind_base_SetMinSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetMinSize(const wxSize & size) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetMinSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetMinSize(const wxSize & size) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetMinSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -15792,8 +14644,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetMinSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetMinSize(size);
 
@@ -15803,8 +14654,7 @@ public:
 	// void wxStyledTextCtrl::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)
 	static int _bind_base_SetSizeHints_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_SetSizeHints_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)\nClass arguments details:\narg 1 ID = 20268751\narg 2 ID = 20268751\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)\nClass arguments details:\narg 1 ID = 20268751\narg 2 ID = 20268751\narg 3 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15827,8 +14677,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetSizeHints(minSize, maxSize, incSize);
 
@@ -15838,8 +14687,7 @@ public:
 	// void wxStyledTextCtrl::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)
 	static int _bind_base_SetSizeHints_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_SetSizeHints_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15853,8 +14701,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -15873,15 +14720,13 @@ public:
 	// wxPoint wxStyledTextCtrl::base_GetClientAreaOrigin() const
 	static int _bind_base_GetClientAreaOrigin(lua_State *L) {
 		if (!_lg_typecheck_base_GetClientAreaOrigin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint wxStyledTextCtrl::base_GetClientAreaOrigin() const function, expected prototype:\nwxPoint wxStyledTextCtrl::base_GetClientAreaOrigin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint wxStyledTextCtrl::base_GetClientAreaOrigin() const function, expected prototype:\nwxPoint wxStyledTextCtrl::base_GetClientAreaOrigin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxStyledTextCtrl::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint wxStyledTextCtrl::base_GetClientAreaOrigin() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint stack_lret = self->wxStyledTextCtrl::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -15895,15 +14740,13 @@ public:
 	// void wxStyledTextCtrl::base_ClearBackground()
 	static int _bind_base_ClearBackground(lua_State *L) {
 		if (!_lg_typecheck_base_ClearBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_ClearBackground() function, expected prototype:\nvoid wxStyledTextCtrl::base_ClearBackground()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_ClearBackground() function, expected prototype:\nvoid wxStyledTextCtrl::base_ClearBackground()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_ClearBackground(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::ClearBackground();
 
@@ -15913,15 +14756,13 @@ public:
 	// wxBackgroundStyle wxStyledTextCtrl::base_GetBackgroundStyle() const
 	static int _bind_base_GetBackgroundStyle(lua_State *L) {
 		if (!_lg_typecheck_base_GetBackgroundStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBackgroundStyle wxStyledTextCtrl::base_GetBackgroundStyle() const function, expected prototype:\nwxBackgroundStyle wxStyledTextCtrl::base_GetBackgroundStyle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBackgroundStyle wxStyledTextCtrl::base_GetBackgroundStyle() const function, expected prototype:\nwxBackgroundStyle wxStyledTextCtrl::base_GetBackgroundStyle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxStyledTextCtrl::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxStyledTextCtrl::base_GetBackgroundStyle() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxBackgroundStyle lret = self->wxStyledTextCtrl::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -15932,15 +14773,13 @@ public:
 	// int wxStyledTextCtrl::base_GetCharHeight() const
 	static int _bind_base_GetCharHeight(lua_State *L) {
 		if (!_lg_typecheck_base_GetCharHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::base_GetCharHeight() const function, expected prototype:\nint wxStyledTextCtrl::base_GetCharHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::base_GetCharHeight() const function, expected prototype:\nint wxStyledTextCtrl::base_GetCharHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::base_GetCharHeight() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxStyledTextCtrl::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -15951,15 +14790,13 @@ public:
 	// int wxStyledTextCtrl::base_GetCharWidth() const
 	static int _bind_base_GetCharWidth(lua_State *L) {
 		if (!_lg_typecheck_base_GetCharWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::base_GetCharWidth() const function, expected prototype:\nint wxStyledTextCtrl::base_GetCharWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStyledTextCtrl::base_GetCharWidth() const function, expected prototype:\nint wxStyledTextCtrl::base_GetCharWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStyledTextCtrl::base_GetCharWidth() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxStyledTextCtrl::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -15970,15 +14807,13 @@ public:
 	// wxVisualAttributes wxStyledTextCtrl::base_GetDefaultAttributes() const
 	static int _bind_base_GetDefaultAttributes(lua_State *L) {
 		if (!_lg_typecheck_base_GetDefaultAttributes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxVisualAttributes wxStyledTextCtrl::base_GetDefaultAttributes() const function, expected prototype:\nwxVisualAttributes wxStyledTextCtrl::base_GetDefaultAttributes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxVisualAttributes wxStyledTextCtrl::base_GetDefaultAttributes() const function, expected prototype:\nwxVisualAttributes wxStyledTextCtrl::base_GetDefaultAttributes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxStyledTextCtrl::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxStyledTextCtrl::base_GetDefaultAttributes() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxVisualAttributes stack_lret = self->wxStyledTextCtrl::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -15992,8 +14827,7 @@ public:
 	// void wxStyledTextCtrl::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
 	static int _bind_base_Refresh(lua_State *L) {
 		if (!_lg_typecheck_base_Refresh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL) function, expected prototype:\nvoid wxStyledTextCtrl::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)\nClass arguments details:\narg 2 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL) function, expected prototype:\nvoid wxStyledTextCtrl::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)\nClass arguments details:\narg 2 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16003,8 +14837,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Refresh(bool, const wxRect *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::Refresh(eraseBackground, rect);
 
@@ -16014,15 +14847,13 @@ public:
 	// void wxStyledTextCtrl::base_Update()
 	static int _bind_base_Update(lua_State *L) {
 		if (!_lg_typecheck_base_Update(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Update() function, expected prototype:\nvoid wxStyledTextCtrl::base_Update()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Update() function, expected prototype:\nvoid wxStyledTextCtrl::base_Update()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Update(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::Update();
 
@@ -16032,16 +14863,14 @@ public:
 	// bool wxStyledTextCtrl::base_SetBackgroundStyle(wxBackgroundStyle style)
 	static int _bind_base_SetBackgroundStyle(lua_State *L) {
 		if (!_lg_typecheck_base_SetBackgroundStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_SetBackgroundStyle(wxBackgroundStyle style) function, expected prototype:\nbool wxStyledTextCtrl::base_SetBackgroundStyle(wxBackgroundStyle style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_SetBackgroundStyle(wxBackgroundStyle style) function, expected prototype:\nbool wxStyledTextCtrl::base_SetBackgroundStyle(wxBackgroundStyle style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBackgroundStyle style=(wxBackgroundStyle)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -16052,8 +14881,7 @@ public:
 	// bool wxStyledTextCtrl::base_SetFont(const wxFont & font)
 	static int _bind_base_SetFont(lua_State *L) {
 		if (!_lg_typecheck_base_SetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_SetFont(const wxFont & font) function, expected prototype:\nbool wxStyledTextCtrl::base_SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_SetFont(const wxFont & font) function, expected prototype:\nbool wxStyledTextCtrl::base_SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -16064,8 +14892,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_SetFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -16076,15 +14903,13 @@ public:
 	// bool wxStyledTextCtrl::base_ShouldInheritColours() const
 	static int _bind_base_ShouldInheritColours(lua_State *L) {
 		if (!_lg_typecheck_base_ShouldInheritColours(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_ShouldInheritColours() const function, expected prototype:\nbool wxStyledTextCtrl::base_ShouldInheritColours() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_ShouldInheritColours() const function, expected prototype:\nbool wxStyledTextCtrl::base_ShouldInheritColours() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_ShouldInheritColours() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -16095,16 +14920,14 @@ public:
 	// void wxStyledTextCtrl::base_SetThemeEnabled(bool enable)
 	static int _bind_base_SetThemeEnabled(lua_State *L) {
 		if (!_lg_typecheck_base_SetThemeEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetThemeEnabled(bool enable) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetThemeEnabled(bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetThemeEnabled(bool enable) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetThemeEnabled(bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enable=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetThemeEnabled(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetThemeEnabled(enable);
 
@@ -16114,15 +14937,13 @@ public:
 	// bool wxStyledTextCtrl::base_GetThemeEnabled() const
 	static int _bind_base_GetThemeEnabled(lua_State *L) {
 		if (!_lg_typecheck_base_GetThemeEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_GetThemeEnabled() const function, expected prototype:\nbool wxStyledTextCtrl::base_GetThemeEnabled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_GetThemeEnabled() const function, expected prototype:\nbool wxStyledTextCtrl::base_GetThemeEnabled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_GetThemeEnabled() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -16133,15 +14954,13 @@ public:
 	// bool wxStyledTextCtrl::base_CanSetTransparent()
 	static int _bind_base_CanSetTransparent(lua_State *L) {
 		if (!_lg_typecheck_base_CanSetTransparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_CanSetTransparent() function, expected prototype:\nbool wxStyledTextCtrl::base_CanSetTransparent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_CanSetTransparent() function, expected prototype:\nbool wxStyledTextCtrl::base_CanSetTransparent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_CanSetTransparent(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -16152,16 +14971,14 @@ public:
 	// bool wxStyledTextCtrl::base_SetTransparent(unsigned char alpha)
 	static int _bind_base_SetTransparent(lua_State *L) {
 		if (!_lg_typecheck_base_SetTransparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_SetTransparent(unsigned char alpha) function, expected prototype:\nbool wxStyledTextCtrl::base_SetTransparent(unsigned char alpha)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_SetTransparent(unsigned char alpha) function, expected prototype:\nbool wxStyledTextCtrl::base_SetTransparent(unsigned char alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char alpha = (unsigned char)(lua_tointeger(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_SetTransparent(unsigned char). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -16172,16 +14989,14 @@ public:
 	// void wxStyledTextCtrl::base_SetNextHandler(wxEvtHandler * handler)
 	static int _bind_base_SetNextHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetNextHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetNextHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetNextHandler(handler);
 
@@ -16191,16 +15006,14 @@ public:
 	// void wxStyledTextCtrl::base_SetPreviousHandler(wxEvtHandler * handler)
 	static int _bind_base_SetPreviousHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetPreviousHandler(handler);
 
@@ -16210,15 +15023,13 @@ public:
 	// long wxStyledTextCtrl::base_GetWindowStyleFlag() const
 	static int _bind_base_GetWindowStyleFlag(lua_State *L) {
 		if (!_lg_typecheck_base_GetWindowStyleFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxStyledTextCtrl::base_GetWindowStyleFlag() const function, expected prototype:\nlong wxStyledTextCtrl::base_GetWindowStyleFlag() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxStyledTextCtrl::base_GetWindowStyleFlag() const function, expected prototype:\nlong wxStyledTextCtrl::base_GetWindowStyleFlag() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxStyledTextCtrl::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long wxStyledTextCtrl::base_GetWindowStyleFlag() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->wxStyledTextCtrl::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -16229,16 +15040,14 @@ public:
 	// void wxStyledTextCtrl::base_SetExtraStyle(long exStyle)
 	static int _bind_base_SetExtraStyle(lua_State *L) {
 		if (!_lg_typecheck_base_SetExtraStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetExtraStyle(long exStyle) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetExtraStyle(long exStyle)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetExtraStyle(long exStyle) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetExtraStyle(long exStyle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long exStyle=(long)lua_tointeger(L,2);
+		long exStyle=(long)lua_tonumber(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetExtraStyle(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetExtraStyle(exStyle);
 
@@ -16248,16 +15057,14 @@ public:
 	// void wxStyledTextCtrl::base_SetWindowStyleFlag(long style)
 	static int _bind_base_SetWindowStyleFlag(lua_State *L) {
 		if (!_lg_typecheck_base_SetWindowStyleFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetWindowStyleFlag(long style) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetWindowStyleFlag(long style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetWindowStyleFlag(long style) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetWindowStyleFlag(long style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long style=(long)lua_tointeger(L,2);
+		long style=(long)lua_tonumber(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetWindowStyleFlag(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetWindowStyleFlag(style);
 
@@ -16267,15 +15074,13 @@ public:
 	// void wxStyledTextCtrl::base_Lower()
 	static int _bind_base_Lower(lua_State *L) {
 		if (!_lg_typecheck_base_Lower(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Lower() function, expected prototype:\nvoid wxStyledTextCtrl::base_Lower()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Lower() function, expected prototype:\nvoid wxStyledTextCtrl::base_Lower()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Lower(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::Lower();
 
@@ -16285,15 +15090,13 @@ public:
 	// void wxStyledTextCtrl::base_Raise()
 	static int _bind_base_Raise(lua_State *L) {
 		if (!_lg_typecheck_base_Raise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Raise() function, expected prototype:\nvoid wxStyledTextCtrl::base_Raise()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Raise() function, expected prototype:\nvoid wxStyledTextCtrl::base_Raise()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Raise(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::Raise();
 
@@ -16303,8 +15106,7 @@ public:
 	// bool wxStyledTextCtrl::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)
 	static int _bind_base_HideWithEffect(lua_State *L) {
 		if (!_lg_typecheck_base_HideWithEffect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxStyledTextCtrl::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxStyledTextCtrl::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16314,8 +15116,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -16326,15 +15127,13 @@ public:
 	// bool wxStyledTextCtrl::base_IsShown() const
 	static int _bind_base_IsShown(lua_State *L) {
 		if (!_lg_typecheck_base_IsShown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_IsShown() const function, expected prototype:\nbool wxStyledTextCtrl::base_IsShown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_IsShown() const function, expected prototype:\nbool wxStyledTextCtrl::base_IsShown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_IsShown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -16345,15 +15144,13 @@ public:
 	// bool wxStyledTextCtrl::base_IsShownOnScreen() const
 	static int _bind_base_IsShownOnScreen(lua_State *L) {
 		if (!_lg_typecheck_base_IsShownOnScreen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_IsShownOnScreen() const function, expected prototype:\nbool wxStyledTextCtrl::base_IsShownOnScreen() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_IsShownOnScreen() const function, expected prototype:\nbool wxStyledTextCtrl::base_IsShownOnScreen() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_IsShownOnScreen() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -16364,8 +15161,7 @@ public:
 	// bool wxStyledTextCtrl::base_Enable(bool enable = true)
 	static int _bind_base_Enable(lua_State *L) {
 		if (!_lg_typecheck_base_Enable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_Enable(bool enable = true) function, expected prototype:\nbool wxStyledTextCtrl::base_Enable(bool enable = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_Enable(bool enable = true) function, expected prototype:\nbool wxStyledTextCtrl::base_Enable(bool enable = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16374,8 +15170,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_Enable(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -16386,8 +15181,7 @@ public:
 	// bool wxStyledTextCtrl::base_Show(bool show = true)
 	static int _bind_base_Show(lua_State *L) {
 		if (!_lg_typecheck_base_Show(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_Show(bool show = true) function, expected prototype:\nbool wxStyledTextCtrl::base_Show(bool show = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_Show(bool show = true) function, expected prototype:\nbool wxStyledTextCtrl::base_Show(bool show = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16396,8 +15190,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_Show(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -16408,8 +15201,7 @@ public:
 	// bool wxStyledTextCtrl::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)
 	static int _bind_base_ShowWithEffect(lua_State *L) {
 		if (!_lg_typecheck_base_ShowWithEffect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxStyledTextCtrl::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxStyledTextCtrl::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16419,8 +15211,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -16431,8 +15222,7 @@ public:
 	// wxString wxStyledTextCtrl::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const
 	static int _bind_base_GetHelpTextAtPoint(lua_State *L) {
 		if (!_lg_typecheck_base_GetHelpTextAtPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const function, expected prototype:\nwxString wxStyledTextCtrl::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const function, expected prototype:\nwxString wxStyledTextCtrl::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* point_ptr=(Luna< wxPoint >::check(L,2));
@@ -16444,8 +15234,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStyledTextCtrl::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -16456,15 +15245,13 @@ public:
 	// wxValidator * wxStyledTextCtrl::base_GetValidator()
 	static int _bind_base_GetValidator(lua_State *L) {
 		if (!_lg_typecheck_base_GetValidator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxValidator * wxStyledTextCtrl::base_GetValidator() function, expected prototype:\nwxValidator * wxStyledTextCtrl::base_GetValidator()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxValidator * wxStyledTextCtrl::base_GetValidator() function, expected prototype:\nwxValidator * wxStyledTextCtrl::base_GetValidator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxStyledTextCtrl::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxValidator * wxStyledTextCtrl::base_GetValidator(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxValidator * lret = self->wxStyledTextCtrl::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -16477,8 +15264,7 @@ public:
 	// void wxStyledTextCtrl::base_SetValidator(const wxValidator & validator)
 	static int _bind_base_SetValidator(lua_State *L) {
 		if (!_lg_typecheck_base_SetValidator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetValidator(const wxValidator & validator) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetValidator(const wxValidator & validator)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetValidator(const wxValidator & validator) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetValidator(const wxValidator & validator)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxValidator* validator_ptr=(Luna< wxObject >::checkSubType< wxValidator >(L,2));
@@ -16489,8 +15275,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetValidator(const wxValidator &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetValidator(validator);
 
@@ -16500,15 +15285,13 @@ public:
 	// bool wxStyledTextCtrl::base_TransferDataFromWindow()
 	static int _bind_base_TransferDataFromWindow(lua_State *L) {
 		if (!_lg_typecheck_base_TransferDataFromWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_TransferDataFromWindow() function, expected prototype:\nbool wxStyledTextCtrl::base_TransferDataFromWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_TransferDataFromWindow() function, expected prototype:\nbool wxStyledTextCtrl::base_TransferDataFromWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_TransferDataFromWindow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -16519,15 +15302,13 @@ public:
 	// bool wxStyledTextCtrl::base_TransferDataToWindow()
 	static int _bind_base_TransferDataToWindow(lua_State *L) {
 		if (!_lg_typecheck_base_TransferDataToWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_TransferDataToWindow() function, expected prototype:\nbool wxStyledTextCtrl::base_TransferDataToWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_TransferDataToWindow() function, expected prototype:\nbool wxStyledTextCtrl::base_TransferDataToWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_TransferDataToWindow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -16538,15 +15319,13 @@ public:
 	// bool wxStyledTextCtrl::base_Validate()
 	static int _bind_base_Validate(lua_State *L) {
 		if (!_lg_typecheck_base_Validate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_Validate() function, expected prototype:\nbool wxStyledTextCtrl::base_Validate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_Validate() function, expected prototype:\nbool wxStyledTextCtrl::base_Validate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_Validate(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -16557,15 +15336,13 @@ public:
 	// wxLayoutDirection wxStyledTextCtrl::base_GetLayoutDirection() const
 	static int _bind_base_GetLayoutDirection(lua_State *L) {
 		if (!_lg_typecheck_base_GetLayoutDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxLayoutDirection wxStyledTextCtrl::base_GetLayoutDirection() const function, expected prototype:\nwxLayoutDirection wxStyledTextCtrl::base_GetLayoutDirection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxLayoutDirection wxStyledTextCtrl::base_GetLayoutDirection() const function, expected prototype:\nwxLayoutDirection wxStyledTextCtrl::base_GetLayoutDirection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxStyledTextCtrl::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxStyledTextCtrl::base_GetLayoutDirection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxLayoutDirection lret = self->wxStyledTextCtrl::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -16576,15 +15353,13 @@ public:
 	// wxString wxStyledTextCtrl::base_GetName() const
 	static int _bind_base_GetName(lua_State *L) {
 		if (!_lg_typecheck_base_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::base_GetName() const function, expected prototype:\nwxString wxStyledTextCtrl::base_GetName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::base_GetName() const function, expected prototype:\nwxString wxStyledTextCtrl::base_GetName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::base_GetName() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStyledTextCtrl::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -16595,16 +15370,14 @@ public:
 	// void wxStyledTextCtrl::base_SetLayoutDirection(wxLayoutDirection dir)
 	static int _bind_base_SetLayoutDirection(lua_State *L) {
 		if (!_lg_typecheck_base_SetLayoutDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetLayoutDirection(wxLayoutDirection dir) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetLayoutDirection(wxLayoutDirection dir)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetLayoutDirection(wxLayoutDirection dir) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetLayoutDirection(wxLayoutDirection dir)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLayoutDirection dir=(wxLayoutDirection)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetLayoutDirection(dir);
 
@@ -16614,16 +15387,14 @@ public:
 	// void wxStyledTextCtrl::base_SetName(const wxString & name)
 	static int _bind_base_SetName(lua_State *L) {
 		if (!_lg_typecheck_base_SetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetName(const wxString & name) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetName(const wxString & name) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetName(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetName(name);
 
@@ -16633,8 +15404,7 @@ public:
 	// void wxStyledTextCtrl::base_SetAcceleratorTable(const wxAcceleratorTable & accel)
 	static int _bind_base_SetAcceleratorTable(lua_State *L) {
 		if (!_lg_typecheck_base_SetAcceleratorTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetAcceleratorTable(const wxAcceleratorTable & accel) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetAcceleratorTable(const wxAcceleratorTable & accel)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetAcceleratorTable(const wxAcceleratorTable & accel) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetAcceleratorTable(const wxAcceleratorTable & accel)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxAcceleratorTable* accel_ptr=(Luna< wxObject >::checkSubType< wxAcceleratorTable >(L,2));
@@ -16645,8 +15415,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetAcceleratorTable(accel);
 
@@ -16656,15 +15425,13 @@ public:
 	// bool wxStyledTextCtrl::base_Destroy()
 	static int _bind_base_Destroy(lua_State *L) {
 		if (!_lg_typecheck_base_Destroy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_Destroy() function, expected prototype:\nbool wxStyledTextCtrl::base_Destroy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_Destroy() function, expected prototype:\nbool wxStyledTextCtrl::base_Destroy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_Destroy(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -16675,15 +15442,13 @@ public:
 	// wxDropTarget * wxStyledTextCtrl::base_GetDropTarget() const
 	static int _bind_base_GetDropTarget(lua_State *L) {
 		if (!_lg_typecheck_base_GetDropTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDropTarget * wxStyledTextCtrl::base_GetDropTarget() const function, expected prototype:\nwxDropTarget * wxStyledTextCtrl::base_GetDropTarget() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDropTarget * wxStyledTextCtrl::base_GetDropTarget() const function, expected prototype:\nwxDropTarget * wxStyledTextCtrl::base_GetDropTarget() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxStyledTextCtrl::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxStyledTextCtrl::base_GetDropTarget() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDropTarget * lret = self->wxStyledTextCtrl::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -16696,16 +15461,14 @@ public:
 	// void wxStyledTextCtrl::base_SetDropTarget(wxDropTarget * target)
 	static int _bind_base_SetDropTarget(lua_State *L) {
 		if (!_lg_typecheck_base_SetDropTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetDropTarget(wxDropTarget * target) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetDropTarget(wxDropTarget * target)\nClass arguments details:\narg 1 ID = 93694316\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetDropTarget(wxDropTarget * target) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetDropTarget(wxDropTarget * target)\nClass arguments details:\narg 1 ID = 93694316\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDropTarget* target=(Luna< wxDropTarget >::check(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetDropTarget(wxDropTarget *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetDropTarget(target);
 
@@ -16715,16 +15478,14 @@ public:
 	// void wxStyledTextCtrl::base_DragAcceptFiles(bool accept)
 	static int _bind_base_DragAcceptFiles(lua_State *L) {
 		if (!_lg_typecheck_base_DragAcceptFiles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_DragAcceptFiles(bool accept) function, expected prototype:\nvoid wxStyledTextCtrl::base_DragAcceptFiles(bool accept)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_DragAcceptFiles(bool accept) function, expected prototype:\nvoid wxStyledTextCtrl::base_DragAcceptFiles(bool accept)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool accept=(bool)(lua_toboolean(L,2)==1);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_DragAcceptFiles(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::DragAcceptFiles(accept);
 
@@ -16734,15 +15495,13 @@ public:
 	// bool wxStyledTextCtrl::base_Layout()
 	static int _bind_base_Layout(lua_State *L) {
 		if (!_lg_typecheck_base_Layout(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_Layout() function, expected prototype:\nbool wxStyledTextCtrl::base_Layout()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_Layout() function, expected prototype:\nbool wxStyledTextCtrl::base_Layout()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_Layout(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -16753,15 +15512,13 @@ public:
 	// bool wxStyledTextCtrl::base_HasCapture() const
 	static int _bind_base_HasCapture(lua_State *L) {
 		if (!_lg_typecheck_base_HasCapture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_HasCapture() const function, expected prototype:\nbool wxStyledTextCtrl::base_HasCapture() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_HasCapture() const function, expected prototype:\nbool wxStyledTextCtrl::base_HasCapture() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_HasCapture() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -16772,8 +15529,7 @@ public:
 	// bool wxStyledTextCtrl::base_SetCursor(const wxCursor & cursor)
 	static int _bind_base_SetCursor(lua_State *L) {
 		if (!_lg_typecheck_base_SetCursor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_SetCursor(const wxCursor & cursor) function, expected prototype:\nbool wxStyledTextCtrl::base_SetCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_SetCursor(const wxCursor & cursor) function, expected prototype:\nbool wxStyledTextCtrl::base_SetCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxCursor* cursor_ptr=(Luna< wxObject >::checkSubType< wxCursor >(L,2));
@@ -16784,8 +15540,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_SetCursor(const wxCursor &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -16796,8 +15551,7 @@ public:
 	// void wxStyledTextCtrl::base_WarpPointer(int x, int y)
 	static int _bind_base_WarpPointer(lua_State *L) {
 		if (!_lg_typecheck_base_WarpPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_WarpPointer(int x, int y) function, expected prototype:\nvoid wxStyledTextCtrl::base_WarpPointer(int x, int y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_WarpPointer(int x, int y) function, expected prototype:\nvoid wxStyledTextCtrl::base_WarpPointer(int x, int y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -16805,8 +15559,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_WarpPointer(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::WarpPointer(x, y);
 
@@ -16816,8 +15569,7 @@ public:
 	// void wxStyledTextCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent & event)
 	static int _bind_base_DoUpdateWindowUI(lua_State *L) {
 		if (!_lg_typecheck_base_DoUpdateWindowUI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent & event) function, expected prototype:\nvoid wxStyledTextCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent & event) function, expected prototype:\nvoid wxStyledTextCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxUpdateUIEvent* event_ptr=(Luna< wxObject >::checkSubType< wxUpdateUIEvent >(L,2));
@@ -16828,8 +15580,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::DoUpdateWindowUI(event);
 
@@ -16839,15 +15590,13 @@ public:
 	// bool wxStyledTextCtrl::base_HasMultiplePages() const
 	static int _bind_base_HasMultiplePages(lua_State *L) {
 		if (!_lg_typecheck_base_HasMultiplePages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_HasMultiplePages() const function, expected prototype:\nbool wxStyledTextCtrl::base_HasMultiplePages() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_HasMultiplePages() const function, expected prototype:\nbool wxStyledTextCtrl::base_HasMultiplePages() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_HasMultiplePages() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -16858,15 +15607,13 @@ public:
 	// void wxStyledTextCtrl::base_InheritAttributes()
 	static int _bind_base_InheritAttributes(lua_State *L) {
 		if (!_lg_typecheck_base_InheritAttributes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_InheritAttributes() function, expected prototype:\nvoid wxStyledTextCtrl::base_InheritAttributes()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_InheritAttributes() function, expected prototype:\nvoid wxStyledTextCtrl::base_InheritAttributes()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_InheritAttributes(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::InheritAttributes();
 
@@ -16876,15 +15623,13 @@ public:
 	// void wxStyledTextCtrl::base_InitDialog()
 	static int _bind_base_InitDialog(lua_State *L) {
 		if (!_lg_typecheck_base_InitDialog(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_InitDialog() function, expected prototype:\nvoid wxStyledTextCtrl::base_InitDialog()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_InitDialog() function, expected prototype:\nvoid wxStyledTextCtrl::base_InitDialog()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_InitDialog(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::InitDialog();
 
@@ -16894,15 +15639,13 @@ public:
 	// bool wxStyledTextCtrl::base_IsRetained() const
 	static int _bind_base_IsRetained(lua_State *L) {
 		if (!_lg_typecheck_base_IsRetained(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_IsRetained() const function, expected prototype:\nbool wxStyledTextCtrl::base_IsRetained() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_IsRetained() const function, expected prototype:\nbool wxStyledTextCtrl::base_IsRetained() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_IsRetained() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -16913,15 +15656,13 @@ public:
 	// bool wxStyledTextCtrl::base_IsTopLevel() const
 	static int _bind_base_IsTopLevel(lua_State *L) {
 		if (!_lg_typecheck_base_IsTopLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_IsTopLevel() const function, expected prototype:\nbool wxStyledTextCtrl::base_IsTopLevel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_IsTopLevel() const function, expected prototype:\nbool wxStyledTextCtrl::base_IsTopLevel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_IsTopLevel() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -16932,8 +15673,7 @@ public:
 	// void wxStyledTextCtrl::base_MakeModal(bool modal = true)
 	static int _bind_base_MakeModal(lua_State *L) {
 		if (!_lg_typecheck_base_MakeModal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_MakeModal(bool modal = true) function, expected prototype:\nvoid wxStyledTextCtrl::base_MakeModal(bool modal = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_MakeModal(bool modal = true) function, expected prototype:\nvoid wxStyledTextCtrl::base_MakeModal(bool modal = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16942,8 +15682,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_MakeModal(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::MakeModal(modal);
 
@@ -16953,15 +15692,13 @@ public:
 	// void wxStyledTextCtrl::base_OnInternalIdle()
 	static int _bind_base_OnInternalIdle(lua_State *L) {
 		if (!_lg_typecheck_base_OnInternalIdle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_OnInternalIdle() function, expected prototype:\nvoid wxStyledTextCtrl::base_OnInternalIdle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_OnInternalIdle() function, expected prototype:\nvoid wxStyledTextCtrl::base_OnInternalIdle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_OnInternalIdle(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::OnInternalIdle();
 
@@ -16971,8 +15708,7 @@ public:
 	// bool wxStyledTextCtrl::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)
 	static int _bind_base_RegisterHotKey(lua_State *L) {
 		if (!_lg_typecheck_base_RegisterHotKey(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode) function, expected prototype:\nbool wxStyledTextCtrl::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode) function, expected prototype:\nbool wxStyledTextCtrl::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int hotkeyId=(int)lua_tointeger(L,2);
@@ -16981,8 +15717,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_RegisterHotKey(int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -16993,16 +15728,14 @@ public:
 	// bool wxStyledTextCtrl::base_UnregisterHotKey(int hotkeyId)
 	static int _bind_base_UnregisterHotKey(lua_State *L) {
 		if (!_lg_typecheck_base_UnregisterHotKey(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_UnregisterHotKey(int hotkeyId) function, expected prototype:\nbool wxStyledTextCtrl::base_UnregisterHotKey(int hotkeyId)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_UnregisterHotKey(int hotkeyId) function, expected prototype:\nbool wxStyledTextCtrl::base_UnregisterHotKey(int hotkeyId)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int hotkeyId=(int)lua_tointeger(L,2);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_UnregisterHotKey(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -17013,18 +15746,16 @@ public:
 	// void wxStyledTextCtrl::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)
 	static int _bind_base_UpdateWindowUI(lua_State *L) {
 		if (!_lg_typecheck_base_UpdateWindowUI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE) function, expected prototype:\nvoid wxStyledTextCtrl::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE) function, expected prototype:\nvoid wxStyledTextCtrl::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxUPDATE_UI_NONE;
+		long flags=luatop>1 ? (long)lua_tonumber(L,2) : (long)::wxUPDATE_UI_NONE;
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_UpdateWindowUI(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::UpdateWindowUI(flags);
 
@@ -17034,8 +15765,7 @@ public:
 	// void wxStyledTextCtrl::base_Command(wxCommandEvent & event)
 	static int _bind_base_Command(lua_State *L) {
 		if (!_lg_typecheck_base_Command(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Command(wxCommandEvent & event) function, expected prototype:\nvoid wxStyledTextCtrl::base_Command(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Command(wxCommandEvent & event) function, expected prototype:\nvoid wxStyledTextCtrl::base_Command(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCommandEvent* event_ptr=(Luna< wxObject >::checkSubType< wxCommandEvent >(L,2));
@@ -17046,8 +15776,7 @@ public:
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Command(wxCommandEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::Command(event);
 
@@ -17057,15 +15786,13 @@ public:
 	// wxString wxStyledTextCtrl::base_GetLabel() const
 	static int _bind_base_GetLabel(lua_State *L) {
 		if (!_lg_typecheck_base_GetLabel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::base_GetLabel() const function, expected prototype:\nwxString wxStyledTextCtrl::base_GetLabel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStyledTextCtrl::base_GetLabel() const function, expected prototype:\nwxString wxStyledTextCtrl::base_GetLabel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStyledTextCtrl::base_GetLabel() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxStyledTextCtrl::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -17076,16 +15803,14 @@ public:
 	// void wxStyledTextCtrl::base_SetLabel(const wxString & label)
 	static int _bind_base_SetLabel(lua_State *L) {
 		if (!_lg_typecheck_base_SetLabel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetLabel(const wxString & label) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetLabel(const wxString & label)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetLabel(const wxString & label) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetLabel(const wxString & label)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetLabel(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetLabel(label);
 
@@ -17095,16 +15820,14 @@ public:
 	// void wxStyledTextCtrl::base_AppendText(const wxString & text)
 	static int _bind_base_AppendText(lua_State *L) {
 		if (!_lg_typecheck_base_AppendText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_AppendText(const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::base_AppendText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_AppendText(const wxString & text) function, expected prototype:\nvoid wxStyledTextCtrl::base_AppendText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_AppendText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_AppendText(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::AppendText(text);
 
@@ -17114,15 +15837,13 @@ public:
 	// bool wxStyledTextCtrl::base_CanPaste() const
 	static int _bind_base_CanPaste(lua_State *L) {
 		if (!_lg_typecheck_base_CanPaste(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_CanPaste() const function, expected prototype:\nbool wxStyledTextCtrl::base_CanPaste() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_CanPaste() const function, expected prototype:\nbool wxStyledTextCtrl::base_CanPaste() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_CanPaste() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_CanPaste() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::CanPaste();
 		lua_pushboolean(L,lret?1:0);
@@ -17133,15 +15854,13 @@ public:
 	// bool wxStyledTextCtrl::base_CanRedo() const
 	static int _bind_base_CanRedo(lua_State *L) {
 		if (!_lg_typecheck_base_CanRedo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_CanRedo() const function, expected prototype:\nbool wxStyledTextCtrl::base_CanRedo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_CanRedo() const function, expected prototype:\nbool wxStyledTextCtrl::base_CanRedo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_CanRedo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_CanRedo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::CanRedo();
 		lua_pushboolean(L,lret?1:0);
@@ -17152,15 +15871,13 @@ public:
 	// bool wxStyledTextCtrl::base_CanUndo() const
 	static int _bind_base_CanUndo(lua_State *L) {
 		if (!_lg_typecheck_base_CanUndo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_CanUndo() const function, expected prototype:\nbool wxStyledTextCtrl::base_CanUndo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::base_CanUndo() const function, expected prototype:\nbool wxStyledTextCtrl::base_CanUndo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_CanUndo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStyledTextCtrl::base_CanUndo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStyledTextCtrl::CanUndo();
 		lua_pushboolean(L,lret?1:0);
@@ -17171,15 +15888,13 @@ public:
 	// void wxStyledTextCtrl::base_Clear()
 	static int _bind_base_Clear(lua_State *L) {
 		if (!_lg_typecheck_base_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Clear() function, expected prototype:\nvoid wxStyledTextCtrl::base_Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Clear() function, expected prototype:\nvoid wxStyledTextCtrl::base_Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Clear(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::Clear();
 
@@ -17189,15 +15904,13 @@ public:
 	// void wxStyledTextCtrl::base_Copy()
 	static int _bind_base_Copy(lua_State *L) {
 		if (!_lg_typecheck_base_Copy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Copy() function, expected prototype:\nvoid wxStyledTextCtrl::base_Copy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Copy() function, expected prototype:\nvoid wxStyledTextCtrl::base_Copy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Copy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Copy(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::Copy();
 
@@ -17207,15 +15920,13 @@ public:
 	// void wxStyledTextCtrl::base_Cut()
 	static int _bind_base_Cut(lua_State *L) {
 		if (!_lg_typecheck_base_Cut(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Cut() function, expected prototype:\nvoid wxStyledTextCtrl::base_Cut()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Cut() function, expected prototype:\nvoid wxStyledTextCtrl::base_Cut()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Cut(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Cut(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::Cut();
 
@@ -17225,15 +15936,13 @@ public:
 	// void wxStyledTextCtrl::base_Paste()
 	static int _bind_base_Paste(lua_State *L) {
 		if (!_lg_typecheck_base_Paste(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Paste() function, expected prototype:\nvoid wxStyledTextCtrl::base_Paste()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Paste() function, expected prototype:\nvoid wxStyledTextCtrl::base_Paste()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Paste(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Paste(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::Paste();
 
@@ -17243,15 +15952,13 @@ public:
 	// void wxStyledTextCtrl::base_Redo()
 	static int _bind_base_Redo(lua_State *L) {
 		if (!_lg_typecheck_base_Redo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Redo() function, expected prototype:\nvoid wxStyledTextCtrl::base_Redo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Redo() function, expected prototype:\nvoid wxStyledTextCtrl::base_Redo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Redo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Redo(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::Redo();
 
@@ -17261,15 +15968,13 @@ public:
 	// void wxStyledTextCtrl::base_SelectAll()
 	static int _bind_base_SelectAll(lua_State *L) {
 		if (!_lg_typecheck_base_SelectAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SelectAll() function, expected prototype:\nvoid wxStyledTextCtrl::base_SelectAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SelectAll() function, expected prototype:\nvoid wxStyledTextCtrl::base_SelectAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SelectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SelectAll(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SelectAll();
 
@@ -17279,17 +15984,15 @@ public:
 	// void wxStyledTextCtrl::base_SetSelection(long from, long to)
 	static int _bind_base_SetSelection(lua_State *L) {
 		if (!_lg_typecheck_base_SetSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetSelection(long from, long to) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetSelection(long from, long to)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_SetSelection(long from, long to) function, expected prototype:\nvoid wxStyledTextCtrl::base_SetSelection(long from, long to)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long from=(long)lua_tonumber(L,2);
+		long to=(long)lua_tonumber(L,3);
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetSelection(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_SetSelection(long, long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::SetSelection(from, to);
 
@@ -17299,15 +16002,13 @@ public:
 	// void wxStyledTextCtrl::base_Undo()
 	static int _bind_base_Undo(lua_State *L) {
 		if (!_lg_typecheck_base_Undo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Undo() function, expected prototype:\nvoid wxStyledTextCtrl::base_Undo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::base_Undo() function, expected prototype:\nvoid wxStyledTextCtrl::base_Undo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStyledTextCtrl* self=Luna< wxObject >::checkSubType< wxStyledTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Undo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStyledTextCtrl::base_Undo(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStyledTextCtrl::Undo();
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxFontMapper*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxFontMapper*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFontMapper* rhs =(Luna< wxFontMapper >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFontMapper* self= (wxFontMapper*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxFontMapper >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -264,8 +259,7 @@ public:
 	// wxFontMapper::wxFontMapper()
 	static wxFontMapper* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFontMapper::wxFontMapper() function, expected prototype:\nwxFontMapper::wxFontMapper()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFontMapper::wxFontMapper() function, expected prototype:\nwxFontMapper::wxFontMapper()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -275,8 +269,7 @@ public:
 	// wxFontMapper::wxFontMapper(lua_Table * data)
 	static wxFontMapper* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFontMapper::wxFontMapper(lua_Table * data) function, expected prototype:\nwxFontMapper::wxFontMapper(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFontMapper::wxFontMapper(lua_Table * data) function, expected prototype:\nwxFontMapper::wxFontMapper(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -297,8 +290,7 @@ public:
 	// wxFontEncoding wxFontMapper::CharsetToEncoding(const wxString & charset, bool interactive = true)
 	static int _bind_CharsetToEncoding(lua_State *L) {
 		if (!_lg_typecheck_CharsetToEncoding(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFontEncoding wxFontMapper::CharsetToEncoding(const wxString & charset, bool interactive = true) function, expected prototype:\nwxFontEncoding wxFontMapper::CharsetToEncoding(const wxString & charset, bool interactive = true)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFontEncoding wxFontMapper::CharsetToEncoding(const wxString & charset, bool interactive = true) function, expected prototype:\nwxFontEncoding wxFontMapper::CharsetToEncoding(const wxString & charset, bool interactive = true)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -308,8 +300,7 @@ public:
 
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFontEncoding wxFontMapper::CharsetToEncoding(const wxString &, bool). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFontEncoding wxFontMapper::CharsetToEncoding(const wxString &, bool). Got : '%s'\n%s",typeid(Luna< wxFontMapper >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFontEncoding lret = self->CharsetToEncoding(charset, interactive);
 		lua_pushnumber(L,lret);
@@ -320,8 +311,7 @@ public:
 	// bool wxFontMapper::GetAltForEncoding(wxFontEncoding encoding, wxFontEncoding * alt_encoding, const wxString & facename = wxEmptyString, bool interactive = true)
 	static int _bind_GetAltForEncoding(lua_State *L) {
 		if (!_lg_typecheck_GetAltForEncoding(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFontMapper::GetAltForEncoding(wxFontEncoding encoding, wxFontEncoding * alt_encoding, const wxString & facename = wxEmptyString, bool interactive = true) function, expected prototype:\nbool wxFontMapper::GetAltForEncoding(wxFontEncoding encoding, wxFontEncoding * alt_encoding, const wxString & facename = wxEmptyString, bool interactive = true)\nClass arguments details:\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFontMapper::GetAltForEncoding(wxFontEncoding encoding, wxFontEncoding * alt_encoding, const wxString & facename = wxEmptyString, bool interactive = true) function, expected prototype:\nbool wxFontMapper::GetAltForEncoding(wxFontEncoding encoding, wxFontEncoding * alt_encoding, const wxString & facename = wxEmptyString, bool interactive = true)\nClass arguments details:\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -333,8 +323,7 @@ public:
 
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontMapper::GetAltForEncoding(wxFontEncoding, wxFontEncoding *, const wxString &, bool). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFontMapper::GetAltForEncoding(wxFontEncoding, wxFontEncoding *, const wxString &, bool). Got : '%s'\n%s",typeid(Luna< wxFontMapper >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetAltForEncoding(encoding, alt_encoding, facename, interactive);
 		lua_pushboolean(L,lret?1:0);
@@ -345,8 +334,7 @@ public:
 	// bool wxFontMapper::IsEncodingAvailable(wxFontEncoding encoding, const wxString & facename = wxEmptyString)
 	static int _bind_IsEncodingAvailable(lua_State *L) {
 		if (!_lg_typecheck_IsEncodingAvailable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFontMapper::IsEncodingAvailable(wxFontEncoding encoding, const wxString & facename = wxEmptyString) function, expected prototype:\nbool wxFontMapper::IsEncodingAvailable(wxFontEncoding encoding, const wxString & facename = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFontMapper::IsEncodingAvailable(wxFontEncoding encoding, const wxString & facename = wxEmptyString) function, expected prototype:\nbool wxFontMapper::IsEncodingAvailable(wxFontEncoding encoding, const wxString & facename = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -356,8 +344,7 @@ public:
 
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontMapper::IsEncodingAvailable(wxFontEncoding, const wxString &). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFontMapper::IsEncodingAvailable(wxFontEncoding, const wxString &). Got : '%s'\n%s",typeid(Luna< wxFontMapper >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsEncodingAvailable(encoding, facename);
 		lua_pushboolean(L,lret?1:0);
@@ -368,16 +355,14 @@ public:
 	// void wxFontMapper::SetConfigPath(const wxString & prefix)
 	static int _bind_SetConfigPath(lua_State *L) {
 		if (!_lg_typecheck_SetConfigPath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFontMapper::SetConfigPath(const wxString & prefix) function, expected prototype:\nvoid wxFontMapper::SetConfigPath(const wxString & prefix)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFontMapper::SetConfigPath(const wxString & prefix) function, expected prototype:\nvoid wxFontMapper::SetConfigPath(const wxString & prefix)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString prefix(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontMapper::SetConfigPath(const wxString &). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFontMapper::SetConfigPath(const wxString &). Got : '%s'\n%s",typeid(Luna< wxFontMapper >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetConfigPath(prefix);
 
@@ -387,16 +372,14 @@ public:
 	// void wxFontMapper::SetDialogParent(wxWindow * parent)
 	static int _bind_SetDialogParent(lua_State *L) {
 		if (!_lg_typecheck_SetDialogParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFontMapper::SetDialogParent(wxWindow * parent) function, expected prototype:\nvoid wxFontMapper::SetDialogParent(wxWindow * parent)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxFontMapper::SetDialogParent(wxWindow * parent) function, expected prototype:\nvoid wxFontMapper::SetDialogParent(wxWindow * parent)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontMapper::SetDialogParent(wxWindow *). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFontMapper::SetDialogParent(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxFontMapper >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDialogParent(parent);
 
@@ -406,16 +389,14 @@ public:
 	// void wxFontMapper::SetDialogTitle(const wxString & title)
 	static int _bind_SetDialogTitle(lua_State *L) {
 		if (!_lg_typecheck_SetDialogTitle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFontMapper::SetDialogTitle(const wxString & title) function, expected prototype:\nvoid wxFontMapper::SetDialogTitle(const wxString & title)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFontMapper::SetDialogTitle(const wxString & title) function, expected prototype:\nvoid wxFontMapper::SetDialogTitle(const wxString & title)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString title(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontMapper::SetDialogTitle(const wxString &). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFontMapper::SetDialogTitle(const wxString &). Got : '%s'\n%s",typeid(Luna< wxFontMapper >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDialogTitle(title);
 
@@ -425,8 +406,7 @@ public:
 	// static wxFontMapper * wxFontMapper::Get()
 	static int _bind_Get(lua_State *L) {
 		if (!_lg_typecheck_Get(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxFontMapper * wxFontMapper::Get() function, expected prototype:\nstatic wxFontMapper * wxFontMapper::Get()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxFontMapper * wxFontMapper::Get() function, expected prototype:\nstatic wxFontMapper * wxFontMapper::Get()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -441,8 +421,7 @@ public:
 	// static wxFontEncoding wxFontMapper::GetEncoding(size_t n)
 	static int _bind_GetEncoding(lua_State *L) {
 		if (!_lg_typecheck_GetEncoding(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxFontEncoding wxFontMapper::GetEncoding(size_t n) function, expected prototype:\nstatic wxFontEncoding wxFontMapper::GetEncoding(size_t n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxFontEncoding wxFontMapper::GetEncoding(size_t n) function, expected prototype:\nstatic wxFontEncoding wxFontMapper::GetEncoding(size_t n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t n=(size_t)lua_tointeger(L,1);
@@ -456,8 +435,7 @@ public:
 	// static wxString wxFontMapper::GetEncodingDescription(wxFontEncoding encoding)
 	static int _bind_GetEncodingDescription(lua_State *L) {
 		if (!_lg_typecheck_GetEncodingDescription(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxFontMapper::GetEncodingDescription(wxFontEncoding encoding) function, expected prototype:\nstatic wxString wxFontMapper::GetEncodingDescription(wxFontEncoding encoding)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxFontMapper::GetEncodingDescription(wxFontEncoding encoding) function, expected prototype:\nstatic wxString wxFontMapper::GetEncodingDescription(wxFontEncoding encoding)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFontEncoding encoding=(wxFontEncoding)lua_tointeger(L,1);
@@ -471,8 +449,7 @@ public:
 	// static wxFontEncoding wxFontMapper::GetEncodingFromName(const wxString & encoding)
 	static int _bind_GetEncodingFromName(lua_State *L) {
 		if (!_lg_typecheck_GetEncodingFromName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxFontEncoding wxFontMapper::GetEncodingFromName(const wxString & encoding) function, expected prototype:\nstatic wxFontEncoding wxFontMapper::GetEncodingFromName(const wxString & encoding)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxFontEncoding wxFontMapper::GetEncodingFromName(const wxString & encoding) function, expected prototype:\nstatic wxFontEncoding wxFontMapper::GetEncodingFromName(const wxString & encoding)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString encoding(lua_tostring(L,1),lua_objlen(L,1));
@@ -486,8 +463,7 @@ public:
 	// static wxString wxFontMapper::GetEncodingName(wxFontEncoding encoding)
 	static int _bind_GetEncodingName(lua_State *L) {
 		if (!_lg_typecheck_GetEncodingName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxFontMapper::GetEncodingName(wxFontEncoding encoding) function, expected prototype:\nstatic wxString wxFontMapper::GetEncodingName(wxFontEncoding encoding)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxFontMapper::GetEncodingName(wxFontEncoding encoding) function, expected prototype:\nstatic wxString wxFontMapper::GetEncodingName(wxFontEncoding encoding)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFontEncoding encoding=(wxFontEncoding)lua_tointeger(L,1);
@@ -501,8 +477,7 @@ public:
 	// static size_t wxFontMapper::GetSupportedEncodingsCount()
 	static int _bind_GetSupportedEncodingsCount(lua_State *L) {
 		if (!_lg_typecheck_GetSupportedEncodingsCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static size_t wxFontMapper::GetSupportedEncodingsCount() function, expected prototype:\nstatic size_t wxFontMapper::GetSupportedEncodingsCount()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static size_t wxFontMapper::GetSupportedEncodingsCount() function, expected prototype:\nstatic size_t wxFontMapper::GetSupportedEncodingsCount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -515,8 +490,7 @@ public:
 	// static wxFontMapper * wxFontMapper::Set(wxFontMapper * mapper)
 	static int _bind_Set(lua_State *L) {
 		if (!_lg_typecheck_Set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxFontMapper * wxFontMapper::Set(wxFontMapper * mapper) function, expected prototype:\nstatic wxFontMapper * wxFontMapper::Set(wxFontMapper * mapper)\nClass arguments details:\narg 1 ID = 98248934\n");
+			luaL_error(L, "luna typecheck failed in static wxFontMapper * wxFontMapper::Set(wxFontMapper * mapper) function, expected prototype:\nstatic wxFontMapper * wxFontMapper::Set(wxFontMapper * mapper)\nClass arguments details:\narg 1 ID = 98248934\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFontMapper* mapper=(Luna< wxFontMapper >::check(L,1));
@@ -532,8 +506,7 @@ public:
 	// wxFontEncoding wxFontMapper::base_CharsetToEncoding(const wxString & charset, bool interactive = true)
 	static int _bind_base_CharsetToEncoding(lua_State *L) {
 		if (!_lg_typecheck_base_CharsetToEncoding(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFontEncoding wxFontMapper::base_CharsetToEncoding(const wxString & charset, bool interactive = true) function, expected prototype:\nwxFontEncoding wxFontMapper::base_CharsetToEncoding(const wxString & charset, bool interactive = true)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFontEncoding wxFontMapper::base_CharsetToEncoding(const wxString & charset, bool interactive = true) function, expected prototype:\nwxFontEncoding wxFontMapper::base_CharsetToEncoding(const wxString & charset, bool interactive = true)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -543,8 +516,7 @@ public:
 
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFontEncoding wxFontMapper::base_CharsetToEncoding(const wxString &, bool). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFontEncoding wxFontMapper::base_CharsetToEncoding(const wxString &, bool). Got : '%s'\n%s",typeid(Luna< wxFontMapper >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFontEncoding lret = self->wxFontMapper::CharsetToEncoding(charset, interactive);
 		lua_pushnumber(L,lret);
@@ -555,8 +527,7 @@ public:
 	// bool wxFontMapper::base_IsEncodingAvailable(wxFontEncoding encoding, const wxString & facename = wxEmptyString)
 	static int _bind_base_IsEncodingAvailable(lua_State *L) {
 		if (!_lg_typecheck_base_IsEncodingAvailable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFontMapper::base_IsEncodingAvailable(wxFontEncoding encoding, const wxString & facename = wxEmptyString) function, expected prototype:\nbool wxFontMapper::base_IsEncodingAvailable(wxFontEncoding encoding, const wxString & facename = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFontMapper::base_IsEncodingAvailable(wxFontEncoding encoding, const wxString & facename = wxEmptyString) function, expected prototype:\nbool wxFontMapper::base_IsEncodingAvailable(wxFontEncoding encoding, const wxString & facename = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -566,8 +537,7 @@ public:
 
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontMapper::base_IsEncodingAvailable(wxFontEncoding, const wxString &). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFontMapper::base_IsEncodingAvailable(wxFontEncoding, const wxString &). Got : '%s'\n%s",typeid(Luna< wxFontMapper >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxFontMapper::IsEncodingAvailable(encoding, facename);
 		lua_pushboolean(L,lret?1:0);

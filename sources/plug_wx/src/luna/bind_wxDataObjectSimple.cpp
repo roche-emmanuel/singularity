@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataObjectSimple* self= (wxDataObjectSimple*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDataObject >::check(L,1));
@@ -163,8 +160,7 @@ public:
 	// wxDataObjectSimple::wxDataObjectSimple(lua_Table * data, const wxDataFormat & format = wxFormatInvalid)
 	static wxDataObjectSimple* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataObjectSimple::wxDataObjectSimple(lua_Table * data, const wxDataFormat & format = wxFormatInvalid) function, expected prototype:\nwxDataObjectSimple::wxDataObjectSimple(lua_Table * data, const wxDataFormat & format = wxFormatInvalid)\nClass arguments details:\narg 2 ID = 9988153\n");
+			luaL_error(L, "luna typecheck failed in wxDataObjectSimple::wxDataObjectSimple(lua_Table * data, const wxDataFormat & format = wxFormatInvalid) function, expected prototype:\nwxDataObjectSimple::wxDataObjectSimple(lua_Table * data, const wxDataFormat & format = wxFormatInvalid)\nClass arguments details:\narg 2 ID = 9988153\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -183,16 +179,14 @@ public:
 	// bool wxDataObjectSimple::GetDataHere(void * buf) const
 	static int _bind_GetDataHere(lua_State *L) {
 		if (!_lg_typecheck_GetDataHere(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataObjectSimple::GetDataHere(void * buf) const function, expected prototype:\nbool wxDataObjectSimple::GetDataHere(void * buf) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataObjectSimple::GetDataHere(void * buf) const function, expected prototype:\nbool wxDataObjectSimple::GetDataHere(void * buf) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* buf=(Luna< void >::check(L,2));
 
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::GetDataHere(void *) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::GetDataHere(void *) const. Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetDataHere(buf);
 		lua_pushboolean(L,lret?1:0);
@@ -203,15 +197,13 @@ public:
 	// size_t wxDataObjectSimple::GetDataSize() const
 	static int _bind_GetDataSize(lua_State *L) {
 		if (!_lg_typecheck_GetDataSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxDataObjectSimple::GetDataSize() const function, expected prototype:\nsize_t wxDataObjectSimple::GetDataSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxDataObjectSimple::GetDataSize() const function, expected prototype:\nsize_t wxDataObjectSimple::GetDataSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxDataObjectSimple::GetDataSize() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxDataObjectSimple::GetDataSize() const. Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->GetDataSize();
 		lua_pushnumber(L,lret);
@@ -222,15 +214,13 @@ public:
 	// const wxDataFormat & wxDataObjectSimple::GetFormat() const
 	static int _bind_GetFormat(lua_State *L) {
 		if (!_lg_typecheck_GetFormat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxDataFormat & wxDataObjectSimple::GetFormat() const function, expected prototype:\nconst wxDataFormat & wxDataObjectSimple::GetFormat() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxDataFormat & wxDataObjectSimple::GetFormat() const function, expected prototype:\nconst wxDataFormat & wxDataObjectSimple::GetFormat() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxDataFormat & wxDataObjectSimple::GetFormat() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxDataFormat & wxDataObjectSimple::GetFormat() const. Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDataFormat* lret = &self->GetFormat();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -243,17 +233,15 @@ public:
 	// bool wxDataObjectSimple::SetData(size_t len, const void * buf)
 	static int _bind_SetData(lua_State *L) {
 		if (!_lg_typecheck_SetData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataObjectSimple::SetData(size_t len, const void * buf) function, expected prototype:\nbool wxDataObjectSimple::SetData(size_t len, const void * buf)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataObjectSimple::SetData(size_t len, const void * buf) function, expected prototype:\nbool wxDataObjectSimple::SetData(size_t len, const void * buf)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t len=(size_t)lua_tointeger(L,2);
-		void* buf=(Luna< void >::check(L,3));
+		const void* buf=(Luna< void >::check(L,3));
 
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::SetData(size_t, const void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::SetData(size_t, const void *). Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetData(len, buf);
 		lua_pushboolean(L,lret?1:0);
@@ -264,8 +252,7 @@ public:
 	// void wxDataObjectSimple::SetFormat(const wxDataFormat & format)
 	static int _bind_SetFormat(lua_State *L) {
 		if (!_lg_typecheck_SetFormat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataObjectSimple::SetFormat(const wxDataFormat & format) function, expected prototype:\nvoid wxDataObjectSimple::SetFormat(const wxDataFormat & format)\nClass arguments details:\narg 1 ID = 9988153\n");
+			luaL_error(L, "luna typecheck failed in void wxDataObjectSimple::SetFormat(const wxDataFormat & format) function, expected prototype:\nvoid wxDataObjectSimple::SetFormat(const wxDataFormat & format)\nClass arguments details:\narg 1 ID = 9988153\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataFormat* format_ptr=(Luna< wxDataFormat >::check(L,2));
@@ -276,8 +263,7 @@ public:
 
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataObjectSimple::SetFormat(const wxDataFormat &). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataObjectSimple::SetFormat(const wxDataFormat &). Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFormat(format);
 
@@ -287,16 +273,14 @@ public:
 	// bool wxDataObjectSimple::base_GetDataHere(void * buf) const
 	static int _bind_base_GetDataHere(lua_State *L) {
 		if (!_lg_typecheck_base_GetDataHere(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataObjectSimple::base_GetDataHere(void * buf) const function, expected prototype:\nbool wxDataObjectSimple::base_GetDataHere(void * buf) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataObjectSimple::base_GetDataHere(void * buf) const function, expected prototype:\nbool wxDataObjectSimple::base_GetDataHere(void * buf) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* buf=(Luna< void >::check(L,2));
 
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::base_GetDataHere(void *) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::base_GetDataHere(void *) const. Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataObjectSimple::GetDataHere(buf);
 		lua_pushboolean(L,lret?1:0);
@@ -307,15 +291,13 @@ public:
 	// size_t wxDataObjectSimple::base_GetDataSize() const
 	static int _bind_base_GetDataSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetDataSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxDataObjectSimple::base_GetDataSize() const function, expected prototype:\nsize_t wxDataObjectSimple::base_GetDataSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxDataObjectSimple::base_GetDataSize() const function, expected prototype:\nsize_t wxDataObjectSimple::base_GetDataSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxDataObjectSimple::base_GetDataSize() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxDataObjectSimple::base_GetDataSize() const. Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->wxDataObjectSimple::GetDataSize();
 		lua_pushnumber(L,lret);
@@ -326,17 +308,15 @@ public:
 	// bool wxDataObjectSimple::base_SetData(size_t len, const void * buf)
 	static int _bind_base_SetData(lua_State *L) {
 		if (!_lg_typecheck_base_SetData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataObjectSimple::base_SetData(size_t len, const void * buf) function, expected prototype:\nbool wxDataObjectSimple::base_SetData(size_t len, const void * buf)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataObjectSimple::base_SetData(size_t len, const void * buf) function, expected prototype:\nbool wxDataObjectSimple::base_SetData(size_t len, const void * buf)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t len=(size_t)lua_tointeger(L,2);
-		void* buf=(Luna< void >::check(L,3));
+		const void* buf=(Luna< void >::check(L,3));
 
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::base_SetData(size_t, const void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::base_SetData(size_t, const void *). Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataObjectSimple::SetData(len, buf);
 		lua_pushboolean(L,lret?1:0);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxRendererVersion*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxRendererVersion*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRendererVersion* rhs =(Luna< wxRendererVersion >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRendererVersion* self= (wxRendererVersion*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxRendererVersion >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -131,8 +127,7 @@ public:
 	// static bool wxRendererVersion::IsCompatible(const wxRendererVersion & ver)
 	static int _bind_IsCompatible(lua_State *L) {
 		if (!_lg_typecheck_IsCompatible(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxRendererVersion::IsCompatible(const wxRendererVersion & ver) function, expected prototype:\nstatic bool wxRendererVersion::IsCompatible(const wxRendererVersion & ver)\nClass arguments details:\narg 1 ID = 83336883\n");
+			luaL_error(L, "luna typecheck failed in static bool wxRendererVersion::IsCompatible(const wxRendererVersion & ver) function, expected prototype:\nstatic bool wxRendererVersion::IsCompatible(const wxRendererVersion & ver)\nClass arguments details:\narg 1 ID = 83336883\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRendererVersion* ver_ptr=(Luna< wxRendererVersion >::check(L,1));
@@ -150,15 +145,13 @@ public:
 	// const int wxRendererVersion::age()
 	static int _bind_getAge(lua_State *L) {
 		if (!_lg_typecheck_getAge(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const int wxRendererVersion::age() function, expected prototype:\nconst int wxRendererVersion::age()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const int wxRendererVersion::age() function, expected prototype:\nconst int wxRendererVersion::age()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRendererVersion* self=(Luna< wxRendererVersion >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const int wxRendererVersion::age(). Got : '%s'",typeid(Luna< wxRendererVersion >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const int wxRendererVersion::age(). Got : '%s'\n%s",typeid(Luna< wxRendererVersion >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const int lret = self->age;
 		lua_pushnumber(L,lret);
@@ -169,15 +162,13 @@ public:
 	// const int wxRendererVersion::version()
 	static int _bind_getVersion(lua_State *L) {
 		if (!_lg_typecheck_getVersion(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const int wxRendererVersion::version() function, expected prototype:\nconst int wxRendererVersion::version()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const int wxRendererVersion::version() function, expected prototype:\nconst int wxRendererVersion::version()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRendererVersion* self=(Luna< wxRendererVersion >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const int wxRendererVersion::version(). Got : '%s'",typeid(Luna< wxRendererVersion >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const int wxRendererVersion::version(). Got : '%s'\n%s",typeid(Luna< wxRendererVersion >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const int lret = self->version;
 		lua_pushnumber(L,lret);

@@ -46,6 +46,11 @@ parent:Layout()
 
 log:info "Running app..."
 
+-- for i=1,1000 do
+	-- app:getFrame():Refresh()
+	-- wx.wxMilliSleep(10)
+-- end
+
 app:run()
 
 log:info "Cleaning up"

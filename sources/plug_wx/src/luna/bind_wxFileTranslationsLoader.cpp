@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTranslationsLoader* self=(Luna< wxTranslationsLoader >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFileTranslationsLoader* self= (wxFileTranslationsLoader*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxTranslationsLoader >::check(L,1));
@@ -108,8 +105,7 @@ public:
 	// static void wxFileTranslationsLoader::AddCatalogLookupPathPrefix(const wxString & prefix)
 	static int _bind_AddCatalogLookupPathPrefix(lua_State *L) {
 		if (!_lg_typecheck_AddCatalogLookupPathPrefix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxFileTranslationsLoader::AddCatalogLookupPathPrefix(const wxString & prefix) function, expected prototype:\nstatic void wxFileTranslationsLoader::AddCatalogLookupPathPrefix(const wxString & prefix)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static void wxFileTranslationsLoader::AddCatalogLookupPathPrefix(const wxString & prefix) function, expected prototype:\nstatic void wxFileTranslationsLoader::AddCatalogLookupPathPrefix(const wxString & prefix)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString prefix(lua_tostring(L,1),lua_objlen(L,1));

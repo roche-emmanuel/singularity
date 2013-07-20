@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxHeaderButtonParams*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxHeaderButtonParams*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHeaderButtonParams* rhs =(Luna< wxHeaderButtonParams >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHeaderButtonParams* self= (wxHeaderButtonParams*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxHeaderButtonParams >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -207,8 +203,7 @@ public:
 	// wxHeaderButtonParams::wxHeaderButtonParams()
 	static wxHeaderButtonParams* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHeaderButtonParams::wxHeaderButtonParams() function, expected prototype:\nwxHeaderButtonParams::wxHeaderButtonParams()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxHeaderButtonParams::wxHeaderButtonParams() function, expected prototype:\nwxHeaderButtonParams::wxHeaderButtonParams()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -220,15 +215,13 @@ public:
 	// wxColour wxHeaderButtonParams::m_arrowColour()
 	static int _bind_getArrowColour(lua_State *L) {
 		if (!_lg_typecheck_getArrowColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxHeaderButtonParams::m_arrowColour() function, expected prototype:\nwxColour wxHeaderButtonParams::m_arrowColour()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxHeaderButtonParams::m_arrowColour() function, expected prototype:\nwxColour wxHeaderButtonParams::m_arrowColour()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHeaderButtonParams* self=(Luna< wxHeaderButtonParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxHeaderButtonParams::m_arrowColour(). Got : '%s'",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxHeaderButtonParams::m_arrowColour(). Got : '%s'\n%s",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxColour* lret = &self->m_arrowColour;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -241,15 +234,13 @@ public:
 	// wxColour wxHeaderButtonParams::m_selectionColour()
 	static int _bind_getSelectionColour(lua_State *L) {
 		if (!_lg_typecheck_getSelectionColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxHeaderButtonParams::m_selectionColour() function, expected prototype:\nwxColour wxHeaderButtonParams::m_selectionColour()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxHeaderButtonParams::m_selectionColour() function, expected prototype:\nwxColour wxHeaderButtonParams::m_selectionColour()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHeaderButtonParams* self=(Luna< wxHeaderButtonParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxHeaderButtonParams::m_selectionColour(). Got : '%s'",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxHeaderButtonParams::m_selectionColour(). Got : '%s'\n%s",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxColour* lret = &self->m_selectionColour;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -262,15 +253,13 @@ public:
 	// wxString wxHeaderButtonParams::m_labelText()
 	static int _bind_getLabelText(lua_State *L) {
 		if (!_lg_typecheck_getLabelText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxHeaderButtonParams::m_labelText() function, expected prototype:\nwxString wxHeaderButtonParams::m_labelText()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxHeaderButtonParams::m_labelText() function, expected prototype:\nwxString wxHeaderButtonParams::m_labelText()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHeaderButtonParams* self=(Luna< wxHeaderButtonParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHeaderButtonParams::m_labelText(). Got : '%s'",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxHeaderButtonParams::m_labelText(). Got : '%s'\n%s",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->m_labelText;
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -281,15 +270,13 @@ public:
 	// wxFont wxHeaderButtonParams::m_labelFont()
 	static int _bind_getLabelFont(lua_State *L) {
 		if (!_lg_typecheck_getLabelFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFont wxHeaderButtonParams::m_labelFont() function, expected prototype:\nwxFont wxHeaderButtonParams::m_labelFont()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFont wxHeaderButtonParams::m_labelFont() function, expected prototype:\nwxFont wxHeaderButtonParams::m_labelFont()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHeaderButtonParams* self=(Luna< wxHeaderButtonParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont wxHeaderButtonParams::m_labelFont(). Got : '%s'",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFont wxHeaderButtonParams::m_labelFont(). Got : '%s'\n%s",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxFont* lret = &self->m_labelFont;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -302,15 +289,13 @@ public:
 	// wxColour wxHeaderButtonParams::m_labelColour()
 	static int _bind_getLabelColour(lua_State *L) {
 		if (!_lg_typecheck_getLabelColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxHeaderButtonParams::m_labelColour() function, expected prototype:\nwxColour wxHeaderButtonParams::m_labelColour()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxHeaderButtonParams::m_labelColour() function, expected prototype:\nwxColour wxHeaderButtonParams::m_labelColour()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHeaderButtonParams* self=(Luna< wxHeaderButtonParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxHeaderButtonParams::m_labelColour(). Got : '%s'",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxHeaderButtonParams::m_labelColour(). Got : '%s'\n%s",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxColour* lret = &self->m_labelColour;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -323,15 +308,13 @@ public:
 	// wxBitmap wxHeaderButtonParams::m_labelBitmap()
 	static int _bind_getLabelBitmap(lua_State *L) {
 		if (!_lg_typecheck_getLabelBitmap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmap wxHeaderButtonParams::m_labelBitmap() function, expected prototype:\nwxBitmap wxHeaderButtonParams::m_labelBitmap()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBitmap wxHeaderButtonParams::m_labelBitmap() function, expected prototype:\nwxBitmap wxHeaderButtonParams::m_labelBitmap()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHeaderButtonParams* self=(Luna< wxHeaderButtonParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap wxHeaderButtonParams::m_labelBitmap(). Got : '%s'",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBitmap wxHeaderButtonParams::m_labelBitmap(). Got : '%s'\n%s",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxBitmap* lret = &self->m_labelBitmap;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -344,15 +327,13 @@ public:
 	// int wxHeaderButtonParams::m_labelAlignment()
 	static int _bind_getLabelAlignment(lua_State *L) {
 		if (!_lg_typecheck_getLabelAlignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxHeaderButtonParams::m_labelAlignment() function, expected prototype:\nint wxHeaderButtonParams::m_labelAlignment()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxHeaderButtonParams::m_labelAlignment() function, expected prototype:\nint wxHeaderButtonParams::m_labelAlignment()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHeaderButtonParams* self=(Luna< wxHeaderButtonParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderButtonParams::m_labelAlignment(). Got : '%s'",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxHeaderButtonParams::m_labelAlignment(). Got : '%s'\n%s",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_labelAlignment;
 		lua_pushnumber(L,lret);
@@ -363,8 +344,7 @@ public:
 	// void wxHeaderButtonParams::m_arrowColour(wxColour value)
 	static int _bind_setArrowColour(lua_State *L) {
 		if (!_lg_typecheck_setArrowColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_arrowColour(wxColour value) function, expected prototype:\nvoid wxHeaderButtonParams::m_arrowColour(wxColour value)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_arrowColour(wxColour value) function, expected prototype:\nvoid wxHeaderButtonParams::m_arrowColour(wxColour value)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxColour* value_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -375,8 +355,7 @@ public:
 
 		wxHeaderButtonParams* self=(Luna< wxHeaderButtonParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderButtonParams::m_arrowColour(wxColour). Got : '%s'",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHeaderButtonParams::m_arrowColour(wxColour). Got : '%s'\n%s",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_arrowColour = value;
 
@@ -386,8 +365,7 @@ public:
 	// void wxHeaderButtonParams::m_selectionColour(wxColour value)
 	static int _bind_setSelectionColour(lua_State *L) {
 		if (!_lg_typecheck_setSelectionColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_selectionColour(wxColour value) function, expected prototype:\nvoid wxHeaderButtonParams::m_selectionColour(wxColour value)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_selectionColour(wxColour value) function, expected prototype:\nvoid wxHeaderButtonParams::m_selectionColour(wxColour value)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxColour* value_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -398,8 +376,7 @@ public:
 
 		wxHeaderButtonParams* self=(Luna< wxHeaderButtonParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderButtonParams::m_selectionColour(wxColour). Got : '%s'",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHeaderButtonParams::m_selectionColour(wxColour). Got : '%s'\n%s",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_selectionColour = value;
 
@@ -409,16 +386,14 @@ public:
 	// void wxHeaderButtonParams::m_labelText(wxString value)
 	static int _bind_setLabelText(lua_State *L) {
 		if (!_lg_typecheck_setLabelText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_labelText(wxString value) function, expected prototype:\nvoid wxHeaderButtonParams::m_labelText(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_labelText(wxString value) function, expected prototype:\nvoid wxHeaderButtonParams::m_labelText(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHeaderButtonParams* self=(Luna< wxHeaderButtonParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderButtonParams::m_labelText(wxString). Got : '%s'",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHeaderButtonParams::m_labelText(wxString). Got : '%s'\n%s",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_labelText = value;
 
@@ -428,8 +403,7 @@ public:
 	// void wxHeaderButtonParams::m_labelFont(wxFont value)
 	static int _bind_setLabelFont(lua_State *L) {
 		if (!_lg_typecheck_setLabelFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_labelFont(wxFont value) function, expected prototype:\nvoid wxHeaderButtonParams::m_labelFont(wxFont value)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_labelFont(wxFont value) function, expected prototype:\nvoid wxHeaderButtonParams::m_labelFont(wxFont value)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFont* value_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -440,8 +414,7 @@ public:
 
 		wxHeaderButtonParams* self=(Luna< wxHeaderButtonParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderButtonParams::m_labelFont(wxFont). Got : '%s'",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHeaderButtonParams::m_labelFont(wxFont). Got : '%s'\n%s",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_labelFont = value;
 
@@ -451,8 +424,7 @@ public:
 	// void wxHeaderButtonParams::m_labelColour(wxColour value)
 	static int _bind_setLabelColour(lua_State *L) {
 		if (!_lg_typecheck_setLabelColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_labelColour(wxColour value) function, expected prototype:\nvoid wxHeaderButtonParams::m_labelColour(wxColour value)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_labelColour(wxColour value) function, expected prototype:\nvoid wxHeaderButtonParams::m_labelColour(wxColour value)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxColour* value_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -463,8 +435,7 @@ public:
 
 		wxHeaderButtonParams* self=(Luna< wxHeaderButtonParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderButtonParams::m_labelColour(wxColour). Got : '%s'",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHeaderButtonParams::m_labelColour(wxColour). Got : '%s'\n%s",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_labelColour = value;
 
@@ -474,8 +445,7 @@ public:
 	// void wxHeaderButtonParams::m_labelBitmap(wxBitmap value)
 	static int _bind_setLabelBitmap(lua_State *L) {
 		if (!_lg_typecheck_setLabelBitmap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_labelBitmap(wxBitmap value) function, expected prototype:\nvoid wxHeaderButtonParams::m_labelBitmap(wxBitmap value)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_labelBitmap(wxBitmap value) function, expected prototype:\nvoid wxHeaderButtonParams::m_labelBitmap(wxBitmap value)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBitmap* value_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
@@ -486,8 +456,7 @@ public:
 
 		wxHeaderButtonParams* self=(Luna< wxHeaderButtonParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderButtonParams::m_labelBitmap(wxBitmap). Got : '%s'",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHeaderButtonParams::m_labelBitmap(wxBitmap). Got : '%s'\n%s",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_labelBitmap = value;
 
@@ -497,16 +466,14 @@ public:
 	// void wxHeaderButtonParams::m_labelAlignment(int value)
 	static int _bind_setLabelAlignment(lua_State *L) {
 		if (!_lg_typecheck_setLabelAlignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_labelAlignment(int value) function, expected prototype:\nvoid wxHeaderButtonParams::m_labelAlignment(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_labelAlignment(int value) function, expected prototype:\nvoid wxHeaderButtonParams::m_labelAlignment(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		wxHeaderButtonParams* self=(Luna< wxHeaderButtonParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderButtonParams::m_labelAlignment(int). Got : '%s'",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHeaderButtonParams::m_labelAlignment(int). Got : '%s'\n%s",typeid(Luna< wxHeaderButtonParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_labelAlignment = value;
 

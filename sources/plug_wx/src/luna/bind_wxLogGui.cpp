@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLog* self=(Luna< wxLog >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLogGui* self= (wxLogGui*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxLog >::check(L,1));
@@ -124,8 +121,7 @@ public:
 	// wxLogGui::wxLogGui()
 	static wxLogGui* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxLogGui::wxLogGui() function, expected prototype:\nwxLogGui::wxLogGui()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxLogGui::wxLogGui() function, expected prototype:\nwxLogGui::wxLogGui()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -135,8 +131,7 @@ public:
 	// wxLogGui::wxLogGui(lua_Table * data)
 	static wxLogGui* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxLogGui::wxLogGui(lua_Table * data) function, expected prototype:\nwxLogGui::wxLogGui(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxLogGui::wxLogGui(lua_Table * data) function, expected prototype:\nwxLogGui::wxLogGui(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -157,15 +152,13 @@ public:
 	// void wxLogGui::Flush()
 	static int _bind_Flush(lua_State *L) {
 		if (!_lg_typecheck_Flush(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLogGui::Flush() function, expected prototype:\nvoid wxLogGui::Flush()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxLogGui::Flush() function, expected prototype:\nvoid wxLogGui::Flush()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLogGui* self=Luna< wxLog >::checkSubType< wxLogGui >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogGui::Flush(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLogGui::Flush(). Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Flush();
 
@@ -175,15 +168,13 @@ public:
 	// void wxLogGui::base_Flush()
 	static int _bind_base_Flush(lua_State *L) {
 		if (!_lg_typecheck_base_Flush(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLogGui::base_Flush() function, expected prototype:\nvoid wxLogGui::base_Flush()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxLogGui::base_Flush() function, expected prototype:\nvoid wxLogGui::base_Flush()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLogGui* self=Luna< wxLog >::checkSubType< wxLogGui >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogGui::base_Flush(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLogGui::base_Flush(). Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxLogGui::Flush();
 

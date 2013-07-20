@@ -27,6 +27,20 @@ function Class:eraseValue(item)
     end
 end
 
+function Class:eraseValueList(list)
+	for _,v in list:sequence() do
+		self:eraseValue(v)
+	end
+end
+
+--- Remove all the elements matching a given predicate from this set:
+-- return the list of removed items.
+function Class:removeMatches(func)
+	local list = self:getMatches(func)
+	self:eraseValueList(list)
+	return list
+end
+
 --- Append item at set back.
 -- Push an item at the end of the set but only it the set doesn't contain the item yet.
 -- @param item The item to add 

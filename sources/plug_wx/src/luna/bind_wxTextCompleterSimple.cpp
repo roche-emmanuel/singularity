@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTextCompleter* self=(Luna< wxTextCompleter >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTextCompleterSimple* self= (wxTextCompleterSimple*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxTextCompleter >::check(L,1));
@@ -109,8 +106,7 @@ public:
 	// void wxTextCompleterSimple::GetCompletions(const wxString & prefix, wxArrayString & res)
 	static int _bind_GetCompletions(lua_State *L) {
 		if (!_lg_typecheck_GetCompletions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextCompleterSimple::GetCompletions(const wxString & prefix, wxArrayString & res) function, expected prototype:\nvoid wxTextCompleterSimple::GetCompletions(const wxString & prefix, wxArrayString & res)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 59507769\n");
+			luaL_error(L, "luna typecheck failed in void wxTextCompleterSimple::GetCompletions(const wxString & prefix, wxArrayString & res) function, expected prototype:\nvoid wxTextCompleterSimple::GetCompletions(const wxString & prefix, wxArrayString & res)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 59507769\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString prefix(lua_tostring(L,2),lua_objlen(L,2));
@@ -122,8 +118,7 @@ public:
 
 		wxTextCompleterSimple* self=Luna< wxTextCompleter >::checkSubType< wxTextCompleterSimple >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextCompleterSimple::GetCompletions(const wxString &, wxArrayString &). Got : '%s'",typeid(Luna< wxTextCompleter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextCompleterSimple::GetCompletions(const wxString &, wxArrayString &). Got : '%s'\n%s",typeid(Luna< wxTextCompleter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetCompletions(prefix, res);
 

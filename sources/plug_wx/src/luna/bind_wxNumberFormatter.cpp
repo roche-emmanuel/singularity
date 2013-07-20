@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxNumberFormatter*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxNumberFormatter*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxNumberFormatter* rhs =(Luna< wxNumberFormatter >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxNumberFormatter* self= (wxNumberFormatter*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxNumberFormatter >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -106,7 +102,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( lua_isnumber(L,1)==0 ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
@@ -147,13 +143,12 @@ public:
 	// static wxString wxNumberFormatter::ToString(long val, int flags = wxNumberFormatter::Style_WithThousandsSep)
 	static int _bind_ToString_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ToString_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxNumberFormatter::ToString(long val, int flags = wxNumberFormatter::Style_WithThousandsSep) function, expected prototype:\nstatic wxString wxNumberFormatter::ToString(long val, int flags = wxNumberFormatter::Style_WithThousandsSep)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxNumberFormatter::ToString(long val, int flags = wxNumberFormatter::Style_WithThousandsSep) function, expected prototype:\nstatic wxString wxNumberFormatter::ToString(long val, int flags = wxNumberFormatter::Style_WithThousandsSep)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		long val=(long)lua_tointeger(L,1);
+		long val=(long)lua_tonumber(L,1);
 		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxNumberFormatter::Style_WithThousandsSep;
 
 		wxString lret = wxNumberFormatter::ToString(val, flags);
@@ -165,8 +160,7 @@ public:
 	// static wxString wxNumberFormatter::ToString(double val, int precision, int flags = wxNumberFormatter::Style_WithThousandsSep)
 	static int _bind_ToString_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ToString_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxNumberFormatter::ToString(double val, int precision, int flags = wxNumberFormatter::Style_WithThousandsSep) function, expected prototype:\nstatic wxString wxNumberFormatter::ToString(double val, int precision, int flags = wxNumberFormatter::Style_WithThousandsSep)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxNumberFormatter::ToString(double val, int precision, int flags = wxNumberFormatter::Style_WithThousandsSep) function, expected prototype:\nstatic wxString wxNumberFormatter::ToString(double val, int precision, int flags = wxNumberFormatter::Style_WithThousandsSep)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -193,8 +187,7 @@ public:
 	// static bool wxNumberFormatter::FromString(wxString s, long * val)
 	static int _bind_FromString_overload_1(lua_State *L) {
 		if (!_lg_typecheck_FromString_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxNumberFormatter::FromString(wxString s, long * val) function, expected prototype:\nstatic bool wxNumberFormatter::FromString(wxString s, long * val)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static bool wxNumberFormatter::FromString(wxString s, long * val) function, expected prototype:\nstatic bool wxNumberFormatter::FromString(wxString s, long * val)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString s(lua_tostring(L,1),lua_objlen(L,1));
@@ -209,8 +202,7 @@ public:
 	// static bool wxNumberFormatter::FromString(wxString s, double * val)
 	static int _bind_FromString_overload_2(lua_State *L) {
 		if (!_lg_typecheck_FromString_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxNumberFormatter::FromString(wxString s, double * val) function, expected prototype:\nstatic bool wxNumberFormatter::FromString(wxString s, double * val)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static bool wxNumberFormatter::FromString(wxString s, double * val) function, expected prototype:\nstatic bool wxNumberFormatter::FromString(wxString s, double * val)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString s(lua_tostring(L,1),lua_objlen(L,1));

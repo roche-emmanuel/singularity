@@ -101,6 +101,10 @@ function Class:addStringEntry(options)
     return self:addEntry(require"gui.wx.entries.StringEntry",options);        
 end
 
+function Class:addSingleChoiceEntry(options)
+    return self:addEntry(require"gui.wx.entries.SingleChoiceEntry",options);        
+end
+
 function Class:addBoolEntry(options)
     return self:addEntry(require"gui.wx.entries.BoolEntry",options);        
 end

@@ -1499,15 +1499,13 @@ public:
 	// bool wxWithImages::public_HasImageList() const
 	static int _bind_public_HasImageList(lua_State *L) {
 		if (!_lg_typecheck_public_HasImageList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxWithImages::public_HasImageList() const function, expected prototype:\nbool wxWithImages::public_HasImageList() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxWithImages::public_HasImageList() const function, expected prototype:\nbool wxWithImages::public_HasImageList() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_wxAuiNotebook* self=Luna< wxWithImages >::checkSubType< wrapper_wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxWithImages::public_HasImageList() const. Got : '%s'",typeid(Luna< wxWithImages >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxWithImages::public_HasImageList() const. Got : '%s'\n%s",typeid(Luna< wxWithImages >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_HasImageList();
 		lua_pushboolean(L,lret?1:0);
@@ -1518,16 +1516,14 @@ public:
 	// wxIcon wxWithImages::public_GetImage(int iconIndex) const
 	static int _bind_public_GetImage(lua_State *L) {
 		if (!_lg_typecheck_public_GetImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIcon wxWithImages::public_GetImage(int iconIndex) const function, expected prototype:\nwxIcon wxWithImages::public_GetImage(int iconIndex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxIcon wxWithImages::public_GetImage(int iconIndex) const function, expected prototype:\nwxIcon wxWithImages::public_GetImage(int iconIndex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int iconIndex=(int)lua_tointeger(L,2);
 
 		wrapper_wxAuiNotebook* self=Luna< wxWithImages >::checkSubType< wrapper_wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIcon wxWithImages::public_GetImage(int) const. Got : '%s'",typeid(Luna< wxWithImages >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxIcon wxWithImages::public_GetImage(int) const. Got : '%s'\n%s",typeid(Luna< wxWithImages >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxIcon stack_lret = self->public_GetImage(iconIndex);
 		wxIcon* lret = new wxIcon(stack_lret);

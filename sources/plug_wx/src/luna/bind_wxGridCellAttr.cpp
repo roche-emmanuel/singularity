@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxGridCellAttr*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxGridCellAttr*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridCellAttr* rhs =(Luna< wxGridCellAttr >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridCellAttr* self= (wxGridCellAttr*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxGridCellAttr >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -303,8 +299,7 @@ public:
 	// wxGridCellAttr::wxGridCellAttr(wxGridCellAttr * attrDefault = NULL)
 	static wxGridCellAttr* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridCellAttr::wxGridCellAttr(wxGridCellAttr * attrDefault = NULL) function, expected prototype:\nwxGridCellAttr::wxGridCellAttr(wxGridCellAttr * attrDefault = NULL)\nClass arguments details:\narg 1 ID = 25758569\n");
+			luaL_error(L, "luna typecheck failed in wxGridCellAttr::wxGridCellAttr(wxGridCellAttr * attrDefault = NULL) function, expected prototype:\nwxGridCellAttr::wxGridCellAttr(wxGridCellAttr * attrDefault = NULL)\nClass arguments details:\narg 1 ID = 25758569\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -317,8 +312,7 @@ public:
 	// wxGridCellAttr::wxGridCellAttr(const wxColour & colText, const wxColour & colBack, const wxFont & font, int hAlign, int vAlign)
 	static wxGridCellAttr* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridCellAttr::wxGridCellAttr(const wxColour & colText, const wxColour & colBack, const wxFont & font, int hAlign, int vAlign) function, expected prototype:\nwxGridCellAttr::wxGridCellAttr(const wxColour & colText, const wxColour & colBack, const wxFont & font, int hAlign, int vAlign)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxGridCellAttr::wxGridCellAttr(const wxColour & colText, const wxColour & colBack, const wxFont & font, int hAlign, int vAlign) function, expected prototype:\nwxGridCellAttr::wxGridCellAttr(const wxColour & colText, const wxColour & colBack, const wxFont & font, int hAlign, int vAlign)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colText_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,1));
@@ -356,15 +350,13 @@ public:
 	// wxGridCellAttr * wxGridCellAttr::Clone() const
 	static int _bind_Clone(lua_State *L) {
 		if (!_lg_typecheck_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridCellAttr * wxGridCellAttr::Clone() const function, expected prototype:\nwxGridCellAttr * wxGridCellAttr::Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGridCellAttr * wxGridCellAttr::Clone() const function, expected prototype:\nwxGridCellAttr * wxGridCellAttr::Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxGridCellAttr * wxGridCellAttr::Clone() const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxGridCellAttr * wxGridCellAttr::Clone() const. Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxGridCellAttr * lret = self->Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -377,15 +369,13 @@ public:
 	// void wxGridCellAttr::DecRef()
 	static int _bind_DecRef(lua_State *L) {
 		if (!_lg_typecheck_DecRef(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::DecRef() function, expected prototype:\nvoid wxGridCellAttr::DecRef()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::DecRef() function, expected prototype:\nvoid wxGridCellAttr::DecRef()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttr::DecRef(). Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellAttr::DecRef(). Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DecRef();
 
@@ -395,8 +385,7 @@ public:
 	// void wxGridCellAttr::GetAlignment(int * hAlign, int * vAlign) const
 	static int _bind_GetAlignment(lua_State *L) {
 		if (!_lg_typecheck_GetAlignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::GetAlignment(int * hAlign, int * vAlign) const function, expected prototype:\nvoid wxGridCellAttr::GetAlignment(int * hAlign, int * vAlign) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::GetAlignment(int * hAlign, int * vAlign) const function, expected prototype:\nvoid wxGridCellAttr::GetAlignment(int * hAlign, int * vAlign) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int* hAlign=(int*)Luna< void >::check(L,2);
@@ -404,8 +393,7 @@ public:
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttr::GetAlignment(int *, int *) const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellAttr::GetAlignment(int *, int *) const. Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetAlignment(hAlign, vAlign);
 
@@ -415,15 +403,13 @@ public:
 	// const wxColour & wxGridCellAttr::GetBackgroundColour() const
 	static int _bind_GetBackgroundColour(lua_State *L) {
 		if (!_lg_typecheck_GetBackgroundColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxColour & wxGridCellAttr::GetBackgroundColour() const function, expected prototype:\nconst wxColour & wxGridCellAttr::GetBackgroundColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxColour & wxGridCellAttr::GetBackgroundColour() const function, expected prototype:\nconst wxColour & wxGridCellAttr::GetBackgroundColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxGridCellAttr::GetBackgroundColour() const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxColour & wxGridCellAttr::GetBackgroundColour() const. Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxColour* lret = &self->GetBackgroundColour();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -436,8 +422,7 @@ public:
 	// wxGridCellEditor * wxGridCellAttr::GetEditor(const wxGrid * grid, int row, int col) const
 	static int _bind_GetEditor(lua_State *L) {
 		if (!_lg_typecheck_GetEditor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridCellEditor * wxGridCellAttr::GetEditor(const wxGrid * grid, int row, int col) const function, expected prototype:\nwxGridCellEditor * wxGridCellAttr::GetEditor(const wxGrid * grid, int row, int col) const\nClass arguments details:\narg 1 ID = 19919380\n");
+			luaL_error(L, "luna typecheck failed in wxGridCellEditor * wxGridCellAttr::GetEditor(const wxGrid * grid, int row, int col) const function, expected prototype:\nwxGridCellEditor * wxGridCellAttr::GetEditor(const wxGrid * grid, int row, int col) const\nClass arguments details:\narg 1 ID = 19919380\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxGrid* grid=(Luna< wxGrid >::check(L,2));
@@ -446,8 +431,7 @@ public:
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxGridCellEditor * wxGridCellAttr::GetEditor(const wxGrid *, int, int) const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxGridCellEditor * wxGridCellAttr::GetEditor(const wxGrid *, int, int) const. Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxGridCellEditor * lret = self->GetEditor(grid, row, col);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -460,15 +444,13 @@ public:
 	// const wxFont & wxGridCellAttr::GetFont() const
 	static int _bind_GetFont(lua_State *L) {
 		if (!_lg_typecheck_GetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxFont & wxGridCellAttr::GetFont() const function, expected prototype:\nconst wxFont & wxGridCellAttr::GetFont() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxFont & wxGridCellAttr::GetFont() const function, expected prototype:\nconst wxFont & wxGridCellAttr::GetFont() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxFont & wxGridCellAttr::GetFont() const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxFont & wxGridCellAttr::GetFont() const. Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxFont* lret = &self->GetFont();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -481,8 +463,7 @@ public:
 	// void wxGridCellAttr::GetNonDefaultAlignment(int * hAlign, int * vAlign) const
 	static int _bind_GetNonDefaultAlignment(lua_State *L) {
 		if (!_lg_typecheck_GetNonDefaultAlignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::GetNonDefaultAlignment(int * hAlign, int * vAlign) const function, expected prototype:\nvoid wxGridCellAttr::GetNonDefaultAlignment(int * hAlign, int * vAlign) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::GetNonDefaultAlignment(int * hAlign, int * vAlign) const function, expected prototype:\nvoid wxGridCellAttr::GetNonDefaultAlignment(int * hAlign, int * vAlign) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int* hAlign=(int*)Luna< void >::check(L,2);
@@ -490,8 +471,7 @@ public:
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttr::GetNonDefaultAlignment(int *, int *) const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellAttr::GetNonDefaultAlignment(int *, int *) const. Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetNonDefaultAlignment(hAlign, vAlign);
 
@@ -501,8 +481,7 @@ public:
 	// wxGridCellRenderer * wxGridCellAttr::GetRenderer(const wxGrid * grid, int row, int col) const
 	static int _bind_GetRenderer(lua_State *L) {
 		if (!_lg_typecheck_GetRenderer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridCellRenderer * wxGridCellAttr::GetRenderer(const wxGrid * grid, int row, int col) const function, expected prototype:\nwxGridCellRenderer * wxGridCellAttr::GetRenderer(const wxGrid * grid, int row, int col) const\nClass arguments details:\narg 1 ID = 19919380\n");
+			luaL_error(L, "luna typecheck failed in wxGridCellRenderer * wxGridCellAttr::GetRenderer(const wxGrid * grid, int row, int col) const function, expected prototype:\nwxGridCellRenderer * wxGridCellAttr::GetRenderer(const wxGrid * grid, int row, int col) const\nClass arguments details:\narg 1 ID = 19919380\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxGrid* grid=(Luna< wxGrid >::check(L,2));
@@ -511,8 +490,7 @@ public:
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxGridCellRenderer * wxGridCellAttr::GetRenderer(const wxGrid *, int, int) const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxGridCellRenderer * wxGridCellAttr::GetRenderer(const wxGrid *, int, int) const. Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxGridCellRenderer * lret = self->GetRenderer(grid, row, col);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -525,15 +503,13 @@ public:
 	// const wxColour & wxGridCellAttr::GetTextColour() const
 	static int _bind_GetTextColour(lua_State *L) {
 		if (!_lg_typecheck_GetTextColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxColour & wxGridCellAttr::GetTextColour() const function, expected prototype:\nconst wxColour & wxGridCellAttr::GetTextColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxColour & wxGridCellAttr::GetTextColour() const function, expected prototype:\nconst wxColour & wxGridCellAttr::GetTextColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxGridCellAttr::GetTextColour() const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxColour & wxGridCellAttr::GetTextColour() const. Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxColour* lret = &self->GetTextColour();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -546,15 +522,13 @@ public:
 	// bool wxGridCellAttr::HasAlignment() const
 	static int _bind_HasAlignment(lua_State *L) {
 		if (!_lg_typecheck_HasAlignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridCellAttr::HasAlignment() const function, expected prototype:\nbool wxGridCellAttr::HasAlignment() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridCellAttr::HasAlignment() const function, expected prototype:\nbool wxGridCellAttr::HasAlignment() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridCellAttr::HasAlignment() const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridCellAttr::HasAlignment() const. Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasAlignment();
 		lua_pushboolean(L,lret?1:0);
@@ -565,15 +539,13 @@ public:
 	// bool wxGridCellAttr::HasBackgroundColour() const
 	static int _bind_HasBackgroundColour(lua_State *L) {
 		if (!_lg_typecheck_HasBackgroundColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridCellAttr::HasBackgroundColour() const function, expected prototype:\nbool wxGridCellAttr::HasBackgroundColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridCellAttr::HasBackgroundColour() const function, expected prototype:\nbool wxGridCellAttr::HasBackgroundColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridCellAttr::HasBackgroundColour() const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridCellAttr::HasBackgroundColour() const. Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasBackgroundColour();
 		lua_pushboolean(L,lret?1:0);
@@ -584,15 +556,13 @@ public:
 	// bool wxGridCellAttr::HasEditor() const
 	static int _bind_HasEditor(lua_State *L) {
 		if (!_lg_typecheck_HasEditor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridCellAttr::HasEditor() const function, expected prototype:\nbool wxGridCellAttr::HasEditor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridCellAttr::HasEditor() const function, expected prototype:\nbool wxGridCellAttr::HasEditor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridCellAttr::HasEditor() const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridCellAttr::HasEditor() const. Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasEditor();
 		lua_pushboolean(L,lret?1:0);
@@ -603,15 +573,13 @@ public:
 	// bool wxGridCellAttr::HasFont() const
 	static int _bind_HasFont(lua_State *L) {
 		if (!_lg_typecheck_HasFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridCellAttr::HasFont() const function, expected prototype:\nbool wxGridCellAttr::HasFont() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridCellAttr::HasFont() const function, expected prototype:\nbool wxGridCellAttr::HasFont() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridCellAttr::HasFont() const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridCellAttr::HasFont() const. Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasFont();
 		lua_pushboolean(L,lret?1:0);
@@ -622,15 +590,13 @@ public:
 	// bool wxGridCellAttr::HasRenderer() const
 	static int _bind_HasRenderer(lua_State *L) {
 		if (!_lg_typecheck_HasRenderer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridCellAttr::HasRenderer() const function, expected prototype:\nbool wxGridCellAttr::HasRenderer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridCellAttr::HasRenderer() const function, expected prototype:\nbool wxGridCellAttr::HasRenderer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridCellAttr::HasRenderer() const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridCellAttr::HasRenderer() const. Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasRenderer();
 		lua_pushboolean(L,lret?1:0);
@@ -641,15 +607,13 @@ public:
 	// bool wxGridCellAttr::HasTextColour() const
 	static int _bind_HasTextColour(lua_State *L) {
 		if (!_lg_typecheck_HasTextColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridCellAttr::HasTextColour() const function, expected prototype:\nbool wxGridCellAttr::HasTextColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridCellAttr::HasTextColour() const function, expected prototype:\nbool wxGridCellAttr::HasTextColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridCellAttr::HasTextColour() const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridCellAttr::HasTextColour() const. Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasTextColour();
 		lua_pushboolean(L,lret?1:0);
@@ -660,15 +624,13 @@ public:
 	// void wxGridCellAttr::IncRef()
 	static int _bind_IncRef(lua_State *L) {
 		if (!_lg_typecheck_IncRef(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::IncRef() function, expected prototype:\nvoid wxGridCellAttr::IncRef()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::IncRef() function, expected prototype:\nvoid wxGridCellAttr::IncRef()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttr::IncRef(). Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellAttr::IncRef(). Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->IncRef();
 
@@ -678,15 +640,13 @@ public:
 	// bool wxGridCellAttr::IsReadOnly() const
 	static int _bind_IsReadOnly(lua_State *L) {
 		if (!_lg_typecheck_IsReadOnly(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridCellAttr::IsReadOnly() const function, expected prototype:\nbool wxGridCellAttr::IsReadOnly() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridCellAttr::IsReadOnly() const function, expected prototype:\nbool wxGridCellAttr::IsReadOnly() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridCellAttr::IsReadOnly() const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridCellAttr::IsReadOnly() const. Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsReadOnly();
 		lua_pushboolean(L,lret?1:0);
@@ -697,8 +657,7 @@ public:
 	// void wxGridCellAttr::SetAlignment(int hAlign, int vAlign)
 	static int _bind_SetAlignment(lua_State *L) {
 		if (!_lg_typecheck_SetAlignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetAlignment(int hAlign, int vAlign) function, expected prototype:\nvoid wxGridCellAttr::SetAlignment(int hAlign, int vAlign)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetAlignment(int hAlign, int vAlign) function, expected prototype:\nvoid wxGridCellAttr::SetAlignment(int hAlign, int vAlign)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int hAlign=(int)lua_tointeger(L,2);
@@ -706,8 +665,7 @@ public:
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetAlignment(int, int). Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetAlignment(int, int). Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAlignment(hAlign, vAlign);
 
@@ -717,8 +675,7 @@ public:
 	// void wxGridCellAttr::SetBackgroundColour(const wxColour & colBack)
 	static int _bind_SetBackgroundColour(lua_State *L) {
 		if (!_lg_typecheck_SetBackgroundColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetBackgroundColour(const wxColour & colBack) function, expected prototype:\nvoid wxGridCellAttr::SetBackgroundColour(const wxColour & colBack)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetBackgroundColour(const wxColour & colBack) function, expected prototype:\nvoid wxGridCellAttr::SetBackgroundColour(const wxColour & colBack)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colBack_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -729,8 +686,7 @@ public:
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetBackgroundColour(const wxColour &). Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetBackgroundColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetBackgroundColour(colBack);
 
@@ -740,16 +696,14 @@ public:
 	// void wxGridCellAttr::SetDefAttr(wxGridCellAttr * defAttr)
 	static int _bind_SetDefAttr(lua_State *L) {
 		if (!_lg_typecheck_SetDefAttr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetDefAttr(wxGridCellAttr * defAttr) function, expected prototype:\nvoid wxGridCellAttr::SetDefAttr(wxGridCellAttr * defAttr)\nClass arguments details:\narg 1 ID = 25758569\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetDefAttr(wxGridCellAttr * defAttr) function, expected prototype:\nvoid wxGridCellAttr::SetDefAttr(wxGridCellAttr * defAttr)\nClass arguments details:\narg 1 ID = 25758569\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridCellAttr* defAttr=(Luna< wxGridCellAttr >::check(L,2));
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetDefAttr(wxGridCellAttr *). Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetDefAttr(wxGridCellAttr *). Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDefAttr(defAttr);
 
@@ -759,16 +713,14 @@ public:
 	// void wxGridCellAttr::SetEditor(wxGridCellEditor * editor)
 	static int _bind_SetEditor(lua_State *L) {
 		if (!_lg_typecheck_SetEditor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetEditor(wxGridCellEditor * editor) function, expected prototype:\nvoid wxGridCellAttr::SetEditor(wxGridCellEditor * editor)\nClass arguments details:\narg 1 ID = 53399133\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetEditor(wxGridCellEditor * editor) function, expected prototype:\nvoid wxGridCellAttr::SetEditor(wxGridCellEditor * editor)\nClass arguments details:\narg 1 ID = 53399133\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridCellEditor* editor=(Luna< wxGridCellEditor >::check(L,2));
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetEditor(wxGridCellEditor *). Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetEditor(wxGridCellEditor *). Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetEditor(editor);
 
@@ -778,8 +730,7 @@ public:
 	// void wxGridCellAttr::SetFont(const wxFont & font)
 	static int _bind_SetFont(lua_State *L) {
 		if (!_lg_typecheck_SetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetFont(const wxFont & font) function, expected prototype:\nvoid wxGridCellAttr::SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetFont(const wxFont & font) function, expected prototype:\nvoid wxGridCellAttr::SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -790,8 +741,7 @@ public:
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFont(font);
 
@@ -801,8 +751,7 @@ public:
 	// void wxGridCellAttr::SetReadOnly(bool isReadOnly = true)
 	static int _bind_SetReadOnly(lua_State *L) {
 		if (!_lg_typecheck_SetReadOnly(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetReadOnly(bool isReadOnly = true) function, expected prototype:\nvoid wxGridCellAttr::SetReadOnly(bool isReadOnly = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetReadOnly(bool isReadOnly = true) function, expected prototype:\nvoid wxGridCellAttr::SetReadOnly(bool isReadOnly = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -811,8 +760,7 @@ public:
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetReadOnly(bool). Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetReadOnly(bool). Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetReadOnly(isReadOnly);
 
@@ -822,16 +770,14 @@ public:
 	// void wxGridCellAttr::SetRenderer(wxGridCellRenderer * renderer)
 	static int _bind_SetRenderer(lua_State *L) {
 		if (!_lg_typecheck_SetRenderer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetRenderer(wxGridCellRenderer * renderer) function, expected prototype:\nvoid wxGridCellAttr::SetRenderer(wxGridCellRenderer * renderer)\nClass arguments details:\narg 1 ID = 96062845\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetRenderer(wxGridCellRenderer * renderer) function, expected prototype:\nvoid wxGridCellAttr::SetRenderer(wxGridCellRenderer * renderer)\nClass arguments details:\narg 1 ID = 96062845\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridCellRenderer* renderer=(Luna< wxGridCellRenderer >::check(L,2));
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetRenderer(wxGridCellRenderer *). Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetRenderer(wxGridCellRenderer *). Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRenderer(renderer);
 
@@ -841,8 +787,7 @@ public:
 	// void wxGridCellAttr::SetTextColour(const wxColour & colText)
 	static int _bind_SetTextColour(lua_State *L) {
 		if (!_lg_typecheck_SetTextColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetTextColour(const wxColour & colText) function, expected prototype:\nvoid wxGridCellAttr::SetTextColour(const wxColour & colText)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetTextColour(const wxColour & colText) function, expected prototype:\nvoid wxGridCellAttr::SetTextColour(const wxColour & colText)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colText_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -853,8 +798,7 @@ public:
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetTextColour(const wxColour &). Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellAttr::SetTextColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxGridCellAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTextColour(colText);
 

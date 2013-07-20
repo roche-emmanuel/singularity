@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCursor* self= (wxCursor*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -209,8 +206,7 @@ public:
 	// wxCursor::wxCursor()
 	static wxCursor* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor() function, expected prototype:\nwxCursor::wxCursor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor() function, expected prototype:\nwxCursor::wxCursor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -220,8 +216,7 @@ public:
 	// wxCursor::wxCursor(const wxString & cursorName, wxBitmapType type = wxCURSOR_DEFAULT_TYPE, int hotSpotX = 0, int hotSpotY = 0)
 	static wxCursor* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(const wxString & cursorName, wxBitmapType type = wxCURSOR_DEFAULT_TYPE, int hotSpotX = 0, int hotSpotY = 0) function, expected prototype:\nwxCursor::wxCursor(const wxString & cursorName, wxBitmapType type = wxCURSOR_DEFAULT_TYPE, int hotSpotX = 0, int hotSpotY = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(const wxString & cursorName, wxBitmapType type = wxCURSOR_DEFAULT_TYPE, int hotSpotX = 0, int hotSpotY = 0) function, expected prototype:\nwxCursor::wxCursor(const wxString & cursorName, wxBitmapType type = wxCURSOR_DEFAULT_TYPE, int hotSpotX = 0, int hotSpotY = 0)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -237,8 +232,7 @@ public:
 	// wxCursor::wxCursor(wxStockCursor cursorId)
 	static wxCursor* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(wxStockCursor cursorId) function, expected prototype:\nwxCursor::wxCursor(wxStockCursor cursorId)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(wxStockCursor cursorId) function, expected prototype:\nwxCursor::wxCursor(wxStockCursor cursorId)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStockCursor cursorId=(wxStockCursor)lua_tointeger(L,1);
@@ -249,8 +243,7 @@ public:
 	// wxCursor::wxCursor(const wxImage & image)
 	static wxCursor* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(const wxImage & image) function, expected prototype:\nwxCursor::wxCursor(const wxImage & image)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(const wxImage & image) function, expected prototype:\nwxCursor::wxCursor(const wxImage & image)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxImage* image_ptr=(Luna< wxObject >::checkSubType< wxImage >(L,1));
@@ -265,8 +258,7 @@ public:
 	// wxCursor::wxCursor(const wxCursor & cursor)
 	static wxCursor* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(const wxCursor & cursor) function, expected prototype:\nwxCursor::wxCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(const wxCursor & cursor) function, expected prototype:\nwxCursor::wxCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxCursor* cursor_ptr=(Luna< wxObject >::checkSubType< wxCursor >(L,1));
@@ -281,8 +273,7 @@ public:
 	// wxCursor::wxCursor(lua_Table * data)
 	static wxCursor* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(lua_Table * data) function, expected prototype:\nwxCursor::wxCursor(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(lua_Table * data) function, expected prototype:\nwxCursor::wxCursor(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -292,8 +283,7 @@ public:
 	// wxCursor::wxCursor(lua_Table * data, const wxString & cursorName, wxBitmapType type = wxCURSOR_DEFAULT_TYPE, int hotSpotX = 0, int hotSpotY = 0)
 	static wxCursor* _bind_ctor_overload_7(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(lua_Table * data, const wxString & cursorName, wxBitmapType type = wxCURSOR_DEFAULT_TYPE, int hotSpotX = 0, int hotSpotY = 0) function, expected prototype:\nwxCursor::wxCursor(lua_Table * data, const wxString & cursorName, wxBitmapType type = wxCURSOR_DEFAULT_TYPE, int hotSpotX = 0, int hotSpotY = 0)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(lua_Table * data, const wxString & cursorName, wxBitmapType type = wxCURSOR_DEFAULT_TYPE, int hotSpotX = 0, int hotSpotY = 0) function, expected prototype:\nwxCursor::wxCursor(lua_Table * data, const wxString & cursorName, wxBitmapType type = wxCURSOR_DEFAULT_TYPE, int hotSpotX = 0, int hotSpotY = 0)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -309,8 +299,7 @@ public:
 	// wxCursor::wxCursor(lua_Table * data, wxStockCursor cursorId)
 	static wxCursor* _bind_ctor_overload_8(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(lua_Table * data, wxStockCursor cursorId) function, expected prototype:\nwxCursor::wxCursor(lua_Table * data, wxStockCursor cursorId)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(lua_Table * data, wxStockCursor cursorId) function, expected prototype:\nwxCursor::wxCursor(lua_Table * data, wxStockCursor cursorId)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStockCursor cursorId=(wxStockCursor)lua_tointeger(L,2);
@@ -321,8 +310,7 @@ public:
 	// wxCursor::wxCursor(lua_Table * data, const wxImage & image)
 	static wxCursor* _bind_ctor_overload_9(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_9(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(lua_Table * data, const wxImage & image) function, expected prototype:\nwxCursor::wxCursor(lua_Table * data, const wxImage & image)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(lua_Table * data, const wxImage & image) function, expected prototype:\nwxCursor::wxCursor(lua_Table * data, const wxImage & image)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxImage* image_ptr=(Luna< wxObject >::checkSubType< wxImage >(L,2));
@@ -337,8 +325,7 @@ public:
 	// wxCursor::wxCursor(lua_Table * data, const wxCursor & cursor)
 	static wxCursor* _bind_ctor_overload_10(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_10(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(lua_Table * data, const wxCursor & cursor) function, expected prototype:\nwxCursor::wxCursor(lua_Table * data, const wxCursor & cursor)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(lua_Table * data, const wxCursor & cursor) function, expected prototype:\nwxCursor::wxCursor(lua_Table * data, const wxCursor & cursor)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxCursor* cursor_ptr=(Luna< wxObject >::checkSubType< wxCursor >(L,2));
@@ -372,15 +359,13 @@ public:
 	// bool wxCursor::IsOk() const
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCursor::IsOk() const function, expected prototype:\nbool wxCursor::IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCursor::IsOk() const function, expected prototype:\nbool wxCursor::IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCursor* self=Luna< wxObject >::checkSubType< wxCursor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCursor::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCursor::IsOk() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -391,15 +376,13 @@ public:
 	// wxClassInfo * wxCursor::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxCursor::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxCursor::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxCursor::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxCursor::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCursor* self=Luna< wxObject >::checkSubType< wxCursor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxCursor::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCursor::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxCursor::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -412,15 +395,13 @@ public:
 	// bool wxCursor::base_IsOk() const
 	static int _bind_base_IsOk(lua_State *L) {
 		if (!_lg_typecheck_base_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCursor::base_IsOk() const function, expected prototype:\nbool wxCursor::base_IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCursor::base_IsOk() const function, expected prototype:\nbool wxCursor::base_IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCursor* self=Luna< wxObject >::checkSubType< wxCursor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCursor::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCursor::base_IsOk() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxCursor::IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -433,8 +414,7 @@ public:
 	// wxCursor & wxCursor::operator=(const wxCursor & cursor)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCursor & wxCursor::operator=(const wxCursor & cursor) function, expected prototype:\nwxCursor & wxCursor::operator=(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxCursor & wxCursor::operator=(const wxCursor & cursor) function, expected prototype:\nwxCursor & wxCursor::operator=(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxCursor* cursor_ptr=(Luna< wxObject >::checkSubType< wxCursor >(L,2));
@@ -445,8 +425,7 @@ public:
 
 		wxCursor* self=Luna< wxObject >::checkSubType< wxCursor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxCursor & wxCursor::operator=(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxCursor & wxCursor::operator=(const wxCursor &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxCursor* lret = &self->operator=(cursor);
 		if(!lret) return 0; // Do not write NULL pointers.

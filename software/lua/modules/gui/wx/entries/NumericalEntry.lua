@@ -8,7 +8,7 @@ require "extensions.wx"
 local im = require "gui.wx.ImageManager"
 local winman = require "gui.wx.WindowManager"
 
-local slidingCursor = im:getCursor("sliding_cursor");
+local slidingCursor = wx.wxCursor(im:getImage("sliding_cursor"));
 
 local num_slider_bg_normal = im:getBitmap("num_slider_bg_normal",16);
 local num_slider_bg_hover = im:getBitmap("num_slider_bg_hover",16);

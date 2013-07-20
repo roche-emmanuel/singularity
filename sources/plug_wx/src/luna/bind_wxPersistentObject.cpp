@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPersistentObject* self=(Luna< wxPersistentObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxPersistentObject*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxPersistentObject*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPersistentObject* rhs =(Luna< wxPersistentObject >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPersistentObject* self= (wxPersistentObject*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxPersistentObject >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -174,8 +169,7 @@ public:
 	// wxPersistentObject::wxPersistentObject(lua_Table * data, void * obj)
 	static wxPersistentObject* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPersistentObject::wxPersistentObject(lua_Table * data, void * obj) function, expected prototype:\nwxPersistentObject::wxPersistentObject(lua_Table * data, void * obj)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPersistentObject::wxPersistentObject(lua_Table * data, void * obj) function, expected prototype:\nwxPersistentObject::wxPersistentObject(lua_Table * data, void * obj)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* obj=(Luna< void >::check(L,2));
@@ -188,15 +182,13 @@ public:
 	// void wxPersistentObject::Save() const
 	static int _bind_Save(lua_State *L) {
 		if (!_lg_typecheck_Save(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPersistentObject::Save() const function, expected prototype:\nvoid wxPersistentObject::Save() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPersistentObject::Save() const function, expected prototype:\nvoid wxPersistentObject::Save() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPersistentObject* self=(Luna< wxPersistentObject >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPersistentObject::Save() const. Got : '%s'",typeid(Luna< wxPersistentObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPersistentObject::Save() const. Got : '%s'\n%s",typeid(Luna< wxPersistentObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Save();
 
@@ -206,15 +198,13 @@ public:
 	// bool wxPersistentObject::Restore()
 	static int _bind_Restore(lua_State *L) {
 		if (!_lg_typecheck_Restore(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPersistentObject::Restore() function, expected prototype:\nbool wxPersistentObject::Restore()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPersistentObject::Restore() function, expected prototype:\nbool wxPersistentObject::Restore()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPersistentObject* self=(Luna< wxPersistentObject >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPersistentObject::Restore(). Got : '%s'",typeid(Luna< wxPersistentObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPersistentObject::Restore(). Got : '%s'\n%s",typeid(Luna< wxPersistentObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Restore();
 		lua_pushboolean(L,lret?1:0);
@@ -225,15 +215,13 @@ public:
 	// wxString wxPersistentObject::GetKind() const
 	static int _bind_GetKind(lua_State *L) {
 		if (!_lg_typecheck_GetKind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxPersistentObject::GetKind() const function, expected prototype:\nwxString wxPersistentObject::GetKind() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxPersistentObject::GetKind() const function, expected prototype:\nwxString wxPersistentObject::GetKind() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPersistentObject* self=(Luna< wxPersistentObject >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPersistentObject::GetKind() const. Got : '%s'",typeid(Luna< wxPersistentObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxPersistentObject::GetKind() const. Got : '%s'\n%s",typeid(Luna< wxPersistentObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetKind();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -244,15 +232,13 @@ public:
 	// wxString wxPersistentObject::GetName() const
 	static int _bind_GetName(lua_State *L) {
 		if (!_lg_typecheck_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxPersistentObject::GetName() const function, expected prototype:\nwxString wxPersistentObject::GetName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxPersistentObject::GetName() const function, expected prototype:\nwxString wxPersistentObject::GetName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPersistentObject* self=(Luna< wxPersistentObject >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPersistentObject::GetName() const. Got : '%s'",typeid(Luna< wxPersistentObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxPersistentObject::GetName() const. Got : '%s'\n%s",typeid(Luna< wxPersistentObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -263,15 +249,13 @@ public:
 	// void * wxPersistentObject::GetObject() const
 	static int _bind_GetObject(lua_State *L) {
 		if (!_lg_typecheck_GetObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * wxPersistentObject::GetObject() const function, expected prototype:\nvoid * wxPersistentObject::GetObject() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * wxPersistentObject::GetObject() const function, expected prototype:\nvoid * wxPersistentObject::GetObject() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPersistentObject* self=(Luna< wxPersistentObject >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxPersistentObject::GetObject() const. Got : '%s'",typeid(Luna< wxPersistentObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * wxPersistentObject::GetObject() const. Got : '%s'\n%s",typeid(Luna< wxPersistentObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->GetObject();
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDisplay*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDisplay*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDisplay* rhs =(Luna< wxDisplay >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDisplay* self= (wxDisplay*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDisplay >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -184,8 +180,7 @@ public:
 	// wxDisplay::wxDisplay(unsigned int index = 0)
 	static wxDisplay* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDisplay::wxDisplay(unsigned int index = 0) function, expected prototype:\nwxDisplay::wxDisplay(unsigned int index = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDisplay::wxDisplay(unsigned int index = 0) function, expected prototype:\nwxDisplay::wxDisplay(unsigned int index = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -200,8 +195,7 @@ public:
 	// bool wxDisplay::ChangeMode(const wxVideoMode & mode = wxDefaultVideoMode)
 	static int _bind_ChangeMode(lua_State *L) {
 		if (!_lg_typecheck_ChangeMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDisplay::ChangeMode(const wxVideoMode & mode = wxDefaultVideoMode) function, expected prototype:\nbool wxDisplay::ChangeMode(const wxVideoMode & mode = wxDefaultVideoMode)\nClass arguments details:\narg 1 ID = 44802589\n");
+			luaL_error(L, "luna typecheck failed in bool wxDisplay::ChangeMode(const wxVideoMode & mode = wxDefaultVideoMode) function, expected prototype:\nbool wxDisplay::ChangeMode(const wxVideoMode & mode = wxDefaultVideoMode)\nClass arguments details:\narg 1 ID = 44802589\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -214,8 +208,7 @@ public:
 
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDisplay::ChangeMode(const wxVideoMode &). Got : '%s'",typeid(Luna< wxDisplay >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDisplay::ChangeMode(const wxVideoMode &). Got : '%s'\n%s",typeid(Luna< wxDisplay >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ChangeMode(mode);
 		lua_pushboolean(L,lret?1:0);
@@ -226,15 +219,13 @@ public:
 	// wxRect wxDisplay::GetClientArea() const
 	static int _bind_GetClientArea(lua_State *L) {
 		if (!_lg_typecheck_GetClientArea(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRect wxDisplay::GetClientArea() const function, expected prototype:\nwxRect wxDisplay::GetClientArea() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRect wxDisplay::GetClientArea() const function, expected prototype:\nwxRect wxDisplay::GetClientArea() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxDisplay::GetClientArea() const. Got : '%s'",typeid(Luna< wxDisplay >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRect wxDisplay::GetClientArea() const. Got : '%s'\n%s",typeid(Luna< wxDisplay >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxRect stack_lret = self->GetClientArea();
 		wxRect* lret = new wxRect(stack_lret);
@@ -248,15 +239,13 @@ public:
 	// wxVideoMode wxDisplay::GetCurrentMode() const
 	static int _bind_GetCurrentMode(lua_State *L) {
 		if (!_lg_typecheck_GetCurrentMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxVideoMode wxDisplay::GetCurrentMode() const function, expected prototype:\nwxVideoMode wxDisplay::GetCurrentMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxVideoMode wxDisplay::GetCurrentMode() const function, expected prototype:\nwxVideoMode wxDisplay::GetCurrentMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVideoMode wxDisplay::GetCurrentMode() const. Got : '%s'",typeid(Luna< wxDisplay >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxVideoMode wxDisplay::GetCurrentMode() const. Got : '%s'\n%s",typeid(Luna< wxDisplay >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxVideoMode stack_lret = self->GetCurrentMode();
 		wxVideoMode* lret = new wxVideoMode(stack_lret);
@@ -270,15 +259,13 @@ public:
 	// wxRect wxDisplay::GetGeometry() const
 	static int _bind_GetGeometry(lua_State *L) {
 		if (!_lg_typecheck_GetGeometry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRect wxDisplay::GetGeometry() const function, expected prototype:\nwxRect wxDisplay::GetGeometry() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRect wxDisplay::GetGeometry() const function, expected prototype:\nwxRect wxDisplay::GetGeometry() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxDisplay::GetGeometry() const. Got : '%s'",typeid(Luna< wxDisplay >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRect wxDisplay::GetGeometry() const. Got : '%s'\n%s",typeid(Luna< wxDisplay >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxRect stack_lret = self->GetGeometry();
 		wxRect* lret = new wxRect(stack_lret);
@@ -292,8 +279,7 @@ public:
 	// wxArrayVideoModes wxDisplay::GetModes(const wxVideoMode & mode = wxDefaultVideoMode) const
 	static int _bind_GetModes(lua_State *L) {
 		if (!_lg_typecheck_GetModes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxArrayVideoModes wxDisplay::GetModes(const wxVideoMode & mode = wxDefaultVideoMode) const function, expected prototype:\nwxArrayVideoModes wxDisplay::GetModes(const wxVideoMode & mode = wxDefaultVideoMode) const\nClass arguments details:\narg 1 ID = 44802589\n");
+			luaL_error(L, "luna typecheck failed in wxArrayVideoModes wxDisplay::GetModes(const wxVideoMode & mode = wxDefaultVideoMode) const function, expected prototype:\nwxArrayVideoModes wxDisplay::GetModes(const wxVideoMode & mode = wxDefaultVideoMode) const\nClass arguments details:\narg 1 ID = 44802589\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -306,8 +292,7 @@ public:
 
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxArrayVideoModes wxDisplay::GetModes(const wxVideoMode &) const. Got : '%s'",typeid(Luna< wxDisplay >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxArrayVideoModes wxDisplay::GetModes(const wxVideoMode &) const. Got : '%s'\n%s",typeid(Luna< wxDisplay >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxArrayVideoModes stack_lret = self->GetModes(mode);
 		wxArrayVideoModes* lret = new wxArrayVideoModes(stack_lret);
@@ -321,15 +306,13 @@ public:
 	// wxString wxDisplay::GetName() const
 	static int _bind_GetName(lua_State *L) {
 		if (!_lg_typecheck_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxDisplay::GetName() const function, expected prototype:\nwxString wxDisplay::GetName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxDisplay::GetName() const function, expected prototype:\nwxString wxDisplay::GetName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDisplay::GetName() const. Got : '%s'",typeid(Luna< wxDisplay >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxDisplay::GetName() const. Got : '%s'\n%s",typeid(Luna< wxDisplay >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -340,15 +323,13 @@ public:
 	// bool wxDisplay::IsPrimary() const
 	static int _bind_IsPrimary(lua_State *L) {
 		if (!_lg_typecheck_IsPrimary(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDisplay::IsPrimary() const function, expected prototype:\nbool wxDisplay::IsPrimary() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDisplay::IsPrimary() const function, expected prototype:\nbool wxDisplay::IsPrimary() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDisplay::IsPrimary() const. Got : '%s'",typeid(Luna< wxDisplay >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDisplay::IsPrimary() const. Got : '%s'\n%s",typeid(Luna< wxDisplay >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsPrimary();
 		lua_pushboolean(L,lret?1:0);
@@ -359,8 +340,7 @@ public:
 	// static unsigned int wxDisplay::GetCount()
 	static int _bind_GetCount(lua_State *L) {
 		if (!_lg_typecheck_GetCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static unsigned int wxDisplay::GetCount() function, expected prototype:\nstatic unsigned int wxDisplay::GetCount()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static unsigned int wxDisplay::GetCount() function, expected prototype:\nstatic unsigned int wxDisplay::GetCount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -373,8 +353,7 @@ public:
 	// static int wxDisplay::GetFromPoint(const wxPoint & pt)
 	static int _bind_GetFromPoint(lua_State *L) {
 		if (!_lg_typecheck_GetFromPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int wxDisplay::GetFromPoint(const wxPoint & pt) function, expected prototype:\nstatic int wxDisplay::GetFromPoint(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in static int wxDisplay::GetFromPoint(const wxPoint & pt) function, expected prototype:\nstatic int wxDisplay::GetFromPoint(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* pt_ptr=(Luna< wxPoint >::check(L,1));
@@ -392,8 +371,7 @@ public:
 	// static int wxDisplay::GetFromWindow(const wxWindow * win)
 	static int _bind_GetFromWindow(lua_State *L) {
 		if (!_lg_typecheck_GetFromWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int wxDisplay::GetFromWindow(const wxWindow * win) function, expected prototype:\nstatic int wxDisplay::GetFromWindow(const wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in static int wxDisplay::GetFromWindow(const wxWindow * win) function, expected prototype:\nstatic int wxDisplay::GetFromWindow(const wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,1));

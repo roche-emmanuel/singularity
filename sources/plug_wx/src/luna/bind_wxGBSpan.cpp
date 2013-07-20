@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGBSpan* self= (wxGBSpan*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxGBSpan >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -133,8 +130,7 @@ public:
 	// wxGBSpan::wxGBSpan()
 	static wxGBSpan* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGBSpan::wxGBSpan() function, expected prototype:\nwxGBSpan::wxGBSpan()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGBSpan::wxGBSpan() function, expected prototype:\nwxGBSpan::wxGBSpan()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -144,8 +140,7 @@ public:
 	// wxGBSpan::wxGBSpan(int rowspan, int colspan)
 	static wxGBSpan* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGBSpan::wxGBSpan(int rowspan, int colspan) function, expected prototype:\nwxGBSpan::wxGBSpan(int rowspan, int colspan)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGBSpan::wxGBSpan(int rowspan, int colspan) function, expected prototype:\nwxGBSpan::wxGBSpan(int rowspan, int colspan)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int rowspan=(int)lua_tointeger(L,1);
@@ -168,15 +163,13 @@ public:
 	// int wxGBSpan::GetColspan() const
 	static int _bind_GetColspan(lua_State *L) {
 		if (!_lg_typecheck_GetColspan(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGBSpan::GetColspan() const function, expected prototype:\nint wxGBSpan::GetColspan() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGBSpan::GetColspan() const function, expected prototype:\nint wxGBSpan::GetColspan() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGBSpan* self=(Luna< wxGBSpan >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGBSpan::GetColspan() const. Got : '%s'",typeid(Luna< wxGBSpan >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGBSpan::GetColspan() const. Got : '%s'\n%s",typeid(Luna< wxGBSpan >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetColspan();
 		lua_pushnumber(L,lret);
@@ -187,15 +180,13 @@ public:
 	// int wxGBSpan::GetRowspan() const
 	static int _bind_GetRowspan(lua_State *L) {
 		if (!_lg_typecheck_GetRowspan(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGBSpan::GetRowspan() const function, expected prototype:\nint wxGBSpan::GetRowspan() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGBSpan::GetRowspan() const function, expected prototype:\nint wxGBSpan::GetRowspan() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGBSpan* self=(Luna< wxGBSpan >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGBSpan::GetRowspan() const. Got : '%s'",typeid(Luna< wxGBSpan >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGBSpan::GetRowspan() const. Got : '%s'\n%s",typeid(Luna< wxGBSpan >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetRowspan();
 		lua_pushnumber(L,lret);
@@ -206,16 +197,14 @@ public:
 	// void wxGBSpan::SetColspan(int colspan)
 	static int _bind_SetColspan(lua_State *L) {
 		if (!_lg_typecheck_SetColspan(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGBSpan::SetColspan(int colspan) function, expected prototype:\nvoid wxGBSpan::SetColspan(int colspan)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGBSpan::SetColspan(int colspan) function, expected prototype:\nvoid wxGBSpan::SetColspan(int colspan)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int colspan=(int)lua_tointeger(L,2);
 
 		wxGBSpan* self=(Luna< wxGBSpan >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGBSpan::SetColspan(int). Got : '%s'",typeid(Luna< wxGBSpan >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGBSpan::SetColspan(int). Got : '%s'\n%s",typeid(Luna< wxGBSpan >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetColspan(colspan);
 
@@ -225,16 +214,14 @@ public:
 	// void wxGBSpan::SetRowspan(int rowspan)
 	static int _bind_SetRowspan(lua_State *L) {
 		if (!_lg_typecheck_SetRowspan(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGBSpan::SetRowspan(int rowspan) function, expected prototype:\nvoid wxGBSpan::SetRowspan(int rowspan)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGBSpan::SetRowspan(int rowspan) function, expected prototype:\nvoid wxGBSpan::SetRowspan(int rowspan)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int rowspan=(int)lua_tointeger(L,2);
 
 		wxGBSpan* self=(Luna< wxGBSpan >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGBSpan::SetRowspan(int). Got : '%s'",typeid(Luna< wxGBSpan >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGBSpan::SetRowspan(int). Got : '%s'\n%s",typeid(Luna< wxGBSpan >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRowspan(rowspan);
 
@@ -246,8 +233,7 @@ public:
 	// bool wxGBSpan::operator==(const wxGBSpan & o) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGBSpan::operator==(const wxGBSpan & o) const function, expected prototype:\nbool wxGBSpan::operator==(const wxGBSpan & o) const\nClass arguments details:\narg 1 ID = 97553085\n");
+			luaL_error(L, "luna typecheck failed in bool wxGBSpan::operator==(const wxGBSpan & o) const function, expected prototype:\nbool wxGBSpan::operator==(const wxGBSpan & o) const\nClass arguments details:\narg 1 ID = 97553085\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxGBSpan* o_ptr=(Luna< wxGBSpan >::check(L,2));
@@ -258,8 +244,7 @@ public:
 
 		wxGBSpan* self=(Luna< wxGBSpan >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGBSpan::operator==(const wxGBSpan &) const. Got : '%s'",typeid(Luna< wxGBSpan >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGBSpan::operator==(const wxGBSpan &) const. Got : '%s'\n%s",typeid(Luna< wxGBSpan >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(o);
 		lua_pushboolean(L,lret?1:0);

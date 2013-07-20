@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFindReplaceData* self= (wxFindReplaceData*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -161,8 +158,7 @@ public:
 	// wxFindReplaceData::wxFindReplaceData(unsigned int flags = 0)
 	static wxFindReplaceData* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFindReplaceData::wxFindReplaceData(unsigned int flags = 0) function, expected prototype:\nwxFindReplaceData::wxFindReplaceData(unsigned int flags = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFindReplaceData::wxFindReplaceData(unsigned int flags = 0) function, expected prototype:\nwxFindReplaceData::wxFindReplaceData(unsigned int flags = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -175,8 +171,7 @@ public:
 	// wxFindReplaceData::wxFindReplaceData(lua_Table * data, unsigned int flags = 0)
 	static wxFindReplaceData* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFindReplaceData::wxFindReplaceData(lua_Table * data, unsigned int flags = 0) function, expected prototype:\nwxFindReplaceData::wxFindReplaceData(lua_Table * data, unsigned int flags = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFindReplaceData::wxFindReplaceData(lua_Table * data, unsigned int flags = 0) function, expected prototype:\nwxFindReplaceData::wxFindReplaceData(lua_Table * data, unsigned int flags = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -200,15 +195,13 @@ public:
 	// const wxString & wxFindReplaceData::GetFindString()
 	static int _bind_GetFindString(lua_State *L) {
 		if (!_lg_typecheck_GetFindString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxFindReplaceData::GetFindString() function, expected prototype:\nconst wxString & wxFindReplaceData::GetFindString()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxFindReplaceData::GetFindString() function, expected prototype:\nconst wxString & wxFindReplaceData::GetFindString()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxFindReplaceData::GetFindString(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxFindReplaceData::GetFindString(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetFindString();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -219,15 +212,13 @@ public:
 	// int wxFindReplaceData::GetFlags() const
 	static int _bind_GetFlags(lua_State *L) {
 		if (!_lg_typecheck_GetFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxFindReplaceData::GetFlags() const function, expected prototype:\nint wxFindReplaceData::GetFlags() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxFindReplaceData::GetFlags() const function, expected prototype:\nint wxFindReplaceData::GetFlags() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFindReplaceData::GetFlags() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxFindReplaceData::GetFlags() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -238,15 +229,13 @@ public:
 	// const wxString & wxFindReplaceData::GetReplaceString()
 	static int _bind_GetReplaceString(lua_State *L) {
 		if (!_lg_typecheck_GetReplaceString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxFindReplaceData::GetReplaceString() function, expected prototype:\nconst wxString & wxFindReplaceData::GetReplaceString()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxFindReplaceData::GetReplaceString() function, expected prototype:\nconst wxString & wxFindReplaceData::GetReplaceString()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxFindReplaceData::GetReplaceString(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxFindReplaceData::GetReplaceString(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetReplaceString();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -257,16 +246,14 @@ public:
 	// void wxFindReplaceData::SetFindString(const wxString & str)
 	static int _bind_SetFindString(lua_State *L) {
 		if (!_lg_typecheck_SetFindString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFindReplaceData::SetFindString(const wxString & str) function, expected prototype:\nvoid wxFindReplaceData::SetFindString(const wxString & str)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFindReplaceData::SetFindString(const wxString & str) function, expected prototype:\nvoid wxFindReplaceData::SetFindString(const wxString & str)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceData::SetFindString(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFindReplaceData::SetFindString(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFindString(str);
 
@@ -276,16 +263,14 @@ public:
 	// void wxFindReplaceData::SetFlags(unsigned int flags)
 	static int _bind_SetFlags(lua_State *L) {
 		if (!_lg_typecheck_SetFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFindReplaceData::SetFlags(unsigned int flags) function, expected prototype:\nvoid wxFindReplaceData::SetFlags(unsigned int flags)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxFindReplaceData::SetFlags(unsigned int flags) function, expected prototype:\nvoid wxFindReplaceData::SetFlags(unsigned int flags)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int flags=(unsigned int)lua_tointeger(L,2);
 
 		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceData::SetFlags(unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFindReplaceData::SetFlags(unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFlags(flags);
 
@@ -295,16 +280,14 @@ public:
 	// void wxFindReplaceData::SetReplaceString(const wxString & str)
 	static int _bind_SetReplaceString(lua_State *L) {
 		if (!_lg_typecheck_SetReplaceString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFindReplaceData::SetReplaceString(const wxString & str) function, expected prototype:\nvoid wxFindReplaceData::SetReplaceString(const wxString & str)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFindReplaceData::SetReplaceString(const wxString & str) function, expected prototype:\nvoid wxFindReplaceData::SetReplaceString(const wxString & str)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceData::SetReplaceString(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFindReplaceData::SetReplaceString(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetReplaceString(str);
 
@@ -314,15 +297,13 @@ public:
 	// wxClassInfo * wxFindReplaceData::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFindReplaceData::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFindReplaceData::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFindReplaceData::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFindReplaceData::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFindReplaceData::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFindReplaceData::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxFindReplaceData::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

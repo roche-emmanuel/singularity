@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDialogLayoutAdapter* self=(Luna< wxDialogLayoutAdapter >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDialogLayoutAdapter*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDialogLayoutAdapter*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDialogLayoutAdapter* rhs =(Luna< wxDialogLayoutAdapter >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDialogLayoutAdapter* self= (wxDialogLayoutAdapter*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDialogLayoutAdapter >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -157,8 +152,7 @@ public:
 	// wxDialogLayoutAdapter::wxDialogLayoutAdapter(lua_Table * data)
 	static wxDialogLayoutAdapter* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDialogLayoutAdapter::wxDialogLayoutAdapter(lua_Table * data) function, expected prototype:\nwxDialogLayoutAdapter::wxDialogLayoutAdapter(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDialogLayoutAdapter::wxDialogLayoutAdapter(lua_Table * data) function, expected prototype:\nwxDialogLayoutAdapter::wxDialogLayoutAdapter(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -170,16 +164,14 @@ public:
 	// bool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog * dialog)
 	static int _bind_CanDoLayoutAdaptation(lua_State *L) {
 		if (!_lg_typecheck_CanDoLayoutAdaptation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog * dialog) function, expected prototype:\nbool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog * dialog)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog * dialog) function, expected prototype:\nbool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog * dialog)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDialog* dialog=(Luna< wxObject >::checkSubType< wxDialog >(L,2));
 
 		wxDialogLayoutAdapter* self=(Luna< wxDialogLayoutAdapter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog *). Got : '%s'",typeid(Luna< wxDialogLayoutAdapter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog *). Got : '%s'\n%s",typeid(Luna< wxDialogLayoutAdapter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanDoLayoutAdaptation(dialog);
 		lua_pushboolean(L,lret?1:0);
@@ -190,16 +182,14 @@ public:
 	// bool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog * dialog)
 	static int _bind_DoLayoutAdaptation(lua_State *L) {
 		if (!_lg_typecheck_DoLayoutAdaptation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog * dialog) function, expected prototype:\nbool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog * dialog)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog * dialog) function, expected prototype:\nbool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog * dialog)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDialog* dialog=(Luna< wxObject >::checkSubType< wxDialog >(L,2));
 
 		wxDialogLayoutAdapter* self=(Luna< wxDialogLayoutAdapter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog *). Got : '%s'",typeid(Luna< wxDialogLayoutAdapter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog *). Got : '%s'\n%s",typeid(Luna< wxDialogLayoutAdapter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DoLayoutAdaptation(dialog);
 		lua_pushboolean(L,lret?1:0);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxVersionInfo*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxVersionInfo*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxVersionInfo* rhs =(Luna< wxVersionInfo >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxVersionInfo* self= (wxVersionInfo*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxVersionInfo >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -177,8 +173,7 @@ public:
 	// wxVersionInfo::wxVersionInfo(const wxString & name, int major, int minor, int micro = 0, const wxString & description = wxString (), const wxString & copyright = wxString ())
 	static wxVersionInfo* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxVersionInfo::wxVersionInfo(const wxString & name, int major, int minor, int micro = 0, const wxString & description = wxString (), const wxString & copyright = wxString ()) function, expected prototype:\nwxVersionInfo::wxVersionInfo(const wxString & name, int major, int minor, int micro = 0, const wxString & description = wxString (), const wxString & copyright = wxString ())\nClass arguments details:\narg 1 ID = 88196105\narg 5 ID = 88196105\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxVersionInfo::wxVersionInfo(const wxString & name, int major, int minor, int micro = 0, const wxString & description = wxString (), const wxString & copyright = wxString ()) function, expected prototype:\nwxVersionInfo::wxVersionInfo(const wxString & name, int major, int minor, int micro = 0, const wxString & description = wxString (), const wxString & copyright = wxString ())\nClass arguments details:\narg 1 ID = 88196105\narg 5 ID = 88196105\narg 6 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -198,15 +193,13 @@ public:
 	// const wxString & wxVersionInfo::GetName() const
 	static int _bind_GetName(lua_State *L) {
 		if (!_lg_typecheck_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxVersionInfo::GetName() const function, expected prototype:\nconst wxString & wxVersionInfo::GetName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxVersionInfo::GetName() const function, expected prototype:\nconst wxString & wxVersionInfo::GetName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxVersionInfo::GetName() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxVersionInfo::GetName() const. Got : '%s'\n%s",typeid(Luna< wxVersionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -217,15 +210,13 @@ public:
 	// int wxVersionInfo::GetMajor() const
 	static int _bind_GetMajor(lua_State *L) {
 		if (!_lg_typecheck_GetMajor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxVersionInfo::GetMajor() const function, expected prototype:\nint wxVersionInfo::GetMajor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxVersionInfo::GetMajor() const function, expected prototype:\nint wxVersionInfo::GetMajor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVersionInfo::GetMajor() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxVersionInfo::GetMajor() const. Got : '%s'\n%s",typeid(Luna< wxVersionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetMajor();
 		lua_pushnumber(L,lret);
@@ -236,15 +227,13 @@ public:
 	// int wxVersionInfo::GetMinor() const
 	static int _bind_GetMinor(lua_State *L) {
 		if (!_lg_typecheck_GetMinor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxVersionInfo::GetMinor() const function, expected prototype:\nint wxVersionInfo::GetMinor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxVersionInfo::GetMinor() const function, expected prototype:\nint wxVersionInfo::GetMinor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVersionInfo::GetMinor() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxVersionInfo::GetMinor() const. Got : '%s'\n%s",typeid(Luna< wxVersionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetMinor();
 		lua_pushnumber(L,lret);
@@ -255,15 +244,13 @@ public:
 	// int wxVersionInfo::GetMicro() const
 	static int _bind_GetMicro(lua_State *L) {
 		if (!_lg_typecheck_GetMicro(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxVersionInfo::GetMicro() const function, expected prototype:\nint wxVersionInfo::GetMicro() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxVersionInfo::GetMicro() const function, expected prototype:\nint wxVersionInfo::GetMicro() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVersionInfo::GetMicro() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxVersionInfo::GetMicro() const. Got : '%s'\n%s",typeid(Luna< wxVersionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetMicro();
 		lua_pushnumber(L,lret);
@@ -274,15 +261,13 @@ public:
 	// wxString wxVersionInfo::ToString() const
 	static int _bind_ToString(lua_State *L) {
 		if (!_lg_typecheck_ToString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxVersionInfo::ToString() const function, expected prototype:\nwxString wxVersionInfo::ToString() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxVersionInfo::ToString() const function, expected prototype:\nwxString wxVersionInfo::ToString() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxVersionInfo::ToString() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxVersionInfo::ToString() const. Got : '%s'\n%s",typeid(Luna< wxVersionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->ToString();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -293,15 +278,13 @@ public:
 	// wxString wxVersionInfo::GetVersionString() const
 	static int _bind_GetVersionString(lua_State *L) {
 		if (!_lg_typecheck_GetVersionString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxVersionInfo::GetVersionString() const function, expected prototype:\nwxString wxVersionInfo::GetVersionString() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxVersionInfo::GetVersionString() const function, expected prototype:\nwxString wxVersionInfo::GetVersionString() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxVersionInfo::GetVersionString() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxVersionInfo::GetVersionString() const. Got : '%s'\n%s",typeid(Luna< wxVersionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetVersionString();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -312,15 +295,13 @@ public:
 	// const wxString & wxVersionInfo::GetDescription()
 	static int _bind_GetDescription(lua_State *L) {
 		if (!_lg_typecheck_GetDescription(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxVersionInfo::GetDescription() function, expected prototype:\nconst wxString & wxVersionInfo::GetDescription()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxVersionInfo::GetDescription() function, expected prototype:\nconst wxString & wxVersionInfo::GetDescription()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxVersionInfo::GetDescription(). Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxVersionInfo::GetDescription(). Got : '%s'\n%s",typeid(Luna< wxVersionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetDescription();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -331,15 +312,13 @@ public:
 	// bool wxVersionInfo::HasCopyright() const
 	static int _bind_HasCopyright(lua_State *L) {
 		if (!_lg_typecheck_HasCopyright(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxVersionInfo::HasCopyright() const function, expected prototype:\nbool wxVersionInfo::HasCopyright() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxVersionInfo::HasCopyright() const function, expected prototype:\nbool wxVersionInfo::HasCopyright() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVersionInfo::HasCopyright() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxVersionInfo::HasCopyright() const. Got : '%s'\n%s",typeid(Luna< wxVersionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasCopyright();
 		lua_pushboolean(L,lret?1:0);
@@ -350,15 +329,13 @@ public:
 	// const wxString & wxVersionInfo::GetCopyright() const
 	static int _bind_GetCopyright(lua_State *L) {
 		if (!_lg_typecheck_GetCopyright(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxVersionInfo::GetCopyright() const function, expected prototype:\nconst wxString & wxVersionInfo::GetCopyright() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxVersionInfo::GetCopyright() const function, expected prototype:\nconst wxString & wxVersionInfo::GetCopyright() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxVersionInfo::GetCopyright() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxVersionInfo::GetCopyright() const. Got : '%s'\n%s",typeid(Luna< wxVersionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetCopyright();
 		lua_pushlstring(L,lret.data(),lret.size());

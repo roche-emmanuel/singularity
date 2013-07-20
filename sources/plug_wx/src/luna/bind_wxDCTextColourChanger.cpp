@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDCTextColourChanger*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDCTextColourChanger*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDCTextColourChanger* rhs =(Luna< wxDCTextColourChanger >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDCTextColourChanger* self= (wxDCTextColourChanger*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDCTextColourChanger >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -135,8 +131,7 @@ public:
 	// wxDCTextColourChanger::wxDCTextColourChanger(wxDC & dc)
 	static wxDCTextColourChanger* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDCTextColourChanger::wxDCTextColourChanger(wxDC & dc) function, expected prototype:\nwxDCTextColourChanger::wxDCTextColourChanger(wxDC & dc)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxDCTextColourChanger::wxDCTextColourChanger(wxDC & dc) function, expected prototype:\nwxDCTextColourChanger::wxDCTextColourChanger(wxDC & dc)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,1));
@@ -151,8 +146,7 @@ public:
 	// wxDCTextColourChanger::wxDCTextColourChanger(wxDC & dc, const wxColour & col)
 	static wxDCTextColourChanger* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDCTextColourChanger::wxDCTextColourChanger(wxDC & dc, const wxColour & col) function, expected prototype:\nwxDCTextColourChanger::wxDCTextColourChanger(wxDC & dc, const wxColour & col)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxDCTextColourChanger::wxDCTextColourChanger(wxDC & dc, const wxColour & col) function, expected prototype:\nwxDCTextColourChanger::wxDCTextColourChanger(wxDC & dc, const wxColour & col)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,1));
@@ -183,8 +177,7 @@ public:
 	// void wxDCTextColourChanger::Set(const wxColour & col)
 	static int _bind_Set(lua_State *L) {
 		if (!_lg_typecheck_Set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDCTextColourChanger::Set(const wxColour & col) function, expected prototype:\nvoid wxDCTextColourChanger::Set(const wxColour & col)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxDCTextColourChanger::Set(const wxColour & col) function, expected prototype:\nvoid wxDCTextColourChanger::Set(const wxColour & col)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* col_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -195,8 +188,7 @@ public:
 
 		wxDCTextColourChanger* self=(Luna< wxDCTextColourChanger >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDCTextColourChanger::Set(const wxColour &). Got : '%s'",typeid(Luna< wxDCTextColourChanger >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDCTextColourChanger::Set(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxDCTextColourChanger >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Set(col);
 

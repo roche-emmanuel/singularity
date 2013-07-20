@@ -22,6 +22,9 @@ function Class:initialize(options)
 	self._prop = options.prop or 0
 	self._flags = options.flags or wx.wxALL
 	self._border = options.border or 2
+	self._handler = options.handler
+	self._actionHandler = options.actionHandler
+	self._actions = options.actions
 	
 	self._enabled = true
 	self._controls = {}

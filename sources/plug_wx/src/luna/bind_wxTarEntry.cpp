@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTarEntry*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTarEntry*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTarEntry* rhs =(Luna< wxTarEntry >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTarEntry* self= (wxTarEntry*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxTarEntry >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -133,7 +128,7 @@ public:
 		if( luatop>0 && lua_isstring(L,1)==0 ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,57497519) ) return false;
 		if( luatop>1 && (!(Luna< wxDateTime >::check(L,2))) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -153,7 +148,7 @@ public:
 		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,57497519) ) return false;
 		if( luatop>2 && (!(Luna< wxDateTime >::check(L,3))) ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
 		return true;
 	}
 
@@ -295,7 +290,7 @@ public:
 	inline static bool _lg_typecheck_SetSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -337,7 +332,7 @@ public:
 	inline static bool _lg_typecheck_base_SetSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -361,8 +356,7 @@ public:
 	// wxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)
 	static wxTarEntry* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset) function, expected prototype:\nwxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset) function, expected prototype:\nwxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -373,7 +367,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTarEntry::wxTarEntry function");
 		}
 		const wxDateTime & dt=luatop>1 ? *dt_ptr : (const wxDateTime&)wxDateTime::Now ();
-		long long size=luatop>2 ? (long long)lua_tointeger(L,3) : (long long)wxInvalidOffset;
+		long long size=luatop>2 ? (long long)lua_tonumber(L,3) : (long long)wxInvalidOffset;
 
 		return new wxTarEntry(name, dt, size);
 	}
@@ -381,8 +375,7 @@ public:
 	// wxTarEntry::wxTarEntry(const wxTarEntry & entry)
 	static wxTarEntry* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(const wxTarEntry & entry) function, expected prototype:\nwxTarEntry::wxTarEntry(const wxTarEntry & entry)\nClass arguments details:\narg 1 ID = 73261869\n");
+			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(const wxTarEntry & entry) function, expected prototype:\nwxTarEntry::wxTarEntry(const wxTarEntry & entry)\nClass arguments details:\narg 1 ID = 73261869\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxTarEntry* entry_ptr=(Luna< wxTarEntry >::check(L,1));
@@ -397,8 +390,7 @@ public:
 	// wxTarEntry::wxTarEntry(lua_Table * data, const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)
 	static wxTarEntry* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(lua_Table * data, const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset) function, expected prototype:\nwxTarEntry::wxTarEntry(lua_Table * data, const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(lua_Table * data, const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset) function, expected prototype:\nwxTarEntry::wxTarEntry(lua_Table * data, const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -409,7 +401,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTarEntry::wxTarEntry function");
 		}
 		const wxDateTime & dt=luatop>2 ? *dt_ptr : (const wxDateTime&)wxDateTime::Now ();
-		long long size=luatop>3 ? (long long)lua_tointeger(L,4) : (long long)wxInvalidOffset;
+		long long size=luatop>3 ? (long long)lua_tonumber(L,4) : (long long)wxInvalidOffset;
 
 		return new wrapper_wxTarEntry(L,NULL, name, dt, size);
 	}
@@ -417,8 +409,7 @@ public:
 	// wxTarEntry::wxTarEntry(lua_Table * data, const wxTarEntry & entry)
 	static wxTarEntry* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(lua_Table * data, const wxTarEntry & entry) function, expected prototype:\nwxTarEntry::wxTarEntry(lua_Table * data, const wxTarEntry & entry)\nClass arguments details:\narg 2 ID = 73261869\n");
+			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(lua_Table * data, const wxTarEntry & entry) function, expected prototype:\nwxTarEntry::wxTarEntry(lua_Table * data, const wxTarEntry & entry)\nClass arguments details:\narg 2 ID = 73261869\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxTarEntry* entry_ptr=(Luna< wxTarEntry >::check(L,2));
@@ -446,15 +437,13 @@ public:
 	// wxDateTime wxTarEntry::GetAccessTime() const
 	static int _bind_GetAccessTime(lua_State *L) {
 		if (!_lg_typecheck_GetAccessTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxTarEntry::GetAccessTime() const function, expected prototype:\nwxDateTime wxTarEntry::GetAccessTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxTarEntry::GetAccessTime() const function, expected prototype:\nwxDateTime wxTarEntry::GetAccessTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxTarEntry::GetAccessTime() const. Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxTarEntry::GetAccessTime() const. Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->GetAccessTime();
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -468,8 +457,7 @@ public:
 	// void wxTarEntry::SetAccessTime(const wxDateTime & dt)
 	static int _bind_SetAccessTime(lua_State *L) {
 		if (!_lg_typecheck_SetAccessTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetAccessTime(const wxDateTime & dt) function, expected prototype:\nvoid wxTarEntry::SetAccessTime(const wxDateTime & dt)\nClass arguments details:\narg 1 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetAccessTime(const wxDateTime & dt) function, expected prototype:\nvoid wxTarEntry::SetAccessTime(const wxDateTime & dt)\nClass arguments details:\narg 1 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateTime* dt_ptr=(Luna< wxDateTime >::check(L,2));
@@ -480,8 +468,7 @@ public:
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarEntry::SetAccessTime(const wxDateTime &). Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTarEntry::SetAccessTime(const wxDateTime &). Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAccessTime(dt);
 
@@ -491,15 +478,13 @@ public:
 	// wxDateTime wxTarEntry::GetCreateTime() const
 	static int _bind_GetCreateTime(lua_State *L) {
 		if (!_lg_typecheck_GetCreateTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxTarEntry::GetCreateTime() const function, expected prototype:\nwxDateTime wxTarEntry::GetCreateTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxTarEntry::GetCreateTime() const function, expected prototype:\nwxDateTime wxTarEntry::GetCreateTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxTarEntry::GetCreateTime() const. Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxTarEntry::GetCreateTime() const. Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->GetCreateTime();
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -513,8 +498,7 @@ public:
 	// void wxTarEntry::SetCreateTime(const wxDateTime & dt)
 	static int _bind_SetCreateTime(lua_State *L) {
 		if (!_lg_typecheck_SetCreateTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetCreateTime(const wxDateTime & dt) function, expected prototype:\nvoid wxTarEntry::SetCreateTime(const wxDateTime & dt)\nClass arguments details:\narg 1 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetCreateTime(const wxDateTime & dt) function, expected prototype:\nvoid wxTarEntry::SetCreateTime(const wxDateTime & dt)\nClass arguments details:\narg 1 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateTime* dt_ptr=(Luna< wxDateTime >::check(L,2));
@@ -525,8 +509,7 @@ public:
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarEntry::SetCreateTime(const wxDateTime &). Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTarEntry::SetCreateTime(const wxDateTime &). Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCreateTime(dt);
 
@@ -536,15 +519,13 @@ public:
 	// int wxTarEntry::GetDevMajor() const
 	static int _bind_GetDevMajor(lua_State *L) {
 		if (!_lg_typecheck_GetDevMajor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTarEntry::GetDevMajor() const function, expected prototype:\nint wxTarEntry::GetDevMajor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxTarEntry::GetDevMajor() const function, expected prototype:\nint wxTarEntry::GetDevMajor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTarEntry::GetDevMajor() const. Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTarEntry::GetDevMajor() const. Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetDevMajor();
 		lua_pushnumber(L,lret);
@@ -555,15 +536,13 @@ public:
 	// int wxTarEntry::GetDevMinor() const
 	static int _bind_GetDevMinor(lua_State *L) {
 		if (!_lg_typecheck_GetDevMinor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTarEntry::GetDevMinor() const function, expected prototype:\nint wxTarEntry::GetDevMinor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxTarEntry::GetDevMinor() const function, expected prototype:\nint wxTarEntry::GetDevMinor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTarEntry::GetDevMinor() const. Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTarEntry::GetDevMinor() const. Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetDevMinor();
 		lua_pushnumber(L,lret);
@@ -574,16 +553,14 @@ public:
 	// void wxTarEntry::SetDevMajor(int dev)
 	static int _bind_SetDevMajor(lua_State *L) {
 		if (!_lg_typecheck_SetDevMajor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetDevMajor(int dev) function, expected prototype:\nvoid wxTarEntry::SetDevMajor(int dev)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetDevMajor(int dev) function, expected prototype:\nvoid wxTarEntry::SetDevMajor(int dev)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int dev=(int)lua_tointeger(L,2);
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarEntry::SetDevMajor(int). Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTarEntry::SetDevMajor(int). Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDevMajor(dev);
 
@@ -593,16 +570,14 @@ public:
 	// void wxTarEntry::SetDevMinor(int dev)
 	static int _bind_SetDevMinor(lua_State *L) {
 		if (!_lg_typecheck_SetDevMinor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetDevMinor(int dev) function, expected prototype:\nvoid wxTarEntry::SetDevMinor(int dev)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetDevMinor(int dev) function, expected prototype:\nvoid wxTarEntry::SetDevMinor(int dev)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int dev=(int)lua_tointeger(L,2);
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarEntry::SetDevMinor(int). Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTarEntry::SetDevMinor(int). Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDevMinor(dev);
 
@@ -612,15 +587,13 @@ public:
 	// int wxTarEntry::GetGroupId() const
 	static int _bind_GetGroupId(lua_State *L) {
 		if (!_lg_typecheck_GetGroupId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTarEntry::GetGroupId() const function, expected prototype:\nint wxTarEntry::GetGroupId() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxTarEntry::GetGroupId() const function, expected prototype:\nint wxTarEntry::GetGroupId() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTarEntry::GetGroupId() const. Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTarEntry::GetGroupId() const. Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetGroupId();
 		lua_pushnumber(L,lret);
@@ -631,15 +604,13 @@ public:
 	// int wxTarEntry::GetUserId() const
 	static int _bind_GetUserId(lua_State *L) {
 		if (!_lg_typecheck_GetUserId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTarEntry::GetUserId() const function, expected prototype:\nint wxTarEntry::GetUserId() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxTarEntry::GetUserId() const function, expected prototype:\nint wxTarEntry::GetUserId() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTarEntry::GetUserId() const. Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTarEntry::GetUserId() const. Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetUserId();
 		lua_pushnumber(L,lret);
@@ -650,16 +621,14 @@ public:
 	// void wxTarEntry::SetGroupId(int id)
 	static int _bind_SetGroupId(lua_State *L) {
 		if (!_lg_typecheck_SetGroupId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetGroupId(int id) function, expected prototype:\nvoid wxTarEntry::SetGroupId(int id)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetGroupId(int id) function, expected prototype:\nvoid wxTarEntry::SetGroupId(int id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int id=(int)lua_tointeger(L,2);
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarEntry::SetGroupId(int). Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTarEntry::SetGroupId(int). Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetGroupId(id);
 
@@ -669,16 +638,14 @@ public:
 	// void wxTarEntry::SetUserId(int id)
 	static int _bind_SetUserId(lua_State *L) {
 		if (!_lg_typecheck_SetUserId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetUserId(int id) function, expected prototype:\nvoid wxTarEntry::SetUserId(int id)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetUserId(int id) function, expected prototype:\nvoid wxTarEntry::SetUserId(int id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int id=(int)lua_tointeger(L,2);
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarEntry::SetUserId(int). Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTarEntry::SetUserId(int). Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetUserId(id);
 
@@ -688,15 +655,13 @@ public:
 	// wxString wxTarEntry::GetGroupName() const
 	static int _bind_GetGroupName(lua_State *L) {
 		if (!_lg_typecheck_GetGroupName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxTarEntry::GetGroupName() const function, expected prototype:\nwxString wxTarEntry::GetGroupName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxTarEntry::GetGroupName() const function, expected prototype:\nwxString wxTarEntry::GetGroupName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTarEntry::GetGroupName() const. Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxTarEntry::GetGroupName() const. Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetGroupName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -707,16 +672,14 @@ public:
 	// void wxTarEntry::SetGroupName(const wxString & group)
 	static int _bind_SetGroupName(lua_State *L) {
 		if (!_lg_typecheck_SetGroupName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetGroupName(const wxString & group) function, expected prototype:\nvoid wxTarEntry::SetGroupName(const wxString & group)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetGroupName(const wxString & group) function, expected prototype:\nvoid wxTarEntry::SetGroupName(const wxString & group)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString group(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarEntry::SetGroupName(const wxString &). Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTarEntry::SetGroupName(const wxString &). Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetGroupName(group);
 
@@ -726,16 +689,14 @@ public:
 	// void wxTarEntry::SetUserName(const wxString & user)
 	static int _bind_SetUserName(lua_State *L) {
 		if (!_lg_typecheck_SetUserName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetUserName(const wxString & user) function, expected prototype:\nvoid wxTarEntry::SetUserName(const wxString & user)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetUserName(const wxString & user) function, expected prototype:\nvoid wxTarEntry::SetUserName(const wxString & user)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString user(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarEntry::SetUserName(const wxString &). Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTarEntry::SetUserName(const wxString &). Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetUserName(user);
 
@@ -745,15 +706,13 @@ public:
 	// wxString wxTarEntry::GetLinkName() const
 	static int _bind_GetLinkName(lua_State *L) {
 		if (!_lg_typecheck_GetLinkName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxTarEntry::GetLinkName() const function, expected prototype:\nwxString wxTarEntry::GetLinkName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxTarEntry::GetLinkName() const function, expected prototype:\nwxString wxTarEntry::GetLinkName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTarEntry::GetLinkName() const. Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxTarEntry::GetLinkName() const. Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetLinkName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -764,16 +723,14 @@ public:
 	// void wxTarEntry::SetLinkName(const wxString & link)
 	static int _bind_SetLinkName(lua_State *L) {
 		if (!_lg_typecheck_SetLinkName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetLinkName(const wxString & link) function, expected prototype:\nvoid wxTarEntry::SetLinkName(const wxString & link)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetLinkName(const wxString & link) function, expected prototype:\nvoid wxTarEntry::SetLinkName(const wxString & link)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString link(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarEntry::SetLinkName(const wxString &). Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTarEntry::SetLinkName(const wxString &). Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetLinkName(link);
 
@@ -783,15 +740,13 @@ public:
 	// int wxTarEntry::GetMode() const
 	static int _bind_GetMode(lua_State *L) {
 		if (!_lg_typecheck_GetMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTarEntry::GetMode() const function, expected prototype:\nint wxTarEntry::GetMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxTarEntry::GetMode() const function, expected prototype:\nint wxTarEntry::GetMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTarEntry::GetMode() const. Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTarEntry::GetMode() const. Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetMode();
 		lua_pushnumber(L,lret);
@@ -802,16 +757,14 @@ public:
 	// void wxTarEntry::SetMode(int mode)
 	static int _bind_SetMode(lua_State *L) {
 		if (!_lg_typecheck_SetMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetMode(int mode) function, expected prototype:\nvoid wxTarEntry::SetMode(int mode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetMode(int mode) function, expected prototype:\nvoid wxTarEntry::SetMode(int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int mode=(int)lua_tointeger(L,2);
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarEntry::SetMode(int). Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTarEntry::SetMode(int). Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMode(mode);
 
@@ -821,16 +774,14 @@ public:
 	// void wxTarEntry::SetSize(long long size)
 	static int _bind_SetSize(lua_State *L) {
 		if (!_lg_typecheck_SetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetSize(long long size) function, expected prototype:\nvoid wxTarEntry::SetSize(long long size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetSize(long long size) function, expected prototype:\nvoid wxTarEntry::SetSize(long long size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long long size=(long long)lua_tointeger(L,2);
+		long long size=(long long)lua_tonumber(L,2);
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarEntry::SetSize(long long). Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTarEntry::SetSize(long long). Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSize(size);
 
@@ -840,15 +791,13 @@ public:
 	// long long wxTarEntry::GetSize() const
 	static int _bind_GetSize(lua_State *L) {
 		if (!_lg_typecheck_GetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long long wxTarEntry::GetSize() const function, expected prototype:\nlong long wxTarEntry::GetSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxTarEntry::GetSize() const function, expected prototype:\nlong long wxTarEntry::GetSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxTarEntry::GetSize() const. Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long long wxTarEntry::GetSize() const. Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long long lret = self->GetSize();
 		lua_pushnumber(L,lret);
@@ -859,15 +808,13 @@ public:
 	// int wxTarEntry::GetTypeFlag() const
 	static int _bind_GetTypeFlag(lua_State *L) {
 		if (!_lg_typecheck_GetTypeFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTarEntry::GetTypeFlag() const function, expected prototype:\nint wxTarEntry::GetTypeFlag() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxTarEntry::GetTypeFlag() const function, expected prototype:\nint wxTarEntry::GetTypeFlag() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTarEntry::GetTypeFlag() const. Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTarEntry::GetTypeFlag() const. Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetTypeFlag();
 		lua_pushnumber(L,lret);
@@ -878,16 +825,14 @@ public:
 	// void wxTarEntry::SetTypeFlag(int type)
 	static int _bind_SetTypeFlag(lua_State *L) {
 		if (!_lg_typecheck_SetTypeFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetTypeFlag(int type) function, expected prototype:\nvoid wxTarEntry::SetTypeFlag(int type)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetTypeFlag(int type) function, expected prototype:\nvoid wxTarEntry::SetTypeFlag(int type)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int type=(int)lua_tointeger(L,2);
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarEntry::SetTypeFlag(int). Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTarEntry::SetTypeFlag(int). Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTypeFlag(type);
 
@@ -897,15 +842,13 @@ public:
 	// wxString wxTarEntry::GetInternalName() const
 	static int _bind_GetInternalName_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetInternalName_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxTarEntry::GetInternalName() const function, expected prototype:\nwxString wxTarEntry::GetInternalName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxTarEntry::GetInternalName() const function, expected prototype:\nwxString wxTarEntry::GetInternalName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTarEntry::GetInternalName() const. Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxTarEntry::GetInternalName() const. Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetInternalName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -916,8 +859,7 @@ public:
 	// static wxString wxTarEntry::GetInternalName(const wxString & name, wxPathFormat format = ::wxPATH_NATIVE, bool * pIsDir = NULL)
 	static int _bind_GetInternalName_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetInternalName_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxTarEntry::GetInternalName(const wxString & name, wxPathFormat format = ::wxPATH_NATIVE, bool * pIsDir = NULL) function, expected prototype:\nstatic wxString wxTarEntry::GetInternalName(const wxString & name, wxPathFormat format = ::wxPATH_NATIVE, bool * pIsDir = NULL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxTarEntry::GetInternalName(const wxString & name, wxPathFormat format = ::wxPATH_NATIVE, bool * pIsDir = NULL) function, expected prototype:\nstatic wxString wxTarEntry::GetInternalName(const wxString & name, wxPathFormat format = ::wxPATH_NATIVE, bool * pIsDir = NULL)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -944,16 +886,14 @@ public:
 	// void wxTarEntry::base_SetSize(long long size)
 	static int _bind_base_SetSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarEntry::base_SetSize(long long size) function, expected prototype:\nvoid wxTarEntry::base_SetSize(long long size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::base_SetSize(long long size) function, expected prototype:\nvoid wxTarEntry::base_SetSize(long long size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long long size=(long long)lua_tointeger(L,2);
+		long long size=(long long)lua_tonumber(L,2);
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarEntry::base_SetSize(long long). Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTarEntry::base_SetSize(long long). Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTarEntry::SetSize(size);
 
@@ -963,15 +903,13 @@ public:
 	// long long wxTarEntry::base_GetSize() const
 	static int _bind_base_GetSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long long wxTarEntry::base_GetSize() const function, expected prototype:\nlong long wxTarEntry::base_GetSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxTarEntry::base_GetSize() const function, expected prototype:\nlong long wxTarEntry::base_GetSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxTarEntry::base_GetSize() const. Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long long wxTarEntry::base_GetSize() const. Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long long lret = self->wxTarEntry::GetSize();
 		lua_pushnumber(L,lret);
@@ -982,15 +920,13 @@ public:
 	// wxString wxTarEntry::base_GetInternalName() const
 	static int _bind_base_GetInternalName(lua_State *L) {
 		if (!_lg_typecheck_base_GetInternalName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxTarEntry::base_GetInternalName() const function, expected prototype:\nwxString wxTarEntry::base_GetInternalName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxTarEntry::base_GetInternalName() const function, expected prototype:\nwxString wxTarEntry::base_GetInternalName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTarEntry::base_GetInternalName() const. Got : '%s'",typeid(Luna< wxTarEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxTarEntry::base_GetInternalName() const. Got : '%s'\n%s",typeid(Luna< wxTarEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxTarEntry::GetInternalName();
 		lua_pushlstring(L,lret.data(),lret.size());

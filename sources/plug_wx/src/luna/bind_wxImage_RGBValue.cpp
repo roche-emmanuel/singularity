@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxImage::RGBValue*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxImage::RGBValue*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxImage::RGBValue* rhs =(Luna< wxImage::RGBValue >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxImage::RGBValue* self= (wxImage::RGBValue*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxImage::RGBValue >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -159,8 +155,7 @@ public:
 	// wxImage::RGBValue::RGBValue(unsigned char r = 0, unsigned char g = 0, unsigned char b = 0)
 	static wxImage::RGBValue* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxImage::RGBValue::RGBValue(unsigned char r = 0, unsigned char g = 0, unsigned char b = 0) function, expected prototype:\nwxImage::RGBValue::RGBValue(unsigned char r = 0, unsigned char g = 0, unsigned char b = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxImage::RGBValue::RGBValue(unsigned char r = 0, unsigned char g = 0, unsigned char b = 0) function, expected prototype:\nwxImage::RGBValue::RGBValue(unsigned char r = 0, unsigned char g = 0, unsigned char b = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -177,15 +172,13 @@ public:
 	// unsigned char wxImage::RGBValue::red()
 	static int _bind_getRed(lua_State *L) {
 		if (!_lg_typecheck_getRed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char wxImage::RGBValue::red() function, expected prototype:\nunsigned char wxImage::RGBValue::red()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char wxImage::RGBValue::red() function, expected prototype:\nunsigned char wxImage::RGBValue::red()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxImage::RGBValue* self=(Luna< wxImage::RGBValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxImage::RGBValue::red(). Got : '%s'",typeid(Luna< wxImage::RGBValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char wxImage::RGBValue::red(). Got : '%s'\n%s",typeid(Luna< wxImage::RGBValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char lret = self->red;
 		lua_pushnumber(L,(int)lret);
@@ -196,15 +189,13 @@ public:
 	// unsigned char wxImage::RGBValue::green()
 	static int _bind_getGreen(lua_State *L) {
 		if (!_lg_typecheck_getGreen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char wxImage::RGBValue::green() function, expected prototype:\nunsigned char wxImage::RGBValue::green()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char wxImage::RGBValue::green() function, expected prototype:\nunsigned char wxImage::RGBValue::green()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxImage::RGBValue* self=(Luna< wxImage::RGBValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxImage::RGBValue::green(). Got : '%s'",typeid(Luna< wxImage::RGBValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char wxImage::RGBValue::green(). Got : '%s'\n%s",typeid(Luna< wxImage::RGBValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char lret = self->green;
 		lua_pushnumber(L,(int)lret);
@@ -215,15 +206,13 @@ public:
 	// unsigned char wxImage::RGBValue::blue()
 	static int _bind_getBlue(lua_State *L) {
 		if (!_lg_typecheck_getBlue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char wxImage::RGBValue::blue() function, expected prototype:\nunsigned char wxImage::RGBValue::blue()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char wxImage::RGBValue::blue() function, expected prototype:\nunsigned char wxImage::RGBValue::blue()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxImage::RGBValue* self=(Luna< wxImage::RGBValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxImage::RGBValue::blue(). Got : '%s'",typeid(Luna< wxImage::RGBValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char wxImage::RGBValue::blue(). Got : '%s'\n%s",typeid(Luna< wxImage::RGBValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char lret = self->blue;
 		lua_pushnumber(L,(int)lret);
@@ -234,16 +223,14 @@ public:
 	// void wxImage::RGBValue::red(unsigned char value)
 	static int _bind_setRed(lua_State *L) {
 		if (!_lg_typecheck_setRed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxImage::RGBValue::red(unsigned char value) function, expected prototype:\nvoid wxImage::RGBValue::red(unsigned char value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxImage::RGBValue::red(unsigned char value) function, expected prototype:\nvoid wxImage::RGBValue::red(unsigned char value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char value = (unsigned char)(lua_tointeger(L,2));
 
 		wxImage::RGBValue* self=(Luna< wxImage::RGBValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxImage::RGBValue::red(unsigned char). Got : '%s'",typeid(Luna< wxImage::RGBValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxImage::RGBValue::red(unsigned char). Got : '%s'\n%s",typeid(Luna< wxImage::RGBValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->red = value;
 
@@ -253,16 +240,14 @@ public:
 	// void wxImage::RGBValue::green(unsigned char value)
 	static int _bind_setGreen(lua_State *L) {
 		if (!_lg_typecheck_setGreen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxImage::RGBValue::green(unsigned char value) function, expected prototype:\nvoid wxImage::RGBValue::green(unsigned char value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxImage::RGBValue::green(unsigned char value) function, expected prototype:\nvoid wxImage::RGBValue::green(unsigned char value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char value = (unsigned char)(lua_tointeger(L,2));
 
 		wxImage::RGBValue* self=(Luna< wxImage::RGBValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxImage::RGBValue::green(unsigned char). Got : '%s'",typeid(Luna< wxImage::RGBValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxImage::RGBValue::green(unsigned char). Got : '%s'\n%s",typeid(Luna< wxImage::RGBValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->green = value;
 
@@ -272,16 +257,14 @@ public:
 	// void wxImage::RGBValue::blue(unsigned char value)
 	static int _bind_setBlue(lua_State *L) {
 		if (!_lg_typecheck_setBlue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxImage::RGBValue::blue(unsigned char value) function, expected prototype:\nvoid wxImage::RGBValue::blue(unsigned char value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxImage::RGBValue::blue(unsigned char value) function, expected prototype:\nvoid wxImage::RGBValue::blue(unsigned char value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char value = (unsigned char)(lua_tointeger(L,2));
 
 		wxImage::RGBValue* self=(Luna< wxImage::RGBValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxImage::RGBValue::blue(unsigned char). Got : '%s'",typeid(Luna< wxImage::RGBValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxImage::RGBValue::blue(unsigned char). Got : '%s'\n%s",typeid(Luna< wxImage::RGBValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->blue = value;
 

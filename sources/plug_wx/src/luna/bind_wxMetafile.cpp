@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxMetafile* self= (wxMetafile*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -144,8 +141,7 @@ public:
 	// wxMetafile::wxMetafile(const wxString & filename = wxEmptyString)
 	static wxMetafile* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMetafile::wxMetafile(const wxString & filename = wxEmptyString) function, expected prototype:\nwxMetafile::wxMetafile(const wxString & filename = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxMetafile::wxMetafile(const wxString & filename = wxEmptyString) function, expected prototype:\nwxMetafile::wxMetafile(const wxString & filename = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -158,8 +154,7 @@ public:
 	// wxMetafile::wxMetafile(lua_Table * data, const wxString & filename = wxEmptyString)
 	static wxMetafile* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMetafile::wxMetafile(lua_Table * data, const wxString & filename = wxEmptyString) function, expected prototype:\nwxMetafile::wxMetafile(lua_Table * data, const wxString & filename = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxMetafile::wxMetafile(lua_Table * data, const wxString & filename = wxEmptyString) function, expected prototype:\nwxMetafile::wxMetafile(lua_Table * data, const wxString & filename = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -183,15 +178,13 @@ public:
 	// bool wxMetafile::IsOk()
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxMetafile::IsOk() function, expected prototype:\nbool wxMetafile::IsOk()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxMetafile::IsOk() function, expected prototype:\nbool wxMetafile::IsOk()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMetafile* self=Luna< wxObject >::checkSubType< wxMetafile >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMetafile::IsOk(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxMetafile::IsOk(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -202,16 +195,14 @@ public:
 	// bool wxMetafile::Play(wxDC * dc)
 	static int _bind_Play(lua_State *L) {
 		if (!_lg_typecheck_Play(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxMetafile::Play(wxDC * dc) function, expected prototype:\nbool wxMetafile::Play(wxDC * dc)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxMetafile::Play(wxDC * dc) function, expected prototype:\nbool wxMetafile::Play(wxDC * dc)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDC* dc=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 
 		wxMetafile* self=Luna< wxObject >::checkSubType< wxMetafile >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMetafile::Play(wxDC *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxMetafile::Play(wxDC *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Play(dc);
 		lua_pushboolean(L,lret?1:0);
@@ -222,8 +213,7 @@ public:
 	// bool wxMetafile::SetClipboard(int width = 0, int height = 0)
 	static int _bind_SetClipboard(lua_State *L) {
 		if (!_lg_typecheck_SetClipboard(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxMetafile::SetClipboard(int width = 0, int height = 0) function, expected prototype:\nbool wxMetafile::SetClipboard(int width = 0, int height = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxMetafile::SetClipboard(int width = 0, int height = 0) function, expected prototype:\nbool wxMetafile::SetClipboard(int width = 0, int height = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -233,8 +223,7 @@ public:
 
 		wxMetafile* self=Luna< wxObject >::checkSubType< wxMetafile >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMetafile::SetClipboard(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxMetafile::SetClipboard(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetClipboard(width, height);
 		lua_pushboolean(L,lret?1:0);
@@ -245,15 +234,13 @@ public:
 	// wxClassInfo * wxMetafile::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMetafile::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMetafile::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMetafile::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMetafile::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMetafile* self=Luna< wxObject >::checkSubType< wxMetafile >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxMetafile::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMetafile::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxMetafile::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHeaderCtrlEvent* self= (wxHeaderCtrlEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -137,15 +134,13 @@ public:
 	// int wxHeaderCtrlEvent::GetColumn() const
 	static int _bind_GetColumn(lua_State *L) {
 		if (!_lg_typecheck_GetColumn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxHeaderCtrlEvent::GetColumn() const function, expected prototype:\nint wxHeaderCtrlEvent::GetColumn() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxHeaderCtrlEvent::GetColumn() const function, expected prototype:\nint wxHeaderCtrlEvent::GetColumn() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderCtrlEvent::GetColumn() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxHeaderCtrlEvent::GetColumn() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetColumn();
 		lua_pushnumber(L,lret);
@@ -156,15 +151,13 @@ public:
 	// int wxHeaderCtrlEvent::GetWidth() const
 	static int _bind_GetWidth(lua_State *L) {
 		if (!_lg_typecheck_GetWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxHeaderCtrlEvent::GetWidth() const function, expected prototype:\nint wxHeaderCtrlEvent::GetWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxHeaderCtrlEvent::GetWidth() const function, expected prototype:\nint wxHeaderCtrlEvent::GetWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderCtrlEvent::GetWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxHeaderCtrlEvent::GetWidth() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetWidth();
 		lua_pushnumber(L,lret);
@@ -175,15 +168,13 @@ public:
 	// unsigned int wxHeaderCtrlEvent::GetNewOrder() const
 	static int _bind_GetNewOrder(lua_State *L) {
 		if (!_lg_typecheck_GetNewOrder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int wxHeaderCtrlEvent::GetNewOrder() const function, expected prototype:\nunsigned int wxHeaderCtrlEvent::GetNewOrder() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int wxHeaderCtrlEvent::GetNewOrder() const function, expected prototype:\nunsigned int wxHeaderCtrlEvent::GetNewOrder() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxHeaderCtrlEvent::GetNewOrder() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int wxHeaderCtrlEvent::GetNewOrder() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->GetNewOrder();
 		lua_pushnumber(L,lret);
@@ -194,15 +185,13 @@ public:
 	// wxClassInfo * wxHeaderCtrlEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHeaderCtrlEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHeaderCtrlEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHeaderCtrlEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHeaderCtrlEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHeaderCtrlEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHeaderCtrlEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxHeaderCtrlEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -215,15 +204,13 @@ public:
 	// wxEventCategory wxHeaderCtrlEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxHeaderCtrlEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxHeaderCtrlEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxHeaderCtrlEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxHeaderCtrlEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxHeaderCtrlEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxHeaderCtrlEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxHeaderCtrlEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -234,15 +221,13 @@ public:
 	// wxEvent * wxHeaderCtrlEvent::base_Clone() const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvent * wxHeaderCtrlEvent::base_Clone() const function, expected prototype:\nwxEvent * wxHeaderCtrlEvent::base_Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvent * wxHeaderCtrlEvent::base_Clone() const function, expected prototype:\nwxEvent * wxHeaderCtrlEvent::base_Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxHeaderCtrlEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvent * wxHeaderCtrlEvent::base_Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvent * lret = self->wxHeaderCtrlEvent::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxMask* self= (wxMask*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -202,8 +199,7 @@ public:
 	// wxMask::wxMask()
 	static wxMask* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMask::wxMask() function, expected prototype:\nwxMask::wxMask()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxMask::wxMask() function, expected prototype:\nwxMask::wxMask()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -213,8 +209,7 @@ public:
 	// wxMask::wxMask(const wxBitmap & bitmap, int index)
 	static wxMask* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMask::wxMask(const wxBitmap & bitmap, int index) function, expected prototype:\nwxMask::wxMask(const wxBitmap & bitmap, int index)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxMask::wxMask(const wxBitmap & bitmap, int index) function, expected prototype:\nwxMask::wxMask(const wxBitmap & bitmap, int index)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,1));
@@ -230,8 +225,7 @@ public:
 	// wxMask::wxMask(const wxBitmap & bitmap)
 	static wxMask* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMask::wxMask(const wxBitmap & bitmap) function, expected prototype:\nwxMask::wxMask(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxMask::wxMask(const wxBitmap & bitmap) function, expected prototype:\nwxMask::wxMask(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,1));
@@ -246,8 +240,7 @@ public:
 	// wxMask::wxMask(const wxBitmap & bitmap, const wxColour & colour)
 	static wxMask* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMask::wxMask(const wxBitmap & bitmap, const wxColour & colour) function, expected prototype:\nwxMask::wxMask(const wxBitmap & bitmap, const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxMask::wxMask(const wxBitmap & bitmap, const wxColour & colour) function, expected prototype:\nwxMask::wxMask(const wxBitmap & bitmap, const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,1));
@@ -267,8 +260,7 @@ public:
 	// wxMask::wxMask(lua_Table * data)
 	static wxMask* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMask::wxMask(lua_Table * data) function, expected prototype:\nwxMask::wxMask(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxMask::wxMask(lua_Table * data) function, expected prototype:\nwxMask::wxMask(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -278,8 +270,7 @@ public:
 	// wxMask::wxMask(lua_Table * data, const wxBitmap & bitmap, int index)
 	static wxMask* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMask::wxMask(lua_Table * data, const wxBitmap & bitmap, int index) function, expected prototype:\nwxMask::wxMask(lua_Table * data, const wxBitmap & bitmap, int index)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxMask::wxMask(lua_Table * data, const wxBitmap & bitmap, int index) function, expected prototype:\nwxMask::wxMask(lua_Table * data, const wxBitmap & bitmap, int index)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
@@ -295,8 +286,7 @@ public:
 	// wxMask::wxMask(lua_Table * data, const wxBitmap & bitmap)
 	static wxMask* _bind_ctor_overload_7(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMask::wxMask(lua_Table * data, const wxBitmap & bitmap) function, expected prototype:\nwxMask::wxMask(lua_Table * data, const wxBitmap & bitmap)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxMask::wxMask(lua_Table * data, const wxBitmap & bitmap) function, expected prototype:\nwxMask::wxMask(lua_Table * data, const wxBitmap & bitmap)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
@@ -311,8 +301,7 @@ public:
 	// wxMask::wxMask(lua_Table * data, const wxBitmap & bitmap, const wxColour & colour)
 	static wxMask* _bind_ctor_overload_8(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMask::wxMask(lua_Table * data, const wxBitmap & bitmap, const wxColour & colour) function, expected prototype:\nwxMask::wxMask(lua_Table * data, const wxBitmap & bitmap, const wxColour & colour)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxMask::wxMask(lua_Table * data, const wxBitmap & bitmap, const wxColour & colour) function, expected prototype:\nwxMask::wxMask(lua_Table * data, const wxBitmap & bitmap, const wxColour & colour)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
@@ -349,8 +338,7 @@ public:
 	// bool wxMask::Create(const wxBitmap & bitmap, int index)
 	static int _bind_Create_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Create_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxMask::Create(const wxBitmap & bitmap, int index) function, expected prototype:\nbool wxMask::Create(const wxBitmap & bitmap, int index)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxMask::Create(const wxBitmap & bitmap, int index) function, expected prototype:\nbool wxMask::Create(const wxBitmap & bitmap, int index)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
@@ -362,8 +350,7 @@ public:
 
 		wxMask* self=Luna< wxObject >::checkSubType< wxMask >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMask::Create(const wxBitmap &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxMask::Create(const wxBitmap &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Create(bitmap, index);
 		lua_pushboolean(L,lret?1:0);
@@ -374,8 +361,7 @@ public:
 	// bool wxMask::Create(const wxBitmap & bitmap)
 	static int _bind_Create_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Create_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxMask::Create(const wxBitmap & bitmap) function, expected prototype:\nbool wxMask::Create(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxMask::Create(const wxBitmap & bitmap) function, expected prototype:\nbool wxMask::Create(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
@@ -386,8 +372,7 @@ public:
 
 		wxMask* self=Luna< wxObject >::checkSubType< wxMask >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMask::Create(const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxMask::Create(const wxBitmap &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Create(bitmap);
 		lua_pushboolean(L,lret?1:0);
@@ -398,8 +383,7 @@ public:
 	// bool wxMask::Create(const wxBitmap & bitmap, const wxColour & colour)
 	static int _bind_Create_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Create_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxMask::Create(const wxBitmap & bitmap, const wxColour & colour) function, expected prototype:\nbool wxMask::Create(const wxBitmap & bitmap, const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxMask::Create(const wxBitmap & bitmap, const wxColour & colour) function, expected prototype:\nbool wxMask::Create(const wxBitmap & bitmap, const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
@@ -415,8 +399,7 @@ public:
 
 		wxMask* self=Luna< wxObject >::checkSubType< wxMask >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMask::Create(const wxBitmap &, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxMask::Create(const wxBitmap &, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Create(bitmap, colour);
 		lua_pushboolean(L,lret?1:0);
@@ -437,15 +420,13 @@ public:
 	// wxClassInfo * wxMask::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMask::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMask::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMask::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMask::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMask* self=Luna< wxObject >::checkSubType< wxMask >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxMask::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMask::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxMask::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

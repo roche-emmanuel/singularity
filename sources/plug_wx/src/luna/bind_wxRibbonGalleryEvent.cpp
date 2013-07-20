@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRibbonGalleryEvent* self= (wxRibbonGalleryEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -170,8 +167,7 @@ public:
 	// wxRibbonGalleryEvent::wxRibbonGalleryEvent(int command_type = wxEVT_NULL, int win_id = 0, wxRibbonGallery * gallery = NULL, wxRibbonGalleryItem * item = NULL)
 	static wxRibbonGalleryEvent* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRibbonGalleryEvent::wxRibbonGalleryEvent(int command_type = wxEVT_NULL, int win_id = 0, wxRibbonGallery * gallery = NULL, wxRibbonGalleryItem * item = NULL) function, expected prototype:\nwxRibbonGalleryEvent::wxRibbonGalleryEvent(int command_type = wxEVT_NULL, int win_id = 0, wxRibbonGallery * gallery = NULL, wxRibbonGalleryItem * item = NULL)\nClass arguments details:\narg 3 ID = 56813631\narg 4 ID = 56057674\n");
+			luaL_error(L, "luna typecheck failed in wxRibbonGalleryEvent::wxRibbonGalleryEvent(int command_type = wxEVT_NULL, int win_id = 0, wxRibbonGallery * gallery = NULL, wxRibbonGalleryItem * item = NULL) function, expected prototype:\nwxRibbonGalleryEvent::wxRibbonGalleryEvent(int command_type = wxEVT_NULL, int win_id = 0, wxRibbonGallery * gallery = NULL, wxRibbonGalleryItem * item = NULL)\nClass arguments details:\narg 3 ID = 56813631\narg 4 ID = 56057674\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -187,8 +183,7 @@ public:
 	// wxRibbonGalleryEvent::wxRibbonGalleryEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonGallery * gallery = NULL, wxRibbonGalleryItem * item = NULL)
 	static wxRibbonGalleryEvent* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRibbonGalleryEvent::wxRibbonGalleryEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonGallery * gallery = NULL, wxRibbonGalleryItem * item = NULL) function, expected prototype:\nwxRibbonGalleryEvent::wxRibbonGalleryEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonGallery * gallery = NULL, wxRibbonGalleryItem * item = NULL)\nClass arguments details:\narg 4 ID = 56813631\narg 5 ID = 56057674\n");
+			luaL_error(L, "luna typecheck failed in wxRibbonGalleryEvent::wxRibbonGalleryEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonGallery * gallery = NULL, wxRibbonGalleryItem * item = NULL) function, expected prototype:\nwxRibbonGalleryEvent::wxRibbonGalleryEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonGallery * gallery = NULL, wxRibbonGalleryItem * item = NULL)\nClass arguments details:\narg 4 ID = 56813631\narg 5 ID = 56057674\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -215,15 +210,13 @@ public:
 	// wxRibbonGallery * wxRibbonGalleryEvent::GetGallery()
 	static int _bind_GetGallery(lua_State *L) {
 		if (!_lg_typecheck_GetGallery(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRibbonGallery * wxRibbonGalleryEvent::GetGallery() function, expected prototype:\nwxRibbonGallery * wxRibbonGalleryEvent::GetGallery()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRibbonGallery * wxRibbonGalleryEvent::GetGallery() function, expected prototype:\nwxRibbonGallery * wxRibbonGalleryEvent::GetGallery()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonGalleryEvent* self=Luna< wxObject >::checkSubType< wxRibbonGalleryEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRibbonGallery * wxRibbonGalleryEvent::GetGallery(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRibbonGallery * wxRibbonGalleryEvent::GetGallery(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxRibbonGallery * lret = self->GetGallery();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -236,15 +229,13 @@ public:
 	// wxRibbonGalleryItem * wxRibbonGalleryEvent::GetGalleryItem()
 	static int _bind_GetGalleryItem(lua_State *L) {
 		if (!_lg_typecheck_GetGalleryItem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRibbonGalleryItem * wxRibbonGalleryEvent::GetGalleryItem() function, expected prototype:\nwxRibbonGalleryItem * wxRibbonGalleryEvent::GetGalleryItem()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRibbonGalleryItem * wxRibbonGalleryEvent::GetGalleryItem() function, expected prototype:\nwxRibbonGalleryItem * wxRibbonGalleryEvent::GetGalleryItem()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonGalleryEvent* self=Luna< wxObject >::checkSubType< wxRibbonGalleryEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRibbonGalleryItem * wxRibbonGalleryEvent::GetGalleryItem(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRibbonGalleryItem * wxRibbonGalleryEvent::GetGalleryItem(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxRibbonGalleryItem * lret = self->GetGalleryItem();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -257,16 +248,14 @@ public:
 	// void wxRibbonGalleryEvent::SetGallery(wxRibbonGallery * gallery)
 	static int _bind_SetGallery(lua_State *L) {
 		if (!_lg_typecheck_SetGallery(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonGalleryEvent::SetGallery(wxRibbonGallery * gallery) function, expected prototype:\nvoid wxRibbonGalleryEvent::SetGallery(wxRibbonGallery * gallery)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonGalleryEvent::SetGallery(wxRibbonGallery * gallery) function, expected prototype:\nvoid wxRibbonGalleryEvent::SetGallery(wxRibbonGallery * gallery)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRibbonGallery* gallery=(Luna< wxObject >::checkSubType< wxRibbonGallery >(L,2));
 
 		wxRibbonGalleryEvent* self=Luna< wxObject >::checkSubType< wxRibbonGalleryEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonGalleryEvent::SetGallery(wxRibbonGallery *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonGalleryEvent::SetGallery(wxRibbonGallery *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetGallery(gallery);
 
@@ -276,16 +265,14 @@ public:
 	// void wxRibbonGalleryEvent::SetGalleryItem(wxRibbonGalleryItem * item)
 	static int _bind_SetGalleryItem(lua_State *L) {
 		if (!_lg_typecheck_SetGalleryItem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonGalleryEvent::SetGalleryItem(wxRibbonGalleryItem * item) function, expected prototype:\nvoid wxRibbonGalleryEvent::SetGalleryItem(wxRibbonGalleryItem * item)\nClass arguments details:\narg 1 ID = 56057674\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonGalleryEvent::SetGalleryItem(wxRibbonGalleryItem * item) function, expected prototype:\nvoid wxRibbonGalleryEvent::SetGalleryItem(wxRibbonGalleryItem * item)\nClass arguments details:\narg 1 ID = 56057674\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRibbonGalleryItem* item=(Luna< wxRibbonGalleryItem >::check(L,2));
 
 		wxRibbonGalleryEvent* self=Luna< wxObject >::checkSubType< wxRibbonGalleryEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonGalleryEvent::SetGalleryItem(wxRibbonGalleryItem *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonGalleryEvent::SetGalleryItem(wxRibbonGalleryItem *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetGalleryItem(item);
 
@@ -295,15 +282,13 @@ public:
 	// wxClassInfo * wxRibbonGalleryEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxRibbonGalleryEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxRibbonGalleryEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxRibbonGalleryEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxRibbonGalleryEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonGalleryEvent* self=Luna< wxObject >::checkSubType< wxRibbonGalleryEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxRibbonGalleryEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxRibbonGalleryEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxRibbonGalleryEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -316,15 +301,13 @@ public:
 	// wxEventCategory wxRibbonGalleryEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxRibbonGalleryEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxRibbonGalleryEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxRibbonGalleryEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxRibbonGalleryEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonGalleryEvent* self=Luna< wxObject >::checkSubType< wxRibbonGalleryEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxRibbonGalleryEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxRibbonGalleryEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxRibbonGalleryEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -335,15 +318,13 @@ public:
 	// wxEvent * wxRibbonGalleryEvent::base_Clone() const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvent * wxRibbonGalleryEvent::base_Clone() const function, expected prototype:\nwxEvent * wxRibbonGalleryEvent::base_Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvent * wxRibbonGalleryEvent::base_Clone() const function, expected prototype:\nwxEvent * wxRibbonGalleryEvent::base_Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonGalleryEvent* self=Luna< wxObject >::checkSubType< wxRibbonGalleryEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxRibbonGalleryEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvent * wxRibbonGalleryEvent::base_Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvent * lret = self->wxRibbonGalleryEvent::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridEditorCreatedEvent* self= (wxGridEditorCreatedEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -198,8 +195,7 @@ public:
 	// wxGridEditorCreatedEvent::wxGridEditorCreatedEvent()
 	static wxGridEditorCreatedEvent* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridEditorCreatedEvent::wxGridEditorCreatedEvent() function, expected prototype:\nwxGridEditorCreatedEvent::wxGridEditorCreatedEvent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGridEditorCreatedEvent::wxGridEditorCreatedEvent() function, expected prototype:\nwxGridEditorCreatedEvent::wxGridEditorCreatedEvent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -209,8 +205,7 @@ public:
 	// wxGridEditorCreatedEvent::wxGridEditorCreatedEvent(int id, int type, wxObject * obj, int row, int col, wxControl * ctrl)
 	static wxGridEditorCreatedEvent* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridEditorCreatedEvent::wxGridEditorCreatedEvent(int id, int type, wxObject * obj, int row, int col, wxControl * ctrl) function, expected prototype:\nwxGridEditorCreatedEvent::wxGridEditorCreatedEvent(int id, int type, wxObject * obj, int row, int col, wxControl * ctrl)\nClass arguments details:\narg 3 ID = 56813631\narg 6 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxGridEditorCreatedEvent::wxGridEditorCreatedEvent(int id, int type, wxObject * obj, int row, int col, wxControl * ctrl) function, expected prototype:\nwxGridEditorCreatedEvent::wxGridEditorCreatedEvent(int id, int type, wxObject * obj, int row, int col, wxControl * ctrl)\nClass arguments details:\narg 3 ID = 56813631\narg 6 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int id=(int)lua_tointeger(L,1);
@@ -226,8 +221,7 @@ public:
 	// wxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data)
 	static wxGridEditorCreatedEvent* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data) function, expected prototype:\nwxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data) function, expected prototype:\nwxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -237,8 +231,7 @@ public:
 	// wxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data, int id, int type, wxObject * obj, int row, int col, wxControl * ctrl)
 	static wxGridEditorCreatedEvent* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data, int id, int type, wxObject * obj, int row, int col, wxControl * ctrl) function, expected prototype:\nwxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data, int id, int type, wxObject * obj, int row, int col, wxControl * ctrl)\nClass arguments details:\narg 4 ID = 56813631\narg 7 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data, int id, int type, wxObject * obj, int row, int col, wxControl * ctrl) function, expected prototype:\nwxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data, int id, int type, wxObject * obj, int row, int col, wxControl * ctrl)\nClass arguments details:\narg 4 ID = 56813631\narg 7 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int id=(int)lua_tointeger(L,2);
@@ -267,15 +260,13 @@ public:
 	// int wxGridEditorCreatedEvent::GetCol()
 	static int _bind_GetCol(lua_State *L) {
 		if (!_lg_typecheck_GetCol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridEditorCreatedEvent::GetCol() function, expected prototype:\nint wxGridEditorCreatedEvent::GetCol()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridEditorCreatedEvent::GetCol() function, expected prototype:\nint wxGridEditorCreatedEvent::GetCol()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridEditorCreatedEvent::GetCol(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridEditorCreatedEvent::GetCol(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetCol();
 		lua_pushnumber(L,lret);
@@ -286,15 +277,13 @@ public:
 	// wxControl * wxGridEditorCreatedEvent::GetControl()
 	static int _bind_GetControl(lua_State *L) {
 		if (!_lg_typecheck_GetControl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxControl * wxGridEditorCreatedEvent::GetControl() function, expected prototype:\nwxControl * wxGridEditorCreatedEvent::GetControl()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxControl * wxGridEditorCreatedEvent::GetControl() function, expected prototype:\nwxControl * wxGridEditorCreatedEvent::GetControl()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxControl * wxGridEditorCreatedEvent::GetControl(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxControl * wxGridEditorCreatedEvent::GetControl(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxControl * lret = self->GetControl();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -307,15 +296,13 @@ public:
 	// int wxGridEditorCreatedEvent::GetRow()
 	static int _bind_GetRow(lua_State *L) {
 		if (!_lg_typecheck_GetRow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridEditorCreatedEvent::GetRow() function, expected prototype:\nint wxGridEditorCreatedEvent::GetRow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridEditorCreatedEvent::GetRow() function, expected prototype:\nint wxGridEditorCreatedEvent::GetRow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridEditorCreatedEvent::GetRow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridEditorCreatedEvent::GetRow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetRow();
 		lua_pushnumber(L,lret);
@@ -326,16 +313,14 @@ public:
 	// void wxGridEditorCreatedEvent::SetCol(int col)
 	static int _bind_SetCol(lua_State *L) {
 		if (!_lg_typecheck_SetCol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridEditorCreatedEvent::SetCol(int col) function, expected prototype:\nvoid wxGridEditorCreatedEvent::SetCol(int col)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridEditorCreatedEvent::SetCol(int col) function, expected prototype:\nvoid wxGridEditorCreatedEvent::SetCol(int col)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int col=(int)lua_tointeger(L,2);
 
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridEditorCreatedEvent::SetCol(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridEditorCreatedEvent::SetCol(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCol(col);
 
@@ -345,16 +330,14 @@ public:
 	// void wxGridEditorCreatedEvent::SetControl(wxControl * ctrl)
 	static int _bind_SetControl(lua_State *L) {
 		if (!_lg_typecheck_SetControl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridEditorCreatedEvent::SetControl(wxControl * ctrl) function, expected prototype:\nvoid wxGridEditorCreatedEvent::SetControl(wxControl * ctrl)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxGridEditorCreatedEvent::SetControl(wxControl * ctrl) function, expected prototype:\nvoid wxGridEditorCreatedEvent::SetControl(wxControl * ctrl)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxControl* ctrl=(Luna< wxObject >::checkSubType< wxControl >(L,2));
 
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridEditorCreatedEvent::SetControl(wxControl *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridEditorCreatedEvent::SetControl(wxControl *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetControl(ctrl);
 
@@ -364,16 +347,14 @@ public:
 	// void wxGridEditorCreatedEvent::SetRow(int row)
 	static int _bind_SetRow(lua_State *L) {
 		if (!_lg_typecheck_SetRow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridEditorCreatedEvent::SetRow(int row) function, expected prototype:\nvoid wxGridEditorCreatedEvent::SetRow(int row)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridEditorCreatedEvent::SetRow(int row) function, expected prototype:\nvoid wxGridEditorCreatedEvent::SetRow(int row)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int row=(int)lua_tointeger(L,2);
 
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridEditorCreatedEvent::SetRow(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridEditorCreatedEvent::SetRow(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRow(row);
 
@@ -383,15 +364,13 @@ public:
 	// wxClassInfo * wxGridEditorCreatedEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGridEditorCreatedEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGridEditorCreatedEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGridEditorCreatedEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGridEditorCreatedEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxGridEditorCreatedEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGridEditorCreatedEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxGridEditorCreatedEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -404,15 +383,13 @@ public:
 	// wxEventCategory wxGridEditorCreatedEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxGridEditorCreatedEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxGridEditorCreatedEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxGridEditorCreatedEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxGridEditorCreatedEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxGridEditorCreatedEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxGridEditorCreatedEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxGridEditorCreatedEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -423,15 +400,13 @@ public:
 	// wxEvent * wxGridEditorCreatedEvent::base_Clone() const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvent * wxGridEditorCreatedEvent::base_Clone() const function, expected prototype:\nwxEvent * wxGridEditorCreatedEvent::base_Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvent * wxGridEditorCreatedEvent::base_Clone() const function, expected prototype:\nwxEvent * wxGridEditorCreatedEvent::base_Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxGridEditorCreatedEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvent * wxGridEditorCreatedEvent::base_Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvent * lret = self->wxGridEditorCreatedEvent::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.

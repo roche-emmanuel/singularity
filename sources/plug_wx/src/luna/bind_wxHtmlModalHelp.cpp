@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxHtmlModalHelp*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxHtmlModalHelp*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlModalHelp* rhs =(Luna< wxHtmlModalHelp >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlModalHelp* self= (wxHtmlModalHelp*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxHtmlModalHelp >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -121,8 +117,7 @@ public:
 	// wxHtmlModalHelp::wxHtmlModalHelp(wxWindow * parent, const wxString & helpFile, const wxString & topic = wxEmptyString, int style = wxHF_DEFAULT_STYLE | wxHF_DIALOG | wxHF_MODAL)
 	static wxHtmlModalHelp* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlModalHelp::wxHtmlModalHelp(wxWindow * parent, const wxString & helpFile, const wxString & topic = wxEmptyString, int style = wxHF_DEFAULT_STYLE | wxHF_DIALOG | wxHF_MODAL) function, expected prototype:\nwxHtmlModalHelp::wxHtmlModalHelp(wxWindow * parent, const wxString & helpFile, const wxString & topic = wxEmptyString, int style = wxHF_DEFAULT_STYLE | wxHF_DIALOG | wxHF_MODAL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlModalHelp::wxHtmlModalHelp(wxWindow * parent, const wxString & helpFile, const wxString & topic = wxEmptyString, int style = wxHF_DEFAULT_STYLE | wxHF_DIALOG | wxHF_MODAL) function, expected prototype:\nwxHtmlModalHelp::wxHtmlModalHelp(wxWindow * parent, const wxString & helpFile, const wxString & topic = wxEmptyString, int style = wxHF_DEFAULT_STYLE | wxHF_DIALOG | wxHF_MODAL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);

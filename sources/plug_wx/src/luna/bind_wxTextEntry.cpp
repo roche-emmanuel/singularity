@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxObject*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxObject*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* rhs =(Luna< wxObject >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTextEntry* self= (wxTextEntry*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -227,8 +222,8 @@ public:
 	inline static bool _lg_typecheck_GetRange(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -279,16 +274,16 @@ public:
 	inline static bool _lg_typecheck_Remove(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_Replace(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
 		return true;
 	}
@@ -303,7 +298,7 @@ public:
 	inline static bool _lg_typecheck_SetInsertionPoint(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -316,15 +311,15 @@ public:
 	inline static bool _lg_typecheck_SetMaxLength(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetSelection(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -461,8 +456,8 @@ public:
 	inline static bool _lg_typecheck_base_GetRange(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -513,16 +508,16 @@ public:
 	inline static bool _lg_typecheck_base_Remove(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_Replace(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
 		return true;
 	}
@@ -537,7 +532,7 @@ public:
 	inline static bool _lg_typecheck_base_SetInsertionPoint(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -550,15 +545,15 @@ public:
 	inline static bool _lg_typecheck_base_SetMaxLength(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_SetSelection(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -611,16 +606,14 @@ public:
 	// void wxTextEntry::AppendText(const wxString & text)
 	static int _bind_AppendText(lua_State *L) {
 		if (!_lg_typecheck_AppendText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::AppendText(const wxString & text) function, expected prototype:\nvoid wxTextEntry::AppendText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::AppendText(const wxString & text) function, expected prototype:\nvoid wxTextEntry::AppendText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::AppendText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::AppendText(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AppendText(text);
 
@@ -630,8 +623,7 @@ public:
 	// bool wxTextEntry::AutoComplete(const wxArrayString & choices)
 	static int _bind_AutoComplete_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AutoComplete_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::AutoComplete(const wxArrayString & choices) function, expected prototype:\nbool wxTextEntry::AutoComplete(const wxArrayString & choices)\nClass arguments details:\narg 1 ID = 59507769\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::AutoComplete(const wxArrayString & choices) function, expected prototype:\nbool wxTextEntry::AutoComplete(const wxArrayString & choices)\nClass arguments details:\narg 1 ID = 59507769\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxArrayString* choices_ptr=(Luna< wxArrayString >::check(L,2));
@@ -642,8 +634,7 @@ public:
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoComplete(const wxArrayString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoComplete(const wxArrayString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoComplete(choices);
 		lua_pushboolean(L,lret?1:0);
@@ -654,16 +645,14 @@ public:
 	// bool wxTextEntry::AutoComplete(wxTextCompleter * completer)
 	static int _bind_AutoComplete_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AutoComplete_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::AutoComplete(wxTextCompleter * completer) function, expected prototype:\nbool wxTextEntry::AutoComplete(wxTextCompleter * completer)\nClass arguments details:\narg 1 ID = 92690309\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::AutoComplete(wxTextCompleter * completer) function, expected prototype:\nbool wxTextEntry::AutoComplete(wxTextCompleter * completer)\nClass arguments details:\narg 1 ID = 92690309\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTextCompleter* completer=(Luna< wxTextCompleter >::check(L,2));
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoComplete(wxTextCompleter *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoComplete(wxTextCompleter *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoComplete(completer);
 		lua_pushboolean(L,lret?1:0);
@@ -683,15 +672,13 @@ public:
 	// bool wxTextEntry::AutoCompleteFileNames()
 	static int _bind_AutoCompleteFileNames(lua_State *L) {
 		if (!_lg_typecheck_AutoCompleteFileNames(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::AutoCompleteFileNames() function, expected prototype:\nbool wxTextEntry::AutoCompleteFileNames()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::AutoCompleteFileNames() function, expected prototype:\nbool wxTextEntry::AutoCompleteFileNames()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoCompleteFileNames(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoCompleteFileNames(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoCompleteFileNames();
 		lua_pushboolean(L,lret?1:0);
@@ -702,15 +689,13 @@ public:
 	// bool wxTextEntry::AutoCompleteDirectories()
 	static int _bind_AutoCompleteDirectories(lua_State *L) {
 		if (!_lg_typecheck_AutoCompleteDirectories(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::AutoCompleteDirectories() function, expected prototype:\nbool wxTextEntry::AutoCompleteDirectories()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::AutoCompleteDirectories() function, expected prototype:\nbool wxTextEntry::AutoCompleteDirectories()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoCompleteDirectories(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoCompleteDirectories(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AutoCompleteDirectories();
 		lua_pushboolean(L,lret?1:0);
@@ -721,15 +706,13 @@ public:
 	// bool wxTextEntry::CanCopy() const
 	static int _bind_CanCopy(lua_State *L) {
 		if (!_lg_typecheck_CanCopy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::CanCopy() const function, expected prototype:\nbool wxTextEntry::CanCopy() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::CanCopy() const function, expected prototype:\nbool wxTextEntry::CanCopy() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanCopy() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanCopy() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanCopy();
 		lua_pushboolean(L,lret?1:0);
@@ -740,15 +723,13 @@ public:
 	// bool wxTextEntry::CanCut() const
 	static int _bind_CanCut(lua_State *L) {
 		if (!_lg_typecheck_CanCut(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::CanCut() const function, expected prototype:\nbool wxTextEntry::CanCut() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::CanCut() const function, expected prototype:\nbool wxTextEntry::CanCut() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanCut() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanCut() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanCut();
 		lua_pushboolean(L,lret?1:0);
@@ -759,15 +740,13 @@ public:
 	// bool wxTextEntry::CanPaste() const
 	static int _bind_CanPaste(lua_State *L) {
 		if (!_lg_typecheck_CanPaste(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::CanPaste() const function, expected prototype:\nbool wxTextEntry::CanPaste() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::CanPaste() const function, expected prototype:\nbool wxTextEntry::CanPaste() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanPaste() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanPaste() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanPaste();
 		lua_pushboolean(L,lret?1:0);
@@ -778,15 +757,13 @@ public:
 	// bool wxTextEntry::CanRedo() const
 	static int _bind_CanRedo(lua_State *L) {
 		if (!_lg_typecheck_CanRedo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::CanRedo() const function, expected prototype:\nbool wxTextEntry::CanRedo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::CanRedo() const function, expected prototype:\nbool wxTextEntry::CanRedo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanRedo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanRedo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanRedo();
 		lua_pushboolean(L,lret?1:0);
@@ -797,15 +774,13 @@ public:
 	// bool wxTextEntry::CanUndo() const
 	static int _bind_CanUndo(lua_State *L) {
 		if (!_lg_typecheck_CanUndo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::CanUndo() const function, expected prototype:\nbool wxTextEntry::CanUndo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::CanUndo() const function, expected prototype:\nbool wxTextEntry::CanUndo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanUndo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanUndo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanUndo();
 		lua_pushboolean(L,lret?1:0);
@@ -816,16 +791,14 @@ public:
 	// void wxTextEntry::ChangeValue(const wxString & value)
 	static int _bind_ChangeValue(lua_State *L) {
 		if (!_lg_typecheck_ChangeValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::ChangeValue(const wxString & value) function, expected prototype:\nvoid wxTextEntry::ChangeValue(const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::ChangeValue(const wxString & value) function, expected prototype:\nvoid wxTextEntry::ChangeValue(const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::ChangeValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::ChangeValue(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ChangeValue(value);
 
@@ -835,15 +808,13 @@ public:
 	// void wxTextEntry::Clear()
 	static int _bind_Clear(lua_State *L) {
 		if (!_lg_typecheck_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::Clear() function, expected prototype:\nvoid wxTextEntry::Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::Clear() function, expected prototype:\nvoid wxTextEntry::Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::Clear(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Clear();
 
@@ -853,15 +824,13 @@ public:
 	// void wxTextEntry::Copy()
 	static int _bind_Copy(lua_State *L) {
 		if (!_lg_typecheck_Copy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::Copy() function, expected prototype:\nvoid wxTextEntry::Copy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::Copy() function, expected prototype:\nvoid wxTextEntry::Copy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::Copy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::Copy(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Copy();
 
@@ -871,15 +840,13 @@ public:
 	// long wxTextEntry::GetInsertionPoint() const
 	static int _bind_GetInsertionPoint(lua_State *L) {
 		if (!_lg_typecheck_GetInsertionPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxTextEntry::GetInsertionPoint() const function, expected prototype:\nlong wxTextEntry::GetInsertionPoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxTextEntry::GetInsertionPoint() const function, expected prototype:\nlong wxTextEntry::GetInsertionPoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTextEntry::GetInsertionPoint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long wxTextEntry::GetInsertionPoint() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->GetInsertionPoint();
 		lua_pushnumber(L,lret);
@@ -890,15 +857,13 @@ public:
 	// long wxTextEntry::GetLastPosition() const
 	static int _bind_GetLastPosition(lua_State *L) {
 		if (!_lg_typecheck_GetLastPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxTextEntry::GetLastPosition() const function, expected prototype:\nlong wxTextEntry::GetLastPosition() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxTextEntry::GetLastPosition() const function, expected prototype:\nlong wxTextEntry::GetLastPosition() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTextEntry::GetLastPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long wxTextEntry::GetLastPosition() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->GetLastPosition();
 		lua_pushnumber(L,lret);
@@ -909,17 +874,15 @@ public:
 	// wxString wxTextEntry::GetRange(long from, long to) const
 	static int _bind_GetRange(lua_State *L) {
 		if (!_lg_typecheck_GetRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::GetRange(long from, long to) const function, expected prototype:\nwxString wxTextEntry::GetRange(long from, long to) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::GetRange(long from, long to) const function, expected prototype:\nwxString wxTextEntry::GetRange(long from, long to) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long from=(long)lua_tonumber(L,2);
+		long to=(long)lua_tonumber(L,3);
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetRange(long, long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetRange(long, long) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetRange(from, to);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -930,8 +893,7 @@ public:
 	// void wxTextEntry::GetSelection(long * from, long * to) const
 	static int _bind_GetSelection(lua_State *L) {
 		if (!_lg_typecheck_GetSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::GetSelection(long * from, long * to) const function, expected prototype:\nvoid wxTextEntry::GetSelection(long * from, long * to) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::GetSelection(long * from, long * to) const function, expected prototype:\nvoid wxTextEntry::GetSelection(long * from, long * to) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		long* from=(long*)Luna< void >::check(L,2);
@@ -939,8 +901,7 @@ public:
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::GetSelection(long *, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::GetSelection(long *, long *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetSelection(from, to);
 
@@ -950,15 +911,13 @@ public:
 	// wxString wxTextEntry::GetStringSelection() const
 	static int _bind_GetStringSelection(lua_State *L) {
 		if (!_lg_typecheck_GetStringSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::GetStringSelection() const function, expected prototype:\nwxString wxTextEntry::GetStringSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::GetStringSelection() const function, expected prototype:\nwxString wxTextEntry::GetStringSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetStringSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetStringSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetStringSelection();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -969,15 +928,13 @@ public:
 	// wxString wxTextEntry::GetValue() const
 	static int _bind_GetValue(lua_State *L) {
 		if (!_lg_typecheck_GetValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::GetValue() const function, expected prototype:\nwxString wxTextEntry::GetValue() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::GetValue() const function, expected prototype:\nwxString wxTextEntry::GetValue() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetValue() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetValue();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -988,15 +945,13 @@ public:
 	// bool wxTextEntry::IsEditable() const
 	static int _bind_IsEditable(lua_State *L) {
 		if (!_lg_typecheck_IsEditable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::IsEditable() const function, expected prototype:\nbool wxTextEntry::IsEditable() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::IsEditable() const function, expected prototype:\nbool wxTextEntry::IsEditable() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::IsEditable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::IsEditable() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsEditable();
 		lua_pushboolean(L,lret?1:0);
@@ -1007,15 +962,13 @@ public:
 	// bool wxTextEntry::IsEmpty() const
 	static int _bind_IsEmpty(lua_State *L) {
 		if (!_lg_typecheck_IsEmpty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::IsEmpty() const function, expected prototype:\nbool wxTextEntry::IsEmpty() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::IsEmpty() const function, expected prototype:\nbool wxTextEntry::IsEmpty() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::IsEmpty() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::IsEmpty() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -1026,15 +979,13 @@ public:
 	// void wxTextEntry::Paste()
 	static int _bind_Paste(lua_State *L) {
 		if (!_lg_typecheck_Paste(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::Paste() function, expected prototype:\nvoid wxTextEntry::Paste()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::Paste() function, expected prototype:\nvoid wxTextEntry::Paste()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::Paste(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::Paste(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Paste();
 
@@ -1044,15 +995,13 @@ public:
 	// void wxTextEntry::Redo()
 	static int _bind_Redo(lua_State *L) {
 		if (!_lg_typecheck_Redo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::Redo() function, expected prototype:\nvoid wxTextEntry::Redo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::Redo() function, expected prototype:\nvoid wxTextEntry::Redo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::Redo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::Redo(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Redo();
 
@@ -1062,17 +1011,15 @@ public:
 	// void wxTextEntry::Remove(long from, long to)
 	static int _bind_Remove(lua_State *L) {
 		if (!_lg_typecheck_Remove(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::Remove(long from, long to) function, expected prototype:\nvoid wxTextEntry::Remove(long from, long to)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::Remove(long from, long to) function, expected prototype:\nvoid wxTextEntry::Remove(long from, long to)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long from=(long)lua_tonumber(L,2);
+		long to=(long)lua_tonumber(L,3);
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::Remove(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::Remove(long, long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Remove(from, to);
 
@@ -1082,18 +1029,16 @@ public:
 	// void wxTextEntry::Replace(long from, long to, const wxString & value)
 	static int _bind_Replace(lua_State *L) {
 		if (!_lg_typecheck_Replace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::Replace(long from, long to, const wxString & value) function, expected prototype:\nvoid wxTextEntry::Replace(long from, long to, const wxString & value)\nClass arguments details:\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::Replace(long from, long to, const wxString & value) function, expected prototype:\nvoid wxTextEntry::Replace(long from, long to, const wxString & value)\nClass arguments details:\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long from=(long)lua_tonumber(L,2);
+		long to=(long)lua_tonumber(L,3);
 		wxString value(lua_tostring(L,4),lua_objlen(L,4));
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::Replace(long, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::Replace(long, long, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Replace(from, to, value);
 
@@ -1103,16 +1048,14 @@ public:
 	// void wxTextEntry::SetEditable(bool editable)
 	static int _bind_SetEditable(lua_State *L) {
 		if (!_lg_typecheck_SetEditable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::SetEditable(bool editable) function, expected prototype:\nvoid wxTextEntry::SetEditable(bool editable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::SetEditable(bool editable) function, expected prototype:\nvoid wxTextEntry::SetEditable(bool editable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool editable=(bool)(lua_toboolean(L,2)==1);
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::SetEditable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::SetEditable(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetEditable(editable);
 
@@ -1122,16 +1065,14 @@ public:
 	// void wxTextEntry::SetInsertionPoint(long pos)
 	static int _bind_SetInsertionPoint(lua_State *L) {
 		if (!_lg_typecheck_SetInsertionPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::SetInsertionPoint(long pos) function, expected prototype:\nvoid wxTextEntry::SetInsertionPoint(long pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::SetInsertionPoint(long pos) function, expected prototype:\nvoid wxTextEntry::SetInsertionPoint(long pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long pos=(long)lua_tointeger(L,2);
+		long pos=(long)lua_tonumber(L,2);
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::SetInsertionPoint(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::SetInsertionPoint(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetInsertionPoint(pos);
 
@@ -1141,15 +1082,13 @@ public:
 	// void wxTextEntry::SetInsertionPointEnd()
 	static int _bind_SetInsertionPointEnd(lua_State *L) {
 		if (!_lg_typecheck_SetInsertionPointEnd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::SetInsertionPointEnd() function, expected prototype:\nvoid wxTextEntry::SetInsertionPointEnd()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::SetInsertionPointEnd() function, expected prototype:\nvoid wxTextEntry::SetInsertionPointEnd()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::SetInsertionPointEnd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::SetInsertionPointEnd(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetInsertionPointEnd();
 
@@ -1159,16 +1098,14 @@ public:
 	// void wxTextEntry::SetMaxLength(unsigned long len)
 	static int _bind_SetMaxLength(lua_State *L) {
 		if (!_lg_typecheck_SetMaxLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::SetMaxLength(unsigned long len) function, expected prototype:\nvoid wxTextEntry::SetMaxLength(unsigned long len)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::SetMaxLength(unsigned long len) function, expected prototype:\nvoid wxTextEntry::SetMaxLength(unsigned long len)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long len=(unsigned long)lua_tointeger(L,2);
+		unsigned long len=(unsigned long)lua_tonumber(L,2);
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::SetMaxLength(unsigned long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::SetMaxLength(unsigned long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMaxLength(len);
 
@@ -1178,17 +1115,15 @@ public:
 	// void wxTextEntry::SetSelection(long from, long to)
 	static int _bind_SetSelection(lua_State *L) {
 		if (!_lg_typecheck_SetSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::SetSelection(long from, long to) function, expected prototype:\nvoid wxTextEntry::SetSelection(long from, long to)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::SetSelection(long from, long to) function, expected prototype:\nvoid wxTextEntry::SetSelection(long from, long to)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long from=(long)lua_tonumber(L,2);
+		long to=(long)lua_tonumber(L,3);
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::SetSelection(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::SetSelection(long, long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelection(from, to);
 
@@ -1198,15 +1133,13 @@ public:
 	// void wxTextEntry::SelectAll()
 	static int _bind_SelectAll(lua_State *L) {
 		if (!_lg_typecheck_SelectAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::SelectAll() function, expected prototype:\nvoid wxTextEntry::SelectAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::SelectAll() function, expected prototype:\nvoid wxTextEntry::SelectAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::SelectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::SelectAll(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SelectAll();
 
@@ -1216,16 +1149,14 @@ public:
 	// bool wxTextEntry::SetHint(const wxString & hint)
 	static int _bind_SetHint(lua_State *L) {
 		if (!_lg_typecheck_SetHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::SetHint(const wxString & hint) function, expected prototype:\nbool wxTextEntry::SetHint(const wxString & hint)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::SetHint(const wxString & hint) function, expected prototype:\nbool wxTextEntry::SetHint(const wxString & hint)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString hint(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::SetHint(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::SetHint(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetHint(hint);
 		lua_pushboolean(L,lret?1:0);
@@ -1236,15 +1167,13 @@ public:
 	// wxString wxTextEntry::GetHint() const
 	static int _bind_GetHint(lua_State *L) {
 		if (!_lg_typecheck_GetHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::GetHint() const function, expected prototype:\nwxString wxTextEntry::GetHint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::GetHint() const function, expected prototype:\nwxString wxTextEntry::GetHint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetHint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetHint() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetHint();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1255,8 +1184,7 @@ public:
 	// bool wxTextEntry::SetMargins(const wxPoint & pt)
 	static int _bind_SetMargins_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SetMargins_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::SetMargins(const wxPoint & pt) function, expected prototype:\nbool wxTextEntry::SetMargins(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::SetMargins(const wxPoint & pt) function, expected prototype:\nbool wxTextEntry::SetMargins(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* pt_ptr=(Luna< wxPoint >::check(L,2));
@@ -1267,8 +1195,7 @@ public:
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::SetMargins(const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::SetMargins(const wxPoint &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetMargins(pt);
 		lua_pushboolean(L,lret?1:0);
@@ -1279,8 +1206,7 @@ public:
 	// bool wxTextEntry::SetMargins(int left, int top = -1)
 	static int _bind_SetMargins_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SetMargins_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::SetMargins(int left, int top = -1) function, expected prototype:\nbool wxTextEntry::SetMargins(int left, int top = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::SetMargins(int left, int top = -1) function, expected prototype:\nbool wxTextEntry::SetMargins(int left, int top = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1290,8 +1216,7 @@ public:
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::SetMargins(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::SetMargins(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetMargins(left, top);
 		lua_pushboolean(L,lret?1:0);
@@ -1311,15 +1236,13 @@ public:
 	// wxPoint wxTextEntry::GetMargins() const
 	static int _bind_GetMargins(lua_State *L) {
 		if (!_lg_typecheck_GetMargins(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint wxTextEntry::GetMargins() const function, expected prototype:\nwxPoint wxTextEntry::GetMargins() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint wxTextEntry::GetMargins() const function, expected prototype:\nwxPoint wxTextEntry::GetMargins() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxTextEntry::GetMargins() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint wxTextEntry::GetMargins() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint stack_lret = self->GetMargins();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1333,16 +1256,14 @@ public:
 	// void wxTextEntry::SetValue(const wxString & value)
 	static int _bind_SetValue(lua_State *L) {
 		if (!_lg_typecheck_SetValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::SetValue(const wxString & value) function, expected prototype:\nvoid wxTextEntry::SetValue(const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::SetValue(const wxString & value) function, expected prototype:\nvoid wxTextEntry::SetValue(const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::SetValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::SetValue(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetValue(value);
 
@@ -1352,15 +1273,13 @@ public:
 	// void wxTextEntry::Undo()
 	static int _bind_Undo(lua_State *L) {
 		if (!_lg_typecheck_Undo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::Undo() function, expected prototype:\nvoid wxTextEntry::Undo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::Undo() function, expected prototype:\nvoid wxTextEntry::Undo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::Undo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::Undo(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Undo();
 
@@ -1370,16 +1289,14 @@ public:
 	// void wxTextEntry::WriteText(const wxString & text)
 	static int _bind_WriteText(lua_State *L) {
 		if (!_lg_typecheck_WriteText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::WriteText(const wxString & text) function, expected prototype:\nvoid wxTextEntry::WriteText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::WriteText(const wxString & text) function, expected prototype:\nvoid wxTextEntry::WriteText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::WriteText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::WriteText(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteText(text);
 
@@ -1389,16 +1306,14 @@ public:
 	// void wxTextEntry::base_AppendText(const wxString & text)
 	static int _bind_base_AppendText(lua_State *L) {
 		if (!_lg_typecheck_base_AppendText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_AppendText(const wxString & text) function, expected prototype:\nvoid wxTextEntry::base_AppendText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_AppendText(const wxString & text) function, expected prototype:\nvoid wxTextEntry::base_AppendText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_AppendText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_AppendText(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::AppendText(text);
 
@@ -1408,15 +1323,13 @@ public:
 	// bool wxTextEntry::base_CanCopy() const
 	static int _bind_base_CanCopy(lua_State *L) {
 		if (!_lg_typecheck_base_CanCopy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_CanCopy() const function, expected prototype:\nbool wxTextEntry::base_CanCopy() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_CanCopy() const function, expected prototype:\nbool wxTextEntry::base_CanCopy() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanCopy() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanCopy() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTextEntry::CanCopy();
 		lua_pushboolean(L,lret?1:0);
@@ -1427,15 +1340,13 @@ public:
 	// bool wxTextEntry::base_CanCut() const
 	static int _bind_base_CanCut(lua_State *L) {
 		if (!_lg_typecheck_base_CanCut(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_CanCut() const function, expected prototype:\nbool wxTextEntry::base_CanCut() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_CanCut() const function, expected prototype:\nbool wxTextEntry::base_CanCut() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanCut() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanCut() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTextEntry::CanCut();
 		lua_pushboolean(L,lret?1:0);
@@ -1446,15 +1357,13 @@ public:
 	// bool wxTextEntry::base_CanPaste() const
 	static int _bind_base_CanPaste(lua_State *L) {
 		if (!_lg_typecheck_base_CanPaste(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_CanPaste() const function, expected prototype:\nbool wxTextEntry::base_CanPaste() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_CanPaste() const function, expected prototype:\nbool wxTextEntry::base_CanPaste() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanPaste() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanPaste() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTextEntry::CanPaste();
 		lua_pushboolean(L,lret?1:0);
@@ -1465,15 +1374,13 @@ public:
 	// bool wxTextEntry::base_CanRedo() const
 	static int _bind_base_CanRedo(lua_State *L) {
 		if (!_lg_typecheck_base_CanRedo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_CanRedo() const function, expected prototype:\nbool wxTextEntry::base_CanRedo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_CanRedo() const function, expected prototype:\nbool wxTextEntry::base_CanRedo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanRedo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanRedo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTextEntry::CanRedo();
 		lua_pushboolean(L,lret?1:0);
@@ -1484,15 +1391,13 @@ public:
 	// bool wxTextEntry::base_CanUndo() const
 	static int _bind_base_CanUndo(lua_State *L) {
 		if (!_lg_typecheck_base_CanUndo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_CanUndo() const function, expected prototype:\nbool wxTextEntry::base_CanUndo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_CanUndo() const function, expected prototype:\nbool wxTextEntry::base_CanUndo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanUndo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanUndo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTextEntry::CanUndo();
 		lua_pushboolean(L,lret?1:0);
@@ -1503,16 +1408,14 @@ public:
 	// void wxTextEntry::base_ChangeValue(const wxString & value)
 	static int _bind_base_ChangeValue(lua_State *L) {
 		if (!_lg_typecheck_base_ChangeValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_ChangeValue(const wxString & value) function, expected prototype:\nvoid wxTextEntry::base_ChangeValue(const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_ChangeValue(const wxString & value) function, expected prototype:\nvoid wxTextEntry::base_ChangeValue(const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_ChangeValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_ChangeValue(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::ChangeValue(value);
 
@@ -1522,15 +1425,13 @@ public:
 	// void wxTextEntry::base_Clear()
 	static int _bind_base_Clear(lua_State *L) {
 		if (!_lg_typecheck_base_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_Clear() function, expected prototype:\nvoid wxTextEntry::base_Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_Clear() function, expected prototype:\nvoid wxTextEntry::base_Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Clear(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::Clear();
 
@@ -1540,15 +1441,13 @@ public:
 	// void wxTextEntry::base_Copy()
 	static int _bind_base_Copy(lua_State *L) {
 		if (!_lg_typecheck_base_Copy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_Copy() function, expected prototype:\nvoid wxTextEntry::base_Copy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_Copy() function, expected prototype:\nvoid wxTextEntry::base_Copy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Copy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Copy(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::Copy();
 
@@ -1558,15 +1457,13 @@ public:
 	// long wxTextEntry::base_GetInsertionPoint() const
 	static int _bind_base_GetInsertionPoint(lua_State *L) {
 		if (!_lg_typecheck_base_GetInsertionPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxTextEntry::base_GetInsertionPoint() const function, expected prototype:\nlong wxTextEntry::base_GetInsertionPoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxTextEntry::base_GetInsertionPoint() const function, expected prototype:\nlong wxTextEntry::base_GetInsertionPoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTextEntry::base_GetInsertionPoint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long wxTextEntry::base_GetInsertionPoint() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->wxTextEntry::GetInsertionPoint();
 		lua_pushnumber(L,lret);
@@ -1577,15 +1474,13 @@ public:
 	// long wxTextEntry::base_GetLastPosition() const
 	static int _bind_base_GetLastPosition(lua_State *L) {
 		if (!_lg_typecheck_base_GetLastPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxTextEntry::base_GetLastPosition() const function, expected prototype:\nlong wxTextEntry::base_GetLastPosition() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxTextEntry::base_GetLastPosition() const function, expected prototype:\nlong wxTextEntry::base_GetLastPosition() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTextEntry::base_GetLastPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long wxTextEntry::base_GetLastPosition() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->wxTextEntry::GetLastPosition();
 		lua_pushnumber(L,lret);
@@ -1596,17 +1491,15 @@ public:
 	// wxString wxTextEntry::base_GetRange(long from, long to) const
 	static int _bind_base_GetRange(lua_State *L) {
 		if (!_lg_typecheck_base_GetRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::base_GetRange(long from, long to) const function, expected prototype:\nwxString wxTextEntry::base_GetRange(long from, long to) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::base_GetRange(long from, long to) const function, expected prototype:\nwxString wxTextEntry::base_GetRange(long from, long to) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long from=(long)lua_tonumber(L,2);
+		long to=(long)lua_tonumber(L,3);
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetRange(long, long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetRange(long, long) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxTextEntry::GetRange(from, to);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1617,8 +1510,7 @@ public:
 	// void wxTextEntry::base_GetSelection(long * from, long * to) const
 	static int _bind_base_GetSelection(lua_State *L) {
 		if (!_lg_typecheck_base_GetSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_GetSelection(long * from, long * to) const function, expected prototype:\nvoid wxTextEntry::base_GetSelection(long * from, long * to) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_GetSelection(long * from, long * to) const function, expected prototype:\nvoid wxTextEntry::base_GetSelection(long * from, long * to) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		long* from=(long*)Luna< void >::check(L,2);
@@ -1626,8 +1518,7 @@ public:
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_GetSelection(long *, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_GetSelection(long *, long *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::GetSelection(from, to);
 
@@ -1637,15 +1528,13 @@ public:
 	// wxString wxTextEntry::base_GetStringSelection() const
 	static int _bind_base_GetStringSelection(lua_State *L) {
 		if (!_lg_typecheck_base_GetStringSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::base_GetStringSelection() const function, expected prototype:\nwxString wxTextEntry::base_GetStringSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::base_GetStringSelection() const function, expected prototype:\nwxString wxTextEntry::base_GetStringSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetStringSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetStringSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxTextEntry::GetStringSelection();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1656,15 +1545,13 @@ public:
 	// wxString wxTextEntry::base_GetValue() const
 	static int _bind_base_GetValue(lua_State *L) {
 		if (!_lg_typecheck_base_GetValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::base_GetValue() const function, expected prototype:\nwxString wxTextEntry::base_GetValue() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::base_GetValue() const function, expected prototype:\nwxString wxTextEntry::base_GetValue() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetValue() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxTextEntry::GetValue();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1675,15 +1562,13 @@ public:
 	// bool wxTextEntry::base_IsEditable() const
 	static int _bind_base_IsEditable(lua_State *L) {
 		if (!_lg_typecheck_base_IsEditable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_IsEditable() const function, expected prototype:\nbool wxTextEntry::base_IsEditable() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_IsEditable() const function, expected prototype:\nbool wxTextEntry::base_IsEditable() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_IsEditable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_IsEditable() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTextEntry::IsEditable();
 		lua_pushboolean(L,lret?1:0);
@@ -1694,15 +1579,13 @@ public:
 	// bool wxTextEntry::base_IsEmpty() const
 	static int _bind_base_IsEmpty(lua_State *L) {
 		if (!_lg_typecheck_base_IsEmpty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_IsEmpty() const function, expected prototype:\nbool wxTextEntry::base_IsEmpty() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_IsEmpty() const function, expected prototype:\nbool wxTextEntry::base_IsEmpty() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_IsEmpty() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_IsEmpty() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTextEntry::IsEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -1713,15 +1596,13 @@ public:
 	// void wxTextEntry::base_Paste()
 	static int _bind_base_Paste(lua_State *L) {
 		if (!_lg_typecheck_base_Paste(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_Paste() function, expected prototype:\nvoid wxTextEntry::base_Paste()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_Paste() function, expected prototype:\nvoid wxTextEntry::base_Paste()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Paste(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Paste(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::Paste();
 
@@ -1731,15 +1612,13 @@ public:
 	// void wxTextEntry::base_Redo()
 	static int _bind_base_Redo(lua_State *L) {
 		if (!_lg_typecheck_base_Redo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_Redo() function, expected prototype:\nvoid wxTextEntry::base_Redo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_Redo() function, expected prototype:\nvoid wxTextEntry::base_Redo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Redo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Redo(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::Redo();
 
@@ -1749,17 +1628,15 @@ public:
 	// void wxTextEntry::base_Remove(long from, long to)
 	static int _bind_base_Remove(lua_State *L) {
 		if (!_lg_typecheck_base_Remove(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_Remove(long from, long to) function, expected prototype:\nvoid wxTextEntry::base_Remove(long from, long to)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_Remove(long from, long to) function, expected prototype:\nvoid wxTextEntry::base_Remove(long from, long to)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long from=(long)lua_tonumber(L,2);
+		long to=(long)lua_tonumber(L,3);
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Remove(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Remove(long, long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::Remove(from, to);
 
@@ -1769,18 +1646,16 @@ public:
 	// void wxTextEntry::base_Replace(long from, long to, const wxString & value)
 	static int _bind_base_Replace(lua_State *L) {
 		if (!_lg_typecheck_base_Replace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_Replace(long from, long to, const wxString & value) function, expected prototype:\nvoid wxTextEntry::base_Replace(long from, long to, const wxString & value)\nClass arguments details:\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_Replace(long from, long to, const wxString & value) function, expected prototype:\nvoid wxTextEntry::base_Replace(long from, long to, const wxString & value)\nClass arguments details:\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long from=(long)lua_tonumber(L,2);
+		long to=(long)lua_tonumber(L,3);
 		wxString value(lua_tostring(L,4),lua_objlen(L,4));
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Replace(long, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Replace(long, long, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::Replace(from, to, value);
 
@@ -1790,16 +1665,14 @@ public:
 	// void wxTextEntry::base_SetEditable(bool editable)
 	static int _bind_base_SetEditable(lua_State *L) {
 		if (!_lg_typecheck_base_SetEditable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_SetEditable(bool editable) function, expected prototype:\nvoid wxTextEntry::base_SetEditable(bool editable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_SetEditable(bool editable) function, expected prototype:\nvoid wxTextEntry::base_SetEditable(bool editable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool editable=(bool)(lua_toboolean(L,2)==1);
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetEditable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetEditable(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::SetEditable(editable);
 
@@ -1809,16 +1682,14 @@ public:
 	// void wxTextEntry::base_SetInsertionPoint(long pos)
 	static int _bind_base_SetInsertionPoint(lua_State *L) {
 		if (!_lg_typecheck_base_SetInsertionPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_SetInsertionPoint(long pos) function, expected prototype:\nvoid wxTextEntry::base_SetInsertionPoint(long pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_SetInsertionPoint(long pos) function, expected prototype:\nvoid wxTextEntry::base_SetInsertionPoint(long pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long pos=(long)lua_tointeger(L,2);
+		long pos=(long)lua_tonumber(L,2);
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetInsertionPoint(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetInsertionPoint(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::SetInsertionPoint(pos);
 
@@ -1828,15 +1699,13 @@ public:
 	// void wxTextEntry::base_SetInsertionPointEnd()
 	static int _bind_base_SetInsertionPointEnd(lua_State *L) {
 		if (!_lg_typecheck_base_SetInsertionPointEnd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_SetInsertionPointEnd() function, expected prototype:\nvoid wxTextEntry::base_SetInsertionPointEnd()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_SetInsertionPointEnd() function, expected prototype:\nvoid wxTextEntry::base_SetInsertionPointEnd()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetInsertionPointEnd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetInsertionPointEnd(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::SetInsertionPointEnd();
 
@@ -1846,16 +1715,14 @@ public:
 	// void wxTextEntry::base_SetMaxLength(unsigned long len)
 	static int _bind_base_SetMaxLength(lua_State *L) {
 		if (!_lg_typecheck_base_SetMaxLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_SetMaxLength(unsigned long len) function, expected prototype:\nvoid wxTextEntry::base_SetMaxLength(unsigned long len)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_SetMaxLength(unsigned long len) function, expected prototype:\nvoid wxTextEntry::base_SetMaxLength(unsigned long len)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long len=(unsigned long)lua_tointeger(L,2);
+		unsigned long len=(unsigned long)lua_tonumber(L,2);
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetMaxLength(unsigned long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetMaxLength(unsigned long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::SetMaxLength(len);
 
@@ -1865,17 +1732,15 @@ public:
 	// void wxTextEntry::base_SetSelection(long from, long to)
 	static int _bind_base_SetSelection(lua_State *L) {
 		if (!_lg_typecheck_base_SetSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_SetSelection(long from, long to) function, expected prototype:\nvoid wxTextEntry::base_SetSelection(long from, long to)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_SetSelection(long from, long to) function, expected prototype:\nvoid wxTextEntry::base_SetSelection(long from, long to)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long from=(long)lua_tonumber(L,2);
+		long to=(long)lua_tonumber(L,3);
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetSelection(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetSelection(long, long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::SetSelection(from, to);
 
@@ -1885,15 +1750,13 @@ public:
 	// void wxTextEntry::base_SelectAll()
 	static int _bind_base_SelectAll(lua_State *L) {
 		if (!_lg_typecheck_base_SelectAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_SelectAll() function, expected prototype:\nvoid wxTextEntry::base_SelectAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_SelectAll() function, expected prototype:\nvoid wxTextEntry::base_SelectAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SelectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SelectAll(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::SelectAll();
 
@@ -1903,16 +1766,14 @@ public:
 	// bool wxTextEntry::base_SetHint(const wxString & hint)
 	static int _bind_base_SetHint(lua_State *L) {
 		if (!_lg_typecheck_base_SetHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_SetHint(const wxString & hint) function, expected prototype:\nbool wxTextEntry::base_SetHint(const wxString & hint)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextEntry::base_SetHint(const wxString & hint) function, expected prototype:\nbool wxTextEntry::base_SetHint(const wxString & hint)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString hint(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_SetHint(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_SetHint(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTextEntry::SetHint(hint);
 		lua_pushboolean(L,lret?1:0);
@@ -1923,15 +1784,13 @@ public:
 	// wxString wxTextEntry::base_GetHint() const
 	static int _bind_base_GetHint(lua_State *L) {
 		if (!_lg_typecheck_base_GetHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::base_GetHint() const function, expected prototype:\nwxString wxTextEntry::base_GetHint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxTextEntry::base_GetHint() const function, expected prototype:\nwxString wxTextEntry::base_GetHint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetHint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetHint() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxTextEntry::GetHint();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1942,16 +1801,14 @@ public:
 	// void wxTextEntry::base_SetValue(const wxString & value)
 	static int _bind_base_SetValue(lua_State *L) {
 		if (!_lg_typecheck_base_SetValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_SetValue(const wxString & value) function, expected prototype:\nvoid wxTextEntry::base_SetValue(const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_SetValue(const wxString & value) function, expected prototype:\nvoid wxTextEntry::base_SetValue(const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetValue(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::SetValue(value);
 
@@ -1961,15 +1818,13 @@ public:
 	// void wxTextEntry::base_Undo()
 	static int _bind_base_Undo(lua_State *L) {
 		if (!_lg_typecheck_base_Undo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_Undo() function, expected prototype:\nvoid wxTextEntry::base_Undo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_Undo() function, expected prototype:\nvoid wxTextEntry::base_Undo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Undo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Undo(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::Undo();
 
@@ -1979,16 +1834,14 @@ public:
 	// void wxTextEntry::base_WriteText(const wxString & text)
 	static int _bind_base_WriteText(lua_State *L) {
 		if (!_lg_typecheck_base_WriteText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_WriteText(const wxString & text) function, expected prototype:\nvoid wxTextEntry::base_WriteText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_WriteText(const wxString & text) function, expected prototype:\nvoid wxTextEntry::base_WriteText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_WriteText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_WriteText(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextEntry::WriteText(text);
 

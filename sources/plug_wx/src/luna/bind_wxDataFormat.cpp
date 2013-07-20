@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataFormat* self= (wxDataFormat*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDataFormat >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -141,8 +138,7 @@ public:
 	// wxDataFormat::wxDataFormat(unsigned short format = ::wxDF_INVALID)
 	static wxDataFormat* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataFormat::wxDataFormat(unsigned short format = ::wxDF_INVALID) function, expected prototype:\nwxDataFormat::wxDataFormat(unsigned short format = ::wxDF_INVALID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDataFormat::wxDataFormat(unsigned short format = ::wxDF_INVALID) function, expected prototype:\nwxDataFormat::wxDataFormat(unsigned short format = ::wxDF_INVALID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -155,8 +151,7 @@ public:
 	// wxDataFormat::wxDataFormat(const wxString & format)
 	static wxDataFormat* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataFormat::wxDataFormat(const wxString & format) function, expected prototype:\nwxDataFormat::wxDataFormat(const wxString & format)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDataFormat::wxDataFormat(const wxString & format) function, expected prototype:\nwxDataFormat::wxDataFormat(const wxString & format)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString format(lua_tostring(L,1),lua_objlen(L,1));
@@ -178,15 +173,13 @@ public:
 	// wxString wxDataFormat::GetId() const
 	static int _bind_GetId(lua_State *L) {
 		if (!_lg_typecheck_GetId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxDataFormat::GetId() const function, expected prototype:\nwxString wxDataFormat::GetId() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxDataFormat::GetId() const function, expected prototype:\nwxString wxDataFormat::GetId() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataFormat* self=(Luna< wxDataFormat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDataFormat::GetId() const. Got : '%s'",typeid(Luna< wxDataFormat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxDataFormat::GetId() const. Got : '%s'\n%s",typeid(Luna< wxDataFormat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetId();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -197,15 +190,13 @@ public:
 	// unsigned short wxDataFormat::GetType() const
 	static int _bind_GetType(lua_State *L) {
 		if (!_lg_typecheck_GetType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned short wxDataFormat::GetType() const function, expected prototype:\nunsigned short wxDataFormat::GetType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned short wxDataFormat::GetType() const function, expected prototype:\nunsigned short wxDataFormat::GetType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataFormat* self=(Luna< wxDataFormat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short wxDataFormat::GetType() const. Got : '%s'",typeid(Luna< wxDataFormat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned short wxDataFormat::GetType() const. Got : '%s'\n%s",typeid(Luna< wxDataFormat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned short lret = self->GetType();
 		lua_pushnumber(L,lret);
@@ -216,16 +207,14 @@ public:
 	// void wxDataFormat::SetId(const wxString & format)
 	static int _bind_SetId(lua_State *L) {
 		if (!_lg_typecheck_SetId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataFormat::SetId(const wxString & format) function, expected prototype:\nvoid wxDataFormat::SetId(const wxString & format)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxDataFormat::SetId(const wxString & format) function, expected prototype:\nvoid wxDataFormat::SetId(const wxString & format)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString format(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxDataFormat* self=(Luna< wxDataFormat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataFormat::SetId(const wxString &). Got : '%s'",typeid(Luna< wxDataFormat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataFormat::SetId(const wxString &). Got : '%s'\n%s",typeid(Luna< wxDataFormat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetId(format);
 
@@ -235,16 +224,14 @@ public:
 	// void wxDataFormat::SetType(unsigned short type)
 	static int _bind_SetType(lua_State *L) {
 		if (!_lg_typecheck_SetType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataFormat::SetType(unsigned short type) function, expected prototype:\nvoid wxDataFormat::SetType(unsigned short type)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataFormat::SetType(unsigned short type) function, expected prototype:\nvoid wxDataFormat::SetType(unsigned short type)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short type=(unsigned short)lua_tointeger(L,2);
 
 		wxDataFormat* self=(Luna< wxDataFormat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataFormat::SetType(unsigned short). Got : '%s'",typeid(Luna< wxDataFormat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataFormat::SetType(unsigned short). Got : '%s'\n%s",typeid(Luna< wxDataFormat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetType(type);
 
@@ -256,16 +243,14 @@ public:
 	// bool wxDataFormat::operator!=(unsigned short format) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataFormat::operator!=(unsigned short format) const function, expected prototype:\nbool wxDataFormat::operator!=(unsigned short format) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataFormat::operator!=(unsigned short format) const function, expected prototype:\nbool wxDataFormat::operator!=(unsigned short format) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short format=(unsigned short)lua_tointeger(L,2);
 
 		wxDataFormat* self=(Luna< wxDataFormat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataFormat::operator!=(unsigned short) const. Got : '%s'",typeid(Luna< wxDataFormat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataFormat::operator!=(unsigned short) const. Got : '%s'\n%s",typeid(Luna< wxDataFormat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(format);
 		lua_pushboolean(L,lret?1:0);
@@ -276,16 +261,14 @@ public:
 	// bool wxDataFormat::operator==(unsigned short format) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataFormat::operator==(unsigned short format) const function, expected prototype:\nbool wxDataFormat::operator==(unsigned short format) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataFormat::operator==(unsigned short format) const function, expected prototype:\nbool wxDataFormat::operator==(unsigned short format) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short format=(unsigned short)lua_tointeger(L,2);
 
 		wxDataFormat* self=(Luna< wxDataFormat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataFormat::operator==(unsigned short) const. Got : '%s'",typeid(Luna< wxDataFormat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataFormat::operator==(unsigned short) const. Got : '%s'\n%s",typeid(Luna< wxDataFormat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(format);
 		lua_pushboolean(L,lret?1:0);

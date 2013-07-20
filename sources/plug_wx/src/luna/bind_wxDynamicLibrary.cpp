@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDynamicLibrary*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDynamicLibrary*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDynamicLibrary* rhs =(Luna< wxDynamicLibrary >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDynamicLibrary* self= (wxDynamicLibrary*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDynamicLibrary >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -193,8 +189,7 @@ public:
 	// wxDynamicLibrary::wxDynamicLibrary()
 	static wxDynamicLibrary* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDynamicLibrary::wxDynamicLibrary() function, expected prototype:\nwxDynamicLibrary::wxDynamicLibrary()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDynamicLibrary::wxDynamicLibrary() function, expected prototype:\nwxDynamicLibrary::wxDynamicLibrary()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -204,8 +199,7 @@ public:
 	// wxDynamicLibrary::wxDynamicLibrary(const wxString & name, int flags = ::wxDL_DEFAULT)
 	static wxDynamicLibrary* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDynamicLibrary::wxDynamicLibrary(const wxString & name, int flags = ::wxDL_DEFAULT) function, expected prototype:\nwxDynamicLibrary::wxDynamicLibrary(const wxString & name, int flags = ::wxDL_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDynamicLibrary::wxDynamicLibrary(const wxString & name, int flags = ::wxDL_DEFAULT) function, expected prototype:\nwxDynamicLibrary::wxDynamicLibrary(const wxString & name, int flags = ::wxDL_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -230,8 +224,7 @@ public:
 	// void * wxDynamicLibrary::GetSymbol(const wxString & name, bool * success = 0) const
 	static int _bind_GetSymbol(lua_State *L) {
 		if (!_lg_typecheck_GetSymbol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * wxDynamicLibrary::GetSymbol(const wxString & name, bool * success = 0) const function, expected prototype:\nvoid * wxDynamicLibrary::GetSymbol(const wxString & name, bool * success = 0) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void * wxDynamicLibrary::GetSymbol(const wxString & name, bool * success = 0) const function, expected prototype:\nvoid * wxDynamicLibrary::GetSymbol(const wxString & name, bool * success = 0) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -241,8 +234,7 @@ public:
 
 		wxDynamicLibrary* self=(Luna< wxDynamicLibrary >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxDynamicLibrary::GetSymbol(const wxString &, bool *) const. Got : '%s'",typeid(Luna< wxDynamicLibrary >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * wxDynamicLibrary::GetSymbol(const wxString &, bool *) const. Got : '%s'\n%s",typeid(Luna< wxDynamicLibrary >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->GetSymbol(name, success);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -255,16 +247,14 @@ public:
 	// void * wxDynamicLibrary::GetSymbolAorW(const wxString & name) const
 	static int _bind_GetSymbolAorW(lua_State *L) {
 		if (!_lg_typecheck_GetSymbolAorW(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * wxDynamicLibrary::GetSymbolAorW(const wxString & name) const function, expected prototype:\nvoid * wxDynamicLibrary::GetSymbolAorW(const wxString & name) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void * wxDynamicLibrary::GetSymbolAorW(const wxString & name) const function, expected prototype:\nvoid * wxDynamicLibrary::GetSymbolAorW(const wxString & name) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxDynamicLibrary* self=(Luna< wxDynamicLibrary >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxDynamicLibrary::GetSymbolAorW(const wxString &) const. Got : '%s'",typeid(Luna< wxDynamicLibrary >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * wxDynamicLibrary::GetSymbolAorW(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxDynamicLibrary >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->GetSymbolAorW(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -277,16 +267,14 @@ public:
 	// bool wxDynamicLibrary::HasSymbol(const wxString & name) const
 	static int _bind_HasSymbol(lua_State *L) {
 		if (!_lg_typecheck_HasSymbol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDynamicLibrary::HasSymbol(const wxString & name) const function, expected prototype:\nbool wxDynamicLibrary::HasSymbol(const wxString & name) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxDynamicLibrary::HasSymbol(const wxString & name) const function, expected prototype:\nbool wxDynamicLibrary::HasSymbol(const wxString & name) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxDynamicLibrary* self=(Luna< wxDynamicLibrary >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDynamicLibrary::HasSymbol(const wxString &) const. Got : '%s'",typeid(Luna< wxDynamicLibrary >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDynamicLibrary::HasSymbol(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxDynamicLibrary >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasSymbol(name);
 		lua_pushboolean(L,lret?1:0);
@@ -297,15 +285,13 @@ public:
 	// bool wxDynamicLibrary::IsLoaded() const
 	static int _bind_IsLoaded(lua_State *L) {
 		if (!_lg_typecheck_IsLoaded(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDynamicLibrary::IsLoaded() const function, expected prototype:\nbool wxDynamicLibrary::IsLoaded() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDynamicLibrary::IsLoaded() const function, expected prototype:\nbool wxDynamicLibrary::IsLoaded() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDynamicLibrary* self=(Luna< wxDynamicLibrary >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDynamicLibrary::IsLoaded() const. Got : '%s'",typeid(Luna< wxDynamicLibrary >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDynamicLibrary::IsLoaded() const. Got : '%s'\n%s",typeid(Luna< wxDynamicLibrary >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsLoaded();
 		lua_pushboolean(L,lret?1:0);
@@ -316,8 +302,7 @@ public:
 	// bool wxDynamicLibrary::Load(const wxString & name, int flags = ::wxDL_DEFAULT)
 	static int _bind_Load(lua_State *L) {
 		if (!_lg_typecheck_Load(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDynamicLibrary::Load(const wxString & name, int flags = ::wxDL_DEFAULT) function, expected prototype:\nbool wxDynamicLibrary::Load(const wxString & name, int flags = ::wxDL_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxDynamicLibrary::Load(const wxString & name, int flags = ::wxDL_DEFAULT) function, expected prototype:\nbool wxDynamicLibrary::Load(const wxString & name, int flags = ::wxDL_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -327,8 +312,7 @@ public:
 
 		wxDynamicLibrary* self=(Luna< wxDynamicLibrary >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDynamicLibrary::Load(const wxString &, int). Got : '%s'",typeid(Luna< wxDynamicLibrary >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDynamicLibrary::Load(const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxDynamicLibrary >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Load(name, flags);
 		lua_pushboolean(L,lret?1:0);
@@ -339,15 +323,13 @@ public:
 	// void wxDynamicLibrary::Unload()
 	static int _bind_Unload(lua_State *L) {
 		if (!_lg_typecheck_Unload(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDynamicLibrary::Unload() function, expected prototype:\nvoid wxDynamicLibrary::Unload()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDynamicLibrary::Unload() function, expected prototype:\nvoid wxDynamicLibrary::Unload()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDynamicLibrary* self=(Luna< wxDynamicLibrary >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDynamicLibrary::Unload(). Got : '%s'",typeid(Luna< wxDynamicLibrary >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDynamicLibrary::Unload(). Got : '%s'\n%s",typeid(Luna< wxDynamicLibrary >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Unload();
 
@@ -357,8 +339,7 @@ public:
 	// static wxString wxDynamicLibrary::CanonicalizeName(const wxString & name, wxDynamicLibraryCategory cat = ::wxDL_LIBRARY)
 	static int _bind_CanonicalizeName(lua_State *L) {
 		if (!_lg_typecheck_CanonicalizeName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxDynamicLibrary::CanonicalizeName(const wxString & name, wxDynamicLibraryCategory cat = ::wxDL_LIBRARY) function, expected prototype:\nstatic wxString wxDynamicLibrary::CanonicalizeName(const wxString & name, wxDynamicLibraryCategory cat = ::wxDL_LIBRARY)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxDynamicLibrary::CanonicalizeName(const wxString & name, wxDynamicLibraryCategory cat = ::wxDL_LIBRARY) function, expected prototype:\nstatic wxString wxDynamicLibrary::CanonicalizeName(const wxString & name, wxDynamicLibraryCategory cat = ::wxDL_LIBRARY)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -375,8 +356,7 @@ public:
 	// static wxString wxDynamicLibrary::CanonicalizePluginName(const wxString & name, wxPluginCategory cat = ::wxDL_PLUGIN_GUI)
 	static int _bind_CanonicalizePluginName(lua_State *L) {
 		if (!_lg_typecheck_CanonicalizePluginName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxDynamicLibrary::CanonicalizePluginName(const wxString & name, wxPluginCategory cat = ::wxDL_PLUGIN_GUI) function, expected prototype:\nstatic wxString wxDynamicLibrary::CanonicalizePluginName(const wxString & name, wxPluginCategory cat = ::wxDL_PLUGIN_GUI)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxDynamicLibrary::CanonicalizePluginName(const wxString & name, wxPluginCategory cat = ::wxDL_PLUGIN_GUI) function, expected prototype:\nstatic wxString wxDynamicLibrary::CanonicalizePluginName(const wxString & name, wxPluginCategory cat = ::wxDL_PLUGIN_GUI)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -393,8 +373,7 @@ public:
 	// static wxDynamicLibraryDetailsArray wxDynamicLibrary::ListLoaded()
 	static int _bind_ListLoaded(lua_State *L) {
 		if (!_lg_typecheck_ListLoaded(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxDynamicLibraryDetailsArray wxDynamicLibrary::ListLoaded() function, expected prototype:\nstatic wxDynamicLibraryDetailsArray wxDynamicLibrary::ListLoaded()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxDynamicLibraryDetailsArray wxDynamicLibrary::ListLoaded() function, expected prototype:\nstatic wxDynamicLibraryDetailsArray wxDynamicLibrary::ListLoaded()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 

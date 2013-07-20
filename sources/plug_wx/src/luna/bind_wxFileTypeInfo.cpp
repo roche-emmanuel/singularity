@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxFileTypeInfo*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxFileTypeInfo*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFileTypeInfo* rhs =(Luna< wxFileTypeInfo >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFileTypeInfo* self= (wxFileTypeInfo*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxFileTypeInfo >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -158,8 +154,7 @@ public:
 	// wxFileTypeInfo::wxFileTypeInfo()
 	static wxFileTypeInfo* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileTypeInfo::wxFileTypeInfo() function, expected prototype:\nwxFileTypeInfo::wxFileTypeInfo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFileTypeInfo::wxFileTypeInfo() function, expected prototype:\nwxFileTypeInfo::wxFileTypeInfo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -169,8 +164,7 @@ public:
 	// wxFileTypeInfo::wxFileTypeInfo(const wxString & mimeType)
 	static wxFileTypeInfo* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileTypeInfo::wxFileTypeInfo(const wxString & mimeType) function, expected prototype:\nwxFileTypeInfo::wxFileTypeInfo(const wxString & mimeType)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFileTypeInfo::wxFileTypeInfo(const wxString & mimeType) function, expected prototype:\nwxFileTypeInfo::wxFileTypeInfo(const wxString & mimeType)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString mimeType(lua_tostring(L,1),lua_objlen(L,1));
@@ -192,16 +186,14 @@ public:
 	// void wxFileTypeInfo::AddExtension(const wxString & ext)
 	static int _bind_AddExtension(lua_State *L) {
 		if (!_lg_typecheck_AddExtension(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileTypeInfo::AddExtension(const wxString & ext) function, expected prototype:\nvoid wxFileTypeInfo::AddExtension(const wxString & ext)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFileTypeInfo::AddExtension(const wxString & ext) function, expected prototype:\nvoid wxFileTypeInfo::AddExtension(const wxString & ext)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString ext(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxFileTypeInfo* self=(Luna< wxFileTypeInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::AddExtension(const wxString &). Got : '%s'",typeid(Luna< wxFileTypeInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::AddExtension(const wxString &). Got : '%s'\n%s",typeid(Luna< wxFileTypeInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddExtension(ext);
 
@@ -211,16 +203,14 @@ public:
 	// void wxFileTypeInfo::SetDescription(const wxString & description)
 	static int _bind_SetDescription(lua_State *L) {
 		if (!_lg_typecheck_SetDescription(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileTypeInfo::SetDescription(const wxString & description) function, expected prototype:\nvoid wxFileTypeInfo::SetDescription(const wxString & description)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFileTypeInfo::SetDescription(const wxString & description) function, expected prototype:\nvoid wxFileTypeInfo::SetDescription(const wxString & description)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString description(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxFileTypeInfo* self=(Luna< wxFileTypeInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetDescription(const wxString &). Got : '%s'",typeid(Luna< wxFileTypeInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetDescription(const wxString &). Got : '%s'\n%s",typeid(Luna< wxFileTypeInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDescription(description);
 
@@ -230,16 +220,14 @@ public:
 	// void wxFileTypeInfo::SetOpenCommand(const wxString & command)
 	static int _bind_SetOpenCommand(lua_State *L) {
 		if (!_lg_typecheck_SetOpenCommand(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileTypeInfo::SetOpenCommand(const wxString & command) function, expected prototype:\nvoid wxFileTypeInfo::SetOpenCommand(const wxString & command)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFileTypeInfo::SetOpenCommand(const wxString & command) function, expected prototype:\nvoid wxFileTypeInfo::SetOpenCommand(const wxString & command)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString command(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxFileTypeInfo* self=(Luna< wxFileTypeInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetOpenCommand(const wxString &). Got : '%s'",typeid(Luna< wxFileTypeInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetOpenCommand(const wxString &). Got : '%s'\n%s",typeid(Luna< wxFileTypeInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetOpenCommand(command);
 
@@ -249,16 +237,14 @@ public:
 	// void wxFileTypeInfo::SetPrintCommand(const wxString & command)
 	static int _bind_SetPrintCommand(lua_State *L) {
 		if (!_lg_typecheck_SetPrintCommand(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileTypeInfo::SetPrintCommand(const wxString & command) function, expected prototype:\nvoid wxFileTypeInfo::SetPrintCommand(const wxString & command)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFileTypeInfo::SetPrintCommand(const wxString & command) function, expected prototype:\nvoid wxFileTypeInfo::SetPrintCommand(const wxString & command)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString command(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxFileTypeInfo* self=(Luna< wxFileTypeInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetPrintCommand(const wxString &). Got : '%s'",typeid(Luna< wxFileTypeInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetPrintCommand(const wxString &). Got : '%s'\n%s",typeid(Luna< wxFileTypeInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetPrintCommand(command);
 
@@ -268,16 +254,14 @@ public:
 	// void wxFileTypeInfo::SetShortDesc(const wxString & shortDesc)
 	static int _bind_SetShortDesc(lua_State *L) {
 		if (!_lg_typecheck_SetShortDesc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileTypeInfo::SetShortDesc(const wxString & shortDesc) function, expected prototype:\nvoid wxFileTypeInfo::SetShortDesc(const wxString & shortDesc)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFileTypeInfo::SetShortDesc(const wxString & shortDesc) function, expected prototype:\nvoid wxFileTypeInfo::SetShortDesc(const wxString & shortDesc)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString shortDesc(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxFileTypeInfo* self=(Luna< wxFileTypeInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetShortDesc(const wxString &). Got : '%s'",typeid(Luna< wxFileTypeInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetShortDesc(const wxString &). Got : '%s'\n%s",typeid(Luna< wxFileTypeInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetShortDesc(shortDesc);
 

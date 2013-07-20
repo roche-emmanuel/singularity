@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTarOutputStream*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTarOutputStream*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTarOutputStream* rhs =(Luna< wxTarOutputStream >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTarOutputStream* self= (wxTarOutputStream*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxTarOutputStream >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -192,7 +187,7 @@ public:
 		if( lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,57497519) ) return false;
 		if( luatop>2 && (!(Luna< wxDateTime >::check(L,3))) ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
 		return true;
 	}
 
@@ -223,7 +218,7 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,57497519) ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
 		return true;
 	}
 
@@ -237,15 +232,13 @@ public:
 	// bool wxTarOutputStream::Close()
 	static int _bind_Close(lua_State *L) {
 		if (!_lg_typecheck_Close(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::Close() function, expected prototype:\nbool wxTarOutputStream::Close()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::Close() function, expected prototype:\nbool wxTarOutputStream::Close()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::Close(). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::Close(). Got : '%s'\n%s",typeid(Luna< wxTarOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Close();
 		lua_pushboolean(L,lret?1:0);
@@ -256,15 +249,13 @@ public:
 	// bool wxTarOutputStream::CloseEntry()
 	static int _bind_CloseEntry(lua_State *L) {
 		if (!_lg_typecheck_CloseEntry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::CloseEntry() function, expected prototype:\nbool wxTarOutputStream::CloseEntry()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::CloseEntry() function, expected prototype:\nbool wxTarOutputStream::CloseEntry()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::CloseEntry(). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::CloseEntry(). Got : '%s'\n%s",typeid(Luna< wxTarOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CloseEntry();
 		lua_pushboolean(L,lret?1:0);
@@ -275,8 +266,7 @@ public:
 	// bool wxTarOutputStream::CopyArchiveMetaData(wxTarInputStream & s)
 	static int _bind_CopyArchiveMetaData(lua_State *L) {
 		if (!_lg_typecheck_CopyArchiveMetaData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::CopyArchiveMetaData(wxTarInputStream & s) function, expected prototype:\nbool wxTarOutputStream::CopyArchiveMetaData(wxTarInputStream & s)\nClass arguments details:\narg 1 ID = 47912811\n");
+			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::CopyArchiveMetaData(wxTarInputStream & s) function, expected prototype:\nbool wxTarOutputStream::CopyArchiveMetaData(wxTarInputStream & s)\nClass arguments details:\narg 1 ID = 47912811\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTarInputStream* s_ptr=(Luna< wxTarInputStream >::check(L,2));
@@ -287,8 +277,7 @@ public:
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::CopyArchiveMetaData(wxTarInputStream &). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::CopyArchiveMetaData(wxTarInputStream &). Got : '%s'\n%s",typeid(Luna< wxTarOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CopyArchiveMetaData(s);
 		lua_pushboolean(L,lret?1:0);
@@ -299,8 +288,7 @@ public:
 	// bool wxTarOutputStream::CopyEntry(wxTarEntry * entry, wxTarInputStream & inputStream)
 	static int _bind_CopyEntry(lua_State *L) {
 		if (!_lg_typecheck_CopyEntry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::CopyEntry(wxTarEntry * entry, wxTarInputStream & inputStream) function, expected prototype:\nbool wxTarOutputStream::CopyEntry(wxTarEntry * entry, wxTarInputStream & inputStream)\nClass arguments details:\narg 1 ID = 73261869\narg 2 ID = 47912811\n");
+			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::CopyEntry(wxTarEntry * entry, wxTarInputStream & inputStream) function, expected prototype:\nbool wxTarOutputStream::CopyEntry(wxTarEntry * entry, wxTarInputStream & inputStream)\nClass arguments details:\narg 1 ID = 73261869\narg 2 ID = 47912811\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTarEntry* entry=(Luna< wxTarEntry >::check(L,2));
@@ -312,8 +300,7 @@ public:
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::CopyEntry(wxTarEntry *, wxTarInputStream &). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::CopyEntry(wxTarEntry *, wxTarInputStream &). Got : '%s'\n%s",typeid(Luna< wxTarOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CopyEntry(entry, inputStream);
 		lua_pushboolean(L,lret?1:0);
@@ -324,15 +311,13 @@ public:
 	// int wxTarOutputStream::GetBlockingFactor() const
 	static int _bind_GetBlockingFactor(lua_State *L) {
 		if (!_lg_typecheck_GetBlockingFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTarOutputStream::GetBlockingFactor() const function, expected prototype:\nint wxTarOutputStream::GetBlockingFactor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxTarOutputStream::GetBlockingFactor() const function, expected prototype:\nint wxTarOutputStream::GetBlockingFactor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTarOutputStream::GetBlockingFactor() const. Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTarOutputStream::GetBlockingFactor() const. Got : '%s'\n%s",typeid(Luna< wxTarOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetBlockingFactor();
 		lua_pushnumber(L,lret);
@@ -343,16 +328,14 @@ public:
 	// void wxTarOutputStream::SetBlockingFactor(int factor)
 	static int _bind_SetBlockingFactor(lua_State *L) {
 		if (!_lg_typecheck_SetBlockingFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarOutputStream::SetBlockingFactor(int factor) function, expected prototype:\nvoid wxTarOutputStream::SetBlockingFactor(int factor)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTarOutputStream::SetBlockingFactor(int factor) function, expected prototype:\nvoid wxTarOutputStream::SetBlockingFactor(int factor)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int factor=(int)lua_tointeger(L,2);
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarOutputStream::SetBlockingFactor(int). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTarOutputStream::SetBlockingFactor(int). Got : '%s'\n%s",typeid(Luna< wxTarOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetBlockingFactor(factor);
 
@@ -362,8 +345,7 @@ public:
 	// bool wxTarOutputStream::PutNextDirEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now ())
 	static int _bind_PutNextDirEntry(lua_State *L) {
 		if (!_lg_typecheck_PutNextDirEntry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::PutNextDirEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now ()) function, expected prototype:\nbool wxTarOutputStream::PutNextDirEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now ())\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::PutNextDirEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now ()) function, expected prototype:\nbool wxTarOutputStream::PutNextDirEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now ())\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -377,8 +359,7 @@ public:
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::PutNextDirEntry(const wxString &, const wxDateTime &). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::PutNextDirEntry(const wxString &, const wxDateTime &). Got : '%s'\n%s",typeid(Luna< wxTarOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PutNextDirEntry(name, dt);
 		lua_pushboolean(L,lret?1:0);
@@ -389,16 +370,14 @@ public:
 	// bool wxTarOutputStream::PutNextEntry(wxTarEntry * entry)
 	static int _bind_PutNextEntry_overload_1(lua_State *L) {
 		if (!_lg_typecheck_PutNextEntry_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::PutNextEntry(wxTarEntry * entry) function, expected prototype:\nbool wxTarOutputStream::PutNextEntry(wxTarEntry * entry)\nClass arguments details:\narg 1 ID = 73261869\n");
+			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::PutNextEntry(wxTarEntry * entry) function, expected prototype:\nbool wxTarOutputStream::PutNextEntry(wxTarEntry * entry)\nClass arguments details:\narg 1 ID = 73261869\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTarEntry* entry=(Luna< wxTarEntry >::check(L,2));
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::PutNextEntry(wxTarEntry *). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::PutNextEntry(wxTarEntry *). Got : '%s'\n%s",typeid(Luna< wxTarOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PutNextEntry(entry);
 		lua_pushboolean(L,lret?1:0);
@@ -409,8 +388,7 @@ public:
 	// bool wxTarOutputStream::PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)
 	static int _bind_PutNextEntry_overload_2(lua_State *L) {
 		if (!_lg_typecheck_PutNextEntry_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset) function, expected prototype:\nbool wxTarOutputStream::PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset) function, expected prototype:\nbool wxTarOutputStream::PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -421,12 +399,11 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTarOutputStream::PutNextEntry function");
 		}
 		const wxDateTime & dt=luatop>2 ? *dt_ptr : (const wxDateTime&)wxDateTime::Now ();
-		long long size=luatop>3 ? (long long)lua_tointeger(L,4) : (long long)wxInvalidOffset;
+		long long size=luatop>3 ? (long long)lua_tonumber(L,4) : (long long)wxInvalidOffset;
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::PutNextEntry(const wxString &, const wxDateTime &, long long). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::PutNextEntry(const wxString &, const wxDateTime &, long long). Got : '%s'\n%s",typeid(Luna< wxTarOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PutNextEntry(name, dt, size);
 		lua_pushboolean(L,lret?1:0);
@@ -446,15 +423,13 @@ public:
 	// bool wxTarOutputStream::base_Close()
 	static int _bind_base_Close(lua_State *L) {
 		if (!_lg_typecheck_base_Close(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::base_Close() function, expected prototype:\nbool wxTarOutputStream::base_Close()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::base_Close() function, expected prototype:\nbool wxTarOutputStream::base_Close()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_Close(). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_Close(). Got : '%s'\n%s",typeid(Luna< wxTarOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTarOutputStream::Close();
 		lua_pushboolean(L,lret?1:0);
@@ -465,15 +440,13 @@ public:
 	// bool wxTarOutputStream::base_CloseEntry()
 	static int _bind_base_CloseEntry(lua_State *L) {
 		if (!_lg_typecheck_base_CloseEntry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::base_CloseEntry() function, expected prototype:\nbool wxTarOutputStream::base_CloseEntry()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::base_CloseEntry() function, expected prototype:\nbool wxTarOutputStream::base_CloseEntry()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_CloseEntry(). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_CloseEntry(). Got : '%s'\n%s",typeid(Luna< wxTarOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTarOutputStream::CloseEntry();
 		lua_pushboolean(L,lret?1:0);
@@ -484,8 +457,7 @@ public:
 	// bool wxTarOutputStream::base_PutNextDirEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now ())
 	static int _bind_base_PutNextDirEntry(lua_State *L) {
 		if (!_lg_typecheck_base_PutNextDirEntry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::base_PutNextDirEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now ()) function, expected prototype:\nbool wxTarOutputStream::base_PutNextDirEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now ())\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::base_PutNextDirEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now ()) function, expected prototype:\nbool wxTarOutputStream::base_PutNextDirEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now ())\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -499,8 +471,7 @@ public:
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_PutNextDirEntry(const wxString &, const wxDateTime &). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_PutNextDirEntry(const wxString &, const wxDateTime &). Got : '%s'\n%s",typeid(Luna< wxTarOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTarOutputStream::PutNextDirEntry(name, dt);
 		lua_pushboolean(L,lret?1:0);
@@ -511,8 +482,7 @@ public:
 	// bool wxTarOutputStream::base_PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)
 	static int _bind_base_PutNextEntry(lua_State *L) {
 		if (!_lg_typecheck_base_PutNextEntry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::base_PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset) function, expected prototype:\nbool wxTarOutputStream::base_PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::base_PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset) function, expected prototype:\nbool wxTarOutputStream::base_PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -523,12 +493,11 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTarOutputStream::base_PutNextEntry function");
 		}
 		const wxDateTime & dt=luatop>2 ? *dt_ptr : (const wxDateTime&)wxDateTime::Now ();
-		long long size=luatop>3 ? (long long)lua_tointeger(L,4) : (long long)wxInvalidOffset;
+		long long size=luatop>3 ? (long long)lua_tonumber(L,4) : (long long)wxInvalidOffset;
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_PutNextEntry(const wxString &, const wxDateTime &, long long). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_PutNextEntry(const wxString &, const wxDateTime &, long long). Got : '%s'\n%s",typeid(Luna< wxTarOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTarOutputStream::PutNextEntry(name, dt, size);
 		lua_pushboolean(L,lret?1:0);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxStatusBarPane*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxStatusBarPane*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStatusBarPane* rhs =(Luna< wxStatusBarPane >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStatusBarPane* self= (wxStatusBarPane*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxStatusBarPane >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -137,8 +133,7 @@ public:
 	// wxStatusBarPane::wxStatusBarPane(int style = 0x0000, size_t width = 0)
 	static wxStatusBarPane* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxStatusBarPane::wxStatusBarPane(int style = 0x0000, size_t width = 0) function, expected prototype:\nwxStatusBarPane::wxStatusBarPane(int style = 0x0000, size_t width = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxStatusBarPane::wxStatusBarPane(int style = 0x0000, size_t width = 0) function, expected prototype:\nwxStatusBarPane::wxStatusBarPane(int style = 0x0000, size_t width = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -154,15 +149,13 @@ public:
 	// int wxStatusBarPane::GetWidth() const
 	static int _bind_GetWidth(lua_State *L) {
 		if (!_lg_typecheck_GetWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStatusBarPane::GetWidth() const function, expected prototype:\nint wxStatusBarPane::GetWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStatusBarPane::GetWidth() const function, expected prototype:\nint wxStatusBarPane::GetWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStatusBarPane* self=(Luna< wxStatusBarPane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStatusBarPane::GetWidth() const. Got : '%s'",typeid(Luna< wxStatusBarPane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStatusBarPane::GetWidth() const. Got : '%s'\n%s",typeid(Luna< wxStatusBarPane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetWidth();
 		lua_pushnumber(L,lret);
@@ -173,15 +166,13 @@ public:
 	// int wxStatusBarPane::GetStyle() const
 	static int _bind_GetStyle(lua_State *L) {
 		if (!_lg_typecheck_GetStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxStatusBarPane::GetStyle() const function, expected prototype:\nint wxStatusBarPane::GetStyle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxStatusBarPane::GetStyle() const function, expected prototype:\nint wxStatusBarPane::GetStyle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStatusBarPane* self=(Luna< wxStatusBarPane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStatusBarPane::GetStyle() const. Got : '%s'",typeid(Luna< wxStatusBarPane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxStatusBarPane::GetStyle() const. Got : '%s'\n%s",typeid(Luna< wxStatusBarPane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetStyle();
 		lua_pushnumber(L,lret);
@@ -192,15 +183,13 @@ public:
 	// wxString wxStatusBarPane::GetText() const
 	static int _bind_GetText(lua_State *L) {
 		if (!_lg_typecheck_GetText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStatusBarPane::GetText() const function, expected prototype:\nwxString wxStatusBarPane::GetText() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStatusBarPane::GetText() const function, expected prototype:\nwxString wxStatusBarPane::GetText() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStatusBarPane* self=(Luna< wxStatusBarPane >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStatusBarPane::GetText() const. Got : '%s'",typeid(Luna< wxStatusBarPane >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStatusBarPane::GetText() const. Got : '%s'\n%s",typeid(Luna< wxStatusBarPane >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetText();
 		lua_pushlstring(L,lret.data(),lret.size());
